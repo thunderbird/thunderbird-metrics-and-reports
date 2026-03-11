@@ -1,6 +1,110 @@
 # thunderbird-desktop-metrics-and-reports
 * We require all those who participate in this repo to agree and adhere to the [Mozilla Community Participation Guidelines](https://www.mozilla.org/about/governance/policies/participation/)
 
+### 2026-03-10 python code: January versus February 2026 tags
+
+❯ please give me the python code for the previous analysis
+◐ The user is asking for the Python code from the previous analysis. I should provide the complete code that was used to analyze and visualize the tags
+  comparison between January and February 2026.
+
+<details>
+<summary>● Here's the Python code for the previous analysis:</summary>
+
+```python
+   import csv
+   from collections import Counter
+   import subprocess
+   import re
+
+   # Download and process January and February files
+   def download_and_count_tags(month, pattern):
+       """Download files matching pattern and count tags"""
+       tag_counter = Counter()
+
+       # Get file list from GitHub
+       result = subprocess.run(
+           ['curl', '-s', 'https://api.github.com/repos/thunderbird/github-action-thunderbird-aaq/contents/2026?ref=main'],
+           capture_output=True, text=True
+       )
+
+       import json
+       files = json.loads(result.stdout)
+       matching_files = [f for f in files if pattern in f['name'] and 'creator-answers' in f['name']]
+
+       print(f"Found {len(matching_files)} files for {month} 2026")
+
+       for file_info in matching_files:
+           filename = file_info['name']
+           download_url = file_info['download_url']
+
+           result = subprocess.run(['curl', '-s', download_url], capture_output=True, text=True)
+           lines = result.stdout.strip().split('\n')
+
+           # Skip header
+           if len(lines) < 2:
+               continue
+
+           reader = csv.DictReader(lines)
+           for row in reader:
+               tags_str = row.get('tags', '')
+               if tags_str:
+                   tags = [t.strip() for t in tags_str.split(';')]
+                   for tag in tags:
+                       if tag and tag != 'thunderbird':
+                           tag_counter[tag] += 1
+
+       return tag_counter
+
+   jan_tags = download_and_count_tags('January', '2026-01')
+   feb_tags = download_and_count_tags('February', '2026-02')
+
+   print(f"\nJanuary tags (top 15):")
+   for tag, count in jan_tags.most_common(15):
+       print(f"  {tag}: {count}")
+
+   print(f"\nFebruary tags (top 15):")
+   for tag, count in feb_tags.most_common(15):
+       print(f"  {tag}: {count}")
+
+   # Create a matplotlib visualization
+   import matplotlib.pyplot as plt
+
+   # Get top 10 tags overall
+   all_tags = set(jan_tags.keys()) | set(feb_tags.keys())
+   top_tags = sorted(all_tags, key=lambda t: jan_tags[t] + feb_tags[t], reverse=True)[:10]
+
+   jan_counts = [jan_tags.get(tag, 0) for tag in top_tags]
+   feb_counts = [feb_tags.get(tag, 0) for tag in top_tags]
+
+   x = range(len(top_tags))
+   width = 0.35
+
+   fig, ax = plt.subplots(figsize=(12, 6))
+   ax.bar([i - width/2 for i in x], jan_counts, width, label='January 2026')
+   ax.bar([i + width/2 for i in x], feb_counts, width, label='February 2026')
+
+   ax.set_xlabel('Tags')
+   ax.set_ylabel('Count')
+   ax.set_title('Thunderbird Desktop Tags: January vs February 2026')
+   ax.set_xticks(x)
+   ax.set_xticklabels(top_tags, rotation=45, ha='right')
+   ax.legend()
+   plt.tight_layout()
+   plt.savefig('/tmp/tags_comparison.png', dpi=100)
+   print(f"\nGraph saved to /tmp/tags_comparison.png")
+```
+</details>
+  The code:
+
+   1. Defines download_and_count_tags() function that queries GitHub API to get the file list
+   2. Filters for creator-answers files matching the month pattern (2026-01 or 2026-02)
+   3. Downloads each matching file via curl
+   4. Parses CSV with DictReader and extracts tags (semicolon-delimited)
+   5. Filters out the 'thunderbird' tag and counts occurrences
+   6. Prints top 15 tags for each month
+   7. Creates a bar chart comparing the top 10 tags between January and February
+   8. Saves the visualization as a PNG file
+
 ## 2026-03-10 January versus February 2026 tags
 <img width="1200" height="600" alt="image" src="https://github.com/user-attachments/assets/17f266a3-950a-4b60-8ab6-2b63c444ca84" />
 
