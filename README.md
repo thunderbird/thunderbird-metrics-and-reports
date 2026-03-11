@@ -112,8 +112,8 @@
 
 ### 2026-03-10 Prompt and report: January versus February 2026 tags
 
-❯ Using the available tools, graph tags in January 2026 (filenames: 2026-01*thunderbird-creator-answers-desktop-all-locales.csv) versus February 2026
-  (filenames: 2026-02*thunderbird-creator-answers-desktop-all-locales.csv)  located in the 2026 directory of the thunderbird/github-action-thunderbird-aaq
+❯ Using the available tools, graph tags in January 2026 (filenames: 2026-01\*thunderbird-creator-answers-desktop-all-locales.csv) versus February 2026
+  (filenames: 2026-02\*thunderbird-creator-answers-desktop-all-locales.csv)  located in the 2026 directory of the thunderbird/github-action-thunderbird-aaq
    repo. The tags are semi-colon delimited. Please ignore the 'thunderbird' tag.
 
 ◐ The user wants me to:
