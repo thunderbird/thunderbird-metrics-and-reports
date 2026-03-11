@@ -1,6 +1,82 @@
 # thunderbird-desktop-metrics-and-reports
 * We require all those who participate in this repo to agree and adhere to the [Mozilla Community Participation Guidelines](https://www.mozilla.org/about/governance/policies/participation/)
 
+## 2026-03-10 January versus February 2026 tags
+<img width="1200" height="600" alt="image" src="https://github.com/user-attachments/assets/17f266a3-950a-4b60-8ab6-2b63c444ca84" />
+
+### 2026-03-10 Graph: January versus February 2026 tags
+
+### 2026-03-10 Prompt and report: January versus February 2026 tags
+
+❯ Using the available tools, graph tags in January 2026 (filenames: 2026-01*thunderbird-creator-answers-desktop-all-locales.csv) versus February 2026
+  (filenames: 2026-02*thunderbird-creator-answers-desktop-all-locales.csv)  located in the 2026 directory of the thunderbird/github-action-thunderbird-aaq
+   repo. The tags are semi-colon delimited. Please ignore the 'thunderbird' tag.
+
+◐ The user wants me to:
+  1. Get files from thunderbird/github-action-thunderbird-aaq repo, 2026 directory
+  2. Look for files matching 2026-01*thunderbird-creator-answers-desktop-all-locales.csv (January)
+  3. Look for files matching 2026-02*thunderbird-creator-answers-desktop-all-locales.csv (February)
+  4. Extract the "tags" field which is semi-colon delimited
+  5. Ignore the 'thunderbird' tag
+  6. Graph the tag frequencies for January vs February
+
+  Let me first list the files to see what's available, then download them and analyze.
+
+● Get file or directory contents: 2026
+  └ Output too large to read at once (134.4 KB). Saved to: /var/folders/n9/4vkxwp...
+
+● Find January and February creator answers files
+  $ cat /var/folders/n9/4vkxwp_56ll2cgvy5l9l8bx80000gn/T/1773210118418-copilot-tool-output-67c930.txt | grep -o
+  '"name":"2026-0[12][^"]*creator-answers-desktop-all-locales[^"]*"' | sort -u
+  └ 59 lines...
+
+● Download and analyze tags from Jan/Feb 2026 files
+  $ cd /tmp && python3 << 'EOF'
+  import csv
+  from collections import Counter
+  import subprocess
+  import re...
+  └ 119 lines...
+
+● Perfect! I've analyzed the tags from January and February 2026 Thunderbird creator answers files and created a comparison graph. Here's what I found:
+
+  Top Tags Comparison:
+
+<pre>
+  ┌──────┬─────────────────────────┬───────┬─────────────────────────┬───────┐
+  │ Rank │ January 2026            │ Count │ February 2026           │ Count │
+  ├──────┼─────────────────────────┼───────┼─────────────────────────┼───────┤
+  │ 1    │ send-and-receive-email  │ 240   │ windows-11              │ 382   │
+  ├──────┼─────────────────────────┼───────┼─────────────────────────┼───────┤
+  │ 2    │ windows-11              │ 146   │ send-and-receive-email  │ 251   │
+  ├──────┼─────────────────────────┼───────┼─────────────────────────┼───────┤
+  │ 3    │ customization           │ 91    │ windows-10              │ 137   │
+  ├──────┼─────────────────────────┼───────┼─────────────────────────┼───────┤
+  │ 4    │ email-and-messaging     │ 91    │ email-and-messaging     │ 128   │
+  ├──────┼─────────────────────────┼───────┼─────────────────────────┼───────┤
+  │ 5    │ passwords-and-sign-in   │ 60    │ customization           │ 97    │
+  ├──────┼─────────────────────────┼───────┼─────────────────────────┼───────┤
+  │ 6    │ windows-10              │ 52    │ passwords-and-sign-in   │ 59    │
+  ├──────┼─────────────────────────┼───────┼─────────────────────────┼───────┤
+  │ 7    │ account-management      │ 42    │ windows-1011            │ 51    │
+  ├──────┼─────────────────────────┼───────┼─────────────────────────┼───────┤
+  │ 8    │ needsinfo               │ 41    │ account-management      │ 50    │
+  ├──────┼─────────────────────────┼───────┼─────────────────────────┼───────┤
+  │ 9    │ import-and-export-email │ 38    │ import-and-export-email │ 41    │
+  ├──────┼─────────────────────────┼───────┼─────────────────────────┼───────┤
+  │ 10   │ junk-mail-and-spam      │ 38    │ linux                   │ 41    │
+  └──────┴─────────────────────────┴───────┴─────────────────────────┴───────┘
+</pre>
+  Key Observations:
+
+   - Windows-11 issues surged in February (382 vs 146) - a significant increase
+   - send-and-receive-email remains high but dropped relatively (240 → 251, though smaller proportionally)
+   - windows-10 support increased (52 → 137)
+   - The graph has been saved to /tmp/tags_comparison.png showing the top 10 tags side-by-side
+
+  The 'thunderbird' tag was excluded as requested. Analyzed 30 January files and 28 February files.
+
+ ~/Documents/GIT/thunderbird-desktop-metrics-and-reports [⎇ main*]                                                                    claude-haiku-4.5 (1x)
 ## 2026-02-19 rename yearly to 12
 * yearly was bogus, it was for december only.
 
