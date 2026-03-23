@@ -19,7 +19,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
     - name: Checkout aaq repo
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         repository: thunderbird/github-action-thunderbird-aaq
         path: aaq-data
