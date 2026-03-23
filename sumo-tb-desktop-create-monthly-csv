@@ -51,11 +51,13 @@ unsolved_with_answers = questions_df[(questions_df['is_solved'] == False) & (que
 if not unsolved_with_answers.empty:
     # Get last answer for each question
     last_answers_df = answers_df.loc[answers_df.groupby('question_id')['created_utc'].idxmax()]
-    
+    pd.set_option('display.max_columns', None)
+    print(last_answers_df)
     # Merge with unsolved questions
     unsolved_last = unsolved_with_answers.merge(last_answers_df[['question_id', 'creator']], left_on='id', right_on='question_id', how='left')
+    print(unsolved_last)
     
-    synthetic_trusted = (unsolved_last['creator'].isin(trusted_creators)).sum()
+    synthetic_trusted = (unsolved_last['creator_y'].isin(trusted_creators)).sum()
     synthetic_random = len(unsolved_last) - synthetic_trusted
 else:
     synthetic_trusted = 0
