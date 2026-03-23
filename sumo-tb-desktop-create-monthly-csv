@@ -58,7 +58,8 @@ if not unsolved_with_answers.empty:
     print(unsolved_last)
     
     synthetic_trusted = (unsolved_last['creator_y'].isin(trusted_creators)).sum()
-    synthetic_random = len(unsolved_last) - synthetic_trusted
+    synthetic_random = (~unsolved_last['creator_y'].isin(trusted_creators)).sum()
+    #synthetic_random = len(unsolved_last) - synthetic_trusted
 else:
     synthetic_trusted = 0
     synthetic_random = 0
