@@ -1,0 +1,97 @@
+#!/usr/bin/env python3
+import sys
+import os
+import pandas as pd
+from datetime import datetime, timezone
+
+if len(sys.argv) == 3:
+    year = int(sys.argv[1])
+    month = int(sys.argv[2])
+else:
+    now = datetime.now(timezone.utc)
+    year = now.year
+    month = now.month
+
+questions_file = f'CONCATENATED_FILES/{year}-{month:02d}-sumo-desktop-questions.csv'
+answers_file = f'CONCATENATED_FILES/{year}-{month:02d}-sumo-desktop-answers.csv'
+trusted_file = 'CONCATENATED_FILES/thunderbird-desktop-trusted-contributors.csv'
+output_file = f'CONCATENATED_FILES/{year}-{month:02d}-sumo-desktop-report.csv'
+
+if not os.path.exists(questions_file):
+    print(f"Questions file {questions_file} does not exist")
+    sys.exit(1)
+
+if not os.path.exists(answers_file):
+    print(f"Answers file {answers_file} does not exist")
+    sys.exit(1)
+
+if not os.path.exists(trusted_file):
+    print(f"Trusted contributors file {trusted_file} does not exist")
+    sys.exit(1)
+
+questions_df = pd.read_csv(questions_file)
+answers_df = pd.read_csv(answers_file)
+trusted_df = pd.read_csv(trusted_file)
+
+trusted_creators = set(trusted_df['creator'])
+
+# Parse created times to UTC
+answers_df['created_utc'] = pd.to_datetime(answers_df['created'], utc=True)
+
+num_questions = len(questions_df)
+num_solved = questions_df['is_solved'].sum()
+solved_percentage = round(num_solved / num_questions * 100) if num_questions > 0 else 0
+
+num_ignored = (questions_df['num_answers'] == 0).sum()
+ignored_percentage = round(num_ignored / num_questions * 100) if num_questions > 0 else 0
+
+# Unsolved questions with answers
+unsolved_with_answers = questions_df[(questions_df['is_solved'] == False) & (questions_df['num_answers'] > 0)]
+
+if not unsolved_with_answers.empty:
+    # Get last answer for each question
+    last_answers_df = answers_df.loc[answers_df.groupby('question_id')['created_utc'].idxmax()]
+    
+    # Merge with unsolved questions
+    unsolved_last = unsolved_with_answers.merge(last_answers_df[['question_id', 'creator']], left_on='id', right_on='question_id', how='left')
+    
+    synthetic_trusted = (unsolved_last['creator'].isin(trusted_creators)).sum()
+    synthetic_random = len(unsolved_last) - synthetic_trusted
+else:
+    synthetic_trusted = 0
+    synthetic_random = 0
+
+synthetic_random_percentage = round(synthetic_random / num_questions * 100) if num_questions > 0 else 0
+synthetic_trusted_percentage = round(synthetic_trusted / num_questions * 100) if num_questions > 0 else 0
+
+# Create report
+columns = [
+    'Date',
+    'num_questions',
+    'num_solved',
+    'solved-percentage',
+    'num_ignored',
+    'ignored-percentage',
+    'synthetic_solved_by_random_contributors',
+    'synthetic_solved_by_random_contributors-percentage',
+    'synthetic_solved_by_trusted_contributors',
+    'synthetic_solved_by_trusted_contributors-percentage'
+]
+
+data = [
+    f'{year}-{month:02d}',
+    num_questions,
+    num_solved,
+    solved_percentage,
+    num_ignored,
+    ignored_percentage,
+    synthetic_random,
+    synthetic_random_percentage,
+    synthetic_trusted,
+    synthetic_trusted_percentage
+]
+
+report_df = pd.DataFrame([data], columns=columns)
+report_df.to_csv(output_file, index=False)
+
+print(f"Created {output_file}")
