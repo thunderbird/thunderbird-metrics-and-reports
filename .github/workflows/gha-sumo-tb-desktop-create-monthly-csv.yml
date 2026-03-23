@@ -18,9 +18,9 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
     - name: Install dependencies
-      run: pip install pandas
+      run: uv pip install pandas
     - name: Run create monthly csv script
-      run: python3 sumo-tb-desktop-create-monthly-csv
+      run: uv run python3 sumo-tb-desktop-create-monthly-csv
     - name: Commit changes
       run: |
         git config --global user.name 'github-actions[bot]'
