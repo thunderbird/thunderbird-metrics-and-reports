@@ -27,7 +27,7 @@ jobs:
     - name: Install dependencies
       run: uv pip install -r requirements.txt
     - name: Run create monthly csv script
-      run: uv run sumo-tb-desktop-create-monthly-csv
+      run: uv run ./sumo-tb-desktop-create-monthly-csv
     - name: Commit changes
       run: |
         git config --global user.name 'github-actions[bot]'
