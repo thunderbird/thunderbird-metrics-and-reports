@@ -1,4 +1,4 @@
-name: gname: gha-sumo-tb-desktop-create-monthly-csv
+name: gha-sumo-tb-desktop-create-monthly-csv
 
 on:
   workflow_run:
