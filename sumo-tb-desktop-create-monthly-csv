@@ -89,14 +89,28 @@ if last_answer_by_creator_ids:
     logging.warning(f"Questions where last answer is by creator (ignored): {last_answer_by_creator_ids}")
 
 # Log synthetic solved by random contributors
-if not filtered_questions[~filtered_questions['last_answer_creator'].isin(trusted_creators)].empty:
-    random_contrib_ids = filtered_questions[~filtered_questions['last_answer_creator'].isin(trusted_creators)]['id'].tolist()
+random_contrib_mask = ~filtered_questions['last_answer_creator'].isin(trusted_creators)
+if not filtered_questions[random_contrib_mask].empty:
+    random_contrib_ids = filtered_questions[random_contrib_mask]['id'].tolist()
     logging.warning(f"Synthetic solved by random contributors: {random_contrib_ids}")
+else:
+    random_contrib_ids = []
 
 # Log synthetic solved by trusted contributors
-if not filtered_questions[filtered_questions['last_answer_creator'].isin(trusted_creators)].empty:
-    trusted_contrib_ids = filtered_questions[filtered_questions['last_answer_creator'].isin(trusted_creators)]['id'].tolist()
+trusted_contrib_mask = filtered_questions['last_answer_creator'].isin(trusted_creators)
+if not filtered_questions[trusted_contrib_mask].empty:
+    trusted_contrib_ids = filtered_questions[trusted_contrib_mask]['id'].tolist()
     logging.warning(f"Synthetic solved by trusted contributors: {trusted_contrib_ids}")
+else:
+    trusted_contrib_ids = []
+
+# Calculate synthetic_solved_rate
+synthetic_solved_rate = solved_percentage + synthetic_trusted_percentage
+
+# Create semicolon-delimited strings for each question category
+question_ids_creator_answered_last = ';'.join(map(str, last_answer_by_creator_ids))
+question_ids_trusted_contributor_answered_last = ';'.join(map(str, trusted_contrib_ids))
+question_ids_random_contributor_answered_last = ';'.join(map(str, random_contrib_ids))
 
 # Create report
 columns = [
@@ -109,7 +123,11 @@ columns = [
     'synthetic_solved_by_random_contributors',
     'synthetic_solved_by_random_contributors-percentage',
     'synthetic_solved_by_trusted_contributors',
-    'synthetic_solved_by_trusted_contributors-percentage'
+    'synthetic_solved_by_trusted_contributors-percentage',
+    'synthetic_solved_rate',
+    'question_ids_question_creator_answered_last',
+    'question_ids_trusted_contributor_answered_last',
+    'question_ids_random_contributor_answered_last'
 ]
 
 data = [
@@ -122,7 +140,11 @@ data = [
     synthetic_solved_by_random,
     synthetic_random_percentage,
     synthetic_solved_by_trusted,
-    synthetic_trusted_percentage
+    synthetic_trusted_percentage,
+    synthetic_solved_rate,
+    question_ids_creator_answered_last,
+    question_ids_trusted_contributor_answered_last,
+    question_ids_random_contributor_answered_last
 ]
 
 report_df = pd.DataFrame([data], columns=columns)
