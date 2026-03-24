@@ -51,18 +51,19 @@ ignored_percentage = round(num_ignored / num_questions * 100) if num_questions >
 
 # Algorithm for synthetic_solved_by_random_contributors and synthetic_solved_by_trusted_contributors
 # Step 1-2: Get unsolved questions (is_solved == False) with answers > 0
+pd.set_option('display.max_columns', None)
 unsolved_with_answers = questions_df[(questions_df['is_solved'] == False) & (questions_df['num_answers'] > 0)].copy()
-
+logging.warning(f"unsolved_with_answers: {unsolved_with_answers['id'].tolist()}")
 # Step 3: Ignore questions where the last answer is by the creator of the question
 # Get last answer for each question
 last_answers_df = answers_df.loc[answers_df.groupby('question_id')['created_utc'].idxmax()][['question_id', 'creator']].rename(columns={'creator': 'last_answer_creator'})
-
+logging.warning(f"last_answers_df: {last_answers_df.head()}")
 # Merge unsolved questions with their last answer
 unsolved_with_last_answer = unsolved_with_answers.merge(last_answers_df, left_on='id', right_on='question_id', how='left')
-
+logging.warning(f"unsolved_with_last_answer: {unsolved_with_last_answer.head()}")
 # Filter out questions where last answer is by the creator of the question
-filtered_questions = unsolved_with_last_answer[unsolved_with_last_answer['creator_x'] != unsolved_with_last_answer['last_answer_creator']].copy()
-
+filtered_questions = unsolved_with_last_answer[unsolved_with_last_answer['creator'] != unsolved_with_last_answer['last_answer_creator']].copy()
+logging.warning(f"filtered_questions: {filtered_questions.head()}")
 # Step 4-5: Count synthetic solved by random and trusted contributors
 synthetic_solved_by_random = (filtered_questions['last_answer_creator'].notna() & ~filtered_questions['last_answer_creator'].isin(trusted_creators)).sum()
 synthetic_solved_by_trusted = (filtered_questions['last_answer_creator'].notna() & filtered_questions['last_answer_creator'].isin(trusted_creators)).sum()
@@ -83,7 +84,7 @@ if num_answers_zero_ids:
     logging.warning(f"Questions with num_answers=0 (ignored): {num_answers_zero_ids}")
 
 # Log questions where last answer is by the creator
-last_answer_by_creator_ids = unsolved_with_last_answer[unsolved_with_last_answer['creator_x'] == unsolved_with_last_answer['last_answer_creator']]['id'].tolist()
+last_answer_by_creator_ids = unsolved_with_last_answer[unsolved_with_last_answer['creator'] == unsolved_with_last_answer['last_answer_creator']]['id'].tolist()
 if last_answer_by_creator_ids:
     logging.warning(f"Questions where last answer is by creator (ignored): {last_answer_by_creator_ids}")
 
