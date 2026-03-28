@@ -16,10 +16,10 @@ else:
 # Setup logging
 logging.basicConfig(level=logging.WARNING, format='%(levelname)s: %(message)s')
 
-questions_file = f'CONCATENATED_FILES/{year}-{month:02d}-sumo-desktop-questions.csv'
-answers_file = f'CONCATENATED_FILES/{year}-{month:02d}-sumo-desktop-answers.csv'
-trusted_file = 'CONCATENATED_FILES/thunderbird-desktop-trusted-contributors.csv'
-output_file = f'CONCATENATED_FILES/{year}-{month:02d}-sumo-desktop-report.csv'
+questions_file = f'CONCATENATED_FILES/DESKTOP/{year}-{month:02d}-sumo-desktop-questions.csv'
+answers_file = f'CONCATENATED_FILES/DESKTOP/{year}-{month:02d}-sumo-desktop-answers.csv'
+trusted_file = 'CONCATENATED_FILES/DESKTOP/thunderbird-desktop-trusted-contributors.csv'
+output_file = f'REPORTS/DESKTOP/{year}-{month:02d}-sumo-desktop-report.csv'
 
 if not os.path.exists(questions_file):
     print(f"Questions file {questions_file} does not exist")
