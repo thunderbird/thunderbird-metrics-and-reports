@@ -26,8 +26,12 @@ jobs:
       run: uv venv
     - name: Install dependencies
       run: uv pip install -r requirements.txt
-    - name: Run create monthly csv script
+    - name: Run create monthly csv script for current month
       run: uv run ./sumo-tb-desktop-create-monthly-csv
+    - name: Run create monthly csv script for previous month
+      run: |
+        PREV_MONTH_DATE=$(date -d "last month" +"%Y %m")
+        uv run ./sumo-tb-desktop-create-monthly-csv $PREV_MONTH_DATE
     - name: Commit changes
       run: |
         git config --global user.name 'github-actions[bot]'
