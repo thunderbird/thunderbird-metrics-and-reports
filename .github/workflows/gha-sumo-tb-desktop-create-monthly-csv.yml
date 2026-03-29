@@ -30,7 +30,8 @@ jobs:
       run: uv run ./sumo-tb-desktop-create-monthly-csv
     - name: Run create monthly csv script for previous month
       run: |
-        PREV_MONTH_DATE=$(date -d "last month" +"%Y %m")
+        PREV_MONTH_DATE=$(date -d "last month" +"%Y %-m")
+        echo "PREV_MONTH_DATE:$PREV_MONTH_DATE"
         uv run ./sumo-tb-desktop-create-monthly-csv $PREV_MONTH_DATE
     - name: Commit changes
       run: |
