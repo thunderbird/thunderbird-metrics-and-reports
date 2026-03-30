@@ -1,0 +1,43 @@
+name: gha-sumo-tb-android-concat-all-questions-answers
+
+on:
+  schedule:
+    - cron: '0 3 * * *'   # 0300 UTC
+    - cron: '0 9 * * *'   # 0900 UTC
+    - cron: '0 15 * * *'  # 1500 UTC
+    - cron: '0 22 * * *'  # 2200 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  concat:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Checkout aaq repo
+      uses: actions/checkout@v5
+      with:
+        repository: thunderbird/github-action-tbandroid-aaq
+        path: aaq-data
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+      with:
+        python-version: '3.14' # Sets the version uv will use
+        enable-cache: true      # Highly recommended for speed
+    - name: Create virtual environment
+      run: uv venv
+    - name: Install dependencies
+      run: uv pip install -r requirements.txt
+    - name: Run concat script
+      run: uv run ./sumo-tb-android-concat-all-questions-answers
+    - name: Commit changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add CONCATENATED_FILES/
+        git commit -m "Concatenate last 2 months questions and answers" || echo "No changes to commit"
+        git push

@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+import sys
+import os
+import glob
+import pandas as pd
+from datetime import datetime, timezone
+
+if len(sys.argv) == 3:
+    year = int(sys.argv[1])
+    month = int(sys.argv[2])
+else:
+    now = datetime.now(timezone.utc)
+    year = now.year
+    month = now.month
+
+prev_year = year
+prev_month = month - 1
+if prev_month == 0:
+    prev_month = 12
+    prev_year -= 1
+
+data_dir = 'aaq-data'
+
+# Ensure CONCATENATED_FILES exists
+os.makedirs('CONCATENATED_FILES/ANDROID', exist_ok=True)
+
+def concat_files(files, sort_key, output_file):
+    if not files:
+        print(f"No files found for {output_file}")
+        return
+    dfs = [pd.read_csv(f) for f in files]
+    combined = pd.concat(dfs, ignore_index=True)
+    combined = combined.sort_values(sort_key)
+    combined.to_csv(output_file, index=False)
+    print(f"Created {output_file}")
+
+# Current month questions
+questions_files = glob.glob(f'{data_dir}/{year}/{year}-{month:02d}-*-{year}-{month:02d}-*-tbandroid-creator-answers-desktop-all-locales.csv')
+concat_files(questions_files, 'id', f'CONCATENATED_FILES/ANDROID/{year}-{month:02d}-sumo-android-questions.csv')
+
+# Current month answers
+answers_files = glob.glob(f'{data_dir}/{year}/{year}-{month:02d}-*-{year}-{month:02d}-*-tbandroid-answers-for-questions-desktop.csv')
+concat_files(answers_files, 'question_id', f'CONCATENATED_FILES/ANDROID/{year}-{month:02d}-sumo-android-answers.csv')
+
+# Previous month questions
+prev_questions_files = glob.glob(f'{data_dir}/{prev_year}/{prev_year}-{prev_month:02d}-*-{prev_year}-{prev_month:02d}-*-tbandroid-creator-answers-desktop-all-locales.csv')
+concat_files(prev_questions_files, 'id', f'CONCATENATED_FILES/ANDROID/{prev_year}-{prev_month:02d}-sumo-android-questions.csv')
+
+# Previous month answers
+prev_answers_files = glob.glob(f'{data_dir}/{prev_year}/{prev_year}-{prev_month:02d}-*-{prev_year}-{prev_month:02d}-*-tbandroid-answers-for-questions-desktop.csv')
+concat_files(prev_answers_files, 'question_id', f'CONCATENATED_FILES/ANDROID/{prev_year}-{prev_month:02d}-sumo-android-answers.csv')
