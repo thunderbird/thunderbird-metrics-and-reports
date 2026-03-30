@@ -1,0 +1,155 @@
+#!/usr/bin/env python3
+import sys
+import os
+import pandas as pd
+from datetime import datetime, timezone
+import logging
+
+if len(sys.argv) == 3:
+    year = int(sys.argv[1])
+    month = int(sys.argv[2])
+else:
+    now = datetime.now(timezone.utc)
+    year = now.year
+    month = now.month
+
+# Setup logging
+logging.basicConfig(level=logging.WARNING, format='%(levelname)s: %(message)s')
+logging.warning(f"Year: {year} Month: {month}")
+
+
+questions_file = f'CONCATENATED_FILES/ANDROID/{year}-{month:02d}-sumo-android-questions.csv'
+answers_file = f'CONCATENATED_FILES/ANDROID/{year}-{month:02d}-sumo-android-answers.csv'
+trusted_file = 'CONCATENATED_FILES/ANDROID/thunderbird-android-trusted-contributors.csv'
+output_file = f'REPORTS/ANDROID/{year}-{month:02d}-sumo-android-report.csv'
+
+if not os.path.exists(questions_file):
+    print(f"Questions file {questions_file} does not exist")
+    sys.exit(1)
+
+if not os.path.exists(answers_file):
+    print(f"Answers file {answers_file} does not exist")
+    sys.exit(1)
+
+if not os.path.exists(trusted_file):
+    print(f"Trusted contributors file {trusted_file} does not exist")
+    sys.exit(1)
+
+questions_df = pd.read_csv(questions_file)
+answers_df = pd.read_csv(answers_file)
+trusted_df = pd.read_csv(trusted_file)
+
+trusted_creators = set(trusted_df['creator'])
+
+# Parse created times to UTC
+answers_df['created_utc'] = pd.to_datetime(answers_df['created'], utc=True)
+
+num_questions = len(questions_df)
+num_solved = questions_df['is_solved'].sum()
+solved_percentage = round(num_solved / num_questions * 100) if num_questions > 0 else 0
+
+num_ignored = (questions_df['num_answers'] == 0).sum()
+ignored_percentage = round(num_ignored / num_questions * 100) if num_questions > 0 else 0
+
+# Algorithm for synthetic_solved_by_random_contributors and synthetic_solved_by_trusted_contributors
+# Step 1-2: Get unsolved questions (is_solved == False) with answers > 0
+pd.set_option('display.max_columns', None)
+unsolved_with_answers = questions_df[(questions_df['is_solved'] == False) & (questions_df['num_answers'] > 0)].copy()
+logging.warning(f"unsolved_with_answers: {unsolved_with_answers['id'].tolist()}")
+# Step 3: Ignore questions where the last answer is by the creator of the question
+# Get last answer for each question
+last_answers_df = answers_df.loc[answers_df.groupby('question_id')['created_utc'].idxmax()][['question_id', 'creator']].rename(columns={'creator': 'last_answer_creator'})
+logging.warning(f"last_answers_df: {last_answers_df.head()}")
+# Merge unsolved questions with their last answer
+unsolved_with_last_answer = unsolved_with_answers.merge(last_answers_df, left_on='id', right_on='question_id', how='left')
+logging.warning(f"unsolved_with_last_answer: {unsolved_with_last_answer.head()}")
+# Filter out questions where last answer is by the creator of the question
+filtered_questions = unsolved_with_last_answer[unsolved_with_last_answer['creator'] != unsolved_with_last_answer['last_answer_creator']].copy()
+logging.warning(f"filtered_questions: {filtered_questions.head()}")
+# Step 4-5: Count synthetic solved by random and trusted contributors
+synthetic_solved_by_random = (filtered_questions['last_answer_creator'].notna() & ~filtered_questions['last_answer_creator'].isin(trusted_creators)).sum()
+synthetic_solved_by_trusted = (filtered_questions['last_answer_creator'].notna() & filtered_questions['last_answer_creator'].isin(trusted_creators)).sum()
+
+# Percentages: use total number of questions as denominator
+synthetic_random_percentage = round(synthetic_solved_by_random / num_questions * 100) if num_questions > 0 else 0
+synthetic_trusted_percentage = round(synthetic_solved_by_trusted / num_questions * 100) if num_questions > 0 else 0
+
+# Step 5: Log question IDs
+# Log questions with is_solved = True
+is_solved_true_ids = questions_df[questions_df['is_solved'] == True]['id'].tolist()
+if is_solved_true_ids:
+    logging.warning(f"Questions with is_solved=True (ignored): {is_solved_true_ids}")
+
+# Log questions with num_answers = 0
+num_answers_zero_ids = questions_df[questions_df['num_answers'] == 0]['id'].tolist()
+if num_answers_zero_ids:
+    logging.warning(f"Questions with num_answers=0 (ignored): {num_answers_zero_ids}")
+
+# Log questions where last answer is by the creator
+last_answer_by_creator_ids = unsolved_with_last_answer[unsolved_with_last_answer['creator'] == unsolved_with_last_answer['last_answer_creator']]['id'].tolist()
+if last_answer_by_creator_ids:
+    logging.warning(f"Questions where last answer is by creator (ignored): {last_answer_by_creator_ids}")
+
+# Log synthetic solved by random contributors
+random_contrib_mask = ~filtered_questions['last_answer_creator'].isin(trusted_creators)
+if not filtered_questions[random_contrib_mask].empty:
+    random_contrib_ids = filtered_questions[random_contrib_mask]['id'].tolist()
+    logging.warning(f"Synthetic solved by random contributors: {random_contrib_ids}")
+else:
+    random_contrib_ids = []
+
+# Log synthetic solved by trusted contributors
+trusted_contrib_mask = filtered_questions['last_answer_creator'].isin(trusted_creators)
+if not filtered_questions[trusted_contrib_mask].empty:
+    trusted_contrib_ids = filtered_questions[trusted_contrib_mask]['id'].tolist()
+    logging.warning(f"Synthetic solved by trusted contributors: {trusted_contrib_ids}")
+else:
+    trusted_contrib_ids = []
+
+# Calculate synthetic_solved_rate
+synthetic_solved_rate = solved_percentage + synthetic_trusted_percentage
+
+# Create semicolon-delimited strings for each question category
+question_ids_creator_answered_last = ';'.join(map(str, last_answer_by_creator_ids))
+question_ids_trusted_contributor_answered_last = ';'.join(map(str, trusted_contrib_ids))
+question_ids_random_contributor_answered_last = ';'.join(map(str, random_contrib_ids))
+
+# Create report
+columns = [
+    'Date',
+    'num_questions',
+    'num_solved',
+    'solved-percentage',
+    'num_ignored',
+    'ignored-percentage',
+    'synthetic_solved_by_random_contributors',
+    'synthetic_solved_by_random_contributors-percentage',
+    'synthetic_solved_by_trusted_contributors',
+    'synthetic_solved_by_trusted_contributors-percentage',
+    'synthetic_solved_rate',
+    'question_ids_question_creator_answered_last',
+    'question_ids_trusted_contributor_answered_last',
+    'question_ids_random_contributor_answered_last'
+]
+
+data = [
+    f'{year}-{month:02d}',
+    num_questions,
+    num_solved,
+    solved_percentage,
+    num_ignored,
+    ignored_percentage,
+    synthetic_solved_by_random,
+    synthetic_random_percentage,
+    synthetic_solved_by_trusted,
+    synthetic_trusted_percentage,
+    synthetic_solved_rate,
+    question_ids_creator_answered_last,
+    question_ids_trusted_contributor_answered_last,
+    question_ids_random_contributor_answered_last
+]
+
+report_df = pd.DataFrame([data], columns=columns)
+report_df.to_csv(output_file, index=False)
+
+print(f"Created {output_file}")

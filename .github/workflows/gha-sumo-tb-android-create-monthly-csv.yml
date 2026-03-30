@@ -1,0 +1,43 @@
+name: gha-sumo-tb-android-create-monthly-csv
+
+on:
+  workflow_run:
+    workflows: ["gha-sumo-tb-android-concat-all-questions-answers"]
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  create-report:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+      with:
+        python-version: '3.14' # Sets the version uv will use
+        enable-cache: true      # Highly recommended for speed
+    - name: Create virtual environment
+      run: uv venv
+    - name: Install dependencies
+      run: uv pip install -r requirements.txt
+    - name: Run create monthly csv script for current month
+      run: uv run ./sumo-tb-android-create-monthly-csv
+    - name: Run create monthly csv script for previous month
+      run: |
+        PREV_MONTH_DATE=$(date --date="$(date +%Y-%m-15) -1 month" +"%Y %-m")
+        echo "PREV_MONTH_DATE:$PREV_MONTH_DATE"
+        uv run ./sumo-tb-android-create-monthly-csv $PREV_MONTH_DATE
+    - name: Commit changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add REPORTS/ANDROID
+        timestamp=$(date -u)
+        git commit -m "Create monthly ANDROID report CSV: ${timestamp}" || echo "No changes to commit"
+        git push
