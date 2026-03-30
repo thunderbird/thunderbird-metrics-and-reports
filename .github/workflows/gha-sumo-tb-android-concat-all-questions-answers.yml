@@ -39,5 +39,5 @@ jobs:
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git add CONCATENATED_FILES/
-        git commit -m "Concatenate last 2 months questions and answers" || echo "No changes to commit"
+        git commit -m "Concatenate last 2 months of Android questions and answers" || echo "No changes to commit"
         git push
