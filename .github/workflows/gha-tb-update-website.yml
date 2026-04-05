@@ -82,12 +82,12 @@ jobs:
     - name: Check for changes
       id: check_changes
       run: |
-        if git diff --quiet; then
-          echo "No changes detected"
-          echo "has_changes=false" >> $GITHUB_OUTPUT
-        else
+        if git status --porcelain | grep -q .; then
           echo "Changes detected"
           echo "has_changes=true" >> $GITHUB_OUTPUT
+        else
+          echo "No changes detected"
+          echo "has_changes=false" >> $GITHUB_OUTPUT
         fi
 
     - name: Commit and push changes
