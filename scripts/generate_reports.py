@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate HTML pages from CSV report files.
+Generate Markdown pages from CSV report files.
 Converts semi-colon delimited question IDs to links with tooltips.
 """
 
@@ -28,12 +28,10 @@ def load_questions_map(questions_csv_path):
 
 
 def create_question_link(question_id, questions_map):
-    """Create an HTML link for a question ID with tooltip."""
+    """Create a Markdown link for a question ID."""
     title = questions_map.get(question_id, "Question")
     tooltip = title[:80] if len(title) > 80 else title
-    # Escape quotes in tooltip
-    tooltip = tooltip.replace('"', '&quot;')
-    return f'<a href="https://support.mozilla.org/questions/{question_id}" title="{tooltip}" target="_blank">{question_id}</a>'
+    return f'[{question_id}](https://support.mozilla.org/questions/{question_id} "{tooltip}")'
 
 
 def process_column(column_name, column_value, questions_map, product):
@@ -54,8 +52,8 @@ def process_column(column_name, column_value, questions_map, product):
     return column_value
 
 
-def generate_html_page(csv_path, output_path, questions_csv_path, product, month_year):
-    """Generate an HTML page from a CSV report file."""
+def generate_markdown_page(csv_path, output_path, questions_csv_path, product, month_year):
+    """Generate a Markdown page from a CSV report file."""
     
     # Load questions map for creating links
     questions_map = load_questions_map(questions_csv_path)
@@ -78,11 +76,11 @@ def generate_html_page(csv_path, output_path, questions_csv_path, product, month
         print(f"Warning: No data in CSV file: {csv_path}", file=sys.stderr)
         return False
     
-    # Start building HTML
+    # Start building Markdown
     product_display = "Thunderbird Desktop" if product == "desktop" else "Thunderbird Android"
     page_title = f"{product_display} Report - {month_year}"
     
-    html_content = f"""---
+    markdown_content = f"""---
 layout: default
 title: {page_title}
 ---
@@ -91,95 +89,35 @@ title: {page_title}
 
 *Last updated: {datetime.now().isoformat()}*
 
-<div class="table-responsive">
-<table class="report-table">
-<thead>
-<tr>
-"""
+| """
     
     # Add header row
-    for column in columns:
-        # Convert column name to display name
-        display_name = column.replace('_', ' ').title()
-        html_content += f"<th>{display_name}</th>\n"
-    
-    html_content += """</tr>
-</thead>
-<tbody>
-"""
+    markdown_content += " | ".join(column.replace('_', ' ').title() for column in columns)
+    markdown_content += " |\n"
+    markdown_content += "| " + " | ".join("---" for _ in columns) + " |\n"
     
     # Add data rows
     for row in rows:
-        html_content += "<tr>\n"
+        row_cells = []
         for column in columns:
             value = row.get(column, '')
             # Process column to convert IDs to links if needed
             processed_value = process_column(column, value, questions_map, product)
-            html_content += f"<td>{processed_value}</td>\n"
-        html_content += "</tr>\n"
+            # Escape pipe characters in cell content
+            processed_value = processed_value.replace('|', '\\|')
+            row_cells.append(processed_value)
+        markdown_content += "| " + " | ".join(row_cells) + " |\n"
     
-    html_content += """</tbody>
-</table>
-</div>
-
-<style>
-.table-responsive {
-    overflow-x: auto;
-    margin: 20px 0;
-}
-
-.report-table {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 14px;
-}
-
-.report-table thead {
-    background-color: #f8f9fa;
-}
-
-.report-table th {
-    border: 1px solid #dee2e6;
-    padding: 12px;
-    text-align: left;
-    font-weight: 600;
-}
-
-.report-table td {
-    border: 1px solid #dee2e6;
-    padding: 12px;
-    text-align: left;
-}
-
-.report-table tbody tr:nth-child(odd) {{
-    background-color: #f8f9fa;
-}}
-
-.report-table tbody tr:hover {
-    background-color: #e9ecef;
-}
-
-.report-table a {{
-    color: #0056b3;
-    text-decoration: none;
-}}
-
-.report-table a:hover {{
-    text-decoration: underline;
-}}
-</style>
-
-[Back to Dashboard](/)
-"""
+    markdown_content += "\n[Back to Dashboard](/)\n"
     
     # Create output directory if needed
     output_dir = Path(output_path).parent
     output_dir.mkdir(parents=True, exist_ok=True)
     
-    # Write HTML file
+    # Write markdown file
     try:
         with open(output_path, 'w', encoding='utf-8') as f:
-            f.write(html_content)
+            f.write(markdown_content)
         print(f"Generated: {output_path}")
         return True
     except Exception as e:
@@ -240,11 +178,11 @@ def main():
             else:
                 questions_file = str(questions_file)
             
-            # Generate output filename
-            output_file = output_dir / f"{month_year_match}-sumo-{product}-report.html"
+            # Generate output filename with .md extension
+            output_file = output_dir / f"{month_year_match}-sumo-{product}-report.md"
             
-            # Generate HTML page
-            if generate_html_page(
+            # Generate Markdown page
+            if generate_markdown_page(
                 str(report_file),
                 str(output_file),
                 questions_file,
