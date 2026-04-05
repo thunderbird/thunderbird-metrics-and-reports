@@ -5,7 +5,7 @@ title: Thunderbird Android Report - 2026-02
 
 # Thunderbird Android Report - 2026-02
 
-*Last updated: 2026-04-05T16:48:29.958061*
+*Last updated: 2026-04-05T17:13:43.770359*
 
 | Date | Num Questions | Num Solved | Solved-Percentage | Num Ignored | Ignored-Percentage | Synthetic Solved By Random Contributors | Synthetic Solved By Random Contributors-Percentage | Synthetic Solved By Trusted Contributors | Synthetic Solved By Trusted Contributors-Percentage | Synthetic Solved Rate | Question Ids Question Creator Answered Last | Question Ids Trusted Contributor Answered Last | Question Ids Random Contributor Answered Last |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
