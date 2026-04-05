@@ -32,6 +32,8 @@ def create_question_link(question_id, questions_map):
     """Create a Markdown link for a question ID."""
     title = questions_map.get(question_id, "Question")
     tooltip = title[:80] if len(title) > 80 else title
+    # Escape quotes in tooltip for markdown link syntax
+    tooltip = tooltip.replace('"', '\\"')
     return f'[{question_id}](https://support.mozilla.org/questions/{question_id} "{tooltip}")'
 
 
