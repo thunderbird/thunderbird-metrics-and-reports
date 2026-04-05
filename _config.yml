@@ -1,7 +1,7 @@
 title: Thunderbird Metrics and Reports
 description: Hourly updated blog with Thunderbird support metrics
 baseurl: "/thunderbird-metrics-and-reports"
-url: "https://thunderbird-metrics-and-reports.github.io"
+#url: "https://thunderbird-metrics-and-reports.github.io"
 remote_theme: jekyll/minima
 timezone: UTC
 
