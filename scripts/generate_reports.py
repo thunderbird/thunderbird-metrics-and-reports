@@ -192,23 +192,23 @@ def main():
     base_path = Path(__file__).parent.parent
     reports_path = base_path / "REPORTS"
     concat_path = base_path / "CONCATENATED_FILES"
-    docs_path = base_path / "_docs"
+    output_base_path = base_path / "html_reports"
     
-    # Create _docs directory if it doesn't exist
-    docs_path.mkdir(exist_ok=True)
+    # Create html_reports directory if it doesn't exist
+    output_base_path.mkdir(exist_ok=True)
     
     # Define products and their configs
     products = {
         'DESKTOP': {
             'reports_dir': reports_path / 'DESKTOP',
             'concat_dir': concat_path / 'DESKTOP',
-            'output_dir': docs_path / 'desktop',
+            'output_dir': output_base_path / 'desktop',
             'product': 'desktop'
         },
         'ANDROID': {
             'reports_dir': reports_path / 'ANDROID',
             'concat_dir': concat_path / 'ANDROID',
-            'output_dir': docs_path / 'android',
+            'output_dir': output_base_path / 'android',
             'product': 'android'
         }
     }
