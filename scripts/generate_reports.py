@@ -2,6 +2,7 @@
 """
 Generate Markdown pages from CSV report files.
 Converts semi-colon delimited question IDs to links with tooltips.
+Creates both summary and details tables.
 """
 
 import csv
@@ -34,26 +35,25 @@ def create_question_link(question_id, questions_map):
     return f'[{question_id}](https://support.mozilla.org/questions/{question_id} "{tooltip}")'
 
 
-def process_column(column_name, column_value, questions_map, product):
-    """Process a column value, converting IDs to links if applicable."""
-    # Check if this is a column with question IDs
-    id_columns = [
-        'question_ids_question_creator_answered_last',
-        'question_ids_trusted_contributor_answered_last',
-        'question_ids_random_contributor_answered_last'
-    ]
+def process_question_ids(ids_string, questions_map):
+    """Convert semi-colon delimited question IDs to Markdown links."""
+    if not ids_string or ';' not in ids_string:
+        return ids_string
     
-    if column_name in id_columns and column_value and ';' in column_value:
-        # Convert semi-colon delimited IDs to links
-        ids = column_value.split(';')
-        links = [create_question_link(id.strip(), questions_map) for id in ids if id.strip()]
-        return '; '.join(links)
-    
-    return column_value
+    ids = ids_string.split(';')
+    links = [create_question_link(id.strip(), questions_map) for id in ids if id.strip()]
+    return '; '.join(links)
+
+
+def escape_markdown_cell(text):
+    """Escape pipe characters in cell content."""
+    if not text:
+        return ""
+    return str(text).replace('|', '\\|')
 
 
 def generate_markdown_page(csv_path, output_path, questions_csv_path, product, month_year):
-    """Generate a Markdown page from a CSV report file."""
+    """Generate a Markdown page with summary and details tables from a CSV report file."""
     
     # Load questions map for creating links
     questions_map = load_questions_map(questions_csv_path)
@@ -76,6 +76,28 @@ def generate_markdown_page(csv_path, output_path, questions_csv_path, product, m
         print(f"Warning: No data in CSV file: {csv_path}", file=sys.stderr)
         return False
     
+    # Define which columns go in which table
+    summary_columns = [
+        'Date',
+        'num_questions',
+        'num_solved',
+        'solved-percentage',
+        'num_ignored',
+        'ignored-percentage',
+        'synthetic_solved_by_random_contributors',
+        'synthetic_solved_by_random_contributors-percentage',
+        'synthetic_solved_by_trusted_contributors',
+        'synthetic_solved_by_trusted_contributors-percentage',
+        'synthetic_solved_rate'
+    ]
+    
+    details_columns = [
+        'Date',
+        'question_ids_question_creator_answered_last',
+        'question_ids_trusted_contributor_answered_last',
+        'question_ids_random_contributor_answered_last'
+    ]
+    
     # Start building Markdown
     product_display = "Thunderbird Desktop" if product == "desktop" else "Thunderbird Android"
     page_title = f"{product_display} Report - {month_year}"
@@ -89,23 +111,33 @@ title: {page_title}
 
 *Last updated: {datetime.now().isoformat()}*
 
-| """
+## Summary
+
+"""
     
-    # Add header row
-    markdown_content += " | ".join(column.replace('_', ' ').title() for column in columns)
-    markdown_content += " |\n"
-    markdown_content += "| " + " | ".join("---" for _ in columns) + " |\n"
+    # Generate Summary Table
+    markdown_content += "| " + " | ".join(col.replace('_', ' ').replace('-', ' ').title() for col in summary_columns) + " |\n"
+    markdown_content += "| " + " | ".join("---" for _ in summary_columns) + " |\n"
     
-    # Add data rows
+    for row in rows:
+        row_cells = [escape_markdown_cell(row.get(col, '')) for col in summary_columns]
+        markdown_content += "| " + " | ".join(row_cells) + " |\n"
+    
+    # Generate Details Table
+    markdown_content += "\n## Details\n\n"
+    markdown_content += "| " + " | ".join(col.replace('_', ' ').replace('-', ' ').title() for col in details_columns) + " |\n"
+    markdown_content += "| " + " | ".join("---" for _ in details_columns) + " |\n"
+    
     for row in rows:
         row_cells = []
-        for column in columns:
-            value = row.get(column, '')
-            # Process column to convert IDs to links if needed
-            processed_value = process_column(column, value, questions_map, product)
-            # Escape pipe characters in cell content
-            processed_value = processed_value.replace('|', '\\|')
-            row_cells.append(processed_value)
+        for col in details_columns:
+            value = row.get(col, '')
+            # Process question ID columns to convert to links
+            if col in ['question_ids_question_creator_answered_last', 
+                      'question_ids_trusted_contributor_answered_last',
+                      'question_ids_random_contributor_answered_last']:
+                value = process_question_ids(value, questions_map)
+            row_cells.append(escape_markdown_cell(value))
         markdown_content += "| " + " | ".join(row_cells) + " |\n"
     
     markdown_content += "\n[Back to Dashboard](/)\n"
