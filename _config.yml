@@ -1,0 +1,23 @@
+title: Thunderbird Metrics and Reports
+description: Hourly updated blog with Thunderbird support metrics
+baseurl: "/thunderbird-metrics-and-reports"
+url: "https://thunderbird-metrics-and-reports.github.io"
+remote_theme: jekyll/minima
+timezone: UTC
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+exclude:
+  - CONCATENATED_FILES
+  - get_trusted_and_untrusted_synthetic_solved.rb
+  - desktop-tags-bargraph-jan-feb-2026.py
+  - requirements.txt
+  - rough-sketch.R
+  - sumo-tb-android-concat-all-questions-answers
+  - sumo-tb-android-create-monthly-csv
+  - sumo-tb-desktop-concat-all-questions-answers
+  - sumo-tb-desktop-create-monthly-csv
+  - .github
+  - scripts

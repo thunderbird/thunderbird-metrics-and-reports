@@ -1,0 +1,117 @@
+name: gha-tb-update-website
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Run every hour
+  workflow_dispatch:  # Allow manual trigger
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  update-website:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch all history to detect changes
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+      with:
+        python-version: '3.14'
+        enable-cache: true
+
+    - name: Create virtual environment
+      run: uv venv
+
+    - name: Install dependencies
+      run: uv pip install -r requirements.txt
+
+    - name: Generate HTML reports from CSV files
+      run: uv run ./scripts/generate_reports.py
+
+    - name: Create blog post for this hour
+      run: |
+        YEAR=$(date +%Y)
+        MONTH=$(date +%m)
+        DAY=$(date +%d)
+        HOUR=$(date +%H)
+        TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+        POST_DATE="${YEAR}-${MONTH}-${DAY} ${HOUR}:00:00"
+        FILENAME="_posts/${YEAR}-${MONTH}-${DAY}-report-${HOUR}.md"
+        
+        mkdir -p _posts
+        
+        cat > "$FILENAME" << 'EOF'
+        ---
+        layout: post
+        title: "Thunderbird Support Report - ${POST_DATE}"
+        date: ${TIMESTAMP}
+        categories: reports
+        ---
+        
+        ## Hourly Thunderbird Support Metrics Update
+        
+        This report was automatically generated at ${POST_DATE} UTC.
+        
+        ### Latest Reports
+        
+        #### Desktop
+        - [February 2026](/reports/desktop/2026-02-sumo-desktop-report.html)
+        - [March 2026](/reports/desktop/2026-03-sumo-desktop-report.html)
+        - [April 2026](/reports/desktop/2026-04-sumo-desktop-report.html)
+        
+        #### Android
+        - [February 2026](/reports/android/2026-02-sumo-android-report.html)
+        - [March 2026](/reports/android/2026-03-sumo-android-report.html)
+        - [April 2026](/reports/android/2026-04-sumo-android-report.html)
+        
+        ---
+        
+        *For more information, visit the [main dashboard](/).*
+        EOF
+        
+        # Replace variables in the file
+        sed -i "s|\${POST_DATE}|${POST_DATE}|g" "$FILENAME"
+        sed -i "s|\${TIMESTAMP}|${TIMESTAMP}|g" "$FILENAME"
+
+    - name: Check for changes
+      id: check_changes
+      run: |
+        if git diff --quiet; then
+          echo "No changes detected"
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+        else
+          echo "Changes detected"
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Commit and push changes
+      if: steps.check_changes.outputs.has_changes == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        COMMIT_MSG="Update reports at $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+        git commit -m "$COMMIT_MSG"
+        git push
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+
+    - name: Build with Jekyll
+      uses: actions/jekyll-build-pages@v1
+      with:
+        source: ./
+        destination: ./_site
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
