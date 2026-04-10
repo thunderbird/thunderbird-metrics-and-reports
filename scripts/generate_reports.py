@@ -10,7 +10,8 @@ import os
 import sys
 from pathlib import Path
 from datetime import datetime
-
+# Increase the limit to the maximum allowed by the system
+csv.field_size_limit(sys.maxsize)
 
 def load_questions_map(questions_csv_path):
     """Load questions CSV and create a map of id -> title."""
