@@ -1,0 +1,22 @@
+---
+layout: default
+title: Thunderbird Android Report - 2025-09
+---
+
+# Thunderbird Android Report - 2025-09
+
+*Last updated: 2026-04-10T18:52:42.231147*
+
+## Summary
+
+| Date | Num Questions | Num Solved | Solved Percentage | Num Ignored | Ignored Percentage | Synthetic Solved By Random Contributors | Synthetic Solved By Random Contributors Percentage | Synthetic Solved By Trusted Contributors | Synthetic Solved By Trusted Contributors Percentage | Synthetic Solved Rate |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2025-09 | 63 | 6 | 10 | 20 | 32 | 5 | 8 | 24 | 38 | 48 |
+
+## Details
+
+| Date | Question Ids Question Creator Answered Last | Question Ids Trusted Contributor Answered Last | Question Ids Random Contributor Answered Last |
+| --- | --- | --- | --- |
+| 2025-09 | [1533474](https://support.mozilla.org/questions/1533474 "wont download from google playstore"); [1533770](https://support.mozilla.org/questions/1533770 "thunderbird mobile, and mail provider insists on only supporting tls 1.0"); [1534547](https://support.mozilla.org/questions/1534547 "What happened to folders under the unified inbox?"); [1535567](https://support.mozilla.org/questions/1535567 "Local navigation using tb for android"); [1536108](https://support.mozilla.org/questions/1536108 "Import Thunderbird PC to Thunderbird Mobile, via QR failure"); [1536806](https://support.mozilla.org/questions/1536806 "mpossibile inviare alcuni messaggi IllegalStateException: No outbox_state"); [1536869](https://support.mozilla.org/questions/1536869 "how can I delete this question please?"); [1537303](https://support.mozilla.org/questions/1537303 "Moveing email from Trash in POP") | [1533048](https://support.mozilla.org/questions/1533048 "Kan Thunderbird niet installeren"); [1533061](https://support.mozilla.org/questions/1533061 "Thunderbird"); [1534179](https://support.mozilla.org/questions/1534179 "K-9 mail crashes after update"); [1534514](https://support.mozilla.org/questions/1534514 "Last subfolder blocked by interface bottons on Android 16"); [1534703](https://support.mozilla.org/questions/1534703 "Manually use password to login"); [1534748](https://support.mozilla.org/questions/1534748 "re: rearranging the order of mail accounts"); [1534840](https://support.mozilla.org/questions/1534840 "Thunderbird 10.1 on Android"); [1534916](https://support.mozilla.org/questions/1534916 "Forgot Password"); [1535238](https://support.mozilla.org/questions/1535238 "Wie kann ich bei der App auf meinem Smartphon den Posteingang einstellen"); [1535265](https://support.mozilla.org/questions/1535265 "Thunderbird App Adressbook"); [1535448](https://support.mozilla.org/questions/1535448 "Block senders on Android"); [1535451](https://support.mozilla.org/questions/1535451 "Idea for push notifications on mobile devices"); [1535678](https://support.mozilla.org/questions/1535678 "Sent folder not updating"); [1536020](https://support.mozilla.org/questions/1536020 "Thunderbird mobile- andriod"); [1536563](https://support.mozilla.org/questions/1536563 "Thunderbird Mobile"); [1536654](https://support.mozilla.org/questions/1536654 "Convert email to event or task"); [1536724](https://support.mozilla.org/questions/1536724 "Password problem"); [1537061](https://support.mozilla.org/questions/1537061 "Sent emails remain stuck in the outbox"); [1537366](https://support.mozilla.org/questions/1537366 "＂User Authenticated But Not Connected＂ Error"); [1537610](https://support.mozilla.org/questions/1537610 "I can't sign into my Proton mail account via Thunderbird for Android - ＂Checking"); [1538047](https://support.mozilla.org/questions/1538047 "appearance"); [1538561](https://support.mozilla.org/questions/1538561 "Help deletimg bulk email from TB on a phone"); [1538678](https://support.mozilla.org/questions/1538678 "How to restore deleted contacts from Thunderbird on Android"); [1538683](https://support.mozilla.org/questions/1538683 "Deleted email contacts") | [1533501](https://support.mozilla.org/questions/1533501 "retrieving messages from other folders than the inbox"); [1536000](https://support.mozilla.org/questions/1536000 "Thunderbird-Android cannot locate where in account settings I can set ＂Leave Mes"); [1536449](https://support.mozilla.org/questions/1536449 "Automatically show remote images"); [1537217](https://support.mozilla.org/questions/1537217 "Location of emails within search results"); [1538595](https://support.mozilla.org/questions/1538595 "Attachments in that android app") |
+
+[Back to Dashboard](/)
