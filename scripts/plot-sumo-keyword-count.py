@@ -12,7 +12,8 @@ Usage:
   - One arg mode:
       plot-sumo-keyword-count.py <regex>
     where date-range1 is the current calendar month and date-range2 is the previous
-    calendar month. product defaults to 'desktop'.
+    calendar month, adjusted to match the length of the current month (by adding or
+    removing days from the start of the previous month). product defaults to 'desktop'.
 
 Outputs:
   - REPORTS/<product>/<start1>-<end1>-<regex_filename>.csv  (date,num-<regex>-matches)
@@ -83,6 +84,16 @@ def parse_args(argv):
             end2 = date(start2.year, 12, 31)
         else:
             end2 = (start2.replace(month=start2.month + 1) - timedelta(days=1))
+
+        # Adjust date-range-2 to match the length of date-range-1
+        n_days_1 = (end1 - start1).days + 1
+        n_days_2 = (end2 - start2).days + 1
+        if n_days_1 > n_days_2:
+            # Current month has more days: add extra days to start of previous month
+            start2 = start2 - timedelta(days=(n_days_1 - n_days_2))
+        elif n_days_1 < n_days_2:
+            # Current month has fewer days: move start of previous month forward
+            start2 = start2 + timedelta(days=(n_days_2 - n_days_1))
 
     return product, start1, end1, start2, end2, regex
 
