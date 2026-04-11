@@ -17,7 +17,8 @@ Usage:
 
 Outputs:
   - REPORTS/<product>/<start1>-<end1>-<regex_filename>.csv  (date,num-<regex>-matches)
-  - REPORTS/<product>/<start1>-<end1>-<regex_filename>.png  (plot comparing the two ranges)
+  - REPORTS/<product>/<start1>-<end1>-<regex_filename>.png  (line plot comparing the two ranges)
+  - REPORTS/<product>/<start1>-<end1>-<regex_filename>_bar.png  (bar graph comparing the two ranges)
 
 All dates/times are handled in UTC.
 """
@@ -248,6 +249,30 @@ def plot_png(png_path, dates1, counts1, dates2, counts2, regex_fname, start1, en
     plt.close(fig)
 
 
+def plot_bar_png(png_path, dates1, counts1, dates2, counts2, regex_fname, start1, end1):
+    if plt is None:
+        print('matplotlib not available; skipping PNG generation')
+        return
+    import numpy as np
+
+    fig, ax = plt.subplots(figsize=(12,5))
+    x = np.arange(len(dates1))
+    width = 0.35
+
+    bars1 = ax.bar(x - width/2, counts1, width, label=f'{start1.isoformat()} to {end1.isoformat()}')
+    bars2 = ax.bar(x + width/2, counts2, width, label='previous period')
+
+    ax.set_xlabel('Date')
+    ax.set_ylabel(f'num-{regex_fname}-matches')
+    ax.set_title(f'Keyword matches (bar chart): {regex_fname}')
+    ax.set_xticks(x[::max(1, len(x)//15)])  # Show ~15 labels max to avoid crowding
+    ax.set_xticklabels([dates1[i].isoformat() for i in range(0, len(dates1), max(1, len(x)//15))], rotation=45, ha='right')
+    ax.legend()
+    plt.tight_layout()
+    fig.savefig(png_path)
+    plt.close(fig)
+
+
 def main(argv):
     product, start1, end1, start2, end2, regex = parse_args(argv)
 
@@ -281,12 +306,19 @@ def main(argv):
     write_csv(report_path, dates1, counts1, counts2, ids1, ids2, regex_fname)
     print(f'Wrote CSV: {report_path}')
 
-    # plot PNG
+    # plot line graph PNG
     png_name = f"{start1.isoformat()}_{end1.isoformat()}__{start2.isoformat()}_{end2.isoformat()}_{regex_fname}.png"
     png_path = rpt_dir / png_name
     plot_png(png_path, dates1, counts1, dates2, counts2, regex_fname, start1, end1)
     if png_path.exists():
         print(f'Wrote PNG: {png_path}')
+
+    # plot bar graph PNG
+    bar_png_name = f"{start1.isoformat()}_{end1.isoformat()}__{start2.isoformat()}_{end2.isoformat()}_{regex_fname}_bar.png"
+    bar_png_path = rpt_dir / bar_png_name
+    plot_bar_png(bar_png_path, dates1, counts1, dates2, counts2, regex_fname, start1, end1)
+    if bar_png_path.exists():
+        print(f'Wrote bar graph PNG: {bar_png_path}')
 
 if __name__ == '__main__':
     main(sys.argv[1:])
