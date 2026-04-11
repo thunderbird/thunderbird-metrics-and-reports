@@ -223,23 +223,25 @@ def ensure_reports_dir(product):
     return rpt
 
 
-def write_csv(report_path, dates1, counts1, counts2, ids1, ids2, regex_fname):
+def write_csv(report_path, dates1, counts1, counts2, ids1, ids2, regex_fname, start1, end1, start2, end2):
     with open(report_path, 'w', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)
-        header = ['date', f'num-{regex_fname}-matches-range1', f'num-{regex_fname}-matches-range2',
-                  'time-range-1-matching-ids', 'time-range-2-matching-ids']
+        range1_label = f'{start1.isoformat()}_to_{end1.isoformat()}'
+        range2_label = f'{start2.isoformat()}_to_{end2.isoformat()}'
+        header = ['date', f'num-{regex_fname}-matches-{range1_label}', f'num-{regex_fname}-matches-{range2_label}',
+                  f'{range1_label}-matching-ids', f'{range2_label}-matching-ids']
         writer.writerow(header)
         for d, c1, c2, id1, id2 in zip(dates1, counts1, counts2, ids1, ids2):
             writer.writerow([d.isoformat(), c1, c2, id1, id2])
 
 
-def plot_png(png_path, dates1, counts1, dates2, counts2, regex_fname, start1, end1):
+def plot_png(png_path, dates1, counts1, dates2, counts2, regex_fname, start1, end1, start2, end2):
     if plt is None:
         print('matplotlib not available; skipping PNG generation')
         return
     fig, ax = plt.subplots(figsize=(10,4))
     ax.plot(dates1, counts1, label=f'{start1.isoformat()} to {end1.isoformat()}')
-    ax.plot(dates1, counts2, label='previous period')
+    ax.plot(dates1, counts2, label=f'{start2.isoformat()} to {end2.isoformat()}')
     ax.set_xlabel('Date')
     ax.set_ylabel(f'num-{regex_fname}-matches')
     ax.set_title(f'Keyword matches: {regex_fname}')
@@ -250,7 +252,7 @@ def plot_png(png_path, dates1, counts1, dates2, counts2, regex_fname, start1, en
     plt.close(fig)
 
 
-def plot_bar_png(png_path, dates1, counts1, dates2, counts2, regex_fname, start1, end1):
+def plot_bar_png(png_path, dates1, counts1, dates2, counts2, regex_fname, start1, end1, start2, end2):
     if plt is None:
         print('matplotlib not available; skipping PNG generation')
         return
@@ -261,7 +263,7 @@ def plot_bar_png(png_path, dates1, counts1, dates2, counts2, regex_fname, start1
     width = 0.35
 
     bars1 = ax.bar(x - width/2, counts1, width, label=f'{start1.isoformat()} to {end1.isoformat()}')
-    bars2 = ax.bar(x + width/2, counts2, width, label='previous period')
+    bars2 = ax.bar(x + width/2, counts2, width, label=f'{start2.isoformat()} to {end2.isoformat()}')
 
     ax.set_xlabel('Date')
     ax.set_ylabel(f'num-{regex_fname}-matches')
@@ -335,20 +337,20 @@ def main(argv):
     report_name = f"{start1.isoformat()}_{end1.isoformat()}__{start2.isoformat()}_{end2.isoformat()}_{regex_fname}.csv"
     report_path = rpt_dir / report_name
     # CSV contains dates and counts for both ranges side-by-side
-    write_csv(report_path, dates1, counts1, counts2, ids1, ids2, regex_fname)
+    write_csv(report_path, dates1, counts1, counts2, ids1, ids2, regex_fname, start1, end1, start2, end2)
     print(f'Wrote CSV: {report_path}')
 
     # plot line graph PNG
     png_name = f"{start1.isoformat()}_{end1.isoformat()}__{start2.isoformat()}_{end2.isoformat()}_{regex_fname}.png"
     png_path = rpt_dir / png_name
-    plot_png(png_path, dates1, counts1, dates2, counts2, regex_fname, start1, end1)
+    plot_png(png_path, dates1, counts1, dates2, counts2, regex_fname, start1, end1, start2, end2)
     if png_path.exists():
         print(f'Wrote PNG: {png_path}')
 
     # plot bar graph PNG
     bar_png_name = f"{start1.isoformat()}_{end1.isoformat()}__{start2.isoformat()}_{end2.isoformat()}_{regex_fname}_bar.png"
     bar_png_path = rpt_dir / bar_png_name
-    plot_bar_png(bar_png_path, dates1, counts1, dates2, counts2, regex_fname, start1, end1)
+    plot_bar_png(bar_png_path, dates1, counts1, dates2, counts2, regex_fname, start1, end1, start2, end2)
     if bar_png_path.exists():
         print(f'Wrote bar graph PNG: {bar_png_path}')
 
