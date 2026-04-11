@@ -190,13 +190,13 @@ def ensure_reports_dir(product):
     return rpt
 
 
-def write_csv(report_path, dates, counts, regex_fname):
+def write_csv(report_path, dates1, counts1, counts2, regex_fname):
     with open(report_path, 'w', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)
-        header = ['date', f'num-{regex_fname}-matches']
+        header = ['date', f'num-{regex_fname}-matches-range1', f'num-{regex_fname}-matches-range2']
         writer.writerow(header)
-        for d, c in zip(dates, counts):
-            writer.writerow([d.isoformat(), c])
+        for d, c1, c2 in zip(dates1, counts1, counts2):
+            writer.writerow([d.isoformat(), c1, c2])
 
 
 def plot_png(png_path, dates1, counts1, dates2, counts2, regex_fname, start1, end1):
@@ -242,13 +242,15 @@ def main(argv):
 
     # write CSV
     rpt_dir = ensure_reports_dir(product)
-    report_name = f"{start1.isoformat()}_{end1.isoformat()}_{regex_fname}.csv"
+    # Filename includes both date-range-1 and date-range-2
+    report_name = f"{start1.isoformat()}_{end1.isoformat()}__{start2.isoformat()}_{end2.isoformat()}_{regex_fname}.csv"
     report_path = rpt_dir / report_name
-    write_csv(report_path, dates1, counts1, regex_fname)
+    # CSV contains dates and counts for both ranges side-by-side
+    write_csv(report_path, dates1, counts1, counts2, regex_fname)
     print(f'Wrote CSV: {report_path}')
 
     # plot PNG
-    png_name = f"{start1.isoformat()}_{end1.isoformat()}_{regex_fname}.png"
+    png_name = f"{start1.isoformat()}_{end1.isoformat()}__{start2.isoformat()}_{end2.isoformat()}_{regex_fname}.png"
     png_path = rpt_dir / png_name
     plot_png(png_path, dates1, counts1, dates2, counts2, regex_fname, start1, end1)
     if png_path.exists():
