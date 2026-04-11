@@ -19,6 +19,7 @@ Outputs:
   - REPORTS/<product>/<start1>-<end1>-<regex_filename>.csv  (date,num-<regex>-matches)
   - REPORTS/<product>/<start1>-<end1>-<regex_filename>.png  (line plot comparing the two ranges)
   - REPORTS/<product>/<start1>-<end1>-<regex_filename>_bar.png  (bar graph comparing the two ranges)
+  - REPORTS/<product>/<start1>-<end1>-<regex_filename>_overall.png  (overall bar chart with 2 bars: totals for each range)
 
 All dates/times are handled in UTC.
 """
@@ -273,6 +274,37 @@ def plot_bar_png(png_path, dates1, counts1, dates2, counts2, regex_fname, start1
     plt.close(fig)
 
 
+def plot_overall_bar_png(png_path, counts1, counts2, regex_fname, start1, end1, start2, end2):
+    if plt is None:
+        print('matplotlib not available; skipping PNG generation')
+        return
+
+    total1 = sum(counts1)
+    total2 = sum(counts2)
+
+    fig, ax = plt.subplots(figsize=(8,6))
+    periods = [f'{start1.isoformat()}\nto\n{end1.isoformat()}',
+               f'{start2.isoformat()}\nto\n{end2.isoformat()}']
+    totals = [total1, total2]
+    colors = ['#1f77b4', '#ff7f0e']  # Blue and orange to match other plots
+
+    bars = ax.bar(periods, totals, color=colors, width=0.6)
+
+    # Add value labels on top of bars
+    for bar, total in zip(bars, totals):
+        height = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width()/2., height,
+                f'{int(total)}',
+                ha='center', va='bottom', fontsize=12, fontweight='bold')
+
+    ax.set_ylabel(f'Total num-{regex_fname}-matches', fontsize=11)
+    ax.set_title(f'Overall keyword matches comparison: {regex_fname}', fontsize=12, fontweight='bold')
+    ax.set_ylim(0, max(totals) * 1.15)  # Add 15% headroom for labels
+    plt.tight_layout()
+    fig.savefig(png_path)
+    plt.close(fig)
+
+
 def main(argv):
     product, start1, end1, start2, end2, regex = parse_args(argv)
 
@@ -319,6 +351,13 @@ def main(argv):
     plot_bar_png(bar_png_path, dates1, counts1, dates2, counts2, regex_fname, start1, end1)
     if bar_png_path.exists():
         print(f'Wrote bar graph PNG: {bar_png_path}')
+
+    # plot overall bar chart PNG
+    overall_bar_png_name = f"{start1.isoformat()}_{end1.isoformat()}__{start2.isoformat()}_{end2.isoformat()}_{regex_fname}_overall.png"
+    overall_bar_png_path = rpt_dir / overall_bar_png_name
+    plot_overall_bar_png(overall_bar_png_path, counts1, counts2, regex_fname, start1, end1, start2, end2)
+    if overall_bar_png_path.exists():
+        print(f'Wrote overall bar chart PNG: {overall_bar_png_path}')
 
 if __name__ == '__main__':
     main(sys.argv[1:])
