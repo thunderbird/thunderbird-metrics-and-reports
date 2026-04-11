@@ -17,6 +17,7 @@ Usage:
 
 Outputs:
   - REPORTS/<product>/<start1>-<end1>-<regex_filename>.csv  (date,num-<regex>-matches)
+  - REPORTS/<product>/<start1>-<end1>-<regex_filename>.md  (markdown table with linked question IDs)
   - REPORTS/<product>/<start1>-<end1>-<regex_filename>.png  (line plot comparing the two ranges)
   - REPORTS/<product>/<start1>-<end1>-<regex_filename>_bar.png  (bar graph comparing the two ranges)
   - REPORTS/<product>/<start1>-<end1>-<regex_filename>_overall.png  (overall bar chart with 2 bars: totals for each range)
@@ -235,6 +236,62 @@ def write_csv(report_path, dates1, counts1, counts2, ids1, ids2, regex_fname, st
             writer.writerow([d.isoformat(), c1, c2, id1, id2])
 
 
+def make_question_link(qid, questions):
+    """Create a markdown link for a question ID with title as tooltip."""
+    title = questions.get(qid, {}).get('title', '') or ''
+    # Truncate to 80 chars
+    title_truncated = title[:80]
+    # Replace double quotes with U+FF02 (fullwidth quotation mark)
+    title_escaped = title_truncated.replace('"', '\uff02')
+    return f'[{qid}](https://support.mozilla.org/questions/{qid} "{title_escaped}")'
+
+
+def write_markdown(markdown_path, dates1, counts1, counts2, ids1, ids2, regex_fname, start1, end1, start2, end2, questions):
+    """Write markdown table with linked question IDs."""
+    range1_label = f'{start1.isoformat()}_to_{end1.isoformat()}'
+    range2_label = f'{start2.isoformat()}_to_{end2.isoformat()}'
+
+    with open(markdown_path, 'w', encoding='utf-8') as f:
+        # Write header
+        f.write(f'# Keyword matches: {regex_fname}\n\n')
+        f.write(f'Comparing **{start1.isoformat()} to {end1.isoformat()}** vs **{start2.isoformat()} to {end2.isoformat()}**\n\n')
+
+        # Write table header
+        f.write('| Date | ')
+        f.write(f'num-{regex_fname}-matches-{range1_label} | ')
+        f.write(f'num-{regex_fname}-matches-{range2_label} | ')
+        f.write(f'{range1_label}-matching-ids | ')
+        f.write(f'{range2_label}-matching-ids |\n')
+
+        # Write separator
+        f.write('|------|')
+        f.write('---:|')
+        f.write('---:|')
+        f.write('----|')
+        f.write('----|\n')
+
+        # Write data rows
+        for d, c1, c2, id_str1, id_str2 in zip(dates1, counts1, counts2, ids1, ids2):
+            # Convert ID strings to markdown links
+            if id_str1:
+                ids1_list = id_str1.split(';')
+                linked_ids1 = ', '.join([make_question_link(qid, questions) for qid in ids1_list])
+            else:
+                linked_ids1 = ''
+
+            if id_str2:
+                ids2_list = id_str2.split(';')
+                linked_ids2 = ', '.join([make_question_link(qid, questions) for qid in ids2_list])
+            else:
+                linked_ids2 = ''
+
+            f.write(f'| {d.isoformat()} | ')
+            f.write(f'{c1} | ')
+            f.write(f'{c2} | ')
+            f.write(f'{linked_ids1} | ')
+            f.write(f'{linked_ids2} |\n')
+
+
 def plot_png(png_path, dates1, counts1, dates2, counts2, regex_fname, start1, end1, start2, end2):
     if plt is None:
         print('matplotlib not available; skipping PNG generation')
@@ -339,6 +396,12 @@ def main(argv):
     # CSV contains dates and counts for both ranges side-by-side
     write_csv(report_path, dates1, counts1, counts2, ids1, ids2, regex_fname, start1, end1, start2, end2)
     print(f'Wrote CSV: {report_path}')
+
+    # write markdown table
+    markdown_name = f"{start1.isoformat()}_{end1.isoformat()}__{start2.isoformat()}_{end2.isoformat()}_{regex_fname}.md"
+    markdown_path = rpt_dir / markdown_name
+    write_markdown(markdown_path, dates1, counts1, counts2, ids1, ids2, regex_fname, start1, end1, start2, end2, questions)
+    print(f'Wrote Markdown: {markdown_path}')
 
     # plot line graph PNG
     png_name = f"{start1.isoformat()}_{end1.isoformat()}__{start2.isoformat()}_{end2.isoformat()}_{regex_fname}.png"
