@@ -191,21 +191,28 @@ def regex_to_filename(regex):
 
 def count_matches_for_range(dates, questions, answers_by_q, pattern):
     counts = []
+    matching_ids = []
     for d in dates:
-        total = 0
+        date_matching_qids = set()
         dstr = d.isoformat()
         # questions created on this date
         for qid, q in questions.items():
             if q.get('created_date') == d:
                 for field in ('title','content','tags'):
                     text = q.get(field,'') or ''
-                    total += len(pattern.findall(text))
-                # answers for this question created on this date
-                for ans in answers_by_q.get(qid, []):
-                    if ans.get('created_date') == d:
-                        total += len(pattern.findall(ans.get('content','') or ''))
-        counts.append(total)
-    return counts
+                    if pattern.search(text):
+                        date_matching_qids.add(qid)
+                        break
+        # answers created on this date (for any question, regardless of when question was created)
+        for qid, answers in answers_by_q.items():
+            for ans in answers:
+                if ans.get('created_date') == d:
+                    if pattern.search(ans.get('content','') or ''):
+                        date_matching_qids.add(qid)
+                        break
+        counts.append(len(date_matching_qids))
+        matching_ids.append(';'.join(sorted(date_matching_qids)))
+    return counts, matching_ids
 
 
 def ensure_reports_dir(product):
@@ -214,13 +221,14 @@ def ensure_reports_dir(product):
     return rpt
 
 
-def write_csv(report_path, dates1, counts1, counts2, regex_fname):
+def write_csv(report_path, dates1, counts1, counts2, ids1, ids2, regex_fname):
     with open(report_path, 'w', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)
-        header = ['date', f'num-{regex_fname}-matches-range1', f'num-{regex_fname}-matches-range2']
+        header = ['date', f'num-{regex_fname}-matches-range1', f'num-{regex_fname}-matches-range2',
+                  'time-range-1-matching-ids', 'time-range-2-matching-ids']
         writer.writerow(header)
-        for d, c1, c2 in zip(dates1, counts1, counts2):
-            writer.writerow([d.isoformat(), c1, c2])
+        for d, c1, c2, id1, id2 in zip(dates1, counts1, counts2, ids1, ids2):
+            writer.writerow([d.isoformat(), c1, c2, id1, id2])
 
 
 def plot_png(png_path, dates1, counts1, dates2, counts2, regex_fname, start1, end1):
@@ -261,8 +269,8 @@ def main(argv):
 
     questions, answers_by_q = load_questions_and_answers(product, months)
 
-    counts1 = count_matches_for_range(dates1, questions, answers_by_q, pattern)
-    counts2 = count_matches_for_range(dates2, questions, answers_by_q, pattern)
+    counts1, ids1 = count_matches_for_range(dates1, questions, answers_by_q, pattern)
+    counts2, ids2 = count_matches_for_range(dates2, questions, answers_by_q, pattern)
 
     # write CSV
     rpt_dir = ensure_reports_dir(product)
@@ -270,7 +278,7 @@ def main(argv):
     report_name = f"{start1.isoformat()}_{end1.isoformat()}__{start2.isoformat()}_{end2.isoformat()}_{regex_fname}.csv"
     report_path = rpt_dir / report_name
     # CSV contains dates and counts for both ranges side-by-side
-    write_csv(report_path, dates1, counts1, counts2, regex_fname)
+    write_csv(report_path, dates1, counts1, counts2, ids1, ids2, regex_fname)
     print(f'Wrote CSV: {report_path}')
 
     # plot PNG
