@@ -67,9 +67,22 @@ def parse_args(argv):
 
     # compute n days
     n_days = (end1 - start1).days + 1
-    # date-range-2 is same period starting n_days earlier
+    # date-range-2 is same period starting n_days earlier by default
     start2 = start1 - timedelta(days=n_days)
     end2 = end1 - timedelta(days=n_days)
+
+    # If script was invoked in single-arg mode, set date-range-2 to the previous calendar month
+    if len(argv) == 1:
+        # previous month first day
+        if start1.month == 1:
+            start2 = date(start1.year - 1, 12, 1)
+        else:
+            start2 = date(start1.year, start1.month - 1, 1)
+        # previous month last day
+        if start2.month == 12:
+            end2 = date(start2.year, 12, 31)
+        else:
+            end2 = (start2.replace(month=start2.month + 1) - timedelta(days=1))
 
     return product, start1, end1, start2, end2, regex
 
