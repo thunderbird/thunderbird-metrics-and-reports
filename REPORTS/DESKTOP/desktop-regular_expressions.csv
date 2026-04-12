@@ -1,0 +1,9 @@
+regex_name, regex
+gmail, """(?i)(gmail|google mail|googlemail)"""
+protonmail, """(?i)(protonmail|proton\.me|pm\.me)"""
+microsoft_hosted_email,  "(?i)(live(\.|-)*com|msn|ms365|outlook|office365|office 365|\
+hotmail|livemail|passport|microsoft365|microsoft 365|\
+o365|ms 365|verizon|microsoft mail|microsoftmail|\
+timewarner|twc|godaddy|msexchange|ms exchange|\
+microsoft exchange|microsoftexchange|\
+spectrum|time warner|roadrunner)"""
