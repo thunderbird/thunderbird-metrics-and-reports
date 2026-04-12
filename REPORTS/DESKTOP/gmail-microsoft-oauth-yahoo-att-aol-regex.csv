@@ -3,8 +3,7 @@ gmail, """(?i)(gmail|google mail|googlemail)"""
 microsoft_hosted_email,  """(?i)(live(\.|-)*com|msn|ms365|outlook|office365|office 365|\
 hotmail|livemail|passport|microsoft365|microsoft 365|\
 o365|ms 365|verizon|microsoft mail|microsoftmail|\
-timewarner|twc|godaddy|msexchange|ms exchange|\
-microsoft exchange|microsoftexchange|\
-spectrum|time warner|roadrunner)"""
+|godaddy|msexchange|ms exchange|\
+microsoft exchange|microsoftexchange)"""
 oauth, """(?i)(oauth|oauth2|open authorization|pkce)"""
 yahoo_aol_att_etc, """(?i)(yahoo|ymail|rocketmail|aol_mail|aol|att|bellsouth|comcast|cox|earthlink|juno|mail\.ru|mail\.com|)"""
