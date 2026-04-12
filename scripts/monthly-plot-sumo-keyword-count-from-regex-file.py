@@ -290,8 +290,8 @@ def make_question_link(qid, questions):
     title = questions.get(qid, {}).get('title', '') or ''
     # Truncate to 80 chars
     title_truncated = title[:80]
-    # Replace double quotes with U+FF02 (fullwidth quotation mark)
-    title_escaped = title_truncated.replace('"', '\uff02')
+    # Replace characters that cause issues in markdown tables
+    title_escaped = title_truncated.replace('"', '\uff02').replace('|', '¦')
     return f'[{qid}](https://support.mozilla.org/questions/{qid} "{title_escaped}")'
 
 
