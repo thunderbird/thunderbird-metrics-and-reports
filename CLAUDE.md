@@ -218,6 +218,45 @@ uv run scripts/create-question-summary-report.py android 2026 3
 - Non-spam analyzed: 54
 - Key themes: Performance issues (7), Missing features (12), Sync/IMAP issues (9), Authentication/account issues (8)
 
+### `scripts/create-question-answer-summary-report.py` **(RECOMMENDED)**
+
+Create monthly forum question & answer summary report with AI-generated summaries including trusted contributor responses.
+
+**Usage:**
+```bash
+export ANTHROPIC_API_KEY=your_key_here
+uv run scripts/create-question-answer-summary-report.py android 2026 3
+```
+
+**Requirements:** ANTHROPIC_API_KEY environment variable
+
+**Features:**
+- Automatically filters out spam questions
+- **Includes answers from trusted contributors and question creators** (not just questions)
+- Filters 91.3% of answers from trusted sources (platform34, wsmwk, Yu5tiqX9og for Android)
+- Generates comprehensive 1-2 sentence summaries incorporating:
+  - User's issue/request
+  - Resolutions, workarounds, or guidance from answers
+  - GitHub issue links for feature requests
+  - Bug acknowledgment and fix status
+- Creates CSV with columns: id, title (80 chars), LLM_Summary, Analyst_notes
+- Creates Markdown with answer statistics and clickable question links
+- Filenames: `YYYY-MM-{product}-question-answer-summary.{csv|md}`
+
+**Why use this over question-only version:**
+- Provides complete picture of community support and issue status
+- Shows which issues have solutions/workarounds vs unresolved
+- Captures valuable guidance from trusted contributors
+- Includes GitHub tracking information from contributor responses
+- Much richer context for analysis and reporting
+
+**March 2026 Android Q&A Statistics:**
+- Total questions: 54 (66 total - 12 spam)
+- Questions with answers: 50 (92.6%)
+- Total answers: 92
+- Trusted/creator answers: 84 (91.3%)
+- Trusted contributors: 3 (platform34, wsmwk, Yu5tiqX9og)
+
 ## Key Insights and Patterns
 
 ### Android vs Desktop Differences
