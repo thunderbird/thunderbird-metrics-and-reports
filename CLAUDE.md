@@ -143,6 +143,56 @@ uv run scripts/compare-oauth-by-provider.py desktop 2026 2 3
 uv run scripts/compare-send-receive-by-provider.py desktop 2026 2 3
 ```
 
+### `scripts/analyze-missing-emails-subcategories.py`
+
+Breaks down Missing Emails or Folders issues using basic keyword matching.
+
+**Usage:**
+```bash
+uv run scripts/analyze-missing-emails-subcategories.py desktop 2026 3
+```
+
+**Limitation:** Only captures ~20% of questions with specific categories (79.5% remain "Other/Unknown").
+
+### `scripts/analyze-missing-emails-manual-clustering.py`
+
+Breaks down Missing Emails or Folders issues using enhanced rule-based clustering.
+
+**Usage:**
+```bash
+uv run scripts/analyze-missing-emails-manual-clustering.py desktop 2026 3
+```
+
+**Features:**
+- Improved coverage: Only 26% uncategorized (vs 79.5% with basic keywords)
+- Detects misclassified questions (questions not actually about missing emails/folders)
+- 13+ categories including: All Emails Disappeared, Search/Filter Issues, Profile Issues, After Update, etc.
+
+**Recommended approach** for regular missing emails/folders analysis.
+
+### `scripts/analyze-missing-emails-llm-clustering.py`
+
+Breaks down Missing Emails or Folders issues using Claude AI for intelligent categorization.
+
+**Usage:**
+```bash
+export ANTHROPIC_API_KEY=your_key_here
+uv run scripts/analyze-missing-emails-llm-clustering.py desktop 2026 3
+```
+
+**Requirements:** ANTHROPIC_API_KEY environment variable
+
+**Best accuracy** but requires API key and has associated costs (~$0.07-0.73 for 73 questions).
+
+### `scripts/compare-missing-emails-enhanced-clustering.py`
+
+Compare Missing Emails or Folders enhanced clustering results across two months.
+
+**Usage:**
+```bash
+uv run scripts/compare-missing-emails-enhanced-clustering.py desktop 2026 2 3
+```
+
 ## Key Insights and Patterns
 
 ### Android vs Desktop Differences
@@ -187,6 +237,38 @@ uv run scripts/compare-send-receive-by-provider.py desktop 2026 2 3
 3. Cannot Send/Receive Emails - 6 questions
 
 **Key change:** Performance/Crashes emerged as new top 3 issue in March 2026, replacing Missing Emails or Folders from February's top 3.
+
+### Missing Emails or Folders Clustering (Desktop)
+
+**February vs March 2026 Comparison (Enhanced Rule-Based Clustering):**
+
+**Overall Trend:**
+- **February 2026:** 104 questions
+- **March 2026:** 73 questions
+- **Change:** -31 questions (-29.8% decrease)
+
+**Largest Decreases (Improvements):**
+1. Search/Filter/View Issues: 17 → 8 (-52.9%)
+2. Profile/Installation Issues: 14 → 7 (-50.0%)
+3. Local Folders: 5 → 1 (-80.0%)
+4. Junk/Spam Folder: 3 → 0 (-100.0% - completely resolved!)
+5. Other/Uncategorized: 25 → 19 (-24.0%)
+
+**Largest Increases (Concerns):**
+1. After Update/Upgrade: 1 → 3 (+200.0%)
+2. Misclassified (Not Missing Emails/Folders): 10 → 12 (+20.0%)
+3. Sent Folder Issues: 3 → 4 (+33.3%)
+
+**Stable Categories:**
+- All Emails Disappeared: 3 questions (no change)
+- Emails/Folders Disappeared: 9 questions (no change)
+
+**Key Insight:** The overall 29.8% decrease in Missing Emails or Folders issues from February to March is encouraging. The complete elimination of Junk/Spam folder issues and significant drops in Search/Filter and Profile issues suggest improvements in these areas. However, the tripling of "After Update/Upgrade" issues (1→3) may indicate problems introduced in recent Thunderbird updates.
+
+**Clustering Methods Available:**
+- Basic keyword matching: 79.5% uncategorized (poor coverage)
+- Enhanced rule-based: 26.0% uncategorized (recommended for regular use)
+- LLM-based (requires ANTHROPIC_API_KEY): Best accuracy, understands context
 
 ### Product-Specific Titles
 
