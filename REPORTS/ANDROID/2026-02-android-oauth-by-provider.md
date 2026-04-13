@@ -1,0 +1,10 @@
+# OAuth/Authentication Issues by Email Provider - 2026-02
+
+**Total OAuth/Authentication Issues:** 24
+
+| Provider | Count | % | Sample Question IDs |
+|----------|------:|--:|--------------------|
+| Gmail/Google | 9 | 37.5% | [1564679](https://support.mozilla.org/questions/1564679 "Unsubscribe from email"), [1563871](https://support.mozilla.org/questions/1563871 "Thunderbird on Android"), [1567985](https://support.mozilla.org/questions/1567985 "aunni2283@gmail.com"), [1567870](https://support.mozilla.org/questions/1567870 "Make better use of screen realestate on tablets"), [1565637](https://support.mozilla.org/questions/1565637 "How to remove eigene email- Kontenverknüpfungen?") ... and 4 more |
+| Other/Unknown Provider | 8 | 33.3% | [1565043](https://support.mozilla.org/questions/1565043 "it's a really no biometric or fingerprint access for security in Thunderbird for"), [1566514](https://support.mozilla.org/questions/1566514 "Thunderbird Mobile Breaks PDF Attachments"), [1563737](https://support.mozilla.org/questions/1563737 "Email with attachment tries to send every day"), [1563437](https://support.mozilla.org/questions/1563437 "Duplicate emails after import"), [1565527](https://support.mozilla.org/questions/1565527 "local autodiscover configuration is not trusted") ... and 3 more |
+| Yahoo Hosted Email (Yahoo/AOL/AT&T) | 6 | 25.0% | [1567877](https://support.mozilla.org/questions/1567877 "Cannot send email. Mailbox unavailable"), [1564787](https://support.mozilla.org/questions/1564787 "Authentication errors in setup"), [1565794](https://support.mozilla.org/questions/1565794 "When setting up Mobil Android, at the sign in page I get an error every time, Oa"), [1564383](https://support.mozilla.org/questions/1564383 "Changed PW in Yahoo, now how to on TBird?"), [1565871](https://support.mozilla.org/questions/1565871 "When setting up Mobil Android, at the sign in page I get an error every time, Oa") ... and 1 more |
+| Microsoft Hosted Email (Hotmail/Outlook/Office365) | 1 | 4.2% | [1567243](https://support.mozilla.org/questions/1567243 "Command error 12 with adding Outlook account to Thunderbird") |
