@@ -193,6 +193,31 @@ Compare Missing Emails or Folders enhanced clustering results across two months.
 uv run scripts/compare-missing-emails-enhanced-clustering.py desktop 2026 2 3
 ```
 
+### `scripts/create-question-summary-report.py`
+
+Create monthly forum question summary report with AI-generated summaries for all questions.
+
+**Usage:**
+```bash
+export ANTHROPIC_API_KEY=your_key_here
+uv run scripts/create-question-summary-report.py android 2026 3
+```
+
+**Requirements:** ANTHROPIC_API_KEY environment variable
+
+**Features:**
+- Automatically filters out spam questions (based on is_spam field)
+- Generates concise 1-2 sentence summaries for each question using Claude AI
+- Creates CSV with columns: id, title (80 chars), LLM_Summary, Analyst_notes (blank for manual notes)
+- Creates Markdown with clickable question links and formatted table
+- Useful for monthly question review and analysis
+
+**March 2026 Android Summary Statistics:**
+- Total questions: 66
+- Spam filtered out: 12
+- Non-spam analyzed: 54
+- Key themes: Performance issues (7), Missing features (12), Sync/IMAP issues (9), Authentication/account issues (8)
+
 ## Key Insights and Patterns
 
 ### Android vs Desktop Differences
@@ -237,6 +262,24 @@ uv run scripts/compare-missing-emails-enhanced-clustering.py desktop 2026 2 3
 3. Cannot Send/Receive Emails - 6 questions
 
 **Key change:** Performance/Crashes emerged as new top 3 issue in March 2026, replacing Missing Emails or Folders from February's top 3.
+
+### Android Question Summary (March 2026)
+
+**Summary Statistics:**
+- Total questions: 66
+- Spam filtered out: 12 (18.2%)
+- Non-spam analyzed: 54
+
+**Key Themes Identified:**
+1. **Performance Issues (7 questions, 13%)**: Slow/sluggish app, freezing on Pixel 9a, crashes on Android 8 when loading images, inbox not refreshing after v17.0 update
+2. **Missing Features (12 questions, 22%)**: Custom message filters, unified folders beyond inbox, OAuth2 for POP3, scheduled send, adjustable font size
+3. **Sync/IMAP Issues (9 questions, 17%)**: Push delays (10 min behind Outlook), folders not syncing/visible (only sees INBOX), missing subfolders (36 exist but only 2 show)
+4. **Authentication/Account Issues (8 questions, 15%)**: Yahoo authentication showing wrong account, merged/duplicate accounts, password change on mobile
+
+**Observations:**
+- Feature parity with desktop is major request category (22%)
+- Folder visibility/sync issues affect significant portion of users (17%)
+- Performance concerns increasing (emerged as top 3 pain point in March)
 
 ### Missing Emails or Folders Clustering (Desktop)
 
