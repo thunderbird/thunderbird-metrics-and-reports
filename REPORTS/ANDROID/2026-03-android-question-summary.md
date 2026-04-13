@@ -4,7 +4,7 @@
 
 | ID | Title | Summary | Analyst Notes |
 |----|-------|---------|---------------|
-| [1568322](https://support.mozilla.org/questions/1568322 "Recipient field not displayed for ＂undisclosed-recipients:＂") | Recipient field not displayed for "undisclosed-recipients:" | User requests that Thunderbird display recipient information for emails sent to undisclosed-recipients (BCC), as currently they show blank with no indication they're BCC emails |  |
+| [1568322](https://support.mozilla.org/questions/1568322 "Recipient field not displayed for ＂undisclosed-recipients:＂") | Recipient field not displayed for "undisclosed-recipients:" | User requests that Thunderbird display recipient information for emails sent to undisclosed-recipients (BCC), as currently they show blank with no indication they're BCC emails |Feature Request for Connect ("Connect")|
 | [1568394](https://support.mozilla.org/questions/1568394 "Yahoo Account in Thunberbird") | Yahoo Account in Thunberbird | User unable to authenticate personal Yahoo account - authentication dialog shows ISP provider (Rogers) Yahoo login instead of personal Yahoo account credentials |  |
 | [1568431](https://support.mozilla.org/questions/1568431 "Individual Ring Tone for android thunderbird") | Individual Ring Tone for android thunderbird | User wants to set a custom notification ringtone for Thunderbird email notifications on Android |  |
 | [1568460](https://support.mozilla.org/questions/1568460 "Tbird for android - slow/sluggish and fails") | Tbird for android - slow/sluggish and fails | Thunderbird v16.1 on Pixel 9a with Gmail is slow and sluggish - starts with blank screen, appears frozen, then displays messages later; general navigation is delayed compared to Gmail app |  |
