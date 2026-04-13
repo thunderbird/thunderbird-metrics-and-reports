@@ -1,0 +1,11 @@
+# Thunderbird Desktop Cannot Send/Receive Emails by Email Provider - 2026-02
+
+**Total Cannot Send/Receive Issues:** 120
+
+| Provider | Count | % | Sample Question IDs |
+|----------|------:|--:|--------------------|
+| Other/Unknown Provider | 102 | 85.0% | [1564116](https://support.mozilla.org/questions/1564116 "end a memory"), [1567335](https://support.mozilla.org/questions/1567335 "Retrieving mail in Windows 11 is slow and clunky"), [1568159](https://support.mozilla.org/questions/1568159 "The ＂send＂ button is missing from the menu of my emails, I can write replies but"), [1565109](https://support.mozilla.org/questions/1565109 "I can't be able to access my email because I'll be protocol I set it up I need h"), [1567070](https://support.mozilla.org/questions/1567070 "Profile file size") ... and 97 more |
+| Microsoft Hosted Email (Hotmail/Outlook/Office365) | 12 | 10.0% | [1567898](https://support.mozilla.org/questions/1567898 "When I delete messages on Thunderbird on my Windows computer, it doesn't delete "), [1564946](https://support.mozilla.org/questions/1564946 "Accidentally hit delete all on Inbox - now TB is fetching mail from server and f"), [1565080](https://support.mozilla.org/questions/1565080 "Import Outlook 2016 desktop with over 500 folders and thousands of emails"), [1566216](https://support.mozilla.org/questions/1566216 "Ordner verschwunden"), [1565775](https://support.mozilla.org/questions/1565775 "Error User is authenticated but but not connected, Command error 12") ... and 7 more |
+| GMX | 3 | 2.5% | [1564846](https://support.mozilla.org/questions/1564846 "Warum kann ich kein neues gmx Konto auf thunderbird einrichten"), [1564292](https://support.mozilla.org/questions/1564292 "Postausgangsserver"), [1567043](https://support.mozilla.org/questions/1567043 "I don't find emails in Thunderbird from April 2023 until January 2026") |
+| Apple Email (iCloud/me.com) | 2 | 1.7% | [1567770](https://support.mozilla.org/questions/1567770 "Emails sent from Thunderbird on my 26.3 Mac don't appear online in the Sent fold"), [1567948](https://support.mozilla.org/questions/1567948 "Subscribe to existing folders on the Local Folder with new email set up.") |
+| T-Online | 1 | 0.8% | [1567105](https://support.mozilla.org/questions/1567105 "E-Mails über Thunderbird geht seit gestern nicht mehr zu versenden") |
