@@ -174,6 +174,20 @@ uv run scripts/compare-send-receive-by-provider.py desktop 2026 2 3
 - Microsoft leads identifiable providers (8.5%)
 - Gmail/Yahoo notably ABSENT (authentication is the main issue, not send/receive)
 
+### Top Pain Points Trending (Android)
+
+**February 2026 top 3:**
+1. OAuth/Authentication Issues - 24 questions
+2. Cannot Send/Receive Emails - 8 questions
+3. Missing Emails or Folders - 6 questions
+
+**March 2026 top 3:**
+1. OAuth/Authentication Issues - 21 questions
+2. Performance/Crashes - 6 questions
+3. Cannot Send/Receive Emails - 6 questions
+
+**Key change:** Performance/Crashes emerged as new top 3 issue in March 2026, replacing Missing Emails or Folders from February's top 3.
+
 ### Product-Specific Titles
 
 All markdown reports include product-specific titles:
