@@ -235,9 +235,15 @@ def write_markdown_report(md_path, provider_questions, provider_display_names, t
 
 
 def main():
-    product = 'desktop'
-    year = 2026
-    month = 3
+    if len(sys.argv) == 4:
+        product = sys.argv[1]
+        year = int(sys.argv[2])
+        month = int(sys.argv[3])
+    else:
+        # Default to March 2026
+        product = 'desktop'
+        year = 2026
+        month = 3
 
     print(f"Analyzing OAuth issues by provider for {product} {year:04d}-{month:02d}")
 
