@@ -81,9 +81,118 @@ mlr --csv nest --explode --values --across-records --nested-fs ";" -f tags \
 - Both have `created` timestamps in format: `YYYY-MM-DD HH:MM:SS ±HHMM`
 - All dates/times are converted to UTC for analysis
 
+### `scripts/create-pain-point-report.py`
+
+Analyzes SUMO questions and answers to identify top 3 user pain points.
+
+**Usage:**
+```bash
+# Generate report for specific month
+uv run scripts/create-pain-point-report.py desktop 2026 3
+```
+
+**Key features:**
+- Filters for English-only questions (locale starts with 'en')
+- Only includes answers from question creators OR trusted contributors
+- Categorizes questions into pain point categories using keyword analysis
+- Outputs CSV and markdown reports with top 3 pain points
+
+**Pain point categories:**
+1. OAuth/Authentication Issues
+2. Cannot Send/Receive Emails
+3. Email Account Setup/Configuration
+4. Missing Emails or Folders
+5. Calendar/Events Issues
+6. Performance/Crashes
+7. Update/Upgrade Issues
+
+### `scripts/analyze-oauth-by-provider.py`
+
+Breaks down OAuth/Authentication issues by email provider.
+
+**Usage:**
+```bash
+uv run scripts/analyze-oauth-by-provider.py desktop 2026 3
+```
+
+**Provider detection patterns:**
+- Microsoft Hosted Email: hotmail, outlook, office365
+- Yahoo Hosted Email: yahoo, aol, att.net, sbcglobal
+- Gmail/Google: gmail, googlemail, google workspace
+- GMX: gmx.com, gmx.de, gmx.net
+- And more...
+
+### `scripts/analyze-send-receive-by-provider.py`
+
+Breaks down Cannot Send/Receive Emails issues by email provider.
+
+**Usage:**
+```bash
+uv run scripts/analyze-send-receive-by-provider.py desktop 2026 3
+```
+
+Uses same provider detection patterns as OAuth analysis.
+
+### `scripts/compare-oauth-by-provider.py` and `scripts/compare-send-receive-by-provider.py`
+
+Compare provider breakdowns across two months.
+
+**Usage:**
+```bash
+uv run scripts/compare-oauth-by-provider.py desktop 2026 2 3
+uv run scripts/compare-send-receive-by-provider.py desktop 2026 2 3
+```
+
+## Key Insights and Patterns
+
+### Android vs Desktop Differences
+
+**OAuth/Authentication Issues:**
+- **Desktop:** 306-319 issues/month, providers identified (Gmail 21.6%, Yahoo 17.2%, Microsoft 10%)
+- **Android:** 21-24 issues/month, mostly generic (61.9% Other/Unknown in March)
+- Pattern: Android users report OAuth issues more generically or with less provider detail
+
+**Cannot Send/Receive Emails:**
+- **Desktop:** 117-120 issues/month, 82-85% generic, some providers identified (Microsoft 8.5%, GMX 3.4%)
+- **Android:** 6-8 issues/month, 100% generic (no providers identified)
+- Pattern: ALL Android send/receive issues lack specific provider mentions
+
+**Volume differences:**
+- Desktop has 10-15x more OAuth issues than Android
+- Desktop has 15-20x more send/receive issues than Android
+- Android questions tend to be less detailed/technical
+
+### Provider-Specific Patterns
+
+**OAuth Issues (Desktop):**
+- Gmail/Yahoo dominate OAuth problems (combined ~39%)
+- GMX shows significant volatility (2 → 7, +250% Feb to Mar)
+- Microsoft relatively stable (~10%)
+
+**Send/Receive Issues (Desktop):**
+- Mostly generic issues (82-85%)
+- Microsoft leads identifiable providers (8.5%)
+- Gmail/Yahoo notably ABSENT (authentication is the main issue, not send/receive)
+
+### Product-Specific Titles
+
+All markdown reports include product-specific titles:
+- Android reports: "Thunderbird for Android ..."
+- Desktop reports: "Thunderbird Desktop ..."
+
+## Trusted Contributors
+
+Located in `CONCATENATED_FILES/{PRODUCT}/thunderbird-{product}-trusted-contributors.csv`
+- Desktop: 29 trusted contributors
+- Android: 3 trusted contributors
+
+Pain point analysis only includes answers from question creators OR trusted contributors to ensure quality.
+
 ## Important Notes
 
 - The script `plot-sumo-keyword-count.py` uses `datetime.utcnow()` which is deprecated. This generates a warning but doesn't affect functionality.
-- CSV field size limits are increased to `sys.maxsize` in `generate_reports.py` to handle large content fields.
+- CSV field size limits are increased to `sys.maxsize` in analysis scripts to handle large content fields.
 - Question titles are truncated to 80 characters for markdown tooltips.
 - When searching for keywords, the match is case-insensitive by default (use `(?i)` flag in regex).
+- Pipe characters (|) are replaced with broken bar (¦) in markdown links to avoid table parsing issues.
+- Double quotes (") are replaced with U+FF02 (fullwidth quotation mark) in markdown tooltips.
