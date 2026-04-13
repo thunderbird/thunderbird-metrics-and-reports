@@ -201,8 +201,9 @@ def make_question_link(qid, title):
     return f'[{qid}](https://support.mozilla.org/questions/{qid} "{title_escaped}")'
 
 
-def write_markdown_report(md_path, provider_questions, provider_display_names, total_oauth, year, month):
+def write_markdown_report(md_path, provider_questions, provider_display_names, total_oauth, year, month, product):
     """Write markdown report sorted by count descending."""
+    product_name = "Thunderbird for Android" if product == "android" else "Thunderbird Desktop"
     # Sort providers by count
     sorted_providers = sorted(
         provider_questions.items(),
@@ -211,7 +212,7 @@ def write_markdown_report(md_path, provider_questions, provider_display_names, t
     )
 
     with open(md_path, 'w', encoding='utf-8') as f:
-        f.write(f'# OAuth/Authentication Issues by Email Provider - {year:04d}-{month:02d}\n\n')
+        f.write(f'# {product_name} OAuth/Authentication Issues by Email Provider - {year:04d}-{month:02d}\n\n')
         f.write(f'**Total OAuth/Authentication Issues:** {total_oauth}\n\n')
         f.write('| Provider | Count | % | Sample Question IDs |\n')
         f.write('|----------|------:|--:|--------------------|\n')
@@ -288,7 +289,7 @@ def main():
     # Write markdown report
     md_filename = f"{year:04d}-{month:02d}-{product}-oauth-by-provider.md"
     md_path = reports_dir / md_filename
-    write_markdown_report(md_path, provider_questions, provider_display_names, len(oauth_ids), year, month)
+    write_markdown_report(md_path, provider_questions, provider_display_names, len(oauth_ids), year, month, product)
     print(f"Wrote markdown report: {md_path}")
 
 

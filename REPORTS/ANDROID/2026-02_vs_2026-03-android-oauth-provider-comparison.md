@@ -1,4 +1,4 @@
-# OAuth/Authentication Issues by Email Provider - 2026-02 vs 2026-03
+# Thunderbird for Android OAuth/Authentication Issues by Email Provider - 2026-02 vs 2026-03
 
 ## Overall Summary
 

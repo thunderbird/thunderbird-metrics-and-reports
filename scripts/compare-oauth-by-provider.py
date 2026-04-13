@@ -90,10 +90,11 @@ def write_csv_report(csv_path, comparisons, month1_name, month2_name):
             ])
 
 
-def write_markdown_report(md_path, comparisons, month1_name, month2_name, month1_total, month2_total):
+def write_markdown_report(md_path, comparisons, month1_name, month2_name, month1_total, month2_total, product):
     """Write markdown comparison report."""
+    product_name = "Thunderbird for Android" if product == "android" else "Thunderbird Desktop"
     with open(md_path, 'w', encoding='utf-8') as f:
-        f.write(f'# OAuth/Authentication Issues by Email Provider - {month1_name} vs {month2_name}\n\n')
+        f.write(f'# {product_name} OAuth/Authentication Issues by Email Provider - {month1_name} vs {month2_name}\n\n')
 
         # Overall summary
         total_change = month2_total - month1_total
@@ -233,7 +234,7 @@ def main():
 
     md_filename = f'{month1_name}_vs_{month2_name}-{product}-oauth-provider-comparison.md'
     md_path = reports_dir / md_filename
-    write_markdown_report(md_path, comparisons, month1_name, month2_name, month1_total, month2_total)
+    write_markdown_report(md_path, comparisons, month1_name, month2_name, month1_total, month2_total, product)
     print(f"Wrote markdown report: {md_path}")
 
 

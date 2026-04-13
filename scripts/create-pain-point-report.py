@@ -219,10 +219,11 @@ def make_question_link(qid, questions):
     return f'[{qid}](https://support.mozilla.org/questions/{qid} "{title_escaped}")'
 
 
-def write_markdown_report(md_path, top_pain_points, questions, year, month):
+def write_markdown_report(md_path, top_pain_points, questions, year, month, product):
     """Write markdown report."""
+    product_name = "Thunderbird for Android" if product == "android" else "Thunderbird Desktop"
     with open(md_path, 'w', encoding='utf-8') as f:
-        f.write(f'# Thunderbird Desktop Top 3 User Pain Points - {year:04d}-{month:02d}\n\n')
+        f.write(f'# {product_name} Top 3 User Pain Points - {year:04d}-{month:02d}\n\n')
         f.write('| Pain Point | Count | Question IDs |\n')
         f.write('|------------|------:|-------------|\n')
 
@@ -290,7 +291,7 @@ def main():
     # Write markdown report
     md_filename = f"{year:04d}-{month:02d}-{product}-top-pain-points.md"
     md_path = reports_dir / md_filename
-    write_markdown_report(md_path, top_3, questions, year, month)
+    write_markdown_report(md_path, top_3, questions, year, month, product)
     print(f"Wrote markdown report: {md_path}")
 
 
