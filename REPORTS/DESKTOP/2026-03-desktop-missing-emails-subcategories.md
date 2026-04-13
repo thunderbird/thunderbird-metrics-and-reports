@@ -1,0 +1,15 @@
+# Thunderbird Desktop Missing Emails or Folders by Subcategory - 2026-03
+
+**Total Missing Emails or Folders Issues:** 73
+
+| Subcategory | Count | % | Sample Question IDs |
+|-------------|------:|--:|--------------------|
+| Other/Unknown | 58 | 79.5% | [1572476](https://support.mozilla.org/questions/1572476 "Opening page in Thunderbird is a mess since last update"), [1571322](https://support.mozilla.org/questions/1571322 "I suddenly have no emails or only a few in my folders."), [1572876](https://support.mozilla.org/questions/1572876 "how can i deactivate grouping of mails from the same sender?"), [1569000](https://support.mozilla.org/questions/1569000 "I send an email using bold, italic, and underline. The receiver gets *,/, and \ "), [1570176](https://support.mozilla.org/questions/1570176 "Had to delete my outlook app on my iphone as it would update..stuck for days ＂sp") ... and 53 more |
+| Search/Filter Issues | 5 | 6.8% | [1573739](https://support.mozilla.org/questions/1573739 "What happened to all the emails I downloaded weeks ago?"), [1572383](https://support.mozilla.org/questions/1572383 "Can see all message filters / top or bottom of message filter window in V 142?"), [1571786](https://support.mozilla.org/questions/1571786 "Instructing Thunderbird to arrange Sub-Folders in Inbox back into alphabetical o"), [1572936](https://support.mozilla.org/questions/1572936 "Email marked as read keeps being visible in an unread-folder"), [1571019](https://support.mozilla.org/questions/1571019 "Can I exclude a term from an email search (e.g. no 'Amazon')?") |
+| Archive Related | 3 | 4.1% | [1568842](https://support.mozilla.org/questions/1568842 "I have archivied e-mail but there is no archive folder"), [1572630](https://support.mozilla.org/questions/1572630 "How to recover a lost archived file"), [1570397](https://support.mozilla.org/questions/1570397 "How to set up archiving WITHOUT year folders, and preserving original folder hie") |
+| Local Folders | 2 | 2.7% | [1569171](https://support.mozilla.org/questions/1569171 "Over the past few days my sent emails are not copied in my sent folder"), [1571927](https://support.mozilla.org/questions/1571927 "Local Folders>Inbox preview doesn't show for most messages") |
+| After Update/Upgrade | 1 | 1.4% | [1572984](https://support.mozilla.org/questions/1572984 "New installation of Thunderbird does not find existing email accounts on local d") |
+| Trash/Deleted Folder Issues | 1 | 1.4% | [1569925](https://support.mozilla.org/questions/1569925 "148.0 update moved trash folder") |
+| IMAP Sync/Folder Visibility | 1 | 1.4% | [1569281](https://support.mozilla.org/questions/1569281 "12 messages in ＂draft＂ folder disappeared") |
+| Junk/Spam Folder Issues | 1 | 1.4% | [1573667](https://support.mozilla.org/questions/1573667 "My Thunderbird has two Spam folders, even after I deleted and reinstalled it.") |
+| Compact Folder Related | 1 | 1.4% | [1569864](https://support.mozilla.org/questions/1569864 "Not enough disk space to download new messages - error msg. Suggestions to fix t") |
