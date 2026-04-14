@@ -257,6 +257,20 @@ uv run scripts/create-question-answer-summary-report.py android 2026 3
 - Trusted/creator answers: 84 (91.3%)
 - Trusted contributors: 3 (platform34, wsmwk, Yu5tiqX9og)
 
+**March 2026 Desktop Q&A Statistics:**
+- Total questions: 931 (960 total - 29 spam)
+- Questions with answers: 759 (81.5%)
+- Total answers: 2,163
+- Trusted/creator answers: 2,107 (97.4%)
+- Trusted contributors: 29
+- Estimated API cost for full summarization: ~$9-18 (vs ~$0.07-0.73 for Android)
+
+**Volume Comparison (Android vs Desktop):**
+- Desktop has **17x more questions** than Android (931 vs 54)
+- Desktop has **10x more trusted contributors** (29 vs 3)
+- Desktop answer quality filtering even higher (97.4% vs 91.3% kept)
+- Both platforms have high answer coverage (81.5% Desktop, 92.6% Android)
+
 ## Key Insights and Patterns
 
 ### Android vs Desktop Differences
