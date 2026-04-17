@@ -176,7 +176,7 @@ Return ONLY the JSON array, no other text."""
 
     try:
         message = client.messages.create(
-            model="claude-3-5-sonnet-20241022",
+            model="claude-3-opus-20240229",
             max_tokens=8192,
             messages=[
                 {"role": "user", "content": prompt}
