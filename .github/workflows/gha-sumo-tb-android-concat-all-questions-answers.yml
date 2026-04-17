@@ -2,9 +2,9 @@ name: gha-sumo-tb-android-concat-all-questions-answers
 
 on:
     workflow_run:
-      workflows: ["gha-sumo-tb-desktop-create-monthly-csv"]
-      types:
-        - completed
+        workflows: ["gha-sumo-tb-desktop-create-monthly-csv"]
+        types:
+            - completed
   workflow_dispatch:
 
 permissions:
