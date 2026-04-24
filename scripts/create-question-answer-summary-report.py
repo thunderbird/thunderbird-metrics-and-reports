@@ -176,8 +176,8 @@ Return ONLY the JSON array, no other text."""
 
     try:
         message = client.messages.create(
-            model="claude-3-opus-20240229",
-            max_tokens=8192,
+            model="claude-3-haiku-20240307",
+            max_tokens=4096,
             messages=[
                 {"role": "user", "content": prompt}
             ]
@@ -213,7 +213,7 @@ def generate_summaries(qa_data):
         summaries = summarize_with_llm(client, batch)
 
         for summary_obj in summaries:
-            qid = summary_obj.get('question_id')
+            qid = str(summary_obj.get('question_id'))  # Ensure string type
             summary = summary_obj.get('summary', '')
             all_summaries[qid] = summary
 
@@ -236,7 +236,7 @@ def write_csv_report(csv_path, qa_data, summaries):
         writer.writerow(['id', 'title', 'LLM_Summary', 'Analyst_notes'])
 
         for qa in qa_data:
-            qid = qa['id']
+            qid = str(qa['id'])  # Ensure string type for lookup
             title = qa['title_truncated']
             summary = summaries.get(qid, '')
             analyst_notes = ''  # Blank column for manual notes
@@ -261,7 +261,7 @@ def write_markdown_report(md_path, qa_data, summaries, year, month, product, tot
         f.write('|----|-------|---------|---------------|\n')
 
         for qa in qa_data:
-            qid = qa['id']
+            qid = str(qa['id'])  # Ensure string type for lookup
             title_full = qa['title']
             title_display = qa['title_truncated']
             summary = summaries.get(qid, '')
