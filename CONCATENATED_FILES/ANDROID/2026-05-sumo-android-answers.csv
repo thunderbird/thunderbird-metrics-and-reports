@@ -1,0 +1,2 @@
+id,question_id,created,updated,content,creator,is_spam,num_helpful,num_unhelpful
+1815100,1579366,2026-05-01 04:56:48 -0700,2026-05-01 04:56:48 -0700,"<p>Hi @vrgovinda </p><p>I'm able to replicate your issue. </p><p>Your best action is to report the bug via a new issue report on github. <a href=""https://github.com/thunderbird/thunderbird-android/issues"" rel=""nofollow"">https://github.com/thunderbird/thunderbird-android/issues</a> </p>",platform34,False,0,0
