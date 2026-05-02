@@ -5,18 +5,18 @@ title: Thunderbird Desktop Report - 2026-05
 
 # Thunderbird Desktop Report - 2026-05
 
-*Last updated: 2026-05-02T14:24:32.643796*
+*Last updated: 2026-05-02T15:20:34.026800*
 
 ## Summary
 
 | Date | Num Questions | Num Solved | Solved Percentage | Num Ignored | Ignored Percentage | Synthetic Solved By Random Contributors | Synthetic Solved By Random Contributors Percentage | Synthetic Solved By Trusted Contributors | Synthetic Solved By Trusted Contributors Percentage | Synthetic Solved Rate |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2026-05 | 37 | 3 | 8 | 21 | 57 | 2 | 5 | 8 | 22 | 30 |
+| 2026-05 | 41 | 6 | 15 | 21 | 51 | 2 | 5 | 9 | 22 | 37 |
 
 ## Details
 
 | Date | Question Ids Question Creator Answered Last | Question Ids Trusted Contributor Answered Last | Question Ids Random Contributor Answered Last |
 | --- | --- | --- | --- |
-| 2026-05 | [1579346](https://support.mozilla.org/questions/1579346 "Thunderbird suddenly stops formatting my emails"); [1579425](https://support.mozilla.org/questions/1579425 "cant  resize T'bird window"); [1579563](https://support.mozilla.org/questions/1579563 "I can't click the green lock icon in the URL bar of the web browser that launche") | [1579345](https://support.mozilla.org/questions/1579345 "change of servers"); [1579368](https://support.mozilla.org/questions/1579368 "I have a folder with 124000 email. Can I get backup with Thunderbird?"); [1579483](https://support.mozilla.org/questions/1579483 "I recently moved thunderbird from my Win 7 laptop to a new laptop with Win11. Fo"); [1579503](https://support.mozilla.org/questions/1579503 "I cannot find Unified Inbox anywhere in my Thunderbird mailbox"); [1579522](https://support.mozilla.org/questions/1579522 "Blank Tabs on top of page"); [1579540](https://support.mozilla.org/questions/1579540 "when I delete an email from my inbox, it disappears, it does not go in my trash "); [1579552](https://support.mozilla.org/questions/1579552 "email address are not showing up in new email when you type in the name"); [1579556](https://support.mozilla.org/questions/1579556 "zoom meeting add-on not working") | [1579447](https://support.mozilla.org/questions/1579447 "How can I stop a certain sender's email going to Junk?"); [1579546](https://support.mozilla.org/questions/1579546 "I'm having trouble setting up a new email in Thunderbird") |
+| 2026-05 | [1579346](https://support.mozilla.org/questions/1579346 "Thunderbird suddenly stops formatting my emails"); [1579425](https://support.mozilla.org/questions/1579425 "cant  resize T'bird window"); [1579563](https://support.mozilla.org/questions/1579563 "I can't click the green lock icon in the URL bar of the web browser that launche") | [1579345](https://support.mozilla.org/questions/1579345 "change of servers"); [1579368](https://support.mozilla.org/questions/1579368 "I have a folder with 124000 email. Can I get backup with Thunderbird?"); [1579483](https://support.mozilla.org/questions/1579483 "I recently moved thunderbird from my Win 7 laptop to a new laptop with Win11. Fo"); [1579503](https://support.mozilla.org/questions/1579503 "I cannot find Unified Inbox anywhere in my Thunderbird mailbox"); [1579522](https://support.mozilla.org/questions/1579522 "Blank Tabs on top of page"); [1579532](https://support.mozilla.org/questions/1579532 "Help recovering emails and my folders after changing server settings"); [1579556](https://support.mozilla.org/questions/1579556 "zoom meeting add-on not working"); [1579583](https://support.mozilla.org/questions/1579583 "Spam Filter Issue"); [1579627](https://support.mozilla.org/questions/1579627 "invio posta nello spam") | [1579447](https://support.mozilla.org/questions/1579447 "How can I stop a certain sender's email going to Junk?"); [1579546](https://support.mozilla.org/questions/1579546 "I'm having trouble setting up a new email in Thunderbird") |
 
 [Back to Dashboard](/)
