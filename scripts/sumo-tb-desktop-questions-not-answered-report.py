@@ -257,7 +257,7 @@ def main():
     os.makedirs(MARKDOWN_DIR, exist_ok=True)
     os.makedirs(CSV_DIR, exist_ok=True)
 
-    ts = f'{year}-{month:02d}-{day:02d}-{hour:02d}'
+    ts = f'{year}-{month:02d}-{day:02d}'
     md_path = os.path.join(MARKDOWN_DIR, f'{ts}-desktop-unanswered-questions.md')
     csv_path = os.path.join(CSV_DIR, f'{ts}-desktop-unanswered-questions.csv')
 
