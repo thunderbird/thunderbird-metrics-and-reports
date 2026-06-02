@@ -22,6 +22,7 @@ csv.field_size_limit(sys.maxsize)
 DATA_DIR = 'aaq-data'
 MARKDOWN_DIR = 'UNANSWERED_QUESTIONS/MARKDOWN_REPORTS'
 CSV_DIR = 'UNANSWERED_QUESTIONS/CSV_REPORTS'
+HTML_DIR = 'UNANSWERED_QUESTIONS/HTML_REPORTS'
 WINDOW_HOURS = 72
 WINDOW_DAYS = 14
 Q_SUFFIX = 'thunderbird-creator-answers-desktop-all-locales.csv'
@@ -193,6 +194,112 @@ def write_csv(df, path, report_time):
             })
 
 
+_SORT_JS = """
+  const headers = document.querySelectorAll('th');
+  const sortState = {};
+  headers.forEach((th, col) => {
+    th.style.cursor = 'pointer';
+    th.addEventListener('click', () => {
+      const tbody = th.closest('table').querySelector('tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const asc = !sortState[col];
+      sortState[col] = asc;
+      rows.sort((a, b) => {
+        const av = a.cells[col].dataset.sort ?? a.cells[col].textContent.trim();
+        const bv = b.cells[col].dataset.sort ?? b.cells[col].textContent.trim();
+        const an = parseFloat(av), bn = parseFloat(bv);
+        if (!isNaN(an) && !isNaN(bn)) return asc ? an - bn : bn - an;
+        return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+      });
+      rows.forEach(r => tbody.appendChild(r));
+      headers.forEach(h => { h.textContent = h.textContent.replace(/ [▲▼]$/, ''); });
+      th.textContent += asc ? ' ▲' : ' ▼';
+    });
+  });
+"""
+
+_HTML_CSS = """
+  body { font-family: sans-serif; font-size: 13px; margin: 1em; }
+  h1 { font-size: 1.2em; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #ccc; padding: 4px 8px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; user-select: none; white-space: nowrap; }
+  th:hover { background: #ddd; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  a { color: #0060df; }
+"""
+
+
+def write_html(df, path, report_time, window_start, window_end, title):
+    rows = []
+    for _, q in df.iterrows():
+        date_str = to_utc_str(q['created_utc'])
+        elapsed_str = format_elapsed(q['created_utc'], report_time)
+        delta = pd.Timestamp(report_time) - q['created_utc']
+        elapsed_hours = int(delta.total_seconds()) // 3600
+
+        creator = str(q['creator']) if pd.notna(q.get('creator')) else ''
+        creator_cell = (f'<a href="https://support.mozilla.org/en-US/user/{creator}/">'
+                        f'{html.escape(creator)}</a>')
+
+        version, os_str = parse_metadata(q.get('metadata'))
+        os_display = html.escape(os_str[:20])
+
+        qid = q['id']
+        q_title = str(q['title']) if pd.notna(q.get('title')) else ''
+        content = strip_html(q.get('content'))
+        tooltip = html.escape(content[:255])
+        link_text = html.escape(f'{qid}: {q_title[:80]}')
+        link_text = insert_linebreaks(link_text, 65)
+        url = f'https://support.mozilla.org/questions/{qid}'
+        q_cell = f'<a href="{url}" title="{tooltip}">{link_text}</a>'
+
+        rows.append(f'''    <tr>
+      <td>{date_str}</td>
+      <td data-sort="{elapsed_hours}">{elapsed_str}</td>
+      <td>{creator_cell}</td>
+      <td>{html.escape(version)}</td>
+      <td>{os_display}</td>
+      <td>{q_cell}</td>
+    </tr>''')
+
+    rows_html = '\n'.join(rows)
+    page = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{html.escape(title)} {report_time.strftime("%Y-%m-%d %H:%M")} UTC</title>
+  <style>{_HTML_CSS}</style>
+</head>
+<body>
+  <h1>{html.escape(title)}</h1>
+  <p>Report generated: {report_time.strftime("%Y-%m-%d %H:%M")} UTC</p>
+  <p>Questions created between {window_start.strftime("%Y-%m-%d %H:%M")} UTC
+     and {window_end.strftime("%Y-%m-%d %H:%M")} UTC with no non-creator answers</p>
+  <p>Total: {len(df)} unanswered questions</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Date Created (UTC)</th>
+        <th>Elapsed</th>
+        <th>Creator</th>
+        <th>Version</th>
+        <th>OS</th>
+        <th>Question</th>
+      </tr>
+    </thead>
+    <tbody>
+{rows_html}
+    </tbody>
+  </table>
+  <script>{_SORT_JS}</script>
+</body>
+</html>
+"""
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(page)
+
+
 def main():
     year, month, day, hour = parse_args()
     report_time = datetime(year, month, day, hour, 0, 0, tzinfo=timezone.utc)
@@ -272,10 +379,16 @@ def main():
     md_path = os.path.join(MARKDOWN_DIR, f'{ts}-desktop-unanswered-questions.md')
     csv_path = os.path.join(CSV_DIR, f'{ts}-desktop-unanswered-questions.csv')
 
+    os.makedirs(HTML_DIR, exist_ok=True)
+    html_path = os.path.join(HTML_DIR, f'{ts}-desktop-unanswered-questions.html')
+
     write_markdown(unanswered_df, md_path, report_time, window_start, window_end)
     write_csv(unanswered_df, csv_path, report_time)
+    write_html(unanswered_df, html_path, report_time, window_start, window_end,
+               'Thunderbird Desktop - Unanswered Questions')
     print(f'Written: {md_path}')
     print(f'Written: {csv_path}')
+    print(f'Written: {html_path}')
 
 
 if __name__ == '__main__':
