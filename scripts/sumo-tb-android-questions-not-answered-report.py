@@ -115,6 +115,15 @@ def to_utc_str(ts):
     return ts.tz_convert('UTC').strftime('%Y-%m-%d %H:%M')
 
 
+def format_elapsed(created_utc, report_time):
+    delta = pd.Timestamp(report_time) - created_utc
+    total_hours = int(delta.total_seconds()) // 3600
+    days, hours = divmod(total_hours, 24)
+    if days > 0:
+        return f'{days}d {hours}h'
+    return f'{hours}h'
+
+
 def write_markdown(df, path, report_time, window_start, window_end):
     lines = [
         '# Thunderbird for Android - Unanswered Questions',
@@ -126,12 +135,13 @@ def write_markdown(df, path, report_time, window_start, window_end):
         '',
         f'Total: {len(df)} unanswered questions',
         '',
-        '| Date Created (UTC) | Creator | Version | OS | Question |',
-        '|---|---|---|---|---|',
+        '| Date Created (UTC) | Elapsed | Creator | Version | OS | Question |',
+        '|---|---|---|---|---|---|',
     ]
 
     for _, q in df.iterrows():
         date_str = to_utc_str(q['created_utc'])
+        elapsed = format_elapsed(q['created_utc'], report_time)
         creator = str(q['creator']) if pd.notna(q.get('creator')) else ''
         creator_link = (f'<a href="https://support.mozilla.org/en-US/user/{creator}/">'
                         f'{creator}</a>')
@@ -149,15 +159,15 @@ def write_markdown(df, path, report_time, window_start, window_end):
         url = f'https://support.mozilla.org/questions/{qid}'
         q_cell = f'<a href="{url}" title="{tooltip}">{link_text}</a>'
 
-        lines.append(f'| {date_str} | {creator_link} | {version} | {os_display} | {q_cell} |')
+        lines.append(f'| {date_str} | {elapsed} | {creator_link} | {version} | {os_display} | {q_cell} |')
 
     with open(path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
 
 
-def write_csv(df, path):
+def write_csv(df, path, report_time):
     fieldnames = [
-        'date_created_utc', 'creator', 'creator_url', 'version', 'os',
+        'date_created_utc', 'elapsed', 'creator', 'creator_url', 'version', 'os',
         'question_id', 'question_url', 'question_title', 'question_content',
     ]
     with open(path, 'w', newline='', encoding='utf-8') as f:
@@ -171,6 +181,7 @@ def write_csv(df, path):
             content = strip_html(q.get('content'))
             writer.writerow({
                 'date_created_utc': to_utc_str(q['created_utc']),
+                'elapsed': format_elapsed(q['created_utc'], report_time),
                 'creator': creator,
                 'creator_url': f'https://support.mozilla.org/en-US/user/{creator}/',
                 'version': version,
@@ -259,7 +270,7 @@ def main():
     csv_path = os.path.join(CSV_DIR, f'{ts}-android-unanswered-questions.csv')
 
     write_markdown(unanswered_df, md_path, report_time, window_start, window_end)
-    write_csv(unanswered_df, csv_path)
+    write_csv(unanswered_df, csv_path, report_time)
     print(f'Written: {md_path}')
     print(f'Written: {csv_path}')
 
