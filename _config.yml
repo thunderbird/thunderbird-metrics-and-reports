@@ -9,6 +9,9 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
 
+include:
+  - UNANSWERED_QUESTIONS
+
 exclude:
   - CONCATENATED_FILES
   - get_trusted_and_untrusted_synthetic_solved.rb

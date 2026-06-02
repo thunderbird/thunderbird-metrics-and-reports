@@ -100,6 +100,9 @@ jobs:
         git commit -m "$COMMIT_MSG"
         git push
 
+    - name: Pull latest commits before building
+      run: git fetch origin && git reset --hard origin/main
+
     - name: Setup Pages
       uses: actions/configure-pages@v4
 
