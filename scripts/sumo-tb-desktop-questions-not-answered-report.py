@@ -300,6 +300,59 @@ def write_html(df, path, report_time, window_start, window_end, title):
         f.write(page)
 
 
+def write_index():
+    index_path = os.path.join('UNANSWERED_QUESTIONS', 'index.html')
+    html_files = sorted(
+        [f for f in os.listdir(HTML_DIR) if f.endswith('.html')],
+        reverse=True,
+    )
+
+    rows = []
+    for fname in html_files:
+        parts = fname.replace('-unanswered-questions.html', '').rsplit('-', 1)
+        platform = parts[-1].capitalize() if len(parts) == 2 else ''
+        date = parts[0] if len(parts) == 2 else fname
+        rows.append(
+            f'  <tr><td>{date}</td><td>{platform}</td>'
+            f'<td><a href="HTML_REPORTS/{fname}">{fname}</a></td></tr>'
+        )
+
+    rows_html = '\n'.join(rows)
+    page = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Unanswered Questions Reports</title>
+  <style>
+    body {{ font-family: sans-serif; font-size: 13px; margin: 1em; }}
+    h1 {{ font-size: 1.2em; }}
+    table {{ border-collapse: collapse; }}
+    th, td {{ border: 1px solid #ccc; padding: 4px 8px; text-align: left; }}
+    th {{ background: #f0f0f0; }}
+    tr:nth-child(even) {{ background: #f9f9f9; }}
+    a {{ color: #0060df; }}
+  </style>
+</head>
+<body>
+  <h1>Unanswered Questions Reports</h1>
+  <p>Thunderbird Desktop and Android questions with no non-creator answers,
+     created between 72 hours and 14 days ago. Updated twice daily.</p>
+  <table>
+    <thead>
+      <tr><th>Date</th><th>Platform</th><th>Report</th></tr>
+    </thead>
+    <tbody>
+{rows_html}
+    </tbody>
+  </table>
+</body>
+</html>
+"""
+    with open(index_path, 'w', encoding='utf-8') as f:
+        f.write(page)
+    print(f'Written: {index_path}')
+
+
 def main():
     year, month, day, hour = parse_args()
     report_time = datetime(year, month, day, hour, 0, 0, tzinfo=timezone.utc)
@@ -386,6 +439,7 @@ def main():
     write_csv(unanswered_df, csv_path, report_time)
     write_html(unanswered_df, html_path, report_time, window_start, window_end,
                'Thunderbird Desktop - Unanswered Questions')
+    write_index()
     print(f'Written: {md_path}')
     print(f'Written: {csv_path}')
     print(f'Written: {html_path}')
