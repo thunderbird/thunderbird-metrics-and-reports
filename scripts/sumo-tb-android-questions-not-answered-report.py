@@ -77,7 +77,7 @@ def escape_for_tooltip(text):
 
 
 def parse_metadata(meta):
-    if pd.isna(meta) or not str(meta).strip():
+    if meta is None or (isinstance(meta, float) and pd.isna(meta)) or not str(meta).strip():
         return '', ''
     s = str(meta)
     version = ''
@@ -117,12 +117,12 @@ def to_utc_str(ts):
 
 
 def format_elapsed(created_utc, report_time):
+    """Return (display_str, total_hours) for elapsed time since creation."""
     delta = pd.Timestamp(report_time) - created_utc
     total_hours = int(delta.total_seconds()) // 3600
     days, hours = divmod(total_hours, 24)
-    if days > 0:
-        return f'{days}d {hours}h'
-    return f'{hours}h'
+    display = f'{days}d {hours}h' if days > 0 else f'{hours}h'
+    return display, total_hours
 
 
 def write_markdown(df, path, report_time, window_start, window_end):
@@ -142,7 +142,7 @@ def write_markdown(df, path, report_time, window_start, window_end):
 
     for _, q in df.iterrows():
         date_str = to_utc_str(q['created_utc'])
-        elapsed = format_elapsed(q['created_utc'], report_time)
+        elapsed, _ = format_elapsed(q['created_utc'], report_time)
         creator = str(q['creator']) if pd.notna(q.get('creator')) else ''
         creator_link = (f'<a href="https://support.mozilla.org/en-US/user/{creator}/">'
                         f'{creator}</a>')
@@ -182,7 +182,7 @@ def write_csv(df, path, report_time):
             content = strip_html(q.get('content'))
             writer.writerow({
                 'date_created_utc': to_utc_str(q['created_utc']),
-                'elapsed': format_elapsed(q['created_utc'], report_time),
+                'elapsed': format_elapsed(q['created_utc'], report_time)[0],
                 'creator': creator,
                 'creator_url': f'https://support.mozilla.org/en-US/user/{creator}/',
                 'version': version,
@@ -234,9 +234,7 @@ def write_html(df, path, report_time, window_start, window_end, title):
     rows = []
     for _, q in df.iterrows():
         date_str = to_utc_str(q['created_utc'])
-        elapsed_str = format_elapsed(q['created_utc'], report_time)
-        delta = pd.Timestamp(report_time) - q['created_utc']
-        elapsed_hours = int(delta.total_seconds()) // 3600
+        elapsed_str, elapsed_hours = format_elapsed(q['created_utc'], report_time)
 
         creator = str(q['creator']) if pd.notna(q.get('creator')) else ''
         creator_cell = (f'<a href="https://support.mozilla.org/en-US/user/{creator}/">'
@@ -336,7 +334,7 @@ def write_index():
 <body>
   <h1>Unanswered Questions Reports</h1>
   <p>Thunderbird Desktop and Android questions with no non-creator answers,
-     created between 72 hours and 14 days ago. Updated twice daily.</p>
+     created between {WINDOW_HOURS} hours and {WINDOW_DAYS} days ago. Updated twice daily.</p>
   <table>
     <thead>
       <tr><th>Date</th><th>Platform</th><th>Report</th></tr>
@@ -401,24 +399,19 @@ def main():
         if 'is_spam' in a_df.columns:
             a_df = a_df[a_df['is_spam'].astype(str).str.lower() != 'true']
         a_df = a_df.drop_duplicates(subset='id', keep='last')
-        for _, ans in a_df.iterrows():
-            qid = ans['question_id']
-            ans_creator = str(ans['creator']) if pd.notna(ans.get('creator')) else ''
-            answer_creators.setdefault(qid, set()).add(ans_creator)
+        a_df = a_df[a_df['question_id'].isin(set(q_df['id']))]
+        answer_creators = (
+            a_df.assign(creator=a_df['creator'].fillna('').astype(str))
+            .groupby('question_id')['creator']
+            .agg(set)
+            .to_dict()
+        )
 
-    unanswered = []
-    for _, q in q_df.iterrows():
-        qid = q['id']
-        q_creator = str(q['creator']) if pd.notna(q.get('creator')) else ''
-        answerers = answer_creators.get(qid, set())
-        non_creator_answerers = answerers - {q_creator}
-        if not non_creator_answerers:
-            unanswered.append(q)
+    def has_non_creator_answer(row):
+        q_creator = str(row['creator']) if pd.notna(row.get('creator')) else ''
+        return bool(answer_creators.get(row['id'], set()) - {q_creator})
 
-    if unanswered:
-        unanswered_df = pd.DataFrame(unanswered).sort_values('created_utc')
-    else:
-        unanswered_df = pd.DataFrame()
+    unanswered_df = q_df[~q_df.apply(has_non_creator_answer, axis=1)].sort_values('created_utc')
 
     print(f'Unanswered questions: {len(unanswered_df)}')
 
