@@ -39,5 +39,8 @@ jobs:
         git add UNANSWERED_QUESTIONS/
         timestamp=$(date -u)
         git commit -m "Update unanswered desktop questions report: ${timestamp}" || echo "No changes to commit"
-        git pull --rebase
-        git push
+        for i in 1 2 3; do
+          git pull --rebase && git push && break
+          echo "Push attempt $i failed, retrying..."
+          sleep 5
+        done
