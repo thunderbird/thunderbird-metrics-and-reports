@@ -298,10 +298,28 @@ def write_html(df, path, report_time, window_start, window_end, title):
         f.write(page)
 
 
+def write_latest_redirect(redirect_path, target_fname, title):
+    page = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url={target_fname}">
+  <title>{html.escape(title)}</title>
+</head>
+<body>
+  <p>Redirecting to <a href="{target_fname}">{target_fname}</a>...</p>
+</body>
+</html>
+"""
+    with open(redirect_path, 'w', encoding='utf-8') as f:
+        f.write(page)
+    print(f'Written: {redirect_path}')
+
+
 def write_index():
     index_path = os.path.join('UNANSWERED_QUESTIONS', 'index.html')
     html_files = sorted(
-        [f for f in os.listdir(HTML_DIR) if f.endswith('.html')],
+        [f for f in os.listdir(HTML_DIR) if f.endswith('.html') and '-latest-' not in f],
         reverse=True,
     )
 
@@ -335,6 +353,12 @@ def write_index():
   <h1>Unanswered Questions Reports</h1>
   <p>Thunderbird Desktop and Android questions with no non-creator answers,
      created between {WINDOW_HOURS} hours and {WINDOW_DAYS} days ago. Updated twice daily.</p>
+  <h2 style="font-size:1.1em">Latest Reports</h2>
+  <ul>
+    <li><a href="HTML_REPORTS/desktop-latest-unanswered-questions.html">Latest Desktop Report</a></li>
+    <li><a href="HTML_REPORTS/android-latest-unanswered-questions.html">Latest Android Report</a></li>
+  </ul>
+  <h2 style="font-size:1.1em">All Reports</h2>
   <table>
     <thead>
       <tr><th>Date</th><th>Platform</th><th>Report</th></tr>
@@ -428,6 +452,9 @@ def main():
     write_csv(unanswered_df, csv_path, report_time)
     write_html(unanswered_df, html_path, report_time, window_start, window_end,
                'Thunderbird for Android - Unanswered Questions')
+    latest_path = os.path.join(HTML_DIR, 'android-latest-unanswered-questions.html')
+    write_latest_redirect(latest_path, f'{ts}-android-unanswered-questions.html',
+                          'Thunderbird for Android - Latest Unanswered Questions')
     write_index()
     print(f'Written: {md_path}')
     print(f'Written: {csv_path}')
