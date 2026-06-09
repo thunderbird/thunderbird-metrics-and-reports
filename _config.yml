@@ -5,6 +5,10 @@ url: "https://thunderbird.github.io"
 remote_theme: jekyll/minima
 timezone: UTC
 
+header_pages:
+  - index.md
+  - reports.md
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
