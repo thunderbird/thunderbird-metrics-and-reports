@@ -6,7 +6,7 @@ remote_theme: jekyll/minima
 timezone: UTC
 
 minima:
-  header_pages:
+  nav_pages:
     - pages.md
 
 plugins:
