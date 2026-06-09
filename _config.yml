@@ -28,3 +28,4 @@ exclude:
   - sumo-tb-desktop-create-monthly-csv
   - .github
   - scripts
+  - CLAUDE.md
