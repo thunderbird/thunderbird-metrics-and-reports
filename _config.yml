@@ -5,8 +5,9 @@ url: "https://thunderbird.github.io"
 remote_theme: jekyll/minima
 timezone: UTC
 
-header_pages:
-  - pages.md
+minima:
+  header_pages:
+    - pages.md
 
 plugins:
   - jekyll-feed
