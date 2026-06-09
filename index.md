@@ -1,24 +1,28 @@
 ---
-layout: home
-title: Thunderbird Support Metrics Dashboard
+layout: page
+title: Thunderbird Support Metrics
 ---
 
-# Thunderbird Support Metrics Dashboard
+## Unanswered Questions
 
-This site contains hourly updated reports on Thunderbird support metrics from Mozilla's Support Community (SUMO).
+Updated twice daily:
 
-## Latest Reports
+- [Latest Desktop Report](UNANSWERED_QUESTIONS/HTML_REPORTS/desktop-latest-unanswered-questions.html)
+- [Latest Android Report](UNANSWERED_QUESTIONS/HTML_REPORTS/android-latest-unanswered-questions.html)
+- [Full report history](UNANSWERED_QUESTIONS/)
+
+## Monthly Reports
 
 ### Desktop
-- [February 2026](/thunderbird-metrics-and-reports/html_reports/desktop/2026-02-sumo-desktop-report.md)
-- [March 2026](/thunderbird-metrics-and-reports/html_reports/desktop/2026-03-sumo-desktop-report.md)
-- [April 2026](/thunderbird-metrics-and-reports/html_reports/desktop/2026-04-sumo-desktop-report.md)
+- [June 2026](html_reports/desktop/2026-06-sumo-desktop-report.html)
+- [May 2026](html_reports/desktop/2026-05-sumo-desktop-report.html)
+- [April 2026](html_reports/desktop/2026-04-sumo-desktop-report.html)
+- [March 2026](html_reports/desktop/2026-03-sumo-desktop-report.html)
+- [February 2026](html_reports/desktop/2026-02-sumo-desktop-report.html)
 
 ### Android
-- [February 2026](/thunderbird-metrics-and-reports/html_reports/android/2026-02-sumo-android-report.md)
-- [March 2026](/thunderbird-metrics-and-reports/html_reports/android/2026-03-sumo-android-report.md)
-- [April 2026](/thunderbird-metrics-and-reports/html_reports/android/2026-04-sumo-android-report.md)
-
----
-
-*Reports are updated every hour.*
+- [June 2026](html_reports/android/2026-06-sumo-android-report.html)
+- [May 2026](html_reports/android/2026-05-sumo-android-report.html)
+- [April 2026](html_reports/android/2026-04-sumo-android-report.html)
+- [March 2026](html_reports/android/2026-03-sumo-android-report.html)
+- [February 2026](html_reports/android/2026-02-sumo-android-report.html)
