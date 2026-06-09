@@ -6,8 +6,7 @@ remote_theme: jekyll/minima
 timezone: UTC
 
 header_pages:
-  - index.md
-  - reports.md
+  - pages.md
 
 plugins:
   - jekyll-feed
