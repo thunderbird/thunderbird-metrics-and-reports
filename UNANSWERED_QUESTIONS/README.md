@@ -30,6 +30,8 @@ In the HTML report:
      (e.g. 90 days): GitHub → Settings → Developer settings → Fine-grained tokens.
    - Paste it when prompted. It is stored in your browser's `localStorage` and is
      never committed or sent anywhere except the GitHub API.
+   - **See [TOKEN_SETUP.md](TOKEN_SETUP.md) for the full step-by-step guide**
+     (creating the token at github.com through pasting it into the report).
 2. The report shows **Signed in as @you**.
 3. Click **Claim** on any open question → it commits a row to the assignments CSV.
 4. Click **Release** on one of your own to give it back.
