@@ -79,9 +79,18 @@ report only *reads* the assignments file.
 
 ## Troubleshooting
 
+The page also runs a **soft scope check**: after you paste a token it calls
+`GET /user/repos`. A correctly-scoped fine-grained token can see only this repo,
+so if the token can see **more than one repository** (e.g. a classic PAT or an
+"all repositories" fine-grained token) the page **rejects it and does not store
+it**. A previously-stored broad token is likewise cleared on page load. This
+just enforces the single-repo instruction above — recreate the token scoped to
+only `thunderbird/thunderbird-metrics-and-reports`.
+
 | Symptom | Cause / fix |
 |---|---|
 | **“Token rejected…”** after pasting | Token typo, expired, or still pending org approval. Re-copy it, or ask an org admin to approve the fine-grained token for `thunderbird`. |
+| **“Token has access to multiple repositories”** | Your token is broader than this one repo (often a classic PAT or an "all repositories" fine-grained token). Recreate it with **Only select repositories → this repo** and **Contents: Read and write**. |
 | Buttons stay disabled / say **Claim** but won't click | You're not signed in. Click **Set GitHub token** and add a token. |
 | **Error: … PUT 403** when clicking | The token lacks **Contents: Read and write** on this repo, or isn't scoped to this repo. Regenerate with the correct permission. |
 | **Error: … PUT 409** repeatedly | A rare write collision; just click again. (The page already retries up to 5 times automatically.) |
