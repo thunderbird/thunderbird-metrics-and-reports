@@ -17,6 +17,9 @@ import html
 from datetime import datetime, timezone, timedelta
 import pandas as pd
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from assignments import load_assignments
+
 csv.field_size_limit(sys.maxsize)
 
 DATA_DIR = 'aaq-android-data'
@@ -27,6 +30,10 @@ WINDOW_HOURS = 72
 WINDOW_DAYS = 14
 Q_SUFFIX = 'tbandroid-creator-answers-desktop-all-locales.csv'
 A_SUFFIX = 'tbandroid-answers-for-questions-desktop.csv'
+ASSIGNMENTS_REL = 'UNANSWERED_QUESTIONS/android-assignments.csv'
+ASSIGNMENTS_PATH = ASSIGNMENTS_REL
+REPO = 'thunderbird/thunderbird-metrics-and-reports'
+BRANCH = 'main'
 
 
 def parse_args():
@@ -125,7 +132,7 @@ def format_elapsed(created_utc, report_time):
     return display, total_hours
 
 
-def write_markdown(df, path, report_time, window_start, window_end):
+def write_markdown(df, path, report_time, window_start, window_end, assignments):
     lines = [
         '# Thunderbird for Android - Unanswered Questions',
         '',
@@ -136,8 +143,8 @@ def write_markdown(df, path, report_time, window_start, window_end):
         '',
         f'Total: {len(df)} unanswered questions',
         '',
-        '| Date Created (UTC) | Elapsed | Creator | Version | OS | Question |',
-        '|---|---|---|---|---|---|',
+        '| Date Created (UTC) | Elapsed | Creator | Version | OS | Question | Assignee |',
+        '|---|---|---|---|---|---|---|',
     ]
 
     for _, q in df.iterrows():
@@ -160,16 +167,21 @@ def write_markdown(df, path, report_time, window_start, window_end):
         url = f'https://support.mozilla.org/questions/{qid}'
         q_cell = f'<a href="{url}" title="{tooltip}">{link_text}</a>'
 
-        lines.append(f'| {date_str} | {elapsed} | {creator_link} | {version} | {os_display} | {q_cell} |')
+        assignee = assignments.get(int(qid), {}).get('assignee', '')
+        assignee_cell = (f'<a href="https://github.com/{assignee}">@{assignee}</a>'
+                         if assignee else '')
+
+        lines.append(f'| {date_str} | {elapsed} | {creator_link} | {version} | {os_display} | {q_cell} | {assignee_cell} |')
 
     with open(path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
 
 
-def write_csv(df, path, report_time):
+def write_csv(df, path, report_time, assignments):
     fieldnames = [
         'date_created_utc', 'elapsed', 'creator', 'creator_url', 'version', 'os',
         'question_id', 'question_url', 'question_title', 'question_content',
+        'assignee', 'assignee_url',
     ]
     with open(path, 'w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -180,6 +192,7 @@ def write_csv(df, path, report_time):
             qid = q['id']
             title = str(q['title']) if pd.notna(q.get('title')) else ''
             content = strip_html(q.get('content'))
+            assignee = assignments.get(int(qid), {}).get('assignee', '')
             writer.writerow({
                 'date_created_utc': to_utc_str(q['created_utc']),
                 'elapsed': format_elapsed(q['created_utc'], report_time)[0],
@@ -191,6 +204,8 @@ def write_csv(df, path, report_time):
                 'question_url': f'https://support.mozilla.org/questions/{qid}',
                 'question_title': title,
                 'question_content': content,
+                'assignee': assignee,
+                'assignee_url': f'https://github.com/{assignee}' if assignee else '',
             })
 
 
@@ -227,10 +242,225 @@ _HTML_CSS = """
   th:hover { background: #ddd; }
   tr:nth-child(even) { background: #f9f9f9; }
   a { color: #0060df; }
+  .assign-bar { margin: 0.5em 0; padding: 6px 8px; background: #f0f0f0; border: 1px solid #ccc; }
+  .assign-bar > * { margin-right: 10px; }
+  .assign-msg { color: #444; }
+  .assign-cell { white-space: nowrap; }
+  .assign-btn { font-size: 12px; cursor: pointer; }
+  .assign-btn[disabled] { cursor: default; opacity: 0.6; }
+"""
+
+_ASSIGN_JS = """
+(function () {
+  var cfg = window.TBQ || {};
+  var TOKEN_KEY = 'tbq_gh_token';
+  var me = null;
+  var msgEl, statusEl, setBtn, clearBtn;
+
+  function token() { return localStorage.getItem(TOKEN_KEY) || ''; }
+  function msg(t, isErr) { if (msgEl) { msgEl.textContent = t || ''; msgEl.style.color = isErr ? '#b00' : '#444'; } }
+
+  function api(method, url, body) {
+    var headers = { 'Accept': 'application/vnd.github+json' };
+    if (token()) headers['Authorization'] = 'Bearer ' + token();
+    var opts = { method: method, headers: headers };
+    if (body) { headers['Content-Type'] = 'application/json'; opts.body = JSON.stringify(body); }
+    return fetch(url, opts);
+  }
+
+  function b64encode(s) { return btoa(unescape(encodeURIComponent(s))); }
+  function b64decode(s) { return decodeURIComponent(escape(atob(s.replace(/\\s/g, '')))); }
+
+  function contentsUrl() {
+    return 'https://api.github.com/repos/' + cfg.repo + '/contents/' + cfg.path;
+  }
+
+  function parseCsv(text) {
+    var lines = text.split(/\\r?\\n/);
+    var header = lines.length ? lines[0] : 'question_id,assignee,assigned_at,assigned_by';
+    var rows = [];
+    for (var i = 1; i < lines.length; i++) {
+      var line = lines[i];
+      if (!line.trim()) continue;
+      var parts = line.split(',');
+      rows.push({
+        qid: (parts[0] || '').trim(),
+        assignee: (parts[1] || '').trim(),
+        assigned_at: (parts[2] || '').trim(),
+        assigned_by: (parts[3] || '').trim()
+      });
+    }
+    return { header: header, rows: rows };
+  }
+
+  function serializeCsv(parsed) {
+    var out = [parsed.header];
+    parsed.rows.forEach(function (r) {
+      out.push([r.qid, r.assignee, r.assigned_at, r.assigned_by].join(','));
+    });
+    return out.join('\\n') + '\\n';
+  }
+
+  function getContents() {
+    return api('GET', contentsUrl() + '?ref=' + cfg.branch).then(function (r) {
+      if (!r.ok) throw new Error('GET ' + r.status);
+      return r.json();
+    }).then(function (j) {
+      return { parsed: parseCsv(b64decode(j.content)), sha: j.sha };
+    });
+  }
+
+  function putContents(parsed, sha, message) {
+    return api('PUT', contentsUrl(), {
+      message: message,
+      content: b64encode(serializeCsv(parsed)),
+      sha: sha,
+      branch: cfg.branch
+    });
+  }
+
+  // action(parsed) -> string|null  (return error message to abort, or null to proceed)
+  function commit(qid, action, message) {
+    var attempt = 0;
+    function tryOnce() {
+      attempt++;
+      return getContents().then(function (state) {
+        var err = action(state.parsed);
+        if (err) { msg(err, true); return false; }
+        return putContents(state.parsed, state.sha, message).then(function (r) {
+          if (r.status === 409 && attempt < 5) return tryOnce();
+          if (!r.ok) throw new Error('PUT ' + r.status);
+          return true;
+        });
+      });
+    }
+    return tryOnce();
+  }
+
+  function findRow(parsed, qid) {
+    for (var i = 0; i < parsed.rows.length; i++) {
+      if (parsed.rows[i].qid === String(qid)) return i;
+    }
+    return -1;
+  }
+
+  function claim(qid) {
+    var now = new Date().toISOString();
+    return commit(qid, function (parsed) {
+      var i = findRow(parsed, qid);
+      if (i >= 0 && parsed.rows[i].assignee) {
+        if (parsed.rows[i].assignee === me) return null;
+        return 'Already claimed by @' + parsed.rows[i].assignee;
+      }
+      if (i >= 0) { parsed.rows[i] = { qid: String(qid), assignee: me, assigned_at: now, assigned_by: me }; }
+      else { parsed.rows.push({ qid: String(qid), assignee: me, assigned_at: now, assigned_by: me }); }
+      return null;
+    }, 'Claim question ' + qid + ' by ' + me);
+  }
+
+  function release(qid) {
+    return commit(qid, function (parsed) {
+      var i = findRow(parsed, qid);
+      if (i < 0 || !parsed.rows[i].assignee) return null;
+      if (parsed.rows[i].assignee !== me) return 'Not yours (claimed by @' + parsed.rows[i].assignee + ')';
+      parsed.rows.splice(i, 1);
+      return null;
+    }, 'Release question ' + qid + ' by ' + me);
+  }
+
+  function renderButton(btn) {
+    var qid = btn.getAttribute('data-qid');
+    var assignee = btn.getAttribute('data-assignee') || '';
+    var span = btn.parentNode.querySelector('.assignee');
+    if (span) {
+      span.innerHTML = assignee ? '<a href="https://github.com/' + assignee + '">@' + assignee + '</a>' : '';
+    }
+    btn.parentNode.setAttribute('data-sort', assignee);
+    if (!me) { btn.textContent = assignee ? 'Claimed' : 'Claim'; btn.disabled = true; btn.title = 'Set your GitHub token to claim'; return; }
+    btn.title = '';
+    if (!assignee) { btn.textContent = 'Claim'; btn.disabled = false; }
+    else if (assignee === me) { btn.textContent = 'Release'; btn.disabled = false; }
+    else { btn.textContent = 'Claimed'; btn.disabled = true; }
+  }
+
+  function renderAll() {
+    document.querySelectorAll('.assign-btn').forEach(renderButton);
+  }
+
+  function refreshStates() {
+    if (!token()) return;
+    getContents().then(function (state) {
+      var map = {};
+      state.parsed.rows.forEach(function (r) { if (r.assignee) map[r.qid] = r.assignee; });
+      document.querySelectorAll('.assign-btn').forEach(function (btn) {
+        btn.setAttribute('data-assignee', map[btn.getAttribute('data-qid')] || '');
+      });
+      renderAll();
+    }).catch(function () { /* keep build-time state */ });
+  }
+
+  function onClick(e) {
+    var btn = e.target.closest('.assign-btn');
+    if (!btn || btn.disabled) return;
+    var qid = btn.getAttribute('data-qid');
+    var assignee = btn.getAttribute('data-assignee') || '';
+    btn.disabled = true;
+    msg('Working...');
+    var p = (assignee === me) ? release(qid) : claim(qid);
+    p.then(function (ok) {
+      if (ok) { msg(''); }
+      refreshStates();
+    }).catch(function (err) {
+      msg('Error: ' + err.message + ' (check your token)', true);
+      renderAll();
+    });
+  }
+
+  function updateAuthUI() {
+    if (me) {
+      statusEl.textContent = 'Signed in as @' + me;
+      setBtn.style.display = 'none';
+      clearBtn.style.display = '';
+    } else {
+      statusEl.textContent = 'Not signed in';
+      setBtn.style.display = '';
+      clearBtn.style.display = 'none';
+    }
+  }
+
+  function loadMe() {
+    if (!token()) { me = null; updateAuthUI(); renderAll(); return; }
+    api('GET', 'https://api.github.com/user').then(function (r) {
+      if (!r.ok) throw new Error('auth ' + r.status);
+      return r.json();
+    }).then(function (j) {
+      me = j.login; updateAuthUI(); renderAll(); refreshStates();
+    }).catch(function () {
+      me = null; updateAuthUI(); renderAll();
+      msg('Token rejected. Create a fine-grained PAT (this repo, Contents: read & write).', true);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    msgEl = document.getElementById('assign-msg');
+    statusEl = document.getElementById('auth-status');
+    setBtn = document.getElementById('set-token');
+    clearBtn = document.getElementById('clear-token');
+    if (setBtn) setBtn.addEventListener('click', function () {
+      var t = prompt('Paste a fine-grained GitHub token (this repo only, Contents: read & write):', '');
+      if (t) { localStorage.setItem(TOKEN_KEY, t.trim()); loadMe(); }
+    });
+    if (clearBtn) clearBtn.addEventListener('click', function () {
+      localStorage.removeItem(TOKEN_KEY); me = null; updateAuthUI(); renderAll();
+    });
+    document.addEventListener('click', onClick);
+    loadMe();
+  });
+})();
 """
 
 
-def write_html(df, path, report_time, window_start, window_end, title):
+def write_html(df, path, report_time, window_start, window_end, title, assignments):
     rows = []
     for _, q in df.iterrows():
         date_str = to_utc_str(q['created_utc'])
@@ -252,6 +482,16 @@ def write_html(df, path, report_time, window_start, window_end, title):
         url = f'https://support.mozilla.org/questions/{qid}'
         q_cell = f'<a href="{url}" title="{tooltip}">{link_text}</a>'
 
+        assignee = html.escape(assignments.get(int(qid), {}).get('assignee', ''))
+        assignee_link = (f'<a href="https://github.com/{assignee}">@{assignee}</a>'
+                         if assignee else '')
+        btn_label = 'Claimed' if assignee else 'Claim'
+        assign_cell = (
+            f'<span class="assignee">{assignee_link}</span> '
+            f'<button class="assign-btn" data-qid="{qid}" data-assignee="{assignee}" '
+            f'disabled>{btn_label}</button>'
+        )
+
         rows.append(f'''    <tr>
       <td>{date_str}</td>
       <td data-sort="{elapsed_hours}">{elapsed_str}</td>
@@ -259,9 +499,11 @@ def write_html(df, path, report_time, window_start, window_end, title):
       <td>{html.escape(version)}</td>
       <td>{os_display}</td>
       <td>{q_cell}</td>
+      <td class="assign-cell" data-sort="{assignee}">{assign_cell}</td>
     </tr>''')
 
     rows_html = '\n'.join(rows)
+    edit_url = f'https://github.com/{REPO}/edit/{BRANCH}/{ASSIGNMENTS_REL}'
     page = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -275,6 +517,13 @@ def write_html(df, path, report_time, window_start, window_end, title):
   <p>Questions created between {window_start.strftime("%Y-%m-%d %H:%M")} UTC
      and {window_end.strftime("%Y-%m-%d %H:%M")} UTC with no non-creator answers</p>
   <p>Total: {len(df)} unanswered questions</p>
+  <div class="assign-bar">
+    <span id="auth-status">Not signed in</span>
+    <button id="set-token">Set GitHub token</button>
+    <button id="clear-token" style="display:none">Sign out</button>
+    <a href="{edit_url}">Claim manually (edit CSV)</a>
+    <span id="assign-msg" class="assign-msg"></span>
+  </div>
   <table>
     <thead>
       <tr>
@@ -284,13 +533,16 @@ def write_html(df, path, report_time, window_start, window_end, title):
         <th>Version</th>
         <th>OS</th>
         <th>Question</th>
+        <th>Assignee</th>
       </tr>
     </thead>
     <tbody>
 {rows_html}
     </tbody>
   </table>
+  <script>window.TBQ={{repo:"{REPO}",path:"{ASSIGNMENTS_REL}",branch:"{BRANCH}"}};</script>
   <script>{_SORT_JS}</script>
+  <script>{_ASSIGN_JS}</script>
 </body>
 </html>
 """
@@ -439,6 +691,9 @@ def main():
 
     print(f'Unanswered questions: {len(unanswered_df)}')
 
+    assignments = load_assignments(ASSIGNMENTS_PATH)
+    print(f'Loaded {len(assignments)} assignments')
+
     os.makedirs(MARKDOWN_DIR, exist_ok=True)
     os.makedirs(CSV_DIR, exist_ok=True)
     os.makedirs(HTML_DIR, exist_ok=True)
@@ -448,10 +703,10 @@ def main():
     csv_path = os.path.join(CSV_DIR, f'{ts}-android-unanswered-questions.csv')
     html_path = os.path.join(HTML_DIR, f'{ts}-android-unanswered-questions.html')
 
-    write_markdown(unanswered_df, md_path, report_time, window_start, window_end)
-    write_csv(unanswered_df, csv_path, report_time)
+    write_markdown(unanswered_df, md_path, report_time, window_start, window_end, assignments)
+    write_csv(unanswered_df, csv_path, report_time, assignments)
     write_html(unanswered_df, html_path, report_time, window_start, window_end,
-               'Thunderbird for Android - Unanswered Questions')
+               'Thunderbird for Android - Unanswered Questions', assignments)
     latest_path = os.path.join(HTML_DIR, 'android-latest-unanswered-questions.html')
     write_latest_redirect(latest_path, f'{ts}-android-unanswered-questions.html',
                           'Thunderbird for Android - Latest Unanswered Questions')

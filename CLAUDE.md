@@ -380,6 +380,26 @@ Located in `CONCATENATED_FILES/{PRODUCT}/thunderbird-{product}-trusted-contribut
 
 Pain point analysis only includes answers from question creators OR trusted contributors to ensure quality.
 
+## Unanswered Questions Self-Assignment
+
+The unanswered-questions reports have an **Assignee** column. Assignments live in
+`UNANSWERED_QUESTIONS/desktop-assignments.csv` and `android-assignments.csv`
+(schema: `question_id,assignee,assigned_at,assigned_by`).
+
+- **These CSVs are the persistent source of truth.** The report scripts only
+  READ them via `load_assignments()` in `scripts/assignments.py`, so the
+  twice-daily regeneration never clobbers a manual claim.
+- The HTML report's **Claim/Release** buttons WRITE the CSV directly via the
+  GitHub API using each user's own fine-grained PAT (stored in browser
+  localStorage) — no backend. Concurrency is handled with optimistic locking
+  (GET→PUT with SHA, retry on 409).
+- `ASSIGNEES` in `scripts/assignments.py` holds placeholder usernames
+  (`PERSON1`–`PERSON4`) — **replace with the 4 real GitHub usernames** before
+  go-live. The column renders whatever is in the CSV regardless.
+- Because the token lives in localStorage, HTML escaping of SUMO-derived fields
+  in `write_html` is security-critical (an escaping bug = token theft).
+- See `UNANSWERED_QUESTIONS/README.md` for the user-facing workflow.
+
 ## Important Notes
 
 - The script `plot-sumo-keyword-count.py` uses `datetime.utcnow()` which is deprecated. This generates a warning but doesn't affect functionality.
