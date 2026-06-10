@@ -113,8 +113,10 @@ ASSIGN_JS = """
   // Soft scope guard: a correctly-scoped fine-grained token can see only this
   // repo, so GET /user/repos returns exactly it. More than one repo (or a
   // different one) means the token is broader than necessary -> reject it and
-  // do not store it. Inconclusive checks warn but proceed.
-  function validateToken(tok) {
+  // do not store it. Inconclusive checks warn but proceed. When opts.checkWrite
+  // is set (on Set-token), also confirm the token can actually write.
+  function validateToken(tok, opts) {
+    opts = opts || {};
     return api('GET', 'https://api.github.com/user', null, tok).then(function (r) {
       if (!r.ok) throw new Error('Token rejected (authentication failed).');
       return r.json();
@@ -134,7 +136,30 @@ ASSIGN_JS = """
           }
           return { login: user.login };
         });
+      }).then(function (result) {
+        if (!opts.checkWrite) return result;
+        return probeWrite(tok).then(function () { return result; });
       });
+    });
+  }
+
+  // Reliable write check: attempt a contents PUT with a bogus SHA. GitHub
+  // authorizes before validating the payload, so a token lacking Contents:write
+  // returns 403, while a write-capable token is rejected for the SHA mismatch
+  // (409/422) without writing anything. This tests the token's actual write
+  // authorization on the real path -- unlike the GET /repos permissions.push
+  // flag, which reflects the user's repo role rather than the token's grant.
+  function probeWrite(tok) {
+    return api('PUT', contentsUrl(), {
+      message: 'write-permission probe (no change)',
+      content: b64encode('probe'),
+      sha: '0000000000000000000000000000000000000000',
+      branch: cfg.branch
+    }, tok).then(function (r) {
+      if (r.status === 403) {
+        throw new Error('Token cannot write to ' + cfg.repo + '. Set Contents: Read and write when creating the token.');
+      }
+      return true;
     });
   }
 
@@ -319,7 +344,7 @@ ASSIGN_JS = """
       if (!t) return;
       t = t.trim();
       msg('Validating token...');
-      validateToken(t).then(function (res) {
+      validateToken(t, { checkWrite: true }).then(function (res) {
         localStorage.setItem(TOKEN_KEY, t);
         me = res.login; updateAuthUI(); renderAll(); refreshStates();
         msg(res.warn || ('Signed in as @' + me));

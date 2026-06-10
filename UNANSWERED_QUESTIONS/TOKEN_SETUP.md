@@ -91,6 +91,7 @@ only `thunderbird/thunderbird-metrics-and-reports`.
 |---|---|
 | **“Token rejected…”** after pasting | Token typo, expired, or still pending org approval. Re-copy it, or ask an org admin to approve the fine-grained token for `thunderbird`. |
 | **“Token has access to multiple repositories”** | Your token is broader than this one repo (often a classic PAT or an "all repositories" fine-grained token). Recreate it with **Only select repositories → this repo** and **Contents: Read and write**. |
+| **“Token cannot write to …”** | The token can read but lacks write. At set-time the page runs a harmless write probe (a `PUT` with a bogus SHA that changes nothing); a 403 means no write access. Recreate the token with **Contents: Read and write**. |
 | Buttons stay disabled / say **Claim** but won't click | You're not signed in. Click **Set GitHub token** and add a token. |
 | **Error: … PUT 403** when clicking | The token lacks **Contents: Read and write** on this repo, or isn't scoped to this repo. Regenerate with the correct permission. |
 | **Error: … PUT 409** repeatedly | A rare write collision; just click again. (The page already retries up to 5 times automatically.) |
