@@ -6,6 +6,7 @@ on:
     paths:
       - 'UNANSWERED_QUESTIONS/desktop-assignments.csv'
       - 'UNANSWERED_QUESTIONS/android-assignments.csv'
+  workflow_dispatch:
 
 permissions:
   contents: write
