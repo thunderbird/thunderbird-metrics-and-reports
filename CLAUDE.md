@@ -398,6 +398,12 @@ The unanswered-questions reports have an **Assignee** column. Assignments live i
   go-live. The column renders whatever is in the CSV regardless.
 - Because the token lives in localStorage, HTML escaping of SUMO-derived fields
   in `write_html` is security-critical (an escaping bug = token theft).
+- **Allowlist enforcement:** `gha-validate-assignments` (push-triggered on the
+  two `*-assignments.csv`) runs `scripts/validate_assignments.py`, which removes
+  any row whose assignee isn't in `ASSIGNEES`, commits the correction (via
+  `GITHUB_TOKEN`, which doesn't re-trigger the workflow), and files an issue
+  assigned to rtanglao. **Inert while `ASSIGNEES` holds the `PERSON1`–`PERSON4`
+  placeholders** — it activates once real usernames are set.
 - See `UNANSWERED_QUESTIONS/README.md` for the user-facing workflow.
 
 ## Important Notes

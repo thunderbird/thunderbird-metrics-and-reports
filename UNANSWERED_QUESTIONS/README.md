@@ -45,6 +45,18 @@ Use the **Claim manually (edit CSV)** link in the report header (or open the
 `*-assignments.csv` directly), add a line `question_id,your-github-id`, and
 commit. The next report run shows it.
 
+## Allowlist enforcement
+
+Only the team members listed in `ASSIGNEES` (`scripts/assignments.py`) may be
+assignees. A push-triggered workflow (`gha-validate-assignments`) checks every
+change to these CSVs: any row whose assignee is **not** on the allowlist is
+**auto-removed within ~1 minute** and a GitHub issue is filed (assigned to
+rtanglao). Because the report only rebuilds twice daily, an off-allowlist name
+effectively never appears in the published report.
+
+This enforcement is **inert until the `PERSON1`–`PERSON4` placeholders are
+replaced** with real usernames (otherwise it would revert every real claim).
+
 ## Security notes
 
 - Use a **fine-grained, single-repo, Contents-only, short-expiry** token. Revoke

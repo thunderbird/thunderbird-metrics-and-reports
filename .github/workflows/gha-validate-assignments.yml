@@ -1,0 +1,63 @@
+name: gha-validate-assignments
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'UNANSWERED_QUESTIONS/desktop-assignments.csv'
+      - 'UNANSWERED_QUESTIONS/android-assignments.csv'
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: validate-assignments
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+
+    - name: Validate assignees and revert off-allowlist rows
+      id: validate
+      run: python3 scripts/validate_assignments.py
+
+    - name: Commit and push correction
+      if: steps.validate.outputs.removed_count != '' && steps.validate.outputs.removed_count != '0'
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add UNANSWERED_QUESTIONS/desktop-assignments.csv UNANSWERED_QUESTIONS/android-assignments.csv
+        git commit -m "Auto-revert off-allowlist assignee(s)" || { echo "Nothing to commit"; exit 0; }
+        # Pushed with GITHUB_TOKEN, which does not re-trigger workflows -> no loop.
+        for i in $(seq 1 5); do
+          if git pull --rebase origin main && git push; then
+            echo "Pushed on attempt $i"; exit 0
+          fi
+          echo "Attempt $i failed; aborting any in-progress rebase and retrying..."
+          git rebase --abort 2>/dev/null || true
+          sleep $((RANDOM % 5 + 2))
+        done
+        echo "ERROR: failed to push correction after retries"; exit 1
+
+    - name: Notify rtanglao via issue
+      if: steps.validate.outputs.removed_count != '' && steps.validate.outputs.removed_count != '0'
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        gh label create assignment-guard --color FBCA04 --force >/dev/null 2>&1 || true
+        details=$(python3 -c "import json; [print('- ' + r['file'] + ' qid=' + r['question_id'] + ' assignee=' + r['assignee']) for r in json.load(open('removed-assignments.json'))]")
+        body=$(printf 'The assignment guard auto-reverted row(s) whose assignee is not in the ASSIGNEES allowlist.\n\n**Removed:**\n%s\n\nTriggered by commit %s (actor: @%s).\nReview and, if the person should be allowed, add them to `ASSIGNEES` in `scripts/assignments.py`.' "$details" "${{ github.sha }}" "${{ github.actor }}")
+        existing=$(gh issue list --label assignment-guard --state open --json number --jq '.[0].number')
+        if [ -n "$existing" ]; then
+          gh issue comment "$existing" --body "$body"
+        else
+          gh issue create --title "Off-allowlist assignee auto-reverted" \
+            --label assignment-guard --assignee rtanglao --body "$body"
+        fi

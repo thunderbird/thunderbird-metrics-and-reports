@@ -99,6 +99,13 @@ only `thunderbird/thunderbird-metrics-and-reports`.
 
 To remove your token from a browser, click **Sign out** on the report page.
 
+## Note: only team members can be assignees
+
+A server-side guard (`gha-validate-assignments`) auto-removes any assignee that
+isn't on the `ASSIGNEES` allowlist in `scripts/assignments.py`, within ~1 minute,
+and files an issue. So even with a valid write token, claims only "stick" for
+the listed team members. (Inert until the placeholder usernames are replaced.)
+
 ---
 
 ## See also
