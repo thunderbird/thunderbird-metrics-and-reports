@@ -15,9 +15,10 @@ for ASSIGN_JS, which handles the user's GitHub token.
 import csv
 import os
 
-# TODO: replace placeholders with the 4 real GitHub usernames.
-# Order is not significant (assignment is manual, not algorithmic).
-ASSIGNEES = ['PERSON1', 'PERSON2', 'PERSON3', 'PERSON4']
+# GitHub usernames allowed to be assignees. Order is not significant
+# (assignment is manual, not algorithmic). Enforced by the
+# gha-validate-assignments workflow, which auto-reverts off-list assignees.
+ASSIGNEES = ['rtanglao', 'lisajill', 'wsmwk', 'monica-thunderbird', 'madhattermattic']
 
 FIELDNAMES = ['question_id', 'assignee', 'assigned_at', 'assigned_by']
 
