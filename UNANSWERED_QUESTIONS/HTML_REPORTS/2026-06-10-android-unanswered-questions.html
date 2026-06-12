@@ -127,31 +127,16 @@
     return fetch(url, opts);
   }
 
-  // Soft scope guard: a correctly-scoped fine-grained token can see only this
-  // repo, so GET /user/repos returns exactly it. More than one repo (or a
-  // different one) means the token is broader than necessary -> reject it and
-  // do not store it. Inconclusive checks warn but proceed.
+  // Archived report: the obsolete GET /user/repos scope guard has been removed
+  // (it rejected/wiped valid single-repo tokens -- see issue #55). This snapshot
+  // pre-dates the write probe, so it only authenticates here; the current latest
+  // report carries the full fix.
   function validateToken(tok) {
     return api('GET', 'https://api.github.com/user', null, tok).then(function (r) {
       if (!r.ok) throw new Error('Token rejected (authentication failed).');
       return r.json();
     }).then(function (user) {
-      return api('GET', 'https://api.github.com/user/repos?per_page=2', null, tok).then(function (r) {
-        if (!r.ok) return { login: user.login, warn: 'Could not verify token scope; proceeding.' };
-        return r.json().then(function (repos) {
-          if (!Array.isArray(repos)) return { login: user.login, warn: 'Could not verify token scope; proceeding.' };
-          if (repos.length > 1) {
-            throw new Error('Token has access to multiple repositories. Create a token scoped to ONLY ' + cfg.repo + ' (Contents: read & write).');
-          }
-          if (repos.length === 1 && (repos[0].full_name || '').toLowerCase() !== (cfg.repo || '').toLowerCase()) {
-            throw new Error('Token is scoped to ' + repos[0].full_name + ', not ' + cfg.repo + '.');
-          }
-          if (repos.length === 0) {
-            throw new Error('Token cannot access ' + cfg.repo + '. Grant Contents access to this repo.');
-          }
-          return { login: user.login };
-        });
-      });
+      return { login: user.login };
     });
   }
 

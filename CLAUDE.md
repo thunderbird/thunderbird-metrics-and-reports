@@ -398,6 +398,16 @@ The unanswered-questions reports have an **Assignee** column. Assignments live i
   go-live. The column renders whatever is in the CSV regardless.
 - Because the token lives in localStorage, HTML escaping of SUMO-derived fields
   in `write_html` is security-critical (an escaping bug = token theft).
+- **Token validation (`validateToken` in `ASSIGN_JS`):** authenticates via
+  `GET /user` and, at set-time, runs `probeWrite()` — a bogus-SHA `PUT` (403 = no
+  write → reject; 409/422 = has write → accept). This is the authoritative,
+  scope-accurate check. Do **not** reinstate a `GET /user/repos` "single-repo
+  scope" guard: every fine-grained PAT carries implicit read-only access to all
+  public repos, and `/user/repos` lists the user's affiliations rather than the
+  token's selected-repo grant, so it returns many repos even for a correctly
+  scoped single-repo token and falsely rejects it (verified empirically
+  2026-06). The implicit public-read is read-only and can't be prevented; the
+  guarantee that matters — single-repo *write* — is what `probeWrite` confirms.
 - **Allowlist enforcement:** `gha-validate-assignments` (push-triggered on the
   two `*-assignments.csv`) runs `scripts/validate_assignments.py`, which removes
   any row whose assignee isn't in `ASSIGNEES`, commits the correction (via

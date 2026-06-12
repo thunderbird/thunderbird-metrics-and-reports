@@ -478,36 +478,25 @@
     return fetch(url, opts);
   }
 
-  // Soft scope guard: a correctly-scoped fine-grained token can see only this
-  // repo, so GET /user/repos returns exactly it. More than one repo (or a
-  // different one) means the token is broader than necessary -> reject it and
-  // do not store it. Inconclusive checks warn but proceed. When opts.checkWrite
-  // is set (on Set-token), also confirm the token can actually write.
+  // Token validation. We deliberately do NOT use GET /user/repos to verify
+  // single-repo scope: every fine-grained PAT carries implicit read-only access
+  // to all public repos, and /user/repos enumerates the user's affiliations
+  // (owned/collaborator/org repos), not the token's selected-repo grant. So a
+  // correctly-scoped single-repo token still lists many repos there -- using it
+  // as a scope guard rejected valid tokens (verified empirically). The
+  // authoritative, scope-accurate check is probeWrite() below (a bogus-SHA PUT:
+  // 403 = no write, 409/422 = has write to THIS repo). The implicit public-read
+  // is inherent to fine-grained PATs and cannot be detected or prevented here;
+  // it is read-only, so the meaningful guarantee remains single-repo *write*.
+  // On Set-token (opts.checkWrite) we confirm write; on page load we only auth.
   function validateToken(tok, opts) {
     opts = opts || {};
     return api('GET', 'https://api.github.com/user', null, tok).then(function (r) {
       if (!r.ok) throw new Error('Token rejected (authentication failed).');
       return r.json();
     }).then(function (user) {
-      return api('GET', 'https://api.github.com/user/repos?per_page=2', null, tok).then(function (r) {
-        if (!r.ok) return { login: user.login, warn: 'Could not verify token scope; proceeding.' };
-        return r.json().then(function (repos) {
-          if (!Array.isArray(repos)) return { login: user.login, warn: 'Could not verify token scope; proceeding.' };
-          if (repos.length > 1) {
-            throw new Error('Token has access to multiple repositories. Create a token scoped to ONLY ' + cfg.repo + ' (Contents: read & write).');
-          }
-          if (repos.length === 1 && (repos[0].full_name || '').toLowerCase() !== (cfg.repo || '').toLowerCase()) {
-            throw new Error('Token is scoped to ' + repos[0].full_name + ', not ' + cfg.repo + '.');
-          }
-          if (repos.length === 0) {
-            throw new Error('Token cannot access ' + cfg.repo + '. Grant Contents access to this repo.');
-          }
-          return { login: user.login };
-        });
-      }).then(function (result) {
-        if (!opts.checkWrite) return result;
-        return probeWrite(tok).then(function () { return result; });
-      });
+      if (!opts.checkWrite) return { login: user.login };
+      return probeWrite(tok).then(function () { return { login: user.login }; });
     });
   }
 

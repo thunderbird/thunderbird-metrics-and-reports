@@ -62,6 +62,12 @@ replaced** with real usernames (otherwise it would revert every real claim).
 - Use a **fine-grained, single-repo, Contents-only, short-expiry** token. Revoke
   it anytime from GitHub settings.
 - The token lives only in your browser. Don't paste it into untrusted pages.
+- Note: GitHub gives every fine-grained token implicit **read-only** access to
+  all public repos — that can't be disabled. The guarantees we control are that
+  **write** is confined to this one repo, the token expires soon, and it never
+  leaves your browser. The page verifies write access with a harmless probe; it
+  can't (and doesn't need to) verify single-repo scope. See
+  [TOKEN_SETUP.md](TOKEN_SETUP.md).
 
 ## Setup TODO
 

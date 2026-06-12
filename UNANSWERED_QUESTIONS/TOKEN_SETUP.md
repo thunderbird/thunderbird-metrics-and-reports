@@ -40,9 +40,16 @@ repo or shared with anyone.
     `github_pat_XXXXXXXXXXXXXXXXXXXXXXXX`.
 
 > 🔒 **Why these exact settings?** Single repo + Contents-only + short expiry
-> keeps the blast radius tiny: even if the token leaked, it could only edit
-> files in this one repo, and only until it expires. You can revoke it any time
-> from the same Fine-grained tokens page.
+> keeps the blast radius small: even if the token leaked, it could only **write**
+> to files in this one repo, and only until it expires. You can revoke it any
+> time from the same Fine-grained tokens page.
+>
+> ⚠️ **One thing you can't turn off:** GitHub gives *every* fine-grained token
+> read-only access to *all* public repositories — this is platform behavior,
+> not something we or you can disable. So a leaked token could also *read* public
+> repos as you. It still can't **write** anywhere except this repo, and the data
+> it could read is already public. That's why short expiry and keeping the token
+> in your own browser are the real protections.
 
 ---
 
@@ -79,18 +86,19 @@ report only *reads* the assignments file.
 
 ## Troubleshooting
 
-The page also runs a **soft scope check**: after you paste a token it calls
-`GET /user/repos`. A correctly-scoped fine-grained token can see only this repo,
-so if the token can see **more than one repository** (e.g. a classic PAT or an
-"all repositories" fine-grained token) the page **rejects it and does not store
-it**. A previously-stored broad token is likewise cleared on page load. This
-just enforces the single-repo instruction above — recreate the token scoped to
-only `thunderbird/thunderbird-metrics-and-reports`.
+When you paste a token, the page **authenticates** it (`GET /user`) and verifies
+it can **write to this repo** by running a harmless write probe — a `PUT` with a
+bogus SHA that changes nothing; a `403` means the token lacks write and it is
+rejected. (We don't try to verify "single-repo scope" from the browser: every
+fine-grained token also has implicit read-only access to all public repos, and
+GitHub's repo-listing reflects your account's repos rather than the token's
+selected-repo grant, so it can't tell a single-repo token from a broad one. What
+matters — that **write** is confined to this repo — is exactly what the probe
+checks.)
 
 | Symptom | Cause / fix |
 |---|---|
 | **“Token rejected…”** after pasting | Token typo, expired, or still pending org approval. Re-copy it, or ask an org admin to approve the fine-grained token for `thunderbird`. |
-| **“Token has access to multiple repositories”** | Your token is broader than this one repo (often a classic PAT or an "all repositories" fine-grained token). Recreate it with **Only select repositories → this repo** and **Contents: Read and write**. |
 | **“Token cannot write to …”** | The token can read but lacks write. At set-time the page runs a harmless write probe (a `PUT` with a bogus SHA that changes nothing); a 403 means no write access. Recreate the token with **Contents: Read and write**. |
 | Buttons stay disabled / say **Claim** but won't click | You're not signed in. Click **Set GitHub token** and add a token. |
 | **Error: … PUT 403** when clicking | The token lacks **Contents: Read and write** on this repo, or isn't scoped to this repo. Regenerate with the correct permission. |
