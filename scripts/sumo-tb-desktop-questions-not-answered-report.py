@@ -14,11 +14,12 @@ import os
 import csv
 import re
 import html
+from urllib.parse import quote
 from datetime import datetime, timezone, timedelta
 import pandas as pd
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from assignments import load_assignments, ASSIGN_JS, SORT_JS, HTML_CSS
+from assignments import load_assignments, ASSIGN_JS, SORT_JS, HTML_CSS, assignee_for
 
 csv.field_size_limit(sys.maxsize)
 
@@ -151,7 +152,7 @@ def write_markdown(df, path, report_time, window_start, window_end, assignments)
         date_str = to_utc_str(q['created_utc'])
         elapsed, _ = format_elapsed(q['created_utc'], report_time)
         creator = str(q['creator']) if pd.notna(q.get('creator')) else ''
-        creator_link = (f'<a href="https://support.mozilla.org/en-US/user/{creator}/">'
+        creator_link = (f'<a href="https://support.mozilla.org/en-US/user/{quote(creator, safe="")}/">'
                         f'{creator}</a>')
 
         version, os_str = parse_metadata(q.get('metadata'))
@@ -167,7 +168,7 @@ def write_markdown(df, path, report_time, window_start, window_end, assignments)
         url = f'https://support.mozilla.org/questions/{qid}'
         q_cell = f'<a href="{url}" title="{tooltip}">{link_text}</a>'
 
-        assignee = assignments.get(int(qid), {}).get('assignee', '')
+        assignee = assignee_for(assignments, qid)
         assignee_cell = (f'<a href="https://github.com/{assignee}">@{assignee}</a>'
                          if assignee else '')
 
@@ -192,7 +193,7 @@ def write_csv(df, path, report_time, assignments):
             qid = q['id']
             title = str(q['title']) if pd.notna(q.get('title')) else ''
             content = strip_html(q.get('content'))
-            assignee = assignments.get(int(qid), {}).get('assignee', '')
+            assignee = assignee_for(assignments, qid)
             writer.writerow({
                 'date_created_utc': to_utc_str(q['created_utc']),
                 'elapsed': format_elapsed(q['created_utc'], report_time)[0],
@@ -216,7 +217,7 @@ def write_html(df, path, report_time, window_start, window_end, title, assignmen
         elapsed_str, elapsed_hours = format_elapsed(q['created_utc'], report_time)
 
         creator = str(q['creator']) if pd.notna(q.get('creator')) else ''
-        creator_cell = (f'<a href="https://support.mozilla.org/en-US/user/{creator}/">'
+        creator_cell = (f'<a href="https://support.mozilla.org/en-US/user/{quote(creator, safe="")}/">'
                         f'{html.escape(creator)}</a>')
 
         version, os_str = parse_metadata(q.get('metadata'))
@@ -231,7 +232,7 @@ def write_html(df, path, report_time, window_start, window_end, title, assignmen
         url = f'https://support.mozilla.org/questions/{qid}'
         q_cell = f'<a href="{url}" title="{tooltip}">{link_text}</a>'
 
-        assignee = html.escape(assignments.get(int(qid), {}).get('assignee', ''))
+        assignee = html.escape(assignee_for(assignments, qid))
         assignee_link = (f'<a href="https://github.com/{assignee}">@{assignee}</a>'
                          if assignee else '')
         btn_label = 'Claimed' if assignee else 'Claim'
@@ -257,6 +258,7 @@ def write_html(df, path, report_time, window_start, window_end, title, assignmen
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.github.com; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; form-action 'none'; base-uri 'none'">
   <title>{html.escape(title)} {report_time.strftime("%Y-%m-%d %H:%M")} UTC</title>
   <style>{HTML_CSS}</style>
 </head>

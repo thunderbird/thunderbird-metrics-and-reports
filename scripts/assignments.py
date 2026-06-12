@@ -14,6 +14,7 @@ for ASSIGN_JS, which handles the user's GitHub token.
 """
 import csv
 import os
+import re
 
 # GitHub usernames allowed to be assignees. Order is not significant
 # (assignment is manual, not algorithmic). Enforced by the
@@ -21,6 +22,23 @@ import os
 ASSIGNEES = ['rtanglao', 'lisajill', 'wsmwk', 'monica-thunderbird', 'madhattermattic']
 
 FIELDNAMES = ['question_id', 'assignee', 'assigned_at', 'assigned_by']
+
+# A GitHub login is alphanumerics and single hyphens. We use this to reject
+# malformed/injected assignee values before they ever reach rendered HTML.
+ASSIGNEE_RE = re.compile(r'^[A-Za-z0-9-]+$')
+
+
+def is_valid_assignee(name):
+    return bool(name) and bool(ASSIGNEE_RE.match(name))
+
+
+def assignee_for(assignments, qid):
+    """Assignee for a question id, tolerating a non-numeric qid (returns '') so
+    one malformed row can't break the whole report build."""
+    try:
+        return assignments.get(int(qid), {}).get('assignee', '')
+    except (ValueError, TypeError):
+        return ''
 
 
 def load_assignments(path):
@@ -37,7 +55,7 @@ def load_assignments(path):
         for row in reader:
             qid_raw = (row.get('question_id') or '').strip()
             assignee = (row.get('assignee') or '').strip()
-            if not qid_raw or not assignee:
+            if not qid_raw or not is_valid_assignee(assignee):
                 continue
             try:
                 qid = int(qid_raw)
@@ -261,7 +279,7 @@ ASSIGN_JS = """
     return commit(qid, function (parsed) {
       var i = findRow(parsed, qid);
       if (i >= 0 && parsed.rows[i].assignee) {
-        if (parsed.rows[i].assignee === me) return null;
+        if (sameUser(parsed.rows[i].assignee, me)) return null;
         return 'Already claimed by @' + parsed.rows[i].assignee;
       }
       if (i >= 0) { parsed.rows[i] = { qid: String(qid), assignee: me, assigned_at: now, assigned_by: me }; }
@@ -274,24 +292,39 @@ ASSIGN_JS = """
     return commit(qid, function (parsed) {
       var i = findRow(parsed, qid);
       if (i < 0 || !parsed.rows[i].assignee) return null;
-      if (parsed.rows[i].assignee !== me) return 'Not yours (claimed by @' + parsed.rows[i].assignee + ')';
+      if (!sameUser(parsed.rows[i].assignee, me)) return 'Not yours (claimed by @' + parsed.rows[i].assignee + ')';
       parsed.rows.splice(i, 1);
       return null;
     }, 'Release question ' + qid + ' by ' + me);
   }
 
+  // GitHub logins are case-insensitive: compare normalized.
+  function sameUser(a, b) { return (a || '').toLowerCase() === (b || '').toLowerCase(); }
+  // A GitHub login is alphanumerics + hyphens; reject anything else so a
+  // malformed/injected CSV value never drives the UI.
+  function isValidAssignee(a) { return /^[A-Za-z0-9-]+$/.test(a); }
+
   function renderButton(btn) {
     var qid = btn.getAttribute('data-qid');
     var assignee = btn.getAttribute('data-assignee') || '';
+    if (assignee && !isValidAssignee(assignee)) assignee = '';
     var span = btn.parentNode.querySelector('.assignee');
     if (span) {
-      span.innerHTML = assignee ? '<a href="https://github.com/' + assignee + '">@' + assignee + '</a>' : '';
+      // Build via DOM (textContent/createElement), never innerHTML, so an
+      // assignee value can never inject markup and steal the localStorage token.
+      span.textContent = '';
+      if (assignee) {
+        var a = document.createElement('a');
+        a.href = 'https://github.com/' + encodeURIComponent(assignee);
+        a.textContent = '@' + assignee;
+        span.appendChild(a);
+      }
     }
     btn.parentNode.setAttribute('data-sort', assignee);
     if (!me) { btn.textContent = assignee ? 'Claimed' : 'Claim'; btn.disabled = true; btn.title = 'Set your GitHub token to claim'; return; }
     btn.title = '';
     if (!assignee) { btn.textContent = 'Claim'; btn.disabled = false; }
-    else if (assignee === me) { btn.textContent = 'Release'; btn.disabled = false; }
+    else if (sameUser(assignee, me)) { btn.textContent = 'Release'; btn.disabled = false; }
     else { btn.textContent = 'Claimed'; btn.disabled = true; }
   }
 
@@ -303,7 +336,7 @@ ASSIGN_JS = """
     if (!token()) return;
     getContents().then(function (state) {
       var map = {};
-      state.parsed.rows.forEach(function (r) { if (r.assignee) map[r.qid] = r.assignee; });
+      state.parsed.rows.forEach(function (r) { if (isValidAssignee(r.assignee)) map[r.qid] = r.assignee; });
       document.querySelectorAll('.assign-btn').forEach(function (btn) {
         btn.setAttribute('data-assignee', map[btn.getAttribute('data-qid')] || '');
       });
@@ -318,7 +351,7 @@ ASSIGN_JS = """
     var assignee = btn.getAttribute('data-assignee') || '';
     btn.disabled = true;
     msg('Working...');
-    var p = (assignee === me) ? release(qid) : claim(qid);
+    var p = sameUser(assignee, me) ? release(qid) : claim(qid);
     p.then(function (ok) {
       if (ok) { msg(''); }
       refreshStates();

@@ -42,7 +42,7 @@ def emit(removed):
 
 
 def main():
-    allow = set(ASSIGNEES)
+    allow = {a.lower() for a in ASSIGNEES}  # GitHub logins are case-insensitive
 
     if placeholders_present(ASSIGNEES):
         print('ASSIGNEES still contains placeholders (PERSON1-4); validation skipped.')
@@ -53,29 +53,47 @@ def main():
     for path in CSV_PATHS:
         if not os.path.exists(path):
             continue
-        with open(path, newline='', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            fieldnames = reader.fieldnames or FIELDNAMES
-            rows = list(reader)
+        try:
+            with open(path, newline='', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                fieldnames = reader.fieldnames or FIELDNAMES
+                rows = list(reader)
+        except (OSError, csv.Error) as e:
+            print(f'ERROR reading {path}: {e}; leaving it untouched.', file=sys.stderr)
+            continue
 
         kept = []
-        for row in rows:
+        seen = set()
+        dropped_dupes = 0
+        # Walk in reverse so the LAST row for a question_id wins on dedupe.
+        for row in reversed(rows):
             assignee = (row.get('assignee') or '').strip()
-            if assignee and assignee not in allow:
-                removed.append({
-                    'file': path,
-                    'question_id': (row.get('question_id') or '').strip(),
-                    'assignee': assignee,
-                })
-            else:
-                kept.append(row)
+            qid = (row.get('question_id') or '').strip()
+            if not assignee:
+                kept.append(row)            # unassigned row: leave as-is
+                continue
+            if assignee.lower() not in allow or not qid.isdigit():
+                # Off-allowlist or malformed -> a real violation; record + notify.
+                removed.append({'file': path, 'question_id': qid, 'assignee': assignee})
+                continue
+            if qid in seen:
+                dropped_dupes += 1          # benign duplicate cleanup; not a violation
+                continue
+            seen.add(qid)
+            kept.append(row)
+        kept.reverse()
 
         if len(kept) != len(rows):
-            with open(path, 'w', newline='', encoding='utf-8') as f:
-                writer = csv.DictWriter(f, fieldnames=fieldnames)
-                writer.writeheader()
-                writer.writerows(kept)
-            print(f'{path}: removed {len(rows) - len(kept)} off-allowlist row(s)')
+            try:
+                with open(path, 'w', newline='', encoding='utf-8') as f:
+                    writer = csv.DictWriter(f, fieldnames=fieldnames)
+                    writer.writeheader()
+                    writer.writerows(kept)
+            except OSError as e:
+                print(f'ERROR writing {path}: {e}', file=sys.stderr)
+                sys.exit(1)
+            print(f'{path}: removed {len(rows) - len(kept)} row(s) '
+                  f'(off-allowlist/malformed; {dropped_dupes} duplicate)')
 
     for r in removed:
         print(f"Removed: {r['file']} qid={r['question_id']} assignee={r['assignee']}")
