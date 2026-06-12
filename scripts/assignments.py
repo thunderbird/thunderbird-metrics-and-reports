@@ -112,7 +112,19 @@ ASSIGN_JS = """
     // commit()'s read can return a stale sha causing spurious PUT 409 retries.
     var opts = { method: method, headers: headers, cache: 'no-store' };
     if (body) { headers['Content-Type'] = 'application/json'; opts.body = JSON.stringify(body); }
-    return fetch(url, opts);
+    // Abort after 15s so a hung connection rejects cleanly instead of leaving
+    // the UI stuck (e.g. a button disabled on "Working...").
+    var ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+    if (ctrl) opts.signal = ctrl.signal;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 15000) : null;
+    return fetch(url, opts).then(function (r) {
+      if (timer) clearTimeout(timer);
+      return r;
+    }, function (err) {
+      if (timer) clearTimeout(timer);
+      if (err && err.name === 'AbortError') throw new Error('Request timed out (GitHub did not respond). Please try again.');
+      throw err;
+    });
   }
 
   // Token validation. We deliberately do NOT use GET /user/repos to verify
@@ -129,7 +141,11 @@ ASSIGN_JS = """
   function validateToken(tok, opts) {
     opts = opts || {};
     return api('GET', 'https://api.github.com/user', null, tok).then(function (r) {
-      if (!r.ok) throw new Error('Token rejected (authentication failed).');
+      // Only a genuine 401 means the token is bad; 403 is almost always rate
+      // limiting, and 429/5xx/network are transient -- none should sign the user
+      // out. loadMe() clears the stored token only when err.authFailed is set.
+      if (r.status === 401) { var e = new Error('Token rejected (expired or invalid). Please set a new token.'); e.authFailed = true; throw e; }
+      if (!r.ok) throw new Error('Could not verify token (HTTP ' + r.status + '). GitHub may be busy -- reload to retry.');
       return r.json();
     }).then(function (user) {
       if (!opts.checkWrite) return { login: user.login };
@@ -292,7 +308,7 @@ ASSIGN_JS = """
         btn.setAttribute('data-assignee', map[btn.getAttribute('data-qid')] || '');
       });
       renderAll();
-    }).catch(function () { /* keep build-time state */ });
+    }).catch(function () { msg('Could not refresh assignments (network/GitHub issue) -- reload to see the latest.', true); });
   }
 
   function onClick(e) {
@@ -307,7 +323,7 @@ ASSIGN_JS = """
       if (ok) { msg(''); }
       refreshStates();
     }).catch(function (err) {
-      msg('Error: ' + err.message + ' (check your token)', true);
+      msg('Error: ' + err.message, true);
       renderAll();
     });
   }
@@ -330,7 +346,8 @@ ASSIGN_JS = """
       me = res.login; updateAuthUI(); renderAll(); refreshStates();
       if (res.warn) msg(res.warn);
     }).catch(function (err) {
-      localStorage.removeItem(TOKEN_KEY); me = null; updateAuthUI(); renderAll();
+      if (err.authFailed) localStorage.removeItem(TOKEN_KEY);
+      me = null; updateAuthUI(); renderAll();
       msg(err.message, true);
     });
   }
