@@ -150,10 +150,17 @@ ASSIGN_JS = """
       sha: '0000000000000000000000000000000000000000',
       branch: cfg.branch
     }, tok).then(function (r) {
-      if (r.status === 403) {
-        throw new Error('Token cannot write to ' + cfg.repo + '. Set Contents: Read and write when creating the token.');
+      // 409/422 = request authorized, then rejected for the bogus SHA -> token CAN write.
+      if (r.status === 409 || r.status === 422) return true;
+      // 403/404 = not authorized (GitHub returns 404 to hide repos a token can't reach).
+      if (r.status === 403 || r.status === 404) {
+        throw new Error('Token cannot write to ' + cfg.repo + '. Create it with Contents: Read and write, scoped to this repo.');
       }
-      return true;
+      // 200/201 = the probe somehow committed (should never happen with a bogus SHA).
+      if (r.status === 200 || r.status === 201) {
+        throw new Error('Unexpected write-probe result; aborting to be safe.');
+      }
+      throw new Error('Could not verify write access (HTTP ' + r.status + '). Please try again.');
     });
   }
 
