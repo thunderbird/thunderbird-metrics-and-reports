@@ -106,7 +106,11 @@ ASSIGN_JS = """
     var t = tok || token();
     var headers = { 'Accept': 'application/vnd.github+json' };
     if (t) headers['Authorization'] = 'Bearer ' + t;
-    var opts = { method: method, headers: headers };
+    // cache:'no-store' bypasses the browser HTTP cache. GitHub's contents API
+    // sends Cache-Control: max-age=60, so without this a read-back after a write
+    // (refreshStates) returns the stale pre-write CSV for up to ~60s, and
+    // commit()'s read can return a stale sha causing spurious PUT 409 retries.
+    var opts = { method: method, headers: headers, cache: 'no-store' };
     if (body) { headers['Content-Type'] = 'application/json'; opts.body = JSON.stringify(body); }
     return fetch(url, opts);
   }
