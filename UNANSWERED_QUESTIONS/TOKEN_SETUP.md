@@ -23,6 +23,7 @@ repo or shared with anyone.
 8. Open the report ([desktop](HTML_REPORTS/desktop-latest-unanswered-questions.html) · [android](HTML_REPORTS/android-latest-unanswered-questions.html)) → **Set GitHub token** → paste the token from the previous step that you saved in your password manager.
 ---
 
+# Details with full explanatory info
 ## Part 1 — Create the token at github.com
 
 1. Sign in to <https://github.com>.
