@@ -5,7 +5,7 @@ the assignments file in this repository on your behalf. To do that, your browser
 needs a GitHub **fine-grained personal access token (PAT)** with permission to
 write to *only this repository*.
 
-You do this **once per browser** (e.g. once for Firefox release, once for Firefox Nightly, once for any other browser you use like Chrome. The token is stored in your browser's
+You do this **once per browser** e.g. once for Firefox release, once for Firefox Nightly, once for any other browser you use like Chrome. The token is stored in your browser's
 `localStorage` and is sent only to GitHub's API — it is never committed to the
 repo or shared with anyone.
 
