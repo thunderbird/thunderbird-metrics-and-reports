@@ -11,6 +11,19 @@ repo or shared with anyone.
 
 ---
 
+## TL;DR (clickpath)
+
+1. goto <https://github.com/settings/personal-access-tokens>
+2. **Generate new token**
+3. Resource owner: `thunderbird`
+4. Expiration: 90 days
+5. Repository access → Only select repositories → `thunderbird/thunderbird-metrics-and-reports`
+6. Permissions → Contents → **Read and write**
+7. **Generate token** → copy it
+8. Open the report ([desktop](HTML_REPORTS/desktop-latest-unanswered-questions.html) · [android](HTML_REPORTS/android-latest-unanswered-questions.html)) → **Set GitHub token** → paste
+
+---
+
 ## Part 1 — Create the token at github.com
 
 1. Sign in to <https://github.com>.
