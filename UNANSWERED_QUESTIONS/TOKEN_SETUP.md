@@ -20,7 +20,7 @@ repo or shared with anyone.
    * Set **Repository access** to **Only select repositories**  and then select **thunderbird/thunderbird-metrics-and-reports**.
    * Click **Add permissions**, then tick **✓** **Contents** and under **Access:** select  **Read and write**. You can ignore **Metadata** (its defaults are fine).
 7. Click **Generate token** and then **copy it to your password manager immediately because it will only be visible once**.
-8. Open the report ([desktop](HTML_REPORTS/desktop-latest-unanswered-questions.html) · [android](HTML_REPORTS/android-latest-unanswered-questions.html)) → **Set GitHub token** → paste the token from the previous step that you saved in your password manager.
+8. Open the report ([desktop](https://thunderbird.github.io/thunderbird-metrics-and-reports/UNANSWERED_QUESTIONS/HTML_REPORTS/desktop-latest-unanswered-questions.html) · [android](https://thunderbird.github.io/thunderbird-metrics-and-reports/UNANSWERED_QUESTIONS/HTML_REPORTS/android-latest-unanswered-questions.html) → **Set GitHub token** → paste the token from the previous step that you saved in your password manager.
 ---
 
 # Details with full explanatory info
