@@ -16,7 +16,7 @@ repo or shared with anyone.
 1. <https://github.com/settings/personal-access-tokens> > Click **Generate new token**
    * Set **Token name:** to something relevant like **2026-06-sumo-assignment**.
    * Select **Resource owner**: **thunderbird**.
-   * Set **Expiration** to: **90 days** or less.
+   * Set **Expiration** to: **90 days** or less (you'll repeat these steps when it expires — that's intentional, it limits risk).
    * Set **Repository access** to **Only select repositories**  and then select **thunderbird/thunderbird-metrics-and-reports**.
    * Click **Add permissions**, then tick **✓** **Contents** and under **Access:** select  **Read and write**. You can ignore **Metadata** (its defaults are fine).
 7. Click **Generate token** and then **copy it to your password manager immediately because it will only be visible once**.
