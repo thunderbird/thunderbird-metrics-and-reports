@@ -13,15 +13,14 @@ repo or shared with anyone.
 
 ## TL;DR (clickpath)
 
-1. goto <https://github.com/settings/personal-access-tokens>
-2. **Generate new token**
-3. Resource owner: `thunderbird`
-4. Expiration: 90 days
-5. Repository access → Only select repositories → `thunderbird/thunderbird-metrics-and-reports`
-6. Permissions → Contents → **Read and write**
-7. **Generate token** → copy it
-8. Open the report ([desktop](HTML_REPORTS/desktop-latest-unanswered-questions.html) · [android](HTML_REPORTS/android-latest-unanswered-questions.html)) → **Set GitHub token** → paste
-
+1. <https://github.com/settings/personal-access-tokens> > Click **Generate new token**
+   * Set **Token name:** to something relevant like **2026-06-sumo-assignment**.
+   * Select **Resource owner**: **thunderbird**.
+   * Set **Expiration** to: **90 days** or less.
+   * Set **Repository access** to **Only select repositories**  and then select **thunderbird/thunderbird-metrics-and-reports**.
+   * Click **Add permissions**, then tick **✓** **Contents** and under **Access:** select  **Read and write**.
+7. Click **Generate token** and then **copy it to your password manager immediately because it will only be visible once**.
+8. Open the report ([desktop](HTML_REPORTS/desktop-latest-unanswered-questions.html) · [android](HTML_REPORTS/android-latest-unanswered-questions.html)) → **Set GitHub token** → paste the token from the previous step that you saved in your password manager.
 ---
 
 ## Part 1 — Create the token at github.com
