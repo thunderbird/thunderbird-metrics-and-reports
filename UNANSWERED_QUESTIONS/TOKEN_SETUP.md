@@ -36,7 +36,7 @@ repo or shared with anyone.
    - (**Metadata: Read-only** is added automatically and is required — that's
      fine.)
 9. Click **Generate token** at the bottom.
-10. **Copy the token now** — GitHub shows it only once. It looks like
+10. **Copy the token immediatly to your password manager** e.g, 1Password — GitHub shows it only once. It looks like
     `github_pat_XXXXXXXXXXXXXXXXXXXXXXXX`.
 
 > 🔒 **Why these exact settings?** Single repo + Contents-only + short expiry
