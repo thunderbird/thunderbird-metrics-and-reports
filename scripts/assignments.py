@@ -50,7 +50,9 @@ def load_assignments(path):
     if not path or not os.path.exists(path):
         return {}
     result = {}
-    with open(path, newline='', encoding='utf-8') as f:
+    # utf-8-sig strips a leading BOM so the 'question_id' header lookup works
+    # even if an editor saved the CSV with one (see validate_assignments.py).
+    with open(path, newline='', encoding='utf-8-sig') as f:
         reader = csv.DictReader(f)
         for row in reader:
             qid_raw = (row.get('question_id') or '').strip()
