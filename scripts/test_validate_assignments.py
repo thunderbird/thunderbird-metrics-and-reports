@@ -81,6 +81,51 @@ class HeaderRobustness(unittest.TestCase):
         self.assertIn('222,attacker', after)
         self.assertEqual(removed, [])
 
+    def test_forged_assigned_by_blanked_row_kept(self):
+        # Off-allowlist assigned_by is forged attribution: blank it, keep claim.
+        csv_text = (f'{HEADER}\n'
+                    '111,rtanglao,2026-01-01T00:00:00Z,attacker\n')
+        after, removed = run_guard(csv_text)
+        self.assertIn('111,rtanglao', after)         # claim preserved
+        self.assertNotIn('attacker', after)          # forged attribution gone
+        self.assertTrue(after.rstrip().endswith('111,rtanglao,2026-01-01T00:00:00Z,'))
+        self.assertEqual(removed, [])                # not a removal -> no issue
+
+    def test_legit_assigned_by_preserved(self):
+        csv_text = (f'{HEADER}\n'
+                    '111,rtanglao,2026-01-01T00:00:00Z,rtanglao\n')
+        after, _ = run_guard(csv_text)
+        self.assertIn('111,rtanglao,2026-01-01T00:00:00Z,rtanglao', after)
+
+
+class IssueBodySafety(unittest.TestCase):
+    def test_markdown_injection_neutralized(self):
+        removed = [{
+            'file': 'UNANSWERED_QUESTIONS/desktop-assignments.csv',
+            'question_id': '999',
+            # Attacker payload: mention, image, fence-breakout attempt, newline.
+            'assignee': '@everyone ![x](http://evil/i)\n```\n## injected',
+        }]
+        body = va.format_issue_body(removed, sha='abc123', actor='pusher')
+        lines = body.split('\n')
+        # Exactly one fenced block: precisely two lines that ARE a bare fence.
+        fences = [i for i, l in enumerate(lines) if l == '```']
+        self.assertEqual(len(fences), 2)
+        # Payload collapsed to a single line between the fences, starting with
+        # the file path -- so its embedded ``` is mid-line and can't close the
+        # block, and the @mention/image markdown stays inert inside code.
+        inner = lines[fences[0] + 1:fences[1]]
+        self.assertEqual(len(inner), 1)
+        self.assertTrue(inner[0].startswith('UNANSWERED_QUESTIONS/'))
+        self.assertIn('## injected', inner[0])       # stayed inside the block
+        self.assertIn('@everyone', inner[0])         # preserved verbatim as data
+        self.assertIn('actor: @pusher', body)
+
+    def test_empty_removed_renders_none(self):
+        body = va.format_issue_body([], sha='', actor='')
+        self.assertIn('(none)', body)
+        self.assertEqual(body.count('```'), 2)
+
     def test_load_assignments_handles_bom(self):
         with tempfile.TemporaryDirectory() as d:
             path = os.path.join(d, 'a.csv')

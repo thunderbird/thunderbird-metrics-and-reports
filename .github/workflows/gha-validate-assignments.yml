@@ -51,14 +51,18 @@ jobs:
       if: steps.validate.outputs.removed_count != '' && steps.validate.outputs.removed_count != '0'
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # Passed via env (not inline ${{ }}) so they're shell data, never code.
+        TRIGGER_SHA: ${{ github.sha }}
+        TRIGGER_ACTOR: ${{ github.actor }}
       run: |
         gh label create assignment-guard --color FBCA04 --force >/dev/null 2>&1 || true
-        details=$(python3 -c "import json; [print('- ' + r['file'] + ' qid=' + r['question_id'] + ' assignee=' + r['assignee']) for r in json.load(open('removed-assignments.json'))]")
-        body=$(printf 'The assignment guard auto-reverted row(s) whose assignee is not in the ASSIGNEES allowlist.\n\n**Removed:**\n%s\n\nTriggered by commit %s (actor: @%s).\nReview and, if the person should be allowed, add them to `ASSIGNEES` in `scripts/assignments.py`.' "$details" "${{ github.sha }}" "${{ github.actor }}")
+        # Body is rendered in Python (format_issue_body) so attacker-controlled
+        # assignee/qid text can't inject markdown into the issue.
+        python3 scripts/validate_assignments.py --render-issue-body > issue-body.md
         existing=$(gh issue list --label assignment-guard --state open --json number --jq '.[0].number')
         if [ -n "$existing" ]; then
-          gh issue comment "$existing" --body "$body"
+          gh issue comment "$existing" --body-file issue-body.md
         else
           gh issue create --title "Off-allowlist assignee auto-reverted" \
-            --label assignment-guard --assignee rtanglao --body "$body"
+            --label assignment-guard --assignee rtanglao --body-file issue-body.md
         fi
