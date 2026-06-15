@@ -54,12 +54,24 @@ def main():
         if not os.path.exists(path):
             continue
         try:
-            with open(path, newline='', encoding='utf-8') as f:
+            # utf-8-sig strips a leading BOM so the first header stays
+            # 'question_id' rather than '﻿question_id'.
+            with open(path, newline='', encoding='utf-8-sig') as f:
                 reader = csv.DictReader(f)
                 fieldnames = reader.fieldnames or FIELDNAMES
                 rows = list(reader)
         except (OSError, csv.Error) as e:
             print(f'ERROR reading {path}: {e}; leaving it untouched.', file=sys.stderr)
+            continue
+
+        # If the header isn't canonical (e.g. trailing space, wrong case), the
+        # row.get('question_id'/'assignee') lookups below silently return None.
+        # That would make us either wipe every legitimate row (qid='' fails
+        # isdigit) or wave through unchecked rows (assignee=''). Neither is safe,
+        # so leave the file untouched and let a human fix the header.
+        if 'question_id' not in fieldnames or 'assignee' not in fieldnames:
+            print(f'WARNING: {path} has a non-canonical header {fieldnames!r}; '
+                  f'leaving it untouched.', file=sys.stderr)
             continue
 
         kept = []
