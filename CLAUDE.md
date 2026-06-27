@@ -393,9 +393,13 @@ The unanswered-questions reports have an **Assignee** column. Assignments live i
   GitHub API using each user's own fine-grained PAT (stored in browser
   localStorage) — no backend. Concurrency is handled with optimistic locking
   (GET→PUT with SHA, retry on 409).
-- `ASSIGNEES` in `scripts/assignments.py` holds placeholder usernames
-  (`PERSON1`–`PERSON4`) — **replace with the 4 real GitHub usernames** before
-  go-live. The column renders whatever is in the CSV regardless.
+- `ASSIGNEES` in `scripts/assignments.py` holds the real GitHub usernames
+  allowed to claim (`rtanglao`, `lisajill`, `wsmwk`, `monica-thunderbird`,
+  `madhattermattic`) — go-live is done, the allowlist is active. The list is
+  also injected into the report HTML (`window.TBQ.assignees`) so the Claim
+  button can be disabled client-side for signed-in users who aren't on it
+  (rather than letting their claim be silently auto-reverted). The column
+  renders whatever is in the CSV regardless.
 - Because the token lives in localStorage, HTML escaping of SUMO-derived fields
   in `write_html` is security-critical (an escaping bug = token theft).
 - **Token validation (`validateToken` in `ASSIGN_JS`):** authenticates via
@@ -412,8 +416,7 @@ The unanswered-questions reports have an **Assignee** column. Assignments live i
   two `*-assignments.csv`) runs `scripts/validate_assignments.py`, which removes
   any row whose assignee isn't in `ASSIGNEES`, commits the correction (via
   `GITHUB_TOKEN`, which doesn't re-trigger the workflow), and files an issue
-  assigned to rtanglao. **Inert while `ASSIGNEES` holds the `PERSON1`–`PERSON4`
-  placeholders** — it activates once real usernames are set.
+  assigned to rtanglao. **Active** now that `ASSIGNEES` holds real usernames.
 - See `UNANSWERED_QUESTIONS/README.md` for the user-facing workflow.
 
 ## Important Notes
