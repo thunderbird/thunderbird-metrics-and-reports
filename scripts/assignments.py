@@ -110,6 +110,34 @@ HTML_CSS = """
   .assign-cell { white-space: nowrap; }
   .assign-btn { font-size: 12px; cursor: pointer; }
   .assign-btn[disabled] { cursor: default; opacity: 0.6; }
+  .filter-bar { margin: 0.5em 0; }
+  #tbq-filter { width: 340px; max-width: 100%; padding: 3px 6px; font-size: 13px; }
+  #tbq-filter-count { color: #444; margin-left: 8px; }
+"""
+
+
+# Live client-side filter for the report table: matches the typed text against
+# the full text of each row (creator / version / OS / title), hiding non-matches.
+FILTER_JS = """
+  var fInput = document.getElementById('tbq-filter');
+  var fCount = document.getElementById('tbq-filter-count');
+  if (fInput) {
+    var fTable = document.querySelector('table');
+    var fBody = fTable ? fTable.querySelector('tbody') : null;
+    var applyFilter = function () {
+      if (!fBody) return;
+      var q = fInput.value.trim().toLowerCase();
+      var shown = 0;
+      var trs = fBody.querySelectorAll('tr');
+      for (var i = 0; i < trs.length; i++) {
+        var match = !q || trs[i].textContent.toLowerCase().indexOf(q) >= 0;
+        trs[i].style.display = match ? '' : 'none';
+        if (match) shown++;
+      }
+      if (fCount) fCount.textContent = q ? (shown + ' of ' + trs.length + ' shown') : '';
+    };
+    fInput.addEventListener('input', applyFilter);
+  }
 """
 
 ASSIGN_JS = """
@@ -118,6 +146,13 @@ ASSIGN_JS = """
   var TOKEN_KEY = 'tbq_gh_token';
   var me = null;
   var msgEl, statusEl, setBtn, clearBtn;
+
+  // Allowlist of GitHub logins permitted to claim (mirrors ASSIGNEES, injected
+  // via window.TBQ.assignees). The validate-assignments bot reverts off-list
+  // claims server-side; checking here too avoids the confusing experience of a
+  // claim that "disappears" seconds later. Empty list => no client-side guard.
+  var allowed = (cfg.assignees || []).map(function (x) { return (x || '').toLowerCase(); });
+  function isAllowed(u) { return allowed.length === 0 || allowed.indexOf((u || '').toLowerCase()) >= 0; }
 
   function token() { return localStorage.getItem(TOKEN_KEY) || ''; }
   function msg(t, isErr) { if (msgEl) { msgEl.textContent = t || ''; msgEl.style.color = isErr ? '#b00' : '#444'; } }
@@ -324,6 +359,15 @@ ASSIGN_JS = """
     }
     btn.parentNode.setAttribute('data-sort', assignee);
     if (!me) { btn.textContent = assignee ? 'Claimed' : 'Claim'; btn.disabled = true; btn.title = 'Set your GitHub token to claim'; return; }
+    if (!isAllowed(me)) {
+      // Signed in but not on the allowlist: can't claim (would be auto-reverted);
+      // still allow releasing a claim that is somehow already yours.
+      var ownRow = assignee && sameUser(assignee, me);
+      btn.textContent = ownRow ? 'Release' : (assignee ? 'Claimed' : 'Claim');
+      btn.disabled = !ownRow;
+      btn.title = ownRow ? '' : 'Your account is not on the assignee allowlist';
+      return;
+    }
     btn.title = '';
     if (!assignee) { btn.textContent = 'Claim'; btn.disabled = false; }
     else if (sameUser(assignee, me)) { btn.textContent = 'Release'; btn.disabled = false; }
@@ -351,9 +395,11 @@ ASSIGN_JS = """
     if (!btn || btn.disabled) return;
     var qid = btn.getAttribute('data-qid');
     var assignee = btn.getAttribute('data-assignee') || '';
+    var isRelease = sameUser(assignee, me);
+    if (isRelease && !confirm('Release your claim on question ' + qid + '?')) return;
     btn.disabled = true;
     msg('Working...');
-    var p = sameUser(assignee, me) ? release(qid) : claim(qid);
+    var p = isRelease ? release(qid) : claim(qid);
     p.then(function (ok) {
       if (ok) { msg(''); }
       refreshStates();
@@ -365,7 +411,8 @@ ASSIGN_JS = """
 
   function updateAuthUI() {
     if (me) {
-      statusEl.textContent = 'Signed in as @' + me;
+      statusEl.textContent = 'Signed in as @' + me +
+        (isAllowed(me) ? '' : ' \\u2014 not on the assignee allowlist (claims are reverted)');
       setBtn.style.display = 'none';
       clearBtn.style.display = '';
     } else {

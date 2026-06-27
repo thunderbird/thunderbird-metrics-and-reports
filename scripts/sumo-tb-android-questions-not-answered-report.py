@@ -14,12 +14,13 @@ import os
 import csv
 import re
 import html
+import json
 from urllib.parse import quote
 from datetime import datetime, timezone, timedelta
 import pandas as pd
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from assignments import load_assignments, ASSIGN_JS, SORT_JS, HTML_CSS, assignee_for
+from assignments import load_assignments, ASSIGN_JS, SORT_JS, FILTER_JS, HTML_CSS, assignee_for, ASSIGNEES
 
 csv.field_size_limit(sys.maxsize)
 
@@ -278,6 +279,7 @@ def write_html(df, path, report_time, window_start, window_end, title, assignmen
 
     rows_html = '\n'.join(rows)
     edit_url = f'https://github.com/{REPO}/edit/{BRANCH}/{ASSIGNMENTS_REL}'
+    assignees_json = json.dumps(ASSIGNEES)
     page = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -299,6 +301,10 @@ def write_html(df, path, report_time, window_start, window_end, title, assignmen
     <a href="{edit_url}">Claim manually (edit CSV)</a>
     <span id="assign-msg" class="assign-msg"></span>
   </div>
+  <div class="filter-bar">
+    <input id="tbq-filter" type="search" placeholder="Filter questions (creator, version, OS, title)..." autocomplete="off">
+    <span id="tbq-filter-count"></span>
+  </div>
   <table>
     <thead>
       <tr>
@@ -315,8 +321,9 @@ def write_html(df, path, report_time, window_start, window_end, title, assignmen
 {rows_html}
     </tbody>
   </table>
-  <script>window.TBQ={{repo:"{REPO}",path:"{ASSIGNMENTS_REL}",branch:"{BRANCH}"}};</script>
+  <script>window.TBQ={{repo:"{REPO}",path:"{ASSIGNMENTS_REL}",branch:"{BRANCH}",assignees:{assignees_json}}};</script>
   <script>{SORT_JS}</script>
+  <script>{FILTER_JS}</script>
   <script>{ASSIGN_JS}</script>
 </body>
 </html>
