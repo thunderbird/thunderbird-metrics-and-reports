@@ -13,39 +13,31 @@ else:
     year = now.year
     month = now.month
 
-prev_year = year
-prev_month = month - 1
-if prev_month == 0:
-    prev_month = 12
-    prev_year -= 1
-
+# Per-day CSVs produced by the aaq-scraper (https://github.com/thunderbird/aaq-scraper),
+# copied locally into aaq-data/<year>/. Filenames:
+#   questions-thunderbird-desktop-YYYY-MM-DD.csv
+#   answers-thunderbird-desktop-YYYY-MM-DD.csv
 data_dir = 'aaq-data'
 
 # Ensure CONCATENATED_FILES exists
 os.makedirs('CONCATENATED_FILES/DESKTOP', exist_ok=True)
 
-def concat_files(files, sort_key, output_file):
+def concat_files(files, dedup_key, sort_key, output_file):
     if not files:
         print(f"No files found for {output_file}")
         return
     dfs = [pd.read_csv(f) for f in files]
     combined = pd.concat(dfs, ignore_index=True)
+    combined = combined.drop_duplicates(subset=dedup_key, keep='last')
     combined = combined.sort_values(sort_key)
     combined.to_csv(output_file, index=False)
-    print(f"Created {output_file}")
+    print(f"Created {output_file} ({len(combined)} rows from {len(files)} daily files)")
 
-# Current month questions
-questions_files = glob.glob(f'{data_dir}/{year}/{year}-{month:02d}-*-{year}-{month:02d}-*-thunderbird-creator-answers-desktop-all-locales.csv')
-concat_files(questions_files, 'id', f'CONCATENATED_FILES/DESKTOP/{year}-{month:02d}-sumo-desktop-questions.csv')
+# Concatenate every daily file for the requested month into a single monthly CSV
+# matching the historical schema/filenames the downstream report scripts expect.
+# All columns (incl. operating_system / thunderbird_version) are preserved.
+questions_files = sorted(glob.glob(f'{data_dir}/{year}/questions-thunderbird-desktop-{year}-{month:02d}-*.csv'))
+concat_files(questions_files, 'id', 'id', f'CONCATENATED_FILES/DESKTOP/{year}-{month:02d}-sumo-desktop-questions.csv')
 
-# Current month answers
-answers_files = glob.glob(f'{data_dir}/{year}/{year}-{month:02d}-*-{year}-{month:02d}-*-thunderbird-answers-for-questions-desktop.csv')
-concat_files(answers_files, 'question_id', f'CONCATENATED_FILES/DESKTOP/{year}-{month:02d}-sumo-desktop-answers.csv')
-
-# Previous month questions
-prev_questions_files = glob.glob(f'{data_dir}/{prev_year}/{prev_year}-{prev_month:02d}-*-{prev_year}-{prev_month:02d}-*-thunderbird-creator-answers-desktop-all-locales.csv')
-concat_files(prev_questions_files, 'id', f'CONCATENATED_FILES/DESKTOP/{prev_year}-{prev_month:02d}-sumo-desktop-questions.csv')
-
-# Previous month answers
-prev_answers_files = glob.glob(f'{data_dir}/{prev_year}/{prev_year}-{prev_month:02d}-*-{prev_year}-{prev_month:02d}-*-thunderbird-answers-for-questions-desktop.csv')
-concat_files(prev_answers_files, 'question_id', f'CONCATENATED_FILES/DESKTOP/{prev_year}-{prev_month:02d}-sumo-desktop-answers.csv')
+answers_files = sorted(glob.glob(f'{data_dir}/{year}/answers-thunderbird-desktop-{year}-{month:02d}-*.csv'))
+concat_files(answers_files, 'id', 'question_id', f'CONCATENATED_FILES/DESKTOP/{year}-{month:02d}-sumo-desktop-answers.csv')
