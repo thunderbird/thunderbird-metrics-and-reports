@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.github.com; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; form-action 'none'; base-uri 'none'">
-  <title>Thunderbird for Android - Unanswered Questions 2026-06-27 18:00 UTC</title>
+  <title>Thunderbird for Android - Unanswered Questions 2026-06-27 19:00 UTC</title>
   <style>
   body { font-family: sans-serif; font-size: 13px; margin: 1em; }
   h1 { font-size: 1.2em; }
@@ -19,13 +19,16 @@
   .assign-cell { white-space: nowrap; }
   .assign-btn { font-size: 12px; cursor: pointer; }
   .assign-btn[disabled] { cursor: default; opacity: 0.6; }
+  .filter-bar { margin: 0.5em 0; }
+  #tbq-filter { width: 340px; max-width: 100%; padding: 3px 6px; font-size: 13px; }
+  #tbq-filter-count { color: #444; margin-left: 8px; }
 </style>
 </head>
 <body>
   <h1>Thunderbird for Android - Unanswered Questions</h1>
-  <p>Report generated: 2026-06-27 18:00 UTC</p>
-  <p>Questions created between 2026-06-13 18:00 UTC
-     and 2026-06-24 18:00 UTC with no non-creator answers</p>
+  <p>Report generated: 2026-06-27 19:00 UTC</p>
+  <p>Questions created between 2026-06-13 19:00 UTC
+     and 2026-06-24 19:00 UTC with no non-creator answers</p>
   <p>Total: 0 unanswered questions</p>
   <div class="assign-bar">
     <span id="auth-status">Not signed in</span>
@@ -33,6 +36,10 @@
     <button id="clear-token" style="display:none">Sign out</button>
     <a href="https://github.com/thunderbird/thunderbird-metrics-and-reports/edit/main/UNANSWERED_QUESTIONS/android-assignments.csv">Claim manually (edit CSV)</a>
     <span id="assign-msg" class="assign-msg"></span>
+  </div>
+  <div class="filter-bar">
+    <input id="tbq-filter" type="search" placeholder="Filter questions (creator, version, OS, title)..." autocomplete="off">
+    <span id="tbq-filter-count"></span>
   </div>
   <table>
     <thead>
@@ -50,7 +57,7 @@
 
     </tbody>
   </table>
-  <script>window.TBQ={repo:"thunderbird/thunderbird-metrics-and-reports",path:"UNANSWERED_QUESTIONS/android-assignments.csv",branch:"main"};</script>
+  <script>window.TBQ={repo:"thunderbird/thunderbird-metrics-and-reports",path:"UNANSWERED_QUESTIONS/android-assignments.csv",branch:"main",assignees:["rtanglao", "lisajill", "wsmwk", "monica-thunderbird", "madhattermattic"]};</script>
   <script>
   const headers = document.querySelectorAll('th');
   const sortState = {};
@@ -75,11 +82,39 @@
   });
 </script>
   <script>
+  var fInput = document.getElementById('tbq-filter');
+  var fCount = document.getElementById('tbq-filter-count');
+  if (fInput) {
+    var fTable = document.querySelector('table');
+    var fBody = fTable ? fTable.querySelector('tbody') : null;
+    var applyFilter = function () {
+      if (!fBody) return;
+      var q = fInput.value.trim().toLowerCase();
+      var shown = 0;
+      var trs = fBody.querySelectorAll('tr');
+      for (var i = 0; i < trs.length; i++) {
+        var match = !q || trs[i].textContent.toLowerCase().indexOf(q) >= 0;
+        trs[i].style.display = match ? '' : 'none';
+        if (match) shown++;
+      }
+      if (fCount) fCount.textContent = q ? (shown + ' of ' + trs.length + ' shown') : '';
+    };
+    fInput.addEventListener('input', applyFilter);
+  }
+</script>
+  <script>
 (function () {
   var cfg = window.TBQ || {};
   var TOKEN_KEY = 'tbq_gh_token';
   var me = null;
   var msgEl, statusEl, setBtn, clearBtn;
+
+  // Allowlist of GitHub logins permitted to claim (mirrors ASSIGNEES, injected
+  // via window.TBQ.assignees). The validate-assignments bot reverts off-list
+  // claims server-side; checking here too avoids the confusing experience of a
+  // claim that "disappears" seconds later. Empty list => no client-side guard.
+  var allowed = (cfg.assignees || []).map(function (x) { return (x || '').toLowerCase(); });
+  function isAllowed(u) { return allowed.length === 0 || allowed.indexOf((u || '').toLowerCase()) >= 0; }
 
   function token() { return localStorage.getItem(TOKEN_KEY) || ''; }
   function msg(t, isErr) { if (msgEl) { msgEl.textContent = t || ''; msgEl.style.color = isErr ? '#b00' : '#444'; } }
@@ -286,6 +321,15 @@
     }
     btn.parentNode.setAttribute('data-sort', assignee);
     if (!me) { btn.textContent = assignee ? 'Claimed' : 'Claim'; btn.disabled = true; btn.title = 'Set your GitHub token to claim'; return; }
+    if (!isAllowed(me)) {
+      // Signed in but not on the allowlist: can't claim (would be auto-reverted);
+      // still allow releasing a claim that is somehow already yours.
+      var ownRow = assignee && sameUser(assignee, me);
+      btn.textContent = ownRow ? 'Release' : (assignee ? 'Claimed' : 'Claim');
+      btn.disabled = !ownRow;
+      btn.title = ownRow ? '' : 'Your account is not on the assignee allowlist';
+      return;
+    }
     btn.title = '';
     if (!assignee) { btn.textContent = 'Claim'; btn.disabled = false; }
     else if (sameUser(assignee, me)) { btn.textContent = 'Release'; btn.disabled = false; }
@@ -313,9 +357,11 @@
     if (!btn || btn.disabled) return;
     var qid = btn.getAttribute('data-qid');
     var assignee = btn.getAttribute('data-assignee') || '';
+    var isRelease = sameUser(assignee, me);
+    if (isRelease && !confirm('Release your claim on question ' + qid + '?')) return;
     btn.disabled = true;
     msg('Working...');
-    var p = sameUser(assignee, me) ? release(qid) : claim(qid);
+    var p = isRelease ? release(qid) : claim(qid);
     p.then(function (ok) {
       if (ok) { msg(''); }
       refreshStates();
@@ -327,7 +373,8 @@
 
   function updateAuthUI() {
     if (me) {
-      statusEl.textContent = 'Signed in as @' + me;
+      statusEl.textContent = 'Signed in as @' + me +
+        (isAllowed(me) ? '' : ' \u2014 not on the assignee allowlist (claims are reverted)');
       setBtn.style.display = 'none';
       clearBtn.style.display = '';
     } else {
