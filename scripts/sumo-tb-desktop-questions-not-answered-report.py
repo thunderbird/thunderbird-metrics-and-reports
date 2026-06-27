@@ -29,8 +29,11 @@ CSV_DIR = 'UNANSWERED_QUESTIONS/CSV_REPORTS'
 HTML_DIR = 'UNANSWERED_QUESTIONS/HTML_REPORTS'
 WINDOW_HOURS = 72
 WINDOW_DAYS = 14
-Q_SUFFIX = 'thunderbird-creator-answers-desktop-all-locales.csv'
-A_SUFFIX = 'thunderbird-answers-for-questions-desktop.csv'
+# Per-day CSVs from the aaq-scraper (checked out into aaq-data/<year>/):
+#   questions-thunderbird-desktop-YYYY-MM-DD.csv
+#   answers-thunderbird-desktop-YYYY-MM-DD.csv
+Q_PREFIX = 'questions-thunderbird-desktop'
+A_PREFIX = 'answers-thunderbird-desktop'
 ASSIGNMENTS_REL = 'UNANSWERED_QUESTIONS/desktop-assignments.csv'
 ASSIGNMENTS_PATH = ASSIGNMENTS_REL
 REPO = 'thunderbird/thunderbird-metrics-and-reports'
@@ -44,14 +47,14 @@ def parse_args():
     return now.year, now.month, now.day, now.hour
 
 
-def daily_files_in_range(start_dt, end_dt, suffix):
+def daily_files_in_range(start_dt, end_dt, prefix):
     files = []
     current = start_dt.replace(hour=0, minute=0, second=0, microsecond=0)
     end = end_dt.replace(hour=0, minute=0, second=0, microsecond=0)
     while current <= end:
         y, m, d = current.year, current.month, current.day
         path = os.path.join(DATA_DIR, str(y),
-            f'{y}-{m:02d}-{d:02d}-{y}-{m:02d}-{d:02d}-{suffix}')
+            f'{prefix}-{y}-{m:02d}-{d:02d}.csv')
         if os.path.exists(path):
             files.append(path)
         current += timedelta(days=1)
@@ -96,6 +99,27 @@ def parse_metadata(meta):
     m = re.search(r'(?:^|;)os:([^;]+)', s)
     if m:
         os_str = m.group(1).strip()
+    return version, os_str
+
+
+def _clean(val):
+    """Normalize a cell to a stripped string ('' for missing/NaN)."""
+    if val is None or (isinstance(val, float) and pd.isna(val)):
+        return ''
+    s = str(val).strip()
+    return '' if s.lower() == 'nan' else s
+
+
+def version_os(q):
+    """Prefer the scraper's native thunderbird_version / operating_system columns,
+    falling back to parsing the legacy metadata column only when a native value
+    is missing."""
+    version = _clean(q.get('thunderbird_version'))
+    os_str = _clean(q.get('operating_system'))
+    if not version or not os_str:
+        meta_version, meta_os = parse_metadata(q.get('metadata'))
+        version = version or meta_version
+        os_str = os_str or meta_os
     return version, os_str
 
 
@@ -155,7 +179,7 @@ def write_markdown(df, path, report_time, window_start, window_end, assignments)
         creator_link = (f'<a href="https://support.mozilla.org/en-US/user/{quote(creator, safe="")}/">'
                         f'{creator}</a>')
 
-        version, os_str = parse_metadata(q.get('metadata'))
+        version, os_str = version_os(q)
         os_display = os_str[:20]
 
         qid = q['id']
@@ -188,7 +212,7 @@ def write_csv(df, path, report_time, assignments):
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         for _, q in df.iterrows():
-            version, os_str = parse_metadata(q.get('metadata'))
+            version, os_str = version_os(q)
             creator = str(q['creator']) if pd.notna(q.get('creator')) else ''
             qid = q['id']
             title = str(q['title']) if pd.notna(q.get('title')) else ''
@@ -220,7 +244,7 @@ def write_html(df, path, report_time, window_start, window_end, title, assignmen
         creator_cell = (f'<a href="https://support.mozilla.org/en-US/user/{quote(creator, safe="")}/">'
                         f'{html.escape(creator)}</a>')
 
-        version, os_str = parse_metadata(q.get('metadata'))
+        version, os_str = version_os(q)
         os_display = html.escape(os_str[:20])
 
         qid = q['id']
@@ -392,13 +416,13 @@ def main():
     q_files = daily_files_in_range(
         window_start - timedelta(days=1),
         window_end + timedelta(days=1),
-        Q_SUFFIX,
+        Q_PREFIX,
     )
     # Answer files: window_start to report_time (catch all answers received)
     a_files = daily_files_in_range(
         window_start - timedelta(days=1),
         report_time,
-        A_SUFFIX,
+        A_PREFIX,
     )
 
     print(f'Loading {len(q_files)} question files, {len(a_files)} answer files')
