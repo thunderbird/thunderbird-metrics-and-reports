@@ -4,15 +4,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This repository generates two things from Thunderbird's Mozilla SUMO (Support
+This repository generates the following from Thunderbird's Mozilla SUMO (Support
 Mozilla) data and publishes them as a Jekyll site on GitHub Pages:
 
 1. **Monthly reports** — per-month support-volume and community-activity metrics
    (desktop + android).
 2. **Unanswered-questions triage** — twice-daily reports of questions with no
    non-creator answer in 72+ hours, with a Claim/Release self-assignment UI.
+3. **Project 1 — version × cause spike detector** (no-AI; experimental, desktop
+   only so far). See the "Project 1" section below. Generated **manually** for
+   now (not yet wired into a GitHub Action).
 
-Both are regenerated automatically by GitHub Actions and committed to `main`.
+#1 and #2 are regenerated automatically by GitHub Actions and committed to `main`.
 
 ## Data Source (important)
 
@@ -121,6 +124,77 @@ The unanswered-questions reports have an **Assignee** column. Assignments live i
   `GITHUB_TOKEN`, which doesn't re-trigger the workflow), and files an issue
   assigned to rtanglao. **Active** now that `ASSIGNEES` holds real usernames.
 - See `UNANSWERED_QUESTIONS/README.md` for the user-facing workflow.
+
+## Project 1 — Version × Cause Spike Detector (no-AI)
+
+**Status:** experimental, desktop only. Parent tracking issue **#65** — do all
+future Project 1 work as **sub-issues of #65**. Generated **manually** for now
+(no GitHub Action yet). Reuses the same aaq-scraper `CONCATENATED_FILES/` monthly
+CSVs as the other pipelines; all outputs go under `PROJECT1/`.
+
+**Goal / the one decision it drives:** surface to Thunderbird *engineering*
+(audience priority #1) the support-question spikes worth investigating *right
+now*. A spike is actionable only when it is **cause-clustered** (mail provider /
+ISP / protocol / AV) **and version-correlated**, rises a real margin above
+baseline, and links to **clickable example questions**. Sentiment +
+first-answer-time are amplifiers, not the headline. **OS is a secondary filter,
+not a primary cause.** No AI/LLM — regex dictionaries + traditional stats only.
+
+**Pipeline** (`scripts/project1_*.py`, run in order):
+
+1. `project1_extract_features.py {YYYY-MM} {desktop|android}` → per-question
+   feature table `PROJECT1/{month}-{product}-features.csv`. Native
+   `operating_system`/`thunderbird_version` (regex fallback) + regex
+   provider/isp/protocol/av over title+content; drops spam. Run **per month**.
+2. `project1_spike_detect.py {product}` → single-dimension daily spikes
+   `PROJECT1/{product}-daily-spikes.csv` vs a trailing-median baseline. (Bare
+   version spikes ≈ release-adoption noise — hence the joint detector.)
+3. `project1_joint_spike_detect.py {product}` → **headline** version×cause spikes
+   `PROJECT1/{product}-version-cause-spikes.csv`, ranked by **lift = observed /
+   (version_volume_that_day × cause_overall_rate)** so release adoption cancels
+   out and only genuine over-representation survives. Flags `observed>=4 &
+   lift>=3x`. Validated on `v151 × isp:spectrum` cert errors (~13×).
+4. `project1_report.py {product} [--grain daily] [--window N]` → long-format
+   rollup `PROJECT1/{product}-{grain}-rollup.csv` + Jekyll page
+   `PROJECT1/REPORTS/{product}/{grain}-spike-report.md` (Unicode-block
+   sparklines, clickable question IDs). Grain-agnostic (`GRAINS`); daily is live,
+   others arrive post-backfill. Per-grain trailing `WINDOW_DEFAULTS`; `--window 0`
+   = all history. Linked from `index.md`.
+
+`scripts/project1_regexes.py` holds the detection dictionaries — ported from
+`thunderbird/github-action-thunderbird-aaq/regexes.rb` (the `os:`/`av:`/`m:` tag
+convention) plus net-new `proto:` and `isp:` dimensions and regional providers
+(GMX, Telus). Both spike CSVs carry a `question_ids` column (ALL ids) for manual
+checking.
+
+**Locked decisions:** provider and ISP are SEPARATE dimensions (overlap allowed);
+AV stays at 14 vendors (defer expansion to ~25); multi-tag questions count toward
+each value; OS is a filter not a cause; thresholds calibrate AFTER backfill;
+sparklines are Unicode blocks (can swap to SVG later).
+
+**Data caveats (critical):**
+- Native version/OS columns were added by Kitsune **PR #7443 on 2026-04-23**, so
+  the **2026-04 monthly concat has no `thunderbird_version` column** →
+  version×cause covers **May 2026 onward** until backfill re-runs Apr 23–30.
+  Single-dimension spikes and trends still use all of April.
+- The `created` column has **mixed formats** across months (old-API
+  `2026-03-31 17:30:43 -0700` vs scraper ISO `...Z`). Any **cross-month**
+  timestamp parse MUST use `pd.to_datetime(..., format="mixed", utc=True)` or
+  May/June rows silently become `NaT`. (The detectors are safe — they group on
+  the already-normalized `created_date` string, not the raw timestamp.)
+- `tb_version_major` keeps only `\b1\d\d\b` (100–199) found anywhere in the
+  string — recovers "Version 150.0.2" forms, rejects junk (333333) and EOL/typo
+  majors (91/78/18/10). ~15% of questions have no usable version
+  (`unknown`/`latest`/`I don't know`).
+- Kramdown (GitHub Pages) needs a **blank line before every table block** — the
+  report generator emits one. There is no local `jekyll-feed` gem, so verify the
+  page renders with `ruby -e 'require "kramdown"...'` rather than `jekyll build`.
+
+**Resume after backfill (~2026-06-29):** add hourly/monthly/quarterly/yearly
+grains (machinery already in `project1_report.py`; just needs history) +
+recalibrate the spike thresholds on the wider baselines; then Bucket 4 (sentiment
+amplifier, traditional NLP), wire Project 1 into a GitHub Action, and port to
+android (desktop-first, same code). Each is a sub-issue of #65.
 
 ## Data Structure
 
