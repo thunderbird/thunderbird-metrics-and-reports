@@ -67,29 +67,27 @@ def major_version(clean):
     return m.group(1) if m else ""
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("month", help="YYYY-MM, e.g. 2026-05")
-    ap.add_argument("product", choices=["desktop", "android"])
-    args = ap.parse_args()
-    month, product = args.month, args.product
-    cdir = CONCAT_DIR.format(PRODUCT=product.upper())
+def build_features(q, a):
+    """Core feature extraction, shared by the per-month CLI and the full-history
+    backfill (project1_backfill_features.py).
 
-    q = pd.read_csv(f"{cdir}/{month}-sumo-{product}-questions.csv",
-                    dtype=str, keep_default_na=False)
-    a = pd.read_csv(f"{cdir}/{month}-sumo-{product}-answers.csv",
-                    dtype=str, keep_default_na=False)
-
+    Inputs are the raw questions/answers DataFrames (str dtype,
+    keep_default_na=False, scraper schema). Returns (features_df, total_q,
+    n_spam); spam questions are dropped. `created` is parsed with format="mixed"
+    so both old-API ('... -0700') and scraper ISO ('...Z') timestamps survive.
+    """
     total_q = len(q)
     is_spam = q["is_spam"].str.strip().str.lower().isin(["true", "1", "yes"])
     n_spam = int(is_spam.sum())
     q = q[~is_spam].copy()
 
-    q["created_dt"] = pd.to_datetime(q["created"], utc=True, errors="coerce")
+    q["created_dt"] = pd.to_datetime(q["created"], utc=True, format="mixed",
+                                     errors="coerce")
 
     # --- first non-creator, non-spam answer time per question ---------------
     a = a.copy()
-    a["created_dt"] = pd.to_datetime(a["created"], utc=True, errors="coerce")
+    a["created_dt"] = pd.to_datetime(a["created"], utc=True, format="mixed",
+                                     errors="coerce")
     a_spam = a["is_spam"].str.strip().str.lower().isin(["true", "1", "yes"])
     a = a[~a_spam]
     creator_by_qid = dict(zip(q["id"], q["creator"]))
@@ -141,7 +139,23 @@ def main():
         }
         rows.append(row)
 
-    feats = pd.DataFrame(rows)
+    return pd.DataFrame(rows), total_q, n_spam
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("month", help="YYYY-MM, e.g. 2026-05")
+    ap.add_argument("product", choices=["desktop", "android"])
+    args = ap.parse_args()
+    month, product = args.month, args.product
+    cdir = CONCAT_DIR.format(PRODUCT=product.upper())
+
+    q = pd.read_csv(f"{cdir}/{month}-sumo-{product}-questions.csv",
+                    dtype=str, keep_default_na=False)
+    a = pd.read_csv(f"{cdir}/{month}-sumo-{product}-answers.csv",
+                    dtype=str, keep_default_na=False)
+
+    feats, total_q, n_spam = build_features(q, a)
     out_path = OUT.format(month=month, product=product)
     feats.to_csv(out_path, index=False)
 

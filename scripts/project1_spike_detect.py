@@ -14,8 +14,10 @@ A (dimension, value, date) is flagged a SPIKE when, that day:
 baseline = median of the trailing WINDOW days (excluding the day itself),
 requiring >= MIN_PERIODS days of prior history (so early dates don't all flag).
 
-No AI — pure pandas. Time grain is daily today; monthly/quarterly add later
-(same machinery, change the resample) once backfill history is complete.
+No AI — pure pandas. This detector is daily by design (a standalone
+manual-checking dump, not consumed by the report); coarser-grain rollups live in
+project1_report.py. Default min_count=8 was calibrated on the post-backfill
+baseline (drops count-vs-tiny-baseline noise); retune via --min-count/--mult.
 
 Usage:
   uv run scripts/project1_spike_detect.py desktop
@@ -65,7 +67,7 @@ def main():
     ap.add_argument("product", choices=["desktop", "android"])
     ap.add_argument("--window", type=int, default=28, help="trailing baseline days")
     ap.add_argument("--min-periods", type=int, default=14, help="min prior days of history")
-    ap.add_argument("--min-count", type=int, default=5, help="absolute floor for a spike day")
+    ap.add_argument("--min-count", type=int, default=8, help="absolute floor for a spike day")
     ap.add_argument("--mult", type=float, default=3.0, help="count >= mult x baseline")
     args = ap.parse_args()
 

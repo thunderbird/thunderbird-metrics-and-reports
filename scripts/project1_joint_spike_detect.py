@@ -15,8 +15,10 @@ ADOPTION SUPPRESSION (the key idea):
 
   A (date, version, cause) is flagged when:
       observed >= MIN_COUNT   AND   lift >= LIFT_MIN
-  Cause rates are computed over the full available period for now; recalibrate
-  after backfill widens history (per agreed plan).
+  Cause rates are computed over the full available (versioned) period. Thresholds
+  (min_count=4, lift>=3) were calibrated on the post-backfill baseline
+  (~2.5k versioned questions, 2026-02+): they surface ~2 high-lift clusters/month
+  with no floods. Retune via --min-count/--lift if signal quality drifts.
 
 Daily grain today; monthly/quarterly reuse the same machinery later.
 No AI — pure pandas. Every flagged row carries ALL question_ids + URLs.

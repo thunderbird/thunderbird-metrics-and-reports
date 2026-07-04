@@ -145,7 +145,13 @@ not a primary cause.** No AI/LLM — regex dictionaries + traditional stats only
 1. `project1_extract_features.py {YYYY-MM} {desktop|android}` → per-question
    feature table `PROJECT1/{month}-{product}-features.csv`. Native
    `operating_system`/`thunderbird_version` (regex fallback) + regex
-   provider/isp/protocol/av over title+content; drops spam. Run **per month**.
+   provider/isp/protocol/av over title+content; drops spam. Run **per month**
+   from the committed monthly concat. **`project1_backfill_features.py {product}`**
+   is the full-history companion: it reads the aaq-scraper per-day files directly
+   from `aaq-data/` (concats in memory, never touching the frozen
+   `CONCATENATED_FILES/`) and emits one feature table per month for ALL scraper
+   history (2023-01+) via the shared `build_features()` core. Run it once after a
+   backfill; the two share code.
 2. `project1_spike_detect.py {product}` → single-dimension daily spikes
    `PROJECT1/{product}-daily-spikes.csv` vs a trailing-median baseline. (Bare
    version spikes ≈ release-adoption noise — hence the joint detector.)
@@ -157,9 +163,11 @@ not a primary cause.** No AI/LLM — regex dictionaries + traditional stats only
 4. `project1_report.py {product} [--grain daily] [--window N]` → long-format
    rollup `PROJECT1/{product}-{grain}-rollup.csv` + Jekyll page
    `PROJECT1/REPORTS/{product}/{grain}-spike-report.md` (Unicode-block
-   sparklines, clickable question IDs). Grain-agnostic (`GRAINS`); daily is live,
-   others arrive post-backfill. Per-grain trailing `WINDOW_DEFAULTS`; `--window 0`
-   = all history. Linked from `index.md`.
+   sparklines, clickable question IDs). Grain-agnostic (`GRAINS`); **all five
+   grains (hourly/daily/monthly/quarterly/yearly) are live** post-backfill.
+   Volume/cause/OS trends span full history; version×cause is limited to versioned
+   rows (2026-02+). Per-grain trailing `WINDOW_DEFAULTS`; `--window 0` = all
+   history. All grains linked from `index.md`.
 
 `scripts/project1_regexes.py` holds the detection dictionaries — ported from
 `thunderbird/github-action-thunderbird-aaq/regexes.rb` (the `os:`/`av:`/`m:` tag
@@ -169,14 +177,23 @@ checking.
 
 **Locked decisions:** provider and ISP are SEPARATE dimensions (overlap allowed);
 AV stays at 14 vendors (defer expansion to ~25); multi-tag questions count toward
-each value; OS is a filter not a cause; thresholds calibrate AFTER backfill;
-sparklines are Unicode blocks (can swap to SVG later).
+each value; OS is a filter not a cause; sparklines are Unicode blocks (can swap
+to SVG later). **Thresholds calibrated on the post-backfill baseline (2026-07):**
+joint stays `min_count=4/lift>=3` (~2 high-lift clusters/month, no floods);
+single-dim floor raised to `min_count=8/mult=3` (was 5) to drop
+count-vs-tiny-baseline noise. Both are CLI args — retune anytime.
 
 **Data caveats (critical):**
-- Native version/OS columns were added by Kitsune **PR #7443 on 2026-04-23**, so
-  the **2026-04 monthly concat has no `thunderbird_version` column** →
-  version×cause covers **May 2026 onward** until backfill re-runs Apr 23–30.
-  Single-dimension spikes and trends still use all of April.
+- Native version/OS columns were added by Kitsune **PR #7443 on 2026-04-23**. The
+  **backfill (done ~2026-07) re-derived `thunderbird_version` for all scraper
+  history**, but it is only meaningfully populated from **2026-02 onward** (~27%
+  Feb → 40% Mar → 73% Apr → ~85% May+; ~0% before Feb 2026). So **version×cause
+  spikes cover 2026-02+**, while volume/cause/OS trends use the full history
+  (2023-01+). Note the committed monthly `CONCATENATED_FILES/` for pre-2026-04 are
+  still frozen old-API files WITHOUT the version column — Project 1's full history
+  comes from `project1_backfill_features.py` reading `aaq-data/` directly, not
+  from those concat files. (Also: the old scraper day-files carry no `is_spam`
+  flag, so pre-2026 volume includes a little unfiltered spam.)
 - The `created` column has **mixed formats** across months (old-API
   `2026-03-31 17:30:43 -0700` vs scraper ISO `...Z`). Any **cross-month**
   timestamp parse MUST use `pd.to_datetime(..., format="mixed", utc=True)` or
@@ -190,11 +207,13 @@ sparklines are Unicode blocks (can swap to SVG later).
   report generator emits one. There is no local `jekyll-feed` gem, so verify the
   page renders with `ruby -e 'require "kramdown"...'` rather than `jekyll build`.
 
-**Resume after backfill (~2026-06-29):** add hourly/monthly/quarterly/yearly
-grains (machinery already in `project1_report.py`; just needs history) +
-recalibrate the spike thresholds on the wider baselines; then Bucket 4 (sentiment
-amplifier, traditional NLP), wire Project 1 into a GitHub Action, and port to
-android (desktop-first, same code). Each is a sub-issue of #65.
+**Post-backfill status (2026-07):** ✅ full-history feature backfill
+(`project1_backfill_features.py`, 43 months 2023-01→2026-07), ✅ all five grains
+live, ✅ thresholds recalibrated (see Locked decisions). **Remaining sub-issues of
+#65:** Bucket 4 (sentiment amplifier, traditional NLP, no AI), wire Project 1 into
+a GitHub Action so reports auto-regenerate, and port to android (desktop-first,
+same code — the backfill/detectors/report already take `android` as a `product`
+arg).
 
 ## Data Structure
 

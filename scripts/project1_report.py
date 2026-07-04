@@ -9,14 +9,15 @@ Presentation layer over the feature tables and the spike detectors. Produces:
      clickable question IDs and a per-signal sparkline), plus volume / version /
      cause trends and a responsiveness summary.
 
-Sparklines are Unicode blocks (no image assets). Grain is daily today;
-hourly/monthly/quarterly/yearly reuse the same machinery once backfill history
-is complete — only GRAINS + the period key change.
+Sparklines are Unicode blocks (no image assets). All five grains
+(hourly/daily/monthly/quarterly/yearly) are live post-backfill — they share this
+machinery; only GRAINS + the period key differ. Volume/cause/OS trends span the
+full history; version×cause is naturally limited to versioned rows (2026-02+).
 
-No AI — pure pandas + stdlib. Run AFTER extract + joint detectors:
-  uv run scripts/project1_extract_features.py 2026-05 desktop   (per month)
+No AI — pure pandas + stdlib. Run AFTER extract/backfill + joint detector:
+  uv run scripts/project1_backfill_features.py desktop        (all months)
   uv run scripts/project1_joint_spike_detect.py desktop
-  uv run scripts/project1_report.py desktop
+  uv run scripts/project1_report.py desktop --grain monthly   (per grain)
 """
 import sys
 import csv
@@ -210,10 +211,13 @@ def main():
         W("")
 
     W("---")
-    W(f"\n_Notes: version×cause covers May 2026+ (native version field added by "
-      f"Kitsune on 2026-04-23, [PR #7443](https://github.com/mozilla/kitsune/pull/7443); "
-      f"the April concat predates it). Thresholds calibrate after backfill. Full question "
-      f"IDs per spike are in `{jpath}`; full series in `{ROLLUP.format(product=product, grain=grain)}`._")
+    W(f"\n_Notes: volume / cause / OS trends span the full scraper history "
+      f"(2023-01+). **Version×cause covers 2026-02 onward** — the native "
+      f"`thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) "
+      f"is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier "
+      f"questions carry no version. Thresholds (joint min_count=4/lift≥3) are "
+      f"calibrated on the post-backfill baseline. Full question IDs per spike are "
+      f"in `{jpath}`; full series in `{ROLLUP.format(product=product, grain=grain)}`._")
 
     os.makedirs(REPORT_DIR.format(product=product), exist_ok=True)
     rpath = f"{REPORT_DIR.format(product=product)}/{grain}-spike-report.md"
