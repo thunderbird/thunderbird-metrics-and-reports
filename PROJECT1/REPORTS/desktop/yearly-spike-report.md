@@ -5,10 +5,10 @@ title: YEARLY: Thunderbird Desktop — Support Spike Report
 
 # YEARLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2023 … 2026 · **yearly** grain · all history · 47335 questions · no AI (regex + traditional stats)_
+_Generated 2023 … 2026 · **yearly** grain · all history · 47324 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 47335 questions, 11833.8/year avg
-- **Answered (non-creator):** 35801/47335 (76%)
+- **Volume:** 47324 questions, 11831.0/year avg
+- **Answered (non-creator):** 35795/47324 (76%)
 - **First-answer time (median):** 3.6h (p25 1.0h / p75 12.8h)
 - **Total volume trend:** `▆██▃`
 
@@ -20,7 +20,7 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 | Signal | Lift | When | Version × Cause | Qs | Trend | Example questions |
 |:--|---:|:--|:--|--:|:--|:--|
 | 🆕 new | **3.7×** | 2026-06 | v151 × isp:spectrum | 12 | `▁▁▁█` | [1585052](https://support.mozilla.org/questions/1585052 "get error message ＂Unable to log in at server. Probably wrong configuration, use") [1585941](https://support.mozilla.org/questions/1585941 "Unable to send email") [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") +6 |
-| 🆕 new | **3.2×** | 2026-02 | v148 × proto:oauth | 5 | `▁▁▁█` | [1567488](https://support.mozilla.org/questions/1567488 "dossier envoyés contient seulements le mois en cours") [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567818](https://support.mozilla.org/questions/1567818 "thunderbird update 148 rompe oauth2 de yahoo") [1567961](https://support.mozilla.org/questions/1567961 "Mail sync issue led to Mail disappearing after troubleshooting then selecting ＂c") [1568282](https://support.mozilla.org/questions/1568282 "Thunderbird suddenly started asking for Crendentials for yahoo account.  ＂Someth") |
+| 🆕 new | **3.3×** | 2026-02 | v148 × proto:oauth | 5 | `▁▁▁█` | [1567488](https://support.mozilla.org/questions/1567488 "dossier envoyés contient seulements le mois en cours") [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567818](https://support.mozilla.org/questions/1567818 "thunderbird update 148 rompe oauth2 de yahoo") [1567961](https://support.mozilla.org/questions/1567961 "Mail sync issue led to Mail disappearing after troubleshooting then selecting ＂c") [1568282](https://support.mozilla.org/questions/1568282 "Thunderbird suddenly started asking for Crendentials for yahoo account.  ＂Someth") |
 
 ## 📮 Cause-level spikes — provider / ISP / protocol / AV
 
@@ -56,19 +56,19 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 786 | `▁▁▁█` |
+| v140 | 781 | `▁▁▁█` |
 | v150 | 400 | `▁▁▁█` |
 | v151 | 326 | `▁▁▁█` |
 | v149 | 309 | `▁▁▁█` |
 | v148 | 237 | `▁▁▁█` |
-| v152 | 208 | `▁▁▁█` |
+| v152 | 203 | `▁▁▁█` |
 
 ### Top mail providers
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 4411 | `▆█▇▃` |
-| m:microsoftemail | 4142 | `▆█▆▃` |
+| m:gmail | 4410 | `▆█▇▃` |
+| m:microsoftemail | 4141 | `▆█▆▃` |
 | m:yahooemail | 1337 | `▅██▅` |
 | m:gmx | 134 | `██▇▇` |
 | m:protonmail | 75 | `█▃█▃` |
@@ -78,10 +78,10 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 3512 | `▇█▇▃` |
+| proto:imap | 3511 | `▇█▇▃` |
 | proto:smtp | 2191 | `▆█▇▃` |
-| proto:pop | 2170 | `▇█▇▃` |
-| proto:oauth | 843 | `▅█▅▃` |
+| proto:pop | 2169 | `▇█▇▃` |
+| proto:oauth | 842 | `▅█▅▃` |
 | proto:caldav | 186 | `█▇▆▃` |
 | proto:carddav | 97 | `███▄` |
 
@@ -89,7 +89,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| isp:comcast | 592 | `▅█▇▃` |
+| isp:comcast | 591 | `▅█▇▃` |
 | isp:spectrum | 506 | `▇█▇▄` |
 | isp:att | 350 | `▇██▃` |
 | isp:btinternet | 158 | `▅█▆▄` |
@@ -111,11 +111,22 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 8391 | `▄▄▄█` |
+| os:windows | 8383 | `▄▄▄█` |
 | os:linux | 1943 | `▇█▇▆` |
-| os:macos | 1215 | `▇▇▆█` |
-| os:other | 120 | `▁▁▂█` |
+| os:macos | 1271 | `▇▇▆█` |
+| os:other | 119 | `▁▁▂█` |
 | os:android | 89 | `▁▂▃█` |
+
+### macOS releases (filter dimension)
+
+| Value | Total | Trend |
+|:--|--:|:--|
+| macos:sonoma | 166 | `▂█▂▂` |
+| macos:sequoia | 154 | `▁▃█▂` |
+| macos:ventura | 150 | `█▂▂▁` |
+| macos:monterey | 82 | `█▆▄▂` |
+| macos:catalina | 73 | `█▆▇▂` |
+| macos:tahoe | 47 | `▁▁▇█` |
 
 ---
 

@@ -125,6 +125,7 @@ def build_features(q, a):
             "question_url": QUESTION_URL.format(id=qid),
             "os": os_tag,
             "os_raw": r.get("operating_system", ""),
+            "macos_release": tag_text(text, COMPILED["macos_release"]),
             "tb_version": ver,
             "tb_version_major": major_version(ver),
             "mail_provider": tag_text(text, COMPILED["mail_provider"]),

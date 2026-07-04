@@ -5,11 +5,11 @@ title: MONTHLY: Thunderbird Desktop — Support Spike Report
 
 # MONTHLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2024-08 … 2026-07 · **monthly** grain · trailing 24 months · 28609 questions · no AI (regex + traditional stats)_
+_Generated 2024-08 … 2026-07 · **monthly** grain · trailing 24 months · 28598 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 28609 questions, 1192.0/month avg
-- **Answered (non-creator):** 21825/28609 (76%)
-- **First-answer time (median):** 3.3h (p25 0.9h / p75 11.7h)
+- **Volume:** 28598 questions, 1191.6/month avg
+- **Answered (non-creator):** 21819/28598 (76%)
+- **First-answer time (median):** 3.3h (p25 0.9h / p75 11.8h)
 - **Total volume trend:** `█▇█▇▇█▆▆▆▅▅▇▇▆▆▅▅▅▅▅▄▄▄▁`
 
 ## 🚨 Engineering signal — version × cause spikes
@@ -20,7 +20,7 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 | Signal | Lift | When | Version × Cause | Qs | Trend | Example questions |
 |:--|---:|:--|:--|--:|:--|:--|
 | 🆕 new | **3.7×** | 2026-06 | v151 × isp:spectrum | 12 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▁` | [1585052](https://support.mozilla.org/questions/1585052 "get error message ＂Unable to log in at server. Probably wrong configuration, use") [1585941](https://support.mozilla.org/questions/1585941 "Unable to send email") [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") +6 |
-| 🆕 new | **3.2×** | 2026-02 | v148 × proto:oauth | 5 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▂▁▁▁` | [1567488](https://support.mozilla.org/questions/1567488 "dossier envoyés contient seulements le mois en cours") [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567818](https://support.mozilla.org/questions/1567818 "thunderbird update 148 rompe oauth2 de yahoo") [1567961](https://support.mozilla.org/questions/1567961 "Mail sync issue led to Mail disappearing after troubleshooting then selecting ＂c") [1568282](https://support.mozilla.org/questions/1568282 "Thunderbird suddenly started asking for Crendentials for yahoo account.  ＂Someth") |
+| 🆕 new | **3.3×** | 2026-02 | v148 × proto:oauth | 5 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▂▁▁▁` | [1567488](https://support.mozilla.org/questions/1567488 "dossier envoyés contient seulements le mois en cours") [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567818](https://support.mozilla.org/questions/1567818 "thunderbird update 148 rompe oauth2 de yahoo") [1567961](https://support.mozilla.org/questions/1567961 "Mail sync issue led to Mail disappearing after troubleshooting then selecting ＂c") [1568282](https://support.mozilla.org/questions/1568282 "Thunderbird suddenly started asking for Crendentials for yahoo account.  ＂Someth") |
 
 ## 📮 Cause-level spikes — provider / ISP / protocol / AV
 
@@ -46,19 +46,19 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 786 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▂` |
+| v140 | 781 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▂` |
 | v150 | 400 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▁▁` |
 | v151 | 326 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁` |
 | v149 | 309 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▂▁▁` |
 | v148 | 237 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃█▁▁▁▁` |
-| v152 | 208 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▃` |
+| v152 | 203 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▃` |
 
 ### Top mail providers
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 2543 | `███▇▇▇▆▆▆▅▄▅▆▆▅▅▅▅▄▅▄▄▃▁` |
-| m:microsoftemail | 2359 | `▇██▆▅▅▅▄▄▃▄▄▄▄▅▄▄▄▄▄▃▄▃▁` |
+| m:gmail | 2542 | `███▇▇▇▆▆▆▅▄▅▆▆▅▅▅▅▄▅▄▄▃▁` |
+| m:microsoftemail | 2358 | `▇██▆▅▅▅▄▄▃▄▄▄▄▅▄▄▄▄▄▃▄▃▁` |
 | m:yahooemail | 835 | `▇▇▅▅▆█▄▄▄▄▄▆▇▆▆▇▆▄██▅▇▄▁` |
 | m:gmx | 88 | `▄▁▂▃▅▃▂▂▁▁▁▁▂▃▂▁▅▂▃█▃▂▂▁` |
 | m:protonmail | 41 | `▂▁▂▂▁▄▄▂▇▅▄▇▄▂▅▅▂▄▄█▁▂▁▁` |
@@ -68,10 +68,10 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 1951 | `▇█▇▇██▇▅▅▅▄▆▆▅▆▅▄▅▄▅▃▅▄▁` |
+| proto:imap | 1950 | `▇█▇▇██▇▅▅▅▄▆▆▅▆▅▄▅▄▅▃▅▄▁` |
 | proto:smtp | 1235 | `▆█▇▇▅▇▅▅▅▅▄▅▇▅▄▄▃▅▅▅▃▄▃▁` |
-| proto:pop | 1232 | `█▇▇▇▅▇▅▄▅▄▄▅▆▅▆▄▃▄▄▄▃▄▃▁` |
-| proto:oauth | 506 | `▆█▆▄▄▄▂▃▃▂▂▃▃▂▃▃▂▃▃▅▂▃▂▁` |
+| proto:pop | 1231 | `█▇▇▇▅▇▅▄▅▄▄▅▆▅▆▄▃▄▄▄▃▄▃▁` |
+| proto:oauth | 505 | `▆█▆▄▄▄▂▃▃▂▂▃▃▂▃▃▂▃▃▅▂▃▂▁` |
 | proto:caldav | 100 | `▆▅▆▆▅█▃▃▃▆▅▆▄▃▄▂▃▅▆▃▃▂▃▁` |
 | proto:carddav | 58 | `▇▃▄▅▃▄▂▇▃▂▁▃█▂▃▃▂▂▄▅▄▂▂▁` |
 
@@ -79,7 +79,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| isp:comcast | 352 | `▅▆▆▆▅▆▄▅▄▄▃▃█▄▄▆▅▂▃▃▅▄▄▁` |
+| isp:comcast | 351 | `▅▆▆▆▅▆▄▅▄▄▃▃█▄▄▆▅▂▃▃▅▄▄▁` |
 | isp:spectrum | 286 | `▆█▇▄▅▅▇▅▅▅▅▅▆▆▃▇▅▄▆▃▃██▁` |
 | isp:att | 192 | `▅▄▄▅█▇▅▃▃▅▃▇▇▃▂▄▆▃▃▅▃▂▂▁` |
 | isp:orange | 114 | `▁▄▃▅█▇▅▄▂▃▃▅▄▃▃▃▃▁▃▃▂▁▄▁` |
@@ -95,17 +95,28 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | av:defender | 60 | `█▄▂▇▂▂▃▂▂▂▁▃▃▂▂▂▁▁▂▂▂▄▄▁` |
 | av:avast | 48 | `▂▅▂▇▄▅█▄▅▂▁▅▁▁▄▇▂▅▂▂▇▄▄▁` |
 | av:mcafee | 31 | `▁▁█▃▆▃▃▃▆█▃▃█▆█▁▁▁▃▃▆▆▃▁` |
-| av:malwarebytes | 22 | `▆▆▃▆▁▃▁▁▃▁▁▆▃▁▃▃█▁▁▁▆▃▆▁` |
+| av:kaspersky | 22 | `▁▆▆▃▁▅▁▃▁▆▅▁█▁▃▃▁▁▃▁▁▁▁▁` |
 
 ### OS mix (filter dimension)
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 6253 | `▃▂▃▃▂▃▂▂▂▂▂▃▃▂▃▂▂▅██▇▇▇▂` |
+| os:windows | 6245 | `▃▂▃▃▂▃▂▂▂▂▂▃▃▂▃▂▂▅██▇▇▇▂` |
 | os:linux | 1185 | `▅▆▆▆▅▆▅▃▄▅▄▃▅▅▄▄▄▆▇█▆▇▆▂` |
-| os:macos | 746 | `▃▄▄▃▃▃▃▃▂▃▂▄▃▄▂▃▂▆▇█▆▆▅▂` |
-| os:other | 118 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▂▁▂▃▂` |
+| os:macos | 801 | `▃▄▄▃▃▃▄▃▃▃▂▄▄▄▂▄▂▆▇█▆▆▅▂` |
+| os:other | 117 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▂▁▂▃▂` |
 | os:android | 79 | `▂▁▂▁▁▂▂▂▂▁▂▃▃▁▂▂▁▇█▇█▅▃▂` |
+
+### macOS releases (filter dimension)
+
+| Value | Total | Trend |
+|:--|--:|:--|
+| macos:sequoia | 154 | `▁▃▅▆▅█▇▅▅▅▁▇▇▇▂▅▃▄▃▃▂▃▁▁` |
+| macos:sonoma | 69 | `█▆▄▃▂▂▂▁▁▁▁▁▁▁▁▃▂▃▁▁▁▂▁▁` |
+| macos:tahoe | 47 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▆▅█▇▇▆▆▂▃▅▃` |
+| macos:catalina | 38 | `▃▃▅▃▂▄▁▂▂▂▁█▆▄▂▂▁▂▁▂▂▂▁▁` |
+| macos:monterey | 30 | `▃▆▅▅▅▅▅█▃▃▁▃▃▅▁▅▃▃▁▁▃▃▁▁` |
+| macos:high_sierra | 28 | `▁▄█▄▂▁▇▂▁▇▁▂▂▂▁▂▂▄▁▁▁▁▄▁` |
 
 ---
 

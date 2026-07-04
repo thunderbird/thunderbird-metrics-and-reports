@@ -215,9 +215,16 @@ current-vs-prev from day 15). Linked from `index.md`.
 
 `scripts/project1_regexes.py` holds the detection dictionaries — ported from
 `thunderbird/github-action-thunderbird-aaq/regexes.rb` (the `os:`/`av:`/`m:` tag
-convention) plus net-new `proto:` and `isp:` dimensions and regional providers
-(GMX, Telus). All spike CSVs carry a `question_ids` column (ALL ids) for manual
-checking; spike CSVs are keyed by a `period` column (day/Monday/`YYYY-MM`).
+convention) plus net-new `proto:` and `isp:` dimensions, regional providers
+(GMX, Telus), and a **`macos_release`** dimension (`macos:sequoia`/`sonoma`/… from
+the Wikipedia macOS timeline, 10.0 Cheetah → 27 Golden Gate). `macos_release`
+REFINES the `os:macos` filter — it is NOT a cause, so it does not feed the joint
+detector; it appears only as a report **trend**. Every `10.x` in those patterns is
+anchored to a `mac os`/`os x` prefix (a bare `10.N` false-matches private IPs
+`10.0.0.0/8` and version strings — caught in testing), and lookbehinds stop
+`high sierra`/`snow leopard`/`mountain lion` from also matching the shorter tags.
+All spike CSVs carry a `question_ids` column (ALL ids) for manual checking; spike
+CSVs are keyed by a `period` column (day/Monday/`YYYY-MM`).
 
 **Locked decisions:** provider and ISP are SEPARATE dimensions (overlap allowed);
 AV stays at 14 vendors (defer expansion to ~25); multi-tag questions count toward

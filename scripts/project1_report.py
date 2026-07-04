@@ -66,7 +66,7 @@ UNIT = {"hourly": "hour", "daily": "day", "monthly": "month",
 WINDOW_DEFAULTS = {"hourly": 168, "daily": 90, "monthly": 24,
                    "quarterly": 12, "yearly": None}
 CAUSE_DIMS = ["mail_provider", "isp", "protocol", "av"]  # OS is a filter, not a cause
-TREND_DIMS = ["tb_version_major"] + CAUSE_DIMS + ["os"]
+TREND_DIMS = ["tb_version_major"] + CAUSE_DIMS + ["os", "macos_release"]
 
 
 def spark(vals):
@@ -104,6 +104,10 @@ def load_features(product):
     df["created_dt"] = pd.to_datetime(df["created"], utc=True, format="mixed",
                                       errors="coerce")
     df = df[df["created_dt"].notna()].copy()
+    # tolerate feature files that predate a newer tag column (e.g. macos_release
+    # before a full re-extract) so trends don't crash on a missing/NaN column.
+    for c in TREND_DIMS:
+        df[c] = df[c].fillna("") if c in df.columns else ""
     return df, files
 
 
@@ -256,7 +260,8 @@ def main():
                        ("protocol", "Top protocols"),
                        ("isp", "Top ISPs"),
                        ("av", "Top antivirus"),
-                       ("os", "OS mix (filter dimension)")]:
+                       ("os", "OS mix (filter dimension)"),
+                       ("macos_release", "macOS releases (filter dimension)")]:
         tot = (rollup[rollup["dim"] == dim].groupby("value")["count"].sum()
                .sort_values(ascending=False).head(6))
         if tot.empty:

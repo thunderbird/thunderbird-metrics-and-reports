@@ -94,12 +94,54 @@ ISP_PATTERNS = [
     ("isp:tonline", r"t-online|telekom"),
 ]
 
+# --- macOS RELEASES — NET-NEW per-release dimension (refines the os:macos
+# FILTER; NOT a cause, so it does not feed the version×cause joint detector).
+# Names + version numbers from the Wikipedia "Timeline of releases" table
+# (10.0 Cheetah .. 27 Golden Gate). Newest first. In the Thunderbird support
+# corpus a bare "Sonoma"/"Ventura"/"Sequoia" is almost always macOS, so
+# word-boundaried name matching is safe enough; the ambiguous common-word ancient
+# names (Cheetah/Puma/Tiger/Lion) are anchored to a "mac os x <name>" form or the
+# 10.x number to avoid false positives. Lookbehinds keep "high sierra"/"snow
+# leopard"/"mountain lion" from also matching the shorter Sierra/Leopard/Lion tags.
+# Every 10.x number is anchored to a "mac os"/"os x" prefix — a BARE 10.N is a
+# false-positive magnet (private IPs 10.0.0.0/8, unrelated version strings), as
+# testing on the corpus confirmed. Modern 11-27 likewise require the "mac os"
+# prefix (a bare "15" is meaningless). Distinctive marketing names match on their
+# own; ambiguous common-word ancient names (Cheetah/Puma/Tiger/Lion) only match
+# in an explicit "mac os x <name>" form.
+MACOS_RELEASE_PATTERNS = [
+    ("macos:golden_gate",   r"golden ?-?gate|mac ?os ?27\b"),
+    ("macos:tahoe",         r"\btahoe\b|mac ?os ?26\b"),
+    ("macos:sequoia",       r"\bsequoia\b|mac ?os ?(x ?)?15\b"),
+    ("macos:sonoma",        r"\bsonoma\b|mac ?os ?(x ?)?14\b"),
+    ("macos:ventura",       r"\bventura\b|mac ?os ?(x ?)?13\b"),
+    ("macos:monterey",      r"\bmonterey\b|mac ?os ?(x ?)?12\b"),
+    ("macos:big_sur",       r"big ?-?sur|mac ?os ?(x ?)?11\b"),
+    ("macos:catalina",      r"\bcatalina\b|mac ?os ?x? ?10\.15\b"),
+    ("macos:mojave",        r"\bmojave\b|mac ?os ?x? ?10\.14\b"),
+    ("macos:high_sierra",   r"high ?-?sierra|mac ?os ?x? ?10\.13\b"),
+    ("macos:sierra",        r"(?<!high[ -])\bsierra\b|mac ?os ?x? ?10\.12\b"),
+    ("macos:el_capitan",    r"el ?-?capitan|mac ?os ?x? ?10\.11\b"),
+    ("macos:yosemite",      r"\byosemite\b|mac ?os ?x? ?10\.10\b"),
+    ("macos:mavericks",     r"\bmavericks\b|mac ?os ?x? ?10\.9\b"),
+    ("macos:mountain_lion", r"mountain ?-?lion|mac ?os ?x? ?10\.8\b"),
+    ("macos:lion",          r"mac ?os ?x ?lion|mac ?os ?x? ?10\.7\b"),
+    ("macos:snow_leopard",  r"snow ?-?leopard|mac ?os ?x? ?10\.6\b"),
+    ("macos:leopard",       r"(?<!snow[ -])\bleopard\b|mac ?os ?x? ?10\.5\b"),
+    ("macos:tiger",         r"mac ?os ?x ?tiger|mac ?os ?x? ?10\.4\b"),
+    ("macos:panther",       r"\bpanther\b|mac ?os ?x? ?10\.3\b"),
+    ("macos:jaguar",        r"\bjaguar\b|mac ?os ?x? ?10\.2\b"),
+    ("macos:puma",          r"mac ?os ?x ?puma|mac ?os ?x? ?10\.1\b"),
+    ("macos:cheetah",       r"mac ?os ?x ?cheetah|mac ?os ?x? ?10\.0\b"),
+]
+
 # OS native-column -> tag normalization (regex fallback used only when the
 # scraper's native operating_system value is blank).
 OS_FALLBACK_PATTERNS = [
     ("os:macos",
      r"ventura|panther|snow ?-?leopard|leopard|jaguar|monterey|mavericks|"
-     r"sonoma|sierra|el ?-?capitan|mojave|catalina|big ?-?sur|yosemite|"
+     r"sonoma|high ?-?sierra|sierra|el ?-?capitan|mojave|catalina|big ?-?sur|"
+     r"yosemite|sequoia|tahoe|golden ?-?gate|mountain ?-?lion|"
      r"mac ?-?os ?-?x?|osx|os-x"),
     ("os:linux", r"linux|ubuntu|redhat|debian|bsd"),
     ("os:windows",
@@ -112,6 +154,7 @@ DIMENSIONS = {
     "isp": ISP_PATTERNS,
     "protocol": PROTOCOL_PATTERNS,
     "av": ANTIVIRUS_PATTERNS,
+    "macos_release": MACOS_RELEASE_PATTERNS,
 }
 
 
