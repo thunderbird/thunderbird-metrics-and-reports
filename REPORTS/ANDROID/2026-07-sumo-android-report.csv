@@ -1,2 +1,2 @@
 Date,num_questions,num_solved,solved-percentage,num_ignored,ignored-percentage,synthetic_solved_by_random_contributors,synthetic_solved_by_random_contributors-percentage,synthetic_solved_by_trusted_contributors,synthetic_solved_by_trusted_contributors-percentage,synthetic_solved_rate,question_ids_question_creator_answered_last,question_ids_trusted_contributor_answered_last,question_ids_random_contributor_answered_last
-2026-07,6,0,0,2,33,0,0,4,67,67,,1590533;1590623;1590833;1590931,
+2026-07,6,0,0,1,17,0,0,5,83,83,,1590533;1590623;1590833;1590931;1591072,
