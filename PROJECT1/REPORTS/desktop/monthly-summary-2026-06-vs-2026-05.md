@@ -14,11 +14,13 @@ _For **engineering**: the support signals worth investigating this month vs last
 | | May 2026 | June 2026 | Change |
 |:--|--:|--:|:--|
 | Support questions (load) | 812 | 724 | ▼ -88 (-11%) |
-| Version × cause spikes flagged | 5 | 4 | ▼ -1 |
+| Version × cause spikes flagged | 5 | 3 | ▼ -2 |
 | — of which **new** regressions | 3 | 2 | ▼ -1 |
 | Cause-level surges flagged | 0 | 0 | ▬ 0 |
 
 ## 🚨 Incidents to investigate
+
+> ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
 
 ### Version × cause — possible release regressions
 
@@ -26,25 +28,24 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 
 | Signal | When | Version × Cause | Qs | Lift | Example questions |
 |:--|:--|:--|--:|--:|:--|
-| 🆕 new | 2026-06-09 | v151 × isp:spectrum | 7 | 21.3× | [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") [1586486](https://support.mozilla.org/questions/1586486 "Thunderbird is showing Certificate for mobile.charter.net:993 does not come from") +2 |
+| 🆕 new | 2026-06-09 | v151 × m:spectrum | 7 | 21.3× | [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") [1586486](https://support.mozilla.org/questions/1586486 "Thunderbird is showing Certificate for mobile.charter.net:993 does not come from") +2 |
 | 🆕 new | 2026-06-30 | v152 × m:gmail | 4 | 4.8× | [1590372](https://support.mozilla.org/questions/1590372 "Urgent question: Wrong email group when I sign in coming up") [1590393](https://support.mozilla.org/questions/1590393 "Storende pop-up naar aanleiding van verwijderde google-account") [1590463](https://support.mozilla.org/questions/1590463 "Message not visible with no filter activated, all account are synchronized") [1590499](https://support.mozilla.org/questions/1590499 "archive Gmail to local storage　by Tb") |
-| ↗ spreading | 2026-06-29 | v152 × m:microsoftemail | 6 | 3.6× | [1590178](https://support.mozilla.org/questions/1590178 "Adding 2nd outlook accound") [1590198](https://support.mozilla.org/questions/1590198 "Thunderbird emails have started to only show links and not the pictures within t") [1590208](https://support.mozilla.org/questions/1590208 "Can't connect to my live and outlook accounts since 2 weeks") [1590210](https://support.mozilla.org/questions/1590210 "TBird152.0  is not displaing HTML emails properly.") [1590301](https://support.mozilla.org/questions/1590301 "One-hour delay in the guest's meeting schedule (Atraso de uma hora na agenda do ") +1 |
-| ↗ spreading | 2026-06-06 | v151 × m:microsoftemail | 4 | 3.5× | [1585904](https://support.mozilla.org/questions/1585904 "Thread's broken sorting makes it completely unusable.") [1585941](https://support.mozilla.org/questions/1585941 "Unable to send email") [1585964](https://support.mozilla.org/questions/1585964 "Can't install thunderbird on my new pc Lenovo windows 11") [1585982](https://support.mozilla.org/questions/1585982 "Thunderbird Outlook Import and Favourites folder setup") |
+| ↗ spreading | 2026-06-29 | v152 × m:microsoftemail | 6 | 4.3× | [1590178](https://support.mozilla.org/questions/1590178 "Adding 2nd outlook accound") [1590198](https://support.mozilla.org/questions/1590198 "Thunderbird emails have started to only show links and not the pictures within t") [1590208](https://support.mozilla.org/questions/1590208 "Can't connect to my live and outlook accounts since 2 weeks") [1590210](https://support.mozilla.org/questions/1590210 "TBird152.0  is not displaing HTML emails properly.") [1590301](https://support.mozilla.org/questions/1590301 "One-hour delay in the guest's meeting schedule (Atraso de uma hora na agenda do ") +1 |
 
 ## What moved
 
-### Cause clusters (provider / ISP / protocol / AV)
+### Cause clusters (provider / protocol / AV)
 
-| Cause clusters (provider / ISP / protocol / AV) | May 2026 | June 2026 | Change |
+| Cause clusters (provider / protocol / AV) | May 2026 | June 2026 | Change |
 |:--|--:|--:|:--|
-| m:microsoftemail | 95 | 69 | ▼ -26 (-27%) |
 | m:gmail | 76 | 52 | ▼ -24 (-32%) |
-| m:yahooemail | 43 | 25 | ▼ -18 (-42%) |
+| m:microsoftemail | 75 | 54 | ▼ -21 (-28%) |
+| m:yahooemail | 43 | 26 | ▼ -17 (-40%) |
 | proto:imap | 65 | 51 | ▼ -14 (-22%) |
-| proto:pop | 41 | 30 | ▼ -11 (-27%) |
 | proto:smtp | 36 | 25 | ▼ -11 (-31%) |
+| proto:pop | 41 | 30 | ▼ -11 (-27%) |
 | proto:oauth | 17 | 12 | ▼ -5 (-29%) |
-| isp:comcast | 12 | 14 | ▲ +2 (+17%) |
+| m:icloud | 5 | 8 | ▲ +3 |
 
 ### 🆕 New cause clusters (first appearance ever)
 
@@ -80,7 +81,7 @@ _None — every cause cluster in June 2026 has appeared in a prior month._
 | email-and-messaging | 90 | 49 | ▼ -41 (-46%) |
 | passwords-and-sign-in | 56 | 32 | ▼ -24 (-43%) |
 | connectivity | 37 | 34 | ▼ -3 (-8%) |
-| junk-mail-and-spam | 35 | 29 | ▼ -6 (-17%) |
+| account-management | 35 | 29 | ▼ -6 (-17%) |
 
 ---
 

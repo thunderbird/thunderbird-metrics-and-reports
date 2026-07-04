@@ -5,44 +5,115 @@ emoji-tagging regexes), preserving the `os:` / `av:` / `m:` tag-name convention,
 plus net-new PROTOCOL and ISP dimensions and regional providers (GMX, Telus)
 that the Ruby file did not cover.
 
-DESIGN NOTE (provider vs ISP):
-  The Ruby provider buckets fold ISP-hosted mail into a provider bucket
-  (e.g. roadrunner/spectrum/twc -> m:microsoftemail, att/bellsouth/sbcglobal ->
-  m:yahooemail) because that is where the mail is actually hosted. Project 1
-  also wants ISP mentions as their OWN dimension. So we keep the provider
-  buckets verbatim AND detect ISP brands independently in ISP_PATTERNS — a
-  question can legitimately be tagged in both. Whether to keep them split or
-  strip ISP brands out of the provider buckets is a CHECKPOINT decision.
+DESIGN NOTE (issue #70 decision — mail_provider only, no isp dimension):
+  ISP-provided email (Comcast, BT, Free, Telstra…) IS a mail provider — a
+  "@comcast.net" question is about Comcast *mail*, not Comcast *connectivity*.
+  Many brands are BOTH an ISP and an email host; tagging them in two cause
+  dimensions would double-report the same spike (v151×m:comcast AND
+  v151×isp:comcast). So the separate `isp:` cause dimension was RETIRED and every
+  email host — webmail and ISP-mail alike — lives in `mail_provider`, one tag per
+  brand. The old Ruby hosting-folds (roadrunner→microsoft, att→yahoo) were
+  stripped out into their own brand tags (m:spectrum, m:att) so brand identity
+  survives (e.g. the validated v151 × spectrum cert spike).
 
 All matching is case-insensitive (handled by the consumer with re.IGNORECASE).
 Each dimension is a list of (tag_name, pattern) tuples; a question is tagged
 with every tag whose pattern matches its title+content.
 """
 
-# --- MAIL PROVIDERS (hosting buckets) — ported verbatim, + GMX/Telus ----------
+# --- MAIL PROVIDERS — every email host in ONE dimension (webmail + ISP-mail).
+# Sources: the original Ruby buckets (ISP-brand folds stripped into their own
+# brand tags), Thunderbird's ISPDB (corpus-present entries), and named regionals.
+# Word-/dot-anchored to limit false positives (validated on the corpus).
 PROVIDER_PATTERNS = [
-    ("m:gmail", r"gmail|google mail|googlemail"),
+    # --- global webmail ---
+    # Thundermail = Thunderbird's own email service (tb.pro), LAUNCHED 2026-05-01
+    # — so pre-May-2026 mentions are "when will it be available?" anticipation, not
+    # real usage; treat post-2026-05 hits as actual support. TIGHT pattern only:
+    # "thundermail" / tb.pro. Do NOT match "thunderbird mail" (the app's generic
+    # name) or "thunderbird pro" (collides with "thunderbird profile/program") —
+    # both are heavy false positives in this corpus.
+    ("m:thundermail", r"thundermail|\btb\.pro\b"),
+    ("m:gmail", r"gmail|google ?mail"),
     ("m:microsoftemail",
-     r"live(\.|-)*com|msn|ms365|outlook|office365|office 365|hotmail|livemail|"
-     r"passport|microsoft365|microsoft 365|o365|ms 365|verizon|microsoft mail|"
-     r"microsoftmail|timewarner|twc|godaddy|msexchange|ms exchange|"
-     r"microsoft exchange|microsoftexchange|spectrum|time warner|roadrunner"),
+     r"live(\.|-)*com|\bmsn\b|ms365|outlook|office ?365|hotmail|livemail|passport|"
+     r"microsoft ?365|o365|ms 365|microsoft ?mail|ms ?exchange|"
+     r"microsoft ?exchange|godaddy"),
+    ("m:yahooemail", r"yahoo|\baol\b"),                 # AOL is Yahoo-hosted
+    ("m:icloud", r"icloud|\bme\.com\b|\bmac\.com\b|@apple\.com"),
     ("m:protonmail", r"protonmail|proton\.me|pm\.me"),
     ("m:fastmail", r"fastmail\.fm|fastmail"),
-    ("m:yahooemail",
-     r"yahoo|ameritech|at&t|att\.net|bellsouth|currently\.com|nvbell|pacbell|"
-     r"prodigy|sbcglobal|snet|swbell|wans"),
-    ("m:mailfence", r"mailfence"),
-    # NET-NEW regional providers the user named explicitly:
     ("m:gmx", r"\bgmx\b"),
+    ("m:webde", r"\bweb\.de\b"),
+    ("m:mailcom", r"\bmail\.com\b"),                    # NOT gmail.com/hotmail.com (\b guards)
+    ("m:zoho", r"\bzoho\b"),
+    ("m:yandex", r"yandex"),
+    ("m:mailru", r"mail\.ru"),
+    ("m:tutanota", r"tutanota|\btuta\b|tuta\.(?:com|io)"),
+    ("m:posteo", r"posteo"),
+    ("m:mailfence", r"mailfence"),
+    ("m:onecom", r"\bone\.com\b"),
+    ("m:ovh", r"\bovh\b"),
+    ("m:gandi", r"\bgandi\b"),
+    # --- US ISP-provided email ---
+    ("m:comcast", r"comcast|xfinity"),
+    ("m:att", r"at&t|\batt\b|att\.net|ameritech|bellsouth|sbcglobal|pacbell|"
+              r"\bswbell\b|\bsnet\b|prodigy|nvbell|currently\.com"),
+    ("m:verizon", r"verizon|fios"),
+    ("m:spectrum", r"spectrum|charter|time ?warner|\btwc\b|roadrunner|\brr\.com\b"),
+    ("m:cox", r"\bcox\b"),
+    ("m:centurylink", r"centurylink|lumen|\bqwest\b|centurytel"),
+    ("m:earthlink", r"earthlink"),
+    ("m:frontier", r"frontier"),
+    ("m:windstream", r"windstream"),
+    ("m:mediacom", r"mediacom"),
+    ("m:optimum", r"optimum|altice|optonline"),
+    # --- Canada ---
     ("m:telus", r"telus"),
+    ("m:bell", r"\bbell\b|sympatico|bell\.net"),
+    ("m:rogers", r"rogers"),
+    ("m:shaw", r"\bshaw\b"),
+    # --- UK / IE ---
+    ("m:btinternet", r"btinternet|\bbt\b"),
+    ("m:virginmedia", r"virgin ?media|ntlworld|blueyonder"),
+    ("m:sky", r"\bsky\.com\b|sky ?broadband"),
+    # --- France ---
+    ("m:orange", r"\borange\b|wanadoo"),
+    ("m:free_fr", r"\bfree\.fr\b"),
+    ("m:sfr", r"\bsfr\b|sfr\.fr|neuf\.fr"),
+    ("m:laposte", r"laposte"),
+    # --- Germany / Austria / Switzerland ---
+    ("m:tonline", r"t-online|telekom"),
+    ("m:ionos", r"\bionos\b|1and1|1&1|1und1"),
+    ("m:strato", r"\bstrato\b"),
+    ("m:freenet", r"freenet"),
+    ("m:vodafone", r"vodafone"),
+    ("m:bluewin", r"bluewin|swisscom"),
+    # --- Italy ---
+    ("m:libero", r"\blibero\b"),
+    ("m:tiscali", r"tiscali"),
+    ("m:virgilio", r"\bvirgilio\b|\btim\.it\b|\btin\.it\b"),
+    ("m:alice_it", r"\balice\.it\b"),
+    ("m:fastweb", r"fastweb"),
+    # --- Netherlands / Belgium ---
+    ("m:ziggo", r"ziggo"),
+    ("m:kpn", r"\bkpn\b|kpnmail"),
+    ("m:skynet_be", r"skynet\.be|\bproximus\b"),
+    # --- Central / Eastern Europe ---
+    ("m:seznam", r"\bseznam\b|\bszn\.cz\b"),
+    ("m:wppl", r"\bwp\.pl\b"),
+    ("m:onet", r"\bonet\.pl\b|\bop\.pl\b"),
+    # --- Australia / New Zealand ---
+    ("m:bigpond", r"bigpond|telstra"),
+    ("m:xtra_nz", r"\bxtra\b"),
 ]
 
-# --- ANTIVIRUS — ported verbatim (14 vendors; user wants ~25, expand at CP) ----
-# eset/avg word-boundaried to avoid 'reset'/'average' false positives.
+# --- ANTIVIRUS — expanded from the Wikipedia antivirus category + corpus (#70).
+# Ambiguous tokens anchored (g-data avoids "big data"; panda/360 need a qualifier;
+# eset/avg/k7/vipre word-boundaried) to avoid false positives.
 ANTIVIRUS_PATTERNS = [
     ("av:kaspersky", r"kaspersky"),
-    ("av:bitdefender", r"bitdefender"),
+    ("av:bitdefender", r"bitdefender|gravityzone"),
     ("av:avast", r"avast|\bavg\b"),
     ("av:avira", r"avira"),
     ("av:zonealarm", r"zonealarm|zone alarm|checkpoint|check point|check-point"),
@@ -51,10 +122,29 @@ ANTIVIRUS_PATTERNS = [
     ("av:fsecure", r"fsecure|f-secure|f secure"),
     ("av:malwarebytes", r"malwarebytes"),
     ("av:mcafee", r"mcafee"),
-    ("av:norton", r"norton"),
+    ("av:norton", r"norton|symantec"),
     ("av:sophos", r"sophos"),
-    ("av:trendmicro", r"trendmicro|titanium"),
-    ("av:defender", r"\bdefender\b"),
+    ("av:trendmicro", r"trend ?micro|titanium"),
+    ("av:defender", r"\bdefender\b|security essentials"),
+    # NET-NEW (issue #70)
+    ("av:gdata", r"\bg[ -]?data\b"),
+    ("av:surfshark", r"surfshark"),
+    ("av:webroot", r"webroot"),
+    ("av:emsisoft", r"emsisoft"),
+    ("av:drweb", r"dr\.?web"),
+    ("av:totalav", r"total ?av\b|totalav"),
+    ("av:pcmatic", r"pc ?-?matic"),
+    ("av:k7", r"\bk7\b"),
+    ("av:vipre", r"\bvipre\b"),
+    ("av:quickheal", r"quick ?heal"),
+    ("av:clamav", r"clamx?av|clamwin|clamtk"),
+    ("av:qihoo360", r"\bqihoo\b|360 ?(?:total ?security|safe|antivirus)"),
+    ("av:iobit", r"iobit"),
+    ("av:intego", r"\bintego\b"),
+    ("av:mackeeper", r"mackeeper"),
+    ("av:kingsoft", r"kingsoft"),
+    ("av:cylance", r"cylance"),
+    ("av:panda", r"panda ?(?:dome|cloud|security|antivirus|free)"),
 ]
 
 # --- PROTOCOLS / email-specific terms — NET-NEW (user named JMAP/SMTP/IMAP/POP)
@@ -70,29 +160,8 @@ PROTOCOL_PATTERNS = [
     ("proto:caldav", r"caldav"),
 ]
 
-# --- ISP brands — NET-NEW independent dimension (starter list, expand at CP) ---
-ISP_PATTERNS = [
-    ("isp:comcast", r"comcast|xfinity"),
-    ("isp:verizon", r"verizon|fios"),
-    ("isp:att", r"at&t|\batt\b|att\.net|ameritech|bellsouth|sbcglobal|"
-                r"pacbell|\bswbell\b|\bsnet\b|prodigy|nvbell"),
-    ("isp:spectrum", r"spectrum|charter|time warner|timewarner|\btwc\b|"
-                     r"roadrunner|\brr\.com\b"),
-    ("isp:cox", r"\bcox\b"),
-    ("isp:centurylink", r"centurylink|lumen|\bqwest\b"),
-    ("isp:frontier", r"frontier"),
-    ("isp:windstream", r"windstream"),
-    ("isp:mediacom", r"mediacom"),
-    ("isp:optimum", r"optimum|altice|optonline"),
-    ("isp:telus", r"telus"),
-    ("isp:bell", r"\bbell\b|sympatico"),
-    ("isp:rogers", r"rogers"),
-    ("isp:shaw", r"\bshaw\b"),
-    ("isp:btinternet", r"btinternet|\bbt\b"),
-    ("isp:orange", r"\borange\b|wanadoo"),
-    ("isp:freenet", r"freenet"),
-    ("isp:tonline", r"t-online|telekom"),
-]
+# (ISP_PATTERNS retired — issue #70: ISP-provided email folded into mail_provider
+# above; a separate isp cause dimension double-reported the same brand.)
 
 # --- macOS RELEASES — NET-NEW per-release dimension (refines the os:macos
 # FILTER; NOT a cause, so it does not feed the version×cause joint detector).
@@ -151,7 +220,6 @@ OS_FALLBACK_PATTERNS = [
 
 DIMENSIONS = {
     "mail_provider": PROVIDER_PATTERNS,
-    "isp": ISP_PATTERNS,
     "protocol": PROTOCOL_PATTERNS,
     "av": ANTIVIRUS_PATTERNS,
     "macos_release": MACOS_RELEASE_PATTERNS,

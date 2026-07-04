@@ -1,8 +1,8 @@
 """Project 1 — Bucket 2b: version x cause JOINT spike detector (multi-grain).
 
-The priority-1 "tell engineering" signal: a cause cluster (mail provider / ISP /
+The priority-1 "tell engineering" signal: a cause cluster (mail provider /
 protocol / AV) that is BOTH spiking AND concentrated in a specific Thunderbird
-major version — e.g. v151 x isp:spectrum cert errors.
+major version — e.g. v151 x m:spectrum cert errors.
 
 ADOPTION SUPPRESSION (the key idea):
   A raw "v152 x imap" count rises simply because v152 adoption grows, not
@@ -53,7 +53,7 @@ FEATURES_GLOB = "PROJECT1/*-{product}-features.csv"
 OUT = "PROJECT1/{product}-{grain}-version-cause-spikes.csv"
 # OS is a secondary FILTER, not a primary cause (decision 2026-06-28): a bare
 # v140 x os:linux joint is "Linux users ask varied things", not a root cause.
-CAUSE_DIMS = ["mail_provider", "isp", "protocol", "av"]
+CAUSE_DIMS = ["mail_provider", "protocol", "av"]
 N_EXAMPLE_TITLES = 5
 
 
