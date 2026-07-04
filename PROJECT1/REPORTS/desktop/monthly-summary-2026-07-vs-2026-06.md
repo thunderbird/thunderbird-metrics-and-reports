@@ -16,7 +16,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 | | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
 | Support questions (load) | 724 | 87 | ▼ -637 (-88%) |
-| Version × cause spikes flagged | 4 | 0 | ▼ -4 |
+| Version × cause spikes flagged | 3 | 0 | ▼ -3 |
 | — of which **new** regressions | 2 | 0 | ▼ -2 |
 | Cause-level surges flagged | 0 | 0 | ▬ 0 |
 
@@ -26,18 +26,18 @@ _No spikes flagged this month at current thresholds._
 
 ## What moved
 
-### Cause clusters (provider / ISP / protocol / AV)
+### Cause clusters (provider / protocol / AV)
 
-| Cause clusters (provider / ISP / protocol / AV) | June 2026 | July 2026 | Change |
+| Cause clusters (provider / protocol / AV) | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
-| m:microsoftemail | 69 | 6 | ▼ -63 (-91%) |
+| m:microsoftemail | 54 | 5 | ▼ -49 (-91%) |
 | proto:imap | 51 | 8 | ▼ -43 (-84%) |
 | m:gmail | 52 | 10 | ▼ -42 (-81%) |
 | proto:pop | 30 | 3 | ▼ -27 (-90%) |
+| m:yahooemail | 26 | 4 | ▼ -22 (-85%) |
 | proto:smtp | 25 | 3 | ▼ -22 (-88%) |
-| m:yahooemail | 25 | 3 | ▼ -22 (-88%) |
-| isp:spectrum | 20 | 1 | ▼ -19 (-95%) |
-| isp:comcast | 14 | 1 | ▼ -13 (-93%) |
+| m:spectrum | 20 | 1 | ▼ -19 (-95%) |
+| m:comcast | 14 | 1 | ▼ -13 (-93%) |
 
 ### 🆕 New cause clusters (first appearance ever)
 

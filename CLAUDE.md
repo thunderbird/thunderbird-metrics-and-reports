@@ -165,7 +165,7 @@ cause.** No AI/LLM — regex dictionaries + traditional stats only.
    backfill; the two share code.
 2. `project1_spike_detect.py {product} [--grain daily|weekly|monthly]` →
    single-dimension spikes `PROJECT1/{product}-{grain}-single-spikes.csv` vs a
-   trailing-median baseline. The **cause dims** (provider/ISP/protocol/AV) feed
+   trailing-median baseline. The **cause dims** (provider/protocol/AV) feed
    the report's cause-level signal; version/os spikes stay a manual-checking dump
    (bare version spikes ≈ release-adoption noise).
 3. `project1_joint_spike_detect.py {product} [--grain ...]` → **headline**
@@ -173,7 +173,7 @@ cause.** No AI/LLM — regex dictionaries + traditional stats only.
    ranked by **lift = observed / (version_volume_in_period × cause_overall_rate)**
    so release adoption cancels out and only genuine over-representation survives.
    Flags `observed>=min_count & lift>=lift_min` (per-grain). Validated on
-   `v151 × isp:spectrum` cert errors. Each spike also carries a **`novelty`** tag
+   `v151 × m:spectrum` cert errors. Each spike also carries a **`novelty`** tag
    (`new`/`spreading`/`recurring`, computed within the grain's spike history) so
    the report can float genuine new regressions above chronic provider load.
    **Multi-grain (both detectors):** daily/weekly/monthly grains share
@@ -189,7 +189,7 @@ cause.** No AI/LLM — regex dictionaries + traditional stats only.
    Jekyll page `PROJECT1/REPORTS/{product}/{grain}-spike-report.md` (Unicode-block
    sparklines, clickable IDs). **All five report grains live.** Two engineering
    signals per page: **version×cause** (release regressions) and **cause-level**
-   (provider/ISP/protocol/AV outages regardless of version). Each report grain
+   (provider/protocol/AV outages regardless of version). Each report grain
    reads the detector grain it maps to via `DETECTOR_GRAIN` (fine→daily,
    coarse→monthly). Volume/cause/OS trends span full history; version×cause is
    limited to versioned rows (2026-02+); cause-level uses all history. Per-grain
@@ -215,8 +215,11 @@ current-vs-prev from day 15). Linked from `index.md`.
 
 `scripts/project1_regexes.py` holds the detection dictionaries — ported from
 `thunderbird/github-action-thunderbird-aaq/regexes.rb` (the `os:`/`av:`/`m:` tag
-convention) plus net-new `proto:` and `isp:` dimensions, regional providers
-(GMX, Telus), and a **`macos_release`** dimension (`macos:sequoia`/`sonoma`/… from
+convention), a net-new `proto:` dimension, an expanded `mail_provider` covering
+webmail + ISP-provided email (~59 brands, sourced from Thunderbird's ISPDB +
+regionals; **the separate `isp:` cause dimension was retired — see #70 / Locked
+decisions**), an expanded `av` (~32 vendors from the Wikipedia antivirus
+category), and a **`macos_release`** dimension (`macos:sequoia`/`sonoma`/… from
 the Wikipedia macOS timeline, 10.0 Cheetah → 27 Golden Gate). `macos_release`
 REFINES the `os:macos` filter — it is NOT a cause, so it does not feed the joint
 detector; it appears only as a report **trend**. Every `10.x` in those patterns is
@@ -226,9 +229,12 @@ anchored to a `mac os`/`os x` prefix (a bare `10.N` false-matches private IPs
 All spike CSVs carry a `question_ids` column (ALL ids) for manual checking; spike
 CSVs are keyed by a `period` column (day/Monday/`YYYY-MM`).
 
-**Locked decisions:** provider and ISP are SEPARATE dimensions (overlap allowed);
-AV stays at 14 vendors (defer expansion to ~25); multi-tag questions count toward
-each value; OS is a filter not a cause; sparklines are Unicode blocks (can swap
+**Locked decisions:** **email hosts (webmail AND ISP-provided) all live in the
+`mail_provider` cause dimension; the separate `isp:` dimension was RETIRED (#70)**
+— many brands are both an ISP and a mail host, and two cause dimensions
+double-reported the same spike. AV expanded to ~32 vendors (was 14). multi-tag
+questions count toward each value; OS is a filter not a cause; sparklines are
+Unicode blocks (can swap
 to SVG later). **Thresholds calibrated on the post-backfill baseline (2026-07),
 per-grain in `project1_grains.py::GRAIN_DEFAULTS`:** daily joint
 `min_count=4/lift>=3` (~2 high-lift clusters/month, no floods); daily single-dim

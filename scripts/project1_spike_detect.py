@@ -41,7 +41,7 @@ csv.field_size_limit(sys.maxsize)
 
 FEATURES_GLOB = "PROJECT1/*-{product}-features.csv"
 OUT = "PROJECT1/{product}-{grain}-single-spikes.csv"
-TAG_DIMS = ["os", "tb_version_major", "mail_provider", "isp", "protocol", "av"]
+TAG_DIMS = ["os", "tb_version_major", "mail_provider", "protocol", "av"]
 N_EXAMPLE_TITLES = 5  # title previews are capped for readability; IDs/URLs are not
 
 

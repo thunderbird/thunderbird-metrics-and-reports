@@ -28,7 +28,7 @@ JOINT = "PROJECT1/{product}-daily-version-cause-spikes.csv"
 CAUSELVL = "PROJECT1/{product}-monthly-single-spikes.csv"
 REPORT_DIR = "PROJECT1/REPORTS/{product}"
 QUESTION_URL = "https://support.mozilla.org/questions/{id}"
-CAUSE_DIMS = ["mail_provider", "isp", "protocol", "av"]
+CAUSE_DIMS = ["mail_provider", "protocol", "av"]
 
 
 def human_month(m):
@@ -216,7 +216,7 @@ def main():
               f"| {links(r['question_ids'].split())} |")
         W("")
     if not cs.empty:
-        W("### Cause-level surges — provider / ISP / protocol / AV (any version)\n")
+        W("### Cause-level surges — provider / protocol / AV (any version)\n")
         W("Version-agnostic (a provider outage spans versions), vs a trailing-month baseline.\n")
         W("| Cause | Qs | vs baseline | Rise | Example questions |")
         W("|:--|--:|--:|:--|:--|")
@@ -230,7 +230,7 @@ def main():
 
     # --- cause movers, new causes, versions, os, topics ---------------------
     W("## What moved\n")
-    movers_table(W, cur, prev, cdf, pdf, CAUSE_DIMS, "Cause clusters (provider / ISP / protocol / AV)")
+    movers_table(W, cur, prev, cdf, pdf, CAUSE_DIMS, "Cause clusters (provider / protocol / AV)")
 
     # cause clusters that have NEVER appeared in any prior month
     seen = causes_seen_before(product, cur)

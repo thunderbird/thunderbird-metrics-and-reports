@@ -129,7 +129,6 @@ def build_features(q, a):
             "tb_version": ver,
             "tb_version_major": major_version(ver),
             "mail_provider": tag_text(text, COMPILED["mail_provider"]),
-            "isp": tag_text(text, COMPILED["isp"]),
             "protocol": tag_text(text, COMPILED["protocol"]),
             "av": tag_text(text, COMPILED["av"]),
             "num_answers": r.get("num_answers", ""),
@@ -173,7 +172,6 @@ def main():
     print(f"  os:            {pct(nonblank('os'))}")
     print(f"  tb_version:    {pct(nonblank('tb_version'))}")
     print(f"  mail_provider: {pct(nonblank('mail_provider'))}")
-    print(f"  isp:           {pct(nonblank('isp'))}")
     print(f"  protocol:      {pct(nonblank('protocol'))}")
     print(f"  av:            {pct(nonblank('av'))}")
     print(f"  is_answered:   {pct(feats['is_answered'] == 'true')}")
@@ -192,7 +190,7 @@ def main():
         items = sorted(ctr.items(), key=lambda x: -x[1])[:k]
         return ", ".join(f"{t}={c}" for t, c in items) or "(none)"
 
-    for dim in ["os", "mail_provider", "isp", "protocol", "av"]:
+    for dim in ["os", "mail_provider", "protocol", "av", "macos_release"]:
         print(f"TOP {dim}: {top(dim)}")
     print("TOP tb_version_major:", top("tb_version_major"))
 
