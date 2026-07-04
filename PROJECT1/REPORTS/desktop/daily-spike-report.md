@@ -5,12 +5,12 @@ title: DAILY: Thunderbird Desktop — Support Spike Report
 
 # DAILY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2026-04-06 … 2026-07-04 · **daily** grain · trailing 90 days · 2265 questions · no AI (regex + traditional stats)_
+_Generated 2026-04-06 … 2026-07-04 · **daily** grain · trailing 90 days · 2272 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 2265 questions, 25.2/day avg
-- **Answered (non-creator):** 1836/2265 (81%)
-- **First-answer time (median):** 3.3h (p25 0.9h / p75 11.4h)
-- **Total volume trend:** `▅▇▇▅▇▅▅▆▅▇▆▆▄▃▇▅▆▇▄▄▄▇▇▇▆▅▄▄▅▇█▆▆▆▅▆▇▅▅▇▆▅▅▅▆▇▅▄▅▆▇█▇▅▄▄▅▆▆▅▆▄▄▇▆▆▅▇▄▅▅▅▆▆▅▄▃▄▇▆▇▅▄▅▆▆▅▇▅▃`
+- **Volume:** 2272 questions, 25.2/day avg
+- **Answered (non-creator):** 1842/2272 (81%)
+- **First-answer time (median):** 3.3h (p25 0.9h / p75 11.3h)
+- **Total volume trend:** `▅▇▇▅▇▅▅▆▅▇▆▆▄▃▇▅▆▇▄▄▄▇▇▇▆▅▄▄▅▇█▆▆▆▅▆▇▅▅▇▆▅▅▅▆▇▅▄▅▆▇█▇▅▄▄▅▆▆▅▆▄▄▇▆▆▅▇▄▅▅▅▆▆▅▄▃▄▇▆▇▅▄▅▆▆▅▇▅▄`
 
 ## 🚨 Engineering signal — version × cause spikes
 
@@ -25,10 +25,10 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 | 🆕 new | **4.8×** | 2026-06-30 | v152 × m:gmail | 4 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▅▃▅▃▁▃▃▅▁▁▁█▅▆▅▅` | [1590372](https://support.mozilla.org/questions/1590372 "Urgent question: Wrong email group when I sign in coming up") [1590393](https://support.mozilla.org/questions/1590393 "Storende pop-up naar aanleiding van verwijderde google-account") [1590463](https://support.mozilla.org/questions/1590463 "Message not visible with no filter activated, all account are synchronized") [1590499](https://support.mozilla.org/questions/1590499 "archive Gmail to local storage　by Tb") |
 | 🆕 new | **3.5×** | 2026-04-23 | v150 × m:microsoftemail | 4 | `▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▃█▃▁▁▅▃▁▁▅▅▅▃▅▆▁▃▅▅▃▆▆█▃▆▁▅▆▅▃▃▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1577845](https://support.mozilla.org/questions/1577845 "I'm trying to dump MS Outlook.") [1577871](https://support.mozilla.org/questions/1577871 "SMTP Timeout") [1577910](https://support.mozilla.org/questions/1577910 "TB 150.0 not downloading office365 folders") [1577989](https://support.mozilla.org/questions/1577989 "Moving local folders from New Outlook to Thunderbird") |
 | 🆕 new | **3.1×** | 2026-05-05 | v150 × proto:imap | 5 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▂▁▁▁▁▂▁▂▁█▄▅▁▂▂▄█▂▁▂▁▁▅▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1579996](https://support.mozilla.org/questions/1579996 "Import more outlook accounts into the local folder in thunderbird") [1580004](https://support.mozilla.org/questions/1580004 "Add New Folder") [1580007](https://support.mozilla.org/questions/1580007 "Change pop 3 to IMAP") [1580121](https://support.mozilla.org/questions/1580121 "Stop downloading archived gmails to thunderbird POP") [1580187](https://support.mozilla.org/questions/1580187 "Adding hotmail (live, outlook) accounts to Thunderbird") |
-| ↗ spreading | **3.6×** | 2026-06-29 | v152 × m:microsoftemail | 6 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▂▁▃▂▂▂▃▂▁█▁▁▃▂▁` | [1590178](https://support.mozilla.org/questions/1590178 "Adding 2nd outlook accound") [1590198](https://support.mozilla.org/questions/1590198 "Thunderbird emails have started to only show links and not the pictures within t") [1590208](https://support.mozilla.org/questions/1590208 "Can't connect to my live and outlook accounts since 2 weeks") [1590210](https://support.mozilla.org/questions/1590210 "TBird152.0  is not displaing HTML emails properly.") [1590301](https://support.mozilla.org/questions/1590301 "One-hour delay in the guest's meeting schedule (Atraso de uma hora na agenda do ") [1590307](https://support.mozilla.org/questions/1590307 "I got a message: ＂Authentication failure while connecting to server outlook.offi") |
+| ↗ spreading | **3.7×** | 2026-06-29 | v152 × m:microsoftemail | 6 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▂▁▃▂▂▂▃▂▁█▁▁▃▂▁` | [1590178](https://support.mozilla.org/questions/1590178 "Adding 2nd outlook accound") [1590198](https://support.mozilla.org/questions/1590198 "Thunderbird emails have started to only show links and not the pictures within t") [1590208](https://support.mozilla.org/questions/1590208 "Can't connect to my live and outlook accounts since 2 weeks") [1590210](https://support.mozilla.org/questions/1590210 "TBird152.0  is not displaing HTML emails properly.") [1590301](https://support.mozilla.org/questions/1590301 "One-hour delay in the guest's meeting schedule (Atraso de uma hora na agenda do ") [1590307](https://support.mozilla.org/questions/1590307 "I got a message: ＂Authentication failure while connecting to server outlook.offi") |
 | ↗ spreading | **3.5×** | 2026-06-06 | v151 × m:microsoftemail | 4 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▃▅▃▃▁▅▃▅▃▃▁▅▅▁▁▆█▃▁█▅▁▆▁▁▅▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1585904](https://support.mozilla.org/questions/1585904 "Thread's broken sorting makes it completely unusable.") [1585941](https://support.mozilla.org/questions/1585941 "Unable to send email") [1585964](https://support.mozilla.org/questions/1585964 "Can't install thunderbird on my new pc Lenovo windows 11") [1585982](https://support.mozilla.org/questions/1585982 "Thunderbird Outlook Import and Favourites folder setup") |
+| ↻ recurring | **3.3×** | 2026-05-14 | v150 × m:microsoftemail | 4 | `▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▃█▃▁▁▅▃▁▁▅▅▅▃▅▆▁▃▅▅▃▆▆█▃▆▁▅▆▅▃▃▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1581591](https://support.mozilla.org/questions/1581591 "cannot send emails") [1581623](https://support.mozilla.org/questions/1581623 "can't add my new GMX account to Thunderbird") [1581643](https://support.mozilla.org/questions/1581643 "Thunderbird no envía correos con Outlook/Office365: error STARTTLS smtp.office36") [1581688](https://support.mozilla.org/questions/1581688 "Line throught emails.") |
 | ↻ recurring | **3.3×** | 2026-05-12 | v150 × proto:imap | 5 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▂▁▁▁▁▂▁▂▁█▄▅▁▂▂▄█▂▁▂▁▁▅▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1581184](https://support.mozilla.org/questions/1581184 "Problem Creating ＂New SubFolder＂ and ＂New Folder＂") [1581273](https://support.mozilla.org/questions/1581273 "Unable to add personal Hotmail/Outlook.com 🥹 _ Any help is appreciated❤️") [1581275](https://support.mozilla.org/questions/1581275 "Deleted mails are not removed from Gmail All Mails folder even though I transfer") [1581279](https://support.mozilla.org/questions/1581279 "Sending of the message failed. The message could not be sent because the connect") [1581355](https://support.mozilla.org/questions/1581355 "Migrating from Outlook Classic to IMAP Server, but unable to reconfigure to IMAP") |
-| ↻ recurring | **3.2×** | 2026-05-14 | v150 × m:microsoftemail | 4 | `▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▃█▃▁▁▅▃▁▁▅▅▅▃▅▆▁▃▅▅▃▆▆█▃▆▁▅▆▅▃▃▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1581591](https://support.mozilla.org/questions/1581591 "cannot send emails") [1581623](https://support.mozilla.org/questions/1581623 "can't add my new GMX account to Thunderbird") [1581643](https://support.mozilla.org/questions/1581643 "Thunderbird no envía correos con Outlook/Office365: error STARTTLS smtp.office36") [1581688](https://support.mozilla.org/questions/1581688 "Line throught emails.") |
 
 ## 📮 Cause-level spikes — provider / ISP / protocol / AV
 
@@ -42,11 +42,11 @@ _No cause-level spikes in this window at current thresholds._
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 563 | `▃▂▃▅█▅▅▇▅▆▄▇▃▃▆▅▅▆▃▃▂▆▄▇▆▅▄▃▃▅▅▆▆▅▂▇▅▆▃▇▅▄▇▇▅▄▅▂▅▃▇▆▆▆▆▄▅▆▇▆▆▂▅▆▄▃▅▅▄▄▅▆▄▆▂▃▂▂▇▆▆▂▄▆▄▅▄▅▅▂` |
+| v140 | 567 | `▃▂▃▅█▅▅▇▅▆▄▇▃▃▆▅▅▆▃▃▂▆▄▇▆▅▄▃▃▅▅▆▆▅▂▇▅▆▃▇▅▄▇▇▅▄▅▂▅▃▇▆▆▆▆▄▅▆▇▆▆▂▅▆▄▃▅▅▄▄▅▆▄▆▂▃▂▂▇▆▆▂▄▆▄▅▄▅▅▅` |
 | v150 | 400 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▃▄▄▅▇▅▅▄▃▄▃▇█▅▅▅▅▄▇▆▅▇▅▄▅▅▄▂▂▁▂▂▃▁▂▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▂▁▁▁▁` |
 | v151 | 326 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▅▅▄▄▄▄▆██▆▃▄▄▅▅▃▆▅▅▇█▆▅▅▃▄▄▅▂▁▂▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁` |
 | v149 | 237 | `▅▅▆▃▇▅▇▇▅██▇▅▄█▇▃▂▃▁▁▂▂▂▂▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| v152 | 203 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▄▆▆▄▄▅▅▆▇█▆▃█▅▆█▄▄` |
+| v152 | 205 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▄▆▆▄▄▅▅▆▇█▆▃█▅▆█▄▅` |
 | v115 | 68 | `▁▁▁▁▆▁▃▁▁▆▁▃▃▁▁▃▃▆▁▃█▃▁▁▁▆▁▃▆▃▆▃▁▆▆▁▆▁▁▁▁▁▁▁▁▃▆▁▃▆▁▃▃▁▁▁▁▁█▃▁▁▆▃▁▆▁█▃▃▆▁▃▁█▃▁▁▆▃▁▁▁▁▁▆▆▃▁▁` |
 
 ### Top mail providers
@@ -64,10 +64,10 @@ _No cause-level spikes in this window at current thresholds._
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 154 | `▂▃▃▂▃▂▁▅▃▇▂▁▃▁▂▂▃▁▁▁▂▁▁▂▃▅▁▃▁█▅▅▂▃▂▃▇▂▁▃▃▂▅▃▇▆▃▁▂▂▂▃▆▅▃▂▇▆▁▅▁▂▅▂▁▁▃▇▃▁▂▅▂▂▂▂▁▂▃▁▅▃▂▅▅▃▂▆▃▂` |
-| proto:pop | 105 | `▁▄▄▁▄▁▁▂▄▅▄▂▁▂▅▁▁▅▄▂▂▂▄▂▂▁▁▂▁▇▄▁▁▂▂▁▂█▁▄▄▁▅▅▄▂▂▁▄▂▄▅▁▄▄▁▂▂▂▄▂▄▁▄▂▁▂▅▂▄▁▁▂▄▁▁▁▁▂▁▄▁▂▂▅▂▁▂▂▂` |
+| proto:imap | 155 | `▂▃▃▂▃▂▁▅▃▇▂▁▃▁▂▂▃▁▁▁▂▁▁▂▃▅▁▃▁█▅▅▂▃▂▃▇▂▁▃▃▂▅▃▇▆▃▁▂▂▂▃▆▅▃▂▇▆▁▅▁▂▅▂▁▁▃▇▃▁▂▅▂▂▂▂▁▂▃▁▅▃▂▅▅▃▂▆▃▃` |
+| proto:pop | 106 | `▁▄▄▁▄▁▁▂▄▅▄▂▁▂▅▁▁▅▄▂▂▂▄▂▂▁▁▂▁▇▄▁▁▂▂▁▂█▁▄▄▁▅▅▄▂▂▁▄▂▄▅▁▄▄▁▂▂▂▄▂▄▁▄▂▁▂▅▂▄▁▁▂▄▁▁▁▁▂▁▄▁▂▂▅▂▁▂▂▄` |
 | proto:smtp | 82 | `▂▁▃▂▂▁▁▁▃▁▃▂▁▁▁▃▁▂▁▁▁▅▂▁▂▁▁▃▂▃█▁▁▆▂▁▅▅▃▁▅▁▃▂▂▁▃▁▁▁▁▁▅▁▁▁▁▃▁▂▂▁▆▃▃▂▁▃▁▂▅▂▂▁▁▁▁▁▁▁▂▁▃▁▁▂▂▂▂▁` |
-| proto:oauth | 38 | `▁▅▅▁▁▁▁▅▅▅▁▁▁▅▁▅▁▅▁▁▁▁▁▁▁▁▅▁▅▅▁▁▁▁▁▁█▁█▅▅▁▁▅█▁▁▅▁▁▅▅▅▁▅▁▁▅▁▁▅▁▅▅▅▁▁▁▁▁▅▅▅▅▅▅▁▁▁▁▅▁▁▁▁▁▁▅▁▁` |
+| proto:oauth | 39 | `▁▅▅▁▁▁▁▅▅▅▁▁▁▅▁▅▁▅▁▁▁▁▁▁▁▁▅▁▅▅▁▁▁▁▁▁█▁█▅▅▁▁▅█▁▁▅▁▁▅▅▅▁▅▁▁▅▁▁▅▁▅▅▅▁▁▁▁▁▅▅▅▅▅▅▁▁▁▁▅▁▁▁▁▁▁▅▁▅` |
 | proto:caldav | 7 | `█▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁█▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁` |
 | proto:ews | 6 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁` |
 
@@ -76,19 +76,19 @@ _No cause-level spikes in this window at current thresholds._
 | Value | Total | Trend |
 |:--|--:|:--|
 | isp:spectrum | 45 | `▁▁▁▁▁▁▁▁▃▂▁▁▁▁▁▂▁▁▂▁▁▁▁▁▁▁▁▂▁▁▁▁▁▆▂▁▁▂▂▁▁▁▂▄▁▂▃▂▁▁▁▃▁▁▁▁▂▂▃▁▁▂▁▂█▅▁▂▁▁▁▂▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▂▁` |
-| isp:comcast | 42 | `▁▆█▁▁▁▁▆▁▁▆▃█▁▃▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▃▃▁▃▁▁▁▁▁▁▆▁▁▁▁▃▁▁▁▁█▃▁▃▃▁▃▁▃▁▁▁▃▁▁▃▁▃▃▁▃▃▆▁▁▁▁▆▁▁▃▁▁▁▁▃▁▃▁▁` |
+| isp:comcast | 43 | `▁▆█▁▁▁▁▆▁▁▆▃█▁▃▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▃▃▁▃▁▁▁▁▁▁▆▁▁▁▁▃▁▁▁▁█▃▁▃▃▁▃▁▃▁▁▁▃▁▁▃▁▃▃▁▃▃▆▁▁▁▁▆▁▁▃▁▁▁▁▃▁▃▁▃` |
 | isp:btinternet | 11 | `▁▁▁▁▁▅▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▅▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▅▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▅▁▁▁▁▁▁▁▁` |
 | isp:att | 8 | `▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁` |
 | isp:orange | 7 | `▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁█▁▅▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁` |
-| isp:bell | 6 | `▁▁▁▁▁▁▁▁▁▁██▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| isp:tonline | 7 | `▁▁▁▁█▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█` |
 
 ### Top antivirus
 
 | Value | Total | Trend |
 |:--|--:|:--|
 | av:defender | 9 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁█▁▁▁▁▁▁▁█▁▁▁█▁▁▁▁▁▁▁█▁▁▁█▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁` |
-| av:bitdefender | 7 | `▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▅▁█▁▁` |
 | av:norton | 7 | `▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▅▅▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| av:bitdefender | 7 | `▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▅▁█▁▁` |
 | av:avast | 6 | `▁▁▁▁██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | av:mcafee | 5 | `▁▁█▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | av:malwarebytes | 4 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁` |
@@ -97,10 +97,10 @@ _No cause-level spikes in this window at current thresholds._
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 1828 | `▅▇▇▆▇▄▆▅▅▇▆▆▄▃▆▅▆▇▄▄▄▅▆▇▅▄▃▄▅▇█▆▇▆▅▅▇▅▄▆▅▄▅▅▆▇▆▄▆▆██▇▅▄▄▄▅▆▅▆▄▄▇▇▇▅▆▃▅▄▅▆▆▆▄▃▃▇▅▇▆▃▄▆▆▄▆▄▃` |
+| os:windows | 1833 | `▅▇▇▆▇▄▆▅▅▇▆▆▄▃▆▅▆▇▄▄▄▅▆▇▅▄▃▄▅▇█▆▇▆▅▅▇▅▄▆▅▄▅▅▆▇▆▄▆▆██▇▅▄▄▄▅▆▅▆▄▄▇▇▇▅▆▃▅▄▅▆▆▆▄▃▃▇▅▇▆▃▄▆▆▄▆▄▄` |
 | os:linux | 187 | `▂▃▅▂▅▂▁▆▆▂▃▂▃▅▃▂▁▂▁▂▂▃▅▃▅▇▅▂▅▃▂▃▃▂▃▆▂▅▁▅▆▃█▆▆▅▂▁▁▂▅▅▂▁▃▃▆▆▂▃▃▁▂▃▂▃▃▆▁▂▃▃▂▃▁▂▃▃▃█▇▂▃▆▃▃▇▅▆▁` |
 | os:macos | 157 | `▅▂▂▂▁▅▂▇▁█▃▃▁▁▅▂▃▁▁▃▁█▅▅▅▁▁▃▂▅▅▂▁▃▁▃▆▂▃▅▆▅▂▂▃▂▁▃▂▃▃▅▃▃▂▃▂▁▃▁▁▃▆▂▁▁▅▆▆▃▃▁▅▃▁▁▂▆▃▁▅▂▆▂▁▅▂▇▁▂` |
-| os:other | 26 | `▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▅▁▁▅▁▁█▁▁▁▁▁▁▁▁▁▁▅▅▁▅▁▁▁▅▁▁▁▁▁▁▅▁▅▁▁▁▁▁▁▁▁▅▅▅█▁▁▁▁▁▁▁█▁▁▁▅▁▁▅▅▅█▁` |
+| os:other | 27 | `▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▅▁▁▅▁▁█▁▁▁▁▁▁▁▁▁▁▅▅▁▅▁▁▁▅▁▁▁▁▁▁▅▁▅▁▁▁▁▁▁▁▁▅▅▅█▁▁▁▁▁▁▁█▁▁▁▅▁▁▅▅▅█▅` |
 | os:android | 22 | `▅▁▁▁▅▁▁▁▁▁▅▁▅▁▅▁▁▁▁▅▁█▅█▁▁▁▅▁▅▅▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▅▁▁▁▁▁▁▁▁▁▁▁▅▁▁▅▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▅▅▁▁▁` |
 
 ---
