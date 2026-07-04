@@ -135,7 +135,11 @@ future Project 1 work as **sub-issues of #65**. Auto-regenerated twice daily
 detector + report grains, and commits `PROJECT1/`. It reads the aaq-scraper
 per-day files directly (NOT `CONCATENATED_FILES/`), so it's independent of the
 monthly-concat pipeline; the hourly website workflow publishes the `.md` reports.
-All outputs go under `PROJECT1/`.
+All outputs go under `PROJECT1/`. **After editing `project1_regexes.py`**, the
+cached feature tables are stale — regexes are applied at extraction time — so run
+this workflow via **`workflow_dispatch` with `full_backfill: true`** to re-extract
+ALL history (the scheduled runs only re-tag prev+current month, which would leave
+the detector baselines half old-/half new-tagged).
 
 **Goal / the one decision it drives:** surface to Thunderbird *engineering*
 (audience priority #1) the support-question spikes worth investigating *right

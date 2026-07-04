@@ -11,6 +11,11 @@ on:
     - cron: '30 4 * * *'    # 0430 UTC
     - cron: '30 16 * * *'   # 1630 UTC
   workflow_dispatch:
+    inputs:
+      full_backfill:
+        description: 'Re-extract ALL history (run after a project1_regexes.py change) instead of just prev+current month'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -39,12 +44,19 @@ jobs:
     - name: Regenerate Project 1 (desktop)
       run: |
         set -euo pipefail
-        # Incremental feature refresh: previous + current month (older months are
-        # committed and don't change). Full history still feeds the detectors via
-        # the committed PROJECT1/*-features.csv.
-        PREV=$(date --date="$(date +%Y-%m-15) -1 month" +%Y-%m)
-        echo "Refreshing feature tables from $PREV onward"
-        uv run scripts/project1_backfill_features.py desktop --start "$PREV"
+        if [ "${{ inputs.full_backfill }}" = "true" ]; then
+          # after a project1_regexes.py change: re-extract ALL history so cause/OS
+          # tags (and the detector baselines) are consistent, not half old/half new.
+          echo "FULL re-extract of all history (regex change)"
+          uv run scripts/project1_backfill_features.py desktop
+        else
+          # normal runs: incremental refresh of previous + current month (older
+          # months are committed and unchanged); full history still feeds the
+          # detectors via the committed PROJECT1/*-features.csv.
+          PREV=$(date --date="$(date +%Y-%m-15) -1 month" +%Y-%m)
+          echo "Incremental refresh: feature tables from $PREV onward"
+          uv run scripts/project1_backfill_features.py desktop --start "$PREV"
+        fi
         for g in daily weekly monthly; do
           uv run scripts/project1_spike_detect.py desktop --grain "$g"
           uv run scripts/project1_joint_spike_detect.py desktop --grain "$g"
