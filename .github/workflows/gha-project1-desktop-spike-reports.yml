@@ -1,0 +1,62 @@
+name: gha-project1-desktop-spike-reports
+
+# Project 1 (version×cause + cause-level spike detection) for DESKTOP.
+# Reads the aaq-scraper per-day files directly (like project1_backfill_features.py),
+# so it's independent of the monthly concat pipeline. Regenerates recent feature
+# tables, all detector grains, and all report grains, then commits PROJECT1/.
+# The Jekyll site (gha-tb-update-website.yml, hourly) publishes the .md reports.
+
+on:
+  schedule:
+    - cron: '30 4 * * *'    # 0430 UTC
+    - cron: '30 16 * * *'   # 1630 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  project1:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Checkout aaq-scraper data repo
+      uses: actions/checkout@v5
+      with:
+        repository: thunderbird/aaq-scraper
+        path: aaq-data
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+      with:
+        python-version: '3.14'
+        enable-cache: true
+    - name: Create virtual environment
+      run: uv venv
+    - name: Install dependencies
+      run: uv pip install -r requirements.txt
+    - name: Regenerate Project 1 (desktop)
+      run: |
+        set -euo pipefail
+        # Incremental feature refresh: previous + current month (older months are
+        # committed and don't change). Full history still feeds the detectors via
+        # the committed PROJECT1/*-features.csv.
+        PREV=$(date --date="$(date +%Y-%m-15) -1 month" +%Y-%m)
+        echo "Refreshing feature tables from $PREV onward"
+        uv run scripts/project1_backfill_features.py desktop --start "$PREV"
+        for g in daily weekly monthly; do
+          uv run scripts/project1_spike_detect.py desktop --grain "$g"
+          uv run scripts/project1_joint_spike_detect.py desktop --grain "$g"
+        done
+        for g in hourly daily monthly quarterly yearly; do
+          uv run scripts/project1_report.py desktop --grain "$g"
+        done
+    - name: Commit changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add PROJECT1/
+        git commit -m "Project 1: regenerate desktop spike reports" || { echo "No changes"; exit 0; }
+        git pull --rebase origin "${GITHUB_REF_NAME}"
+        git push

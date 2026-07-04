@@ -12,8 +12,8 @@ Mozilla) data and publishes them as a Jekyll site on GitHub Pages:
 2. **Unanswered-questions triage** — twice-daily reports of questions with no
    non-creator answer in 72+ hours, with a Claim/Release self-assignment UI.
 3. **Project 1 — version × cause spike detector** (no-AI; experimental, desktop
-   only so far). See the "Project 1" section below. Generated **manually** for
-   now (not yet wired into a GitHub Action).
+   only so far). See the "Project 1" section below. Auto-regenerated twice daily by
+   `gha-project1-desktop-spike-reports.yml` and committed to `main`.
 
 #1 and #2 are regenerated automatically by GitHub Actions and committed to `main`.
 
@@ -128,17 +128,24 @@ The unanswered-questions reports have an **Assignee** column. Assignments live i
 ## Project 1 — Version × Cause Spike Detector (no-AI)
 
 **Status:** experimental, desktop only. Parent tracking issue **#65** — do all
-future Project 1 work as **sub-issues of #65**. Generated **manually** for now
-(no GitHub Action yet). Reuses the same aaq-scraper `CONCATENATED_FILES/` monthly
-CSVs as the other pipelines; all outputs go under `PROJECT1/`.
+future Project 1 work as **sub-issues of #65**. Auto-regenerated twice daily
+(0430/1630 UTC) by **`gha-project1-desktop-spike-reports.yml`**, which checks out
+`aaq-scraper` into `aaq-data/`, does an incremental feature refresh
+(previous+current month via `project1_backfill_features.py --start`), runs all
+detector + report grains, and commits `PROJECT1/`. It reads the aaq-scraper
+per-day files directly (NOT `CONCATENATED_FILES/`), so it's independent of the
+monthly-concat pipeline; the hourly website workflow publishes the `.md` reports.
+All outputs go under `PROJECT1/`.
 
 **Goal / the one decision it drives:** surface to Thunderbird *engineering*
 (audience priority #1) the support-question spikes worth investigating *right
 now*. A spike is actionable only when it is **cause-clustered** (mail provider /
 ISP / protocol / AV) **and version-correlated**, rises a real margin above
-baseline, and links to **clickable example questions**. Sentiment +
-first-answer-time are amplifiers, not the headline. **OS is a secondary filter,
-not a primary cause.** No AI/LLM — regex dictionaries + traditional stats only.
+baseline, and links to **clickable example questions**. **Responsiveness**
+(answered-rate / first-answer-time) is the chosen amplifier, not the headline
+(#68); sentiment was evaluated and deferred (uniformly-negative + 16% non-English
+corpus makes lexicon sentiment weak). **OS is a secondary filter, not a primary
+cause.** No AI/LLM — regex dictionaries + traditional stats only.
 
 **Pipeline** (`scripts/project1_*.py`, run in order):
 
@@ -236,9 +243,12 @@ joint spikes (each tagged `new` / `spreading` [known cause, new version] /
 spike history; the report ranks new→spreading→recurring so genuine new regressions
 float above chronic provider load), ✅ **volume decline validated** against
 BigQuery ground truth (#67 — real, not a scraper artifact; the one 2023-11 gap is
-aaq-scraper#19). **Remaining sub-issues of #65:** Bucket 4 (sentiment amplifier,
-traditional NLP, no AI); wire Project 1 into a GitHub Action so reports
-auto-regenerate; and port to android
+aaq-scraper#19), ✅ **wired into a GitHub Action**
+(`gha-project1-desktop-spike-reports.yml`, twice daily). **Remaining sub-issues of
+#65:** Bucket 4 — **responsiveness amplifier** (#68: amplify flagged spikes with
+answered-rate / first-answer-time, already in the feature tables; replaces the
+originally-planned sentiment amplifier, which the data showed would be weak —
+uniformly-negative + 16% non-English corpus); and port to android
 (desktop-first, same code — everything already takes `android` as a `product`
 arg). Insight from the wide baseline: desktop support volume is in a sustained
 decline (~1.4k/mo mid-2025 → ~720/mo mid-2026), and the cause mix is stable
