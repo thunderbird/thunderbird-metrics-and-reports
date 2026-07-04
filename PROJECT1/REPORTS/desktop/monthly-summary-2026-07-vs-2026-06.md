@@ -31,8 +31,8 @@ _No spikes flagged this month at current thresholds._
 | Cause clusters (provider / ISP / protocol / AV) | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
 | m:microsoftemail | 69 | 6 | ▼ -63 (-91%) |
-| m:gmail | 52 | 10 | ▼ -42 (-81%) |
 | proto:imap | 51 | 9 | ▼ -42 (-82%) |
+| m:gmail | 52 | 10 | ▼ -42 (-81%) |
 | proto:pop | 30 | 4 | ▼ -26 (-87%) |
 | m:yahooemail | 25 | 3 | ▼ -22 (-88%) |
 | proto:smtp | 25 | 3 | ▼ -22 (-88%) |
