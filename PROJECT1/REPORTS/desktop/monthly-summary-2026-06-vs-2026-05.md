@@ -42,8 +42,8 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 | m:microsoftemail | 75 | 54 | ▼ -21 (-28%) |
 | m:yahooemail | 43 | 26 | ▼ -17 (-40%) |
 | proto:imap | 65 | 51 | ▼ -14 (-22%) |
-| proto:pop | 41 | 30 | ▼ -11 (-27%) |
 | proto:smtp | 36 | 25 | ▼ -11 (-31%) |
+| proto:pop | 41 | 30 | ▼ -11 (-27%) |
 | proto:oauth | 17 | 12 | ▼ -5 (-29%) |
 | m:icloud | 5 | 8 | ▲ +3 |
 

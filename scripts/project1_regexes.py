@@ -27,6 +27,13 @@ with every tag whose pattern matches its title+content.
 # Word-/dot-anchored to limit false positives (validated on the corpus).
 PROVIDER_PATTERNS = [
     # --- global webmail ---
+    # Thundermail = Thunderbird's own email service (tb.pro), LAUNCHED 2026-05-01
+    # — so pre-May-2026 mentions are "when will it be available?" anticipation, not
+    # real usage; treat post-2026-05 hits as actual support. TIGHT pattern only:
+    # "thundermail" / tb.pro. Do NOT match "thunderbird mail" (the app's generic
+    # name) or "thunderbird pro" (collides with "thunderbird profile/program") —
+    # both are heavy false positives in this corpus.
+    ("m:thundermail", r"thundermail|\btb\.pro\b"),
     ("m:gmail", r"gmail|google ?mail"),
     ("m:microsoftemail",
      r"live(\.|-)*com|\bmsn\b|ms365|outlook|office ?365|hotmail|livemail|passport|"

@@ -223,7 +223,7 @@ id,created,created_date,locale,topic,tags,creator,title,question_url,os,os_raw,m
 1404692,2023-02-08T21:51:25Z,2023-02-08,en-US,settings,customize;needsinfo;,johndfarr62,Cannot change primary account,https://support.mozilla.org/questions/1404692,,,,,,,,,5,true,13.32,False,
 1404694,2023-02-08T22:21:23Z,2023-02-08,en-US,other,other;,,cant connect to my emails,https://support.mozilla.org/questions/1404694,,,,,,,,,1,true,5.08,False,
 1404696,2023-02-08T23:46:59Z,2023-02-08,en-US,other,other;,teletext,Thunderbird,https://support.mozilla.org/questions/1404696,,,,,,,,,3,true,7.3,False,
-1404698,2023-02-09T00:29:00Z,2023-02-09,en-US,other,other;,ykt2369,Email attachment of Excel files becomes symbol...,https://support.mozilla.org/questions/1404698,,,,,,m:microsoftemail,,,0,false,,False,
+1404698,2023-02-09T00:29:00Z,2023-02-09,en-US,other,other;,ykt2369,Email attachment of Excel files becomes symbol...,https://support.mozilla.org/questions/1404698,,,,,,m:thundermail;m:microsoftemail,,,0,false,,False,
 1404702,2023-02-09T01:41:59Z,2023-02-09,it,settings,customize;,darkacc347,problema inserimento etichette,https://support.mozilla.org/questions/1404702,,,,,,,,,1,true,0.07,False,
 1404705,2023-02-09T02:20:21Z,2023-02-09,it,other,other;,franz.miretti,nella RUBRICA NUOVO CONTATTO non si può più salvare un numero telefonico,https://support.mozilla.org/questions/1404705,,,,,,,,,4,true,9.19,False,
 1404711,2023-02-09T03:29:20Z,2023-02-09,en-US,other,other;,philipinjozi,Add email address to account,https://support.mozilla.org/questions/1404711,,,,,,,,,1,true,3.55,False,
