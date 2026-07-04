@@ -190,6 +190,11 @@ def main():
 
     # --- incidents (the lead for engineering) --------------------------------
     W("## 🚨 Incidents to investigate\n")
+    W("> ⏱ **Reading spike timing:** a spike dates when users **piled in** — a "
+      "*lagging* signal, usually days after an incident's onset and often near its "
+      "resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions "
+      "spiked Jun 19). Treat these as pain-cluster / triage signals, **not** "
+      "real-time incident detection.\n")
     title_by_id = dict(zip(cdf["id"], cdf["title"]))
 
     def links(ids):

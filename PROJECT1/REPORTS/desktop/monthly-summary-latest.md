@@ -20,6 +20,8 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 ## 🚨 Incidents to investigate
 
+> ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
+
 ### Version × cause — possible release regressions
 
 Ranked new → spreading → recurring, then by lift (× above what release adoption alone explains).

@@ -22,6 +22,8 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 ## 🚨 Incidents to investigate
 
+> ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
+
 _No spikes flagged this month at current thresholds._
 
 ## What moved
@@ -34,8 +36,8 @@ _No spikes flagged this month at current thresholds._
 | proto:imap | 51 | 8 | ▼ -43 (-84%) |
 | m:gmail | 52 | 10 | ▼ -42 (-81%) |
 | proto:pop | 30 | 3 | ▼ -27 (-90%) |
-| m:yahooemail | 26 | 4 | ▼ -22 (-85%) |
 | proto:smtp | 25 | 3 | ▼ -22 (-88%) |
+| m:yahooemail | 26 | 4 | ▼ -22 (-85%) |
 | m:spectrum | 20 | 1 | ▼ -19 (-95%) |
 | m:comcast | 14 | 1 | ▼ -13 (-93%) |
 

@@ -12,6 +12,8 @@ _Generated 2026-06-27 13:00 … 2026-07-04 12:00 · **hourly** grain · trailing
 - **First-answer time (median):** 2.2h (p25 0.9h / p75 6.5h)
 - **Total volume trend:** `▃▃▁▁▁▅▆▅▃▁▁▁▁▁▁▃▁▁▃▃▃▁▅▁█▁▆▁▁▆▁▅▃▃▁▁▁▃▁▁▃▁▆▁▃▅▃▆▃▁▃▁▅▃█▃▃▃▅▃▁▃█▁▁▁▆▅▅▁▅▅▁▃▃▁█▅▁▅▃▅▁▁▃▁▁▁▃▁▁▁▃▃▅▁▃▅▅█▅▆▃▃▃▁▃▁▃▁▁▁▃▁▁▅▅▆▁▅▃▃▅▅█▆▅▃▃▁▆▃▃▁▁▁▁▃▁▁▃▅▁▃▃▅▆▁▅▃▃▅▃▃▃▁▁▁▃▁▃▁▁▅▃▅▃▅`
 
+> ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
+
 ## 🚨 Engineering signal — version × cause spikes
 
 Cause clusters over-represented in a specific Thunderbird version. The **Signal** column flags 🆕 **new** (cause never spiked before), ↗ **spreading** (known cause, new version), or ↻ **recurring** (chronic / seen before) — ranked new→spreading→recurring, then by **lift**. Click an ID to read it.

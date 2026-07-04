@@ -182,6 +182,12 @@ def main():
           f"(p25 {fat.quantile(.25):.1f}h / p75 {fat.quantile(.75):.1f}h)")
     W(f"- **Total volume trend:** `{spark(series('total','all'))}`\n")
 
+    W("> ⏱ **Reading spike timing:** a spike dates when users **piled in** — a "
+      "*lagging* signal, usually days after an incident's onset and often near its "
+      "resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions "
+      "spiked Jun 19). Treat these as pain-cluster / triage signals, **not** "
+      "real-time incident detection.\n")
+
     # spike CSVs are read at the DETECTOR grain matching this report grain
     dgrain = DETECTOR_GRAIN[grain]
     title_by_id = dict(zip(df["id"], df["title"]))

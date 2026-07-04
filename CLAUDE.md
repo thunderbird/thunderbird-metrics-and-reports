@@ -243,6 +243,12 @@ provider incidents surface (e.g. monthly single `min_count=8/mult=3` catches GMX
 at 4.3×). All are CLI args — retune anytime.
 
 **Data caveats (critical):**
+- **Spike timing is a LAGGING indicator.** A spike dates when users *piled in*,
+  not the incident's onset — usually days later, often near resolution (users
+  retry/wait before posting; Monday aggregates the weekend). Validated on the
+  Jun 2023 Libero outage: began ~Jun 14, our questions spiked Jun 19 (its
+  resolution date). So Project 1 is a pain-cluster / triage signal, NOT real-time
+  incident detection. The reports carry a ⏱ note saying so.
 - Native version/OS columns were added by Kitsune **PR #7443 on 2026-04-23**. The
   **backfill (done ~2026-07) re-derived `thunderbird_version` for all scraper
   history**, but it is only meaningfully populated from **2026-02 onward** (~27%
