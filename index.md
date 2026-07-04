@@ -15,10 +15,12 @@ Updated twice daily:
 
 ## Spike Reports (Project 1 — experimental)
 
-Engineering-focused **version × cause** spike detection (no AI; regex + traditional
-stats) over the full scraper history (2023-01+). Volume / cause / OS trends span all
-history; version×cause spikes cover 2026-02 onward (when the native version field
-became populated).
+Engineering-focused spike detection (no AI; regex + traditional stats) over the
+full scraper history (2023-01+). Two signals per report: **version × cause**
+(release regressions, 2026-02+ when the native version field became populated) and
+**cause-level** (provider/ISP/protocol/AV outages regardless of version — e.g. the
+March 2026 GMX incident). Spikes are detected at multiple grains so slow-burn
+incidents that a daily threshold misses surface at the monthly report.
 
 Desktop spike report by time grain:
 

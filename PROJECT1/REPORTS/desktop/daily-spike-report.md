@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Spike Report — Desktop (daily)
+title: DAILY: Thunderbird Desktop — Support Spike Report
 ---
 
-# Thunderbird Desktop — Support Spike Report
+# DAILY: Thunderbird Desktop — Support Spike Report
 
 _Generated 2026-04-06 … 2026-07-04 · **daily** grain · trailing 90 days · 2265 questions · no AI (regex + traditional stats)_
 
@@ -29,6 +29,12 @@ Cause clusters over-represented in a specific Thunderbird version, ranked by **l
 | **3.3×** | 2026-05-12 | v150 × proto:imap | 5 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▂▁▁▁▁▂▁▂▁█▄▅▁▂▂▄█▂▁▂▁▁▅▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1581184](https://support.mozilla.org/questions/1581184 "Problem Creating ＂New SubFolder＂ and ＂New Folder＂") [1581273](https://support.mozilla.org/questions/1581273 "Unable to add personal Hotmail/Outlook.com 🥹 _ Any help is appreciated❤️") [1581275](https://support.mozilla.org/questions/1581275 "Deleted mails are not removed from Gmail All Mails folder even though I transfer") [1581279](https://support.mozilla.org/questions/1581279 "Sending of the message failed. The message could not be sent because the connect") [1581355](https://support.mozilla.org/questions/1581355 "Migrating from Outlook Classic to IMAP Server, but unable to reconfigure to IMAP") |
 | **3.2×** | 2026-05-14 | v150 × m:microsoftemail | 4 | `▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▃█▃▁▁▅▃▁▁▅▅▅▃▅▆▁▃▅▅▃▆▆█▃▆▁▅▆▅▃▃▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1581591](https://support.mozilla.org/questions/1581591 "cannot send emails") [1581623](https://support.mozilla.org/questions/1581623 "can't add my new GMX account to Thunderbird") [1581643](https://support.mozilla.org/questions/1581643 "Thunderbird no envía correos con Outlook/Office365: error STARTTLS smtp.office36") [1581688](https://support.mozilla.org/questions/1581688 "Line throught emails.") |
 | **3.1×** | 2026-05-05 | v150 × proto:imap | 5 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▂▁▁▁▁▂▁▂▁█▄▅▁▂▂▄█▂▁▂▁▁▅▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1579996](https://support.mozilla.org/questions/1579996 "Import more outlook accounts into the local folder in thunderbird") [1580004](https://support.mozilla.org/questions/1580004 "Add New Folder") [1580007](https://support.mozilla.org/questions/1580007 "Change pop 3 to IMAP") [1580121](https://support.mozilla.org/questions/1580121 "Stop downloading archived gmails to thunderbird POP") [1580187](https://support.mozilla.org/questions/1580187 "Adding hotmail (live, outlook) accounts to Thunderbird") |
+
+## 📮 Cause-level spikes — provider / ISP / protocol / AV
+
+Causes surging **regardless of version** vs a trailing day baseline — provider/ISP outages and protocol/AV issues. Not necessarily a Thunderbird bug, but worth a triage look. Ranked by magnitude.
+
+_No cause-level spikes in this window at current thresholds._
 
 ## 📈 Trends
 
@@ -99,4 +105,4 @@ Cause clusters over-represented in a specific Thunderbird version, ranked by **l
 
 ---
 
-_Notes: volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version. Thresholds (joint min_count=4/lift≥3) are calibrated on the post-backfill baseline. Full question IDs per spike are in `PROJECT1/desktop-version-cause-spikes.csv`; full series in `PROJECT1/desktop-daily-rollup.csv`._
+_Notes: spikes detected at **daily** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-daily-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-daily-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-daily-rollup.csv`._

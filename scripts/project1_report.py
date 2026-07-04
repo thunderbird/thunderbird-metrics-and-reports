@@ -5,18 +5,25 @@ Presentation layer over the feature tables and the spike detectors. Produces:
      (period, dim, value): the time series behind every sparkline and the
      basis for future grains.
   2. PROJECT1/REPORTS/{product}/{grain}-spike-report.md — a Jekyll-ready blog
-     post: the version×cause "tell engineering" table (ranked by lift, with
-     clickable question IDs and a per-signal sparkline), plus volume / version /
-     cause trends and a responsiveness summary.
+     post with TWO engineering signals, both with clickable IDs + sparklines:
+       - version×cause spikes (ranked by lift — "is this a release regression?")
+       - cause-level spikes (provider/ISP/protocol/AV surging regardless of
+         version — provider outages like GMX that span versions), plus volume /
+         version / cause trends and a responsiveness summary.
 
-Sparklines are Unicode blocks (no image assets). All five grains
-(hourly/daily/monthly/quarterly/yearly) are live post-backfill — they share this
-machinery; only GRAINS + the period key differ. Volume/cause/OS trends span the
-full history; version×cause is naturally limited to versioned rows (2026-02+).
+Sparklines are Unicode blocks (no image assets). All five report grains
+(hourly/daily/monthly/quarterly/yearly) are live post-backfill. Each report grain
+reads the spike DETECTOR grain it maps to (DETECTOR_GRAIN): fine grains read the
+daily detector, coarse grains the monthly one — so slow-burn incidents surface at
+the coarser reports. Volume/cause/OS trends span full history; version×cause is
+limited to versioned rows (2026-02+); cause-level uses all history.
 
-No AI — pure pandas + stdlib. Run AFTER extract/backfill + joint detector:
-  uv run scripts/project1_backfill_features.py desktop        (all months)
-  uv run scripts/project1_joint_spike_detect.py desktop
+No AI — pure pandas + stdlib. Run AFTER extract/backfill + detectors (per grain):
+  uv run scripts/project1_backfill_features.py desktop
+  for g in daily weekly monthly; do
+    uv run scripts/project1_spike_detect.py desktop --grain $g
+    uv run scripts/project1_joint_spike_detect.py desktop --grain $g
+  done
   uv run scripts/project1_report.py desktop --grain monthly   (per grain)
 """
 import sys
@@ -29,11 +36,17 @@ import pandas as pd
 csv.field_size_limit(sys.maxsize)
 
 FEATURES_GLOB = "PROJECT1/*-{product}-features.csv"
-JOINT_CSV = "PROJECT1/{product}-version-cause-spikes.csv"
+JOINT_CSV = "PROJECT1/{product}-{dgrain}-version-cause-spikes.csv"
+SINGLE_CSV = "PROJECT1/{product}-{dgrain}-single-spikes.csv"
 ROLLUP = "PROJECT1/{product}-{grain}-rollup.csv"
 REPORT_DIR = "PROJECT1/REPORTS/{product}"
 QUESTION_URL = "https://support.mozilla.org/questions/{id}"
 BLOCKS = "▁▂▃▄▅▆▇█"
+
+# Report grain -> spike-DETECTOR grain (project1_grains.py runs daily/weekly/
+# monthly). Fine report grains read the daily detector; coarse ones read monthly.
+DETECTOR_GRAIN = {"hourly": "daily", "daily": "daily", "monthly": "monthly",
+                  "quarterly": "monthly", "yearly": "monthly"}
 
 # grain -> (pandas floor freq, label formatter). Only 'daily' is exercised today.
 GRAINS = {
@@ -68,6 +81,13 @@ def md_safe(s):
     """Neutralize chars that break markdown tables / link tooltips (per repo
     convention): pipe -> broken bar, double-quote -> fullwidth quote."""
     return (s or "").replace("|", "¦").replace('"', "＂")[:80]
+
+
+def parse_period(label):
+    """Detector-grain period label -> start Timestamp. 'YYYY-MM' (monthly) ->
+    the 1st; 'YYYY-MM-DD' (daily/weekly) -> that day. For window filtering."""
+    label = (label or "").strip()
+    return pd.to_datetime(label + ("-01" if len(label) == 7 else ""), errors="coerce")
 
 
 def load_features(product):
@@ -143,10 +163,10 @@ def main():
     # (matches html_reports/ convention: layout: default + title).
     W("---")
     W("layout: default")
-    W(f"title: Spike Report — {product.title()} ({grain})")
+    W(f"title: {grain.upper()}: Thunderbird {product.title()} — Support Spike Report")
     W("---")
     W("")
-    W(f"# Thunderbird {product.title()} — Support Spike Report")
+    W(f"# {grain.upper()}: Thunderbird {product.title()} — Support Spike Report")
     W(f"\n_Generated {plabels[0]} … {plabels[-1]} · **{grain}** grain · "
       f"{win_txt} · {n} questions · no AI (regex + traditional stats)_\n")
     W(f"- **Volume:** {n} questions, {n / max(len(periods),1):.1f}/{UNIT[grain]} avg")
@@ -156,37 +176,68 @@ def main():
           f"(p25 {fat.quantile(.25):.1f}h / p75 {fat.quantile(.75):.1f}h)")
     W(f"- **Total volume trend:** `{spark(series('total','all'))}`\n")
 
-    # Engineering signal (the headline)
+    # spike CSVs are read at the DETECTOR grain matching this report grain
+    dgrain = DETECTOR_GRAIN[grain]
+    title_by_id = dict(zip(df["id"], df["title"]))
+
+    def in_window(spikes):
+        if spikes.empty:
+            return spikes
+        return spikes[spikes["period"].map(parse_period) >= window_start]
+
+    def links_for(ids):
+        links = " ".join(
+            f'[{i}]({QUESTION_URL.format(id=i)} "{md_safe(title_by_id.get(i, ""))}")'
+            for i in ids[:6])
+        return links + (f" +{len(ids) - 6}" if len(ids) > 6 else "")
+
+    # Engineering signal #1 — version × cause (the "is this a release regression?")
     W("## 🚨 Engineering signal — version × cause spikes\n")
     W("Cause clusters over-represented in a specific Thunderbird version, ranked "
       "by **lift** (× more than release-adoption alone explains). Click an ID to read it.\n")
-    jpath = JOINT_CSV.format(product=product)
-    if os.path.exists(jpath):
-        j = pd.read_csv(jpath, dtype=str, keep_default_na=False)
-    else:
-        j = pd.DataFrame()
-    if not j.empty:  # keep only spikes inside the window (ISO dates sort lexically)
-        j = j[j["date"] >= window_start.date().isoformat()]
+    jpath = JOINT_CSV.format(product=product, dgrain=dgrain)
+    j = in_window(pd.read_csv(jpath, dtype=str, keep_default_na=False)
+                  if os.path.exists(jpath) else pd.DataFrame())
     if j.empty:
         W("_No version×cause spikes in this window at current thresholds._\n")
     else:
         W("")  # kramdown needs a blank line before a table block
         W("| Lift | When | Version × Cause | Qs | Trend | Example questions |")
         W("|---:|:--|:--|--:|:--|:--|")
-        title_by_id = dict(zip(df["id"], df["title"]))
         for _, r in j.iterrows():
             ver, dim, val = r["version_major"], r["cause_dim"], r["cause_value"]
             sl = spark(series_mask(
                 (df["tb_version_major"] == ver) &
                 df[dim].apply(lambda c: val in (c.split(";") if c else []))))
-            ids = r["question_ids"].split()
-            links = " ".join(
-                f'[{i}]({QUESTION_URL.format(id=i)} "{md_safe(title_by_id.get(i,""))}")'
-                for i in ids[:6])
-            if len(ids) > 6:
-                links += f" +{len(ids)-6}"
-            W(f"| **{r['lift']}×** | {r['date']} | v{ver} × {val} | {r['observed']} "
-              f"| `{sl}` | {links} |")
+            W(f"| **{r['lift']}×** | {r['period']} | v{ver} × {val} | {r['observed']} "
+              f"| `{sl}` | {links_for(r['question_ids'].split())} |")
+        W("")
+
+    # Engineering signal #2 — cause-level spikes (version-agnostic: provider/ISP
+    # outages, protocol/AV surges — e.g. the March 2026 GMX provider outage, which
+    # spans versions and so never shows up in the version×cause table above).
+    W("## 📮 Cause-level spikes — provider / ISP / protocol / AV\n")
+    W(f"Causes surging **regardless of version** vs a trailing {UNIT[dgrain]} "
+      f"baseline — provider/ISP outages and protocol/AV issues. Not necessarily a "
+      f"Thunderbird bug, but worth a triage look. Ranked by magnitude.\n")
+    spath = SINGLE_CSV.format(product=product, dgrain=dgrain)
+    s = pd.read_csv(spath, dtype=str, keep_default_na=False) if os.path.exists(spath) else pd.DataFrame()
+    if not s.empty:
+        s = in_window(s[s["dim"].isin(CAUSE_DIMS)])
+        s["_mag"] = pd.to_numeric(s["magnitude"].replace("new", 1e9), errors="coerce")
+        s = s.sort_values(["_mag", "count"], ascending=False)
+    if s.empty:
+        W("_No cause-level spikes in this window at current thresholds._\n")
+    else:
+        W("")
+        W("| Rise | When | Cause | Qs | Baseline | Trend | Example questions |")
+        W("|---:|:--|:--|--:|--:|:--|:--|")
+        for _, r in s.iterrows():
+            dim, val = r["dim"], r["value"]
+            sl = spark(series_mask(df[dim].apply(lambda c: val in (c.split(";") if c else []))))
+            mag = "new" if r["magnitude"] == "new" else f"{float(r['magnitude']):.1f}×"
+            W(f"| **{mag}** | {r['period']} | {val} | {r['count']} | {r['baseline_median']} "
+              f"| `{sl}` | {links_for(r['question_ids'].split())} |")
         W("")
 
     # Trends
@@ -211,13 +262,16 @@ def main():
         W("")
 
     W("---")
-    W(f"\n_Notes: volume / cause / OS trends span the full scraper history "
+    W(f"\n_Notes: spikes detected at **{dgrain}** grain (coarser grains catch "
+      f"slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX "
+      f"provider outage). Volume / cause / OS trends span the full scraper history "
       f"(2023-01+). **Version×cause covers 2026-02 onward** — the native "
       f"`thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) "
       f"is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier "
-      f"questions carry no version. Thresholds (joint min_count=4/lift≥3) are "
-      f"calibrated on the post-backfill baseline. Full question IDs per spike are "
-      f"in `{jpath}`; full series in `{ROLLUP.format(product=product, grain=grain)}`._")
+      f"questions carry no version; cause-level spikes use all history. Thresholds "
+      f"calibrated on the post-backfill baseline. Full IDs per spike in `{jpath}` "
+      f"(version×cause) and `{spath}` (cause-level); full series in "
+      f"`{ROLLUP.format(product=product, grain=grain)}`._")
 
     os.makedirs(REPORT_DIR.format(product=product), exist_ok=True)
     rpath = f"{REPORT_DIR.format(product=product)}/{grain}-spike-report.md"

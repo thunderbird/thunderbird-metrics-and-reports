@@ -152,36 +152,52 @@ not a primary cause.** No AI/LLM — regex dictionaries + traditional stats only
    `CONCATENATED_FILES/`) and emits one feature table per month for ALL scraper
    history (2023-01+) via the shared `build_features()` core. Run it once after a
    backfill; the two share code.
-2. `project1_spike_detect.py {product}` → single-dimension daily spikes
-   `PROJECT1/{product}-daily-spikes.csv` vs a trailing-median baseline. (Bare
-   version spikes ≈ release-adoption noise — hence the joint detector.)
-3. `project1_joint_spike_detect.py {product}` → **headline** version×cause spikes
-   `PROJECT1/{product}-version-cause-spikes.csv`, ranked by **lift = observed /
-   (version_volume_that_day × cause_overall_rate)** so release adoption cancels
-   out and only genuine over-representation survives. Flags `observed>=4 &
-   lift>=3x`. Validated on `v151 × isp:spectrum` cert errors (~13×).
-4. `project1_report.py {product} [--grain daily] [--window N]` → long-format
-   rollup `PROJECT1/{product}-{grain}-rollup.csv` + Jekyll page
-   `PROJECT1/REPORTS/{product}/{grain}-spike-report.md` (Unicode-block
-   sparklines, clickable question IDs). Grain-agnostic (`GRAINS`); **all five
-   grains (hourly/daily/monthly/quarterly/yearly) are live** post-backfill.
-   Volume/cause/OS trends span full history; version×cause is limited to versioned
-   rows (2026-02+). Per-grain trailing `WINDOW_DEFAULTS`; `--window 0` = all
-   history. All grains linked from `index.md`.
+2. `project1_spike_detect.py {product} [--grain daily|weekly|monthly]` →
+   single-dimension spikes `PROJECT1/{product}-{grain}-single-spikes.csv` vs a
+   trailing-median baseline. The **cause dims** (provider/ISP/protocol/AV) feed
+   the report's cause-level signal; version/os spikes stay a manual-checking dump
+   (bare version spikes ≈ release-adoption noise).
+3. `project1_joint_spike_detect.py {product} [--grain ...]` → **headline**
+   version×cause spikes `PROJECT1/{product}-{grain}-version-cause-spikes.csv`,
+   ranked by **lift = observed / (version_volume_in_period × cause_overall_rate)**
+   so release adoption cancels out and only genuine over-representation survives.
+   Flags `observed>=min_count & lift>=lift_min` (per-grain). Validated on
+   `v151 × isp:spectrum` cert errors.
+   **Multi-grain (both detectors):** daily/weekly/monthly grains share
+   `scripts/project1_grains.py` (period mapping + per-grain thresholds). Run each
+   detector once per grain. Rationale: a slow-burn incident never clears a daily
+   floor — the March 2026 **GMX provider outage** (~1–2 qs/day for a month, split
+   across v140/v148, half unversioned) is invisible daily but an obvious **4.3×
+   cause-level spike at monthly grain** (validated against
+   `REPORTS/DESKTOP/2026-03-desktop-gmx-oauth-issues.csv`). GMX spans versions, so
+   it's a CAUSE-level, not version×cause, signal.
+4. `project1_report.py {product} [--grain hourly|daily|monthly|quarterly|yearly]
+   [--window N]` → long-format rollup `PROJECT1/{product}-{grain}-rollup.csv` +
+   Jekyll page `PROJECT1/REPORTS/{product}/{grain}-spike-report.md` (Unicode-block
+   sparklines, clickable IDs). **All five report grains live.** Two engineering
+   signals per page: **version×cause** (release regressions) and **cause-level**
+   (provider/ISP/protocol/AV outages regardless of version). Each report grain
+   reads the detector grain it maps to via `DETECTOR_GRAIN` (fine→daily,
+   coarse→monthly). Volume/cause/OS trends span full history; version×cause is
+   limited to versioned rows (2026-02+); cause-level uses all history. Per-grain
+   trailing `WINDOW_DEFAULTS`; `--window 0` = all history. All grains linked from
+   `index.md`.
 
 `scripts/project1_regexes.py` holds the detection dictionaries — ported from
 `thunderbird/github-action-thunderbird-aaq/regexes.rb` (the `os:`/`av:`/`m:` tag
 convention) plus net-new `proto:` and `isp:` dimensions and regional providers
-(GMX, Telus). Both spike CSVs carry a `question_ids` column (ALL ids) for manual
-checking.
+(GMX, Telus). All spike CSVs carry a `question_ids` column (ALL ids) for manual
+checking; spike CSVs are keyed by a `period` column (day/Monday/`YYYY-MM`).
 
 **Locked decisions:** provider and ISP are SEPARATE dimensions (overlap allowed);
 AV stays at 14 vendors (defer expansion to ~25); multi-tag questions count toward
 each value; OS is a filter not a cause; sparklines are Unicode blocks (can swap
-to SVG later). **Thresholds calibrated on the post-backfill baseline (2026-07):**
-joint stays `min_count=4/lift>=3` (~2 high-lift clusters/month, no floods);
-single-dim floor raised to `min_count=8/mult=3` (was 5) to drop
-count-vs-tiny-baseline noise. Both are CLI args — retune anytime.
+to SVG later). **Thresholds calibrated on the post-backfill baseline (2026-07),
+per-grain in `project1_grains.py::GRAIN_DEFAULTS`:** daily joint
+`min_count=4/lift>=3` (~2 high-lift clusters/month, no floods); daily single-dim
+floor raised to `min_count=8/mult=3` (was 5); weekly/monthly floors set so
+provider incidents surface (e.g. monthly single `min_count=8/mult=3` catches GMX
+at 4.3×). All are CLI args — retune anytime.
 
 **Data caveats (critical):**
 - Native version/OS columns were added by Kitsune **PR #7443 on 2026-04-23**. The
@@ -208,12 +224,20 @@ count-vs-tiny-baseline noise. Both are CLI args — retune anytime.
   page renders with `ruby -e 'require "kramdown"...'` rather than `jekyll build`.
 
 **Post-backfill status (2026-07):** ✅ full-history feature backfill
-(`project1_backfill_features.py`, 43 months 2023-01→2026-07), ✅ all five grains
-live, ✅ thresholds recalibrated (see Locked decisions). **Remaining sub-issues of
-#65:** Bucket 4 (sentiment amplifier, traditional NLP, no AI), wire Project 1 into
-a GitHub Action so reports auto-regenerate, and port to android (desktop-first,
-same code — the backfill/detectors/report already take `android` as a `product`
-arg).
+(`project1_backfill_features.py`, 43 months 2023-01→2026-07), ✅ all five report
+grains live, ✅ thresholds recalibrated (see Locked decisions), ✅ **multi-grain
+detection** (daily/weekly/monthly, `project1_grains.py`) + a **cause-level report
+signal** so slow-burn provider incidents (GMX) that the daily version×cause
+detector misses now surface at monthly grain. **Remaining sub-issues of #65:**
+**novel-vs-recurring tag** on joint spikes (chronic provider load like
+`microsoftemail` — flagged in 4 of 11 daily spikes across v150/151/152 — vs
+genuine new regressions; a ranking refinement, deferred behind the recall work
+that shipped); Bucket 4 (sentiment amplifier, traditional NLP, no AI); wire
+Project 1 into a GitHub Action so reports auto-regenerate; and port to android
+(desktop-first, same code — everything already takes `android` as a `product`
+arg). Insight from the wide baseline: desktop support volume is in a sustained
+decline (~1.4k/mo mid-2025 → ~720/mo mid-2026), and the cause mix is stable
+across 3.5 years (validating the lift-based detector).
 
 ## Data Structure
 
