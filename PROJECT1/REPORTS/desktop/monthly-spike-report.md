@@ -5,10 +5,10 @@ title: MONTHLY: Thunderbird Desktop — Support Spike Report
 
 # MONTHLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2024-08 … 2026-07 · **monthly** grain · trailing 24 months · 28605 questions · no AI (regex + traditional stats)_
+_Generated 2024-08 … 2026-07 · **monthly** grain · trailing 24 months · 28609 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 28605 questions, 1191.9/month avg
-- **Answered (non-creator):** 21825/28605 (76%)
+- **Volume:** 28609 questions, 1192.0/month avg
+- **Answered (non-creator):** 21825/28609 (76%)
 - **First-answer time (median):** 3.3h (p25 0.9h / p75 11.7h)
 - **Total volume trend:** `█▇█▇▇█▆▆▆▅▅▇▇▆▆▅▅▅▅▅▄▄▄▁`
 
@@ -46,19 +46,19 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 785 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▂` |
+| v140 | 786 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▂` |
 | v150 | 400 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▁▁` |
 | v151 | 326 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁` |
 | v149 | 309 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▂▁▁` |
 | v148 | 237 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃█▁▁▁▁` |
-| v152 | 205 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▃` |
+| v152 | 208 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▃` |
 
 ### Top mail providers
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 2542 | `███▇▇▇▆▆▆▅▄▅▆▆▅▅▅▅▄▅▄▄▃▁` |
-| m:microsoftemail | 2358 | `▇██▆▅▅▅▄▄▃▄▄▄▄▅▄▄▄▄▄▃▄▃▁` |
+| m:gmail | 2543 | `███▇▇▇▆▆▆▅▄▅▆▆▅▅▅▅▄▅▄▄▃▁` |
+| m:microsoftemail | 2359 | `▇██▆▅▅▅▄▄▃▄▄▄▄▅▄▄▄▄▄▃▄▃▁` |
 | m:yahooemail | 835 | `▇▇▅▅▆█▄▄▄▄▄▆▇▆▆▇▆▄██▅▇▄▁` |
 | m:gmx | 88 | `▄▁▂▃▅▃▂▂▁▁▁▁▂▃▂▁▅▂▃█▃▂▂▁` |
 | m:protonmail | 41 | `▂▁▂▂▁▄▄▂▇▅▄▇▄▂▅▅▂▄▄█▁▂▁▁` |
@@ -101,9 +101,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 6250 | `▃▂▃▃▂▃▂▂▂▂▂▃▃▂▃▂▂▅██▇▇▇▂` |
+| os:windows | 6253 | `▃▂▃▃▂▃▂▂▂▂▂▃▃▂▃▂▂▅██▇▇▇▂` |
 | os:linux | 1185 | `▅▆▆▆▅▆▅▃▄▅▄▃▅▅▄▄▄▆▇█▆▇▆▂` |
-| os:macos | 745 | `▃▄▄▃▃▃▃▃▂▃▂▄▃▄▂▃▂▆▇█▆▆▅▂` |
+| os:macos | 746 | `▃▄▄▃▃▃▃▃▂▃▂▄▃▄▂▃▂▆▇█▆▆▅▂` |
 | os:other | 118 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▂▁▂▃▂` |
 | os:android | 79 | `▂▁▂▁▁▂▂▂▂▁▂▃▃▁▂▂▁▇█▇█▅▃▂` |
 

@@ -5,10 +5,10 @@ title: YEARLY: Thunderbird Desktop — Support Spike Report
 
 # YEARLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2023 … 2026 · **yearly** grain · all history · 47331 questions · no AI (regex + traditional stats)_
+_Generated 2023 … 2026 · **yearly** grain · all history · 47335 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 47331 questions, 11832.8/year avg
-- **Answered (non-creator):** 35801/47331 (76%)
+- **Volume:** 47335 questions, 11833.8/year avg
+- **Answered (non-creator):** 35801/47335 (76%)
 - **First-answer time (median):** 3.6h (p25 1.0h / p75 12.8h)
 - **Total volume trend:** `▆██▃`
 
@@ -56,19 +56,19 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 785 | `▁▁▁█` |
+| v140 | 786 | `▁▁▁█` |
 | v150 | 400 | `▁▁▁█` |
 | v151 | 326 | `▁▁▁█` |
 | v149 | 309 | `▁▁▁█` |
 | v148 | 237 | `▁▁▁█` |
-| v152 | 205 | `▁▁▁█` |
+| v152 | 208 | `▁▁▁█` |
 
 ### Top mail providers
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 4410 | `▆█▇▃` |
-| m:microsoftemail | 4141 | `▆█▆▃` |
+| m:gmail | 4411 | `▆█▇▃` |
+| m:microsoftemail | 4142 | `▆█▆▃` |
 | m:yahooemail | 1337 | `▅██▅` |
 | m:gmx | 134 | `██▇▇` |
 | m:protonmail | 75 | `█▃█▃` |
@@ -111,9 +111,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 8388 | `▄▄▄█` |
+| os:windows | 8391 | `▄▄▄█` |
 | os:linux | 1943 | `▇█▇▆` |
-| os:macos | 1214 | `▇▇▆█` |
+| os:macos | 1215 | `▇▇▆█` |
 | os:other | 120 | `▁▁▂█` |
 | os:android | 89 | `▁▂▃█` |
 

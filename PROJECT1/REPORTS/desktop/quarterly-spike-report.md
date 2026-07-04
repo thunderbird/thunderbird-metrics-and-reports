@@ -5,10 +5,10 @@ title: QUARTERLY: Thunderbird Desktop — Support Spike Report
 
 # QUARTERLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2023-Q4 … 2026-Q3 · **quarterly** grain · trailing 12 quarters · 39621 questions · no AI (regex + traditional stats)_
+_Generated 2023-Q4 … 2026-Q3 · **quarterly** grain · trailing 12 quarters · 39625 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 39621 questions, 3301.8/quarter avg
-- **Answered (non-creator):** 29908/39621 (75%)
+- **Volume:** 39625 questions, 3302.1/quarter avg
+- **Answered (non-creator):** 29908/39625 (75%)
 - **First-answer time (median):** 3.5h (p25 1.0h / p75 12.3h)
 - **Total volume trend:** `▇▆▅██▇▆▇▆▅▄▁`
 
@@ -55,19 +55,19 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 785 | `▁▁▁▁▁▁▁▁▁▄█▁` |
+| v140 | 786 | `▁▁▁▁▁▁▁▁▁▄█▁` |
 | v150 | 400 | `▁▁▁▁▁▁▁▁▁▁█▁` |
 | v151 | 326 | `▁▁▁▁▁▁▁▁▁▁█▁` |
 | v149 | 309 | `▁▁▁▁▁▁▁▁▁▂█▁` |
 | v148 | 237 | `▁▁▁▁▁▁▁▁▁█▁▁` |
-| v152 | 205 | `▁▁▁▁▁▁▁▁▁▁█▃` |
+| v152 | 208 | `▁▁▁▁▁▁▁▁▁▁█▃` |
 
 ### Top mail providers
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 3634 | `▆▆▅██▆▅▆▅▅▄▁` |
-| m:microsoftemail | 3373 | `▅▅▄█▇▅▄▅▅▄▄▁` |
+| m:gmail | 3635 | `▆▆▅██▆▅▆▅▅▄▁` |
+| m:microsoftemail | 3374 | `▅▅▄█▇▅▄▅▅▄▄▁` |
 | m:yahooemail | 1163 | `▆▄█▇▆▆▄▇▇▇▆▁` |
 | m:gmx | 108 | `▄▂▂▅▆▄▂▃▄█▄▁` |
 | m:protonmail | 53 | `▆▂▃▃▃▅█▆▆█▂▁` |
@@ -110,9 +110,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 7429 | `▃▂▂▃▃▃▂▃▃██▁` |
+| os:windows | 7432 | `▃▂▂▃▃▃▂▃▃██▁` |
 | os:linux | 1620 | `▆▅▄▆▆▅▅▅▅█▇▁` |
-| os:macos | 1013 | `▄▄▃▄▄▃▂▄▃█▇▁` |
+| os:macos | 1014 | `▄▄▃▄▄▃▂▄▃█▇▁` |
 | os:other | 120 | `▁▁▁▁▁▁▁▁▁█▃▁` |
 | os:android | 87 | `▁▂▂▂▁▂▂▂▂█▆▁` |
 
