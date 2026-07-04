@@ -162,7 +162,9 @@ not a primary cause.** No AI/LLM — regex dictionaries + traditional stats only
    ranked by **lift = observed / (version_volume_in_period × cause_overall_rate)**
    so release adoption cancels out and only genuine over-representation survives.
    Flags `observed>=min_count & lift>=lift_min` (per-grain). Validated on
-   `v151 × isp:spectrum` cert errors.
+   `v151 × isp:spectrum` cert errors. Each spike also carries a **`novelty`** tag
+   (`new`/`spreading`/`recurring`, computed within the grain's spike history) so
+   the report can float genuine new regressions above chronic provider load.
    **Multi-grain (both detectors):** daily/weekly/monthly grains share
    `scripts/project1_grains.py` (period mapping + per-grain thresholds). Run each
    detector once per grain. Rationale: a slow-burn incident never clears a daily
@@ -228,12 +230,15 @@ at 4.3×). All are CLI args — retune anytime.
 grains live, ✅ thresholds recalibrated (see Locked decisions), ✅ **multi-grain
 detection** (daily/weekly/monthly, `project1_grains.py`) + a **cause-level report
 signal** so slow-burn provider incidents (GMX) that the daily version×cause
-detector misses now surface at monthly grain. **Remaining sub-issues of #65:**
-**novel-vs-recurring tag** on joint spikes (chronic provider load like
-`microsoftemail` — flagged in 4 of 11 daily spikes across v150/151/152 — vs
-genuine new regressions; a ranking refinement, deferred behind the recall work
-that shipped); Bucket 4 (sentiment amplifier, traditional NLP, no AI); wire
-Project 1 into a GitHub Action so reports auto-regenerate; and port to android
+detector misses now surface at monthly grain, ✅ **novel-vs-recurring tag** on
+joint spikes (each tagged `new` / `spreading` [known cause, new version] /
+`recurring` [chronic, e.g. microsoftemail across v150/151/152] within the grain's
+spike history; the report ranks new→spreading→recurring so genuine new regressions
+float above chronic provider load), ✅ **volume decline validated** against
+BigQuery ground truth (#67 — real, not a scraper artifact; the one 2023-11 gap is
+aaq-scraper#19). **Remaining sub-issues of #65:** Bucket 4 (sentiment amplifier,
+traditional NLP, no AI); wire Project 1 into a GitHub Action so reports
+auto-regenerate; and port to android
 (desktop-first, same code — everything already takes `android` as a `product`
 arg). Insight from the wide baseline: desktop support volume is in a sustained
 decline (~1.4k/mo mid-2025 → ~720/mo mid-2026), and the cause mix is stable

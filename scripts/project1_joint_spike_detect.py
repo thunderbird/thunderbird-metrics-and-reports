@@ -22,6 +22,12 @@ grain. Cause rates are computed over the full available (versioned) period.
 Thresholds were calibrated on the post-backfill baseline (2026-02+, ~2.5k
 versioned questions); retune per-grain via --min-count/--lift.
 
+NOVELTY: each flagged spike is tagged **new** (this cause never spiked before) /
+**spreading** (a known cause now hitting a new version) / **recurring** (this exact
+version×cause spiked before — chronic/known, e.g. microsoftemail across versions),
+computed within the grain's own spike history. The report ranks new → spreading →
+recurring so genuine new regressions float above chronic provider load.
+
 Note: a provider OUTAGE that spans versions (e.g. the March 2026 GMX incident,
 split across v140/v148 with half the questions unversioned) is a CAUSE-level, not
 version×cause, signal — it is caught by project1_spike_detect.py, not here.
@@ -140,11 +146,31 @@ def main():
             "example_titles": " | ".join(t[:60] for t in sub["title"].head(N_EXAMPLE_TITLES)),
         })
 
+    # --- novelty: is this spike new, a known cause spreading to a new version,
+    # or a recurring/chronic one? Measured within THIS grain's flagged spikes by
+    # period order (periods sort lexically within a grain). Lets the report float
+    # genuine new regressions above chronic provider load (e.g. microsoftemail,
+    # which recurs across versions).
+    cause_periods, pair_periods = {}, {}
+    for r in rows:
+        cause_periods.setdefault(r["cause_value"], set()).add(r["period"])
+        pair_periods.setdefault((r["version_major"], r["cause_value"]), set()).add(r["period"])
+    for r in rows:
+        cp = sum(1 for p in cause_periods[r["cause_value"]] if p < r["period"])
+        pp = sum(1 for p in pair_periods[(r["version_major"], r["cause_value"])] if p < r["period"])
+        r["cause_prior_periods"] = cp
+        r["pair_prior_periods"] = pp
+        r["novelty"] = "recurring" if pp > 0 else ("spreading" if cp > 0 else "new")
+
     cols = ["period", "headline", "version_major", "cause_dim", "cause_value",
             "observed", "version_total_period", "cause_rate_overall", "expected",
-            "lift", "question_ids", "example_urls", "example_titles"]
+            "lift", "novelty", "cause_prior_periods", "pair_prior_periods",
+            "question_ids", "example_urls", "example_titles"]
     sp = pd.DataFrame(rows, columns=cols)
-    sp = sp.sort_values(["lift", "period"], ascending=[False, False])
+    # rank: new (0) -> spreading (1) -> recurring (2), then by lift within each
+    rank = {"new": 0, "spreading": 1, "recurring": 2}
+    sp["_r"] = sp["novelty"].map(rank)
+    sp = sp.sort_values(["_r", "lift", "period"], ascending=[True, False, False]).drop(columns="_r")
     out = OUT.format(product=args.product, grain=grain)
     sp.to_csv(out, index=False)
 
@@ -156,10 +182,10 @@ def main():
     if sp.empty:
         print("No version x cause spikes at current thresholds.")
         return
-    print("FLAGGED (highest lift first):")
+    print("novelty:", sp["novelty"].value_counts().to_dict())
+    print("\nFLAGGED (new first, then lift):")
     for _, r in sp.iterrows():
-        print(f"  {r['period']}  {r['headline']}   "
-              f"[obs {r['observed']} / exp {r['expected']} of {r['version_total_period']} v{r['version_major']} qs]")
+        print(f"  [{r['novelty']:9}] {r['period']}  {r['headline']}")
 
 
 if __name__ == "__main__":

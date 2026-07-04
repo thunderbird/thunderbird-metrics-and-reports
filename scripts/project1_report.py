@@ -47,6 +47,8 @@ BLOCKS = "▁▂▃▄▅▆▇█"
 # monthly). Fine report grains read the daily detector; coarse ones read monthly.
 DETECTOR_GRAIN = {"hourly": "daily", "daily": "daily", "monthly": "monthly",
                   "quarterly": "monthly", "yearly": "monthly"}
+# joint-spike novelty (from project1_joint_spike_detect.py) -> report badge
+NOVELTY_BADGE = {"new": "🆕 new", "spreading": "↗ spreading", "recurring": "↻ recurring"}
 
 # grain -> (pandas floor freq, label formatter). Only 'daily' is exercised today.
 GRAINS = {
@@ -193,23 +195,30 @@ def main():
 
     # Engineering signal #1 — version × cause (the "is this a release regression?")
     W("## 🚨 Engineering signal — version × cause spikes\n")
-    W("Cause clusters over-represented in a specific Thunderbird version, ranked "
-      "by **lift** (× more than release-adoption alone explains). Click an ID to read it.\n")
+    W("Cause clusters over-represented in a specific Thunderbird version. The "
+      "**Signal** column flags 🆕 **new** (cause never spiked before), ↗ "
+      "**spreading** (known cause, new version), or ↻ **recurring** (chronic / seen "
+      "before) — ranked new→spreading→recurring, then by **lift**. Click an ID to read it.\n")
     jpath = JOINT_CSV.format(product=product, dgrain=dgrain)
     j = in_window(pd.read_csv(jpath, dtype=str, keep_default_na=False)
                   if os.path.exists(jpath) else pd.DataFrame())
+    if not j.empty and "novelty" in j.columns:  # rank new -> spreading -> recurring, then lift
+        j = j.assign(_r=j["novelty"].map({"new": 0, "spreading": 1, "recurring": 2}).fillna(3),
+                     _l=pd.to_numeric(j["lift"], errors="coerce"))
+        j = j.sort_values(["_r", "_l"], ascending=[True, False])
     if j.empty:
         W("_No version×cause spikes in this window at current thresholds._\n")
     else:
         W("")  # kramdown needs a blank line before a table block
-        W("| Lift | When | Version × Cause | Qs | Trend | Example questions |")
-        W("|---:|:--|:--|--:|:--|:--|")
+        W("| Signal | Lift | When | Version × Cause | Qs | Trend | Example questions |")
+        W("|:--|---:|:--|:--|--:|:--|:--|")
         for _, r in j.iterrows():
             ver, dim, val = r["version_major"], r["cause_dim"], r["cause_value"]
             sl = spark(series_mask(
                 (df["tb_version_major"] == ver) &
                 df[dim].apply(lambda c: val in (c.split(";") if c else []))))
-            W(f"| **{r['lift']}×** | {r['period']} | v{ver} × {val} | {r['observed']} "
+            W(f"| {NOVELTY_BADGE.get(r.get('novelty', ''), '')} | **{r['lift']}×** "
+              f"| {r['period']} | v{ver} × {val} | {r['observed']} "
               f"| `{sl}` | {links_for(r['question_ids'].split())} |")
         W("")
 
