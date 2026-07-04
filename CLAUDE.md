@@ -192,6 +192,23 @@ cause.** No AI/LLM — regex dictionaries + traditional stats only.
    trailing `WINDOW_DEFAULTS`; `--window 0` = all history. All grains linked from
    `index.md`.
 
+**Engineering-management month-over-month summary** (`scripts/project1_mom_report.py
+{current} {previous} {product} [--latest]`): a management-facing page (distinct from
+the engineering spike reports and from the *future community* report) — current
+calendar month vs previous, led by headline deltas, then 🚨 incidents to
+investigate (version×cause + cause-level), then what moved (cause clusters,
+new-this-month causes, release adoption, OS mix, topic mix). Audience is
+**engineering** management, so community/support-ops KPIs (answered/solved/response
+time) are deliberately EXCLUDED (a separate community report is planned). Partial
+current months get an "in progress" banner (deltas understate them). `--latest`
+also writes `monthly-summary-latest.md` (the bookmarkable copy). Auto-generated
+twice daily (0800/2000 UTC) by **`gha-project1-desktop-monthly-summary.yml`**,
+which is lightweight (reads the committed feature/spike CSVs, no regeneration):
+current-vs-previous every run, and during a month's **first 14 days** also
+previous-vs-prev-previous (the just-closed month keeps finalizing); `-latest`
+tracks the freshest complete comparison (prev-vs-prev-prev in days 1-14,
+current-vs-prev from day 15). Linked from `index.md`.
+
 `scripts/project1_regexes.py` holds the detection dictionaries — ported from
 `thunderbird/github-action-thunderbird-aaq/regexes.rb` (the `os:`/`av:`/`m:` tag
 convention) plus net-new `proto:` and `isp:` dimensions and regional providers

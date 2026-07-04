@@ -22,6 +22,8 @@ full scraper history (2023-01+). Two signals per report: **version × cause**
 March 2026 GMX incident). Spikes are detected at multiple grains so slow-burn
 incidents that a daily threshold misses surface at the monthly report.
 
+**For engineering management** — [Monthly summary (current vs previous month)](PROJECT1/REPORTS/desktop/monthly-summary-latest.html): incidents to investigate, moving cause clusters, and release adoption, month over month. (Bookmark this — it always points to the latest complete comparison.)
+
 Desktop spike report by time grain:
 
 - [Hourly](PROJECT1/REPORTS/desktop/hourly-spike-report.html) (trailing 7 days)

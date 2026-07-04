@@ -1,0 +1,60 @@
+name: gha-project1-desktop-monthly-summary
+
+# Engineering-management month-over-month summary for DESKTOP.
+# Lightweight: reads the committed Project 1 feature tables + spike CSVs (refreshed
+# by gha-project1-desktop-spike-reports.yml at 0430/1630) and writes only the
+# monthly-summary-*.md pages. The hourly website workflow publishes them.
+#
+# Cadence: current-vs-previous every run; during the FIRST 14 days of a month it
+# ALSO regenerates previous-vs-prev-previous (the just-closed month keeps
+# finalizing) so you can watch the current month develop next to a settled one.
+# -latest points to the freshest COMPLETE comparison: prev-vs-prev-prev in days
+# 1-14, current-vs-prev from day 15.
+
+on:
+  schedule:
+    - cron: '0 8 * * *'    # 0800 UTC
+    - cron: '0 20 * * *'   # 2000 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  monthly-summary:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+      with:
+        python-version: '3.14'
+        enable-cache: true
+    - name: Create virtual environment
+      run: uv venv
+    - name: Install dependencies
+      run: uv pip install -r requirements.txt
+    - name: Generate month-over-month engineering summary (desktop)
+      run: |
+        set -euo pipefail
+        CUR=$(date +%Y-%m)
+        PREV=$(date --date="$(date +%Y-%m-15) -1 month" +%Y-%m)
+        PREVPREV=$(date --date="$(date +%Y-%m-15) -2 month" +%Y-%m)
+        DAY=$(date +%-d)
+        echo "CUR=$CUR PREV=$PREV PREVPREV=$PREVPREV DAY=$DAY"
+        if [ "$DAY" -le 14 ]; then
+          uv run scripts/project1_mom_report.py "$PREV" "$PREVPREV" desktop --latest
+          uv run scripts/project1_mom_report.py "$CUR"  "$PREV"     desktop
+        else
+          uv run scripts/project1_mom_report.py "$CUR"  "$PREV"     desktop --latest
+        fi
+    - name: Commit changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add PROJECT1/REPORTS/desktop/monthly-summary-*.md
+        git commit -m "Project 1: regenerate desktop monthly engineering summary" || { echo "No changes"; exit 0; }
+        git pull --rebase origin "${GITHUB_REF_NAME}"
+        git push
