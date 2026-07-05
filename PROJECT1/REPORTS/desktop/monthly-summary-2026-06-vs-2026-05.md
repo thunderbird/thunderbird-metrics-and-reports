@@ -42,8 +42,8 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 | m:microsoftemail | 75 | 54 | ▼ -21 (-28%) |
 | m:yahooemail | 43 | 26 | ▼ -17 (-40%) |
 | proto:imap | 65 | 51 | ▼ -14 (-22%) |
-| proto:smtp | 36 | 25 | ▼ -11 (-31%) |
 | proto:pop | 41 | 30 | ▼ -11 (-27%) |
+| proto:smtp | 36 | 25 | ▼ -11 (-31%) |
 | proto:oauth | 17 | 12 | ▼ -5 (-29%) |
 | m:icloud | 5 | 8 | ▲ +3 |
 
@@ -87,4 +87,4 @@ _None — every cause cluster in June 2026 has appeared in a prior month._
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · June 2026 vs May 2026._
 
-_Last updated: 2026-07-05 09:01 UTC_
+_Last updated: 2026-07-05 20:24 UTC_
