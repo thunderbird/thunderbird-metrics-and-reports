@@ -14,11 +14,11 @@ Mozilla) data and publishes them as a Jekyll site on GitHub Pages:
 3. **Project 1 — version × cause spike detector** (no-AI; experimental, desktop
    only so far). See the "Project 1" section below. Auto-regenerated twice daily by
    `gha-project1-desktop-spike-reports.yml` and committed to `main`. **PAUSED** —
-   see the "Project 1 — RESUME POINT" note below; work resumes after Project 2.
-4. **Project 2 — LLM-assisted Q&A insights** (NEXT / not started). LLM-assisted
-   insights over the questions and answers (the AI counterpart to Project 1's
-   no-AI detectors). No code yet; this is the next project to build before
-   resuming Project 1.
+   see the "Project 1 — RESUME POINT" note below; work resumes after Project
+   "LLM insights".
+4. **Project "LLM insights"** (NEXT / not started). LLM-assisted insights over the
+   questions and answers (the AI counterpart to Project 1's no-AI detectors). No
+   code yet; this is the next project to build before resuming Project 1.
 
 #1 and #2 are regenerated automatically by GitHub Actions and committed to `main`.
 
@@ -299,7 +299,7 @@ the primary ranking). Insight from the wide baseline: desktop support volume is
 in a sustained decline (~1.4k/mo mid-2025 → ~720/mo mid-2026), and the cause mix
 is stable across 3.5 years (validating the lift-based detector).
 
-**▶ Project 1 — RESUME POINT (paused 2026-07; resume AFTER Project 2).** Project 1
+**▶ Project 1 — RESUME POINT (paused 2026-07; resume AFTER Project "LLM insights").** Project 1
 is feature-complete and shipping (desktop, no-AI). Next steps, in priority order:
 
 1. **#69 — community-management MoM report** (support-ops KPIs: answered/solved
