@@ -106,7 +106,7 @@ def generate_markdown_page(csv_path, output_path, questions_csv_path, product, m
     page_title = f"{product_display} Report - {month_year}"
     
     markdown_content = f"""---
-layout: default
+layout: base
 title: {page_title}
 ---
 

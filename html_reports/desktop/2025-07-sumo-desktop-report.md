@@ -1,11 +1,11 @@
 ---
-layout: default
+layout: base
 title: Thunderbird Desktop Report - 2025-07
 ---
 
 # Thunderbird Desktop Report - 2025-07
 
-*Last updated: 2026-07-05T03:35:01.527982*
+*Last updated: 2026-07-04T20:35:51.622765*
 
 ## Summary
 

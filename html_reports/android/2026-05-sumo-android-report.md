@@ -1,11 +1,11 @@
 ---
-layout: default
+layout: base
 title: Thunderbird Android Report - 2026-05
 ---
 
 # Thunderbird Android Report - 2026-05
 
-*Last updated: 2026-07-05T03:35:01.681646*
+*Last updated: 2026-07-04T20:35:51.740462*
 
 ## Summary
 
