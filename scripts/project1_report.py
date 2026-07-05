@@ -31,6 +31,7 @@ import csv
 import glob
 import os
 import argparse
+from datetime import datetime, timezone
 import pandas as pd
 
 csv.field_size_limit(sys.maxsize)
@@ -168,7 +169,7 @@ def main():
     # Jekyll front matter so GitHub Pages renders this as a styled page
     # (matches html_reports/ convention: layout: default + title).
     W("---")
-    W("layout: default")
+    W("layout: base")  # minima 3.x renamed 'default' -> 'base'; 'default' no longer exists (#72)
     W(f"title: {grain.upper()}: Thunderbird {product.title()} — Support Spike Report")
     W("---")
     W("")
@@ -301,6 +302,7 @@ def main():
       f"calibrated on the post-backfill baseline. Full IDs per spike in `{jpath}` "
       f"(version×cause) and `{spath}` (cause-level); full series in "
       f"`{ROLLUP.format(product=product, grain=grain)}`._")
+    W(f"\n_Last updated: {datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}_")
 
     os.makedirs(REPORT_DIR.format(product=product), exist_ok=True)
     rpath = f"{REPORT_DIR.format(product=product)}/{grain}-spike-report.md"

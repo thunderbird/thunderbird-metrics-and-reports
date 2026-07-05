@@ -18,7 +18,7 @@ import os
 import glob
 import calendar
 import argparse
-from datetime import datetime
+from datetime import datetime, timezone
 import pandas as pd
 
 csv.field_size_limit(sys.maxsize)
@@ -155,7 +155,7 @@ def main():
 
     out, W = [], lambda s: out.append(s)
     W("---")
-    W("layout: default")
+    W("layout: base")  # minima 3.x renamed 'default' -> 'base'; 'default' no longer exists (#72)
     W(f"title: Desktop Engineering Support Summary — {human_month(cur)}")
     W("---")
     W("")
@@ -268,6 +268,7 @@ def main():
     W("---")
     W(f"\n_Prototype engineering month-over-month summary · from Project 1 feature "
       f"tables + spike detectors · {human_month(cur)} vs {human_month(prev)}._")
+    W(f"\n_Last updated: {datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}_")
 
     rdir = REPORT_DIR.format(product=product)
     os.makedirs(rdir, exist_ok=True)
