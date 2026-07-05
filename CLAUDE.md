@@ -13,7 +13,12 @@ Mozilla) data and publishes them as a Jekyll site on GitHub Pages:
    non-creator answer in 72+ hours, with a Claim/Release self-assignment UI.
 3. **Project 1 — version × cause spike detector** (no-AI; experimental, desktop
    only so far). See the "Project 1" section below. Auto-regenerated twice daily by
-   `gha-project1-desktop-spike-reports.yml` and committed to `main`.
+   `gha-project1-desktop-spike-reports.yml` and committed to `main`. **PAUSED** —
+   see the "Project 1 — RESUME POINT" note below; work resumes after Project 2.
+4. **Project 2 — LLM-assisted Q&A insights** (NEXT / not started). LLM-assisted
+   insights over the questions and answers (the AI counterpart to Project 1's
+   no-AI detectors). No code yet; this is the next project to build before
+   resuming Project 1.
 
 #1 and #2 are regenerated automatically by GitHub Actions and committed to `main`.
 
@@ -290,12 +295,44 @@ responsiveness amplifier** (#68: each spike carries `answered_pct` / `unanswered
 column, ⚠️ when answered <60% — so "large AND poorly-served" clusters stand out.
 Chosen over sentiment, which the data showed would be weak: uniformly-negative +
 16% non-English corpus. It's an amplifier, not the headline — it does NOT reorder
-the primary ranking). **Remaining sub-issues of #65:** community-management MoM
-report (#69, support-ops KPIs); and port to android (desktop-first, same code —
-everything already takes `android` as a `product` arg). Insight from the wide
-baseline: desktop support volume is in a sustained decline (~1.4k/mo mid-2025 →
-~720/mo mid-2026), and the cause mix is stable across 3.5 years (validating the
-lift-based detector).
+the primary ranking). Insight from the wide baseline: desktop support volume is
+in a sustained decline (~1.4k/mo mid-2025 → ~720/mo mid-2026), and the cause mix
+is stable across 3.5 years (validating the lift-based detector).
+
+**▶ Project 1 — RESUME POINT (paused 2026-07; resume AFTER Project 2).** Project 1
+is feature-complete and shipping (desktop, no-AI). Next steps, in priority order:
+
+1. **#69 — community-management MoM report** (support-ops KPIs: answered/solved
+   rates, response-time median/p75/p90, backlog, contributor activity incl.
+   trusted-vs-random via the trusted-contributors list + answers CSVs). Clone the
+   engineering MoM infra (`project1_mom_report.py` + its workflow); the
+   responsiveness amplifier (#68) already built the per-question answered/FAT
+   plumbing. Distinct audience from the engineering MoM — keep separate.
+2. **Port to android** (no issue yet). Everything takes `android` as a `product`
+   arg; needs: run backfill/detectors/reports for android + android workflows
+   (desktop workflows are clean templates) + android trusted-contributors.
+3. **Non-coding / cross-repo:** #67 (WHY the volume decline — BQ-confirmed real,
+   a product/support-strategy question) and **aaq-scraper#19** (2023-11 scraper
+   backfill gap, the only history gap).
+
+**Crucial locked decisions (this session) — do NOT relitigate on resume:**
+- **One `mail_provider` cause dimension** for all email hosts (webmail + ISP-mail,
+  ~59 brands incl. iCloud/Thundermail); the separate `isp:` dimension was RETIRED
+  (#70) — a brand in two cause dims double-reports the same spike.
+- `macos_release` and `os` are **filters, not causes** (report trends only; never
+  feed the joint detector). AV expanded to ~32 vendors.
+- **Responsiveness (not sentiment)** is the Bucket-4 amplifier; sentiment rejected
+  (uniformly-negative + 16% non-English corpus). Amplifier = display-only.
+- **Spike timing is a lagging indicator** (marks when users piled in, not onset;
+  validated on Jun-2023 Libero). Reports carry a ⏱ note.
+- **Thresholds** left at joint `min_count=4/lift≥3`, single-dim daily `min_count=8`,
+  monthly `min_count=8` (deliberately NOT bumped — a concentration check would
+  wrongly kill diffuse incidents like GMX; magnitude is the right lever).
+- **Pages use `layout: base`** (minima 3.x renamed `default`→`base`; #72/#73).
+- Regex changes propagate via the spike workflow's **`full_backfill: true`**
+  dispatch (re-tags all history); validate new regexes on the corpus for FALSE
+  POSITIVES first (mail.com-in-gmail, g-data-in-"big data", thunderbird-pro-in-
+  "profile", bare-10.x-in-IPs were all caught this way).
 
 ## Data Structure
 
