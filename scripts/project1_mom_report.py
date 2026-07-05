@@ -202,14 +202,22 @@ def main():
                      for i in ids[:5])
         return L + (f" +{len(ids)-5}" if len(ids) > 5 else "")
 
+    def served(r):  # responsiveness amplifier (#68); ⚠️ if answered <60% (baseline ~76%)
+        ap = str(r.get("answered_pct", "")).strip()
+        if ap == "":
+            return ""
+        ap = int(float(ap))
+        md = str(r.get("median_first_answer_h", "")).strip()
+        return f"{'⚠️ ' if ap < 60 else ''}{ap}% ans{f' · {md}h' if md else ''}"
+
     if cj.empty and cs.empty:
         W("_No spikes flagged this month at current thresholds._\n")
     if not cj.empty:
         W("### Version × cause — possible release regressions\n")
         W("Ranked new → spreading → recurring, then by lift (× above what release "
           "adoption alone explains).\n")
-        W("| Signal | When | Version × Cause | Qs | Lift | Example questions |")
-        W("|:--|:--|:--|--:|--:|:--|")
+        W("| Signal | When | Version × Cause | Qs | Lift | Served | Example questions |")
+        W("|:--|:--|:--|--:|--:|:--|:--|")
         order = {"new": 0, "spreading": 1, "recurring": 2}
         cj = cj.assign(_r=cj.get("novelty", "").map(order).fillna(3),
                        _l=pd.to_numeric(cj["lift"], errors="coerce")).sort_values(
@@ -218,18 +226,18 @@ def main():
         for _, r in cj.iterrows():
             W(f"| {badge.get(r.get('novelty',''),'')} | {r['period']} | "
               f"v{r['version_major']} × {r['cause_value']} | {r['observed']} | {r['lift']}× "
-              f"| {links(r['question_ids'].split())} |")
+              f"| {served(r)} | {links(r['question_ids'].split())} |")
         W("")
     if not cs.empty:
         W("### Cause-level surges — provider / protocol / AV (any version)\n")
         W("Version-agnostic (a provider outage spans versions), vs a trailing-month baseline.\n")
-        W("| Cause | Qs | vs baseline | Rise | Example questions |")
-        W("|:--|--:|--:|:--|:--|")
+        W("| Cause | Qs | Served | vs baseline | Rise | Example questions |")
+        W("|:--|--:|:--|--:|:--|:--|")
         cs = cs.assign(_m=pd.to_numeric(cs["magnitude"].replace("new", 1e9), errors="coerce")
                        ).sort_values("_m", ascending=False)
         for _, r in cs.iterrows():
             mag = r["magnitude"]
-            W(f"| {r['value']} | {r['count']} | {r['baseline_median']} "
+            W(f"| {r['value']} | {r['count']} | {served(r)} | {r['baseline_median']} "
               f"| {mag if mag=='new' else mag+'×'} | {links(r['question_ids'].split())} |")
         W("")
 

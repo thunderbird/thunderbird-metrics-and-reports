@@ -94,6 +94,18 @@ def main():
     long = explode_long(df, grain)
     all_pdt = pd.date_range(long["pdt"].min(), long["pdt"].max(), freq=GRAIN_FREQ[grain])
 
+    # responsiveness amplifier (#68): per-spike answered-rate / first-answer time
+    ans_by_id = dict(zip(df["id"], df["is_answered"] == "true"))
+    fah_by_id = dict(zip(df["id"], pd.to_numeric(df["first_answer_hours"], errors="coerce")))
+
+    def responsiveness(ids):
+        ids = list(ids)
+        n = len(ids)
+        answered = sum(1 for i in ids if ans_by_id.get(i))
+        fahs = [fah_by_id[i] for i in ids if pd.notna(fah_by_id.get(i))]
+        med = round(float(pd.Series(fahs).median()), 1) if fahs else ""
+        return (round(100 * answered / n) if n else 0, n - answered, med)
+
     # count per (dim, value, period), distinct questions
     counts = (long.groupby(["dim", "value", "pdt"])["id"].nunique()
                   .rename("count").reset_index())
@@ -120,7 +132,8 @@ def main():
             })
 
     cols = ["period", "dim", "value", "count", "baseline_median", "magnitude",
-            "kind", "question_ids", "example_urls", "example_titles"]
+            "kind", "answered_pct", "unanswered", "median_first_answer_h",
+            "question_ids", "example_urls", "example_titles"]
     out = OUT.format(product=args.product, grain=grain)
     if not spikes:
         print(f"No {grain} spikes flagged at current thresholds.")
@@ -133,7 +146,9 @@ def main():
     def examples(row):
         m = long[(long["period"] == row["period"]) & (long["dim"] == row["dim"])
                  & (long["value"] == row["value"])].drop_duplicates("id")
+        apct, unans, medfah = responsiveness(m["id"])
         return pd.Series({
+            "answered_pct": apct, "unanswered": unans, "median_first_answer_h": medfah,
             "question_ids": " ".join(m["id"]),                       # ALL ids, for manual checking
             "example_urls": " ".join(m["url"]),                      # ALL clickable links
             "example_titles": " | ".join(t[:60] for t in m["title"].head(N_EXAMPLE_TITLES)),

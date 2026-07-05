@@ -203,6 +203,16 @@ def main():
             for i in ids[:6])
         return links + (f" +{len(ids) - 6}" if len(ids) > 6 else "")
 
+    def served(r):
+        """Responsiveness amplifier (#68): '⚠️ 43% ans · 8h' — ⚠️ when the spike's
+        questions are answered below 60% (baseline is ~76%)."""
+        ap = str(r.get("answered_pct", "")).strip()
+        if ap == "":
+            return ""
+        ap = int(float(ap))
+        md = str(r.get("median_first_answer_h", "")).strip()
+        return f"{'⚠️ ' if ap < 60 else ''}{ap}% ans{f' · {md}h' if md else ''}"
+
     # Engineering signal #1 — version × cause (the "is this a release regression?")
     W("## 🚨 Engineering signal — version × cause spikes\n")
     W("Cause clusters over-represented in a specific Thunderbird version. The "
@@ -220,15 +230,15 @@ def main():
         W("_No version×cause spikes in this window at current thresholds._\n")
     else:
         W("")  # kramdown needs a blank line before a table block
-        W("| Signal | Lift | When | Version × Cause | Qs | Trend | Example questions |")
-        W("|:--|---:|:--|:--|--:|:--|:--|")
+        W("| Signal | Lift | When | Version × Cause | Qs | Served | Trend | Example questions |")
+        W("|:--|---:|:--|:--|--:|:--|:--|:--|")
         for _, r in j.iterrows():
             ver, dim, val = r["version_major"], r["cause_dim"], r["cause_value"]
             sl = spark(series_mask(
                 (df["tb_version_major"] == ver) &
                 df[dim].apply(lambda c: val in (c.split(";") if c else []))))
             W(f"| {NOVELTY_BADGE.get(r.get('novelty', ''), '')} | **{r['lift']}×** "
-              f"| {r['period']} | v{ver} × {val} | {r['observed']} "
+              f"| {r['period']} | v{ver} × {val} | {r['observed']} | {served(r)} "
               f"| `{sl}` | {links_for(r['question_ids'].split())} |")
         W("")
 
@@ -249,13 +259,13 @@ def main():
         W("_No cause-level spikes in this window at current thresholds._\n")
     else:
         W("")
-        W("| Rise | When | Cause | Qs | Baseline | Trend | Example questions |")
-        W("|---:|:--|:--|--:|--:|:--|:--|")
+        W("| Rise | When | Cause | Qs | Served | Baseline | Trend | Example questions |")
+        W("|---:|:--|:--|--:|:--|--:|:--|:--|")
         for _, r in s.iterrows():
             dim, val = r["dim"], r["value"]
             sl = spark(series_mask(df[dim].apply(lambda c: val in (c.split(";") if c else []))))
             mag = "new" if r["magnitude"] == "new" else f"{float(r['magnitude']):.1f}×"
-            W(f"| **{mag}** | {r['period']} | {val} | {r['count']} | {r['baseline_median']} "
+            W(f"| **{mag}** | {r['period']} | {val} | {r['count']} | {served(r)} | {r['baseline_median']} "
               f"| `{sl}` | {links_for(r['question_ids'].split())} |")
         W("")
 

@@ -284,15 +284,18 @@ spike history; the report ranks new→spreading→recurring so genuine new regre
 float above chronic provider load), ✅ **volume decline validated** against
 BigQuery ground truth (#67 — real, not a scraper artifact; the one 2023-11 gap is
 aaq-scraper#19), ✅ **wired into a GitHub Action**
-(`gha-project1-desktop-spike-reports.yml`, twice daily). **Remaining sub-issues of
-#65:** Bucket 4 — **responsiveness amplifier** (#68: amplify flagged spikes with
-answered-rate / first-answer-time, already in the feature tables; replaces the
-originally-planned sentiment amplifier, which the data showed would be weak —
-uniformly-negative + 16% non-English corpus); and port to android
-(desktop-first, same code — everything already takes `android` as a `product`
-arg). Insight from the wide baseline: desktop support volume is in a sustained
-decline (~1.4k/mo mid-2025 → ~720/mo mid-2026), and the cause mix is stable
-across 3.5 years (validating the lift-based detector).
+(`gha-project1-desktop-spike-reports.yml`, twice daily), ✅ **Bucket 4 —
+responsiveness amplifier** (#68: each spike carries `answered_pct` / `unanswered`
+/ `median_first_answer_h` from its own questions; the reports show a **Served**
+column, ⚠️ when answered <60% — so "large AND poorly-served" clusters stand out.
+Chosen over sentiment, which the data showed would be weak: uniformly-negative +
+16% non-English corpus. It's an amplifier, not the headline — it does NOT reorder
+the primary ranking). **Remaining sub-issues of #65:** community-management MoM
+report (#69, support-ops KPIs); and port to android (desktop-first, same code —
+everything already takes `android` as a `product` arg). Insight from the wide
+baseline: desktop support volume is in a sustained decline (~1.4k/mo mid-2025 →
+~720/mo mid-2026), and the cause mix is stable across 3.5 years (validating the
+lift-based detector).
 
 ## Data Structure
 

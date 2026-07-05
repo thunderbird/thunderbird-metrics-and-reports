@@ -85,6 +85,18 @@ def main():
     df = df[df["period"] != ""].copy()
     total_versioned = len(df)
 
+    # responsiveness amplifier (#68): per-spike answered-rate / first-answer time,
+    # so the report can flag clusters that are large AND poorly-served.
+    ans_by_id = dict(zip(df["id"], df["is_answered"] == "true"))
+    fah_by_id = dict(zip(df["id"], pd.to_numeric(df["first_answer_hours"], errors="coerce")))
+
+    def responsiveness(ids):
+        n = len(ids)
+        answered = sum(1 for i in ids if ans_by_id.get(i))
+        fahs = [fah_by_id[i] for i in ids if pd.notna(fah_by_id.get(i))]
+        med = round(float(pd.Series(fahs).median()), 1) if fahs else ""
+        return (round(100 * answered / n) if n else 0, n - answered, med)
+
     # cause overall rate (denominator = versioned questions)
     cause_rate = {}  # (dim, value) -> rate
     for dim in CAUSE_DIMS:
@@ -132,6 +144,7 @@ def main():
         sub = long[(long["period"] == r["period"]) & (long["version"] == r["version"])
                    & (long["dim"] == r["dim"]) & (long["value"] == r["value"])
                    ].drop_duplicates("id")
+        apct, unans, medfah = responsiveness(list(sub["id"]))
         rows.append({
             "period": r["period"],
             "headline": f"v{r['version']} x {r['value']}: {r['observed']} questions "
@@ -141,6 +154,7 @@ def main():
             "version_total_period": int(vtot),
             "cause_rate_overall": round(rate, 4),
             "expected": round(expected, 2), "lift": round(lift, 1),
+            "answered_pct": apct, "unanswered": unans, "median_first_answer_h": medfah,
             "question_ids": " ".join(sub["id"]),
             "example_urls": " ".join(sub["url"]),
             "example_titles": " | ".join(t[:60] for t in sub["title"].head(N_EXAMPLE_TITLES)),
@@ -165,6 +179,7 @@ def main():
     cols = ["period", "headline", "version_major", "cause_dim", "cause_value",
             "observed", "version_total_period", "cause_rate_overall", "expected",
             "lift", "novelty", "cause_prior_periods", "pair_prior_periods",
+            "answered_pct", "unanswered", "median_first_answer_h",
             "question_ids", "example_urls", "example_titles"]
     sp = pd.DataFrame(rows, columns=cols)
     # rank: new (0) -> spreading (1) -> recurring (2), then by lift within each
