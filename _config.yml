@@ -32,6 +32,7 @@ exclude:
   # LLM Insights: publish only the rendered reports under LLM_INSIGHTS/REPORTS/,
   # not the internal working note or the per-question label CSVs.
   - LLM_INSIGHTS/BUCKET2-CHECKPOINT.md
+  - LLM_INSIGHTS/COSTS.md
   - LLM_INSIGHTS/2026-05-desktop-labels.csv
   - LLM_INSIGHTS/2026-06-desktop-labels.csv
   - LLM_INSIGHTS/2026-05-android-labels.csv
