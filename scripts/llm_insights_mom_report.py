@@ -32,8 +32,8 @@ from llm_insights_cost import dollars, gate, PRICING, CONCAT_DIR
 from llm_insights_classify import CATEGORIES
 
 MODEL = "claude-opus-4-8"
-LABELS = "LLM_INSIGHTS/{m}-desktop-labels.csv"
-REPORT_DIR = "LLM_INSIGHTS/REPORTS/desktop"
+LABELS = "LLM_INSIGHTS/{m}-{product}-labels.csv"
+REPORT_DIR = "LLM_INSIGHTS/REPORTS/{product}"
 QUESTION_URL = "https://support.mozilla.org/questions/{id}"
 TOP_N = 12          # ranked issues to feature
 MIN_CLUSTER = 3     # a featured cluster needs >= this many current-month questions
@@ -60,8 +60,8 @@ def tb(series):
     return series.astype(str).str.strip().str.lower() == "true"
 
 
-def load_labels(m):
-    df = pd.read_csv(LABELS.format(m=m), dtype=str, keep_default_na=False)
+def load_labels(m, product="desktop"):
+    df = pd.read_csv(LABELS.format(m=m, product=product), dtype=str, keep_default_na=False)
     df["severity"] = pd.to_numeric(df["severity"], errors="coerce").fillna(0).astype(int)
     df["n_answers"] = pd.to_numeric(df["n_answers"], errors="coerce").fillna(0).astype(int)
     df["solved_b"] = tb(df["is_solved"])
@@ -70,8 +70,9 @@ def load_labels(m):
     return df
 
 
-def load_titles(m):
-    p = f"{CONCAT_DIR.format(PRODUCT='DESKTOP')}/{m}-sumo-desktop-questions.csv"
+def load_titles(m, product="desktop"):
+    p = (f"{CONCAT_DIR.format(PRODUCT=product.upper())}/"
+         f"{m}-sumo-{product}-questions.csv")
     q = pd.read_csv(p, dtype=str, keep_default_na=False)
     return dict(zip(q["id"], q["title"]))
 
@@ -270,15 +271,17 @@ def links(ids, titles):
     return L + (f" +{len(ids) - 5}" if len(ids) > 5 else "")
 
 
-def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost):
+def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
+           product="desktop"):
     issue_prose = {x["rank"]: x for x in narr.get("issues", [])}
+    pcap = product.capitalize()
     out, W = [], lambda s: out.append(s)
     W("---")
     W("layout: base")
-    W(f"title: Desktop LLM Insights — {human_month(cur_m)}")
+    W(f"title: {pcap} LLM Insights — {human_month(cur_m)}")
     W("---")
     W("")
-    W("# Thunderbird Desktop — LLM Insights (Engineering)")
+    W(f"# Thunderbird {pcap} — LLM Insights (Engineering)")
     W(f"\n## {human_month(cur_m)} vs {human_month(prev_m)}\n")
     W("_The **AI counterpart to Project 1**: Claude reads every support question "
       "(plus the creator's own follow-ups, the accepted solution, and trusted-"
@@ -355,6 +358,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("current", help="YYYY-MM")
     ap.add_argument("previous", help="YYYY-MM")
+    ap.add_argument("product", nargs="?", default="desktop",
+                    choices=["desktop", "android"])
     ap.add_argument("--latest", action="store_true")
     args = ap.parse_args()
 
@@ -363,9 +368,10 @@ def main():
     from anthropic import Anthropic
     client = Anthropic()
 
-    cur = load_labels(args.current)
-    prev = load_labels(args.previous)
-    titles = {**load_titles(args.previous), **load_titles(args.current)}
+    cur = load_labels(args.current, args.product)
+    prev = load_labels(args.previous, args.product)
+    titles = {**load_titles(args.previous, args.product),
+              **load_titles(args.current, args.product)}
     all_df = pd.concat([prev, cur], ignore_index=True)
     usage = {"in": 0, "out": 0, "cr": 0, "cw": 0}
 
@@ -393,14 +399,15 @@ def main():
           f"(in {usage['in']:,} | cache_read {usage['cr']:,} | out {usage['out']:,})")
 
     content = render(args.current, args.previous, cur, prev, featured, cat_mom,
-                     narr, titles, cost)
-    os.makedirs(REPORT_DIR, exist_ok=True)
-    path = f"{REPORT_DIR}/monthly-summary-{args.current}-vs-{args.previous}.md"
+                     narr, titles, cost, args.product)
+    rdir = REPORT_DIR.format(product=args.product)
+    os.makedirs(rdir, exist_ok=True)
+    path = f"{rdir}/monthly-summary-{args.current}-vs-{args.previous}.md"
     with open(path, "w") as f:
         f.write(content)
     print(f"   wrote {path}")
     if args.latest:
-        latest = f"{REPORT_DIR}/monthly-summary-latest.md"
+        latest = f"{rdir}/monthly-summary-latest.md"
         with open(latest, "w") as f:
             f.write(content)
         print(f"   wrote {latest}")

@@ -28,7 +28,7 @@ sys.path.insert(0, "scripts")
 from llm_insights_cost import build_enriched, dollars, gate, PRICING
 
 MODEL = "claude-opus-4-8"
-OUT = "LLM_INSIGHTS/{month}-desktop-labels.csv"
+OUT = "LLM_INSIGHTS/{month}-{product}-labels.csv"
 
 CATEGORIES = [
     "account-login", "send-receive", "calendar-tasks", "addons-extensions",
@@ -126,6 +126,7 @@ def chunk(lst, n):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("month", help="YYYY-MM, e.g. 2026-06")
+    ap.add_argument("--product", default="desktop", choices=["desktop", "android"])
     ap.add_argument("--sample", type=int, default=0,
                     help="classify only the first N questions (cheap validation)")
     ap.add_argument("--batch-size", type=int, default=10)
@@ -140,12 +141,12 @@ def main():
     from anthropic import Anthropic
     client = Anthropic()
 
-    rows = build_enriched(args.month)
+    rows = build_enriched(args.month, args.product)
     if args.sample:
         rows = rows[:args.sample]
     signals_by_id = {r["id"]: {k: r[k] for k in SIGNAL_FIELDS} for r in rows}
     batches = list(chunk(rows, args.batch_size))
-    print(f"{args.month} desktop: {len(rows)} questions in {len(batches)} "
+    print(f"{args.month} {args.product}: {len(rows)} questions in {len(batches)} "
           f"batch(es) of up to {args.batch_size} (model: {args.model})")
 
     system = [{"type": "text", "text": SYSTEM_PROMPT,
@@ -164,7 +165,7 @@ def main():
             est_in += len(msg) // 3  # heuristic fallback
     est_out = len(rows) * 200  # ~200 out tok/question (high-ish)
     est = dollars(est_in, est_out, args.model)
-    label = f"Stage-1 map: {args.month} desktop ({len(rows)} q, {args.model})"
+    label = f"Stage-1 map: {args.month} {args.product} ({len(rows)} q, {args.model})"
     print(f"   estimated input ~{est_in:,} tok, output ~{est_out:,} tok")
     gate(est, label=label)
 
@@ -203,8 +204,7 @@ def main():
           f"cache_read {usage['cache_read']:,} | out {usage['out']:,})")
     if results:
         per_q = actual / len(results)
-        print(f"   ${per_q:.5f}/question → full desktop month (~760 q) ≈ "
-              f"${per_q * 760:.2f}; May+June (1536 q) ≈ ${per_q * 1536:.2f}")
+        print(f"   ${per_q:.5f}/question")
 
     # --- write ---------------------------------------------------------------
     # merge the carried value signals (created_date, solved, trusted-last, …)
@@ -217,7 +217,7 @@ def main():
               f"(ids: {missing[:5]}{'…' if len(missing) > 5 else ''})")
 
     import pandas as pd
-    out_path = args.out or OUT.format(month=args.month)
+    out_path = args.out or OUT.format(month=args.month, product=args.product)
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     odf = pd.DataFrame(results)[FIELDS]
     odf.to_csv(out_path, index=False)

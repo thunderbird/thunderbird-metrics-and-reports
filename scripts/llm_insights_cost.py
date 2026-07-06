@@ -70,14 +70,16 @@ def gate(estimate_usd: float, ceiling: float = COST_CEILING_USD,
           f"(under ${ceiling:,.0f} ceiling) — OK to proceed.")
 
 
-def load_desktop_questions(month: str) -> pd.DataFrame:
-    """Load one settled month of desktop questions from the committed concat
-    file, spam-filtered. Returns columns: id, created, title, content (+ the
-    native operating_system / thunderbird_version, handy later).
+def load_questions(month: str, product: str = "desktop") -> pd.DataFrame:
+    """Load one settled month of questions from the committed concat file,
+    spam-filtered. Returns columns: id, created, title, content (+ the native
+    operating_system / thunderbird_version, handy later).
 
-    Reuses Project 1's read idiom. `month` is 'YYYY-MM'.
+    Reuses Project 1's read idiom. `month` is 'YYYY-MM'; `product` is
+    desktop/android.
     """
-    path = f"{CONCAT_DIR.format(PRODUCT='DESKTOP')}/{month}-sumo-desktop-questions.csv"
+    path = (f"{CONCAT_DIR.format(PRODUCT=product.upper())}/"
+            f"{month}-sumo-{product}-questions.csv")
     df = pd.read_csv(path, dtype=str, keep_default_na=False)
     is_spam = df["is_spam"].str.strip().str.lower().isin(["true", "1", "yes"])
     df = df[~is_spam].copy()
@@ -106,9 +108,10 @@ def _norm_id(s: str) -> str:
     return s[:-2] if s.endswith(".0") else s
 
 
-def load_trusted_contributors() -> set:
-    """Set of trusted-contributor usernames (desktop)."""
-    path = f"{CONCAT_DIR.format(PRODUCT='DESKTOP')}/thunderbird-desktop-trusted-contributors.csv"
+def load_trusted_contributors(product: str = "desktop") -> set:
+    """Set of trusted-contributor usernames for the product."""
+    path = (f"{CONCAT_DIR.format(PRODUCT=product.upper())}/"
+            f"thunderbird-{product}-trusted-contributors.csv")
     df = pd.read_csv(path, dtype=str, keep_default_na=False)
     return {c.strip() for c in df["creator"] if c.strip()}
 
@@ -130,8 +133,8 @@ def _clip(s: str, n: int) -> str:
     return s if len(s) <= n else s[:n] + "…"
 
 
-def build_enriched(month: str):
-    """Return a list of per-question dicts for one settled desktop month. Each
+def build_enriched(month: str, product: str = "desktop"):
+    """Return a list of per-question dicts for one settled month. Each
     dict has:
       id, created, created_date, title, creator, os, tb_version,
       text          -- enriched text sent to the LLM (question + creator
@@ -140,12 +143,12 @@ def build_enriched(month: str):
       n_answers, n_creator_answers, has_trusted_answer, last_answer_trusted
     Spam is filtered from both questions and answers.
     """
-    base = CONCAT_DIR.format(PRODUCT="DESKTOP")
-    q = pd.read_csv(f"{base}/{month}-sumo-desktop-questions.csv",
+    base = CONCAT_DIR.format(PRODUCT=product.upper())
+    q = pd.read_csv(f"{base}/{month}-sumo-{product}-questions.csv",
                     dtype=str, keep_default_na=False)
-    a = pd.read_csv(f"{base}/{month}-sumo-desktop-answers.csv",
+    a = pd.read_csv(f"{base}/{month}-sumo-{product}-answers.csv",
                     dtype=str, keep_default_na=False)
-    trusted = load_trusted_contributors()
+    trusted = load_trusted_contributors(product)
 
     q = q[~q["is_spam"].str.strip().str.lower().isin(["true", "1", "yes"])].copy()
     a = a[~a["is_spam"].str.strip().str.lower().isin(["true", "1", "yes"])].copy()
@@ -227,19 +230,19 @@ _SYSTEM_PROMPT_TOKENS = 700     # shared instruction+schema prefix (cached once)
 _OUT_TOKENS = {"low": 100, "expected": 160, "high": 260}   # structured label size
 
 
-def preview_map_cost(months, model="claude-opus-4-8"):
+def preview_map_cost(months, product="desktop", model="claude-opus-4-8"):
     """Print a $0 projected-cost band for the Stage-1 map pass over the given
     months (list of 'YYYY-MM'). Uses count_tokens if a client is available,
     else the char heuristic."""
     client, counting = _maybe_client()
     grand_in = 0
     grand_q = 0
-    print(f"\n=== LLM Insights — Bucket 0 cost preview (model: {model}) ===")
+    print(f"\n=== LLM Insights — Bucket 0 cost preview ({product}, model: {model}) ===")
     print("Text per question = question + creator follow-ups + accepted "
           "solution + trusted replies.")
     print(f"Token counting: {'count_tokens (accurate, free)' if counting else 'char heuristic (~len/3.5)'}\n")
     for month in months:
-        recs = build_enriched(month)
+        recs = build_enriched(month, product)
         texts = [r["text"] for r in recs]
         if counting:
             content_tok = sum(_count_tokens(client, model, t) for t in texts)
@@ -249,7 +252,7 @@ def preview_map_cost(months, model="claude-opus-4-8"):
         in_tok = content_tok + n * _FRAMING_TOKENS_PER_Q + _SYSTEM_PROMPT_TOKENS
         grand_in += in_tok
         grand_q += n
-        print(f"  {month} desktop: {n:>4} questions | "
+        print(f"  {month} {product}: {n:>4} questions | "
               f"content ~{content_tok:>7,} tok | input ~{in_tok:>7,} tok")
 
     print(f"\n  TOTAL: {grand_q} questions | input ~{grand_in:,} tok")
@@ -289,5 +292,7 @@ def _count_tokens(client, model, text):
 
 
 if __name__ == "__main__":
-    months = sys.argv[1:] or ["2026-05", "2026-06"]
-    preview_map_cost(months)
+    argv = sys.argv[1:]
+    product = next((a for a in argv if a in ("desktop", "android")), "desktop")
+    months = [a for a in argv if a not in ("desktop", "android")] or ["2026-05", "2026-06"]
+    preview_map_cost(months, product)

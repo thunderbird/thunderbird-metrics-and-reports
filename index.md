@@ -37,7 +37,13 @@ Desktop spike report by time grain:
 The AI counterpart to Project 1. Claude reads each support question (plus the
 creator's own follow-ups, the accepted solution, and trusted-contributor replies),
 names the concrete problem, hypothesises a root cause, and rates severity —
-surfacing **emerging and worst-served** issues that regex + stats can't. Desktop
-only; a prototype for review.
+surfacing **emerging and worst-served** issues that regex + stats can't. A
+prototype for review.
 
-**For engineering** — [LLM Insights monthly summary (latest)](LLM_INSIGHTS/REPORTS/desktop/monthly-summary-latest.html): ranked issues to investigate, each with severity, resolved-rate, and clickable example questions. _(Prototype — feedback welcome.)_
+**For engineering** — ranked issues to investigate, each with severity,
+resolved-rate, and clickable example questions:
+
+- [Desktop — LLM Insights monthly summary (latest)](LLM_INSIGHTS/REPORTS/desktop/monthly-summary-latest.html)
+- [Android — LLM Insights monthly summary (latest)](LLM_INSIGHTS/REPORTS/android/monthly-summary-latest.html)
+
+_(Prototype — feedback welcome.)_

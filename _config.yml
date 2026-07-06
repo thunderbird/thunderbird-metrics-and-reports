@@ -34,3 +34,5 @@ exclude:
   - LLM_INSIGHTS/BUCKET2-CHECKPOINT.md
   - LLM_INSIGHTS/2026-05-desktop-labels.csv
   - LLM_INSIGHTS/2026-06-desktop-labels.csv
+  - LLM_INSIGHTS/2026-05-android-labels.csv
+  - LLM_INSIGHTS/2026-06-android-labels.csv

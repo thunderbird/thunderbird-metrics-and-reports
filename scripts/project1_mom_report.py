@@ -156,10 +156,10 @@ def main():
     out, W = [], lambda s: out.append(s)
     W("---")
     W("layout: base")  # minima 3.x renamed 'default' -> 'base'; 'default' no longer exists (#72)
-    W(f"title: Desktop Engineering Support Summary — {human_month(cur)}")
+    W(f"title: {product.capitalize()} Engineering Support Summary — {human_month(cur)}")
     W("---")
     W("")
-    W("# Thunderbird Desktop — Monthly Engineering Support Summary")
+    W(f"# Thunderbird {product.capitalize()} — Monthly Engineering Support Summary")
     W(f"\n## {human_month(cur)} vs {human_month(prev)}\n")
     W("_For **engineering**: the support signals worth investigating this month vs "
       "last — flagged incidents, moving cause clusters, and release adoption. "
