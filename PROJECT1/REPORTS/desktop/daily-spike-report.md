@@ -5,12 +5,12 @@ title: DAILY: Thunderbird Desktop — Support Spike Report
 
 # DAILY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2026-04-08 … 2026-07-06 · **daily** grain · trailing 90 days · 2239 questions · no AI (regex + traditional stats)_
+_Generated 2026-04-08 … 2026-07-06 · **daily** grain · trailing 90 days · 2251 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 2239 questions, 24.9/day avg
-- **Answered (non-creator):** 1811/2239 (81%)
-- **First-answer time (median):** 3.2h (p25 0.9h / p75 11.2h)
-- **Total volume trend:** `▇▅▇▅▅▆▅▇▆▆▄▃▇▅▆▇▄▄▄▇▇▇▆▅▄▄▅▇█▆▆▆▅▆▇▅▅▇▆▅▅▅▆▇▅▄▅▆▇█▇▅▄▄▅▆▆▅▆▄▄▇▆▆▅▇▄▅▅▅▆▆▅▄▃▄▇▆▇▅▄▅▆▆▅▇▅▅▄▁`
+- **Volume:** 2251 questions, 25.0/day avg
+- **Answered (non-creator):** 1820/2251 (81%)
+- **First-answer time (median):** 3.2h (p25 0.9h / p75 11.3h)
+- **Total volume trend:** `▇▅▇▅▅▆▅▇▆▆▄▃▇▅▆▇▄▄▄▇▇▇▆▅▄▄▅▇█▆▆▆▅▆▇▅▅▇▆▅▅▅▆▇▅▄▅▆▇█▇▅▄▄▅▆▆▅▆▄▄▇▆▆▅▇▄▅▅▅▆▆▅▄▃▄▇▆▇▅▄▅▆▆▅▇▅▅▄▃`
 
 > ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
 
@@ -21,9 +21,9 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 
 | Signal | Lift | When | Version × Cause | Qs | Served | Trend | Example questions |
 |:--|---:|:--|:--|--:|:--|:--|:--|
-| 🆕 new | **21.5×** | 2026-06-09 | v151 × m:spectrum | 7 | 100% ans · 14.3h | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▂▁▁▁▁▂▁▁█▂▁▂▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") [1586486](https://support.mozilla.org/questions/1586486 "Thunderbird is showing Certificate for mobile.charter.net:993 does not come from") [1586494](https://support.mozilla.org/questions/1586494 "Mozilla TWC account failures") +1 |
+| 🆕 new | **21.6×** | 2026-06-09 | v151 × m:spectrum | 7 | 100% ans · 14.3h | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▂▁▁▁▁▂▁▁█▂▁▂▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") [1586486](https://support.mozilla.org/questions/1586486 "Thunderbird is showing Certificate for mobile.charter.net:993 does not come from") [1586494](https://support.mozilla.org/questions/1586494 "Mozilla TWC account failures") +1 |
 | 🆕 new | **5.9×** | 2026-05-06 | v150 × proto:smtp | 6 | 100% ans · 1.0h | `▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▃▁▁▁▁▁▂▂▁█▁▁▂▂▁▅▃▂▁▂▁▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1580225](https://support.mozilla.org/questions/1580225 "errore in Invio Posta") [1580247](https://support.mozilla.org/questions/1580247 "New Security Codes for vodafonemail.de, TLS Code not in Thunderbird available") [1580282](https://support.mozilla.org/questions/1580282 "messaggio di errore") [1580326](https://support.mozilla.org/questions/1580326 "I installed thunderbird 150 and get always an authentication error, when adding ") [1580352](https://support.mozilla.org/questions/1580352 "i can receive emails but cannot sent, password problem") [1580362](https://support.mozilla.org/questions/1580362 "cannot send out email to new Yahoo server and thunderbird does not ask for a pas") |
-| 🆕 new | **5.0×** | 2026-05-13 | v150 × proto:pop | 4 | ⚠️ 50% ans · 1.6h | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▃▁▁▃▃▁▁▁▁▃▁▆▅▁▁▃▃▁▃█▁▃▃▁▅▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁` | [1581365](https://support.mozilla.org/questions/1581365 "Unable to add new account by POP") [1581376](https://support.mozilla.org/questions/1581376 "Authentification Error") [1581474](https://support.mozilla.org/questions/1581474 "Can’t send email via AT&T account") [1581477](https://support.mozilla.org/questions/1581477 "Unable to write email to mailbox") |
+| 🆕 new | **4.9×** | 2026-05-13 | v150 × proto:pop | 4 | ⚠️ 50% ans · 1.6h | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▃▁▁▃▃▁▁▁▁▃▁▆▅▁▁▃▃▁▃█▁▃▃▁▅▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁` | [1581365](https://support.mozilla.org/questions/1581365 "Unable to add new account by POP") [1581376](https://support.mozilla.org/questions/1581376 "Authentification Error") [1581474](https://support.mozilla.org/questions/1581474 "Can’t send email via AT&T account") [1581477](https://support.mozilla.org/questions/1581477 "Unable to write email to mailbox") |
 | 🆕 new | **4.7×** | 2026-06-30 | v152 × m:gmail | 4 | ⚠️ 50% ans · 2.5h | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▅▃▅▃▁▃▃▅▁▁▁█▅▆▅▆▅▁` | [1590372](https://support.mozilla.org/questions/1590372 "Urgent question: Wrong email group when I sign in coming up") [1590393](https://support.mozilla.org/questions/1590393 "Storende pop-up naar aanleiding van verwijderde google-account") [1590463](https://support.mozilla.org/questions/1590463 "Message not visible with no filter activated, all account are synchronized") [1590499](https://support.mozilla.org/questions/1590499 "archive Gmail to local storage　by Tb") |
 | 🆕 new | **4.2×** | 2026-04-23 | v150 × m:microsoftemail | 4 | ⚠️ 50% ans · 14.3h | `▁▃▁▁▁▁▁▁▁▁▁▁▁▁▃█▃▁▁▅▃▁▁▅▅▃▃▅▆▁▃▁▅▃▆▆█▃▆▁▅▃▅▃▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1577845](https://support.mozilla.org/questions/1577845 "I'm trying to dump MS Outlook.") [1577871](https://support.mozilla.org/questions/1577871 "SMTP Timeout") [1577910](https://support.mozilla.org/questions/1577910 "TB 150.0 not downloading office365 folders") [1577989](https://support.mozilla.org/questions/1577989 "Moving local folders from New Outlook to Thunderbird") |
 | 🆕 new | **3.1×** | 2026-05-05 | v150 × proto:imap | 5 | 80% ans · 6.8h | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▂▁▁▁▁▂▁▂▁█▄▅▁▂▂▄█▂▁▂▁▁▅▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1579996](https://support.mozilla.org/questions/1579996 "Import more outlook accounts into the local folder in thunderbird") [1580004](https://support.mozilla.org/questions/1580004 "Add New Folder") [1580007](https://support.mozilla.org/questions/1580007 "Change pop 3 to IMAP") [1580121](https://support.mozilla.org/questions/1580121 "Stop downloading archived gmails to thunderbird POP") [1580187](https://support.mozilla.org/questions/1580187 "Adding hotmail (live, outlook) accounts to Thunderbird") |
@@ -43,12 +43,12 @@ _No cause-level spikes in this window at current thresholds._
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 571 | `▃▅█▅▅▇▅▆▄▇▃▃▆▅▅▆▃▃▂▆▄▇▆▅▄▃▃▅▅▆▆▅▂▇▅▆▃▇▅▄▇▇▅▄▅▂▅▃▇▆▆▆▆▄▅▆▇▆▆▂▅▆▄▃▅▅▄▄▅▆▄▆▂▃▂▂▇▆▆▂▄▆▄▅▄▅▅▆▅▁` |
+| v140 | 573 | `▃▅█▅▅▇▅▆▄▇▃▃▆▅▅▆▃▃▂▆▄▇▆▅▄▃▃▅▅▆▆▅▂▇▅▆▃▇▅▄▇▇▅▄▅▂▅▃▇▆▆▆▆▄▅▆▇▆▆▂▅▆▄▃▅▅▄▄▅▆▄▆▂▃▂▂▇▆▆▂▄▆▄▅▄▅▅▆▅▂` |
 | v150 | 400 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▃▄▄▅▇▅▅▄▃▄▃▇█▅▅▅▅▄▇▆▅▇▅▄▅▅▄▂▂▁▂▂▃▁▂▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▂▁▁▁▁▁▁` |
 | v151 | 326 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▅▅▄▄▄▄▆██▆▃▄▄▅▅▃▆▅▅▇█▆▅▅▃▄▄▅▂▁▂▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁` |
 | v149 | 219 | `▆▃▇▅▇▇▅██▇▅▄█▇▃▂▃▁▁▂▂▂▂▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| v152 | 213 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▄▆▆▄▄▅▅▆▇█▆▃█▅▆█▄▆▃▁` |
-| v115 | 68 | `▁▁▆▁▃▁▁▆▁▃▃▁▁▃▃▆▁▃█▃▁▁▁▆▁▃▆▃▆▃▁▆▆▁▆▁▁▁▁▁▁▁▁▃▆▁▃▆▁▃▃▁▁▁▁▁█▃▁▁▆▃▁▆▁█▃▃▆▁▃▁█▃▁▁▆▃▁▁▁▁▁▆▆▃▁▁▁▁` |
+| v152 | 218 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▄▆▆▄▄▅▅▆▇█▆▃█▅▆█▄▆▃▃` |
+| v115 | 69 | `▁▁▆▁▃▁▁▆▁▃▃▁▁▃▃▆▁▃█▃▁▁▁▆▁▃▆▃▆▃▁▆▆▁▆▁▁▁▁▁▁▁▁▃▆▁▃▆▁▃▃▁▁▁▁▁█▃▁▁▆▃▁▆▁█▃▃▆▁▃▁█▃▁▁▆▃▁▁▁▁▁▆▆▃▁▁▁▃` |
 
 ### Top mail providers
 
@@ -65,8 +65,8 @@ _No cause-level spikes in this window at current thresholds._
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 153 | `▃▂▃▂▁▅▃▇▂▁▃▁▂▂▃▁▁▁▂▁▁▂▃▅▁▃▁█▅▅▂▃▂▃▇▂▁▃▃▂▅▃▇▆▃▁▂▂▂▃▆▅▃▂▇▆▁▅▁▂▅▂▁▁▃▇▃▁▂▅▂▂▂▂▁▂▃▁▅▃▂▅▅▃▂▆▃▃▂▁` |
-| proto:pop | 108 | `▄▁▄▁▁▂▄▅▄▂▁▂▅▁▁▅▄▂▂▂▄▂▂▁▁▂▁▇▄▁▁▂▂▁▂█▁▄▄▁▅▅▄▂▂▁▄▂▄▅▁▄▄▁▂▂▂▄▂▄▁▄▂▁▂▅▂▄▁▁▂▄▁▁▁▁▂▁▄▁▂▂▅▂▁▂▂▄▇▁` |
+| proto:imap | 155 | `▃▂▃▂▁▅▃▇▂▁▃▁▂▂▃▁▁▁▂▁▁▂▃▅▁▃▁█▅▅▂▃▂▃▇▂▁▃▃▂▅▃▇▆▃▁▂▂▂▃▆▅▃▂▇▆▁▅▁▂▅▂▁▁▃▇▃▁▂▅▂▂▂▂▁▂▃▁▅▃▂▅▅▃▂▆▃▃▂▃` |
+| proto:pop | 109 | `▄▁▄▁▁▂▄▅▄▂▁▂▅▁▁▅▄▂▂▂▄▂▂▁▁▂▁▇▄▁▁▂▂▁▂█▁▄▄▁▅▅▄▂▂▁▄▂▄▅▁▄▄▁▂▂▂▄▂▄▁▄▂▁▂▅▂▄▁▁▂▄▁▁▁▁▂▁▄▁▂▂▅▂▁▂▂▄▇▂` |
 | proto:smtp | 82 | `▃▂▂▁▁▁▃▁▃▂▁▁▁▃▁▂▁▁▁▅▂▁▂▁▁▃▂▃█▁▁▆▂▁▅▅▃▁▅▁▃▂▂▁▃▁▁▁▁▁▅▁▁▁▁▃▁▂▂▁▆▃▃▂▁▃▁▂▅▂▂▁▁▁▁▁▁▁▂▁▃▁▁▂▂▂▂▁▂▁` |
 | proto:oauth | 38 | `▅▁▁▁▁▅▅▅▁▁▁▅▁▅▁▅▁▁▁▁▁▁▁▁▅▁▅▅▁▁▁▁▁▁█▁█▅▅▁▁▅█▁▁▅▁▁▅▅▅▁▅▁▁▅▁▁▅▁▅▅▅▁▁▁▁▁▅▅▅▅▅▅▁▁▁▁▅▁▁▁▁▁▁▅▁▅▁▁` |
 | proto:caldav | 6 | `▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁█▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁` |
@@ -87,9 +87,9 @@ _No cause-level spikes in this window at current thresholds._
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 1809 | `▇▆▇▄▆▅▅▇▆▆▄▃▆▅▆▇▄▄▄▅▆▇▅▄▃▄▅▇█▆▇▆▅▅▇▅▄▆▅▄▅▅▆▇▆▄▆▆██▇▅▄▄▄▅▆▅▆▄▄▇▇▇▅▆▃▅▄▅▆▆▆▄▃▃▇▅▇▆▃▄▆▆▄▆▄▅▄▁` |
+| os:windows | 1817 | `▇▆▇▄▆▅▅▇▆▆▄▃▆▅▆▇▄▄▄▅▆▇▅▄▃▄▅▇█▆▇▆▅▅▇▅▄▆▅▄▅▅▆▇▆▄▆▆██▇▅▄▄▄▅▆▅▆▄▄▇▇▇▅▆▃▅▄▅▆▆▆▄▃▃▇▅▇▆▃▄▆▆▄▆▄▅▄▃` |
 | os:linux | 184 | `▅▂▅▂▁▆▆▂▃▂▃▅▃▂▁▂▁▂▂▃▅▃▅▇▅▂▅▃▂▃▃▂▃▆▂▅▁▅▆▃█▆▆▅▂▁▁▂▅▅▂▁▃▃▆▆▂▃▃▁▂▃▂▃▃▆▁▂▃▃▂▃▁▂▃▃▃█▇▂▃▆▃▃▇▅▆▁▁▁` |
-| os:macos | 154 | `▂▂▁▅▂▇▁█▃▃▁▁▅▂▃▁▁▃▁█▅▅▅▁▁▃▂▅▅▂▁▃▁▃▆▂▃▅▆▅▂▂▃▂▁▃▂▃▃▅▃▃▂▃▂▁▃▁▁▃▆▂▁▁▅▆▆▃▃▁▅▃▁▁▂▆▃▁▅▂▆▂▁▅▂▇▁▃▁▁` |
+| os:macos | 156 | `▂▂▁▅▂▇▁█▃▃▁▁▅▂▃▁▁▃▁█▅▅▅▁▁▃▂▅▅▂▁▃▁▃▆▂▃▅▆▅▂▂▃▂▁▃▂▃▃▅▃▃▂▃▂▁▃▁▁▃▆▂▁▁▅▆▆▃▃▁▅▃▁▁▂▆▃▁▅▂▆▂▁▅▂▇▁▃▁▃` |
 | os:other | 27 | `▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▅▁▁▅▁▁█▁▁▁▁▁▁▁▁▁▁▅▅▁▅▁▁▁▅▁▁▁▁▁▁▅▁▅▁▁▁▁▁▁▁▁▅▅▅█▁▁▁▁▁▁▁█▁▁▁▅▁▁▅▅▅█▅▁▁` |
 | os:android | 22 | `▁▁▅▁▁▁▁▁▅▁▅▁▅▁▁▁▁▅▁█▅█▁▁▁▅▁▅▅▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▅▁▁▁▁▁▁▁▁▁▁▁▅▁▁▅▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▅▅▁▁▁▅▁` |
 
@@ -108,4 +108,4 @@ _No cause-level spikes in this window at current thresholds._
 
 _Notes: spikes detected at **daily** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-daily-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-daily-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-daily-rollup.csv`._
 
-_Last updated: 2026-07-06 06:00 UTC_
+_Last updated: 2026-07-06 17:28 UTC_

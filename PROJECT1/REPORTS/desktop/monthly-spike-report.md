@@ -5,12 +5,12 @@ title: MONTHLY: Thunderbird Desktop — Support Spike Report
 
 # MONTHLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2024-08 … 2026-07 · **monthly** grain · trailing 24 months · 28627 questions · no AI (regex + traditional stats)_
+_Generated 2024-08 … 2026-07 · **monthly** grain · trailing 24 months · 28639 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 28627 questions, 1192.8/month avg
-- **Answered (non-creator):** 21848/28627 (76%)
+- **Volume:** 28639 questions, 1193.3/month avg
+- **Answered (non-creator):** 21857/28639 (76%)
 - **First-answer time (median):** 3.3h (p25 0.9h / p75 11.7h)
-- **Total volume trend:** `█▇█▇▇█▆▆▆▅▅▇▇▆▆▅▅▅▅▅▄▄▄▁`
+- **Total volume trend:** `█▇█▇▇█▆▆▆▅▅▇▇▆▆▅▅▅▅▅▄▄▄▂`
 
 > ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
 
@@ -49,12 +49,12 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 794 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▂` |
+| v140 | 796 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▂` |
 | v150 | 400 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▁▁` |
 | v151 | 326 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁` |
 | v149 | 309 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▂▁▁` |
 | v148 | 237 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃█▁▁▁▁` |
-| v152 | 213 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▃` |
+| v152 | 218 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▄` |
 
 ### Top mail providers
 
@@ -71,8 +71,8 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 1952 | `▇█▇▇██▇▅▅▅▄▆▆▅▆▅▄▅▄▅▃▅▄▂` |
-| proto:pop | 1236 | `█▇▇▇▅▇▅▄▅▄▄▅▆▅▆▄▃▄▄▄▃▄▃▂` |
+| proto:imap | 1954 | `▇█▇▇██▇▅▅▅▄▆▆▅▆▅▄▅▄▅▃▅▄▂` |
+| proto:pop | 1237 | `█▇▇▇▅▇▅▄▅▄▄▅▆▅▆▄▃▄▄▄▃▄▃▂` |
 | proto:smtp | 1236 | `▆█▇▇▅▇▅▅▅▅▄▅▇▅▄▄▃▅▅▅▃▄▃▁` |
 | proto:oauth | 506 | `▆█▆▄▄▄▂▃▃▂▂▃▃▂▃▃▂▃▃▅▂▃▂▁` |
 | proto:caldav | 100 | `▆▅▆▆▅█▃▃▃▆▅▆▄▃▄▂▃▅▆▃▃▂▃▁` |
@@ -93,9 +93,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 6270 | `▃▂▃▃▂▃▂▂▂▂▂▃▃▂▃▂▂▅██▇▇▇▂` |
+| os:windows | 6278 | `▃▂▃▃▂▃▂▂▂▂▂▃▃▂▃▂▂▅██▇▇▇▂` |
 | os:linux | 1185 | `▅▆▆▆▅▆▅▃▄▅▄▃▅▅▄▄▄▆▇█▆▇▆▂` |
-| os:macos | 802 | `▃▄▄▃▃▃▄▃▃▃▂▄▄▄▂▄▂▆▇█▆▆▅▂` |
+| os:macos | 804 | `▃▄▄▃▃▃▄▃▃▃▂▄▄▄▂▄▂▆▇█▆▆▅▂` |
 | os:other | 118 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▂▁▂▃▂` |
 | os:android | 80 | `▂▁▂▁▁▂▂▂▂▁▂▃▃▁▂▂▁▇█▇█▅▃▂` |
 
@@ -114,4 +114,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-monthly-rollup.csv`._
 
-_Last updated: 2026-07-06 06:00 UTC_
+_Last updated: 2026-07-06 17:28 UTC_
