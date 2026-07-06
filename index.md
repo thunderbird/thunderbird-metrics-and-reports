@@ -31,3 +31,13 @@ Desktop spike report by time grain:
 - [Monthly](PROJECT1/REPORTS/desktop/monthly-spike-report.html) (trailing 24 months)
 - [Quarterly](PROJECT1/REPORTS/desktop/quarterly-spike-report.html) (trailing 12 quarters)
 - [Yearly](PROJECT1/REPORTS/desktop/yearly-spike-report.html) (all history)
+
+## LLM Insights (experimental — AI)
+
+The AI counterpart to Project 1. Claude reads each support question (plus the
+creator's own follow-ups, the accepted solution, and trusted-contributor replies),
+names the concrete problem, hypothesises a root cause, and rates severity —
+surfacing **emerging and worst-served** issues that regex + stats can't. Desktop
+only; a prototype for review.
+
+**For engineering** — [LLM Insights monthly summary (latest)](LLM_INSIGHTS/REPORTS/desktop/monthly-summary-latest.html): ranked issues to investigate, each with severity, resolved-rate, and clickable example questions. _(Prototype — feedback welcome.)_
