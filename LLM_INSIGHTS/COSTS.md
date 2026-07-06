@@ -46,7 +46,36 @@ Recurring = classify the **new** month only + one reduce (prior month already la
 - Full month, Batch API: **≈ $2.9**.
 - If generated *today* (partial, 128 q so far): **≈ $1.4** — but understates July (month ~20% elapsed).
 
+## Batch API — caveats and current decision
+
+**Decision (2026-07-06): stay on the live (synchronous) API for now.** The 50% saving
+is real but small in absolute terms (~$2/month desktop), and the added complexity isn't
+worth it until the pipeline is automated and stable. Revisit when building Bucket 4.
+
+The Batch API is not "just slower" — it's a different, asynchronous execution model:
+
+- **Asynchronous, up to 24 h SLA** (usually <1 h). You submit, then poll until `ended`.
+  Fine for a scheduled report; wrong for anything interactive. Results kept 29 days.
+- **Results come back unordered** — must key every request by a `custom_id` and match on
+  it, never by position.
+- **Per-request outcomes vary within one batch** (`succeeded` / `errored` / `canceled` /
+  `expired`) — a batch can partially fail, so the code must handle mixed results and
+  re-submit expired/errored items, not assume all-or-nothing.
+- **It's a code change, not a flag** — `messages.batches.create` → poll `retrieve` →
+  stream `results()`, replacing the current synchronous `messages.create` loop.
+- **Prompt caching is less predictable** — the server controls timing/concurrency, so the
+  cross-request cache hits on the shared system prompt aren't guaranteed the way they are
+  in a sequential run (the 50% batch discount usually dominates anyway).
+- **Unchanged / fine for us:** 50% off both input and output; all features supported
+  (structured outputs, our schema, thinking); 100k requests / 256 MB per batch limit;
+  available on the first-party API (not Bedrock/Vertex/Foundry — irrelevant here); the
+  $50 pre-spend `count_tokens` gate still applies.
+
+**When we do adopt it (Bucket 4):** batch the **classify** stage (many calls, latency-
+insensitive → biggest saving); keep the **reduce** stage (2 calls) **live** (batching a
+couple of calls saves pennies and adds latency); **Android stays live** (saving ~$0.15
+isn't worth the complexity at ~46 q/mo).
+
 ## Notes
-- A monthly report is not latency-sensitive, so when this is automated (Bucket 4) the **Batch API** roughly halves the recurring classification cost.
 - All figures are well under the $50/run circuit-breaker.
 - Cost scales with the enriched text size; if it ever grows, re-baseline the unit rate with the Bucket-0 preview: `uv run scripts/llm_insights_cost.py <month> <month> <product>`.
