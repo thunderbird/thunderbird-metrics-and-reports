@@ -38,13 +38,19 @@ Recurring = classify the **new** month only + one reduce (prior month already la
 | Product | ~Questions/mo | Live API | Batch API (−50% classify) |
 |:--|--:|--:|--:|
 | Desktop | ~660–720 (declining) | **~$5.0–5.4** | **~$2.9** |
-| Android | ~46 | **~$0.30** | **~$0.20** |
+| Android | ~46 | **~$0.38** (classify ~$0.26 + reduce ~$0.12) | **~$0.25** |
 
 ### July 2026 desktop report (July vs June)
 - June already labeled, so only July needs classifying + the reduce.
 - Full month, live: **≈ $5.0–5.4** (128 questions in through day 6; projecting ~660–720 for the month at ~$0.0066/q + ~$0.60 reduce).
 - Full month, Batch API: **≈ $2.9**.
 - If generated *today* (partial, 128 q so far): **≈ $1.4** — but understates July (month ~20% elapsed).
+
+### July 2026 android report (July vs June)
+- June already labeled, so only July needs classifying + the reduce.
+- Full month, live: classify ~46 q × ~$0.0057/q ≈ **$0.26** + reduce **~$0.12** = **≈ $0.38**.
+- If generated *today* (partial, 7 q so far): **≈ $0.16** — badly understates July (7 of ~46).
+- Android stays **live** (see decision below); batching saves ~$0.13, not worth the complexity.
 
 ## Batch API — caveats and current decision
 
