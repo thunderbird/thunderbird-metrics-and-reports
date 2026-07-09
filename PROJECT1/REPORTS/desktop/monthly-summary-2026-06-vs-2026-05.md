@@ -81,10 +81,10 @@ _None — every cause cluster in June 2026 has appeared in a prior month._
 | email-and-messaging | 90 | 49 | ▼ -41 (-46%) |
 | passwords-and-sign-in | 56 | 32 | ▼ -24 (-43%) |
 | connectivity | 37 | 34 | ▼ -3 (-8%) |
-| account-management | 35 | 29 | ▼ -6 (-17%) |
+| junk-mail-and-spam | 35 | 29 | ▼ -6 (-17%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · June 2026 vs May 2026._
 
-_Last updated: 2026-07-09 09:06 UTC_
+_Last updated: 2026-07-09 20:34 UTC_
