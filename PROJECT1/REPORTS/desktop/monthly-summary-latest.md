@@ -87,4 +87,4 @@ _None — every cause cluster in June 2026 has appeared in a prior month._
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · June 2026 vs May 2026._
 
-_Last updated: 2026-07-10 20:31 UTC_
+_Last updated: 2026-07-11 08:34 UTC_
