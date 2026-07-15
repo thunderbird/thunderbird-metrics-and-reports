@@ -1,90 +1,84 @@
 ---
 layout: base
-title: Desktop Engineering Support Summary — June 2026
+title: Desktop Engineering Support Summary — July 2026
 ---
 
 # Thunderbird Desktop — Monthly Engineering Support Summary
 
-## June 2026 vs May 2026
+## July 2026 vs June 2026
 
 _For **engineering**: the support signals worth investigating this month vs last — flagged incidents, moving cause clusters, and release adoption. (Community/support-ops KPIs — answered & solved rates, response time — are a separate upcoming report.) Non-AI: regex + traditional stats._
 
+> ⚠️ **July 2026 is in progress** — data through day 14 of 31. Counts are partial, so the deltas below understate July 2026; treat volume changes as directional until the month closes.
+
 ## Headline
 
-| | May 2026 | June 2026 | Change |
+| | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 812 | 724 | ▼ -88 (-11%) |
-| Version × cause spikes flagged | 5 | 3 | ▼ -2 |
-| — of which **new** regressions | 3 | 2 | ▼ -1 |
+| Support questions (load) | 724 | 323 | ▼ -401 (-55%) |
+| Version × cause spikes flagged | 3 | 0 | ▼ -3 |
+| — of which **new** regressions | 2 | 0 | ▼ -2 |
 | Cause-level surges flagged | 0 | 0 | ▬ 0 |
 
 ## 🚨 Incidents to investigate
 
 > ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
 
-### Version × cause — possible release regressions
-
-Ranked new → spreading → recurring, then by lift (× above what release adoption alone explains).
-
-| Signal | When | Version × Cause | Qs | Lift | Served | Example questions |
-|:--|:--|:--|--:|--:|:--|:--|
-| 🆕 new | 2026-06-09 | v151 × m:spectrum | 7 | 22.2× | 100% ans · 14.3h | [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") [1586486](https://support.mozilla.org/questions/1586486 "Thunderbird is showing Certificate for mobile.charter.net:993 does not come from") +2 |
-| 🆕 new | 2026-06-30 | v152 × m:gmail | 4 | 4.7× | ⚠️ 50% ans · 2.5h | [1590372](https://support.mozilla.org/questions/1590372 "Urgent question: Wrong email group when I sign in coming up") [1590393](https://support.mozilla.org/questions/1590393 "Storende pop-up naar aanleiding van verwijderde google-account") [1590463](https://support.mozilla.org/questions/1590463 "Message not visible with no filter activated, all account are synchronized") [1590499](https://support.mozilla.org/questions/1590499 "archive Gmail to local storage　by Tb") |
-| ↗ spreading | 2026-06-29 | v152 × m:microsoftemail | 6 | 4.4× | ⚠️ 50% ans · 6.8h | [1590178](https://support.mozilla.org/questions/1590178 "Adding 2nd outlook accound") [1590198](https://support.mozilla.org/questions/1590198 "Thunderbird emails have started to only show links and not the pictures within t") [1590208](https://support.mozilla.org/questions/1590208 "Can't connect to my live and outlook accounts since 2 weeks") [1590210](https://support.mozilla.org/questions/1590210 "TBird152.0  is not displaing HTML emails properly.") [1590301](https://support.mozilla.org/questions/1590301 "One-hour delay in the guest's meeting schedule (Atraso de uma hora na agenda do ") +1 |
+_No spikes flagged this month at current thresholds._
 
 ## What moved
 
 ### Cause clusters (provider / protocol / AV)
 
-| Cause clusters (provider / protocol / AV) | May 2026 | June 2026 | Change |
+| Cause clusters (provider / protocol / AV) | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
-| m:gmail | 76 | 52 | ▼ -24 (-32%) |
-| m:microsoftemail | 75 | 54 | ▼ -21 (-28%) |
-| m:yahooemail | 43 | 26 | ▼ -17 (-40%) |
-| proto:imap | 65 | 51 | ▼ -14 (-22%) |
-| proto:smtp | 36 | 25 | ▼ -11 (-31%) |
-| proto:pop | 41 | 30 | ▼ -11 (-27%) |
-| proto:oauth | 17 | 12 | ▼ -5 (-29%) |
-| m:icloud | 5 | 8 | ▲ +3 |
+| m:microsoftemail | 54 | 21 | ▼ -33 (-61%) |
+| proto:imap | 51 | 25 | ▼ -26 (-51%) |
+| m:gmail | 52 | 33 | ▼ -19 (-37%) |
+| m:spectrum | 20 | 3 | ▼ -17 (-85%) |
+| m:yahooemail | 26 | 14 | ▼ -12 (-46%) |
+| m:comcast | 14 | 5 | ▼ -9 (-64%) |
+| proto:pop | 30 | 21 | ▼ -9 (-30%) |
+| proto:smtp | 25 | 17 | ▼ -8 (-32%) |
 
 ### 🆕 New cause clusters (first appearance ever)
 
-_None — every cause cluster in June 2026 has appeared in a prior month._
+_None — every cause cluster in July 2026 has appeared in a prior month._
 
 ### Release adoption (version mix)
 
-| Release adoption (version mix) | May 2026 | June 2026 | Change |
+| Release adoption (version mix) | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
-| v140 | 205 | 179 | ▼ -26 (-13%) |
-| v151 | 136 | 189 | ▲ +53 (+39%) |
-| v150 | 274 | 17 | ▼ -257 (-94%) |
-| v152 | 1 | 158 | ▲ +157 |
-| v115 | 23 | 26 | ▲ +3 (+13%) |
-| v149 | 17 | 11 | ▼ -6 (-35%) |
+| v152 | 158 | 142 | ▼ -16 (-10%) |
+| v140 | 179 | 84 | ▼ -95 (-53%) |
+| v151 | 189 | 1 | ▼ -188 (-99%) |
+| v115 | 26 | 7 | ▼ -19 (-73%) |
+| v150 | 17 | 12 | ▼ -5 (-29%) |
+| v149 | 11 | 3 | ▼ -8 (-73%) |
 
 ### Operating-system mix
 
-| Operating-system mix | May 2026 | June 2026 | Change |
+| Operating-system mix | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 655 | 589 | ▼ -66 (-10%) |
-| os:linux | 69 | 62 | ▼ -7 (-10%) |
-| os:macos | 53 | 49 | ▼ -4 (-8%) |
-| os:other | 8 | 11 | ▲ +3 |
-| os:android | 6 | 4 | ▼ -2 |
+| os:windows | 589 | 258 | ▼ -331 (-56%) |
+| os:linux | 62 | 21 | ▼ -41 (-66%) |
+| os:macos | 49 | 25 | ▼ -24 (-49%) |
+| os:other | 11 | 7 | ▼ -4 (-36%) |
+| os:android | 4 | 6 | ▲ +2 |
 
 ### Topic mix
 
-| Topic mix | May 2026 | June 2026 | Change |
+| Topic mix | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 215 | 204 | ▼ -11 (-5%) |
-| customization | 103 | 65 | ▼ -38 (-37%) |
-| email-and-messaging | 90 | 49 | ▼ -41 (-46%) |
-| passwords-and-sign-in | 56 | 32 | ▼ -24 (-43%) |
-| connectivity | 37 | 34 | ▼ -3 (-8%) |
-| account-management | 35 | 29 | ▼ -6 (-17%) |
+| send-and-receive-email | 204 | 67 | ▼ -137 (-67%) |
+| customization | 65 | 36 | ▼ -29 (-45%) |
+| email-and-messaging | 49 | 44 | ▼ -5 (-10%) |
+| passwords-and-sign-in | 32 | 27 | ▼ -5 (-16%) |
+| connectivity | 34 | 14 | ▼ -20 (-59%) |
+| import-and-export-email | 28 | 14 | ▼ -14 (-50%) |
 
 ---
 
-_Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · June 2026 vs May 2026._
+_Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · July 2026 vs June 2026._
 
-_Last updated: 2026-07-14 20:25 UTC_
+_Last updated: 2026-07-15 08:46 UTC_
