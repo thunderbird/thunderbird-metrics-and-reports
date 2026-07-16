@@ -5,10 +5,10 @@ title: YEARLY: Thunderbird Desktop — Support Spike Report
 
 # YEARLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2023 … 2026 · **yearly** grain · all history · 47578 questions · no AI (regex + traditional stats)_
+_Generated 2023 … 2026 · **yearly** grain · all history · 47584 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 47578 questions, 11894.5/year avg
-- **Answered (non-creator):** 36005/47578 (76%)
+- **Volume:** 47584 questions, 11896.0/year avg
+- **Answered (non-creator):** 36012/47584 (76%)
 - **First-answer time (median):** 3.6h (p25 1.0h / p75 12.8h)
 - **Total volume trend:** `▆██▃`
 
@@ -61,10 +61,10 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 849 | `▁▁▁█` |
+| v140 | 851 | `▁▁▁█` |
 | v150 | 410 | `▁▁▁█` |
 | v151 | 327 | `▁▁▁█` |
-| v152 | 311 | `▁▁▁█` |
+| v152 | 313 | `▁▁▁█` |
 | v149 | 310 | `▁▁▁█` |
 | v148 | 238 | `▁▁▁█` |
 
@@ -75,7 +75,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | m:gmail | 4435 | `▆█▇▃` |
 | m:microsoftemail | 3662 | `▆█▆▃` |
 | m:yahooemail | 1321 | `▅██▅` |
-| m:comcast | 596 | `▅█▇▃` |
+| m:comcast | 597 | `▅█▇▃` |
 | m:spectrum | 508 | `▇█▇▄` |
 | m:att | 353 | `▇██▃` |
 
@@ -105,7 +105,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 8592 | `▃▄▄█` |
+| os:windows | 8598 | `▃▄▄█` |
 | os:linux | 1953 | `▇█▇▆` |
 | os:macos | 1292 | `▆▇▆█` |
 | os:other | 122 | `▁▁▂█` |
@@ -126,4 +126,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-yearly-rollup.csv`._
 
-_Last updated: 2026-07-15 16:57 UTC_
+_Last updated: 2026-07-16 05:27 UTC_

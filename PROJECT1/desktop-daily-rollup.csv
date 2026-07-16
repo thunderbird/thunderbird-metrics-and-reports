@@ -127,6 +127,7 @@ period,dim,value,count
 2026-07-08,mail_provider,m:comcast,1
 2026-07-09,mail_provider,m:comcast,2
 2026-07-14,mail_provider,m:comcast,1
+2026-07-15,mail_provider,m:comcast,1
 2026-04-29,mail_provider,m:earthlink,1
 2026-05-16,mail_provider,m:earthlink,1
 2026-05-19,mail_provider,m:earthlink,1
@@ -762,7 +763,7 @@ period,dim,value,count
 2026-07-12,os,os:windows,9
 2026-07-13,os,os:windows,24
 2026-07-14,os,os:windows,24
-2026-07-15,os,os:windows,7
+2026-07-15,os,os:windows,13
 2026-04-30,protocol,proto:caldav,1
 2026-05-27,protocol,proto:caldav,1
 2026-06-05,protocol,proto:caldav,1
@@ -1051,6 +1052,7 @@ period,dim,value,count
 2026-06-18,tb_version_major,128,2
 2026-07-05,tb_version_major,128,1
 2026-07-07,tb_version_major,128,1
+2026-07-15,tb_version_major,128,1
 2026-06-25,tb_version_major,139,1
 2026-07-13,tb_version_major,139,1
 2026-04-17,tb_version_major,140,11
@@ -1142,7 +1144,7 @@ period,dim,value,count
 2026-07-12,tb_version_major,140,1
 2026-07-13,tb_version_major,140,6
 2026-07-14,tb_version_major,140,5
-2026-07-15,tb_version_major,140,4
+2026-07-15,tb_version_major,140,6
 2026-06-08,tb_version_major,141,1
 2026-05-12,tb_version_major,142,1
 2026-06-20,tb_version_major,142,1
@@ -1348,7 +1350,7 @@ period,dim,value,count
 2026-07-12,tb_version_major,152,6
 2026-07-13,tb_version_major,152,12
 2026-07-14,tb_version_major,152,16
-2026-07-15,tb_version_major,152,5
+2026-07-15,tb_version_major,152,7
 2026-05-22,tb_version_major,153,1
 2026-06-22,tb_version_major,153,1
 2026-06-29,tb_version_major,153,2
@@ -1445,4 +1447,4 @@ period,dim,value,count
 2026-07-12,total,all,12
 2026-07-13,total,all,29
 2026-07-14,total,all,29
-2026-07-15,total,all,9
+2026-07-15,total,all,15
