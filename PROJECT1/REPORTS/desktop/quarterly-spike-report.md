@@ -5,10 +5,10 @@ title: QUARTERLY: Thunderbird Desktop — Support Spike Report
 
 # QUARTERLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2023-Q4 … 2026-Q3 · **quarterly** grain · trailing 12 quarters · 39949 questions · no AI (regex + traditional stats)_
+_Generated 2023-Q4 … 2026-Q3 · **quarterly** grain · trailing 12 quarters · 40011 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 39949 questions, 3329.1/quarter avg
-- **Answered (non-creator):** 30182/39949 (76%)
+- **Volume:** 40011 questions, 3334.2/quarter avg
+- **Answered (non-creator):** 30233/40011 (76%)
 - **First-answer time (median):** 3.5h (p25 1.0h / p75 12.3h)
 - **Total volume trend:** `▇▆▅██▇▆▇▆▅▄▂`
 
@@ -36,7 +36,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | **30.0×** | 2023-10 | m:frontier | 15 | ⚠️ 53% ans · 7.9h | 0.5 | `█▂▂▂▄▂▂▂▂▁▂▁` | [1426135](https://support.mozilla.org/questions/1426135 "Email not working after update to SuperNova?  Multiple - gmail, dreamhost, front") [1426500](https://support.mozilla.org/questions/1426500 "Thunderbird Version	119.0b3 - hangs") [1426532](https://support.mozilla.org/questions/1426532 "Thunderbird downloading messages from frontier.com") [1426537](https://support.mozilla.org/questions/1426537 "using Frontier.com for email.  TB v 102 stopped working yesterday.  Updated to v") [1426556](https://support.mozilla.org/questions/1426556 "Tbird 115.2.1 stopped downloading emails on all accounts.") [1426687](https://support.mozilla.org/questions/1426687 "URGENT REQUEST FOR 'basic' HELP - My Email-setting has been changed by 'SKYPE'..") +9 |
 | **7.0×** | 2024-12 | m:orange | 14 | ⚠️ 50% ans · 0.6h | 2.0 | `▂▂▂▃██▃▆▄▄▃▁` | [1476744](https://support.mozilla.org/questions/1476744 "Boite mail") [1477337](https://support.mozilla.org/questions/1477337 "suite a une intervention de orange") [1477350](https://support.mozilla.org/questions/1477350 "envoi des messages") [1477378](https://support.mozilla.org/questions/1477378 "impossible d'envoyer mes mails lorsque je suis chez moi en wifi") [1477476](https://support.mozilla.org/questions/1477476 "Paramètres Orange Obsolètes") [1477498](https://support.mozilla.org/questions/1477498 "i cannot inscribe on thunder bird a new code as orange ask me to use thunderbird") +8 |
 | **6.8×** | 2025-01 | av:bitdefender | 17 | 88% ans · 3.4h | 2.5 | `▂▂▁▂▂▄▂█▂▂▂▁` | [1482921](https://support.mozilla.org/questions/1482921 "Transferring Thunderbird Profile from Windows 10 Computer to Windows 11 Computer") [1484507](https://support.mozilla.org/questions/1484507 "All'avvio Thunderbird si apre 3 secondo e poi si chiude inaspettatamente") [1484717](https://support.mozilla.org/questions/1484717 "Thunderbird Freezing (＂Not Responding＂) Repeatedly") [1485005](https://support.mozilla.org/questions/1485005 "Thunderbird crashes when trying to open settings, caused by Bitdefender") [1485049](https://support.mozilla.org/questions/1485049 "Thunderbird crashes on startup, caused by Bitdefender") [1485835](https://support.mozilla.org/questions/1485835 "Sent radio buttons do not exist, send unsent email option greyed out under File ") +11 |
-| **6.0×** | 2025-08 | m:btinternet | 9 | 89% ans · 10.7h | 1.5 | `▃▆██▆▆▃▇▅▆▆▂` | [1528543](https://support.mozilla.org/questions/1528543 "Corrupted btinternet emails (bitdefender)") [1528732](https://support.mozilla.org/questions/1528732 "I have started receiving emails as attached. (bitdefender)") [1528856](https://support.mozilla.org/questions/1528856 "I no longer receive correct emails from Thunderbird.   Each message received sta") [1528919](https://support.mozilla.org/questions/1528919 "receiving emails with no header (bitdefender)") [1529008](https://support.mozilla.org/questions/1529008 "Incoming emails from my BT email account are in gibberish (bitdefender)") [1529260](https://support.mozilla.org/questions/1529260 "Incoming emails into BT internet account lose formatting and attachements") +3 |
+| **6.0×** | 2025-08 | m:btinternet | 9 | 89% ans · 10.7h | 1.5 | `▃▆██▆▆▃▇▅▆▆▃` | [1528543](https://support.mozilla.org/questions/1528543 "Corrupted btinternet emails (bitdefender)") [1528732](https://support.mozilla.org/questions/1528732 "I have started receiving emails as attached. (bitdefender)") [1528856](https://support.mozilla.org/questions/1528856 "I no longer receive correct emails from Thunderbird.   Each message received sta") [1528919](https://support.mozilla.org/questions/1528919 "receiving emails with no header (bitdefender)") [1529008](https://support.mozilla.org/questions/1529008 "Incoming emails from my BT email account are in gibberish (bitdefender)") [1529260](https://support.mozilla.org/questions/1529260 "Incoming emails into BT internet account lose formatting and attachements") +3 |
 | **6.0×** | 2024-05 | m:cox | 24 | 92% ans · 3.9h | 4.0 | `▂▂█▃▂▂▂▂▁▁▁▁` | [1446257](https://support.mozilla.org/questions/1446257 "Cox / yahoo - User Name keeps changing. The fix I read does not work for me in 2") [1446337](https://support.mozilla.org/questions/1446337 "Cox moving email services to Yahoo") [1446412](https://support.mozilla.org/questions/1446412 "Thunderbird vs the Cox email to Yahoo email migration") [1446501](https://support.mozilla.org/questions/1446501 "New cox.net email") [1446525](https://support.mozilla.org/questions/1446525 "Transitioning to Yahoo from Cox") [1446535](https://support.mozilla.org/questions/1446535 "Rearrange email domains in the left tool box?") +18 |
 | **6.0×** | 2024-04 | m:cox | 24 | 83% ans · 6.2h | 4.0 | `▂▂█▃▂▂▂▂▁▁▁▁` | [1443922](https://support.mozilla.org/questions/1443922 "Switching from COX Internet to a competitors 5G wireless network for internet.") [1444186](https://support.mozilla.org/questions/1444186 "email from yahoo") [1444249](https://support.mozilla.org/questions/1444249 "Thunderbird v115.9.0 (32-bit) not sending Yahoo email") [1444457](https://support.mozilla.org/questions/1444457 "Can't send a message with Mozilla Thunderbird - just hangs - no error message") [1444635](https://support.mozilla.org/questions/1444635 "Cox email") [1444650](https://support.mozilla.org/questions/1444650 "Email service") +18 |
 | **5.3×** | 2025-12 | m:gmx | 8 | 88% ans · 17.0h | 1.5 | `▄▂▂▅▆▄▂▃▄█▄▂` | [1552704](https://support.mozilla.org/questions/1552704 "GMX IMAP Login Failure") [1553040](https://support.mozilla.org/questions/1553040 "Login to the server pop.gmx.net with username ＂...＂ failed.") [1555220](https://support.mozilla.org/questions/1555220 "warum verlangt https://caldav.gmx.net verlangt einen Benutzernamen und ein Passw") [1555687](https://support.mozilla.org/questions/1555687 "Account creation not possible despite confirmed login credentials") [1556443](https://support.mozilla.org/questions/1556443 "cannot receive mails in my inbox, basis is GMX") [1556657](https://support.mozilla.org/questions/1556657 "Ich kann mit Thunderbird keine Emails mehr versenden u. empfangen und mittlerwei") +2 |
@@ -59,10 +59,10 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 872 | `▁▁▁▁▁▁▁▁▁▄█▂` |
-| v150 | 415 | `▁▁▁▁▁▁▁▁▁▁█▁` |
-| v152 | 336 | `▁▁▁▁▁▁▁▁▁▁▇█` |
-| v151 | 327 | `▁▁▁▁▁▁▁▁▁▁█▁` |
+| v140 | 890 | `▁▁▁▁▁▁▁▁▁▄█▃` |
+| v150 | 421 | `▁▁▁▁▁▁▁▁▁▁█▁` |
+| v152 | 357 | `▁▁▁▁▁▁▁▁▁▁▇█` |
+| v151 | 329 | `▁▁▁▁▁▁▁▁▁▁█▁` |
 | v149 | 312 | `▁▁▁▁▁▁▁▁▁▂█▁` |
 | v148 | 238 | `▁▁▁▁▁▁▁▁▁█▁▁` |
 
@@ -71,8 +71,8 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | m:gmail | 3668 | `▆▆▅██▆▅▆▅▅▄▂` |
-| m:microsoftemail | 2982 | `▅▅▄█▇▅▄▅▄▄▄▁` |
-| m:yahooemail | 1135 | `▅▄█▇▆▅▄█▇█▆▂` |
+| m:microsoftemail | 2985 | `▅▅▄█▇▅▄▅▄▄▄▁` |
+| m:yahooemail | 1136 | `▅▄█▇▆▅▄█▇█▆▂` |
 | m:comcast | 515 | `▅▇▆██▇▅▇▇▃▆▂` |
 | m:spectrum | 435 | `█▆▄▇▅▆▅▆▅▄▆▁` |
 | m:att | 293 | `▇▃█▇█▇▅█▅▅▃▁` |
@@ -81,11 +81,11 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 2827 | `▆▆▆██▇▅▆▅▅▄▂` |
-| proto:smtp | 1804 | `▆▆▆█▇▆▅▆▄▅▃▂` |
-| proto:pop | 1771 | `▅▅▄█▇▆▅▆▅▄▄▂` |
-| proto:oauth | 704 | `▃▂▄█▅▃▃▃▃▄▃▂` |
-| proto:caldav | 135 | `▆▆▃▆█▇▆▆▄▆▄▁` |
+| proto:imap | 2831 | `▆▆▆██▇▅▆▅▅▄▂` |
+| proto:smtp | 1810 | `▆▆▆█▇▆▅▆▄▅▃▂` |
+| proto:pop | 1772 | `▅▅▄█▇▆▅▆▅▄▄▂` |
+| proto:oauth | 706 | `▃▂▄█▅▃▃▃▃▄▃▂` |
+| proto:caldav | 136 | `▆▆▃▆█▇▆▆▄▆▄▂` |
 | proto:carddav | 75 | `▄▅▅▇▇█▃█▅▇▅▂` |
 
 ### Top antivirus
@@ -103,9 +103,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 7697 | `▃▂▂▃▃▃▂▃▃██▂` |
-| os:linux | 1637 | `▆▅▄▆▆▅▅▅▅█▇▂` |
-| os:macos | 1095 | `▄▄▃▄▄▄▃▅▃█▇▂` |
+| os:windows | 7750 | `▃▂▂▃▃▃▂▃▃██▂` |
+| os:linux | 1639 | `▆▅▄▆▆▅▅▅▅█▇▂` |
+| os:macos | 1098 | `▄▄▃▄▄▄▃▅▃█▇▂` |
 | os:other | 123 | `▁▁▁▁▁▁▁▁▁█▃▂` |
 | os:android | 92 | `▁▂▂▂▁▂▂▂▂█▆▂` |
 
@@ -114,7 +114,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | macos:sonoma | 164 | `▄▇▅█▃▂▁▁▂▂▁▁` |
-| macos:sequoia | 155 | `▁▁▁▂▆█▄█▄▃▂▁` |
+| macos:sequoia | 156 | `▁▁▁▂▆█▄█▄▃▂▁` |
 | macos:ventura | 66 | `█▂▂▂▂▂▂▃▂▁▁▁` |
 | macos:monterey | 53 | `▆█▆▅▆▇▃▄▃▂▃▁` |
 | macos:catalina | 51 | `▃▂▃▃▄▃▂█▂▂▂▁` |
@@ -124,4 +124,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-quarterly-rollup.csv`._
 
-_Last updated: 2026-07-21 17:00 UTC_
+_Last updated: 2026-07-22 05:32 UTC_
