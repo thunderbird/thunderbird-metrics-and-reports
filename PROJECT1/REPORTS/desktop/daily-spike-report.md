@@ -8,8 +8,8 @@ title: DAILY: Thunderbird Desktop — Support Spike Report
 _Generated 2026-04-24 … 2026-07-22 · **daily** grain · trailing 90 days · 2213 questions · no AI (regex + traditional stats)_
 
 - **Volume:** 2213 questions, 24.6/day avg
-- **Answered (non-creator):** 1801/2213 (81%)
-- **First-answer time (median):** 3.4h (p25 0.9h / p75 11.7h)
+- **Answered (non-creator):** 1807/2213 (82%)
+- **First-answer time (median):** 3.4h (p25 0.9h / p75 11.9h)
 - **Total volume trend:** `▄▄▄▇▇▇▆▅▄▄▅▇█▆▆▆▅▆▇▅▅▇▆▅▅▅▆▇▅▄▅▆▇█▇▅▄▄▅▆▆▅▆▄▄▇▆▆▅▇▄▅▅▅▆▆▅▄▃▄▇▆▇▅▄▅▆▆▅▇▅▅▄▆▆▅▆▅▄▃▆▆▄▄▄▅▄▆▆▅`
 
 > ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
@@ -107,4 +107,4 @@ _No cause-level spikes in this window at current thresholds._
 
 _Notes: spikes detected at **daily** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-daily-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-daily-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-daily-rollup.csv`._
 
-_Last updated: 2026-07-23 05:36 UTC_
+_Last updated: 2026-07-23 17:02 UTC_
