@@ -420,7 +420,7 @@ period,dim,value,count
 2026,tb_version_major,149,312
 2026,tb_version_major,150,421
 2026,tb_version_major,151,330
-2026,tb_version_major,152,362
+2026,tb_version_major,152,361
 2026,tb_version_major,153,22
 2026,tb_version_major,155,1
 2026,tb_version_major,156,1
@@ -428,4 +428,4 @@ period,dim,value,count
 2023,total,all,11558
 2024,total,all,15379
 2025,total,all,15171
-2026,total,all,5663
+2026,total,all,5662

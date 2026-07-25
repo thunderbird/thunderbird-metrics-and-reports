@@ -1557,7 +1557,7 @@ period,dim,value,count
 2026-04,tb_version_major,152,1
 2026-05,tb_version_major,152,1
 2026-06,tb_version_major,152,158
-2026-07,tb_version_major,152,202
+2026-07,tb_version_major,152,201
 2026-05,tb_version_major,153,1
 2026-06,tb_version_major,153,3
 2026-07,tb_version_major,153,18
@@ -1587,4 +1587,4 @@ period,dim,value,count
 2026-04,total,all,759
 2026-05,total,all,812
 2026-06,total,all,724
-2026-07,total,all,534
+2026-07,total,all,533

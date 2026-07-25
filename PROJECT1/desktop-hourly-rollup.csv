@@ -262,7 +262,6 @@ period,dim,value,count
 2026-07-18 15:00,tb_version_major,152,1
 2026-07-18 17:00,tb_version_major,152,1
 2026-07-18 18:00,tb_version_major,152,1
-2026-07-19 08:00,tb_version_major,152,1
 2026-07-19 10:00,tb_version_major,152,1
 2026-07-19 13:00,tb_version_major,152,1
 2026-07-19 18:00,tb_version_major,152,1
@@ -332,7 +331,7 @@ period,dim,value,count
 2026-07-18 22:00,total,all,1
 2026-07-19 01:00,total,all,1
 2026-07-19 05:00,total,all,1
-2026-07-19 08:00,total,all,2
+2026-07-19 08:00,total,all,1
 2026-07-19 10:00,total,all,2
 2026-07-19 11:00,total,all,2
 2026-07-19 12:00,total,all,1

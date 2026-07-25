@@ -1007,7 +1007,7 @@ period,dim,value,count
 2026-Q2,tb_version_major,151,326
 2026-Q3,tb_version_major,151,4
 2026-Q2,tb_version_major,152,160
-2026-Q3,tb_version_major,152,202
+2026-Q3,tb_version_major,152,201
 2026-Q2,tb_version_major,153,4
 2026-Q3,tb_version_major,153,18
 2026-Q1,tb_version_major,155,1
@@ -1024,4 +1024,4 @@ period,dim,value,count
 2025-Q4,total,all,3282
 2026-Q1,total,all,2834
 2026-Q2,total,all,2295
-2026-Q3,total,all,534
+2026-Q3,total,all,533
