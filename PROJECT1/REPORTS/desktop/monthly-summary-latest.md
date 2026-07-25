@@ -15,7 +15,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 724 | 534 | ▼ -190 (-26%) |
+| Support questions (load) | 724 | 533 | ▼ -191 (-26%) |
 | Version × cause spikes flagged | 3 | 0 | ▼ -3 |
 | — of which **new** regressions | 2 | 0 | ▼ -2 |
 | Cause-level surges flagged | 0 | 0 | ▬ 0 |
@@ -37,8 +37,8 @@ _No spikes flagged this month at current thresholds._
 | m:yahooemail | 26 | 17 | ▼ -9 (-35%) |
 | proto:imap | 51 | 45 | ▼ -6 (-12%) |
 | m:comcast | 14 | 9 | ▼ -5 (-36%) |
-| m:gmail | 52 | 48 | ▼ -4 (-8%) |
 | proto:smtp | 25 | 29 | ▲ +4 (+16%) |
+| m:gmail | 52 | 48 | ▼ -4 (-8%) |
 | m:icloud | 8 | 5 | ▼ -3 |
 
 ### 🆕 New cause clusters (first appearance ever)
@@ -49,7 +49,7 @@ _None — every cause cluster in July 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
-| v152 | 158 | 202 | ▲ +44 (+28%) |
+| v152 | 158 | 201 | ▲ +43 (+27%) |
 | v140 | 179 | 140 | ▼ -39 (-22%) |
 | v151 | 189 | 4 | ▼ -185 (-98%) |
 | v150 | 17 | 23 | ▲ +6 (+35%) |
@@ -72,7 +72,7 @@ _None — every cause cluster in July 2026 has appeared in a prior month._
 |:--|--:|--:|:--|
 | send-and-receive-email | 204 | 135 | ▼ -69 (-34%) |
 | customization | 65 | 54 | ▼ -11 (-17%) |
-| email-and-messaging | 49 | 62 | ▲ +13 (+27%) |
+| email-and-messaging | 49 | 61 | ▲ +12 (+24%) |
 | passwords-and-sign-in | 32 | 38 | ▲ +6 (+19%) |
 | connectivity | 34 | 21 | ▼ -13 (-38%) |
 | import-and-export-email | 28 | 20 | ▼ -8 (-29%) |
@@ -81,4 +81,4 @@ _None — every cause cluster in July 2026 has appeared in a prior month._
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · July 2026 vs June 2026._
 
-_Last updated: 2026-07-24 20:29 UTC_
+_Last updated: 2026-07-25 08:40 UTC_
