@@ -11,7 +11,11 @@ Design choices (see plan):
     prefix is billed once, then read at ~0.1x on every later batch.
   - Questions are sent in batches (default 10/call) to amortize the prefix and
     cut call count; each record echoes its `id` so results re-key safely.
-  - Thinking omitted + effort=low: this is cheap classification, not reasoning.
+  - Thinking DISABLED + effort=low: this is cheap classification, not reasoning.
+    On opus-5 thinking is on by default (unlike opus-4-8, where omitting the
+    parameter meant no thinking), and max_tokens caps thinking + JSON together —
+    so leaving it implicit costs unbudgeted tokens and risks truncating a batch.
+    Disabling is legal only at effort <= high; keep effort low here.
   - Cost is ESTIMATED via the free count_tokens endpoint and GATED at $50 BEFORE
     any spend; actual cost is printed afterward from usage.
 
@@ -25,9 +29,10 @@ import json
 import argparse
 
 sys.path.insert(0, "scripts")
-from llm_insights_cost import build_enriched, dollars, gate, PRICING
+from llm_insights_cost import (build_enriched, dollars, gate, response_text,
+                               PRICING)
 
-MODEL = "claude-opus-4-8"
+MODEL = "claude-opus-5"
 OUT = "LLM_INSIGHTS/{month}-{product}-labels.csv"
 
 CATEGORIES = [
@@ -177,6 +182,7 @@ def main():
             model=args.model,
             max_tokens=8000,
             system=system,
+            thinking={"type": "disabled"},
             output_config={"format": {"type": "json_schema", "schema": SCHEMA},
                            "effort": "low"},
             messages=[{"role": "user", "content": msg}],
@@ -186,8 +192,14 @@ def main():
         usage["out"] += u.output_tokens
         usage["cache_read"] += getattr(u, "cache_read_input_tokens", 0) or 0
         usage["cache_write"] += getattr(u, "cache_creation_input_tokens", 0) or 0
-        text = next(bl.text for bl in resp.content if bl.type == "text")
-        recs = json.loads(text)["results"]
+        # One bad batch (a classifier refusal, a truncated response) must not
+        # discard the batches already paid for: warn, skip, keep going. The
+        # missing ids are reported by the no-label check after the loop.
+        try:
+            recs = json.loads(response_text(resp, f"batch {i}"))["results"]
+        except (RuntimeError, json.JSONDecodeError) as e:
+            print(f"   ⚠️  batch {i}/{len(batches)} skipped: {e}")
+            continue
         results.extend(recs)
         print(f"   batch {i}/{len(batches)}: {len(recs)} records "
               f"(in {u.input_tokens}, out {u.output_tokens}, "

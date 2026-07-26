@@ -1,6 +1,7 @@
 # Project "LLM Insights" — API cost tracking
 
-_Last updated: 2026-07-06. Model: `claude-opus-4-8` ($5 / $25 per 1M input/output tokens)._
+_Last updated: 2026-07-25. Model: `claude-opus-5` ($5 / $25 per 1M input/output tokens)._
+_Moved from `claude-opus-4-8` on 2026-07-25; **rates are identical**, so every measured and projected figure below carries over. One behavioural difference matters for cost: opus-5 thinks by default (opus-4-8 did not), so the two mechanical stages — per-question classification and theme clustering — now pass `thinking={"type": "disabled"}` explicitly to keep their token spend where it was. The narrative stage still uses adaptive thinking at `effort: high`._
 _Every LLM step estimates cost via the free `count_tokens` endpoint and aborts above a **$50/run** ceiling (`scripts/llm_insights_cost.py`); actual cost is read from `response.usage` (cache-read tier included)._
 
 ## Measured unit rate

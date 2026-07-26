@@ -28,10 +28,11 @@ from datetime import datetime, timezone
 import pandas as pd
 
 sys.path.insert(0, "scripts")
-from llm_insights_cost import dollars, gate, PRICING, CONCAT_DIR
+from llm_insights_cost import (dollars, gate, response_text, PRICING,
+                               CONCAT_DIR)
 from llm_insights_classify import CATEGORIES
 
-MODEL = "claude-opus-4-8"
+MODEL = "claude-opus-5"
 LABELS = "LLM_INSIGHTS/{m}-{product}-labels.csv"
 REPORT_DIR = "LLM_INSIGHTS/REPORTS/{product}"
 QUESTION_URL = "https://support.mozilla.org/questions/{id}"
@@ -133,12 +134,15 @@ def cluster_themes(client, all_df, usage):
 
     resp = client.messages.create(
         model=MODEL, max_tokens=12000, system=system,
+        # Disabled deliberately: opus-5 thinks by default, and this is a
+        # mechanical grouping pass whose max_tokens must all go to the JSON.
+        thinking={"type": "disabled"},
         output_config={"format": {"type": "json_schema", "schema": CLUSTER_SCHEMA},
                        "effort": "low"},
         messages=[{"role": "user", "content": user}],
     )
     _add_usage(usage, resp)
-    clusters = json.loads(next(b.text for b in resp.content if b.type == "text"))["clusters"]
+    clusters = json.loads(response_text(resp, "Stage-2 clustering"))["clusters"]
 
     theme_to_label = {}
     assigned = set()
@@ -260,7 +264,7 @@ def narrate(client, cur_m, prev_m, top, cat_mom, headline_stats, usage):
         messages=[{"role": "user", "content": user}],
     )
     _add_usage(usage, resp)
-    return json.loads(next(b.text for b in resp.content if b.type == "text"))
+    return json.loads(response_text(resp, "Stage-2 narrative"))
 
 
 # ---- rendering ------------------------------------------------------------ #

@@ -30,6 +30,7 @@ COST_CEILING_USD = 50.0
 # Pricing per 1M tokens (input, output). Source: Claude API skill, cached
 # 2026-06-24. Update if pricing changes. Batch API is 50% off both columns.
 PRICING = {
+    "claude-opus-5": (5.00, 25.00),     # same rates as opus-4-8 — see COSTS.md
     "claude-opus-4-8": (5.00, 25.00),
     "claude-sonnet-5": (3.00, 15.00),   # standard; intro $2/$10 through 2026-08-31
     "claude-haiku-4-5": (1.00, 5.00),
@@ -68,6 +69,30 @@ def gate(estimate_usd: float, ceiling: float = COST_CEILING_USD,
         sys.exit(1)
     print(f"✅ Estimate for {label}: ${estimate_usd:,.2f} "
           f"(under ${ceiling:,.0f} ceiling) — OK to proceed.")
+
+
+class Refusal(RuntimeError):
+    """The model declined the request (`stop_reason == "refusal"`)."""
+
+
+def response_text(resp, label: str = "request") -> str:
+    """The response's text block, failing loudly instead of with StopIteration.
+
+    Opus 5's safety classifiers can decline a request: HTTP 200, `stop_reason
+    "refusal"`, and an EMPTY content array. A bare
+    `next(b.text for b in resp.content if b.type == "text")` raises
+    StopIteration there — killing a run mid-way after every earlier batch has
+    already been paid for. Callers that can skip one unit of work should catch
+    RuntimeError and continue; single-call stages should let it propagate.
+    """
+    if getattr(resp, "stop_reason", None) == "refusal":
+        cat = getattr(getattr(resp, "stop_details", None), "category", None)
+        raise Refusal(f"{label}: declined by safety classifiers (category={cat})")
+    for block in resp.content:
+        if block.type == "text":
+            return block.text
+    raise RuntimeError(f"{label}: no text block in response "
+                       f"(stop_reason={getattr(resp, 'stop_reason', None)})")
 
 
 def load_questions(month: str, product: str = "desktop") -> pd.DataFrame:
