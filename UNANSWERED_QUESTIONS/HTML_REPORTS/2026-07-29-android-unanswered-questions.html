@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.github.com; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; form-action 'none'; base-uri 'none'">
+  <title>Thunderbird for Android - Unanswered Questions 2026-07-29 09:00 UTC</title>
+  <style>
+  body { font-family: sans-serif; font-size: 13px; margin: 1em; }
+  h1 { font-size: 1.2em; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #ccc; padding: 4px 8px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; user-select: none; white-space: nowrap; }
+  th:hover { background: #ddd; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  a { color: #0060df; }
+  .assign-bar { margin: 0.5em 0; padding: 6px 8px; background: #f0f0f0; border: 1px solid #ccc; }
+  .assign-bar > * { margin-right: 10px; }
+  .assign-msg { color: #444; }
+  .assign-cell { white-space: nowrap; }
+  .assign-btn { font-size: 12px; cursor: pointer; }
+  .assign-btn[disabled] { cursor: default; opacity: 0.6; }
+  .filter-bar { margin: 0.5em 0; }
+  #tbq-filter { width: 340px; max-width: 100%; padding: 3px 6px; font-size: 13px; }
+  #tbq-filter-count { color: #444; margin-left: 8px; }
+</style>
+</head>
+<body>
+  <h1>Thunderbird for Android - Unanswered Questions</h1>
+  <p>Report generated: 2026-07-29 09:00 UTC</p>
+  <p>Questions created between 2026-07-15 09:00 UTC
+     and 2026-07-26 09:00 UTC with no non-creator answers</p>
+  <p>Total: 1 unanswered questions</p>
+  <div class="assign-bar">
+    <span id="auth-status">Not signed in</span>
+    <button id="set-token">Set GitHub token</button>
+    <button id="clear-token" style="display:none">Sign out</button>
+    <a href="https://github.com/thunderbird/thunderbird-metrics-and-reports/edit/main/UNANSWERED_QUESTIONS/android-assignments.csv">Claim manually (edit CSV)</a>
+    <span id="assign-msg" class="assign-msg"></span>
+  </div>
+  <div class="filter-bar">
+    <input id="tbq-filter" type="search" placeholder="Filter questions (creator, version, OS, title)..." autocomplete="off">
+    <span id="tbq-filter-count"></span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Date Created (UTC)</th>
+        <th>Elapsed</th>
+        <th>Creator</th>
+        <th>Version</th>
+        <th>OS</th>
+        <th>Question</th>
+        <th>Assignee</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>2026-07-15 19:17</td>
+      <td data-sort="325">13d 13h</td>
+      <td><a href="https://support.mozilla.org/en-US/user/Blackrose19602/">Blackrose19602</a></td>
+      <td></td>
+      <td></td>
+      <td><a href="https://support.mozilla.org/questions/1593107" title="Met mijn Accounts graag in mail Wat is mijn officiële account op dit telefoon? ">1593107: Ik heb een vraag over mijn mail?</a></td>
+      <td class="assign-cell" data-sort=""><span class="assignee"></span> <button class="assign-btn" data-qid="1593107" data-assignee="" disabled>Claim</button></td>
+    </tr>
+    </tbody>
+  </table>
+  <script>window.TBQ={repo:"thunderbird/thunderbird-metrics-and-reports",path:"UNANSWERED_QUESTIONS/android-assignments.csv",branch:"main",assignees:["rtanglao", "lisajill", "wsmwk", "monica-thunderbird", "madhattermattic"]};</script>
+  <script>
+  const headers = document.querySelectorAll('th');
+  const sortState = {};
+  headers.forEach((th, col) => {
+    th.style.cursor = 'pointer';
+    th.addEventListener('click', () => {
+      const tbody = th.closest('table').querySelector('tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const asc = !sortState[col];
+      sortState[col] = asc;
+      rows.sort((a, b) => {
+        const av = a.cells[col].dataset.sort ?? a.cells[col].textContent.trim();
+        const bv = b.cells[col].dataset.sort ?? b.cells[col].textContent.trim();
+        const an = parseFloat(av), bn = parseFloat(bv);
+        if (!isNaN(an) && !isNaN(bn)) return asc ? an - bn : bn - an;
+        return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+      });
+      rows.forEach(r => tbody.appendChild(r));
+      headers.forEach(h => { h.textContent = h.textContent.replace(/ [▲▼]$/, ''); });
+      th.textContent += asc ? ' ▲' : ' ▼';
+    });
+  });
+</script>
+  <script>
+  var fInput = document.getElementById('tbq-filter');
+  var fCount = document.getElementById('tbq-filter-count');
+  if (fInput) {
+    var fTable = document.querySelector('table');
+    var fBody = fTable ? fTable.querySelector('tbody') : null;
+    var applyFilter = function () {
+      if (!fBody) return;
+      var q = fInput.value.trim().toLowerCase();
+      var shown = 0;
+      var trs = fBody.querySelectorAll('tr');
+      for (var i = 0; i < trs.length; i++) {
+        var match = !q || trs[i].textContent.toLowerCase().indexOf(q) >= 0;
+        trs[i].style.display = match ? '' : 'none';
+        if (match) shown++;
+      }
+      if (fCount) fCount.textContent = q ? (shown + ' of ' + trs.length + ' shown') : '';
+    };
+    fInput.addEventListener('input', applyFilter);
+  }
+</script>
+  <script>
+(function () {
+  var cfg = window.TBQ || {};
+  var TOKEN_KEY = 'tbq_gh_token';
+  var me = null;
+  var msgEl, statusEl, setBtn, clearBtn;
+
+  // Allowlist of GitHub logins permitted to claim (mirrors ASSIGNEES, injected
+  // via window.TBQ.assignees). The validate-assignments bot reverts off-list
+  // claims server-side; checking here too avoids the confusing experience of a
+  // claim that "disappears" seconds later. Empty list => no client-side guard.
+  var allowed = (cfg.assignees || []).map(function (x) { return (x || '').toLowerCase(); });
+  function isAllowed(u) { return allowed.length === 0 || allowed.indexOf((u || '').toLowerCase()) >= 0; }
+
+  function token() { return localStorage.getItem(TOKEN_KEY) || ''; }
+  function msg(t, isErr) { if (msgEl) { msgEl.textContent = t || ''; msgEl.style.color = isErr ? '#b00' : '#444'; } }
+
+  function api(method, url, body, tok) {
+    var t = tok || token();
+    var headers = { 'Accept': 'application/vnd.github+json' };
+    if (t) headers['Authorization'] = 'Bearer ' + t;
+    // cache:'no-store' bypasses the browser HTTP cache. GitHub's contents API
+    // sends Cache-Control: max-age=60, so without this a read-back after a write
+    // (refreshStates) returns the stale pre-write CSV for up to ~60s, and
+    // commit()'s read can return a stale sha causing spurious PUT 409 retries.
+    var opts = { method: method, headers: headers, cache: 'no-store' };
+    if (body) { headers['Content-Type'] = 'application/json'; opts.body = JSON.stringify(body); }
+    // Abort after 15s so a hung connection rejects cleanly instead of leaving
+    // the UI stuck (e.g. a button disabled on "Working...").
+    var ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+    if (ctrl) opts.signal = ctrl.signal;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 15000) : null;
+    return fetch(url, opts).then(function (r) {
+      if (timer) clearTimeout(timer);
+      return r;
+    }, function (err) {
+      if (timer) clearTimeout(timer);
+      if (err && err.name === 'AbortError') throw new Error('Request timed out (GitHub did not respond). Please try again.');
+      throw err;
+    });
+  }
+
+  // Token validation. We deliberately do NOT use GET /user/repos to verify
+  // single-repo scope: every fine-grained PAT carries implicit read-only access
+  // to all public repos, and /user/repos enumerates the user's affiliations
+  // (owned/collaborator/org repos), not the token's selected-repo grant. So a
+  // correctly-scoped single-repo token still lists many repos there -- using it
+  // as a scope guard rejected valid tokens (verified empirically). The
+  // authoritative, scope-accurate check is probeWrite() below (a bogus-SHA PUT:
+  // 403 = no write, 409/422 = has write to THIS repo). The implicit public-read
+  // is inherent to fine-grained PATs and cannot be detected or prevented here;
+  // it is read-only, so the meaningful guarantee remains single-repo *write*.
+  // On Set-token (opts.checkWrite) we confirm write; on page load we only auth.
+  function validateToken(tok, opts) {
+    opts = opts || {};
+    return api('GET', 'https://api.github.com/user', null, tok).then(function (r) {
+      // Only a genuine 401 means the token is bad; 403 is almost always rate
+      // limiting, and 429/5xx/network are transient -- none should sign the user
+      // out. loadMe() clears the stored token only when err.authFailed is set.
+      if (r.status === 401) { var e = new Error('Token rejected (expired or invalid). Please set a new token.'); e.authFailed = true; throw e; }
+      if (!r.ok) throw new Error('Could not verify token (HTTP ' + r.status + '). GitHub may be busy -- reload to retry.');
+      return r.json();
+    }).then(function (user) {
+      if (!opts.checkWrite) return { login: user.login };
+      return probeWrite(tok).then(function () { return { login: user.login }; });
+    });
+  }
+
+  // Reliable write check: attempt a contents PUT with a bogus SHA. GitHub
+  // authorizes before validating the payload, so a token lacking Contents:write
+  // returns 403, while a write-capable token is rejected for the SHA mismatch
+  // (409/422) without writing anything. This tests the token's actual write
+  // authorization on the real path -- unlike the GET /repos permissions.push
+  // flag, which reflects the user's repo role rather than the token's grant.
+  function probeWrite(tok) {
+    return api('PUT', contentsUrl(), {
+      message: 'write-permission probe (no change)',
+      content: b64encode('probe'),
+      sha: '0000000000000000000000000000000000000000',
+      branch: cfg.branch
+    }, tok).then(function (r) {
+      // 409/422 = request authorized, then rejected for the bogus SHA -> token CAN write.
+      if (r.status === 409 || r.status === 422) return true;
+      // 403/404 = not authorized (GitHub returns 404 to hide repos a token can't reach).
+      if (r.status === 403 || r.status === 404) {
+        throw new Error('Token cannot write to ' + cfg.repo + '. Create it with Contents: Read and write, scoped to this repo.');
+      }
+      // 200/201 = the probe somehow committed (should never happen with a bogus SHA).
+      if (r.status === 200 || r.status === 201) {
+        throw new Error('Unexpected write-probe result; aborting to be safe.');
+      }
+      throw new Error('Could not verify write access (HTTP ' + r.status + '). Please try again.');
+    });
+  }
+
+  function b64encode(s) { return btoa(unescape(encodeURIComponent(s))); }
+  function b64decode(s) { return decodeURIComponent(escape(atob(s.replace(/\s/g, '')))); }
+
+  function contentsUrl() {
+    return 'https://api.github.com/repos/' + cfg.repo + '/contents/' + cfg.path;
+  }
+
+  function parseCsv(text) {
+    var lines = text.split(/\r?\n/);
+    var header = lines.length ? lines[0] : 'question_id,assignee,assigned_at,assigned_by';
+    var rows = [];
+    for (var i = 1; i < lines.length; i++) {
+      var line = lines[i];
+      if (!line.trim()) continue;
+      var parts = line.split(',');
+      rows.push({
+        qid: (parts[0] || '').trim(),
+        assignee: (parts[1] || '').trim(),
+        assigned_at: (parts[2] || '').trim(),
+        assigned_by: (parts[3] || '').trim()
+      });
+    }
+    return { header: header, rows: rows };
+  }
+
+  function serializeCsv(parsed) {
+    var out = [parsed.header];
+    parsed.rows.forEach(function (r) {
+      out.push([r.qid, r.assignee, r.assigned_at, r.assigned_by].join(','));
+    });
+    return out.join('\n') + '\n';
+  }
+
+  function getContents() {
+    return api('GET', contentsUrl() + '?ref=' + cfg.branch).then(function (r) {
+      if (!r.ok) throw new Error('GET ' + r.status);
+      return r.json();
+    }).then(function (j) {
+      return { parsed: parseCsv(b64decode(j.content)), sha: j.sha };
+    });
+  }
+
+  function putContents(parsed, sha, message) {
+    return api('PUT', contentsUrl(), {
+      message: message,
+      content: b64encode(serializeCsv(parsed)),
+      sha: sha,
+      branch: cfg.branch
+    });
+  }
+
+  // action(parsed) -> string|null  (return error message to abort, or null to proceed)
+  function commit(qid, action, message) {
+    var attempt = 0;
+    function tryOnce() {
+      attempt++;
+      return getContents().then(function (state) {
+        var err = action(state.parsed);
+        if (err) { msg(err, true); return false; }
+        return putContents(state.parsed, state.sha, message).then(function (r) {
+          if (r.status === 409 && attempt < 5) return tryOnce();
+          if (!r.ok) throw new Error('PUT ' + r.status);
+          return true;
+        });
+      });
+    }
+    return tryOnce();
+  }
+
+  function findRow(parsed, qid) {
+    for (var i = 0; i < parsed.rows.length; i++) {
+      if (parsed.rows[i].qid === String(qid)) return i;
+    }
+    return -1;
+  }
+
+  function claim(qid) {
+    var now = new Date().toISOString();
+    return commit(qid, function (parsed) {
+      var i = findRow(parsed, qid);
+      if (i >= 0 && parsed.rows[i].assignee) {
+        if (sameUser(parsed.rows[i].assignee, me)) return null;
+        return 'Already claimed by @' + parsed.rows[i].assignee;
+      }
+      if (i >= 0) { parsed.rows[i] = { qid: String(qid), assignee: me, assigned_at: now, assigned_by: me }; }
+      else { parsed.rows.push({ qid: String(qid), assignee: me, assigned_at: now, assigned_by: me }); }
+      return null;
+    }, 'Claim question ' + qid + ' by ' + me);
+  }
+
+  function release(qid) {
+    return commit(qid, function (parsed) {
+      var i = findRow(parsed, qid);
+      if (i < 0 || !parsed.rows[i].assignee) return null;
+      if (!sameUser(parsed.rows[i].assignee, me)) return 'Not yours (claimed by @' + parsed.rows[i].assignee + ')';
+      parsed.rows.splice(i, 1);
+      return null;
+    }, 'Release question ' + qid + ' by ' + me);
+  }
+
+  // GitHub logins are case-insensitive: compare normalized.
+  function sameUser(a, b) { return (a || '').toLowerCase() === (b || '').toLowerCase(); }
+  // A GitHub login is alphanumerics + hyphens; reject anything else so a
+  // malformed/injected CSV value never drives the UI.
+  function isValidAssignee(a) { return /^[A-Za-z0-9-]+$/.test(a); }
+
+  function renderButton(btn) {
+    var qid = btn.getAttribute('data-qid');
+    var assignee = btn.getAttribute('data-assignee') || '';
+    if (assignee && !isValidAssignee(assignee)) assignee = '';
+    var span = btn.parentNode.querySelector('.assignee');
+    if (span) {
+      // Build via DOM (textContent/createElement), never innerHTML, so an
+      // assignee value can never inject markup and steal the localStorage token.
+      span.textContent = '';
+      if (assignee) {
+        var a = document.createElement('a');
+        a.href = 'https://github.com/' + encodeURIComponent(assignee);
+        a.textContent = '@' + assignee;
+        span.appendChild(a);
+      }
+    }
+    btn.parentNode.setAttribute('data-sort', assignee);
+    if (!me) { btn.textContent = assignee ? 'Claimed' : 'Claim'; btn.disabled = true; btn.title = 'Set your GitHub token to claim'; return; }
+    if (!isAllowed(me)) {
+      // Signed in but not on the allowlist: can't claim (would be auto-reverted);
+      // still allow releasing a claim that is somehow already yours.
+      var ownRow = assignee && sameUser(assignee, me);
+      btn.textContent = ownRow ? 'Release' : (assignee ? 'Claimed' : 'Claim');
+      btn.disabled = !ownRow;
+      btn.title = ownRow ? '' : 'Your account is not on the assignee allowlist';
+      return;
+    }
+    btn.title = '';
+    if (!assignee) { btn.textContent = 'Claim'; btn.disabled = false; }
+    else if (sameUser(assignee, me)) { btn.textContent = 'Release'; btn.disabled = false; }
+    else { btn.textContent = 'Claimed'; btn.disabled = true; }
+  }
+
+  function renderAll() {
+    document.querySelectorAll('.assign-btn').forEach(renderButton);
+  }
+
+  function refreshStates() {
+    if (!token()) return;
+    getContents().then(function (state) {
+      var map = {};
+      state.parsed.rows.forEach(function (r) { if (isValidAssignee(r.assignee)) map[r.qid] = r.assignee; });
+      document.querySelectorAll('.assign-btn').forEach(function (btn) {
+        btn.setAttribute('data-assignee', map[btn.getAttribute('data-qid')] || '');
+      });
+      renderAll();
+    }).catch(function () { msg('Could not refresh assignments (network/GitHub issue) -- reload to see the latest.', true); });
+  }
+
+  function onClick(e) {
+    var btn = e.target.closest('.assign-btn');
+    if (!btn || btn.disabled) return;
+    var qid = btn.getAttribute('data-qid');
+    var assignee = btn.getAttribute('data-assignee') || '';
+    var isRelease = sameUser(assignee, me);
+    if (isRelease && !confirm('Release your claim on question ' + qid + '?')) return;
+    btn.disabled = true;
+    msg('Working...');
+    var p = isRelease ? release(qid) : claim(qid);
+    p.then(function (ok) {
+      if (ok) { msg(''); }
+      refreshStates();
+    }).catch(function (err) {
+      msg('Error: ' + err.message, true);
+      renderAll();
+    });
+  }
+
+  function updateAuthUI() {
+    if (me) {
+      statusEl.textContent = 'Signed in as @' + me +
+        (isAllowed(me) ? '' : ' \u2014 not on the assignee allowlist (claims are reverted)');
+      setBtn.style.display = 'none';
+      clearBtn.style.display = '';
+    } else {
+      statusEl.textContent = 'Not signed in';
+      setBtn.style.display = '';
+      clearBtn.style.display = 'none';
+    }
+  }
+
+  function loadMe() {
+    if (!token()) { me = null; updateAuthUI(); renderAll(); return; }
+    validateToken(token()).then(function (res) {
+      me = res.login; updateAuthUI(); renderAll(); refreshStates();
+      if (res.warn) msg(res.warn);
+    }).catch(function (err) {
+      if (err.authFailed) localStorage.removeItem(TOKEN_KEY);
+      me = null; updateAuthUI(); renderAll();
+      msg(err.message, true);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    msgEl = document.getElementById('assign-msg');
+    statusEl = document.getElementById('auth-status');
+    setBtn = document.getElementById('set-token');
+    clearBtn = document.getElementById('clear-token');
+    if (setBtn) setBtn.addEventListener('click', function () {
+      var t = prompt('Paste a fine-grained GitHub token (this repo only, Contents: read & write):', '');
+      if (!t) return;
+      t = t.trim();
+      msg('Validating token...');
+      validateToken(t, { checkWrite: true }).then(function (res) {
+        localStorage.setItem(TOKEN_KEY, t);
+        me = res.login; updateAuthUI(); renderAll(); refreshStates();
+        msg(res.warn || ('Signed in as @' + me));
+      }).catch(function (err) {
+        msg(err.message, true);
+      });
+    });
+    if (clearBtn) clearBtn.addEventListener('click', function () {
+      localStorage.removeItem(TOKEN_KEY); me = null; updateAuthUI(); renderAll();
+    });
+    document.addEventListener('click', onClick);
+    loadMe();
+  });
+})();
+</script>
+</body>
+</html>
