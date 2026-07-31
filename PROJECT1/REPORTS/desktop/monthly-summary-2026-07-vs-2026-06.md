@@ -13,7 +13,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 724 | 701 | ▼ -23 (-3%) |
+| Support questions (load) | 724 | 717 | ▼ -7 (-1%) |
 | Version × cause spikes flagged | 3 | 0 | ▼ -3 |
 | — of which **new** regressions | 2 | 0 | ▼ -2 |
 | Cause-level surges flagged | 0 | 0 | ▬ 0 |
@@ -30,13 +30,13 @@ _No spikes flagged this month at current thresholds._
 
 | Cause clusters (provider / protocol / AV) | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
+| m:gmail | 52 | 71 | ▲ +19 (+37%) |
 | m:microsoftemail | 54 | 36 | ▼ -18 (-33%) |
-| m:gmail | 52 | 70 | ▲ +18 (+35%) |
 | m:spectrum | 20 | 5 | ▼ -15 (-75%) |
-| proto:pop | 30 | 40 | ▲ +10 (+33%) |
+| proto:pop | 30 | 41 | ▲ +11 (+37%) |
 | proto:smtp | 25 | 34 | ▲ +9 (+36%) |
 | proto:oauth | 12 | 20 | ▲ +8 (+67%) |
-| proto:imap | 51 | 54 | ▲ +3 (+6%) |
+| proto:imap | 51 | 55 | ▲ +4 (+8%) |
 | m:comcast | 14 | 11 | ▼ -3 (-21%) |
 
 ### 🆕 New cause clusters (first appearance ever)
@@ -47,36 +47,36 @@ _None — every cause cluster in July 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
-| v152 | 158 | 210 | ▲ +52 (+33%) |
-| v140 | 179 | 182 | ▲ +3 (+2%) |
+| v152 | 158 | 211 | ▲ +53 (+34%) |
+| v140 | 179 | 185 | ▲ +6 (+3%) |
 | v151 | 189 | 4 | ▼ -185 (-98%) |
-| v153 | 3 | 85 | ▲ +82 |
+| v153 | 3 | 93 | ▲ +90 |
 | v150 | 17 | 26 | ▲ +9 (+53%) |
-| v115 | 26 | 15 | ▼ -11 (-42%) |
+| v115 | 26 | 16 | ▼ -10 (-38%) |
 
 ### Operating-system mix
 
 | Operating-system mix | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 589 | 560 | ▼ -29 (-5%) |
-| os:linux | 62 | 60 | ▼ -2 (-3%) |
+| os:windows | 589 | 576 | ▼ -13 (-2%) |
+| os:linux | 62 | 61 | ▼ -1 (-2%) |
 | os:macos | 49 | 44 | ▼ -5 (-10%) |
 | os:other | 11 | 11 | ▬ 0 (+0%) |
-| os:android | 4 | 8 | ▲ +4 |
+| os:android | 4 | 7 | ▲ +3 |
 
 ### Topic mix
 
 | Topic mix | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 204 | 182 | ▼ -22 (-11%) |
-| customization | 65 | 68 | ▲ +3 (+5%) |
-| email-and-messaging | 49 | 78 | ▲ +29 (+59%) |
-| passwords-and-sign-in | 32 | 52 | ▲ +20 (+62%) |
+| send-and-receive-email | 204 | 183 | ▼ -21 (-10%) |
+| customization | 65 | 72 | ▲ +7 (+11%) |
+| email-and-messaging | 49 | 79 | ▲ +30 (+61%) |
+| passwords-and-sign-in | 32 | 53 | ▲ +21 (+66%) |
 | connectivity | 34 | 25 | ▼ -9 (-26%) |
-| import-and-export-email | 28 | 29 | ▲ +1 (+4%) |
+| import-and-export-email | 28 | 30 | ▲ +2 (+7%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · July 2026 vs June 2026._
 
-_Last updated: 2026-07-31 09:00 UTC_
+_Last updated: 2026-07-31 20:28 UTC_
