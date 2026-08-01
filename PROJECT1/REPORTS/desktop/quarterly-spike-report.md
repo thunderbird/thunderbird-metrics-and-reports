@@ -5,10 +5,10 @@ title: QUARTERLY: Thunderbird Desktop — Support Spike Report
 
 # QUARTERLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2023-Q4 … 2026-Q3 · **quarterly** grain · trailing 12 quarters · 40244 questions · no AI (regex + traditional stats)_
+_Generated 2023-Q4 … 2026-Q3 · **quarterly** grain · trailing 12 quarters · 40257 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 40244 questions, 3353.7/quarter avg
-- **Answered (non-creator):** 30416/40244 (76%)
+- **Volume:** 40257 questions, 3354.8/quarter avg
+- **Answered (non-creator):** 30441/40257 (76%)
 - **First-answer time (median):** 3.5h (p25 1.0h / p75 12.3h)
 - **Total volume trend:** `▇▆▅██▇▆▇▆▅▄▂`
 
@@ -49,7 +49,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | **3.6×** | 2024-07 | m:att | 16 | 69% ans · 1.6h | 4.5 | `▇▃█▇█▇▅█▅▅▃▂` | [1451218](https://support.mozilla.org/questions/1451218 "Email issues") [1451269](https://support.mozilla.org/questions/1451269 "ATT.net") [1451284](https://support.mozilla.org/questions/1451284 "can't log into my inbound email server At&t") [1451307](https://support.mozilla.org/questions/1451307 "can't get in") [1451574](https://support.mozilla.org/questions/1451574 "unable to receive and send emails thru inbound.att.net and outbound.att.net") [1451715](https://support.mozilla.org/questions/1451715 "Inbound emails from ATT") +10 |
 | **3.2×** | 2025-07 | av:norton | 8 | 75% ans · 2.1h | 2.5 | `▃▂▅█▆█▃▇▃▃▄▂` | [1521509](https://support.mozilla.org/questions/1521509 "problem with auto renewal with my domain registrar hostgator, adotname, and the ") [1521569](https://support.mozilla.org/questions/1521569 "not working (locked)") [1522509](https://support.mozilla.org/questions/1522509 "Unable to receive e-mails on Thunderbird, I am prompted to enter a password for ") [1523331](https://support.mozilla.org/questions/1523331 "Migrating Thunderbird 140 To A New Windows Computer. SOLVED Norton 360 was causi") [1523343](https://support.mozilla.org/questions/1523343 "Peer certification expiration") [1523519](https://support.mozilla.org/questions/1523519 "email conver to event not working.") +2 |
 | **3.2×** | 2024-07 | m:virginmedia | 8 | 75% ans · 4.9h | 2.5 | `▃▅▅█▅▆▂▃▃▃▃▂` | [1451235](https://support.mozilla.org/questions/1451235 "Cannot send messages") [1451251](https://support.mozilla.org/questions/1451251 "Email") [1451478](https://support.mozilla.org/questions/1451478 "Sending emails") [1451612](https://support.mozilla.org/questions/1451612 "thunderbirds does not recognise my new virgin media password, I have tried creat") [1451720](https://support.mozilla.org/questions/1451720 "Outgoing e-mails") [1452048](https://support.mozilla.org/questions/1452048 "Since Version 115.12.2 ¦ Released June 22, 2024 can receive but not send emails ") +2 |
-| **3.1×** | 2024-08 | av:defender | 11 | 64% ans · 2.2h | 3.5 | `▅▇▄█▅▃▂▄▂▂▄▁` | [1456877](https://support.mozilla.org/questions/1456877 "Thunderibrd upgrade to 115 is sluggish.  SOLVED by creating an exception in Defe") [1457294](https://support.mozilla.org/questions/1457294 "Thunderbird 128 (Nebula) Hangs Constantly.  SOLVED caused by Microsoft Defender ") [1457557](https://support.mozilla.org/questions/1457557 "Message ＂Login to server with username failed＂ after software update") [1457806](https://support.mozilla.org/questions/1457806 "a trojan has been identified in an smtp folder how to spot and eliminate") [1457949](https://support.mozilla.org/questions/1457949 "Thunderbird slow downloading/opening email") [1458157](https://support.mozilla.org/questions/1458157 "Cannot delete IMAP Folder") +5 |
+| **3.1×** | 2024-08 | av:defender | 11 | 64% ans · 2.2h | 3.5 | `▅▇▄█▅▃▂▄▂▂▄▂` | [1456877](https://support.mozilla.org/questions/1456877 "Thunderibrd upgrade to 115 is sluggish.  SOLVED by creating an exception in Defe") [1457294](https://support.mozilla.org/questions/1457294 "Thunderbird 128 (Nebula) Hangs Constantly.  SOLVED caused by Microsoft Defender ") [1457557](https://support.mozilla.org/questions/1457557 "Message ＂Login to server with username failed＂ after software update") [1457806](https://support.mozilla.org/questions/1457806 "a trojan has been identified in an smtp folder how to spot and eliminate") [1457949](https://support.mozilla.org/questions/1457949 "Thunderbird slow downloading/opening email") [1458157](https://support.mozilla.org/questions/1458157 "Cannot delete IMAP Folder") +5 |
 | **3.1×** | 2024-05 | m:att | 14 | 71% ans · 2.5h | 4.5 | `▇▃█▇█▇▅█▅▅▃▂` | [1446408](https://support.mozilla.org/questions/1446408 "Cannot connect to att.net account on computer") [1446596](https://support.mozilla.org/questions/1446596 "Reinstall") [1446656](https://support.mozilla.org/questions/1446656 "Unable to sign into Thunderbird Email") [1447039](https://support.mozilla.org/questions/1447039 "Can't reestablish AT&T account in TB") [1447055](https://support.mozilla.org/questions/1447055 "not getting certain emails") [1447077](https://support.mozilla.org/questions/1447077 "Mozilla Thunderbird") +8 |
 | **3.0×** | 2024-09 | proto:oauth | 66 | 82% ans · 1.7h | 22.0 | `▃▂▄█▅▃▃▃▃▄▃▂` | [1461626](https://support.mozilla.org/questions/1461626 "thunderbird 128.1.1esr on macbook pro") [1462076](https://support.mozilla.org/questions/1462076 "Can TB hide its client ID when it connects?") [1462199](https://support.mozilla.org/questions/1462199 "Trying to do Microsoft/Thunderbird authentication before Sept 16, 2024") [1462200](https://support.mozilla.org/questions/1462200 "dual authentication not allowing emails") [1462785](https://support.mozilla.org/questions/1462785 "Oauth2 selection option missing in SMTP server setup") [1462816](https://support.mozilla.org/questions/1462816 "Ghost folders with outlook server") +60 |
 
@@ -59,7 +59,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 945 | `▁▁▁▁▁▁▁▁▁▄█▃` |
+| v140 | 946 | `▁▁▁▁▁▁▁▁▁▄█▃` |
 | v150 | 424 | `▁▁▁▁▁▁▁▁▁▁█▁` |
 | v152 | 371 | `▁▁▁▁▁▁▁▁▁▁▆█` |
 | v151 | 330 | `▁▁▁▁▁▁▁▁▁▁█▁` |
@@ -70,10 +70,10 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 3695 | `▆▆▅██▆▅▆▅▅▄▂` |
+| m:gmail | 3697 | `▆▆▅██▆▅▆▅▅▄▂` |
 | m:microsoftemail | 2994 | `▅▅▄█▇▅▄▅▄▄▄▂` |
-| m:yahooemail | 1148 | `▅▄█▇▆▅▄█▇█▆▂` |
-| m:comcast | 518 | `▅▇▆██▇▅▇▇▃▆▂` |
+| m:yahooemail | 1149 | `▅▄█▇▆▅▄█▇█▆▃` |
+| m:comcast | 520 | `▅▇▆██▇▅▇▇▃▆▂` |
 | m:spectrum | 436 | `█▆▄▇▅▆▅▆▅▄▆▂` |
 | m:att | 296 | `▇▃█▇█▇▅█▅▅▃▂` |
 
@@ -81,9 +81,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 2847 | `▆▆▆██▇▅▆▅▅▄▂` |
+| proto:imap | 2848 | `▆▆▆██▇▅▆▅▅▄▂` |
 | proto:smtp | 1817 | `▆▆▆█▇▆▅▆▄▅▃▂` |
-| proto:pop | 1784 | `▅▅▄█▇▆▅▆▅▄▄▂` |
+| proto:pop | 1785 | `▅▅▄█▇▆▅▆▅▄▄▂` |
 | proto:oauth | 712 | `▃▂▄█▅▃▃▃▃▄▃▂` |
 | proto:caldav | 137 | `▆▆▃▆█▇▆▆▄▆▄▂` |
 | proto:carddav | 75 | `▄▅▅▇▇█▃█▅▇▅▂` |
@@ -93,8 +93,8 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | av:bitdefender | 129 | `▂▂▁▂▂▄▂█▂▂▂▁` |
-| av:norton | 122 | `▃▂▅█▆█▃▇▃▃▄▂` |
-| av:defender | 101 | `▅▇▄█▅▃▂▄▂▂▄▁` |
+| av:norton | 123 | `▃▂▅█▆█▃▇▃▃▄▂` |
+| av:defender | 102 | `▅▇▄█▅▃▂▄▂▂▄▂` |
 | av:avast | 81 | `██▄▅▅▇▃▃▅▄▆▂` |
 | av:mcafee | 37 | `▅▂▂▁█▅██▅▃▇▂` |
 | av:kaspersky | 34 | `▇▅▂█▆▅▇▆▃▂▁▁` |
@@ -103,9 +103,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 7938 | `▃▂▂▃▃▃▂▃▃██▃` |
+| os:windows | 7950 | `▃▂▂▃▃▃▂▃▃██▃` |
 | os:linux | 1669 | `▆▅▄▆▆▅▅▅▅█▇▃` |
-| os:macos | 1107 | `▄▄▃▄▄▄▃▅▃█▇▃` |
+| os:macos | 1108 | `▄▄▃▄▄▄▃▅▃█▇▃` |
 | os:other | 126 | `▁▁▁▁▁▁▁▁▁█▃▂` |
 | os:android | 93 | `▁▂▂▂▁▂▂▂▂█▆▂` |
 
@@ -124,4 +124,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-quarterly-rollup.csv`._
 
-_Last updated: 2026-07-31 17:04 UTC_
+_Last updated: 2026-08-01 05:37 UTC_
