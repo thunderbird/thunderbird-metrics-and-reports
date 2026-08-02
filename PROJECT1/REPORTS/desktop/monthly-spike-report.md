@@ -5,10 +5,10 @@ title: MONTHLY: Thunderbird Desktop — Support Spike Report
 
 # MONTHLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2024-09 … 2026-08 · **monthly** grain · trailing 24 months · 27488 questions · no AI (regex + traditional stats)_
+_Generated 2024-09 … 2026-08 · **monthly** grain · trailing 24 months · 27494 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 27488 questions, 1145.3/month avg
-- **Answered (non-creator):** 21278/27488 (77%)
+- **Volume:** 27494 questions, 1145.6/month avg
+- **Answered (non-creator):** 21284/27494 (77%)
 - **First-answer time (median):** 3.4h (p25 0.9h / p75 11.9h)
 - **Total volume trend:** `▇█▇▇█▆▆▆▆▅▇▇▆▆▅▅▅▅▅▄▄▄▄▁`
 
@@ -48,7 +48,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 947 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▇▁` |
+| v140 | 948 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▇▁` |
 | v150 | 424 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▁▂▁` |
 | v152 | 372 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁` |
 | v151 | 330 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁▁` |
@@ -92,10 +92,10 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 6606 | `▂▃▃▂▃▂▂▂▂▂▃▃▂▃▂▂▅██▇▇▇▇▁` |
-| os:linux | 1195 | `▆▆▆▅▆▅▃▄▅▄▃▅▅▄▄▄▆▇█▆▇▆▆▁` |
-| os:macos | 813 | `▄▄▃▃▃▄▃▃▃▂▄▄▄▂▄▂▆▇█▆▆▅▅▁` |
-| os:other | 124 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▂▁▂▃▃▁` |
+| os:windows | 6609 | `▂▃▃▂▃▂▂▂▂▂▃▃▂▃▂▂▅██▇▇▇▇▁` |
+| os:linux | 1196 | `▆▆▆▅▆▅▃▄▅▄▃▅▅▄▄▄▆▇█▆▇▆▆▁` |
+| os:macos | 814 | `▄▄▃▃▃▄▃▃▃▂▄▄▄▂▄▂▆▇█▆▆▅▅▁` |
+| os:other | 125 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▂▁▂▃▃▁` |
 | os:android | 83 | `▁▂▁▁▂▂▂▂▁▂▃▃▁▂▂▁▇█▇█▅▃▅▁` |
 
 ### macOS releases (filter dimension)
@@ -113,4 +113,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-monthly-rollup.csv`._
 
-_Last updated: 2026-08-02 05:37 UTC_
+_Last updated: 2026-08-02 16:51 UTC_

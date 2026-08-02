@@ -853,7 +853,7 @@ period,dim,value,count
 2025-Q4,os,os:linux,118
 2026-Q1,os,os:linux,219
 2026-Q2,os,os:linux,187
-2026-Q3,os,os:linux,65
+2026-Q3,os,os:linux,66
 2023-Q4,os,os:macos,94
 2024-Q1,os,os:macos,83
 2024-Q2,os,os:macos,65
@@ -865,7 +865,7 @@ period,dim,value,count
 2025-Q4,os,os:macos,60
 2026-Q1,os,os:macos,200
 2026-Q2,os,os:macos,162
-2026-Q3,os,os:macos,46
+2026-Q3,os,os:macos,47
 2024-Q2,os,os:other,1
 2024-Q3,os,os:other,3
 2025-Q1,os,os:other,2
@@ -874,7 +874,7 @@ period,dim,value,count
 2025-Q4,os,os:other,2
 2026-Q1,os,os:other,80
 2026-Q2,os,os:other,22
-2026-Q3,os,os:other,11
+2026-Q3,os,os:other,12
 2023-Q4,os,os:windows,427
 2024-Q1,os,os:windows,348
 2024-Q2,os,os:windows,283
@@ -886,7 +886,7 @@ period,dim,value,count
 2025-Q4,os,os:windows,431
 2026-Q1,os,os:windows,1847
 2026-Q2,os,os:windows,1855
-2026-Q3,os,os:windows,603
+2026-Q3,os,os:windows,606
 2023-Q4,protocol,proto:caldav,12
 2024-Q1,protocol,proto:caldav,14
 2024-Q2,protocol,proto:caldav,6
@@ -981,7 +981,7 @@ period,dim,value,count
 2026-Q3,tb_version_major,139,1
 2026-Q1,tb_version_major,140,204
 2026-Q2,tb_version_major,140,556
-2026-Q3,tb_version_major,140,187
+2026-Q3,tb_version_major,140,188
 2026-Q2,tb_version_major,141,1
 2025-Q3,tb_version_major,142,1
 2026-Q1,tb_version_major,142,2
@@ -1013,7 +1013,7 @@ period,dim,value,count
 2026-Q2,tb_version_major,152,160
 2026-Q3,tb_version_major,152,212
 2026-Q2,tb_version_major,153,4
-2026-Q3,tb_version_major,153,114
+2026-Q3,tb_version_major,153,118
 2026-Q3,tb_version_major,154,2
 2026-Q1,tb_version_major,155,1
 2026-Q2,tb_version_major,156,1
@@ -1029,4 +1029,4 @@ period,dim,value,count
 2025-Q4,total,all,3282
 2026-Q1,total,all,2834
 2026-Q2,total,all,2295
-2026-Q3,total,all,752
+2026-Q3,total,all,758
