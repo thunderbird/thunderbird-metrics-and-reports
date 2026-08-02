@@ -13,7 +13,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 724 | 730 | ▲ +6 (+1%) |
+| Support questions (load) | 724 | 731 | ▲ +7 (+1%) |
 | Version × cause spikes flagged | 3 | 0 | ▼ -3 |
 | — of which **new** regressions | 2 | 0 | ▼ -2 |
 | Cause-level surges flagged | 0 | 0 | ▬ 0 |
@@ -58,7 +58,7 @@ _None — every cause cluster in July 2026 has appeared in a prior month._
 
 | Operating-system mix | June 2026 | July 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 589 | 588 | ▼ -1 (-0%) |
+| os:windows | 589 | 589 | ▬ 0 (+0%) |
 | os:linux | 62 | 61 | ▼ -1 (-2%) |
 | os:macos | 49 | 45 | ▼ -4 (-8%) |
 | os:other | 11 | 11 | ▬ 0 (+0%) |
@@ -79,4 +79,4 @@ _None — every cause cluster in July 2026 has appeared in a prior month._
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · July 2026 vs June 2026._
 
-_Last updated: 2026-08-02 08:47 UTC_
+_Last updated: 2026-08-02 20:20 UTC_
