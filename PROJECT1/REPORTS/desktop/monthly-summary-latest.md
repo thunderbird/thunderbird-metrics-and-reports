@@ -34,7 +34,7 @@ _No spikes flagged this month at current thresholds._
 | m:microsoftemail | 54 | 36 | ▼ -18 (-33%) |
 | m:spectrum | 20 | 5 | ▼ -15 (-75%) |
 | proto:pop | 30 | 42 | ▲ +12 (+40%) |
-| proto:smtp | 25 | 34 | ▲ +9 (+36%) |
+| proto:smtp | 25 | 35 | ▲ +10 (+40%) |
 | proto:oauth | 12 | 20 | ▲ +8 (+67%) |
 | proto:imap | 51 | 56 | ▲ +5 (+10%) |
 | m:yahooemail | 26 | 30 | ▲ +4 (+15%) |
@@ -79,4 +79,4 @@ _None — every cause cluster in July 2026 has appeared in a prior month._
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · July 2026 vs June 2026._
 
-_Last updated: 2026-08-02 20:20 UTC_
+_Last updated: 2026-08-03 09:06 UTC_
