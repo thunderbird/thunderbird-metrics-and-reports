@@ -64,6 +64,12 @@ jobs:
         for g in hourly daily weekly monthly quarterly yearly; do
           uv run scripts/project1_report.py desktop --grain "$g"
         done
+    # Gate the commit: kramdown silently degrades a malformed table to paragraphs
+    # (no error, no warning), so a page can lose every table and still "build".
+    # Failing here leaves the reports stale and the run RED, which is far better
+    # than committing pages whose spike tables render as literal pipe text.
+    - name: Verify the generated pages render every table
+      run: uv run scripts/check_report_render.py 'PROJECT1/REPORTS/desktop/*.md'
     - name: Commit changes
       run: |
         git config --global user.name 'github-actions[bot]'

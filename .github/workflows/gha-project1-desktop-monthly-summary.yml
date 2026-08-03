@@ -50,6 +50,11 @@ jobs:
         else
           uv run scripts/project1_mom_report.py "$CUR"  "$PREV"     desktop --latest
         fi
+    # Same gate as the spike workflow: kramdown drops a malformed table to
+    # paragraphs silently, so verify before committing (these pages embed the
+    # same SUMO-derived titles through the same md_safe).
+    - name: Verify the generated pages render every table
+      run: uv run scripts/check_report_render.py 'PROJECT1/REPORTS/desktop/monthly-summary-*.md'
     - name: Commit changes
       run: |
         git config --global user.name 'github-actions[bot]'

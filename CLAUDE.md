@@ -299,6 +299,14 @@ at 4.3×). All are CLI args — retune anytime.
   exception, no `warnings`. Compare **separator rows in the source**
   (`/^\|[-: |]+\|\s*$/`) against `<table` in the HTML, and assert no `<p>|` in the
   output. Counting tables alone passes a page that lost two of them.
+  **`scripts/check_report_render.py` does this** — per-block cell-count and
+  balanced-backtick checks (pure stdlib), plus the authoritative kramdown render
+  cross-check when Ruby+kramdown are present (skipped gracefully on CI runners,
+  which have no kramdown gem — the structural check is the one that catches this
+  bug class anyway). It **gates the commit** in both
+  `gha-project1-desktop-spike-reports.yml` and `-monthly-summary.yml`: a failure
+  leaves the reports stale and the run red rather than publishing broken pages.
+  Run it after any change to report generation.
 - **Any `|`, `"` or `` ` `` from SUMO text must go through `md_safe()`.** The
   backtick is the subtle one: SUMO titles occasionally use it as an apostrophe
   (`won`t download e-mail from xfinity` — 16 of 48k desktop titles have one), and a
