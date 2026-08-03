@@ -221,9 +221,13 @@ def main():
         return s + (f" +{len(ids) - limit}" if more and len(ids) > limit else "")
 
     def qs_cell(count, ids):
-        """The Qs column: the count, then the first two questions as direct links —
-        so a row is one click from the evidence without crossing to the wide
-        'Example questions' column (which stays, with up to six)."""
+        """Count plus the first two questions as direct links.
+
+        ONLY for tables that have no 'Example questions' column — currently just
+        the release-adoption dump, whose rows would otherwise be unclickable
+        despite being labelled "for manual checking". Everywhere else the Qs column
+        stays a bare count, because duplicating two of the six links already in
+        'Example questions' just widens the table."""
         return f"{count} {links_for(str(ids).split(), limit=2, more=False)}".strip()
 
     def served(r):
@@ -317,8 +321,7 @@ def main():
         W("|:--|--:|:--|:--|--:|:--|:--|:--|")
         for _, r in rows.iterrows():
             W(f"| {r['_g']} | **{r['lift']}×** | {r['period']} | "
-              f"v{r['version_major']} × {r['cause_value']} | "
-              f"{qs_cell(r['observed'], r['question_ids'])} | "
+              f"v{r['version_major']} × {r['cause_value']} | {r['observed']} | "
               f"{served(r)} | {r.get('novelty','')} | "
               f"{links_for(str(r['question_ids']).split())} |")
 
@@ -336,7 +339,7 @@ def main():
         for _, r in rows.iterrows():
             mag = "new" if r["magnitude"] == "new" else f"{float(r['magnitude']):.1f}×"
             W(f"| {r['_g']} | **{mag}** | {r['period']} | {r['value']} | "
-              f"{qs_cell(r['count'], r['question_ids'])} | {served(r)} | {r['baseline_median']} | "
+              f"{r['count']} | {served(r)} | {r['baseline_median']} | "
               f"{links_for(str(r['question_ids']).split())} |")
 
     def verdim_body():
@@ -348,7 +351,7 @@ def main():
         W("Version and OS are **filters, not causes** — a bare version spike is "
           "release adoption, not a regression. Listed for manual checking only.\n")
         W("| Grain | Rise | When | Dimension | Value | Qs | Baseline |")
-        W("|:--|--:|:--|:--|:--|--:|--:|")
+        W("|:--|--:|:--|:--|:--|:--|--:|")  # Qs holds links here -> left-align
         for _, r in rows.sort_values(["_g", "period"]).iterrows():
             mag = "new" if r["magnitude"] == "new" else f"{float(r['magnitude']):.1f}×"
             W(f"| {r['_g']} | **{mag}** | {r['period']} | {r['dim']} | "
@@ -398,27 +401,27 @@ def main():
                 W("**Version × cause**")
                 W("")
                 W("| Grain | Lift | When | Version × Cause | Qs | Served | Example questions |")
-                W("|:--|--:|:--|:--|:--|:--|:--|")
+                W("|:--|--:|:--|:--|--:|:--|:--|")
                 for _, r in nm_j.assign(
                         _l=pd.to_numeric(nm_j["lift"], errors="coerce")
                 ).sort_values("_l", ascending=False).iterrows():
                     W(f"| {r['_g']} | {r['lift']}× | {r['period']} | "
                       f"v{r['version_major']} × {r['cause_value']} | "
-                      f"{qs_cell(r['observed'], r['question_ids'])} | {served(r)} | "
+                      f"{r['observed']} | {served(r)} | "
                       f"{links_for(str(r['question_ids']).split())} |")
                 W("")
             if not nm_s.empty:
                 W("**Cause-level**")
                 W("")
                 W("| Grain | Rise | When | Cause | Qs | Served | Baseline | Example questions |")
-                W("|:--|--:|:--|:--|:--|:--|--:|:--|")
+                W("|:--|--:|:--|:--|--:|:--|--:|:--|")
                 for _, r in nm_s.assign(
                         _m=pd.to_numeric(nm_s["magnitude"].replace("new", 1e9),
                                          errors="coerce")
                 ).sort_values("_m", ascending=False).iterrows():
                     mag = "new" if r["magnitude"] == "new" else f"{float(r['magnitude']):.1f}×"
                     W(f"| {r['_g']} | {mag} | {r['period']} | {r['value']} | "
-                      f"{qs_cell(r['count'], r['question_ids'])} | {served(r)} | {r['baseline_median']} | "
+                      f"{r['count']} | {served(r)} | {r['baseline_median']} | "
                       f"{links_for(str(r['question_ids']).split())} |")
                 W("")
             if nm_j.empty and nm_s.empty:
