@@ -214,11 +214,17 @@ def main():
     days = pd.date_range(start, min(end, df["day"].max()), freq="D")
     title_by_id = dict(zip(df["id"], df["title"]))
 
-    def links_for(ids):
+    def links_for(ids, limit=6, more=True):
         ids = [i for i in ids if i]
         s = " ".join(f'[{i}]({QUESTION_URL.format(id=i)} "{md_safe(title_by_id.get(i, ""))}")'
-                     for i in ids[:6])
-        return s + (f" +{len(ids) - 6}" if len(ids) > 6 else "")
+                     for i in ids[:limit])
+        return s + (f" +{len(ids) - limit}" if more and len(ids) > limit else "")
+
+    def qs_cell(count, ids):
+        """The Qs column: the count, then the first two questions as direct links —
+        so a row is one click from the evidence without crossing to the wide
+        'Example questions' column (which stays, with up to six)."""
+        return f"{count} {links_for(str(ids).split(), limit=2, more=False)}".strip()
 
     def served(r):
         ap_ = str(r.get("answered_pct", "")).strip()
@@ -311,7 +317,8 @@ def main():
         W("|:--|--:|:--|:--|--:|:--|:--|:--|")
         for _, r in rows.iterrows():
             W(f"| {r['_g']} | **{r['lift']}×** | {r['period']} | "
-              f"v{r['version_major']} × {r['cause_value']} | {r['observed']} | "
+              f"v{r['version_major']} × {r['cause_value']} | "
+              f"{qs_cell(r['observed'], r['question_ids'])} | "
               f"{served(r)} | {r.get('novelty','')} | "
               f"{links_for(str(r['question_ids']).split())} |")
 
@@ -329,7 +336,7 @@ def main():
         for _, r in rows.iterrows():
             mag = "new" if r["magnitude"] == "new" else f"{float(r['magnitude']):.1f}×"
             W(f"| {r['_g']} | **{mag}** | {r['period']} | {r['value']} | "
-              f"{r['count']} | {served(r)} | {r['baseline_median']} | "
+              f"{qs_cell(r['count'], r['question_ids'])} | {served(r)} | {r['baseline_median']} | "
               f"{links_for(str(r['question_ids']).split())} |")
 
     def verdim_body():
@@ -345,7 +352,8 @@ def main():
         for _, r in rows.sort_values(["_g", "period"]).iterrows():
             mag = "new" if r["magnitude"] == "new" else f"{float(r['magnitude']):.1f}×"
             W(f"| {r['_g']} | **{mag}** | {r['period']} | {r['dim']} | "
-              f"{r['value']} | {r['count']} | {r['baseline_median']} |")
+              f"{r['value']} | {qs_cell(r['count'], r['question_ids'])} | "
+              f"{r['baseline_median']} |")
 
     def trends_body():
         for dim, heading in [("tb_version_major", "Top versions"),
@@ -390,27 +398,27 @@ def main():
                 W("**Version × cause**")
                 W("")
                 W("| Grain | Lift | When | Version × Cause | Qs | Served | Example questions |")
-                W("|:--|--:|:--|:--|--:|:--|:--|")
+                W("|:--|--:|:--|:--|:--|:--|:--|")
                 for _, r in nm_j.assign(
                         _l=pd.to_numeric(nm_j["lift"], errors="coerce")
                 ).sort_values("_l", ascending=False).iterrows():
                     W(f"| {r['_g']} | {r['lift']}× | {r['period']} | "
                       f"v{r['version_major']} × {r['cause_value']} | "
-                      f"{r['observed']} | {served(r)} | "
+                      f"{qs_cell(r['observed'], r['question_ids'])} | {served(r)} | "
                       f"{links_for(str(r['question_ids']).split())} |")
                 W("")
             if not nm_s.empty:
                 W("**Cause-level**")
                 W("")
                 W("| Grain | Rise | When | Cause | Qs | Served | Baseline | Example questions |")
-                W("|:--|--:|:--|:--|--:|:--|--:|:--|")
+                W("|:--|--:|:--|:--|:--|:--|--:|:--|")
                 for _, r in nm_s.assign(
                         _m=pd.to_numeric(nm_s["magnitude"].replace("new", 1e9),
                                          errors="coerce")
                 ).sort_values("_m", ascending=False).iterrows():
                     mag = "new" if r["magnitude"] == "new" else f"{float(r['magnitude']):.1f}×"
                     W(f"| {r['_g']} | {mag} | {r['period']} | {r['value']} | "
-                      f"{r['count']} | {served(r)} | {r['baseline_median']} | "
+                      f"{qs_cell(r['count'], r['question_ids'])} | {served(r)} | {r['baseline_median']} | "
                       f"{links_for(str(r['question_ids']).split())} |")
                 W("")
             if nm_j.empty and nm_s.empty:

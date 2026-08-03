@@ -5,7 +5,7 @@ title: "2026-08 exec summary: Thunderbird Desktop support spikes"
 
 # August 2026 — Thunderbird Desktop support spikes
 
-_Executive summary · **2026-08** · 37 questions · regenerated 2026-08-03 04:29 UTC · no AI (regex + traditional stats)_
+_Executive summary · **2026-08** · 37 questions · regenerated 2026-08-03 04:35 UTC · no AI (regex + traditional stats)_
 
 ## ✅ August 2026 was clean
 
@@ -35,8 +35,8 @@ Clusters the same detectors flag at **0.75× the thresholds** (i.e. within ~25% 
 **Version × cause**
 
 | Grain | Lift | When | Version × Cause | Qs | Served | Example questions |
-|:--|--:|:--|:--|--:|:--|:--|
-| weekly | 2.8× | 2026-07-27 | v153 × m:comcast | 4 | 75% ans · 5.4h | [1595937](https://support.mozilla.org/questions/1595937 "") [1595941](https://support.mozilla.org/questions/1595941 "") [1596164](https://support.mozilla.org/questions/1596164 "With version 153: Unable to send from gmail account.  And cannot create a new gm") [1596297](https://support.mozilla.org/questions/1596297 "Trying to set APP Password to connect with Yahoo Mail conversion at Comcast.") |
+|:--|--:|:--|:--|:--|:--|:--|
+| weekly | 2.8× | 2026-07-27 | v153 × m:comcast | 4 [1595937](https://support.mozilla.org/questions/1595937 "") [1595941](https://support.mozilla.org/questions/1595941 "") | 75% ans · 5.4h | [1595937](https://support.mozilla.org/questions/1595937 "") [1595941](https://support.mozilla.org/questions/1595941 "") [1596164](https://support.mozilla.org/questions/1596164 "With version 153: Unable to send from gmail account.  And cannot create a new gm") [1596297](https://support.mozilla.org/questions/1596297 "Trying to set APP Password to connect with Yahoo Mail conversion at Comcast.") |
 
 
 </details>
@@ -66,10 +66,10 @@ Version and OS are **filters, not causes** — a bare version spike is release a
 
 | Grain | Rise | When | Dimension | Value | Qs | Baseline |
 |:--|--:|:--|:--|:--|--:|--:|
-| daily | **new** | 2026-08-01 | tb_version_major | 153 | 13 | 0.0 |
-| daily | **new** | 2026-08-02 | tb_version_major | 153 | 10 | 0.0 |
-| monthly | **48.0×** | 2026-08 | tb_version_major | 153 | 24 | 0.5 |
-| weekly | **new** | 2026-07-27 | tb_version_major | 153 | 79 | 0.0 |
+| daily | **new** | 2026-08-01 | tb_version_major | 153 | 13 [1596031](https://support.mozilla.org/questions/1596031 "why is thunderbird not working") [1596048](https://support.mozilla.org/questions/1596048 "thunderbrd version 153.0.1 64bit: some registered adress get filtered as spam th") | 0.0 |
+| daily | **new** | 2026-08-02 | tb_version_major | 153 | 10 [1596185](https://support.mozilla.org/questions/1596185 "I can't send or receive emails using wifi") [1596191](https://support.mozilla.org/questions/1596191 "Events shift one hour earlier in calendar") | 0.0 |
+| monthly | **48.0×** | 2026-08 | tb_version_major | 153 | 24 [1596031](https://support.mozilla.org/questions/1596031 "why is thunderbird not working") [1596048](https://support.mozilla.org/questions/1596048 "thunderbrd version 153.0.1 64bit: some registered adress get filtered as spam th") | 0.5 |
+| weekly | **new** | 2026-07-27 | tb_version_major | 153 | 79 [1595089](https://support.mozilla.org/questions/1595089 "") [1595090](https://support.mozilla.org/questions/1595090 "") | 0.0 |
 
 </details>
 
