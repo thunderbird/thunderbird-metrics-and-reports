@@ -5,7 +5,7 @@ title: "2026-08 exec summary: Thunderbird Desktop support spikes"
 
 # August 2026 — Thunderbird Desktop support spikes
 
-_Executive summary · **2026-08** · 37 questions · regenerated 2026-08-03 04:52 UTC · no AI (regex + traditional stats)_
+_Executive summary · **2026-08** · 40 questions · regenerated 2026-08-03 06:36 UTC · no AI (regex + traditional stats)_
 
 ## ✅ August 2026 was clean
 
@@ -19,8 +19,8 @@ _Executive summary · **2026-08** · 37 questions · regenerated 2026-08-03 04:5
 | **version×cause** (release regressions) | 0 | 0 | 0 |
 | **cause-level** (provider · protocol · AV) | 0 | 0 | 0 |
 
-- **Volume:** 37 questions (`█▅▁` by day), 7 (19%) carry a cause tag
-- **Answered (non-creator):** 25/37 (68%) · median first answer 1.6h
+- **Volume:** 40 questions (`█▅▂` by day), 8 (20%) carry a cause tag
+- **Answered (non-creator):** 25/40 (62%) · median first answer 1.6h
 - **Release-adoption version spikes:** 4 (expected after a release — not incidents; collapsed below)
 
 > ⏱ **Spike timing lags the incident.** A spike dates when users *piled in*, typically days after onset and often near resolution. Treat these as pain-cluster / triage signals, not real-time detection.
@@ -68,7 +68,7 @@ Version and OS are **filters, not causes** — a bare version spike is release a
 |:--|--:|:--|:--|:--|:--|--:|
 | daily | **new** | 2026-08-01 | tb_version_major | 153 | 13 [1596031](https://support.mozilla.org/questions/1596031 "why is thunderbird not working") [1596048](https://support.mozilla.org/questions/1596048 "thunderbrd version 153.0.1 64bit: some registered adress get filtered as spam th") | 0.0 |
 | daily | **new** | 2026-08-02 | tb_version_major | 153 | 10 [1596185](https://support.mozilla.org/questions/1596185 "I can't send or receive emails using wifi") [1596191](https://support.mozilla.org/questions/1596191 "Events shift one hour earlier in calendar") | 0.0 |
-| monthly | **48.0×** | 2026-08 | tb_version_major | 153 | 24 [1596031](https://support.mozilla.org/questions/1596031 "why is thunderbird not working") [1596048](https://support.mozilla.org/questions/1596048 "thunderbrd version 153.0.1 64bit: some registered adress get filtered as spam th") | 0.5 |
+| monthly | **50.0×** | 2026-08 | tb_version_major | 153 | 25 [1596031](https://support.mozilla.org/questions/1596031 "why is thunderbird not working") [1596048](https://support.mozilla.org/questions/1596048 "thunderbrd version 153.0.1 64bit: some registered adress get filtered as spam th") | 0.5 |
 | weekly | **new** | 2026-07-27 | tb_version_major | 153 | 79 [1595089](https://support.mozilla.org/questions/1595089 "") [1595090](https://support.mozilla.org/questions/1595090 "") | 0.0 |
 
 </details>
@@ -80,11 +80,12 @@ Version and OS are **filters, not causes** — a bare version spike is release a
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| v153 | 24 | `█▆▂` |
+| v153 | 25 | `█▆▂` |
 | v140 | 2 | `██▁` |
 | v152 | 1 | `█▁▁` |
 | v115 | 1 | `█▁▁` |
 | v151 | 1 | `▁█▁` |
+| v150 | 1 | `▁▁█` |
 
 **Top mail providers**
 
@@ -95,6 +96,7 @@ Version and OS are **filters, not causes** — a bare version spike is release a
 | m:comcast | 2 | `██▁` |
 | m:gmail | 1 | `█▁▁` |
 | m:spectrum | 1 | `▁█▁` |
+| m:xtra_nz | 1 | `▁▁█` |
 
 **Top protocols**
 
@@ -102,14 +104,14 @@ Version and OS are **filters, not causes** — a bare version spike is release a
 |:--|--:|:--|
 | proto:imap | 2 | `█▁▁` |
 | proto:pop | 2 | `██▁` |
+| proto:smtp | 2 | `▁██` |
 | proto:ews | 1 | `█▁▁` |
-| proto:smtp | 1 | `▁█▁` |
 
 **OS mix (filter dimension)**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| os:windows | 24 | `█▅▁` |
+| os:windows | 27 | `█▅▃` |
 | os:linux | 7 | `█▆▁` |
 | os:macos | 2 | `██▁` |
 | os:other | 1 | `▁█▁` |

@@ -5,7 +5,7 @@ title: "2026-07 exec summary: Thunderbird Desktop support spikes"
 
 # July 2026 — Thunderbird Desktop support spikes
 
-_Executive summary · **2026-07** · 731 questions · regenerated 2026-08-03 04:52 UTC · no AI (regex + traditional stats)_
+_Executive summary · **2026-07** · 731 questions · regenerated 2026-08-03 06:36 UTC · no AI (regex + traditional stats)_
 
 ## ✅ July 2026 was clean
 
@@ -116,7 +116,7 @@ Version and OS are **filters, not causes** — a bare version spike is release a
 |:--|--:|:--|
 | proto:imap | 56 | `▂▇▄▄▂▅▄▄█▁▁▄▂▄▂▂▂█▁▄▄▄▇▁▁▅▅▂▄▁▄` |
 | proto:pop | 42 | `▁▃▃▅█▅█▅▅▁▁▃▅▁▃▁▁█▅▁▃▃▃▅▃▁▃▆▁▃▆` |
-| proto:smtp | 34 | `▂▂▂▁▂▁▄▇█▁▁▂▁▂▄▂▁▁▂▂█▄▁▁▂▂▂▁▂▂▁` |
+| proto:smtp | 35 | `▂▂▂▁▂▁▄▇█▁▁▂▁▂▄▂▁▁▂▂█▄▁▁▂▂▂▁▂▂▂` |
 | proto:oauth | 20 | `▁▅▁▅▁▁▁██▁▅▅▅▅▁▅▅▁▁▁█▁▁▁▅█▅█▁▁▁` |
 | proto:caldav | 3 | `▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁█▁█▁▁▁▁▁▁▁▁▁` |
 | proto:ews | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
