@@ -294,6 +294,21 @@ at 4.3×). All are CLI args — retune anytime.
 - Kramdown (GitHub Pages) needs a **blank line before every table block** — the
   report generator emits one. There is no local `jekyll-feed` gem, so verify the
   page renders with `ruby -e 'require "kramdown"...'` rather than `jekyll build`.
+- **Verifying a page renders is NOT "kramdown didn't raise" or "it produced N
+  tables".** Kramdown degrades a malformed table to *paragraphs* silently — no
+  exception, no `warnings`. Compare **separator rows in the source**
+  (`/^\|[-: |]+\|\s*$/`) against `<table` in the HTML, and assert no `<p>|` in the
+  output. Counting tables alone passes a page that lost two of them.
+- **Any `|`, `"` or `` ` `` from SUMO text must go through `md_safe()`.** The
+  backtick is the subtle one: SUMO titles occasionally use it as an apostrophe
+  (`won`t download e-mail from xfinity` — 16 of 48k desktop titles have one), and a
+  single stray backtick opens a code span that runs PAST its row, eating the pipes
+  of following rows until it pairs with a later backtick (every spike row has two,
+  from the sparkline). The result is a table that collapses to paragraphs only when
+  particular rows co-occur — it renders fine in isolation, which makes row-level
+  bisection misleading. This silently broke both spike tables on the weekly page
+  (2026-08-03); `md_safe` now maps `` ` `` → `｀` in both `project1_report.py` and
+  `project1_mom_report.py`.
 
 **Post-backfill status (2026-07):** ✅ full-history feature backfill
 (`project1_backfill_features.py`, 43 months 2023-01→2026-07), ✅ all five report

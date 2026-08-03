@@ -88,8 +88,17 @@ def spark(vals):
 
 def md_safe(s):
     """Neutralize chars that break markdown tables / link tooltips (per repo
-    convention): pipe -> broken bar, double-quote -> fullwidth quote."""
-    return (s or "").replace("|", "¦").replace('"', "＂")[:80]
+    convention): pipe -> broken bar, double-quote -> fullwidth quote, backtick ->
+    fullwidth grave.
+
+    The backtick matters as much as the pipe: SUMO titles occasionally use one as
+    an apostrophe ("won`t download e-mail from xfinity"), and a single stray
+    backtick opens a code span that runs PAST the end of its row, swallowing the
+    pipes of following rows until it pairs with a later backtick (every row has
+    two, from the sparkline). Kramdown then sees inconsistent columns and emits
+    the whole table as paragraphs — silently, with no warning. This corrupted the
+    weekly page's two spike tables on 2026-08-03."""
+    return (s or "").replace("|", "¦").replace('"', "＂").replace("`", "｀")[:80]
 
 
 def parse_period(label):

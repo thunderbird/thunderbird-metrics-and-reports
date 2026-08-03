@@ -36,7 +36,10 @@ def human_month(m):
 
 
 def md_safe(s):
-    return (s or "").replace("|", "¦").replace('"', "＂")[:80]
+    # backtick -> fullwidth grave: a stray one (SUMO titles use it as an
+    # apostrophe) opens a code span that runs past its row and silently collapses
+    # the whole kramdown table to paragraphs. See project1_report.md_safe.
+    return (s or "").replace("|", "¦").replace('"', "＂").replace("`", "｀")[:80]
 
 
 def load(m, product):
