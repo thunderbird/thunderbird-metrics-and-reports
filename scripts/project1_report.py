@@ -11,12 +11,13 @@ Presentation layer over the feature tables and the spike detectors. Produces:
          version — provider outages like GMX that span versions), plus volume /
          version / cause trends and a responsiveness summary.
 
-Sparklines are Unicode blocks (no image assets). All five report grains
-(hourly/daily/monthly/quarterly/yearly) are live post-backfill. Each report grain
-reads the spike DETECTOR grain it maps to (DETECTOR_GRAIN): fine grains read the
-daily detector, coarse grains the monthly one — so slow-burn incidents surface at
-the coarser reports. Volume/cause/OS trends span full history; version×cause is
-limited to versioned rows (2026-02+); cause-level uses all history.
+Sparklines are Unicode blocks (no image assets). All six report grains
+(hourly/daily/weekly/monthly/quarterly/yearly) are live. Each report grain reads
+the spike DETECTOR grain it maps to (DETECTOR_GRAIN): fine grains read the daily
+detector, coarse grains the monthly one, and weekly reads weekly — so slow-burn
+incidents surface at the coarser reports. Volume/cause/OS trends span full
+history; version×cause is limited to versioned rows (2026-02+); cause-level uses
+all history.
 
 No AI — pure pandas + stdlib. Run AFTER extract/backfill + detectors (per grain):
   uv run scripts/project1_backfill_features.py desktop
@@ -45,26 +46,31 @@ QUESTION_URL = "https://support.mozilla.org/questions/{id}"
 BLOCKS = "▁▂▃▄▅▆▇█"
 
 # Report grain -> spike-DETECTOR grain (project1_grains.py runs daily/weekly/
-# monthly). Fine report grains read the daily detector; coarse ones read monthly.
-DETECTOR_GRAIN = {"hourly": "daily", "daily": "daily", "monthly": "monthly",
-                  "quarterly": "monthly", "yearly": "monthly"}
+# monthly). Fine report grains read the daily detector; coarse ones read monthly;
+# weekly reads its own grain — it is the only one that surfaces the mid-duration
+# incident (too diffuse for the daily floor, resolved before a month closes).
+DETECTOR_GRAIN = {"hourly": "daily", "daily": "daily", "weekly": "weekly",
+                  "monthly": "monthly", "quarterly": "monthly", "yearly": "monthly"}
 # joint-spike novelty (from project1_joint_spike_detect.py) -> report badge
 NOVELTY_BADGE = {"new": "🆕 new", "spreading": "↗ spreading", "recurring": "↻ recurring"}
 
-# grain -> (pandas floor freq, label formatter). Only 'daily' is exercised today.
+# grain -> (pandas floor freq, label formatter). 'W' periods start Monday, which
+# matches project1_grains.period_dt()'s weekly convention, so a week's report
+# label ('YYYY-MM-DD' of its Monday) equals the detector's period key.
 GRAINS = {
     "hourly":    ("h",  lambda t: t.strftime("%Y-%m-%d %H:00")),
     "daily":     ("D",  lambda t: t.strftime("%Y-%m-%d")),
+    "weekly":    ("W",  lambda t: t.strftime("%Y-%m-%d")),
     "monthly":   ("MS", lambda t: t.strftime("%Y-%m")),
     "quarterly": ("QS", lambda t: f"{t.year}-Q{(t.month - 1) // 3 + 1}"),
     "yearly":    ("YS", lambda t: t.strftime("%Y")),
 }
-UNIT = {"hourly": "hour", "daily": "day", "monthly": "month",
+UNIT = {"hourly": "hour", "daily": "day", "weekly": "week", "monthly": "month",
         "quarterly": "quarter", "yearly": "year"}
 # Default window = how many trailing periods (buckets) each grain shows, so
 # sparklines stay readable as history grows. None = all history. Override with
 # --window N (N periods); --window 0 = all.
-WINDOW_DEFAULTS = {"hourly": 168, "daily": 90, "monthly": 24,
+WINDOW_DEFAULTS = {"hourly": 168, "daily": 90, "weekly": 26, "monthly": 24,
                    "quarterly": 12, "yearly": None}
 CAUSE_DIMS = ["mail_provider", "protocol", "av"]  # OS is a filter, not a cause
 TREND_DIMS = ["tb_version_major"] + CAUSE_DIMS + ["os", "macos_release"]
@@ -127,7 +133,7 @@ def main():
     df["period_dt"] = naive.dt.floor(freq) if freq == "h" \
         else naive.dt.to_period(freq[0]).dt.start_time
     full_periods = pd.date_range(df["period_dt"].min(), df["period_dt"].max(),
-                                 freq={"h": "h", "D": "D", "MS": "MS",
+                                 freq={"h": "h", "D": "D", "W": "W-MON", "MS": "MS",
                                        "QS": "QS", "YS": "YS"}[freq])
     # window: keep the trailing N periods, then filter df to match so stats,
     # trends, rollup and the spike list are all consistent with what's shown.

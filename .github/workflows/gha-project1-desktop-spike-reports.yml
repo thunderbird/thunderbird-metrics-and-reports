@@ -61,7 +61,7 @@ jobs:
           uv run scripts/project1_spike_detect.py desktop --grain "$g"
           uv run scripts/project1_joint_spike_detect.py desktop --grain "$g"
         done
-        for g in hourly daily monthly quarterly yearly; do
+        for g in hourly daily weekly monthly quarterly yearly; do
           uv run scripts/project1_report.py desktop --grain "$g"
         done
     - name: Commit changes

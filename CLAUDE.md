@@ -188,18 +188,34 @@ cause.** No AI/LLM — regex dictionaries + traditional stats only.
    across v140/v148, half unversioned) is invisible daily but an obvious **4.3×
    cause-level spike at monthly grain** (validated against
    `REPORTS/DESKTOP/2026-03-desktop-gmx-oauth-issues.csv`). GMX spans versions, so
-   it's a CAUSE-level, not version×cause, signal.
-4. `project1_report.py {product} [--grain hourly|daily|monthly|quarterly|yearly]
+   it's a CAUSE-level, not version×cause, signal. **Second cause-level back-test:
+   the Aug 11–14 2025 Bitdefender breakage** (AV update made mail render as raw
+   HTML with no subject/sender) — caught **on day one at all three grains**
+   (`av:bitdefender` 11/19/15 qs, baseline 0, `new/dormant`; 49× at monthly), but
+   **invisible to version×cause** because Aug 2025 has ~0% version coverage. AV
+   incidents are never version-correlated in principle. See
+   `PROJECT1/validation/detector-backtest-bitdefender-2025-08.md`.
+4. `project1_report.py {product} [--grain hourly|daily|weekly|monthly|quarterly|yearly]
    [--window N]` → long-format rollup `PROJECT1/{product}-{grain}-rollup.csv` +
    Jekyll page `PROJECT1/REPORTS/{product}/{grain}-spike-report.md` (Unicode-block
-   sparklines, clickable IDs). **All five report grains live.** Two engineering
+   sparklines, clickable IDs). **All six report grains live.** Two engineering
    signals per page: **version×cause** (release regressions) and **cause-level**
    (provider/protocol/AV outages regardless of version). Each report grain
    reads the detector grain it maps to via `DETECTOR_GRAIN` (fine→daily,
-   coarse→monthly). Volume/cause/OS trends span full history; version×cause is
-   limited to versioned rows (2026-02+); cause-level uses all history. Per-grain
-   trailing `WINDOW_DEFAULTS`; `--window 0` = all history. All grains linked from
-   `index.md`.
+   coarse→monthly, weekly→weekly). Volume/cause/OS trends span full history;
+   version×cause is limited to versioned rows (2026-02+); cause-level uses all
+   history. Per-grain trailing `WINDOW_DEFAULTS`; `--window 0` = all history. All
+   grains linked from `index.md`. **The weekly report grain was added 2026-08**
+   after an audit found the weekly DETECTOR had been running twice daily since the
+   workflow was wired up but no report consumed its output. Audit as of 2026-08-03
+   (the detectors re-run twice daily, so exact counts drift — the ratio is the
+   point): **32 of 44 cause-dim weekly spikes (73%, ~9/yr) and 6 of 9 weekly
+   version×cause spikes appear at no other grain** — including the highest-lift
+   spike in the corpus (`v151 × m:icloud`, 7.5×, `new`, only 25% answered) and
+   `m:earthlink` 2025-06 (7 qs from a baseline of 0 — a Bitdefender-shaped
+   new/dormant cause cluster that both the daily floor of 8 and the monthly floor
+   of 8 miss). Weekly's `single_min_count=6` is the lowest floor of the three
+   grains; it is the grain for mid-duration incidents.
 
 **Engineering-management month-over-month summary** (`scripts/project1_mom_report.py
 {current} {previous} {product} [--latest]`): a management-facing page (distinct from
@@ -253,7 +269,9 @@ at 4.3×). All are CLI args — retune anytime.
   retry/wait before posting; Monday aggregates the weekend). Validated on the
   Jun 2023 Libero outage: began ~Jun 14, our questions spiked Jun 19 (its
   resolution date). So Project 1 is a pain-cluster / triage signal, NOT real-time
-  incident detection. The reports carry a ⏱ note saying so.
+  incident detection. The reports carry a ⏱ note saying so. **The lag is a
+  property of the incident, not of the method** — total, unmistakable breakage
+  surfaces immediately (Aug 2025 Bitdefender fired on day 1).
 - Native version/OS columns were added by Kitsune **PR #7443 on 2026-04-23**. The
   **backfill (done ~2026-07) re-derived `thunderbird_version` for all scraper
   history**, but it is only meaningfully populated from **2026-02 onward** (~27%

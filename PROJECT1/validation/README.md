@@ -1,5 +1,11 @@
 # Volume validation — BigQuery vs repo vs aaq-scraper
 
+> Validating *detection* rather than volume? See
+> [`detector-backtest-bitdefender-2025-08.md`](detector-backtest-bitdefender-2025-08.md)
+> — a known real incident (Bitdefender update, 11–14 Aug 2025) back-tested
+> against the committed spike CSVs.
+
+
 Cross-checks the desktop support-question counts this repo derives (from the
 aaq-scraper) against the **SUMO BigQuery ground truth**, after the full-history
 backfill surfaced a sustained volume decline (issue **#67**, discovered in #65).

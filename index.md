@@ -28,6 +28,7 @@ Desktop spike report by time grain:
 
 - [Hourly](PROJECT1/REPORTS/desktop/hourly-spike-report.html) (trailing 7 days)
 - [Daily](PROJECT1/REPORTS/desktop/daily-spike-report.html) (trailing 90 days)
+- [Weekly](PROJECT1/REPORTS/desktop/weekly-spike-report.html) (trailing 26 weeks) — the mid-duration incident: too diffuse for the daily floor, resolved before a month closes
 - [Monthly](PROJECT1/REPORTS/desktop/monthly-spike-report.html) (trailing 24 months)
 - [Quarterly](PROJECT1/REPORTS/desktop/quarterly-spike-report.html) (trailing 12 quarters)
 - [Yearly](PROJECT1/REPORTS/desktop/yearly-spike-report.html) (all history)
