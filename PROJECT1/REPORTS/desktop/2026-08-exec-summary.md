@@ -5,7 +5,7 @@ title: "2026-08 exec summary: Thunderbird Desktop support spikes"
 
 # August 2026 — Thunderbird Desktop support spikes
 
-_Executive summary · **2026-08** · 37 questions · regenerated 2026-08-03 04:28 UTC · no AI (regex + traditional stats)_
+_Executive summary · **2026-08** · 37 questions · regenerated 2026-08-03 04:29 UTC · no AI (regex + traditional stats)_
 
 ## ✅ August 2026 was clean
 
