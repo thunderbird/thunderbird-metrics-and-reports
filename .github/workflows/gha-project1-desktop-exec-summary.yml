@@ -14,12 +14,13 @@ name: gha-project1-desktop-exec-summary
 # keeps refreshing July, on Sep 1 it moves to August, and so on.
 #
 # WHY a closed month is regenerated daily: its verdict is NOT frozen when the month
-# ends. The joint detector's lift is measured against each cause's rate across ALL
-# history, so questions arriving later shift a closed month's expected values and
-# rows can cross the threshold in EITHER direction. Observed 2026-08-03: a July
-# `v140 x proto:smtp` row sat at lift exactly 3.00 and dropped below the floor
-# hours later as August data landed. Answered-% and first-answer-time also keep
-# firming up as late answers arrive.
+# ends. Lift divides by the version's volume in that period, and a PAST period keeps
+# gaining questions as the scraper backfills and versions get re-derived. Measured
+# 2026-08-03: the July `v140 x proto:smtp` week of 07-20 read lift 3.00 in the
+# morning and 1.8 that evening — the cause rate barely moved (0.0493 -> 0.0480),
+# but that week's v140 volume went 27 -> 46, pushing expected 1.33 -> 2.21.
+# Answered-% firms up the same way. Rows cross the threshold in EITHER direction
+# for weeks after a month ends.
 
 on:
   schedule:

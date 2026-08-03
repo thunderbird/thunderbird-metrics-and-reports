@@ -5,7 +5,7 @@ title: "2026-08 exec summary: Thunderbird Desktop support spikes"
 
 # August 2026 — Thunderbird Desktop support spikes
 
-_Executive summary · **2026-08** · 37 questions · regenerated 2026-08-03 04:20 UTC · no AI (regex + traditional stats)_
+_Executive summary · **2026-08** · 37 questions · regenerated 2026-08-03 04:28 UTC · no AI (regex + traditional stats)_
 
 ## ✅ August 2026 was clean
 
@@ -25,7 +25,21 @@ _Executive summary · **2026-08** · 37 questions · regenerated 2026-08-03 04:2
 
 > ⏱ **Spike timing lags the incident.** A spike dates when users *piled in*, typically days after onset and often near resolution. Treat these as pain-cluster / triage signals, not real-time detection.
 
-> 🔄 **This verdict is not frozen when the month ends.** Lift is measured against each cause's rate across all history, so later questions shift a closed month's expected values and rows can cross the threshold in either direction; answered-% keeps firming up as late answers land. That is why this page regenerates daily.
+> 🔄 **This verdict is not frozen when the month ends.** Lift is measured against each cause's rate across all history, so later questions shift a closed month's expected values and rows can cross the threshold in either direction; answered-% keeps firming up as late answers land. That is why this page regenerates daily — and because each day's version is committed, `git log -p` on this file shows exactly how the verdict evolved.
+
+<details markdown="1">
+<summary><strong>🔍 Near misses (within ~25% of threshold)</strong> — 1 row</summary>
+
+Clusters the same detectors flag at **0.75× the thresholds** (i.e. within ~25% of firing) but which did NOT clear the real ones. Not incidents — context, so that “clean” is not confused with “quiet”.
+
+**Version × cause**
+
+| Grain | Lift | When | Version × Cause | Qs | Served | Example questions |
+|:--|--:|:--|:--|--:|:--|:--|
+| weekly | 2.8× | 2026-07-27 | v153 × m:comcast | 4 | 75% ans · 5.4h | [1595937](https://support.mozilla.org/questions/1595937 "") [1595941](https://support.mozilla.org/questions/1595941 "") [1596164](https://support.mozilla.org/questions/1596164 "With version 153: Unable to send from gmail account.  And cannot create a new gm") [1596297](https://support.mozilla.org/questions/1596297 "Trying to set APP Password to connect with Yahoo Mail conversion at Comcast.") |
+
+
+</details>
 
 ---
 

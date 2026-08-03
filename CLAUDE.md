@@ -228,16 +228,33 @@ Auto-generated **daily** (0530 UTC) by **`gha-project1-desktop-exec-summary.yml`
 which is lightweight (reads the committed feature/spike CSVs) and **auto-rolls**:
 each run does the most recent COMPLETE month (`--latest`) plus the in-progress one,
 so July keeps refreshing through August and the target advances on the 1st. Linked
-first from `index.md`. Two things to know: **(a) a closed month's verdict is NOT
-frozen** — joint lift divides by each cause's rate over ALL history, so later
-questions shift a closed month's expected values and rows cross the threshold in
-either direction (a July `v140 × proto:smtp` row sat at lift exactly 3.00 and
-dropped out hours later as August data landed); that is the whole reason for daily
-regeneration. **(b) `month_bounds()` must not use `MonthEnd(1)`** — it returns the
-last DAY at 00:00, so an inclusive `<= end` silently drops the entire final day of
-the month (32 of July's 731 questions when first written). A weekly detector period
-counts toward a month when its week **overlaps** it, not when its Monday falls in
-it.
+first from `index.md`. The page also carries a collapsed **near-miss block** right
+after the verdict (see below). Three things to know:
+
+**(a) A closed month's verdict is NOT frozen — and the driver is the denominator.**
+Lift = `observed / (version_volume_in_period × cause_rate_overall)`, and a PAST
+period keeps gaining questions as the scraper backfills and versions get
+re-derived. Measured 2026-08-03: the July `v140 × proto:smtp` week of 07-20 read
+lift **3.00 in the morning and 1.8 that evening** — the cause rate barely moved
+(0.0493→0.0480), but that week's v140 volume went **27→46**, pushing expected
+1.33→2.21. So rows cross the threshold in either direction for weeks after a month
+closes; that is the whole reason for daily regeneration. Because each day's page is
+committed, `git log -p` on it shows how the verdict evolved.
+
+**(b) Near-miss = relax the MAGNITUDE bar only, never `min_count`.** The block runs
+the same detectors a second time at `--near-miss-factor` (default 0.75) × the
+lift/mult thresholds, into a temp dir via the detectors' `--out` flag, and reports
+the set difference — so there is exactly one implementation of the detection maths.
+Relaxing `min_count` too was tried and rejected: it floods the block with tiny
+clusters carrying huge ratios (July 2026 went from 4 useful rows to 18, topped by
+"10.4×" on **three** questions), which is precisely the noise `min_count` exists to
+suppress. The interesting near-miss is "big enough to matter, not over-represented
+enough to fire".
+
+**(c) `month_bounds()` must not use `MonthEnd(1)`** — it returns the last DAY at
+00:00, so an inclusive `<= end` silently drops the entire final day of the month
+(32 of July's 731 questions when first written). A weekly detector period counts
+toward a month when its week **overlaps** it, not when its Monday falls in it.
 
 **Engineering-management month-over-month summary** (`scripts/project1_mom_report.py
 {current} {previous} {product} [--latest]`): a management-facing page (distinct from

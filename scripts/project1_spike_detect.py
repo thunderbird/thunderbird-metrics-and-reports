@@ -78,6 +78,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("product", choices=["desktop", "android"])
     ap.add_argument("--grain", default="daily", choices=GRAINS)
+    ap.add_argument("--out", help="output CSV path (default: the committed "
+                    "PROJECT1/ location). Used to run the SAME detection math at "
+                    "relaxed thresholds into a side file for near-miss reporting, "
+                    "without clobbering the real spike CSV.")
     ap.add_argument("--window", type=int, help="trailing baseline periods")
     ap.add_argument("--min-periods", type=int, help="min prior periods of history")
     ap.add_argument("--min-count", type=int, help="absolute floor for a spike period")
@@ -134,7 +138,7 @@ def main():
     cols = ["period", "dim", "value", "count", "baseline_median", "magnitude",
             "kind", "answered_pct", "unanswered", "median_first_answer_h",
             "question_ids", "example_urls", "example_titles"]
-    out = OUT.format(product=args.product, grain=grain)
+    out = args.out or OUT.format(product=args.product, grain=grain)
     if not spikes:
         print(f"No {grain} spikes flagged at current thresholds.")
         pd.DataFrame(columns=cols).to_csv(out, index=False)

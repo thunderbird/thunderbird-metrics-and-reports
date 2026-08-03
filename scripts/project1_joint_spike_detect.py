@@ -72,6 +72,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("product", choices=["desktop", "android"])
     ap.add_argument("--grain", default="daily", choices=GRAINS)
+    ap.add_argument("--out", help="output CSV path (default: the committed "
+                    "PROJECT1/ location). Used to run the SAME detection math at "
+                    "relaxed thresholds into a side file for near-miss reporting, "
+                    "without clobbering the real spike CSV.")
     ap.add_argument("--min-count", type=int, help="absolute floor: observed in the cluster")
     ap.add_argument("--lift", type=float, help="observed/expected over-representation threshold")
     args = ap.parse_args()
@@ -186,7 +190,7 @@ def main():
     rank = {"new": 0, "spreading": 1, "recurring": 2}
     sp["_r"] = sp["novelty"].map(rank)
     sp = sp.sort_values(["_r", "lift", "period"], ascending=[True, False, False]).drop(columns="_r")
-    out = OUT.format(product=args.product, grain=grain)
+    out = args.out or OUT.format(product=args.product, grain=grain)
     sp.to_csv(out, index=False)
 
     print(f"=== {args.product} {grain} version x cause joint spike detector ===")
