@@ -1,0 +1,80 @@
+name: gha-project1-desktop-exec-summary
+
+# One-month EXECUTIVE summary for DESKTOP — "was <month> clean?", verdict first,
+# all detail collapsed. Built for engineering, who want the answer before the
+# analysis. See scripts/project1_exec_summary.py.
+#
+# Lightweight: reads the committed Project 1 feature tables + spike CSVs (refreshed
+# by gha-project1-desktop-spike-reports.yml at 0430/1630) and writes only the
+# *-exec-summary.md pages. The hourly website workflow publishes them.
+#
+# Cadence: DAILY, auto-rolling. Every run regenerates the most recent COMPLETE
+# month (with --latest, so exec-summary-latest.md always points at the last closed
+# month) and the in-progress month. There is no dated cutoff: through August it
+# keeps refreshing July, on Sep 1 it moves to August, and so on.
+#
+# WHY a closed month is regenerated daily: its verdict is NOT frozen when the month
+# ends. The joint detector's lift is measured against each cause's rate across ALL
+# history, so questions arriving later shift a closed month's expected values and
+# rows can cross the threshold in EITHER direction. Observed 2026-08-03: a July
+# `v140 x proto:smtp` row sat at lift exactly 3.00 and dropped below the floor
+# hours later as August data landed. Answered-% and first-answer-time also keep
+# firming up as late answers arrive.
+
+on:
+  schedule:
+    - cron: '30 5 * * *'    # 0530 UTC — after the 0430 spike/detector refresh
+  workflow_dispatch:
+    inputs:
+      month:
+        description: 'Regenerate one specific month (YYYY-MM) instead of the auto-rolling pair'
+        type: string
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  exec-summary:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+      with:
+        python-version: '3.14'
+        enable-cache: true
+    - name: Create virtual environment
+      run: uv venv
+    - name: Install dependencies
+      run: uv pip install -r requirements.txt
+    - name: Generate executive summary (desktop)
+      run: |
+        set -euo pipefail
+        if [ -n "${{ inputs.month }}" ]; then
+          echo "Manual run for ${{ inputs.month }}"
+          uv run scripts/project1_exec_summary.py "${{ inputs.month }}" desktop
+        else
+          CUR=$(date +%Y-%m)
+          # -1 month from the 15th, so this never lands on a short-month edge
+          PREV=$(date --date="$(date +%Y-%m-15) -1 month" +%Y-%m)
+          echo "Auto-roll: last complete month=$PREV (--latest), in progress=$CUR"
+          uv run scripts/project1_exec_summary.py "$PREV" desktop --latest
+          uv run scripts/project1_exec_summary.py "$CUR"  desktop
+        fi
+    # Gate the commit: kramdown silently degrades a malformed table to paragraphs
+    # (no error, no warning). These pages embed SUMO-derived titles through the
+    # same md_safe as the spike reports, and put tables inside <details
+    # markdown="1">, so verify before publishing.
+    - name: Verify the generated pages render every table
+      run: uv run scripts/check_report_render.py 'PROJECT1/REPORTS/desktop/*exec-summary*.md'
+    - name: Commit changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add PROJECT1/REPORTS/
+        git commit -m "Project 1: regenerate desktop executive summary" || { echo "No changes"; exit 0; }
+        git pull --rebase origin "${GITHUB_REF_NAME}"
+        git push

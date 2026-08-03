@@ -217,6 +217,28 @@ cause.** No AI/LLM — regex dictionaries + traditional stats only.
    of 8 miss). Weekly's `single_min_count=6` is the lowest floor of the three
    grains; it is the grain for mid-duration incidents.
 
+**One-month executive summary** (`scripts/project1_exec_summary.py {YYYY-MM}
+{product} [--latest]`) → `PROJECT1/REPORTS/{product}/{YYYY-MM}-exec-summary.md`
+(+ `exec-summary-latest.md`). Answers **"was <month> clean?"** verdict-first for
+engineering: a ✅/🚨 headline, a **detector × grain count table** (version×cause and
+cause-level across daily/weekly/monthly), volume/answered context, then ALL the
+month's detail inside collapsed `<details markdown="1">` blocks (joint spikes,
+cause-level spikes, the release-adoption version/OS dump, and per-day trends).
+Auto-generated **daily** (0530 UTC) by **`gha-project1-desktop-exec-summary.yml`**,
+which is lightweight (reads the committed feature/spike CSVs) and **auto-rolls**:
+each run does the most recent COMPLETE month (`--latest`) plus the in-progress one,
+so July keeps refreshing through August and the target advances on the 1st. Linked
+first from `index.md`. Two things to know: **(a) a closed month's verdict is NOT
+frozen** — joint lift divides by each cause's rate over ALL history, so later
+questions shift a closed month's expected values and rows cross the threshold in
+either direction (a July `v140 × proto:smtp` row sat at lift exactly 3.00 and
+dropped out hours later as August data landed); that is the whole reason for daily
+regeneration. **(b) `month_bounds()` must not use `MonthEnd(1)`** — it returns the
+last DAY at 00:00, so an inclusive `<= end` silently drops the entire final day of
+the month (32 of July's 731 questions when first written). A weekly detector period
+counts toward a month when its week **overlaps** it, not when its Monday falls in
+it.
+
 **Engineering-management month-over-month summary** (`scripts/project1_mom_report.py
 {current} {previous} {product} [--latest]`): a management-facing page (distinct from
 the engineering spike reports and from the *future community* report) — current
