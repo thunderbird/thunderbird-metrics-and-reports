@@ -7,7 +7,6 @@ period,dim,value,count
 2026-06-08,av,av:avast,1
 2026-06-15,av,av:avast,1
 2026-07-06,av,av:avast,2
-2026-02-02,av,av:bitdefender,1
 2026-03-02,av,av:bitdefender,1
 2026-03-09,av,av:bitdefender,2
 2026-03-16,av,av:bitdefender,1
@@ -20,7 +19,6 @@ period,dim,value,count
 2026-04-06,av,av:clamav,1
 2026-04-27,av,av:comodo,1
 2026-07-27,av,av:comodo,1
-2026-02-02,av,av:defender,1
 2026-03-09,av,av:defender,2
 2026-04-06,av,av:defender,1
 2026-05-04,av,av:defender,1
@@ -33,7 +31,6 @@ period,dim,value,count
 2026-06-29,av,av:defender,1
 2026-07-06,av,av:defender,1
 2026-07-27,av,av:defender,1
-2026-02-02,av,av:eset,1
 2026-03-02,av,av:eset,1
 2026-03-30,av,av:eset,2
 2026-06-08,av,av:eset,1
@@ -64,7 +61,6 @@ period,dim,value,count
 2026-06-15,av,av:norton,1
 2026-07-06,av,av:norton,1
 2026-07-27,av,av:norton,2
-2026-02-02,av,av:surfshark,1
 2026-05-25,av,av:surfshark,1
 2026-06-01,av,av:surfshark,1
 2026-04-27,av,av:trendmicro,1
@@ -81,7 +77,6 @@ period,dim,value,count
 2026-04-27,macos_release,macos:monterey,1
 2026-05-25,macos_release,macos:monterey,1
 2026-07-27,macos_release,macos:monterey,1
-2026-02-02,macos_release,macos:sequoia,2
 2026-02-16,macos_release,macos:sequoia,1
 2026-03-09,macos_release,macos:sequoia,2
 2026-03-23,macos_release,macos:sequoia,1
@@ -99,7 +94,6 @@ period,dim,value,count
 2026-05-04,macos_release,macos:sonoma,1
 2026-05-18,macos_release,macos:sonoma,1
 2026-07-13,macos_release,macos:sonoma,1
-2026-02-02,macos_release,macos:tahoe,3
 2026-02-23,macos_release,macos:tahoe,2
 2026-03-02,macos_release,macos:tahoe,2
 2026-03-09,macos_release,macos:tahoe,1
@@ -154,7 +148,6 @@ period,dim,value,count
 2026-03-23,mail_provider,m:bluewin,1
 2026-04-20,mail_provider,m:bluewin,1
 2026-05-25,mail_provider,m:bluewin,1
-2026-02-02,mail_provider,m:btinternet,1
 2026-02-09,mail_provider,m:btinternet,2
 2026-02-23,mail_provider,m:btinternet,3
 2026-03-16,mail_provider,m:btinternet,1
@@ -181,7 +174,6 @@ period,dim,value,count
 2026-04-20,mail_provider,m:centurylink,1
 2026-06-29,mail_provider,m:centurylink,1
 2026-07-06,mail_provider,m:centurylink,1
-2026-02-02,mail_provider,m:comcast,3
 2026-02-09,mail_provider,m:comcast,1
 2026-02-23,mail_provider,m:comcast,5
 2026-03-02,mail_provider,m:comcast,4
@@ -203,10 +195,9 @@ period,dim,value,count
 2026-07-06,mail_provider,m:comcast,3
 2026-07-13,mail_provider,m:comcast,3
 2026-07-20,mail_provider,m:comcast,2
-2026-07-27,mail_provider,m:comcast,4
+2026-07-27,mail_provider,m:comcast,5
 2026-02-16,mail_provider,m:cox,1
 2026-02-23,mail_provider,m:cox,1
-2026-02-02,mail_provider,m:earthlink,1
 2026-02-16,mail_provider,m:earthlink,1
 2026-03-02,mail_provider,m:earthlink,3
 2026-03-16,mail_provider,m:earthlink,1
@@ -223,7 +214,6 @@ period,dim,value,count
 2026-07-13,mail_provider,m:fastmail,1
 2026-03-23,mail_provider,m:fastweb,1
 2026-04-20,mail_provider,m:fastweb,1
-2026-02-02,mail_provider,m:free_fr,1
 2026-02-23,mail_provider,m:free_fr,1
 2026-03-09,mail_provider,m:free_fr,1
 2026-07-06,mail_provider,m:free_fr,1
@@ -234,7 +224,6 @@ period,dim,value,count
 2026-06-29,mail_provider,m:frontier,1
 2026-06-15,mail_provider,m:gandi,1
 2026-06-29,mail_provider,m:gandi,2
-2026-02-02,mail_provider,m:gmail,26
 2026-02-09,mail_provider,m:gmail,18
 2026-02-16,mail_provider,m:gmail,15
 2026-02-23,mail_provider,m:gmail,18
@@ -260,7 +249,6 @@ period,dim,value,count
 2026-07-13,mail_provider,m:gmail,13
 2026-07-20,mail_provider,m:gmail,17
 2026-07-27,mail_provider,m:gmail,13
-2026-02-02,mail_provider,m:gmx,1
 2026-02-09,mail_provider,m:gmx,1
 2026-02-16,mail_provider,m:gmx,2
 2026-02-23,mail_provider,m:gmx,1
@@ -280,7 +268,6 @@ period,dim,value,count
 2026-07-13,mail_provider,m:gmx,1
 2026-07-20,mail_provider,m:gmx,1
 2026-07-27,mail_provider,m:gmx,1
-2026-02-02,mail_provider,m:icloud,1
 2026-02-16,mail_provider,m:icloud,1
 2026-02-23,mail_provider,m:icloud,4
 2026-03-02,mail_provider,m:icloud,1
@@ -310,8 +297,6 @@ period,dim,value,count
 2026-05-11,mail_provider,m:kpn,1
 2026-05-18,mail_provider,m:kpn,1
 2026-06-08,mail_provider,m:kpn,1
-2026-02-02,mail_provider,m:laposte,1
-2026-02-02,mail_provider,m:libero,1
 2026-03-02,mail_provider,m:libero,1
 2026-05-11,mail_provider,m:libero,1
 2026-06-22,mail_provider,m:libero,1
@@ -327,7 +312,6 @@ period,dim,value,count
 2026-03-02,mail_provider,m:mailru,1
 2026-05-11,mail_provider,m:mailru,1
 2026-02-23,mail_provider,m:mediacom,1
-2026-02-02,mail_provider,m:microsoftemail,22
 2026-02-09,mail_provider,m:microsoftemail,18
 2026-02-16,mail_provider,m:microsoftemail,19
 2026-02-23,mail_provider,m:microsoftemail,23
@@ -352,12 +336,11 @@ period,dim,value,count
 2026-07-06,mail_provider,m:microsoftemail,11
 2026-07-13,mail_provider,m:microsoftemail,6
 2026-07-20,mail_provider,m:microsoftemail,7
-2026-07-27,mail_provider,m:microsoftemail,7
+2026-07-27,mail_provider,m:microsoftemail,8
 2026-02-09,mail_provider,m:onecom,2
 2026-03-16,mail_provider,m:onecom,1
 2026-04-13,mail_provider,m:onecom,1
 2026-05-25,mail_provider,m:onecom,1
-2026-02-02,mail_provider,m:optimum,1
 2026-04-06,mail_provider,m:optimum,1
 2026-04-20,mail_provider,m:optimum,1
 2026-04-27,mail_provider,m:optimum,2
@@ -382,7 +365,6 @@ period,dim,value,count
 2026-03-16,mail_provider,m:protonmail,1
 2026-03-30,mail_provider,m:protonmail,1
 2026-05-18,mail_provider,m:protonmail,1
-2026-02-02,mail_provider,m:rogers,1
 2026-03-02,mail_provider,m:rogers,1
 2026-03-09,mail_provider,m:rogers,1
 2026-03-16,mail_provider,m:rogers,1
@@ -398,7 +380,6 @@ period,dim,value,count
 2026-03-02,mail_provider,m:sfr,1
 2026-04-13,mail_provider,m:sfr,1
 2026-07-06,mail_provider,m:sfr,1
-2026-02-02,mail_provider,m:shaw,1
 2026-03-02,mail_provider,m:shaw,1
 2026-03-16,mail_provider,m:shaw,1
 2026-03-23,mail_provider,m:shaw,1
@@ -409,7 +390,6 @@ period,dim,value,count
 2026-07-06,mail_provider,m:shaw,2
 2026-07-20,mail_provider,m:shaw,1
 2026-03-30,mail_provider,m:skynet_be,2
-2026-02-02,mail_provider,m:spectrum,4
 2026-02-09,mail_provider,m:spectrum,3
 2026-02-16,mail_provider,m:spectrum,5
 2026-02-23,mail_provider,m:spectrum,2
@@ -432,6 +412,7 @@ period,dim,value,count
 2026-07-06,mail_provider,m:spectrum,2
 2026-07-13,mail_provider,m:spectrum,1
 2026-07-20,mail_provider,m:spectrum,1
+2026-07-27,mail_provider,m:spectrum,1
 2026-03-09,mail_provider,m:strato,1
 2026-06-15,mail_provider,m:strato,1
 2026-03-23,mail_provider,m:telus,1
@@ -440,11 +421,9 @@ period,dim,value,count
 2026-05-18,mail_provider,m:thundermail,1
 2026-07-13,mail_provider,m:thundermail,1
 2026-07-20,mail_provider,m:thundermail,1
-2026-02-02,mail_provider,m:tiscali,1
 2026-05-18,mail_provider,m:tiscali,1
 2026-06-15,mail_provider,m:tiscali,2
 2026-06-29,mail_provider,m:tiscali,1
-2026-02-02,mail_provider,m:tonline,1
 2026-02-16,mail_provider,m:tonline,1
 2026-02-23,mail_provider,m:tonline,1
 2026-03-02,mail_provider,m:tonline,1
@@ -473,7 +452,6 @@ period,dim,value,count
 2026-03-23,mail_provider,m:virgilio,1
 2026-05-18,mail_provider,m:virgilio,1
 2026-05-25,mail_provider,m:virgilio,2
-2026-02-02,mail_provider,m:virginmedia,1
 2026-02-16,mail_provider,m:virginmedia,1
 2026-03-30,mail_provider,m:virginmedia,1
 2026-04-13,mail_provider,m:virginmedia,1
@@ -493,7 +471,6 @@ period,dim,value,count
 2026-06-22,mail_provider,m:windstream,1
 2026-06-29,mail_provider,m:windstream,1
 2026-05-11,mail_provider,m:wppl,1
-2026-02-02,mail_provider,m:yahooemail,10
 2026-02-09,mail_provider,m:yahooemail,11
 2026-02-16,mail_provider,m:yahooemail,6
 2026-02-23,mail_provider,m:yahooemail,25
@@ -518,7 +495,7 @@ period,dim,value,count
 2026-07-06,mail_provider,m:yahooemail,6
 2026-07-13,mail_provider,m:yahooemail,3
 2026-07-20,mail_provider,m:yahooemail,5
-2026-07-27,mail_provider,m:yahooemail,10
+2026-07-27,mail_provider,m:yahooemail,12
 2026-02-16,mail_provider,m:yandex,1
 2026-03-16,mail_provider,m:yandex,1
 2026-05-04,mail_provider,m:yandex,1
@@ -537,7 +514,6 @@ period,dim,value,count
 2026-05-11,mail_provider,m:zoho,1
 2026-06-22,mail_provider,m:zoho,1
 2026-07-13,mail_provider,m:zoho,2
-2026-02-02,os,os:android,4
 2026-02-09,os,os:android,5
 2026-02-16,os,os:android,1
 2026-02-23,os,os:android,2
@@ -557,7 +533,7 @@ period,dim,value,count
 2026-06-29,os,os:android,3
 2026-07-06,os,os:android,4
 2026-07-20,os,os:android,1
-2026-02-02,os,os:linux,15
+2026-07-27,os,os:android,1
 2026-02-09,os,os:linux,20
 2026-02-16,os,os:linux,19
 2026-02-23,os,os:linux,20
@@ -582,8 +558,7 @@ period,dim,value,count
 2026-07-06,os,os:linux,6
 2026-07-13,os,os:linux,11
 2026-07-20,os,os:linux,18
-2026-07-27,os,os:linux,19
-2026-02-02,os,os:macos,19
+2026-07-27,os,os:linux,21
 2026-02-09,os,os:macos,10
 2026-02-16,os,os:macos,18
 2026-02-23,os,os:macos,17
@@ -609,7 +584,6 @@ period,dim,value,count
 2026-07-13,os,os:macos,10
 2026-07-20,os,os:macos,7
 2026-07-27,os,os:macos,8
-2026-02-02,os,os:other,14
 2026-02-09,os,os:other,3
 2026-02-16,os,os:other,4
 2026-03-02,os,os:other,2
@@ -628,7 +602,6 @@ period,dim,value,count
 2026-07-13,os,os:other,2
 2026-07-20,os,os:other,2
 2026-07-27,os,os:other,2
-2026-02-02,os,os:windows,127
 2026-02-09,os,os:windows,178
 2026-02-16,os,os:windows,167
 2026-02-23,os,os:windows,229
@@ -653,8 +626,8 @@ period,dim,value,count
 2026-07-06,os,os:windows,131
 2026-07-13,os,os:windows,119
 2026-07-20,os,os:windows,145
-2026-07-27,os,os:windows,125
-2026-02-02,protocol,proto:caldav,2
+2026-07-27,os,os:windows,131
+2026-08-03,os,os:windows,1
 2026-02-09,protocol,proto:caldav,2
 2026-02-23,protocol,proto:caldav,3
 2026-03-02,protocol,proto:caldav,1
@@ -667,7 +640,6 @@ period,dim,value,count
 2026-06-22,protocol,proto:caldav,1
 2026-07-06,protocol,proto:caldav,1
 2026-07-20,protocol,proto:caldav,2
-2026-02-02,protocol,proto:carddav,1
 2026-02-09,protocol,proto:carddav,1
 2026-02-16,protocol,proto:carddav,1
 2026-03-02,protocol,proto:carddav,1
@@ -687,7 +659,6 @@ period,dim,value,count
 2026-06-08,protocol,proto:ews,1
 2026-06-29,protocol,proto:ews,1
 2026-07-27,protocol,proto:ews,1
-2026-02-02,protocol,proto:imap,9
 2026-02-09,protocol,proto:imap,18
 2026-02-16,protocol,proto:imap,14
 2026-02-23,protocol,proto:imap,16
@@ -713,7 +684,6 @@ period,dim,value,count
 2026-07-13,protocol,proto:imap,11
 2026-07-20,protocol,proto:imap,13
 2026-07-27,protocol,proto:imap,10
-2026-02-02,protocol,proto:oauth,3
 2026-02-09,protocol,proto:oauth,4
 2026-02-16,protocol,proto:oauth,2
 2026-02-23,protocol,proto:oauth,15
@@ -739,7 +709,6 @@ period,dim,value,count
 2026-07-13,protocol,proto:oauth,4
 2026-07-20,protocol,proto:oauth,5
 2026-07-27,protocol,proto:oauth,3
-2026-02-02,protocol,proto:pop,3
 2026-02-09,protocol,proto:pop,10
 2026-02-16,protocol,proto:pop,8
 2026-02-23,protocol,proto:pop,14
@@ -764,8 +733,7 @@ period,dim,value,count
 2026-07-06,protocol,proto:pop,11
 2026-07-13,protocol,proto:pop,9
 2026-07-20,protocol,proto:pop,6
-2026-07-27,protocol,proto:pop,9
-2026-02-02,protocol,proto:smtp,11
+2026-07-27,protocol,proto:pop,10
 2026-02-09,protocol,proto:smtp,14
 2026-02-16,protocol,proto:smtp,9
 2026-02-23,protocol,proto:smtp,11
@@ -790,7 +758,7 @@ period,dim,value,count
 2026-07-06,protocol,proto:smtp,12
 2026-07-13,protocol,proto:smtp,5
 2026-07-20,protocol,proto:smtp,10
-2026-07-27,protocol,proto:smtp,3
+2026-07-27,protocol,proto:smtp,4
 2026-02-16,tb_version_major,102,1
 2026-02-23,tb_version_major,102,3
 2026-03-02,tb_version_major,102,1
@@ -982,6 +950,7 @@ period,dim,value,count
 2026-06-22,tb_version_major,151,7
 2026-07-13,tb_version_major,151,1
 2026-07-20,tb_version_major,151,3
+2026-07-27,tb_version_major,151,1
 2026-04-20,tb_version_major,152,1
 2026-05-25,tb_version_major,152,1
 2026-06-01,tb_version_major,152,2
@@ -997,12 +966,12 @@ period,dim,value,count
 2026-06-22,tb_version_major,153,1
 2026-06-29,tb_version_major,153,4
 2026-07-20,tb_version_major,153,43
-2026-07-27,tb_version_major,153,73
+2026-07-27,tb_version_major,153,79
+2026-08-03,tb_version_major,153,1
 2026-07-27,tb_version_major,154,2
 2026-02-16,tb_version_major,155,1
 2026-06-22,tb_version_major,156,1
 2026-04-27,tb_version_major,159,1
-2026-02-02,total,all,244
 2026-02-09,total,all,243
 2026-02-16,total,all,213
 2026-02-23,total,all,277
@@ -1027,4 +996,5 @@ period,dim,value,count
 2026-07-06,total,all,160
 2026-07-13,total,all,148
 2026-07-20,total,all,176
-2026-07-27,total,all,159
+2026-07-27,total,all,168
+2026-08-03,total,all,1
