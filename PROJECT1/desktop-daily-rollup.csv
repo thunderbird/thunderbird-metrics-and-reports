@@ -413,6 +413,7 @@ period,dim,value,count
 2026-06-22,mail_provider,m:windstream,1
 2026-07-02,mail_provider,m:windstream,1
 2026-05-11,mail_provider,m:wppl,1
+2026-08-03,mail_provider,m:xtra_nz,1
 2026-05-06,mail_provider,m:yahooemail,2
 2026-05-07,mail_provider,m:yahooemail,2
 2026-05-09,mail_provider,m:yahooemail,2
@@ -751,7 +752,7 @@ period,dim,value,count
 2026-07-31,os,os:windows,29
 2026-08-01,os,os:windows,15
 2026-08-02,os,os:windows,8
-2026-08-03,os,os:windows,1
+2026-08-03,os,os:windows,4
 2026-05-27,protocol,proto:caldav,1
 2026-06-05,protocol,proto:caldav,1
 2026-06-07,protocol,proto:caldav,1
@@ -987,7 +988,9 @@ period,dim,value,count
 2026-07-27,protocol,proto:smtp,1
 2026-07-29,protocol,proto:smtp,1
 2026-07-30,protocol,proto:smtp,1
+2026-07-31,protocol,proto:smtp,1
 2026-08-02,protocol,proto:smtp,1
+2026-08-03,protocol,proto:smtp,1
 2026-05-20,tb_version_major,102,1
 2026-05-27,tb_version_major,102,1
 2026-06-01,tb_version_major,102,1
@@ -1239,6 +1242,7 @@ period,dim,value,count
 2026-07-26,tb_version_major,150,1
 2026-07-28,tb_version_major,150,1
 2026-07-29,tb_version_major,150,1
+2026-08-03,tb_version_major,150,1
 2026-05-18,tb_version_major,151,1
 2026-05-19,tb_version_major,151,3
 2026-05-20,tb_version_major,151,11
@@ -1353,7 +1357,7 @@ period,dim,value,count
 2026-07-31,tb_version_major,153,18
 2026-08-01,tb_version_major,153,13
 2026-08-02,tb_version_major,153,10
-2026-08-03,tb_version_major,153,1
+2026-08-03,tb_version_major,153,2
 2026-07-28,tb_version_major,154,1
 2026-07-30,tb_version_major,154,1
 2026-06-25,tb_version_major,156,1
@@ -1446,4 +1450,4 @@ period,dim,value,count
 2026-07-31,total,all,32
 2026-08-01,total,all,22
 2026-08-02,total,all,14
-2026-08-03,total,all,1
+2026-08-03,total,all,4
