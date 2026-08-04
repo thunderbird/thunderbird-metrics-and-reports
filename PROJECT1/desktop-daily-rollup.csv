@@ -50,6 +50,7 @@ period,dim,value,count
 2026-06-01,macos_release,macos:mojave,1
 2026-05-31,macos_release,macos:monterey,1
 2026-07-29,macos_release,macos:monterey,1
+2026-08-04,macos_release,macos:monterey,1
 2026-05-12,macos_release,macos:sequoia,1
 2026-05-14,macos_release,macos:sequoia,1
 2026-05-25,macos_release,macos:sequoia,1
@@ -224,7 +225,7 @@ period,dim,value,count
 2026-07-31,mail_provider,m:gmail,2
 2026-08-01,mail_provider,m:gmail,1
 2026-08-03,mail_provider,m:gmail,5
-2026-08-04,mail_provider,m:gmail,1
+2026-08-04,mail_provider,m:gmail,3
 2026-05-14,mail_provider,m:gmx,1
 2026-06-07,mail_provider,m:gmx,1
 2026-06-09,mail_provider,m:gmx,1
@@ -330,6 +331,7 @@ period,dim,value,count
 2026-08-01,mail_provider,m:microsoftemail,2
 2026-08-02,mail_provider,m:microsoftemail,1
 2026-08-03,mail_provider,m:microsoftemail,4
+2026-08-04,mail_provider,m:microsoftemail,5
 2026-05-26,mail_provider,m:onecom,1
 2026-06-02,mail_provider,m:orange,1
 2026-06-05,mail_provider,m:orange,2
@@ -384,6 +386,7 @@ period,dim,value,count
 2026-05-21,mail_provider,m:thundermail,1
 2026-07-14,mail_provider,m:thundermail,1
 2026-07-23,mail_provider,m:thundermail,1
+2026-08-04,mail_provider,m:thundermail,1
 2026-05-21,mail_provider,m:tiscali,1
 2026-06-17,mail_provider,m:tiscali,1
 2026-06-18,mail_provider,m:tiscali,1
@@ -475,6 +478,7 @@ period,dim,value,count
 2026-08-01,mail_provider,m:yahooemail,1
 2026-08-02,mail_provider,m:yahooemail,2
 2026-08-03,mail_provider,m:yahooemail,3
+2026-08-04,mail_provider,m:yahooemail,1
 2026-05-07,mail_provider,m:yandex,1
 2026-05-28,mail_provider,m:yandex,1
 2026-05-28,mail_provider,m:ziggo,1
@@ -572,6 +576,7 @@ period,dim,value,count
 2026-08-01,os,os:linux,4
 2026-08-02,os,os:linux,3
 2026-08-03,os,os:linux,3
+2026-08-04,os,os:linux,2
 2026-05-07,os,os:macos,1
 2026-05-09,os,os:macos,2
 2026-05-11,os,os:macos,2
@@ -639,6 +644,7 @@ period,dim,value,count
 2026-08-01,os,os:macos,1
 2026-08-02,os,os:macos,1
 2026-08-03,os,os:macos,1
+2026-08-04,os,os:macos,2
 2026-05-07,os,os:other,2
 2026-05-18,os,os:other,1
 2026-05-19,os,os:other,1
@@ -664,6 +670,7 @@ period,dim,value,count
 2026-07-24,os,os:other,1
 2026-07-27,os,os:other,1
 2026-08-02,os,os:other,1
+2026-08-04,os,os:other,1
 2026-05-07,os,os:windows,22
 2026-05-08,os,os:windows,28
 2026-05-09,os,os:windows,24
@@ -753,7 +760,7 @@ period,dim,value,count
 2026-08-01,os,os:windows,15
 2026-08-02,os,os:windows,8
 2026-08-03,os,os:windows,29
-2026-08-04,os,os:windows,3
+2026-08-04,os,os:windows,14
 2026-05-27,protocol,proto:caldav,1
 2026-06-05,protocol,proto:caldav,1
 2026-06-07,protocol,proto:caldav,1
@@ -841,6 +848,7 @@ period,dim,value,count
 2026-07-31,protocol,proto:imap,2
 2026-08-01,protocol,proto:imap,2
 2026-08-03,protocol,proto:imap,4
+2026-08-04,protocol,proto:imap,1
 2026-05-12,protocol,proto:oauth,2
 2026-05-14,protocol,proto:oauth,2
 2026-05-15,protocol,proto:oauth,1
@@ -942,7 +950,7 @@ period,dim,value,count
 2026-08-01,protocol,proto:pop,1
 2026-08-02,protocol,proto:pop,1
 2026-08-03,protocol,proto:pop,2
-2026-08-04,protocol,proto:pop,1
+2026-08-04,protocol,proto:pop,2
 2026-05-09,protocol,proto:smtp,4
 2026-05-10,protocol,proto:smtp,1
 2026-05-12,protocol,proto:smtp,3
@@ -1140,7 +1148,7 @@ period,dim,value,count
 2026-08-01,tb_version_major,140,1
 2026-08-02,tb_version_major,140,1
 2026-08-03,tb_version_major,140,2
-2026-08-04,tb_version_major,140,1
+2026-08-04,tb_version_major,140,2
 2026-06-08,tb_version_major,141,1
 2026-05-12,tb_version_major,142,1
 2026-06-20,tb_version_major,142,1
@@ -1360,6 +1368,7 @@ period,dim,value,count
 2026-08-01,tb_version_major,153,13
 2026-08-02,tb_version_major,153,10
 2026-08-03,tb_version_major,153,21
+2026-08-04,tb_version_major,153,14
 2026-07-28,tb_version_major,154,1
 2026-07-30,tb_version_major,154,1
 2026-06-25,tb_version_major,156,1
@@ -1452,4 +1461,4 @@ period,dim,value,count
 2026-08-01,total,all,22
 2026-08-02,total,all,14
 2026-08-03,total,all,33
-2026-08-04,total,all,3
+2026-08-04,total,all,20
