@@ -430,8 +430,22 @@ All timestamps are treated as UTC for analysis.
 
 ### Trusted Contributors
 `CONCATENATED_FILES/{PRODUCT}/thunderbird-{product}-trusted-contributors.csv`
-(desktop 29, android 3). The monthly report's synthetic-solved computation uses
-this list to distinguish trusted vs random contributors.
+(desktop 31, android 3). The monthly report's synthetic-solved computation uses
+this list to distinguish trusted vs random contributors. `count` is that
+contributor's number of answers at the time the list was generated. Consumers
+read only the `creator` column into a set, so row order and `count` do not
+affect any report.
+
+**The generated rows are stale, and two rows are hand-added.** The list has not
+been regenerated in months: it lists `davidsk` at 4,669 answers where the current
+`CONCATENATED_FILES/DESKTOP/*-sumo-desktop-answers.csv` give 7,431. The last two
+rows — `shopov.bogomil,225` and `rtanglao,123` — were appended by hand on
+2026-08-03, counted over the full 2023-01-01→2026-08-04 desktop corpus rather
+than over whatever window the generator used, so their counts are not comparable
+to the rows above them. They sit out of count order deliberately, to make the
+hand-edit visible. **Regenerating the list will drop them** unless they are
+re-added or the generator is taught about them. See the tracking issue for
+revisiting the script and its algorithm.
 
 ## Python Environment
 
