@@ -5,10 +5,10 @@ title: WEEKLY: Thunderbird Desktop — Support Spike Report
 
 # WEEKLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2026-02-09 … 2026-08-03 · **weekly** grain · trailing 26 weeks · 4728 questions · no AI (regex + traditional stats)_
+_Generated 2026-02-09 … 2026-08-03 · **weekly** grain · trailing 26 weeks · 4741 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 4728 questions, 181.8/week avg
-- **Answered (non-creator):** 3852/4728 (81%)
+- **Volume:** 4741 questions, 182.3/week avg
+- **Answered (non-creator):** 3862/4741 (81%)
 - **First-answer time (median):** 3.5h (p25 1.0h / p75 12.0h)
 - **Total volume trend:** `▇▆█▇▇▆▆▆▆▅▅▆▆▆▅▆▅▆▅▅▅▅▅▅▅▂`
 
@@ -25,10 +25,10 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 | 🆕 new | **5.6×** | 2026-05-18 | v140 × m:spectrum | 4 | 75% ans · 2.9h | `▁▃▁▁▁▁▁▁▁▃▃▁▅▃█▁▅▅▁▁▁▁▁▁▁▁` | [1582358](https://support.mozilla.org/questions/1582358 "unable to send or recieve emails from roadrunner") [1582537](https://support.mozilla.org/questions/1582537 "Thunderbird suddenly can't connect with my email server to send outgoing message") [1583227](https://support.mozilla.org/questions/1583227 "I have deleted my out-of-date password for Spectrum but when I restart Thunderbi") [1583421](https://support.mozilla.org/questions/1583421 "＂Thunderbird can't connect to the server＂ Part 2") |
 | 🆕 new | **4.0×** | 2026-02-23 | v148 × proto:oauth | 7 | 100% ans · 4.4h | `▁▁█▇▃▃▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1567488](https://support.mozilla.org/questions/1567488 "dossier envoyés contient seulements le mois en cours") [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567818](https://support.mozilla.org/questions/1567818 "thunderbird update 148 rompe oauth2 de yahoo") [1567961](https://support.mozilla.org/questions/1567961 "Mail sync issue led to Mail disappearing after troubleshooting then selecting ＂c") [1568282](https://support.mozilla.org/questions/1568282 "Thunderbird suddenly started asking for Crendentials for yahoo account.  ＂Someth") [1568434](https://support.mozilla.org/questions/1568434 "OAUTH to Yahoo fails after TB v148 upgrade") +1 |
 | 🆕 new | **3.6×** | 2026-06-08 | v140 × proto:smtp | 7 | 71% ans · 0.9h | `▃▂▅▃▂▂▄▂▁▄▁▃▄▃▁▁▄█▁▂▃▆▄▅▂▁` | [1586270](https://support.mozilla.org/questions/1586270 "Can't send emails - tried everything") [1586285](https://support.mozilla.org/questions/1586285 "Thunderbird can not send emails from my Spectrum email account.") [1586356](https://support.mozilla.org/questions/1586356 "verifica blocco invio email verso Hotmail/Outlook") [1586431](https://support.mozilla.org/questions/1586431 "Unable to send e-mail - please help") [1587007](https://support.mozilla.org/questions/1587007 "Bij het opstarten van Thunderbird zie ik vaak de melding versvhijnen dat geen ve") [1587132](https://support.mozilla.org/questions/1587132 "Password/authentication prompt lacks information to know what account the login ") +1 |
-| 🆕 new | **3.4×** | 2026-02-09 | v147 × m:yahooemail | 5 | ⚠️ 20% ans · 72.6h | `█▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1565471](https://support.mozilla.org/questions/1565471 "erro ao criar conta .yahoo.com.br") [1565472](https://support.mozilla.org/questions/1565472 "erro ao criar conta .yahoo.com.br") [1565608](https://support.mozilla.org/questions/1565608 "Aol spam folder is empty. Regular mail is received okay.") [1565766](https://support.mozilla.org/questions/1565766 "no puedo añadir cuenta correo Yahoo a Thunderbird") [1565849](https://support.mozilla.org/questions/1565849 "Yahoo Mail Login Error") |
+| 🆕 new | **3.3×** | 2026-02-09 | v147 × m:yahooemail | 5 | ⚠️ 20% ans · 72.6h | `█▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1565471](https://support.mozilla.org/questions/1565471 "erro ao criar conta .yahoo.com.br") [1565472](https://support.mozilla.org/questions/1565472 "erro ao criar conta .yahoo.com.br") [1565608](https://support.mozilla.org/questions/1565608 "Aol spam folder is empty. Regular mail is received okay.") [1565766](https://support.mozilla.org/questions/1565766 "no puedo añadir cuenta correo Yahoo a Thunderbird") [1565849](https://support.mozilla.org/questions/1565849 "Yahoo Mail Login Error") |
 | 🆕 new | **3.2×** | 2026-04-13 | v149 × m:comcast | 5 | 80% ans · 5.2h | `▁▁▁▁▁▁▁▁▁█▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1576242](https://support.mozilla.org/questions/1576242 "I cannot receive emails in Thunderbird from my Comcast email account,  The app r") [1576770](https://support.mozilla.org/questions/1576770 "I changed from comcast email to yahoo email but I'm having trouble getting Thund") [1576781](https://support.mozilla.org/questions/1576781 "won｀t download e-mail from xfinity") [1576905](https://support.mozilla.org/questions/1576905 "Unable to configure COMCAST e-mail") [1577059](https://support.mozilla.org/questions/1577059 "Login to Server imap.comcast.net with Username Failed") |
-| ↗ spreading | **6.6×** | 2026-06-08 | v151 × m:spectrum | 9 | 100% ans · 14.3h | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▃█▂▁▁▁▁▁▂▁` | [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") [1586486](https://support.mozilla.org/questions/1586486 "Thunderbird is showing Certificate for mobile.charter.net:993 does not come from") [1586494](https://support.mozilla.org/questions/1586494 "Mozilla TWC account failures") +3 |
-| ↗ spreading | **3.5×** | 2026-02-23 | v148 × m:yahooemail | 11 | 100% ans · 3.9h | `▁▁█▅▅▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567818](https://support.mozilla.org/questions/1567818 "thunderbird update 148 rompe oauth2 de yahoo") [1567871](https://support.mozilla.org/questions/1567871 "Login problem after Thunderbird 148.0 (64-bit) (update) as a client for Yahoo ac") [1567897](https://support.mozilla.org/questions/1567897 "Since v148.0 I cannot use my yahoo and AOL account why?") [1567998](https://support.mozilla.org/questions/1567998 "Duplicate email messages downloading to both my mailboxes") [1568124](https://support.mozilla.org/questions/1568124 "Since installing Thunderbird 148 my yahoo pop connection times out") +5 |
+| ↗ spreading | **6.7×** | 2026-06-08 | v151 × m:spectrum | 9 | 100% ans · 14.3h | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▃█▂▁▁▁▁▁▂▁` | [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") [1586486](https://support.mozilla.org/questions/1586486 "Thunderbird is showing Certificate for mobile.charter.net:993 does not come from") [1586494](https://support.mozilla.org/questions/1586494 "Mozilla TWC account failures") +3 |
+| ↗ spreading | **3.4×** | 2026-02-23 | v148 × m:yahooemail | 11 | 100% ans · 3.9h | `▁▁█▅▅▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567818](https://support.mozilla.org/questions/1567818 "thunderbird update 148 rompe oauth2 de yahoo") [1567871](https://support.mozilla.org/questions/1567871 "Login problem after Thunderbird 148.0 (64-bit) (update) as a client for Yahoo ac") [1567897](https://support.mozilla.org/questions/1567897 "Since v148.0 I cannot use my yahoo and AOL account why?") [1567998](https://support.mozilla.org/questions/1567998 "Duplicate email messages downloading to both my mailboxes") [1568124](https://support.mozilla.org/questions/1568124 "Since installing Thunderbird 148 my yahoo pop connection times out") +5 |
 | ↻ recurring | **3.8×** | 2026-03-02 | v148 × proto:oauth | 6 | 83% ans · 10.3h | `▁▁█▇▃▃▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1569335](https://support.mozilla.org/questions/1569335 "Unable to receive/send email from outlook.office365.com") [1569448](https://support.mozilla.org/questions/1569448 "Authentication failure at log in to yahoo email from Thunderbird") [1569560](https://support.mozilla.org/questions/1569560 "downloading yahoo mail onto thunderbird") [1569577](https://support.mozilla.org/questions/1569577 "Unable to use Two Yahoo accounts in Thunderbird Latest Version 148") [1569730](https://support.mozilla.org/questions/1569730 "After authenticating one Yahoo account (Oauth2), my second Yahoo account has bec") [1569838](https://support.mozilla.org/questions/1569838 "Pop ups (oauth authentication prompt) on Thunderbird which I can't remove") |
 
 ## 📮 Cause-level spikes — provider / protocol / AV
@@ -43,7 +43,7 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 | **4.7×** | 2026-03-02 | proto:oauth | 14 | 71% ans · 9.4h | 3.0 | `▃▂██▃▄▃▄▂▃▂▁▂▄▃▃▂▂▄▁▂▄▃▃▂▁` | [1568632](https://support.mozilla.org/questions/1568632 "OAuth doesn't provide any device info to mail provider, which limits options if ") [1568693](https://support.mozilla.org/questions/1568693 "Trouble adding Google Workspace account") [1568712](https://support.mozilla.org/questions/1568712 "Gmail SMTP times out on all accounts") [1568939](https://support.mozilla.org/questions/1568939 "Can receive but cannot send emails from Thunderbird using an office365 mail acco") [1569084](https://support.mozilla.org/questions/1569084 "Outlook connection error: ＂User is authenticated but not connected＂") [1569143](https://support.mozilla.org/questions/1569143 "re:OAuth2 Authentication for Yahoo, AOL and ATT") +8 |
 | **4.0×** | 2026-05-18 | m:spectrum | 8 | ⚠️ 50% ans · 4.4h | 2.0 | `▃▄▂▂▂▂▂▂▁▃▂▂▄▂▅▂▄█▂▁▂▂▂▂▂▁` | [1582358](https://support.mozilla.org/questions/1582358 "unable to send or recieve emails from roadrunner") [1582421](https://support.mozilla.org/questions/1582421 "Not accessing my mail server") [1582506](https://support.mozilla.org/questions/1582506 "MESSAGES IN 'INFOLDER' ARE DELETED AFTER ABOUT 5-7 DAYS") [1582537](https://support.mozilla.org/questions/1582537 "Thunderbird suddenly can't connect with my email server to send outgoing message") [1583013](https://support.mozilla.org/questions/1583013 "Thunderbird set up problem") [1583186](https://support.mozilla.org/questions/1583186 "Outgoing Spectrum (wi.rr.com) emails sometimes not processing.") +2 |
 | **4.0×** | 2026-04-13 | m:comcast | 8 | 88% ans · 1.4h | 2.0 | `▂▁▅▅▃▁▃▂▅█▃▁▄▃▂▆▄▄▅▄▄▄▄▃▅▁` | [1576218](https://support.mozilla.org/questions/1576218 "Are missing emails recoverable?") [1576242](https://support.mozilla.org/questions/1576242 "I cannot receive emails in Thunderbird from my Comcast email account,  The app r") [1576770](https://support.mozilla.org/questions/1576770 "I changed from comcast email to yahoo email but I'm having trouble getting Thund") [1576781](https://support.mozilla.org/questions/1576781 "won｀t download e-mail from xfinity") [1576905](https://support.mozilla.org/questions/1576905 "Unable to configure COMCAST e-mail") [1577044](https://support.mozilla.org/questions/1577044 "Getting a message about being blacklisted") +2 |
-| **3.6×** | 2026-02-23 | m:yahooemail | 25 | 76% ans · 5.1h | 7.0 | `▄▃█▇▆▄▄▂▄▂▃▃▄▄▃▅▃▃▂▂▄▃▂▂▄▁` | [1567356](https://support.mozilla.org/questions/1567356 "メールが削除出来ない") [1567466](https://support.mozilla.org/questions/1567466 "Migrated from comcast(xfinity)to yahoo.I moved the ＂Bulk ＂folder to the trash th") [1567620](https://support.mozilla.org/questions/1567620 "Unable to sign into Yahoo (locked duplicate)") [1567621](https://support.mozilla.org/questions/1567621 "Unable to sign into Yahoo with Thunderbird or Firefox") [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567695](https://support.mozilla.org/questions/1567695 "TB duplicating message to another yahoo email account") +19 |
+| **3.6×** | 2026-02-23 | m:yahooemail | 25 | 76% ans · 5.1h | 7.0 | `▄▃█▇▆▄▄▂▄▂▃▃▄▄▃▅▃▃▂▂▄▃▂▂▄▂` | [1567356](https://support.mozilla.org/questions/1567356 "メールが削除出来ない") [1567466](https://support.mozilla.org/questions/1567466 "Migrated from comcast(xfinity)to yahoo.I moved the ＂Bulk ＂folder to the trash th") [1567620](https://support.mozilla.org/questions/1567620 "Unable to sign into Yahoo (locked duplicate)") [1567621](https://support.mozilla.org/questions/1567621 "Unable to sign into Yahoo with Thunderbird or Firefox") [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567695](https://support.mozilla.org/questions/1567695 "TB duplicating message to another yahoo email account") +19 |
 | **3.0×** | 2026-05-25 | m:comcast | 6 | 83% ans · 15.8h | 2.0 | `▂▁▅▅▃▁▃▂▅█▃▁▄▃▂▆▄▄▅▄▄▄▄▃▅▁` | [1583799](https://support.mozilla.org/questions/1583799 "Authentication error when migrating Yahoo mail to Thunderbird") [1583916](https://support.mozilla.org/questions/1583916 "Comcast has sent our accounts to yahoo, emal name remains the same.") [1583925](https://support.mozilla.org/questions/1583925 "Can I access my Comcast email server via Thunderbird via mozilla VPN?") [1584040](https://support.mozilla.org/questions/1584040 "can't receive messages since I updated this morning") [1584576](https://support.mozilla.org/questions/1584576 "Cannot send outgoing mail") [1584737](https://support.mozilla.org/questions/1584737 "How do I add my Comcast email account to Thunderbird?") |
 | **3.0×** | 2026-05-04 | m:spectrum | 6 | 100% ans · 5.0h | 2.0 | `▃▄▂▂▂▂▂▂▁▃▂▂▄▂▅▂▄█▂▁▂▂▂▂▂▁` | [1580858](https://support.mozilla.org/questions/1580858 "＂Thunderbird can't connect to the server＂") [1580863](https://support.mozilla.org/questions/1580863 "Connection was refused") [1580867](https://support.mozilla.org/questions/1580867 "Lost Thunderbird connectivity on Spectrum today 5/9/26") [1580871](https://support.mozilla.org/questions/1580871 "New update Version 140.10.2esr ¦ Released May 8, 2026.  Today I cannot send emai") [1580877](https://support.mozilla.org/questions/1580877 "Cannot send or receive email in thunderbird") [1580980](https://support.mozilla.org/questions/1580980 "Am I the Only One Having Issues Connecting to my Email Accounts") |
 
@@ -53,9 +53,9 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 948 | `▄▅▆▃▅▅▄▄▆▇▆▇▇█▇██▆▆▇▇▆▆▇▅▁` |
+| v140 | 950 | `▄▅▆▃▅▅▄▄▆▇▆▇▇█▇██▆▆▇▇▆▆▇▅▁` |
 | v150 | 426 | `▁▁▁▁▁▁▁▁▁▁▄▇██▄▂▁▁▁▁▁▂▁▁▁▁` |
-| v152 | 372 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅██▇▆▄▂▁` |
+| v152 | 373 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅██▇▆▄▂▁` |
 | v151 | 331 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅█▆█▃▂▁▁▁▁▁▁` |
 | v149 | 313 | `▁▁▁▁▁▁▃▄▇█▄▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | v148 | 238 | `▁▁█▇▆▆▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
@@ -64,9 +64,9 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 434 | `▅▅▅▇▇▆▇█▇▅▃▇▇▅▄▅▃▃▄▅▆▅▄▅▄▂` |
-| m:microsoftemail | 358 | `▆▇█▆▇▄▅▆▇▄▅▆▆█▆▄▇▄▃▄▆▄▃▃▃▂` |
-| m:yahooemail | 231 | `▄▃█▇▆▄▄▂▄▂▃▃▄▄▃▅▃▃▂▂▄▃▂▂▄▁` |
+| m:gmail | 437 | `▅▅▅▇▇▆▇█▇▅▃▇▇▅▄▅▃▃▄▅▆▅▄▅▄▃` |
+| m:microsoftemail | 359 | `▆▇█▆▇▄▅▆▇▄▅▆▆█▆▄▇▄▃▄▆▄▃▃▃▂` |
+| m:yahooemail | 234 | `▄▃█▇▆▄▄▂▄▂▃▃▄▄▃▅▃▃▂▂▄▃▂▂▄▂` |
 | m:comcast | 71 | `▂▁▅▅▃▁▃▂▅█▃▁▄▃▂▆▄▄▅▄▄▄▄▃▅▁` |
 | m:spectrum | 68 | `▃▄▂▂▂▂▂▂▁▃▂▂▄▂▅▂▄█▂▁▂▂▂▂▂▁` |
 | m:icloud | 33 | `▁▂▇▂▄▂▁▄▁▂▂▂▄▁▁▅█▁▁▅▂▄▄▂▁▁` |
@@ -75,10 +75,10 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 335 | `▇▆▆█▇▅█▅▄▅▃▄▆▅▇▆▆▄▄▅▆▆▅▅▄▂` |
-| proto:pop | 213 | `▆▅█▅▆▃▅▃▄▆▆▄▅▆▇▆▅▆▃▃▇▇▅▄▆▂` |
-| proto:smtp | 205 | `▇▅▆█▄▄▇▅▃▃▂▄▇▆▄▂▅▅▃▂▃▆▃▅▃▂` |
-| proto:oauth | 113 | `▃▂██▃▄▃▄▂▃▂▁▂▄▃▃▂▂▄▁▂▄▃▃▂▁` |
+| proto:imap | 337 | `▇▆▆█▇▅█▅▄▅▃▄▆▅▇▆▆▄▄▅▆▆▅▅▄▂` |
+| proto:pop | 214 | `▆▅█▅▆▃▅▃▄▆▆▄▅▆▇▆▅▆▃▃▇▇▅▄▆▃` |
+| proto:smtp | 206 | `▇▅▆█▄▄▇▅▃▃▂▄▇▆▄▂▅▅▃▂▃▆▃▅▃▂` |
+| proto:oauth | 114 | `▃▂██▃▄▃▄▂▃▂▁▂▄▃▃▂▂▄▁▂▄▃▃▂▁` |
 | proto:caldav | 17 | `▆▁█▃▁▃▁▁▃▃▁▃▁▁▁▃▆▁▁▃▁▃▁▆▁▁` |
 | proto:carddav | 12 | `▅▅▁▅▅▅▅▅█▁▁▁▅▁▁▁▁▁▁▅▁▁▅▁▁▁` |
 
@@ -97,9 +97,9 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 3772 | `▆▆█▆▆▆▆▆▆▅▅▅▆▅▅▆▅▆▅▅▅▅▅▅▅▂` |
-| os:linux | 398 | `▇▇▇█▇▇▆▆▄▆▃▇▅▆▆▅▅▅▄█▆▃▄▆▇▂` |
-| os:macos | 330 | `▄▆▆▆█▆▆▆▄▆▃▆▄▇▃▅▄▅▃▆▄▅▄▃▃▁` |
+| os:windows | 3783 | `▆▆█▆▆▆▆▆▆▅▅▅▆▅▅▆▅▆▅▅▅▅▅▅▅▂` |
+| os:linux | 399 | `▇▇▇█▇▇▆▆▄▆▃▇▅▆▆▅▅▅▄█▆▃▄▆▇▂` |
+| os:macos | 331 | `▄▆▆▆█▆▆▆▄▆▃▆▄▇▃▅▄▅▃▆▄▅▄▃▃▁` |
 | os:android | 48 | `▇▂▃▂▇▃▃▂▃▃▃█▅▁▁▃▁▃▂▁▅▆▁▂▂▁` |
 | os:other | 47 | `▅▆▁▃▆▁▁▁▂▁▁▅▅▁▅▂▃▅▃▅█▂▃▃▃▁` |
 
@@ -118,4 +118,4 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 _Notes: spikes detected at **weekly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-weekly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-weekly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-weekly-rollup.csv`._
 
-_Last updated: 2026-08-03 17:17 UTC_
+_Last updated: 2026-08-04 05:31 UTC_
