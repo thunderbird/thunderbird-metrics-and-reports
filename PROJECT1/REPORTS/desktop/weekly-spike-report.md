@@ -5,10 +5,10 @@ title: WEEKLY: Thunderbird Desktop — Support Spike Report
 
 # WEEKLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2026-02-09 … 2026-08-03 · **weekly** grain · trailing 26 weeks · 4777 questions · no AI (regex + traditional stats)_
+_Generated 2026-02-09 … 2026-08-03 · **weekly** grain · trailing 26 weeks · 4785 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 4777 questions, 183.7/week avg
-- **Answered (non-creator):** 3886/4777 (81%)
+- **Volume:** 4785 questions, 184.0/week avg
+- **Answered (non-creator):** 3894/4785 (81%)
 - **First-answer time (median):** 3.5h (p25 1.0h / p75 12.0h)
 - **Total volume trend:** `▇▆█▇▇▆▆▆▆▅▅▆▆▆▅▆▅▆▅▅▅▅▅▅▅▃`
 
@@ -21,7 +21,7 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 
 | Signal | Lift | When | Version × Cause | Qs | Served | Trend | Example questions |
 |:--|---:|:--|:--|--:|:--|:--|:--|
-| 🆕 new | **7.6×** | 2026-06-01 | v151 × m:icloud | 4 | ⚠️ 25% ans · 9.2h | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁▁▁▁▁▁▁▁▁` | [1585107](https://support.mozilla.org/questions/1585107 "Cannot use thunderbird to access my mac.com emails") [1585187](https://support.mozilla.org/questions/1585187 "Can't send email anymore") [1585720](https://support.mozilla.org/questions/1585720 "iCloud Calendar Not Adding Events - using app specific password") [1585786](https://support.mozilla.org/questions/1585786 "Thunderbird 151.0.1 (64 Bit) Windows 10; an error occurred when writing to the c") |
+| 🆕 new | **7.7×** | 2026-06-01 | v151 × m:icloud | 4 | ⚠️ 25% ans · 9.2h | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁▁▁▁▁▁▁▁▁` | [1585107](https://support.mozilla.org/questions/1585107 "Cannot use thunderbird to access my mac.com emails") [1585187](https://support.mozilla.org/questions/1585187 "Can't send email anymore") [1585720](https://support.mozilla.org/questions/1585720 "iCloud Calendar Not Adding Events - using app specific password") [1585786](https://support.mozilla.org/questions/1585786 "Thunderbird 151.0.1 (64 Bit) Windows 10; an error occurred when writing to the c") |
 | 🆕 new | **5.7×** | 2026-05-18 | v140 × m:spectrum | 4 | 75% ans · 2.9h | `▁▃▁▁▁▁▁▁▁▃▃▁▅▃█▁▅▅▁▁▁▁▁▁▁▁` | [1582358](https://support.mozilla.org/questions/1582358 "unable to send or recieve emails from roadrunner") [1582537](https://support.mozilla.org/questions/1582537 "Thunderbird suddenly can't connect with my email server to send outgoing message") [1583227](https://support.mozilla.org/questions/1583227 "I have deleted my out-of-date password for Spectrum but when I restart Thunderbi") [1583421](https://support.mozilla.org/questions/1583421 "＂Thunderbird can't connect to the server＂ Part 2") |
 | 🆕 new | **4.0×** | 2026-02-23 | v148 × proto:oauth | 7 | 100% ans · 4.4h | `▁▁█▇▃▃▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` | [1567488](https://support.mozilla.org/questions/1567488 "dossier envoyés contient seulements le mois en cours") [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567818](https://support.mozilla.org/questions/1567818 "thunderbird update 148 rompe oauth2 de yahoo") [1567961](https://support.mozilla.org/questions/1567961 "Mail sync issue led to Mail disappearing after troubleshooting then selecting ＂c") [1568282](https://support.mozilla.org/questions/1568282 "Thunderbird suddenly started asking for Crendentials for yahoo account.  ＂Someth") [1568434](https://support.mozilla.org/questions/1568434 "OAUTH to Yahoo fails after TB v148 upgrade") +1 |
 | 🆕 new | **3.6×** | 2026-06-08 | v140 × proto:smtp | 7 | 71% ans · 0.9h | `▃▂▅▃▂▂▄▂▁▄▁▃▄▃▁▁▄█▁▂▃▆▄▅▂▁` | [1586270](https://support.mozilla.org/questions/1586270 "Can't send emails - tried everything") [1586285](https://support.mozilla.org/questions/1586285 "Thunderbird can not send emails from my Spectrum email account.") [1586356](https://support.mozilla.org/questions/1586356 "verifica blocco invio email verso Hotmail/Outlook") [1586431](https://support.mozilla.org/questions/1586431 "Unable to send e-mail - please help") [1587007](https://support.mozilla.org/questions/1587007 "Bij het opstarten van Thunderbird zie ik vaak de melding versvhijnen dat geen ve") [1587132](https://support.mozilla.org/questions/1587132 "Password/authentication prompt lacks information to know what account the login ") +1 |
@@ -53,7 +53,7 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 952 | `▄▅▆▃▅▅▄▄▆▇▆▇▇█▇██▆▆▇▇▆▆▇▅▂` |
+| v140 | 953 | `▄▅▆▃▅▅▄▄▆▇▆▇▇█▇██▆▆▇▇▆▆▇▅▂` |
 | v150 | 426 | `▁▁▁▁▁▁▁▁▁▁▄▇██▄▂▁▁▁▁▁▂▁▁▁▁` |
 | v152 | 373 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅██▇▆▄▂▁` |
 | v151 | 331 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅█▆█▃▂▁▁▁▁▁▁` |
@@ -64,8 +64,8 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 440 | `▅▅▅▇▇▆▇█▇▅▃▇▇▅▄▅▃▃▄▅▆▅▄▅▄▃` |
-| m:microsoftemail | 365 | `▆▇█▆▇▄▅▆▇▄▅▆▆█▆▄▇▄▃▄▆▄▃▃▃▄` |
+| m:gmail | 441 | `▅▅▅▇▇▆▇█▇▅▃▇▇▅▄▅▃▃▄▅▆▅▄▅▄▃` |
+| m:microsoftemail | 366 | `▆▇█▆▇▄▅▆▇▄▅▆▆█▆▄▇▄▃▄▆▄▃▃▃▄` |
 | m:yahooemail | 237 | `▄▃█▇▆▄▄▂▄▂▃▃▄▄▃▅▃▃▂▂▄▃▂▂▄▃` |
 | m:comcast | 72 | `▂▁▅▅▃▁▃▂▅█▃▁▄▃▂▆▄▄▅▄▄▄▄▃▅▂` |
 | m:spectrum | 68 | `▃▄▂▂▂▂▂▂▁▃▂▂▄▂▅▂▄█▂▁▂▂▂▂▂▁` |
@@ -97,9 +97,9 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 3807 | `▆▆█▆▆▆▆▆▆▅▅▅▆▅▅▆▅▆▅▅▅▅▅▅▅▃` |
-| os:linux | 402 | `▇▇▇█▇▇▆▆▄▆▃▇▅▆▆▅▅▅▄█▆▃▄▆▇▃` |
-| os:macos | 337 | `▄▆▆▆█▆▆▆▄▆▃▆▄▇▃▅▄▅▃▆▄▅▄▃▃▃` |
+| os:windows | 3812 | `▆▆█▆▆▆▆▆▆▅▅▅▆▅▅▆▅▆▅▅▅▅▅▅▅▃` |
+| os:linux | 403 | `▇▇▇█▇▇▆▆▄▆▃▇▅▆▆▅▅▅▄█▆▃▄▆▇▃` |
+| os:macos | 339 | `▄▆▆▆█▆▆▆▄▆▃▆▄▇▃▅▄▅▃▆▄▅▄▃▃▄` |
 | os:android | 49 | `▇▂▃▂▇▃▃▂▃▃▃█▅▁▁▃▁▃▂▁▅▆▁▂▂▂` |
 | os:other | 48 | `▅▆▁▃▆▁▁▁▂▁▁▅▅▁▅▂▃▅▃▅█▂▃▃▃▂` |
 
@@ -118,4 +118,4 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 _Notes: spikes detected at **weekly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-weekly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-weekly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-weekly-rollup.csv`._
 
-_Last updated: 2026-08-05 05:30 UTC_
+_Last updated: 2026-08-05 17:04 UTC_

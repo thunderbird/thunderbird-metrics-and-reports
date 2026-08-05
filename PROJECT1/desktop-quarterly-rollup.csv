@@ -420,7 +420,7 @@ period,dim,value,count
 2025-Q4,mail_provider,m:gmail,277
 2026-Q1,mail_provider,m:gmail,265
 2026-Q2,mail_provider,m:gmail,205
-2026-Q3,mail_provider,m:gmail,83
+2026-Q3,mail_provider,m:gmail,84
 2023-Q4,mail_provider,m:gmx,10
 2024-Q1,mail_provider,m:gmx,2
 2024-Q2,mail_provider,m:gmx,4
@@ -528,7 +528,7 @@ period,dim,value,count
 2025-Q4,mail_provider,m:microsoftemail,228
 2026-Q1,mail_provider,m:microsoftemail,216
 2026-Q2,mail_provider,m:microsoftemail,191
-2026-Q3,mail_provider,m:microsoftemail,49
+2026-Q3,mail_provider,m:microsoftemail,50
 2023-Q4,mail_provider,m:onecom,1
 2024-Q1,mail_provider,m:onecom,2
 2024-Q2,mail_provider,m:onecom,2
@@ -856,7 +856,7 @@ period,dim,value,count
 2025-Q4,os,os:linux,118
 2026-Q1,os,os:linux,219
 2026-Q2,os,os:linux,187
-2026-Q3,os,os:linux,74
+2026-Q3,os,os:linux,75
 2023-Q4,os,os:macos,94
 2024-Q1,os,os:macos,83
 2024-Q2,os,os:macos,65
@@ -868,7 +868,7 @@ period,dim,value,count
 2025-Q4,os,os:macos,60
 2026-Q1,os,os:macos,200
 2026-Q2,os,os:macos,162
-2026-Q3,os,os:macos,54
+2026-Q3,os,os:macos,56
 2024-Q2,os,os:other,1
 2024-Q3,os,os:other,3
 2025-Q1,os,os:other,2
@@ -889,7 +889,7 @@ period,dim,value,count
 2025-Q4,os,os:windows,431
 2026-Q1,os,os:windows,1847
 2026-Q2,os,os:windows,1855
-2026-Q3,os,os:windows,668
+2026-Q3,os,os:windows,673
 2023-Q4,protocol,proto:caldav,12
 2024-Q1,protocol,proto:caldav,14
 2024-Q2,protocol,proto:caldav,6
@@ -984,7 +984,7 @@ period,dim,value,count
 2026-Q3,tb_version_major,139,1
 2026-Q1,tb_version_major,140,204
 2026-Q2,tb_version_major,140,556
-2026-Q3,tb_version_major,140,193
+2026-Q3,tb_version_major,140,194
 2026-Q2,tb_version_major,141,1
 2025-Q3,tb_version_major,142,1
 2026-Q1,tb_version_major,142,2
@@ -1016,7 +1016,7 @@ period,dim,value,count
 2026-Q2,tb_version_major,152,160
 2026-Q3,tb_version_major,152,213
 2026-Q2,tb_version_major,153,4
-2026-Q3,tb_version_major,153,168
+2026-Q3,tb_version_major,153,173
 2026-Q3,tb_version_major,154,3
 2026-Q1,tb_version_major,155,1
 2026-Q2,tb_version_major,156,1
@@ -1032,4 +1032,4 @@ period,dim,value,count
 2025-Q4,total,all,3282
 2026-Q1,total,all,2834
 2026-Q2,total,all,2295
-2026-Q3,total,all,839
+2026-Q3,total,all,847
