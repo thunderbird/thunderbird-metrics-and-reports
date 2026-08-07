@@ -420,7 +420,7 @@ period,dim,value,count
 2025-Q4,mail_provider,m:gmail,277
 2026-Q1,mail_provider,m:gmail,265
 2026-Q2,mail_provider,m:gmail,205
-2026-Q3,mail_provider,m:gmail,85
+2026-Q3,mail_provider,m:gmail,87
 2023-Q4,mail_provider,m:gmx,10
 2024-Q1,mail_provider,m:gmx,2
 2024-Q2,mail_provider,m:gmx,4
@@ -529,7 +529,7 @@ period,dim,value,count
 2025-Q4,mail_provider,m:microsoftemail,228
 2026-Q1,mail_provider,m:microsoftemail,216
 2026-Q2,mail_provider,m:microsoftemail,191
-2026-Q3,mail_provider,m:microsoftemail,50
+2026-Q3,mail_provider,m:microsoftemail,51
 2023-Q4,mail_provider,m:onecom,1
 2024-Q1,mail_provider,m:onecom,2
 2024-Q2,mail_provider,m:onecom,2
@@ -800,7 +800,7 @@ period,dim,value,count
 2025-Q4,mail_provider,m:yahooemail,122
 2026-Q1,mail_provider,m:yahooemail,136
 2026-Q2,mail_provider,m:yahooemail,100
-2026-Q3,mail_provider,m:yahooemail,39
+2026-Q3,mail_provider,m:yahooemail,41
 2023-Q4,mail_provider,m:yandex,3
 2024-Q2,mail_provider,m:yandex,2
 2024-Q3,mail_provider,m:yandex,1
@@ -846,7 +846,7 @@ period,dim,value,count
 2025-Q4,os,os:android,4
 2026-Q1,os,os:android,33
 2026-Q2,os,os:android,22
-2026-Q3,os,os:android,9
+2026-Q3,os,os:android,10
 2023-Q4,os,os:linux,160
 2024-Q1,os,os:linux,134
 2024-Q2,os,os:linux,96
@@ -858,7 +858,7 @@ period,dim,value,count
 2025-Q4,os,os:linux,118
 2026-Q1,os,os:linux,219
 2026-Q2,os,os:linux,187
-2026-Q3,os,os:linux,76
+2026-Q3,os,os:linux,80
 2023-Q4,os,os:macos,94
 2024-Q1,os,os:macos,83
 2024-Q2,os,os:macos,65
@@ -870,7 +870,7 @@ period,dim,value,count
 2025-Q4,os,os:macos,60
 2026-Q1,os,os:macos,200
 2026-Q2,os,os:macos,162
-2026-Q3,os,os:macos,57
+2026-Q3,os,os:macos,60
 2024-Q2,os,os:other,1
 2024-Q3,os,os:other,3
 2025-Q1,os,os:other,2
@@ -879,7 +879,7 @@ period,dim,value,count
 2025-Q4,os,os:other,2
 2026-Q1,os,os:other,80
 2026-Q2,os,os:other,22
-2026-Q3,os,os:other,13
+2026-Q3,os,os:other,14
 2023-Q4,os,os:windows,427
 2024-Q1,os,os:windows,348
 2024-Q2,os,os:windows,283
@@ -891,7 +891,7 @@ period,dim,value,count
 2025-Q4,os,os:windows,431
 2026-Q1,os,os:windows,1847
 2026-Q2,os,os:windows,1855
-2026-Q3,os,os:windows,687
+2026-Q3,os,os:windows,708
 2023-Q4,protocol,proto:caldav,12
 2024-Q1,protocol,proto:caldav,14
 2024-Q2,protocol,proto:caldav,6
@@ -958,7 +958,7 @@ period,dim,value,count
 2025-Q4,protocol,proto:pop,131
 2026-Q1,protocol,proto:pop,114
 2026-Q2,protocol,proto:pop,103
-2026-Q3,protocol,proto:pop,51
+2026-Q3,protocol,proto:pop,52
 2023-Q4,protocol,proto:smtp,157
 2024-Q1,protocol,proto:smtp,158
 2024-Q2,protocol,proto:smtp,157
@@ -970,7 +970,7 @@ period,dim,value,count
 2025-Q4,protocol,proto:smtp,106
 2026-Q1,protocol,proto:smtp,152
 2026-Q2,protocol,proto:smtp,86
-2026-Q3,protocol,proto:smtp,40
+2026-Q3,protocol,proto:smtp,41
 2026-Q1,tb_version_major,102,5
 2026-Q2,tb_version_major,102,4
 2026-Q3,tb_version_major,102,4
@@ -980,13 +980,13 @@ period,dim,value,count
 2026-Q3,tb_version_major,115,21
 2026-Q1,tb_version_major,128,9
 2026-Q2,tb_version_major,128,12
-2026-Q3,tb_version_major,128,5
+2026-Q3,tb_version_major,128,6
 2026-Q2,tb_version_major,137,1
 2026-Q2,tb_version_major,139,2
 2026-Q3,tb_version_major,139,1
 2026-Q1,tb_version_major,140,204
 2026-Q2,tb_version_major,140,556
-2026-Q3,tb_version_major,140,198
+2026-Q3,tb_version_major,140,199
 2026-Q2,tb_version_major,141,1
 2025-Q3,tb_version_major,142,1
 2026-Q1,tb_version_major,142,2
@@ -1002,7 +1002,7 @@ period,dim,value,count
 2026-Q3,tb_version_major,145,1
 2026-Q1,tb_version_major,146,4
 2026-Q2,tb_version_major,146,6
-2026-Q3,tb_version_major,146,1
+2026-Q3,tb_version_major,146,2
 2026-Q1,tb_version_major,147,111
 2026-Q2,tb_version_major,147,8
 2026-Q1,tb_version_major,148,226
@@ -1012,13 +1012,13 @@ period,dim,value,count
 2026-Q2,tb_version_major,149,261
 2026-Q3,tb_version_major,149,6
 2026-Q2,tb_version_major,150,398
-2026-Q3,tb_version_major,150,30
+2026-Q3,tb_version_major,150,32
 2026-Q2,tb_version_major,151,326
-2026-Q3,tb_version_major,151,5
+2026-Q3,tb_version_major,151,6
 2026-Q2,tb_version_major,152,160
 2026-Q3,tb_version_major,152,214
 2026-Q2,tb_version_major,153,4
-2026-Q3,tb_version_major,153,182
+2026-Q3,tb_version_major,153,203
 2026-Q3,tb_version_major,154,3
 2026-Q1,tb_version_major,155,1
 2026-Q2,tb_version_major,156,1
@@ -1034,4 +1034,4 @@ period,dim,value,count
 2025-Q4,total,all,3282
 2026-Q1,total,all,2834
 2026-Q2,total,all,2295
-2026-Q3,total,all,864
+2026-Q3,total,all,894
