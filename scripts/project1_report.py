@@ -246,7 +246,9 @@ def main():
         W("_No version×cause spikes in this window at current thresholds._\n")
     else:
         W("")  # kramdown needs a blank line before a table block
-        W("| Signal | Lift | When | Version × Cause | Qs | Served | Trend | Example questions |")
+        # Example questions sits BEFORE Trend: the hourly sparkline is 168 chars
+        # wide, which pushed a trailing links column off the right of the page.
+        W("| Signal | Lift | When | Version × Cause | Qs | Served | Example questions | Trend |")
         W("|:--|---:|:--|:--|--:|:--|:--|:--|")
         for _, r in j.iterrows():
             ver, dim, val = r["version_major"], r["cause_dim"], r["cause_value"]
@@ -255,7 +257,7 @@ def main():
                 df[dim].apply(lambda c: val in (c.split(";") if c else []))))
             W(f"| {NOVELTY_BADGE.get(r.get('novelty', ''), '')} | **{r['lift']}×** "
               f"| {r['period']} | v{ver} × {val} | {r['observed']} | {served(r)} "
-              f"| `{sl}` | {links_for(r['question_ids'].split())} |")
+              f"| {links_for(r['question_ids'].split())} | `{sl}` |")
         W("")
 
     # Engineering signal #2 — cause-level spikes (version-agnostic: provider/ISP
@@ -275,14 +277,14 @@ def main():
         W("_No cause-level spikes in this window at current thresholds._\n")
     else:
         W("")
-        W("| Rise | When | Cause | Qs | Served | Baseline | Trend | Example questions |")
+        W("| Rise | When | Cause | Qs | Served | Baseline | Example questions | Trend |")
         W("|---:|:--|:--|--:|:--|--:|:--|:--|")
         for _, r in s.iterrows():
             dim, val = r["dim"], r["value"]
             sl = spark(series_mask(df[dim].apply(lambda c: val in (c.split(";") if c else []))))
             mag = "new" if r["magnitude"] == "new" else f"{float(r['magnitude']):.1f}×"
             W(f"| **{mag}** | {r['period']} | {val} | {r['count']} | {served(r)} | {r['baseline_median']} "
-              f"| `{sl}` | {links_for(r['question_ids'].split())} |")
+              f"| {links_for(r['question_ids'].split())} | `{sl}` |")
         W("")
 
     # Trends
