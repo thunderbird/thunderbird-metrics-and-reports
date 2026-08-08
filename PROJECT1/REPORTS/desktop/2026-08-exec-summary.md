@@ -5,7 +5,7 @@ title: "2026-08 exec summary: Thunderbird Desktop support spikes"
 
 # August 2026 — Thunderbird Desktop support spikes
 
-_Executive summary · **2026-08** · 163 questions · regenerated 2026-08-07 05:57 UTC · no AI (regex + traditional stats)_
+_Executive summary · **2026-08** · 198 questions · regenerated 2026-08-08 05:44 UTC · no AI (regex + traditional stats)_
 
 ## 🚨 August 2026: 1 spike to investigate
 
@@ -19,9 +19,9 @@ _Executive summary · **2026-08** · 163 questions · regenerated 2026-08-07 05:
 | **version×cause** (release regressions) | 1 | 0 | 0 |
 | **cause-level** (provider · protocol · AV) | 0 | 0 | 0 |
 
-- **Volume:** 163 questions (`▆▄██▇▇▂` by day), 49 (30%) carry a cause tag
-- **Answered (non-creator):** 117/163 (72%) · median first answer 2.1h
-- **Release-adoption version spikes:** 9 (expected after a release — not incidents; collapsed below)
+- **Volume:** 198 questions (`▆▄██▇▇█▂` by day), 59 (30%) carry a cause tag
+- **Answered (non-creator):** 141/198 (71%) · median first answer 2.2h
+- **Release-adoption version spikes:** 11 (expected after a release — not incidents; collapsed below)
 
 > ⏱ **Spike timing lags the incident.** A spike dates when users *piled in*, typically days after onset and often near resolution. Treat these as pain-cluster / triage signals, not real-time detection.
 
@@ -63,7 +63,7 @@ _None._
 </details>
 
 <details markdown="1">
-<summary><strong>📦 Release-adoption version/OS spikes (not incidents)</strong> — 9 rows</summary>
+<summary><strong>📦 Release-adoption version/OS spikes (not incidents)</strong> — 11 rows</summary>
 
 Version and OS are **filters, not causes** — a bare version spike is release adoption, not a regression. Listed for manual checking only.
 
@@ -75,9 +75,11 @@ Version and OS are **filters, not causes** — a bare version spike is release a
 | daily | **new** | 2026-08-04 | tb_version_major | 153 | 20 [1596545](https://support.mozilla.org/questions/1596545 "Microsoft Outlook authentication failure.") [1596547](https://support.mozilla.org/questions/1596547 "I just had a fake prompt to add a password to a website mimicking Thunderbird") | 0.0 |
 | daily | **7.5×** | 2026-08-05 | tb_version_major | 153 | 15 [1596705](https://support.mozilla.org/questions/1596705 "Can't create or rename Inbox subfolders in Thunderbird") [1596708](https://support.mozilla.org/questions/1596708 "TB doesn't like to connect to my internet provider sometime.") | 2.0 |
 | daily | **4.4×** | 2026-08-06 | tb_version_major | 153 | 20 [1596881](https://support.mozilla.org/questions/1596881 "Can no longer drag and drop email attachments from emails to folders after 153es") [1596896](https://support.mozilla.org/questions/1596896 "gmail linkage") | 4.5 |
-| monthly | **204.0×** | 2026-08 | tb_version_major | 153 | 102 [1596031](https://support.mozilla.org/questions/1596031 "why is thunderbird not working") [1596048](https://support.mozilla.org/questions/1596048 "thunderbrd version 153.0.1 64bit: some registered adress get filtered as spam th") | 0.5 |
+| daily | **4.5×** | 2026-08-07 | os | os:linux | 9 [1597136](https://support.mozilla.org/questions/1597136 "Jak spravne nastavit thunderbird pro pop3?") [1597144](https://support.mozilla.org/questions/1597144 "not receiving ubuntu desktop thunderbird yahoo emails since July 2026 esr update") | 2.0 |
+| daily | **3.5×** | 2026-08-07 | tb_version_major | 153 | 21 [1597076](https://support.mozilla.org/questions/1597076 "I downloaded the update Thunderbird 153.0.2esr (32-bit) earlier today and all it") [1597080](https://support.mozilla.org/questions/1597080 "how many adresses can I have in a single Thunderbird email?") | 6.0 |
+| monthly | **248.0×** | 2026-08 | tb_version_major | 153 | 124 [1596031](https://support.mozilla.org/questions/1596031 "why is thunderbird not working") [1596048](https://support.mozilla.org/questions/1596048 "thunderbrd version 153.0.1 64bit: some registered adress get filtered as spam th") | 0.5 |
 | weekly | **new** | 2026-07-27 | tb_version_major | 153 | 79 [1595089](https://support.mozilla.org/questions/1595089 "") [1595090](https://support.mozilla.org/questions/1595090 "") | 0.0 |
-| weekly | **158.0×** | 2026-08-03 | tb_version_major | 153 | 79 [1596331](https://support.mozilla.org/questions/1596331 "When a message must be Sent Later, where is the draft stored???") [1596345](https://support.mozilla.org/questions/1596345 "InsertSignature button moved from formatting toolbar to top toolbar after Thunde") | 0.5 |
+| weekly | **202.0×** | 2026-08-03 | tb_version_major | 153 | 101 [1596331](https://support.mozilla.org/questions/1596331 "When a message must be Sent Later, where is the draft stored???") [1596345](https://support.mozilla.org/questions/1596345 "InsertSignature button moved from formatting toolbar to top toolbar after Thunde") | 0.5 |
 
 </details>
 
@@ -88,57 +90,58 @@ Version and OS are **filters, not causes** — a bare version spike is release a
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| v153 | 102 | `▅▄██▆█▂` |
-| v140 | 13 | `▃▃▅▆█▅▁` |
-| v150 | 6 | `▁▁▆▁▃█▁` |
-| v115 | 5 | `▅▁▅▅█▁▁` |
-| v152 | 3 | `█▁█▁█▁▁` |
-| v151 | 2 | `▁█▁▁▁█▁` |
+| v153 | 124 | `▅▄██▆██▂` |
+| v140 | 17 | `▃▃▅▆█▅▆▃` |
+| v115 | 6 | `▅▁▅▅█▁▅▁` |
+| v150 | 6 | `▁▁▆▁▃█▁▁` |
+| v152 | 4 | `█▁█▁█▁█▁` |
+| v151 | 2 | `▁█▁▁▁█▁▁` |
 
 **Top mail providers**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| m:microsoftemail | 15 | `▄▂▇█▄▁▂` |
-| m:gmail | 14 | `▂▁█▇▂▅▁` |
-| m:yahooemail | 11 | `▃▆█▆▃▆▁` |
-| m:comcast | 3 | `██▁▁█▁▁` |
-| m:spectrum | 2 | `▁█▁▁█▁▁` |
-| m:xtra_nz | 1 | `▁▁█▁▁▁▁` |
+| m:microsoftemail | 17 | `▄▂▇█▄▁▅▁` |
+| m:gmail | 15 | `▂▁█▇▂▅▁▂` |
+| m:yahooemail | 14 | `▃▆█▆▃▆▃▆` |
+| m:comcast | 3 | `██▁▁█▁▁▁` |
+| m:spectrum | 2 | `▁█▁▁█▁▁▁` |
+| m:xtra_nz | 1 | `▁▁█▁▁▁▁▁` |
 
 **Top protocols**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| proto:imap | 12 | `▅▁█▅█▁▁` |
-| proto:pop | 10 | `▃▃▆█▆▃▁` |
-| proto:smtp | 6 | `▁▃█▁▃▁▃` |
-| proto:ews | 1 | `█▁▁▁▁▁▁` |
-| proto:oauth | 1 | `▁▁█▁▁▁▁` |
+| proto:imap | 13 | `▅▁█▅█▁▁▃` |
+| proto:pop | 12 | `▃▃▆█▆▃▆▁` |
+| proto:smtp | 7 | `▁▃█▁▃▁▆▁` |
+| proto:oauth | 2 | `▁▁█▁▁▁▁█` |
+| proto:ews | 1 | `█▁▁▁▁▁▁▁` |
 
 **Top antivirus**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| av:bitdefender | 1 | `▁▁█▁▁▁▁` |
-| av:avast | 1 | `▁▁▁▁▁█▁` |
+| av:bitdefender | 1 | `▁▁█▁▁▁▁▁` |
+| av:avast | 1 | `▁▁▁▁▁█▁▁` |
 
 **OS mix (filter dimension)**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| os:windows | 119 | `▅▃█▇▅▆▂` |
-| os:linux | 19 | `█▆▆▅▆█▁` |
-| os:macos | 15 | `▂▂▂▅█▅▁` |
-| os:other | 3 | `▁█▁█▁▁█` |
-| os:android | 3 | `▁█▁▁██▁` |
+| os:windows | 134 | `▅▃█▇▅▆▆▁` |
+| os:linux | 32 | `▄▃▃▃▃▄█▄` |
+| os:macos | 18 | `▂▂▂▅█▅▃▂` |
+| os:other | 4 | `▁▅▁▅▁▁█▁` |
+| os:android | 4 | `▁█▁▁██▁█` |
 
 **macOS releases (filter dimension)**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| macos:monterey | 1 | `▁▁▁█▁▁▁` |
-| macos:tahoe | 1 | `▁▁▁▁█▁▁` |
+| macos:tahoe | 2 | `▁▁▁▁█▁█▁` |
+| macos:monterey | 1 | `▁▁▁█▁▁▁▁` |
+| macos:sonoma | 1 | `▁▁▁▁▁▁█▁` |
 
 
 </details>
