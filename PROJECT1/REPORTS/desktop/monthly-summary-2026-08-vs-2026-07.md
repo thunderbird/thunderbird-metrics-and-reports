@@ -9,13 +9,13 @@ title: Desktop Engineering Support Summary — August 2026
 
 _For **engineering**: the support signals worth investigating this month vs last — flagged incidents, moving cause clusters, and release adoption. (Community/support-ops KPIs — answered & solved rates, response time — are a separate upcoming report.) Non-AI: regex + traditional stats._
 
-> ⚠️ **August 2026 is in progress** — data through day 8 of 31. Counts are partial, so the deltas below understate August 2026; treat volume changes as directional until the month closes.
+> ⚠️ **August 2026 is in progress** — data through day 9 of 31. Counts are partial, so the deltas below understate August 2026; treat volume changes as directional until the month closes.
 
 ## Headline
 
 | | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 731 | 209 | ▼ -522 (-71%) |
+| Support questions (load) | 731 | 229 | ▼ -502 (-69%) |
 | Version × cause spikes flagged | 0 | 1 | ▲ +1 |
 | — of which **new** regressions | 0 | 0 | ▬ 0 |
 | Cause-level surges flagged | 0 | 0 | ▬ 0 |
@@ -30,7 +30,7 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 
 | Signal | When | Version × Cause | Qs | Lift | Served | Example questions |
 |:--|:--|:--|--:|--:|:--|:--|
-| ↗ spreading | 2026-08-04 | v153 × m:microsoftemail | 5 | 3.0× | 100% ans · 0.8h | [1596545](https://support.mozilla.org/questions/1596545 "Microsoft Outlook authentication failure.") [1596547](https://support.mozilla.org/questions/1596547 "I just had a fake prompt to add a password to a website mimicking Thunderbird") [1596591](https://support.mozilla.org/questions/1596591 "email not collegament to app thunderbird pc (email outlook)") [1596602](https://support.mozilla.org/questions/1596602 "Import from Outlook (M365) Mac OS to Thunderbird?") [1596606](https://support.mozilla.org/questions/1596606 "Cannot import contacts from outlook 2016") |
+| ↗ spreading | 2026-08-04 | v153 × m:microsoftemail | 5 | 3.1× | 100% ans · 0.8h | [1596545](https://support.mozilla.org/questions/1596545 "Microsoft Outlook authentication failure.") [1596547](https://support.mozilla.org/questions/1596547 "I just had a fake prompt to add a password to a website mimicking Thunderbird") [1596591](https://support.mozilla.org/questions/1596591 "email not collegament to app thunderbird pc (email outlook)") [1596602](https://support.mozilla.org/questions/1596602 "Import from Outlook (M365) Mac OS to Thunderbird?") [1596606](https://support.mozilla.org/questions/1596606 "Cannot import contacts from outlook 2016") |
 
 ## What moved
 
@@ -38,13 +38,13 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 
 | Cause clusters (provider / protocol / AV) | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| m:gmail | 73 | 15 | ▼ -58 (-79%) |
-| proto:imap | 56 | 13 | ▼ -43 (-77%) |
-| proto:pop | 42 | 12 | ▼ -30 (-71%) |
-| proto:smtp | 35 | 6 | ▼ -29 (-83%) |
-| m:microsoftemail | 36 | 16 | ▼ -20 (-56%) |
-| proto:oauth | 20 | 2 | ▼ -18 (-90%) |
-| m:yahooemail | 30 | 14 | ▼ -16 (-53%) |
+| m:gmail | 73 | 18 | ▼ -55 (-75%) |
+| proto:imap | 56 | 14 | ▼ -42 (-75%) |
+| proto:smtp | 35 | 7 | ▼ -28 (-80%) |
+| proto:pop | 42 | 15 | ▼ -27 (-64%) |
+| m:microsoftemail | 36 | 17 | ▼ -19 (-53%) |
+| proto:oauth | 20 | 3 | ▼ -17 (-85%) |
+| m:yahooemail | 30 | 15 | ▼ -15 (-50%) |
 | m:comcast | 13 | 3 | ▼ -10 (-77%) |
 
 ### 🆕 New cause clusters (first appearance ever)
@@ -55,10 +55,10 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| v153 | 101 | 130 | ▲ +29 (+29%) |
+| v153 | 101 | 144 | ▲ +43 (+43%) |
 | v152 | 211 | 4 | ▼ -207 (-98%) |
-| v140 | 186 | 18 | ▼ -168 (-90%) |
-| v150 | 26 | 7 | ▼ -19 (-73%) |
+| v140 | 186 | 20 | ▼ -166 (-89%) |
+| v150 | 26 | 10 | ▼ -16 (-62%) |
 | v115 | 16 | 7 | ▼ -9 (-56%) |
 | v149 | 6 | 0 | ▼ -6 |
 
@@ -66,8 +66,8 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 
 | Operating-system mix | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 589 | 141 | ▼ -448 (-76%) |
-| os:linux | 61 | 33 | ▼ -28 (-46%) |
+| os:windows | 589 | 160 | ▼ -429 (-73%) |
+| os:linux | 61 | 34 | ▼ -27 (-44%) |
 | os:macos | 45 | 19 | ▼ -26 (-58%) |
 | os:other | 11 | 4 | ▼ -7 (-64%) |
 | os:android | 7 | 5 | ▼ -2 |
@@ -76,15 +76,15 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 
 | Topic mix | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 185 | 42 | ▼ -143 (-77%) |
+| send-and-receive-email | 185 | 48 | ▼ -137 (-74%) |
+| customization | 73 | 26 | ▼ -47 (-64%) |
 | email-and-messaging | 82 | 17 | ▼ -65 (-79%) |
-| customization | 73 | 21 | ▼ -52 (-71%) |
 | passwords-and-sign-in | 53 | 17 | ▼ -36 (-68%) |
-| import-and-export-email | 30 | 11 | ▼ -19 (-63%) |
-| account-management | 28 | 9 | ▼ -19 (-68%) |
+| import-and-export-email | 30 | 12 | ▼ -18 (-60%) |
+| junk-mail-and-spam | 24 | 14 | ▼ -10 (-42%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · August 2026 vs July 2026._
 
-_Last updated: 2026-08-08 20:06 UTC_
+_Last updated: 2026-08-09 08:13 UTC_
