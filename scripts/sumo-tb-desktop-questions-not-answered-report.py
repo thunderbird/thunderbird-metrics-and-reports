@@ -286,6 +286,9 @@ def write_html(df, path, report_time, window_start, window_end, title, assignmen
   <meta charset="utf-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.github.com; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; form-action 'none'; base-uri 'none'">
   <title>{html.escape(title)} {report_time.strftime("%Y-%m-%d %H:%M")} UTC</title>
+  <!-- standalone page: carries its own favicon (see _includes/custom-head.html) -->
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../../favicon.ico">
   <style>{HTML_CSS}</style>
 </head>
 <body>
@@ -373,6 +376,8 @@ def write_index():
 <head>
   <meta charset="utf-8">
   <title>Unanswered Questions Reports</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="alternate icon" type="image/x-icon" href="../favicon.ico">
   <style>
     body {{ font-family: sans-serif; font-size: 13px; margin: 1em; }}
     h1 {{ font-size: 1.2em; }}

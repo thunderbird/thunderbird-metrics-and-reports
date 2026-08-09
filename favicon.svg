@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img"
+     aria-label="Thunderbird support metrics: a rising bar graph inside a chat bubble">
+  <!--
+    Site favicon: a rising bar graph (pink) inside a chat bubble — support
+    conversations, counted.
+
+    Built for 16px first. The bars are KNOCKED OUT of a solid pink bubble rather
+    than drawn as pink bars on a dark bubble outline: at 16px a 1px outline and
+    thin bars turn to mush, whereas two big high-contrast shapes stay readable.
+    Only two colours, both full-strength, for the same reason.
+  -->
+  <rect width="64" height="64" rx="13" fill="#0d0d0d"/>
+  <!-- chat bubble + tail, as one path so the knockout bars sit cleanly on top -->
+  <path fill="#ff5fa2"
+        d="M17 9h30a9 9 0 0 1 9 9v20a9 9 0 0 1-9 9H31l-11 9 2-9h-5a9 9 0 0 1-9-9V18a9 9 0 0 1 9-9z"/>
+  <!-- rising bars, in the background colour so they read as cut out of the bubble -->
+  <!-- 8-wide bars with 5.5 gaps, centred in the bubble: at 16px that is a 2px bar
+       against a ~1.4px gap, which is the smallest ratio that still reads as three
+       separate bars rather than one pink smudge. -->
+  <g fill="#0d0d0d">
+    <rect x="14.5" y="30" width="8" height="11" rx="2.5"/>
+    <rect x="28" y="24" width="8" height="17" rx="2.5"/>
+    <rect x="41.5" y="17" width="8" height="24" rx="2.5"/>
+  </g>
+</svg>

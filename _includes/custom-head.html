@@ -1,0 +1,16 @@
+<!--
+  Favicon links for every themed page. minima's _includes/head.html ends with
+  `{%- include custom-head.html -%}`, which is the theme's supported hook for adding
+  head tags without vendoring the whole layout — so this file is the ONLY place the
+  site-wide favicon is declared.
+
+  relative_url is required: the site is served from the /thunderbird-metrics-and-reports
+  baseurl, so a bare "/favicon.svg" would 404 on Pages while working locally.
+
+  The standalone hand-written pages (PROJECT1/REPORTS/desktop/explorer.html and the
+  generated UNANSWERED_QUESTIONS reports) are NOT themed and carry their own link
+  tags — update them too if these change.
+-->
+<link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}">
+<link rel="alternate icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
