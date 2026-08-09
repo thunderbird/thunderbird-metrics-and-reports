@@ -1,0 +1,73 @@
+name: gha-project1-desktop-explorer
+
+# Rebuilds the DATA behind the Project 1 interactive spike explorer
+# (PROJECT1/REPORTS/desktop/explorer.json), which the standalone
+# PROJECT1/REPORTS/desktop/explorer.html fetches as a sibling file.
+#
+# WHY ITS OWN WORKFLOW, and not a step in gha-project1-desktop-spike-reports.yml:
+# a deliberate trade (agreed 2026-08-08). The spike-report pipeline is the working,
+# load-bearing one; adding a step to it means a failure here can leave the reports
+# stale. Keeping them separate means the worst case is a STALE EXPLORER while the
+# reports keep publishing — accepted as the cheaper failure.
+#
+# Lightweight, like the exec-summary workflow: it reads the committed Project 1
+# feature tables (PROJECT1/*-desktop-features.csv) and does NOT check out
+# aaq-scraper, so it never re-scrapes or re-extracts. It only re-encodes what the
+# spike workflow already committed.
+#
+# Cadence: twice daily at 0600/1800 UTC, ~90 min after the spike workflow's
+# 0430/1630 feature refresh, so the explorer reflects the same feature tables the
+# current spike reports were built from.
+#
+# Repo size is a non-issue despite the file being ~3.5 MB: consecutive days are
+# ~99% identical and git deltas them almost perfectly. Measured 2026-08-08 — seven
+# successive versions repack to 1216 KiB total, i.e. under 1 KiB per extra commit.
+#
+# NOT generated here: explorer.html itself is hand-maintained (vanilla JS, no build
+# step) and committed once. And the "explore" deep links in the spike reports appear
+# via project1_report.py in the spike workflow, which links the explorer only when
+# explorer.html exists — so there is no ordering dependency to manage here.
+
+on:
+  schedule:
+    - cron: '0 6,18 * * *'   # 0600/1800 UTC — after the 0430/1630 spike refresh
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  explorer-data:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+      with:
+        python-version: '3.14'
+        enable-cache: true
+    - name: Create virtual environment
+      run: uv venv
+    - name: Install dependencies
+      run: uv pip install -r requirements.txt
+
+    # --verify gates the commit. It cross-checks every committed spike's
+    # (grain, period, version, cause) bucket against the emitted JSON and FAILS if
+    # any resolves to zero questions -- i.e. the bucket labels have drifted from the
+    # detectors' period keys. That failure is otherwise silent: the page still loads
+    # and the chart still draws, while every "explore" deep link in every spike
+    # report selects nothing. A non-zero count that merely differs is only a warning
+    # (the feature tables get re-extracted, so a spike CSV's `observed` can lag).
+    - name: Build explorer data (desktop) and verify every spike bucket resolves
+      run: uv run scripts/project1_explorer_data.py desktop --verify
+
+    - name: Commit changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add PROJECT1/REPORTS/desktop/explorer.json
+        git commit -m "Project 1: rebuild desktop explorer data" || { echo "No changes"; exit 0; }
+        git pull --rebase origin "${GITHUB_REF_NAME}"
+        git push

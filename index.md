@@ -26,6 +26,8 @@ incidents that a daily threshold misses surface at the monthly report.
 
 **For engineering management** — [Monthly summary (current vs previous month)](PROJECT1/REPORTS/desktop/monthly-summary-latest.html): incidents to investigate, moving cause clusters, and release adoption, month over month. (Bookmark this — it always points to the latest complete comparison.)
 
+**To explore any bump, not just the ones that fired** — [Interactive spike explorer](PROJECT1/REPORTS/desktop/explorer.html): pick a grain, version and cause, then **click any point on the chart** to read that period's questions. The spike reports below can only link the questions of the periods that cleared a threshold; their sparklines are static text. Each spike row links straight to its own bucket here.
+
 Desktop spike report by time grain:
 
 - [Hourly](PROJECT1/REPORTS/desktop/hourly-spike-report.html) (trailing 7 days)

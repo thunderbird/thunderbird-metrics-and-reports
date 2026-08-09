@@ -273,6 +273,56 @@ previous-vs-prev-previous (the just-closed month keeps finalizing); `-latest`
 tracks the freshest complete comparison (prev-vs-prev-prev in days 1-14,
 current-vs-prev from day 15). Linked from `index.md`.
 
+**Interactive explorer** (`scripts/project1_explorer_data.py` +
+`PROJECT1/REPORTS/desktop/explorer.html`, built 2026-08-08). **The gap it closes:**
+a spike row links only the questions of the ONE period that fired, and the
+sparklines are dead text (Unicode blocks in a code span), so a reader who spots an
+interesting bump elsewhere has nowhere to click. The explorer is a standalone page —
+**vanilla JS, no framework, no build step**, same pattern as the unanswered-questions
+triage HTML — with grain / version / cause / OS dropdowns over an inline SVG chart:
+**click any point to list that period's questions as links**, hover for a tooltip,
+drag to zoom, ← → to step. Seven things to know:
+
+- **The data script does NOT pre-aggregate.** It emits one index-encoded row per
+  question (`[id, day, versionIdx, flags, first_answer_h, [tagIdxs], title]`, one
+  flat `tags` vocabulary across all dims) into a **sibling `explorer.json`** the page
+  fetches and buckets in the browser. That is what makes every grain × version ×
+  cause × period combination reachable from one cached fetch; pre-aggregating would
+  enumerate 24 versions × 113 tags × 5 grains and still carry the ids and titles.
+  ~48k desktop questions → 3.5 MB (1.2 MB gzipped on Pages).
+- **`day`-offset resolution, so there is no hourly grain** (deliberate: hourly over
+  3.5 years is unreadable and the hourly spike report covers the trailing week).
+- **The deep-link contract is the fragile part.** `project1_report.py` appends
+  ` · [explore ↗](explorer.html#grain=…&version=…&cause=…&period=…)` to each spike
+  row's *Example questions* cell (no new column — a trailing column pushes the
+  168-char hourly sparkline off the page), using the **DETECTOR grain, not the report
+  grain**, because `period` comes out of the spike CSV keyed that way (a week by its
+  Monday). The page derives its bucket labels identically. Get this wrong and it
+  fails **silently**: the page loads, the chart draws, every link selects nothing.
+- Hence **`--verify` gates the workflow**: it cross-checks every committed spike's
+  bucket against the emitted JSON. Two severities — a bucket resolving to **zero** is
+  a hard exit 1; a non-zero count that merely *differs* is a warning (feature tables
+  get re-extracted, so a spike CSV's `observed` legitimately lags). Verified by
+  shifting the epoch one day and confirming it fires.
+- **Its own workflow** (`gha-project1-desktop-explorer.yml`, 0600/1800 UTC, ~90 min
+  after the spike refresh), NOT a step in the spike workflow — accepted trade: the
+  worst case is a stale explorer instead of risking the working report pipeline. It
+  is lightweight (reads the committed feature tables, no `aaq-scraper` checkout) and
+  commits only `explorer.json`. Repo size is a non-issue: consecutive versions are
+  ~99% identical and git deltas them to **under 1 KiB per commit** (measured — seven
+  versions of the 3.5 MB file repack to 1216 KiB).
+- **`explorer.html` is hand-maintained and committed once** — nothing generates it.
+  `project1_report.py` links the explorer only when that file exists, so android
+  reports never emit dead links, and there is no ordering dependency between the
+  two workflows.
+- **One y-axis, one series, on purpose.** Overlaying total volume would need a second
+  scale (15 GMX questions vs ~700/month), so the bucket's *share of total* is in the
+  tooltip / stat tile / data table instead. Form follows density: ≤130 buckets →
+  bars, denser → area+line. **No render gate applies** (it's HTML, not kramdown) —
+  verify changes in a real browser; a `hashchange` handler and a persistent hover
+  overlay are both load-bearing (see the comments in the file for what broke without
+  them).
+
 `scripts/project1_regexes.py` holds the detection dictionaries — ported from
 `thunderbird/github-action-thunderbird-aaq/regexes.rb` (the `os:`/`av:`/`m:` tag
 convention), a net-new `proto:` dimension, an expanded `mail_provider` covering

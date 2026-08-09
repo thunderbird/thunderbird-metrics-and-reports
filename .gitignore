@@ -57,3 +57,4 @@ build-iPhoneSimulator/
 aaq-data/
 aaq-data
 __pycache__/
+.playwright-mcp/

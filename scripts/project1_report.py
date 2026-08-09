@@ -43,6 +43,10 @@ SINGLE_CSV = "PROJECT1/{product}-{dgrain}-single-spikes.csv"
 ROLLUP = "PROJECT1/{product}-{grain}-rollup.csv"
 REPORT_DIR = "PROJECT1/REPORTS/{product}"
 QUESTION_URL = "https://support.mozilla.org/questions/{id}"
+# Sibling of the generated report pages, so a plain relative link resolves on Pages.
+# Built separately (scripts/project1_explorer_data.py + its own workflow) and only
+# committed for desktop so far -- hence the exists() guard before linking to it.
+EXPLORER_HTML = "explorer.html"
 BLOCKS = "▁▂▃▄▅▆▇█"
 
 # Report grain -> spike-DETECTOR grain (project1_grains.py runs daily/weekly/
@@ -206,12 +210,43 @@ def main():
 
     # spike CSVs are read at the DETECTOR grain matching this report grain
     dgrain = DETECTOR_GRAIN[grain]
+
+    if os.path.exists(f"{REPORT_DIR.format(product=product)}/{EXPLORER_HTML}"):
+        W(f"> 🔎 **Want a bump that is not listed below?** The sparklines here are "
+          f"static text. Open the [interactive explorer]({EXPLORER_HTML}), pick a "
+          f"grain / version / cause, and **click any point** to read that period's "
+          f"questions — every period, not just the ones that cleared a threshold. "
+          f"Each spike row also links straight to its own bucket.\n")
     title_by_id = dict(zip(df["id"], df["title"]))
 
     def in_window(spikes):
         if spikes.empty:
             return spikes
         return spikes[spikes["period"].map(parse_period) >= window_start]
+
+    # The explorer page is committed per product; link to it only when it is there
+    # (desktop today), so an android report never emits a dead link.
+    explorer_exists = os.path.exists(
+        f"{REPORT_DIR.format(product=product)}/{EXPLORER_HTML}")
+
+    def explore(period, cause, version=None):
+        """Deep link to this spike's own bucket in the interactive explorer.
+
+        Answers the question the static tables can't: the row links the questions of
+        the ONE period that fired, but a reader who wants the periods either side, or
+        the same cause at another version, has nowhere to click.
+
+        Uses the DETECTOR grain, not the report grain -- `period` comes out of the
+        spike CSV keyed to the detector grain (a week by its Monday), and the
+        explorer derives its bucket labels the same way, so the two agree. Getting
+        this wrong is silent: the page would load and select nothing."""
+        if not explorer_exists:
+            return ""
+        q = [f"grain={dgrain}"]
+        if version:
+            q.append(f"version={version}")
+        q += [f"cause={cause}", f"period={period}"]
+        return f" · [explore ↗]({EXPLORER_HTML}#{'&'.join(q)})"
 
     def links_for(ids):
         links = " ".join(
@@ -257,7 +292,8 @@ def main():
                 df[dim].apply(lambda c: val in (c.split(";") if c else []))))
             W(f"| {NOVELTY_BADGE.get(r.get('novelty', ''), '')} | **{r['lift']}×** "
               f"| {r['period']} | v{ver} × {val} | {r['observed']} | {served(r)} "
-              f"| {links_for(r['question_ids'].split())} | `{sl}` |")
+              f"| {links_for(r['question_ids'].split())}"
+              f"{explore(r['period'], val, ver)} | `{sl}` |")
         W("")
 
     # Engineering signal #2 — cause-level spikes (version-agnostic: provider/ISP
@@ -284,7 +320,8 @@ def main():
             sl = spark(series_mask(df[dim].apply(lambda c: val in (c.split(";") if c else []))))
             mag = "new" if r["magnitude"] == "new" else f"{float(r['magnitude']):.1f}×"
             W(f"| **{mag}** | {r['period']} | {val} | {r['count']} | {served(r)} | {r['baseline_median']} "
-              f"| {links_for(r['question_ids'].split())} | `{sl}` |")
+              f"| {links_for(r['question_ids'].split())}"
+              f"{explore(r['period'], val)} | `{sl}` |")
         W("")
 
     # Trends

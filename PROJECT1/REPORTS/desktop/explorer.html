@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<!--
+  Project 1 — DESKTOP spike explorer.
+
+  WHY: the spike reports link the questions of the ONE period that fired as a
+  spike. A reader who spots an interesting bump elsewhere on a sparkline has no way
+  to reach those questions (the sparkline is dead text). Here you pick a grain +
+  version + cause and CLICK any point to read that bucket's questions.
+
+  Standalone by design: vanilla JS, no framework, no build step, no backend — same
+  pattern as the unanswered-questions triage page, which is the proof this works on
+  GitHub Pages. All data comes from the sibling explorer.json, built by
+  scripts/project1_explorer_data.py from the committed feature tables.
+
+  Two things to preserve if you edit this:
+   * Bucket labels MUST match the detectors' period keys (a week is keyed by its
+     Monday), or the "explore" deep links from the spike reports resolve to nothing.
+   * SUMO-derived text (titles) is written with textContent, never innerHTML.
+     Keep it that way.
+
+  ONE y-axis, one series, on purpose: overlaying total volume would need a second
+  scale (15 GMX questions vs ~700/month), so the bucket's share of total volume is
+  in the tooltip and the selection header instead of on a second axis.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; form-action 'none'; base-uri 'none'">
+<title>Project 1 — Thunderbird Desktop spike explorer</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --surface-1: #fcfcfb;
+    --plane: #f9f9f7;
+    --ink: #0b0b0b;
+    --ink-2: #52514e;
+    --muted: #898781;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+    --border: rgba(11,11,11,0.10);
+    --series-1: #2a78d6;
+    --series-1-soft: rgba(42,120,214,0.13);
+    --good: #0ca30c;
+    --warning: #fab219;
+    --critical: #d03b3b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface-1: #1a1a19;
+      --plane: #0d0d0d;
+      --ink: #ffffff;
+      --ink-2: #c3c2b7;
+      --grid: #2c2c2a;
+      --axis: #383835;
+      --border: rgba(255,255,255,0.10);
+      --series-1: #3987e5;
+      --series-1-soft: rgba(57,135,229,0.18);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 14px; line-height: 1.5;
+    margin: 0; padding: 1.5rem 1.25rem 4rem;
+    background: var(--plane); color: var(--ink);
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  h1 { font-size: 1.4rem; margin: 0 0 .25rem; }
+  .sub { color: var(--ink-2); margin: 0 0 1.25rem; }
+  .sub a { color: var(--series-1); }
+  .card {
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 1rem;
+  }
+  /* filters live in ONE row above the chart */
+  .filters { display: flex; flex-wrap: wrap; gap: .9rem 1.1rem; align-items: flex-end; }
+  .filters label { display: block; font-size: .75rem; text-transform: uppercase;
+                   letter-spacing: .04em; color: var(--muted); margin-bottom: .2rem; }
+  select, button {
+    font: inherit; font-size: 13px; color: var(--ink);
+    background: var(--surface-1); border: 1px solid var(--axis);
+    border-radius: 6px; padding: .35rem .5rem;
+  }
+  select { max-width: 15rem; }
+  button { cursor: pointer; }
+  button:hover:not(:disabled) { border-color: var(--series-1); }
+  button:disabled { opacity: .45; cursor: default; }
+  .tiles { display: flex; flex-wrap: wrap; gap: 2rem; margin: 0 0 .25rem; }
+  .tile-label { font-size: .75rem; text-transform: uppercase; letter-spacing: .04em;
+                color: var(--muted); }
+  .tile-value { font-size: 1.5rem; font-weight: 600; }
+  .tile-note { font-size: .78rem; color: var(--ink-2); }
+  .chart-head { display: flex; justify-content: space-between; align-items: baseline;
+                gap: 1rem; margin: 1.1rem 0 .35rem; }
+  .chart-title { font-weight: 600; }
+  .hint { font-size: .8rem; color: var(--muted); }
+  #chart-wrap { position: relative; }
+  svg { display: block; width: 100%; height: auto; touch-action: none; }
+  svg:focus-visible { outline: 2px solid var(--series-1); outline-offset: 2px; }
+  .tick { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+  .gridline { stroke: var(--grid); stroke-width: 1; }
+  .baseline { stroke: var(--axis); stroke-width: 1; }
+  .area { fill: var(--series-1-soft); }
+  .line { fill: none; stroke: var(--series-1); stroke-width: 2;
+          stroke-linejoin: round; stroke-linecap: round; }
+  .bar { fill: var(--series-1); }
+  .dot { fill: var(--series-1); stroke: var(--surface-1); stroke-width: 2; }
+  .crosshair { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+  .sel-marker { stroke: var(--ink); stroke-width: 1.5; }
+  .brush { fill: var(--series-1); opacity: .12; }
+  #tip {
+    position: absolute; pointer-events: none; z-index: 5; display: none;
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 8px; padding: .4rem .55rem; font-size: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.14); white-space: nowrap;
+  }
+  #tip b { font-variant-numeric: tabular-nums; }
+  .sel-head { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: baseline;
+              margin-bottom: .6rem; }
+  .sel-title { font-weight: 600; font-size: 1.05rem; }
+  .chip { display: inline-block; font-size: 11.5px; padding: .05rem .4rem;
+          border: 1px solid var(--border); border-radius: 999px; color: var(--ink-2);
+          background: var(--plane); }
+  .served { font-size: .85rem; color: var(--ink-2); }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { text-align: left; padding: .3rem .5rem; border-bottom: 1px solid var(--border);
+           vertical-align: top; }
+  th { font-size: .72rem; text-transform: uppercase; letter-spacing: .04em;
+       color: var(--muted); font-weight: 600; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  #sel-body td:first-child { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  td a { color: var(--series-1); }
+  .empty { color: var(--ink-2); font-style: italic; }
+  details { margin-top: .75rem; }
+  summary { cursor: pointer; color: var(--ink-2); font-size: .85rem; }
+  .note { font-size: .85rem; color: var(--ink-2); }
+  .warn { color: var(--critical); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Project 1 — Thunderbird Desktop spike explorer</h1>
+  <p class="sub" id="sub">Loading data…</p>
+
+  <div class="card filters" id="filters" hidden>
+    <div>
+      <label for="f-grain">Grain</label>
+      <select id="f-grain"></select>
+    </div>
+    <div>
+      <label for="f-version">Version</label>
+      <select id="f-version"></select>
+    </div>
+    <div>
+      <label for="f-cause">Cause (provider / protocol / AV)</label>
+      <select id="f-cause"></select>
+    </div>
+    <div>
+      <label for="f-os">OS filter</label>
+      <select id="f-os"></select>
+    </div>
+    <div>
+      <button id="f-zoom-data">Zoom to data</button>
+      <button id="f-reset-zoom" disabled>Reset zoom</button>
+      <button id="f-clear">Clear filters</button>
+    </div>
+  </div>
+
+  <div class="card" id="chart-card" hidden>
+    <div class="tiles">
+      <div>
+        <div class="tile-label">Questions in view</div>
+        <div class="tile-value" id="t-count">—</div>
+        <div class="tile-note" id="t-count-note"></div>
+      </div>
+      <div>
+        <div class="tile-label">Answered (non-creator)</div>
+        <div class="tile-value" id="t-answered">—</div>
+        <div class="tile-note" id="t-answered-note"></div>
+      </div>
+      <div>
+        <div class="tile-label">Median first answer</div>
+        <div class="tile-value" id="t-fat">—</div>
+        <div class="tile-note">of answered questions</div>
+      </div>
+    </div>
+    <div class="chart-head">
+      <div class="chart-title" id="chart-title">Questions per period</div>
+      <div class="hint">Click a point to list its questions · drag across the chart to zoom, then “Reset zoom” · ← → to step</div>
+    </div>
+    <div id="chart-wrap">
+      <svg id="chart" role="img" tabindex="0" aria-label="Questions per period; use arrow keys to step through periods"></svg>
+      <div id="tip"></div>
+    </div>
+    <details id="table-view">
+      <summary>Data table (every period in view)</summary>
+      <div id="table-host"></div>
+    </details>
+  </div>
+
+  <div class="card" id="sel-card" hidden>
+    <div class="sel-head">
+      <span class="sel-title" id="sel-title">No period selected</span>
+      <span class="served" id="sel-served"></span>
+    </div>
+    <div id="sel-body"></div>
+  </div>
+
+  <p class="note">
+    ⏱ <b>Reading spike timing:</b> a bump dates when users <b>piled in</b> — a
+    <i>lagging</i> signal, usually days after an incident's onset and often near its
+    resolution. Treat these as pain-cluster / triage signals, not real-time incident
+    detection.
+  </p>
+  <p class="note">
+    Version coverage starts <b>2026-02</b> (the native <code>thunderbird_version</code>
+    field landed in Kitsune PR #7443 and is only meaningfully populated from Feb 2026);
+    cause / OS trends cover all scraper history from 2023-01. A question carrying two
+    causes counts toward each. No AI — regex dictionaries + counting only.
+    <span id="prov"></span>
+  </p>
+  <p class="note">
+    Back to the <a href="../../../index.html">reports index</a> ·
+    <a href="daily-spike-report.html">daily</a> ·
+    <a href="weekly-spike-report.html">weekly</a> ·
+    <a href="monthly-spike-report.html">monthly</a> spike reports.
+  </p>
+</div>
+
+<script>
+"use strict";
+
+// ---------------------------------------------------------------- state / config
+var GRAINS = ["daily", "weekly", "monthly", "quarterly", "yearly"];
+// A bar chart is the honest form for counts per discrete bucket, but at daily grain
+// over 3.5 years a bar is under a pixel wide -- so dense series render as an
+// area+line and only sparse ones as bars.
+var BAR_MAX_BUCKETS = 130;
+var LIST_CAP = 250;              // questions rendered per selected bucket
+var DAY_MS = 86400000;
+
+var D = null;                    // the fetched payload
+var S = {                        // UI state (mirrored into the URL hash)
+  grain: "weekly", version: "", cause: "", os: "",
+  period: null,                  // selected bucket label
+  view: null                     // [startIdx, endIdx] into buckets, or null = all
+};
+var buckets = [];                // ordered bucket labels for the current grain
+var bucketsGrain = null;         // the grain `buckets` was built for
+var counts = [];                 // filtered count per bucket
+var totals = [];                 // unfiltered count per bucket (for the share)
+var rowsByBucket = null;         // label -> filtered rows, built lazily per render
+var hover = -1;
+
+var $ = function (id) { return document.getElementById(id); };
+
+// ------------------------------------------------------------------ bucket maths
+// These labels must match the detectors' period keys exactly (project1_grains.py):
+// daily/weekly 'YYYY-MM-DD' with a week keyed by its MONDAY, monthly 'YYYY-MM'.
+// The report deep links pass those keys straight through in the URL hash.
+function dayToDate(day) {
+  return new Date(Date.parse(D.epoch + "T00:00:00Z") + day * DAY_MS);
+}
+function pad(n) { return (n < 10 ? "0" : "") + n; }
+function bucketLabel(day, grain) {
+  var d = dayToDate(day);
+  var y = d.getUTCFullYear(), m = d.getUTCMonth() + 1;
+  if (grain === "daily") { return y + "-" + pad(m) + "-" + pad(d.getUTCDate()); }
+  if (grain === "weekly") {
+    var back = (d.getUTCDay() + 6) % 7;   // JS Sunday=0 -> Monday-based offset
+    var mon = new Date(d.getTime() - back * DAY_MS);
+    return mon.getUTCFullYear() + "-" + pad(mon.getUTCMonth() + 1) + "-" + pad(mon.getUTCDate());
+  }
+  if (grain === "monthly") { return y + "-" + pad(m); }
+  if (grain === "quarterly") { return y + "-Q" + (Math.floor((m - 1) / 3) + 1); }
+  return String(y);
+}
+// Contiguous axis: walk every day so empty periods still get a slot (a gap in the
+// series is information -- a cause that went quiet).
+function buildBuckets(grain) {
+  var maxDay = 0, i;
+  for (i = 0; i < D.rows.length; i++) { if (D.rows[i][1] > maxDay) { maxDay = D.rows[i][1]; } }
+  var out = [], seen = Object.create(null);
+  for (var day = 0; day <= maxDay; day++) {
+    var k = bucketLabel(day, grain);
+    if (!(k in seen)) { seen[k] = 1; out.push(k); }
+  }
+  return out;
+}
+
+// ------------------------------------------------------------------- filtering
+function matches(r) {
+  if (S.version === "__unknown") { if (r[2] !== 0) { return false; } }
+  else if (S.version) {
+    if (D.versions[r[2]] !== S.version) { return false; }
+  }
+  if (S.cause && r[5].indexOf(D.tagIdx[S.cause]) < 0) { return false; }
+  if (S.os && r[5].indexOf(D.tagIdx[S.os]) < 0) { return false; }
+  return true;
+}
+function filterLabel() {
+  var bits = [];
+  if (S.version) { bits.push(S.version === "__unknown" ? "no version" : "v" + S.version); }
+  if (S.cause) { bits.push(S.cause); }
+  if (S.os) { bits.push(S.os); }
+  return bits.length ? bits.join(" × ") : "all questions";
+}
+
+function recompute() {
+  var idx = Object.create(null), i;
+  for (i = 0; i < buckets.length; i++) { idx[buckets[i]] = i; }
+  counts = new Array(buckets.length).fill(0);
+  totals = new Array(buckets.length).fill(0);
+  rowsByBucket = Object.create(null);
+  for (i = 0; i < D.rows.length; i++) {
+    var r = D.rows[i];
+    var b = idx[bucketLabel(r[1], S.grain)];
+    if (b === undefined) { continue; }
+    totals[b]++;
+    if (!matches(r)) { continue; }
+    counts[b]++;
+    var lab = buckets[b];
+    (rowsByBucket[lab] || (rowsByBucket[lab] = [])).push(r);
+  }
+}
+
+function viewRange() {
+  if (S.view) { return S.view; }
+  return [0, buckets.length - 1];
+}
+
+// A version filter leaves most of a 3.5-year axis empty (v151 only exists from
+// 2026-05), so offer an explicit jump to the range that actually has questions.
+// Explicit rather than automatic: silently moving the axis under a reader who just
+// changed one dropdown is worse than one extra click.
+function dataRange() {
+  var lo = -1, hi = -1;
+  for (var i = 0; i < counts.length; i++) {
+    if (counts[i]) { if (lo < 0) { lo = i; } hi = i; }
+  }
+  return lo < 0 ? null : [lo, hi];
+}
+
+// Small shares matter here (15 GMX questions out of ~700 a month), so don't round
+// them to a useless "0%".
+function pctText(part, whole) {
+  if (!whole) { return ""; }
+  var p = (part / whole) * 100;
+  if (p > 0 && p < 1) { return "<1%"; }
+  return (p < 10 ? p.toFixed(1) : String(Math.round(p))) + "%";
+}
+
+// --------------------------------------------------------------------- SVG util
+var NS = "http://www.w3.org/2000/svg";
+function el(name, attrs, parent) {
+  var n = document.createElementNS(NS, name);
+  for (var k in attrs) { if (attrs[k] !== null) { n.setAttribute(k, attrs[k]); } }
+  if (parent) { parent.appendChild(n); }
+  return n;
+}
+function clear(node) { while (node.firstChild) { node.removeChild(node.firstChild); } }
+
+// ------------------------------------------------------------------- the chart
+var W = 1120, H = 300, PAD = { t: 14, r: 14, b: 30, l: 46 };
+var plot = { x: PAD.l, y: PAD.t, w: W - PAD.l - PAD.r, h: H - PAD.t - PAD.b };
+var vis = { from: 0, to: 0, step: 0 };
+
+function niceTicks(max) {
+  if (max <= 4) { return [0, Math.max(1, max)]; }
+  var raw = max / 4, mag = Math.pow(10, Math.floor(Math.log(raw) / Math.LN10));
+  var unit = [1, 2, 2.5, 5, 10].find(function (u) { return u * mag >= raw; }) * mag;
+  var out = [];
+  for (var v = 0; v <= max + unit * 0.001; v += unit) { out.push(Math.round(v)); }
+  return out;
+}
+
+// The hover/click/drag overlay is created ONCE and kept on top; draw() only ever
+// clears the layer group below it. (Recreating the overlay inside draw() removes
+// the node under the cursor, which fires mouseleave -> draw() -> remove -> ...)
+var layer = null, overlay = null;
+function initChart() {
+  var svg = $("chart");
+  svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+  clear(svg);
+  layer = el("g", {}, svg);
+  overlay = el("rect", { x: plot.x, y: plot.y, width: plot.w, height: plot.h,
+                         fill: "transparent" }, svg);
+  wireOverlay(overlay);
+}
+
+function draw() {
+  var svg = layer;
+  clear(svg);
+  var r = viewRange(), from = r[0], to = r[1], n = to - from + 1;
+  vis.from = from; vis.to = to;
+  var step = plot.w / n;
+  vis.step = step;
+
+  var max = 0;
+  for (var i = from; i <= to; i++) { if (counts[i] > max) { max = counts[i]; } }
+  var ticks = niceTicks(max);
+  var top = ticks[ticks.length - 1] || 1;
+  var yOf = function (v) { return plot.y + plot.h - (v / top) * plot.h; };
+  var xMid = function (i) { return plot.x + (i - from + 0.5) * step; };
+
+  ticks.forEach(function (t) {
+    var y = yOf(t);
+    el("line", { x1: plot.x, y1: y, x2: plot.x + plot.w, y2: y,
+                 "class": t === 0 ? "baseline" : "gridline" }, svg);
+    var lab = el("text", { x: plot.x - 8, y: y + 4, "class": "tick",
+                           "text-anchor": "end" }, svg);
+    lab.textContent = String(t);
+  });
+
+  // x labels: thin them out to whatever fits, never overlapping
+  var every = Math.max(1, Math.ceil(n / 12));
+  for (var j = from; j <= to; j += every) {
+    var tx = el("text", { x: xMid(j), y: H - 10, "class": "tick",
+                          "text-anchor": "middle" }, svg);
+    tx.textContent = buckets[j];
+  }
+
+  if (n <= BAR_MAX_BUCKETS) {
+    var bw = Math.max(1, step - 2);          // 2px surface gap between bars
+    for (var b = from; b <= to; b++) {
+      if (!counts[b]) { continue; }
+      var h = Math.max(2, plot.y + plot.h - yOf(counts[b]));
+      el("rect", { x: xMid(b) - bw / 2, y: plot.y + plot.h - h, width: bw, height: h,
+                   rx: Math.min(4, bw / 2), "class": "bar" }, svg);
+    }
+  } else {
+    var dPath = "", aPath = "";
+    for (var k = from; k <= to; k++) {
+      var px = xMid(k), py = yOf(counts[k]);
+      dPath += (k === from ? "M" : "L") + px.toFixed(1) + " " + py.toFixed(1);
+    }
+    aPath = dPath + "L" + xMid(to).toFixed(1) + " " + (plot.y + plot.h) +
+            "L" + xMid(from).toFixed(1) + " " + (plot.y + plot.h) + "Z";
+    el("path", { d: aPath, "class": "area" }, svg);
+    el("path", { d: dPath, "class": "line" }, svg);
+  }
+  // markers only when they can be >= 8px apart, per the mark spec
+  if (step >= 8 && n > BAR_MAX_BUCKETS) {
+    for (var m = from; m <= to; m++) {
+      el("circle", { cx: xMid(m), cy: yOf(counts[m]), r: 3.5, "class": "dot" }, svg);
+    }
+  }
+
+  // selection marker
+  if (S.period && buckets.indexOf(S.period) >= from && buckets.indexOf(S.period) <= to) {
+    var si = buckets.indexOf(S.period);
+    el("line", { x1: xMid(si), y1: plot.y, x2: xMid(si), y2: plot.y + plot.h,
+                 "class": "sel-marker" }, svg);
+    el("circle", { cx: xMid(si), cy: yOf(counts[si]), r: 5, "class": "dot" }, svg);
+  }
+  // hover crosshair
+  if (hover >= from && hover <= to) {
+    el("line", { x1: xMid(hover), y1: plot.y, x2: xMid(hover), y2: plot.y + plot.h,
+                 "class": "crosshair" }, svg);
+  }
+  if (brush) {
+    var x1 = Math.min(brush.a, brush.b), x2 = Math.max(brush.a, brush.b);
+    el("rect", { x: x1, y: plot.y, width: Math.max(1, x2 - x1), height: plot.h,
+                 "class": "brush" }, svg);
+  }
+  $("chart-title").textContent = "Questions per " +
+    ({ daily: "day", weekly: "week", monthly: "month", quarterly: "quarter",
+       yearly: "year" }[S.grain]) + " — " + filterLabel();
+  $("chart").setAttribute("aria-label",
+    "Questions per " + S.grain + " period for " + filterLabel() +
+    "; " + n + " periods shown; use arrow keys to step through periods");
+}
+
+// ------------------------------------------------------------- chart interaction
+var brush = null;
+function idxAt(evt) {
+  var svg = $("chart"), box = svg.getBoundingClientRect();
+  var x = (evt.clientX - box.left) * (W / box.width);
+  var i = vis.from + Math.floor((x - plot.x) / vis.step);
+  return Math.max(vis.from, Math.min(vis.to, i));
+}
+function pxAt(evt) {
+  var box = $("chart").getBoundingClientRect();
+  return Math.max(plot.x, Math.min(plot.x + plot.w,
+                                   (evt.clientX - box.left) * (W / box.width)));
+}
+// One overlay handles hover / click / drag at any bucket density -- mapping x to an
+// index beats per-bucket hit rects, which would be sub-pixel at daily grain.
+function wireOverlay(ov) {
+  ov.addEventListener("mousemove", function (e) {
+    if (brush) { brush.b = pxAt(e); brush.moved = true; }
+    hover = idxAt(e);
+    draw();
+    showTip(e);
+  });
+  ov.addEventListener("mouseleave", function () {
+    hover = -1; $("tip").style.display = "none"; draw();
+  });
+  ov.addEventListener("mousedown", function (e) {
+    var x = pxAt(e); brush = { a: x, b: x, moved: false, i: idxAt(e) };
+  });
+  // No double-click-to-reset: each half of a double-click is also a select, so it
+  // reset the zoom AND moved the question list. The "Reset zoom" button is the one
+  // way to undo a zoom -- one behaviour, and it shows whether a zoom is in effect.
+  ov.addEventListener("click", function (e) { e.preventDefault(); });
+}
+document.addEventListener("mouseup", function (e) {
+  if (!brush) { return; }
+  var b = brush, wide = Math.abs(b.b - b.a) > 6;
+  brush = null;
+  if (wide) {
+    var i1 = b.i, i2 = idxAt(e);
+    S.view = [Math.min(i1, i2), Math.max(i1, i2)];
+    if (S.view[1] - S.view[0] < 1) { S.view = null; }
+    syncZoomBtn();
+    render();
+  } else {
+    select(buckets[b.i]);
+  }
+});
+
+function showTip(evt) {
+  var tip = $("tip");
+  if (hover < 0) { tip.style.display = "none"; return; }
+  var c = counts[hover], t = totals[hover];
+  clear(tip);
+  var strong = document.createElement("b");
+  strong.textContent = buckets[hover];
+  tip.appendChild(strong);
+  var share = t ? " (" + pctText(c, t) + " of " + t + ")" : "";
+  var line = document.createElement("div");
+  line.textContent = c + (c === 1 ? " question" : " questions") + share;
+  tip.appendChild(line);
+  var foot = document.createElement("div");
+  foot.style.color = "var(--muted)";
+  foot.textContent = c ? "click to list them" : "no questions";
+  tip.appendChild(foot);
+  var wrap = $("chart-wrap").getBoundingClientRect();
+  var x = evt.clientX - wrap.left + 14, y = evt.clientY - wrap.top + 12;
+  tip.style.display = "block";
+  if (x + tip.offsetWidth > wrap.width) { x = evt.clientX - wrap.left - tip.offsetWidth - 14; }
+  tip.style.left = x + "px";
+  tip.style.top = y + "px";
+}
+
+$("chart").addEventListener("keydown", function (e) {
+  var r = viewRange();
+  var cur = S.period ? buckets.indexOf(S.period) : -1;
+  if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+    var next = cur < 0 ? r[0] : cur + (e.key === "ArrowRight" ? 1 : -1);
+    next = Math.max(r[0], Math.min(r[1], next));
+    select(buckets[next]);
+    e.preventDefault();
+  } else if (e.key === "Home") { select(buckets[r[0]]); e.preventDefault(); }
+  else if (e.key === "End") { select(buckets[r[1]]); e.preventDefault(); }
+});
+
+// ------------------------------------------------------------------- selection
+function select(label) {
+  S.period = label;
+  writeHash();
+  draw();
+  renderSelection();
+  $("sel-card").scrollIntoView({ block: "nearest", behavior: "smooth" });
+}
+
+function servedText(rows) {
+  if (!rows.length) { return ""; }
+  var ans = rows.filter(function (r) { return r[3] & 1; });
+  var pct = Math.round((ans.length / rows.length) * 100);
+  var hrs = ans.map(function (r) { return r[4]; }).filter(function (h) { return h >= 0; })
+               .sort(function (a, b) { return a - b; });
+  var med = hrs.length ? hrs[Math.floor(hrs.length / 2)] : null;
+  // icon + label, never colour alone (the status palette is sub-3:1 on light)
+  return (pct < 60 ? "⚠️ " : "") + pct + "% answered" +
+         (med !== null ? " · median first answer " + med + "h" : "") +
+         (pct < 60 ? " — poorly served" : "");
+}
+
+function renderSelection() {
+  var host = $("sel-body"), rows = (rowsByBucket[S.period] || []).slice();
+  $("sel-card").hidden = false;
+  clear(host);
+  if (!S.period) {
+    $("sel-title").textContent = "No period selected";
+    $("sel-served").textContent = "";
+    var p = document.createElement("p");
+    p.className = "empty";
+    p.textContent = "Click a point on the chart to list that period's questions.";
+    host.appendChild(p);
+    return;
+  }
+  $("sel-title").textContent = S.period + " · " + filterLabel() + " · " +
+    rows.length + (rows.length === 1 ? " question" : " questions");
+  var served = document.createElement("span");
+  served.textContent = servedText(rows);
+  if (rows.length && (rows.filter(function (r) { return r[3] & 1; }).length / rows.length) < 0.6) {
+    served.className = "warn";
+  }
+  clear($("sel-served"));
+  $("sel-served").appendChild(served);
+
+  if (!rows.length) {
+    var e2 = document.createElement("p");
+    e2.className = "empty";
+    e2.textContent = "No questions in this period for the current filters.";
+    host.appendChild(e2);
+    return;
+  }
+  rows.sort(function (a, b) { return a[1] - b[1] || a[0] - b[0]; });
+  var shown = rows.slice(0, LIST_CAP);
+  var tbl = document.createElement("table");
+  var thead = document.createElement("thead");
+  thead.appendChild(tr(["Date", "Question", "Version", "Tags", "Answered"], "th"));
+  tbl.appendChild(thead);
+  var tb = document.createElement("tbody");
+  shown.forEach(function (r) {
+    var row = document.createElement("tr");
+    row.appendChild(td(isoDay(r[1])));
+
+    var c2 = document.createElement("td");
+    var a = document.createElement("a");
+    a.href = D.question_url_prefix + r[0];
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.textContent = r[0] + ": " + (r[6] || "(no title)");   // textContent, not innerHTML
+    c2.appendChild(a);
+    row.appendChild(c2);
+
+    row.appendChild(td(r[2] ? "v" + D.versions[r[2]] : "—"));
+
+    var c4 = document.createElement("td");
+    r[5].forEach(function (ti) {
+      var s = document.createElement("span");
+      s.className = "chip";
+      s.textContent = D.tags[ti];
+      c4.appendChild(s);
+      c4.appendChild(document.createTextNode(" "));
+    });
+    row.appendChild(c4);
+
+    row.appendChild(td((r[3] & 1) ? ((r[4] >= 0 ? r[4] + "h" : "yes") +
+                                     ((r[3] & 2) ? " · solved" : "")) : "no"));
+    tb.appendChild(row);
+  });
+  tbl.appendChild(tb);
+  host.appendChild(tbl);
+  if (rows.length > shown.length) {
+    var more = document.createElement("p");
+    more.className = "note";
+    more.textContent = "Showing the first " + LIST_CAP + " of " + rows.length +
+                       " — narrow the filters or pick a finer grain to see the rest.";
+    host.appendChild(more);
+  }
+}
+function isoDay(day) { return dayToDate(day).toISOString().slice(0, 10); }
+function tr(cells, tag) {
+  var row = document.createElement("tr");
+  cells.forEach(function (c) {
+    var n = document.createElement(tag || "td");
+    n.textContent = c;
+    row.appendChild(n);
+  });
+  return row;
+}
+function td(text) { var n = document.createElement("td"); n.textContent = text; return n; }
+
+// ------------------------------------------------------------------ stat tiles
+function renderTiles() {
+  var r = viewRange(), rows = [], i, lab;
+  for (i = r[0]; i <= r[1]; i++) {
+    lab = buckets[i];
+    if (rowsByBucket[lab]) { rows = rows.concat(rowsByBucket[lab]); }
+  }
+  var tot = 0;
+  for (i = r[0]; i <= r[1]; i++) { tot += totals[i]; }
+  $("t-count").textContent = rows.length.toLocaleString();
+  $("t-count-note").textContent = tot ? pctText(rows.length, tot) +
+      " of " + tot.toLocaleString() + " questions in view" : "";
+  var ans = rows.filter(function (x) { return x[3] & 1; });
+  $("t-answered").textContent = rows.length ?
+      Math.round((ans.length / rows.length) * 100) + "%" : "—";
+  $("t-answered-note").textContent = rows.length ?
+      ans.length.toLocaleString() + " of " + rows.length.toLocaleString() : "";
+  var hrs = ans.map(function (x) { return x[4]; })
+               .filter(function (h) { return h >= 0; })
+               .sort(function (a, b) { return a - b; });
+  $("t-fat").textContent = hrs.length ? hrs[Math.floor(hrs.length / 2)] + "h" : "—";
+}
+
+// -------------------------------------------------------------- table view (a11y)
+function renderTable() {
+  var host = $("table-host");
+  clear(host);
+  var r = viewRange();
+  var tbl = document.createElement("table");
+  var thead = document.createElement("thead");
+  var head = tr(["Period", "Questions", "Share of all", ""], "th");
+  head.children[1].className = "num";
+  head.children[2].className = "num";
+  thead.appendChild(head);
+  tbl.appendChild(thead);
+  var tb = document.createElement("tbody");
+  for (var i = r[0]; i <= r[1]; i++) {
+    var row = document.createElement("tr");
+    row.appendChild(td(buckets[i]));
+    var c = td(String(counts[i])); c.className = "num"; row.appendChild(c);
+    var sh = td(totals[i] ? pctText(counts[i], totals[i]) : "—");
+    sh.className = "num"; row.appendChild(sh);
+    var c4 = document.createElement("td");
+    if (counts[i]) {
+      var btn = document.createElement("button");
+      btn.textContent = "List";
+      btn.dataset.period = buckets[i];
+      btn.addEventListener("click", function (e) { select(e.target.dataset.period); });
+      c4.appendChild(btn);
+    }
+    row.appendChild(c4);
+    tb.appendChild(row);
+  }
+  tbl.appendChild(tb);
+  host.appendChild(tbl);
+}
+
+// -------------------------------------------------------------------- URL hash
+// Deep-link contract with project1_report.py's "explore" links:
+//   #grain=weekly&version=151&cause=m:icloud&period=2026-06-01
+function writeHash() {
+  var p = [];
+  p.push("grain=" + S.grain);
+  if (S.version) { p.push("version=" + S.version); }
+  if (S.cause) { p.push("cause=" + S.cause); }
+  if (S.os) { p.push("os=" + S.os); }
+  if (S.period) { p.push("period=" + S.period); }
+  history.replaceState(null, "", "#" + p.join("&"));
+}
+function readHash() {
+  var h = (location.hash || "").replace(/^#/, "");
+  if (!h) { return {}; }
+  var out = {};
+  h.split("&").forEach(function (kv) {
+    var i = kv.indexOf("=");
+    if (i > 0) { out[decodeURIComponent(kv.slice(0, i))] = decodeURIComponent(kv.slice(i + 1)); }
+  });
+  return out;
+}
+// Resets the filters first: a deep link describes a COMPLETE state, so arriving via
+// one must not inherit whatever the previous view had selected.
+function applyHash() {
+  var h = readHash(), unknown = [];
+  S.version = S.cause = S.os = "";
+  S.period = S.pendingPeriod = null;
+  S.view = null;
+  if (h.grain && GRAINS.indexOf(h.grain) >= 0) { S.grain = h.grain; }
+  if (h.version) {
+    if (h.version === "__unknown" || D.versions.indexOf(h.version) > 0) { S.version = h.version; }
+    else { unknown.push("version " + h.version); }
+  }
+  ["cause", "os"].forEach(function (k) {
+    if (!h[k]) { return; }
+    if (h[k] in D.tagIdx) { S[k] = h[k]; } else { unknown.push(k + " " + h[k]); }
+  });
+  if (h.period) { S.pendingPeriod = h.period; }
+  return unknown;
+}
+
+// ---------------------------------------------------------------------- controls
+function opt(parent, value, text, selected) {
+  var o = document.createElement("option");
+  o.value = value;
+  o.textContent = text;
+  if (selected) { o.selected = true; }
+  parent.appendChild(o);
+  return o;
+}
+function buildControls() {
+  var g = $("f-grain");
+  clear(g);
+  GRAINS.forEach(function (x) { opt(g, x, x, x === S.grain); });
+
+  var v = $("f-version");
+  clear(v);
+  opt(v, "", "All versions", !S.version);
+  opt(v, "__unknown", "No version reported", S.version === "__unknown");
+  D.versions.slice(1).forEach(function (x) {
+    opt(v, x, "v" + x, S.version === x);
+  });
+
+  var byDim = {};
+  D.tags.forEach(function (t, i) { (byDim[D.tag_dim[i]] || (byDim[D.tag_dim[i]] = [])).push(t); });
+  var c = $("f-cause");
+  clear(c);
+  opt(c, "", "All causes", !S.cause);
+  D.cause_dims.forEach(function (dim) {
+    var grp = document.createElement("optgroup");
+    grp.label = D.dim_labels[dim] || dim;
+    (byDim[dim] || []).forEach(function (t) { opt(grp, t, t, S.cause === t); });
+    c.appendChild(grp);
+  });
+  var o = $("f-os");
+  clear(o);
+  opt(o, "", "All / any OS", !S.os);
+  D.filter_dims.forEach(function (dim) {
+    var grp = document.createElement("optgroup");
+    grp.label = D.dim_labels[dim] || dim;
+    (byDim[dim] || []).forEach(function (t) { opt(grp, t, t, S.os === t); });
+    o.appendChild(grp);
+  });
+}
+function syncZoomBtn() { $("f-reset-zoom").disabled = !S.view; }
+
+function onFilterChange(resetView) {
+  S.grain = $("f-grain").value;
+  S.version = $("f-version").value;
+  S.cause = $("f-cause").value;
+  S.os = $("f-os").value;
+  if (resetView) { S.view = null; syncZoomBtn(); }
+  render(true);
+}
+
+// ------------------------------------------------------------------------ render
+function render(rebuild) {
+  if (rebuild || !buckets.length) {
+    var prevGrain = bucketsGrain;
+    buckets = buildBuckets(S.grain);
+    bucketsGrain = S.grain;
+    if (prevGrain !== S.grain && S.period && buckets.indexOf(S.period) < 0) {
+      S.period = null;                 // a grain switch invalidates the old label
+    }
+    if (S.view && S.view[1] >= buckets.length) { S.view = null; syncZoomBtn(); }
+  }
+  recompute();
+  if (S.pendingPeriod) {
+    if (buckets.indexOf(S.pendingPeriod) >= 0) { S.period = S.pendingPeriod; }
+    S.pendingPeriod = null;
+  }
+  draw();
+  renderTiles();
+  renderTable();
+  renderSelection();
+  writeHash();
+}
+
+function reportUnknown(unknown) {
+  $("sub").className = "sub";
+  $("sub").textContent = D.rows.length.toLocaleString() + " " + D.product +
+    " support questions, " + D.epoch + " → today. Pick a grain, version and cause, " +
+    "then click a point to read the questions behind it.";
+  if (!unknown.length) { return; }
+  var w = document.createElement("span");
+  w.className = "warn";
+  w.textContent = " Ignored unknown deep-link filter(s): " + unknown.join(", ") + ".";
+  $("sub").appendChild(w);
+}
+
+function boot(data) {
+  D = data;
+  D.tagIdx = Object.create(null);
+  D.tags.forEach(function (t, i) { D.tagIdx[t] = i; });
+  reportUnknown(applyHash());
+  $("prov").textContent = "Data generated " + D.generated +
+    " by scripts/project1_explorer_data.py.";
+  buildControls();
+  $("filters").hidden = false;
+  $("chart-card").hidden = false;
+  ["f-grain", "f-version", "f-cause", "f-os"].forEach(function (id) {
+    $(id).addEventListener("change", function () { onFilterChange(id === "f-grain"); });
+  });
+  $("f-reset-zoom").addEventListener("click", function () {
+    S.view = null; syncZoomBtn(); render();
+  });
+  $("f-zoom-data").addEventListener("click", function () {
+    var r = dataRange();
+    if (!r) { return; }
+    S.view = r[1] > r[0] ? r : [Math.max(0, r[0] - 1),
+                                Math.min(buckets.length - 1, r[1] + 1)];
+    syncZoomBtn(); render();
+  });
+  $("f-clear").addEventListener("click", function () {
+    S.version = S.cause = S.os = ""; S.view = null; S.period = null;
+    buildControls(); syncZoomBtn(); render(true);
+  });
+  // Following a second "explore" link from a spike report while this page is already
+  // open changes only the hash -- the browser does not reload, so re-apply it here.
+  // writeHash() uses replaceState, which does not fire hashchange, so no loop.
+  window.addEventListener("hashchange", function () {
+    reportUnknown(applyHash());
+    buildControls();
+    syncZoomBtn();
+    render(true);
+  });
+  initChart();
+  render(true);
+}
+
+fetch("explorer.json")
+  .then(function (r) {
+    if (!r.ok) { throw new Error("HTTP " + r.status); }
+    return r.json();
+  })
+  .then(boot)
+  .catch(function (err) {
+    $("sub").textContent = "Could not load explorer.json (" + err.message +
+      "). It is generated by scripts/project1_explorer_data.py and must sit " +
+      "beside this page.";
+    $("sub").className = "sub warn";
+  });
+</script>
+</body>
+</html>
