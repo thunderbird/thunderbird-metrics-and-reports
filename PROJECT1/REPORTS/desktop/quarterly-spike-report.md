@@ -5,10 +5,10 @@ title: QUARTERLY: Thunderbird Desktop — Support Spike Report
 
 # QUARTERLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2023-Q4 … 2026-Q3 · **quarterly** grain · trailing 12 quarters · 40487 questions · no AI (regex + traditional stats)_
+_Generated 2023-Q4 … 2026-Q3 · **quarterly** grain · trailing 12 quarters · 40495 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 40487 questions, 3373.9/quarter avg
-- **Answered (non-creator):** 30619/40487 (76%)
+- **Volume:** 40495 questions, 3374.6/quarter avg
+- **Answered (non-creator):** 30627/40495 (76%)
 - **First-answer time (median):** 3.5h (p25 1.0h / p75 12.3h)
 - **Total volume trend:** `▇▆▅██▇▆▇▆▅▄▂`
 
@@ -24,7 +24,7 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 | Signal | Lift | When | Version × Cause | Qs | Served | Example questions | Trend |
 |:--|---:|:--|:--|--:|:--|:--|:--|
 | 🆕 new | **4.1×** | 2026-06 | v151 × m:spectrum | 12 | 100% ans · 15.8h | [1585052](https://support.mozilla.org/questions/1585052 "get error message ＂Unable to log in at server. Probably wrong configuration, use") [1585941](https://support.mozilla.org/questions/1585941 "Unable to send email") [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") +6 · [explore ↗](explorer.html#grain=monthly&version=151&cause=m:spectrum&period=2026-06) | `▁▁▁▁▁▁▁▁▁▁█▂` |
-| 🆕 new | **3.1×** | 2026-02 | v148 × proto:oauth | 5 | 100% ans · 4.4h | [1567488](https://support.mozilla.org/questions/1567488 "dossier envoyés contient seulements le mois en cours") [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567818](https://support.mozilla.org/questions/1567818 "thunderbird update 148 rompe oauth2 de yahoo") [1567961](https://support.mozilla.org/questions/1567961 "Mail sync issue led to Mail disappearing after troubleshooting then selecting ＂c") [1568282](https://support.mozilla.org/questions/1568282 "Thunderbird suddenly started asking for Crendentials for yahoo account.  ＂Someth") · [explore ↗](explorer.html#grain=monthly&version=148&cause=proto:oauth&period=2026-02) | `▁▁▁▁▁▁▁▁▁█▁▁` |
+| 🆕 new | **3.2×** | 2026-02 | v148 × proto:oauth | 5 | 100% ans · 4.4h | [1567488](https://support.mozilla.org/questions/1567488 "dossier envoyés contient seulements le mois en cours") [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567818](https://support.mozilla.org/questions/1567818 "thunderbird update 148 rompe oauth2 de yahoo") [1567961](https://support.mozilla.org/questions/1567961 "Mail sync issue led to Mail disappearing after troubleshooting then selecting ＂c") [1568282](https://support.mozilla.org/questions/1568282 "Thunderbird suddenly started asking for Crendentials for yahoo account.  ＂Someth") · [explore ↗](explorer.html#grain=monthly&version=148&cause=proto:oauth&period=2026-02) | `▁▁▁▁▁▁▁▁▁█▁▁` |
 
 ## 📮 Cause-level spikes — provider / protocol / AV
 
@@ -41,8 +41,8 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | **6.0×** | 2024-05 | m:cox | 24 | 92% ans · 3.9h | 4.0 | [1446257](https://support.mozilla.org/questions/1446257 "Cox / yahoo - User Name keeps changing. The fix I read does not work for me in 2") [1446337](https://support.mozilla.org/questions/1446337 "Cox moving email services to Yahoo") [1446412](https://support.mozilla.org/questions/1446412 "Thunderbird vs the Cox email to Yahoo email migration") [1446501](https://support.mozilla.org/questions/1446501 "New cox.net email") [1446525](https://support.mozilla.org/questions/1446525 "Transitioning to Yahoo from Cox") [1446535](https://support.mozilla.org/questions/1446535 "Rearrange email domains in the left tool box?") +18 · [explore ↗](explorer.html#grain=monthly&cause=m:cox&period=2024-05) | `▂▂█▃▂▂▂▂▁▁▁▁` |
 | **6.0×** | 2024-04 | m:cox | 24 | 83% ans · 6.2h | 4.0 | [1443922](https://support.mozilla.org/questions/1443922 "Switching from COX Internet to a competitors 5G wireless network for internet.") [1444186](https://support.mozilla.org/questions/1444186 "email from yahoo") [1444249](https://support.mozilla.org/questions/1444249 "Thunderbird v115.9.0 (32-bit) not sending Yahoo email") [1444457](https://support.mozilla.org/questions/1444457 "Can't send a message with Mozilla Thunderbird - just hangs - no error message") [1444635](https://support.mozilla.org/questions/1444635 "Cox email") [1444650](https://support.mozilla.org/questions/1444650 "Email service") +18 · [explore ↗](explorer.html#grain=monthly&cause=m:cox&period=2024-04) | `▂▂█▃▂▂▂▂▁▁▁▁` |
 | **5.3×** | 2025-12 | m:gmx | 8 | 88% ans · 17.0h | 1.5 | [1552704](https://support.mozilla.org/questions/1552704 "GMX IMAP Login Failure") [1553040](https://support.mozilla.org/questions/1553040 "Login to the server pop.gmx.net with username ＂...＂ failed.") [1555220](https://support.mozilla.org/questions/1555220 "warum verlangt https://caldav.gmx.net verlangt einen Benutzernamen und ein Passw") [1555687](https://support.mozilla.org/questions/1555687 "Account creation not possible despite confirmed login credentials") [1556443](https://support.mozilla.org/questions/1556443 "cannot receive mails in my inbox, basis is GMX") [1556657](https://support.mozilla.org/questions/1556657 "Ich kann mit Thunderbird keine Emails mehr versenden u. empfangen und mittlerwei") +2 · [explore ↗](explorer.html#grain=monthly&cause=m:gmx&period=2025-12) | `▄▂▂▅▆▄▂▃▄█▄▂` |
-| **5.0×** | 2025-07 | m:verizon | 10 | 80% ans · 3.0h | 2.0 | [1520698](https://support.mozilla.org/questions/1520698 "add an email account") [1522140](https://support.mozilla.org/questions/1522140 "Help please - Thunderbird not fetching POP messages") [1523889](https://support.mozilla.org/questions/1523889 "Create an account to access aol/verizon.net email. This should be simple.") [1523914](https://support.mozilla.org/questions/1523914 "verizon.net account  changing from IMAP to POP3") [1524787](https://support.mozilla.org/questions/1524787 "After Thunderbird update email send doesnt work") [1524985](https://support.mozilla.org/questions/1524985 "Email") +4 · [explore ↗](explorer.html#grain=monthly&cause=m:verizon&period=2025-07) | `▄▅▅█▆▄▃▇▇▁▃▁` |
-| **4.5×** | 2024-06 | m:verizon | 9 | 89% ans · 34.0h | 2.0 | [1448843](https://support.mozilla.org/questions/1448843 "i mistakingly deleted my primary password. i cant remember it and even though i ") [1448978](https://support.mozilla.org/questions/1448978 "Sending Problem") [1450147](https://support.mozilla.org/questions/1450147 "Signing into Primary Email (rshearin@verizon.net) on Yahoo Mail is not working.") [1450157](https://support.mozilla.org/questions/1450157 "Email password issues with Verizon") [1450250](https://support.mozilla.org/questions/1450250 "Thunderbird email login missing") [1450350](https://support.mozilla.org/questions/1450350 "AOL login stopped working") +3 · [explore ↗](explorer.html#grain=monthly&cause=m:verizon&period=2024-06) | `▄▅▅█▆▄▃▇▇▁▃▁` |
+| **5.0×** | 2025-07 | m:verizon | 10 | 80% ans · 3.0h | 2.0 | [1520698](https://support.mozilla.org/questions/1520698 "add an email account") [1522140](https://support.mozilla.org/questions/1522140 "Help please - Thunderbird not fetching POP messages") [1523889](https://support.mozilla.org/questions/1523889 "Create an account to access aol/verizon.net email. This should be simple.") [1523914](https://support.mozilla.org/questions/1523914 "verizon.net account  changing from IMAP to POP3") [1524787](https://support.mozilla.org/questions/1524787 "After Thunderbird update email send doesnt work") [1524985](https://support.mozilla.org/questions/1524985 "Email") +4 · [explore ↗](explorer.html#grain=monthly&cause=m:verizon&period=2025-07) | `▄▅▅█▆▄▃▇▇▁▃▂` |
+| **4.5×** | 2024-06 | m:verizon | 9 | 89% ans · 34.0h | 2.0 | [1448843](https://support.mozilla.org/questions/1448843 "i mistakingly deleted my primary password. i cant remember it and even though i ") [1448978](https://support.mozilla.org/questions/1448978 "Sending Problem") [1450147](https://support.mozilla.org/questions/1450147 "Signing into Primary Email (rshearin@verizon.net) on Yahoo Mail is not working.") [1450157](https://support.mozilla.org/questions/1450157 "Email password issues with Verizon") [1450250](https://support.mozilla.org/questions/1450250 "Thunderbird email login missing") [1450350](https://support.mozilla.org/questions/1450350 "AOL login stopped working") +3 · [explore ↗](explorer.html#grain=monthly&cause=m:verizon&period=2024-06) | `▄▅▅█▆▄▃▇▇▁▃▂` |
 | **4.4×** | 2024-06 | m:att | 20 | 80% ans · 3.4h | 4.5 | [1448967](https://support.mozilla.org/questions/1448967 "Downloading email from AT&T") [1449518](https://support.mozilla.org/questions/1449518 "Can't receive/send email") [1450074](https://support.mozilla.org/questions/1450074 "Thunderbird Error Message") [1450110](https://support.mozilla.org/questions/1450110 "inbound failure") [1450112](https://support.mozilla.org/questions/1450112 "Thunderbird stopped sending and receiving email suddenly.") [1450120](https://support.mozilla.org/questions/1450120 "ATT POP3 email just stopped working for no reason") +14 · [explore ↗](explorer.html#grain=monthly&cause=m:att&period=2024-06) | `▇▃█▇█▇▅█▅▅▃▂` |
 | **4.3×** | 2026-03 | m:gmx | 15 | 87% ans · 11.2h | 3.5 | [1568896](https://support.mozilla.org/questions/1568896 "Do I need GMX-TopMail or works Thunderbird with FreeMail too?") [1569586](https://support.mozilla.org/questions/1569586 "Ich kann auf meinem Computer keine Mails mehr empfangen , auf dem Handy geht es.") [1569730](https://support.mozilla.org/questions/1569730 "After authenticating one Yahoo account (Oauth2), my second Yahoo account has bec") [1570170](https://support.mozilla.org/questions/1570170 "Cannot Link To My Email Server.....") [1570366](https://support.mozilla.org/questions/1570366 "J'ai déjà un mail gmx , ＂andre.et@gmx.fr＂ est-ce cette adresse qui est crypter ?") [1570603](https://support.mozilla.org/questions/1570603 "problem to add account gmx email") +9 · [explore ↗](explorer.html#grain=monthly&cause=m:gmx&period=2026-03) | `▄▂▂▅▆▄▂▃▄█▄▂` |
 | **4.0×** | 2024-06 | m:cox | 16 | 81% ans · 1.9h | 4.0 | [1448821](https://support.mozilla.org/questions/1448821 "Spam in TB115 / Cox in Yahoo") [1448920](https://support.mozilla.org/questions/1448920 "Can't get messages from Yahoo mail") [1449059](https://support.mozilla.org/questions/1449059 "Help with configuring account with specific situation") [1449124](https://support.mozilla.org/questions/1449124 "Thunderbird switching servers on my two accounts") [1449230](https://support.mozilla.org/questions/1449230 "accessing email on yahoo servers using thunderbird") [1449525](https://support.mozilla.org/questions/1449525 "Cannot make account with Yahoo in Thunderbird") +10 · [explore ↗](explorer.html#grain=monthly&cause=m:cox&period=2024-06) | `▂▂█▃▂▂▂▂▁▁▁▁` |
@@ -60,12 +60,12 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 966 | `▁▁▁▁▁▁▁▁▁▄█▄` |
+| v140 | 967 | `▁▁▁▁▁▁▁▁▁▄█▄` |
 | v150 | 434 | `▁▁▁▁▁▁▁▁▁▁█▂` |
 | v152 | 375 | `▁▁▁▁▁▁▁▁▁▁▆█` |
 | v151 | 332 | `▁▁▁▁▁▁▁▁▁▁█▁` |
 | v149 | 313 | `▁▁▁▁▁▁▁▁▁▂█▁` |
-| v153 | 249 | `▁▁▁▁▁▁▁▁▁▁▁█` |
+| v153 | 256 | `▁▁▁▁▁▁▁▁▁▁▁█` |
 
 ### Top mail providers
 
@@ -73,7 +73,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 |:--|--:|:--|
 | m:gmail | 3715 | `▆▆▅██▆▅▆▅▅▄▂` |
 | m:microsoftemail | 3011 | `▅▅▄█▇▅▄▅▄▄▄▂` |
-| m:yahooemail | 1164 | `▅▄█▇▆▅▄█▇█▆▃` |
+| m:yahooemail | 1165 | `▅▄█▇▆▅▄█▇█▆▃` |
 | m:comcast | 523 | `▅▇▆██▇▅▇▇▃▆▃` |
 | m:spectrum | 439 | `█▆▄▇▅▆▅▆▅▄▆▂` |
 | m:att | 297 | `▇▃█▇█▇▅█▅▅▃▂` |
@@ -82,9 +82,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 2862 | `▆▆▆██▇▅▆▅▅▄▂` |
+| proto:imap | 2864 | `▆▆▆██▇▅▆▅▅▄▂` |
 | proto:smtp | 1825 | `▆▆▆█▇▆▅▆▄▅▃▂` |
-| proto:pop | 1800 | `▅▅▄█▇▆▅▆▅▄▄▃` |
+| proto:pop | 1801 | `▅▅▄█▇▆▅▆▅▄▄▃` |
 | proto:oauth | 715 | `▃▂▄█▅▃▃▃▃▄▃▂` |
 | proto:caldav | 137 | `▆▆▃▆█▇▆▆▄▆▄▂` |
 | proto:carddav | 75 | `▄▅▅▇▇█▃█▅▇▅▂` |
@@ -104,9 +104,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 8111 | `▃▂▂▃▃▃▂▃▃██▄` |
+| os:windows | 8118 | `▃▂▂▃▃▃▂▃▃██▄` |
 | os:linux | 1703 | `▆▅▄▆▆▅▅▅▅█▇▄` |
-| os:macos | 1127 | `▄▄▃▄▄▄▃▅▃█▇▃` |
+| os:macos | 1128 | `▄▄▃▄▄▄▃▅▃█▇▃` |
 | os:other | 130 | `▁▁▁▁▁▁▁▁▁█▃▂` |
 | os:android | 98 | `▁▂▂▂▁▂▂▂▂█▆▄` |
 
@@ -117,7 +117,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | macos:sonoma | 165 | `▄▇▅█▃▂▁▁▂▂▁▁` |
 | macos:sequoia | 156 | `▁▁▁▂▆█▄█▄▃▂▁` |
 | macos:ventura | 66 | `█▂▂▂▂▂▂▃▂▁▁▁` |
-| macos:monterey | 55 | `▆█▆▅▆▇▃▄▃▂▃▃` |
+| macos:monterey | 56 | `▆█▆▅▆▇▃▄▃▂▃▃` |
 | macos:tahoe | 52 | `▁▁▁▁▁▁▁▃██▄▄` |
 | macos:catalina | 51 | `▃▂▃▃▄▃▂█▂▂▂▁` |
 
@@ -125,4 +125,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-quarterly-rollup.csv`._
 
-_Last updated: 2026-08-09 04:51 UTC_
+_Last updated: 2026-08-09 16:47 UTC_
