@@ -1,11 +1,18 @@
 <!--
-  Favicon links for every themed page. minima's _includes/head.html ends with
-  `{%- include custom-head.html -%}`, which is the theme's supported hook for adding
-  head tags without vendoring the whole layout — so this file is the ONLY place the
-  site-wide favicon is declared.
+  Favicon links for every themed page. minima's head.html ends by including
+  custom-head.html, which is the theme's supported hook for adding head tags without
+  vendoring the whole layout — this file overrides the theme's empty placeholder, and
+  is the ONLY place the site-wide favicon is declared.
 
   relative_url is required: the site is served from the /thunderbird-metrics-and-reports
   baseurl, so a bare "/favicon.svg" would 404 on Pages while working locally.
+
+  CAUTION — do NOT write a literal Liquid tag in these comments, not even to document
+  the hook. Liquid runs before HTML comments mean anything, so a commented-out
+  "include custom-head.html" tag makes this file include ITSELF: the build dies with
+  "Liquid Exception: stack level too deep in /_layouts/base.html", which names the
+  theme layout and not this file. That broke the deploy once (2026-08-08). If you must
+  show tag syntax here, wrap it in Liquid's raw block.
 
   The standalone hand-written pages (PROJECT1/REPORTS/desktop/explorer.html and the
   generated UNANSWERED_QUESTIONS reports) are NOT themed and carry their own link
