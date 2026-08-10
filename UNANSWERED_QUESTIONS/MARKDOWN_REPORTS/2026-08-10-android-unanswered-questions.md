@@ -1,12 +1,12 @@
 # Thunderbird for Android - Unanswered Questions
 
-Report generated: 2026-08-10 08:00 UTC
+Report generated: 2026-08-10 20:00 UTC
 
-Questions created between 2026-07-27 08:00 UTC and 2026-08-07 08:00 UTC with no non-creator answers
+Questions created between 2026-07-27 20:00 UTC and 2026-08-07 20:00 UTC with no non-creator answers
 
 Total: 2 unanswered questions
 
 | Date Created (UTC) | Elapsed | Creator | Version | OS | Question | Assignee |
 |---|---|---|---|---|---|---|
-| 2026-07-28 06:52 | 13d 1h | <a href="https://support.mozilla.org/en-US/user/techrankerscompany/">techrankerscompany</a> | 20.1 |  | <a href="https://support.mozilla.org/questions/1595299" title="Hello Thunderbird team, First of all, thank you for the great work on Thunderbird for Android. I've been following the community discussions and noticed that many users are reporting recurring issues related to email syncing, notifications, account setup,">1595299: Collaborate with AppVerticals to Improve Thunderbird for Android<br /></a> |  |
-| 2026-08-05 18:14 | 4d 13h | <a href="https://support.mozilla.org/en-US/user/jelly1kjk/">jelly1kjk</a> | ? | Android | <a href="https://support.mozilla.org/questions/1596815" title="See original submission ">1596815: Submitted request for help reinstalling my e mail accounts, but<br />left no way to c</a> |  |
+| 2026-07-28 06:52 | 13d 13h | <a href="https://support.mozilla.org/en-US/user/techrankerscompany/">techrankerscompany</a> | 20.1 |  | <a href="https://support.mozilla.org/questions/1595299" title="Hello Thunderbird team, First of all, thank you for the great work on Thunderbird for Android. I've been following the community discussions and noticed that many users are reporting recurring issues related to email syncing, notifications, account setup,">1595299: Collaborate with AppVerticals to Improve Thunderbird for Android<br /></a> |  |
+| 2026-08-05 18:14 | 5d 1h | <a href="https://support.mozilla.org/en-US/user/jelly1kjk/">jelly1kjk</a> | ? | Android | <a href="https://support.mozilla.org/questions/1596815" title="See original submission ">1596815: Submitted request for help reinstalling my e mail accounts, but<br />left no way to c</a> |  |
