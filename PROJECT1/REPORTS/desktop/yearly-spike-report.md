@@ -5,10 +5,10 @@ title: YEARLY: Thunderbird Desktop — Support Spike Report
 
 # YEARLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2023 … 2026 · **yearly** grain · all history · 48231 questions · no AI (regex + traditional stats)_
+_Generated 2023 … 2026 · **yearly** grain · all history · 48243 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 48231 questions, 12057.8/year avg
-- **Answered (non-creator):** 36543/48231 (76%)
+- **Volume:** 48243 questions, 12060.8/year avg
+- **Answered (non-creator):** 36555/48243 (76%)
 - **First-answer time (median):** 3.6h (p25 1.0h / p75 12.8h)
 - **Total volume trend:** `▆██▄`
 
@@ -62,32 +62,32 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 969 | `▁▁▁█` |
+| v140 | 970 | `▁▁▁█` |
 | v150 | 435 | `▁▁▁█` |
 | v152 | 376 | `▁▁▁█` |
 | v151 | 332 | `▁▁▁█` |
 | v149 | 313 | `▁▁▁█` |
-| v153 | 274 | `▁▁▁█` |
+| v153 | 284 | `▁▁▁█` |
 
 ### Top mail providers
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 4493 | `▆█▇▄` |
-| m:microsoftemail | 3695 | `▆█▆▃` |
-| m:yahooemail | 1356 | `▅██▆` |
+| m:gmail | 4495 | `▆█▇▄` |
+| m:microsoftemail | 3697 | `▆█▆▃` |
+| m:yahooemail | 1358 | `▅██▆` |
 | m:comcast | 606 | `▅█▇▄` |
 | m:spectrum | 514 | `▇█▇▅` |
-| m:att | 357 | `▇██▃` |
+| m:att | 358 | `▇██▃` |
 
 ### Top protocols
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 3576 | `▇█▇▄` |
-| proto:smtp | 2232 | `▆█▇▄` |
-| proto:pop | 2227 | `▇█▇▄` |
-| proto:oauth | 865 | `▅█▅▄` |
+| proto:imap | 3580 | `▇█▇▄` |
+| proto:smtp | 2233 | `▆█▇▄` |
+| proto:pop | 2228 | `▇█▇▄` |
+| proto:oauth | 867 | `▅█▅▄` |
 | proto:caldav | 189 | `█▇▆▄` |
 | proto:carddav | 98 | `███▄` |
 
@@ -106,11 +106,11 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 9099 | `▃▃▄█` |
-| os:linux | 2028 | `▇█▇▇` |
+| os:windows | 9111 | `▃▃▄█` |
+| os:linux | 2029 | `▇█▇▇` |
 | os:macos | 1331 | `▆▆▆█` |
 | os:other | 130 | `▁▁▂█` |
-| os:android | 100 | `▁▂▃█` |
+| os:android | 99 | `▁▂▃█` |
 
 ### macOS releases (filter dimension)
 
@@ -127,4 +127,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-yearly-rollup.csv`._
 
-_Last updated: 2026-08-10 16:50 UTC_
+_Last updated: 2026-08-11 04:54 UTC_
