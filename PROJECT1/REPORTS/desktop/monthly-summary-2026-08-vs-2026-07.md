@@ -15,8 +15,8 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 731 | 263 | ▼ -468 (-64%) |
-| Version × cause spikes flagged | 0 | 1 | ▲ +1 |
+| Support questions (load) | 731 | 275 | ▼ -456 (-62%) |
+| Version × cause spikes flagged | 0 | 2 | ▲ +2 |
 | — of which **new** regressions | 0 | 0 | ▬ 0 |
 | Cause-level surges flagged | 0 | 0 | ▬ 0 |
 
@@ -30,6 +30,7 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 
 | Signal | When | Version × Cause | Qs | Lift | Served | Example questions |
 |:--|:--|:--|--:|--:|:--|:--|
+| ↗ spreading | 2026-08-10 | v153 × proto:pop | 4 | 3.3× | 75% ans · 1.1h | [1597551](https://support.mozilla.org/questions/1597551 "Thunderbird POP stopped retrieving email from one mail box, No error message") [1597571](https://support.mozilla.org/questions/1597571 "Email collection over pop failed on one account, server settings rejected when I") [1597638](https://support.mozilla.org/questions/1597638 "How logging onto wowway with old password?") [1597683](https://support.mozilla.org/questions/1597683 "Hotmail personal account: IMAP OAuth2 works but SMTP OAuth2 fails with message: ") |
 | ↗ spreading | 2026-08-04 | v153 × m:microsoftemail | 5 | 3.1× | 100% ans · 0.8h | [1596545](https://support.mozilla.org/questions/1596545 "Microsoft Outlook authentication failure.") [1596547](https://support.mozilla.org/questions/1596547 "I just had a fake prompt to add a password to a website mimicking Thunderbird") [1596591](https://support.mozilla.org/questions/1596591 "email not collegament to app thunderbird pc (email outlook)") [1596602](https://support.mozilla.org/questions/1596602 "Import from Outlook (M365) Mac OS to Thunderbird?") [1596606](https://support.mozilla.org/questions/1596606 "Cannot import contacts from outlook 2016") |
 
 ## What moved
@@ -38,14 +39,14 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 
 | Cause clusters (provider / protocol / AV) | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| m:gmail | 73 | 20 | ▼ -53 (-73%) |
-| proto:imap | 56 | 17 | ▼ -39 (-70%) |
-| proto:smtp | 35 | 9 | ▼ -26 (-74%) |
-| proto:pop | 42 | 19 | ▼ -23 (-55%) |
-| m:microsoftemail | 36 | 18 | ▼ -18 (-50%) |
-| proto:oauth | 20 | 4 | ▼ -16 (-80%) |
-| m:yahooemail | 30 | 19 | ▼ -11 (-37%) |
+| m:gmail | 73 | 22 | ▼ -51 (-70%) |
+| proto:imap | 56 | 21 | ▼ -35 (-62%) |
+| proto:smtp | 35 | 10 | ▼ -25 (-71%) |
+| proto:pop | 42 | 20 | ▼ -22 (-52%) |
+| m:microsoftemail | 36 | 20 | ▼ -16 (-44%) |
+| proto:oauth | 20 | 6 | ▼ -14 (-70%) |
 | m:comcast | 13 | 3 | ▼ -10 (-77%) |
+| m:yahooemail | 30 | 21 | ▼ -9 (-30%) |
 
 ### 🆕 New cause clusters (first appearance ever)
 
@@ -55,36 +56,36 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| v153 | 101 | 169 | ▲ +68 (+67%) |
+| v153 | 101 | 179 | ▲ +78 (+77%) |
 | v152 | 211 | 5 | ▼ -206 (-98%) |
-| v140 | 186 | 23 | ▼ -163 (-88%) |
+| v140 | 186 | 24 | ▼ -162 (-87%) |
 | v150 | 26 | 11 | ▼ -15 (-58%) |
-| v115 | 16 | 9 | ▼ -7 (-44%) |
-| v149 | 6 | 0 | ▼ -6 |
+| v115 | 16 | 10 | ▼ -6 (-38%) |
+| v151 | 4 | 2 | ▼ -2 |
 
 ### Operating-system mix
 
 | Operating-system mix | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 589 | 189 | ▼ -400 (-68%) |
-| os:linux | 61 | 36 | ▼ -25 (-41%) |
+| os:windows | 589 | 201 | ▼ -388 (-66%) |
+| os:linux | 61 | 37 | ▼ -24 (-39%) |
 | os:macos | 45 | 22 | ▼ -23 (-51%) |
 | os:other | 11 | 4 | ▼ -7 (-64%) |
-| os:android | 7 | 5 | ▼ -2 |
+| os:android | 7 | 4 | ▼ -3 |
 
 ### Topic mix
 
 | Topic mix | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 185 | 53 | ▼ -132 (-71%) |
-| email-and-messaging | 82 | 20 | ▼ -62 (-76%) |
+| send-and-receive-email | 185 | 54 | ▼ -131 (-71%) |
+| email-and-messaging | 82 | 22 | ▼ -60 (-73%) |
 | customization | 73 | 29 | ▼ -44 (-60%) |
-| passwords-and-sign-in | 53 | 19 | ▼ -34 (-64%) |
+| passwords-and-sign-in | 53 | 20 | ▼ -33 (-62%) |
 | import-and-export-email | 30 | 16 | ▼ -14 (-47%) |
-| junk-mail-and-spam | 24 | 16 | ▼ -8 (-33%) |
+| junk-mail-and-spam | 24 | 18 | ▼ -6 (-25%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · August 2026 vs July 2026._
 
-_Last updated: 2026-08-10 20:13 UTC_
+_Last updated: 2026-08-11 08:20 UTC_
