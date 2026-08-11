@@ -5,7 +5,7 @@ title: Thunderbird Desktop Report - 2025-11
 
 # Thunderbird Desktop Report - 2025-11
 
-*Last updated: 2026-08-11T13:32:05.556074*
+*Last updated: 2026-08-11T14:28:30.159547*
 
 ## Summary
 
