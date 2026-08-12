@@ -15,7 +15,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 731 | 301 | ▼ -430 (-59%) |
+| Support questions (load) | 731 | 313 | ▼ -418 (-57%) |
 | Version × cause spikes flagged | 0 | 2 | ▲ +2 |
 | — of which **new** regressions | 0 | 0 | ▬ 0 |
 | Cause-level surges flagged | 0 | 0 | ▬ 0 |
@@ -30,7 +30,7 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 
 | Signal | When | Version × Cause | Qs | Lift | Served | Example questions |
 |:--|:--|:--|--:|--:|:--|:--|
-| ↗ spreading | 2026-08-10 | v153 × proto:pop | 4 | 3.3× | 75% ans · 1.1h | [1597551](https://support.mozilla.org/questions/1597551 "Thunderbird POP stopped retrieving email from one mail box, No error message") [1597571](https://support.mozilla.org/questions/1597571 "Email collection over pop failed on one account, server settings rejected when I") [1597638](https://support.mozilla.org/questions/1597638 "How logging onto wowway with old password?") [1597683](https://support.mozilla.org/questions/1597683 "Hotmail personal account: IMAP OAuth2 works but SMTP OAuth2 fails with message: ") |
+| ↗ spreading | 2026-08-10 | v153 × proto:pop | 4 | 3.4× | 75% ans · 1.1h | [1597551](https://support.mozilla.org/questions/1597551 "Thunderbird POP stopped retrieving email from one mail box, No error message") [1597571](https://support.mozilla.org/questions/1597571 "Email collection over pop failed on one account, server settings rejected when I") [1597638](https://support.mozilla.org/questions/1597638 "How logging onto wowway with old password?") [1597683](https://support.mozilla.org/questions/1597683 "Hotmail personal account: IMAP OAuth2 works but SMTP OAuth2 fails with message: ") |
 | ↗ spreading | 2026-08-04 | v153 × m:microsoftemail | 5 | 3.1× | 100% ans · 0.8h | [1596545](https://support.mozilla.org/questions/1596545 "Microsoft Outlook authentication failure.") [1596547](https://support.mozilla.org/questions/1596547 "I just had a fake prompt to add a password to a website mimicking Thunderbird") [1596591](https://support.mozilla.org/questions/1596591 "email not collegament to app thunderbird pc (email outlook)") [1596602](https://support.mozilla.org/questions/1596602 "Import from Outlook (M365) Mac OS to Thunderbird?") [1596606](https://support.mozilla.org/questions/1596606 "Cannot import contacts from outlook 2016") |
 
 ## What moved
@@ -39,14 +39,14 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 
 | Cause clusters (provider / protocol / AV) | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| m:gmail | 73 | 24 | ▼ -49 (-67%) |
+| m:gmail | 73 | 25 | ▼ -48 (-66%) |
 | proto:imap | 56 | 22 | ▼ -34 (-61%) |
-| proto:smtp | 35 | 10 | ▼ -25 (-71%) |
+| proto:smtp | 35 | 11 | ▼ -24 (-69%) |
 | proto:pop | 42 | 21 | ▼ -21 (-50%) |
-| m:microsoftemail | 36 | 21 | ▼ -15 (-42%) |
+| m:microsoftemail | 36 | 22 | ▼ -14 (-39%) |
 | proto:oauth | 20 | 7 | ▼ -13 (-65%) |
 | m:comcast | 13 | 3 | ▼ -10 (-77%) |
-| m:yahooemail | 30 | 26 | ▼ -4 (-13%) |
+| m:yahooemail | 30 | 27 | ▼ -3 (-10%) |
 
 ### 🆕 New cause clusters (first appearance ever)
 
@@ -56,19 +56,19 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| v153 | 101 | 195 | ▲ +94 (+93%) |
+| v153 | 101 | 205 | ▲ +104 (+103%) |
 | v152 | 211 | 5 | ▼ -206 (-98%) |
-| v140 | 186 | 27 | ▼ -159 (-85%) |
+| v140 | 186 | 28 | ▼ -158 (-85%) |
 | v150 | 26 | 12 | ▼ -14 (-54%) |
 | v115 | 16 | 10 | ▼ -6 (-38%) |
-| v151 | 4 | 2 | ▼ -2 |
+| v149 | 6 | 0 | ▼ -6 |
 
 ### Operating-system mix
 
 | Operating-system mix | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 589 | 216 | ▼ -373 (-63%) |
-| os:linux | 61 | 42 | ▼ -19 (-31%) |
+| os:windows | 589 | 227 | ▼ -362 (-61%) |
+| os:linux | 61 | 43 | ▼ -18 (-30%) |
 | os:macos | 45 | 26 | ▼ -19 (-42%) |
 | os:other | 11 | 4 | ▼ -7 (-64%) |
 | os:android | 7 | 5 | ▼ -2 |
@@ -77,15 +77,15 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 
 | Topic mix | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 185 | 59 | ▼ -126 (-68%) |
-| email-and-messaging | 82 | 27 | ▼ -55 (-67%) |
-| customization | 73 | 31 | ▼ -42 (-58%) |
+| send-and-receive-email | 185 | 61 | ▼ -124 (-67%) |
+| email-and-messaging | 82 | 28 | ▼ -54 (-66%) |
+| customization | 73 | 32 | ▼ -41 (-56%) |
 | passwords-and-sign-in | 53 | 23 | ▼ -30 (-57%) |
-| import-and-export-email | 30 | 16 | ▼ -14 (-47%) |
+| import-and-export-email | 30 | 19 | ▼ -11 (-37%) |
 | junk-mail-and-spam | 24 | 18 | ▼ -6 (-25%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · August 2026 vs July 2026._
 
-_Last updated: 2026-08-12 08:29 UTC_
+_Last updated: 2026-08-12 20:14 UTC_
