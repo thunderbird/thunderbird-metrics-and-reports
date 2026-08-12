@@ -187,7 +187,7 @@ period,dim,value,count
 2023,mail_provider,m:gmail,1117
 2024,mail_provider,m:gmail,1535
 2025,mail_provider,m:gmail,1278
-2026,mail_provider,m:gmail,567
+2026,mail_provider,m:gmail,568
 2023,mail_provider,m:gmx,36
 2024,mail_provider,m:gmx,35
 2025,mail_provider,m:gmx,31
@@ -230,7 +230,7 @@ period,dim,value,count
 2023,mail_provider,m:microsoftemail,929
 2024,mail_provider,m:microsoftemail,1357
 2025,mail_provider,m:microsoftemail,948
-2026,mail_provider,m:microsoftemail,464
+2026,mail_provider,m:microsoftemail,465
 2023,mail_provider,m:onecom,4
 2024,mail_provider,m:onecom,10
 2025,mail_provider,m:onecom,10
@@ -342,7 +342,7 @@ period,dim,value,count
 2023,mail_provider,m:yahooemail,263
 2024,mail_provider,m:yahooemail,414
 2025,mail_provider,m:yahooemail,394
-2026,mail_provider,m:yahooemail,292
+2026,mail_provider,m:yahooemail,293
 2023,mail_provider,m:yandex,15
 2024,mail_provider,m:yandex,8
 2025,mail_provider,m:yandex,7
@@ -362,7 +362,7 @@ period,dim,value,count
 2023,os,os:linux,483
 2024,os,os:linux,546
 2025,os,os:linux,496
-2026,os,os:linux,509
+2026,os,os:linux,510
 2023,os,os:macos,295
 2024,os,os:macos,319
 2025,os,os:macos,288
@@ -373,7 +373,7 @@ period,dim,value,count
 2023,os,os:windows,1386
 2024,os,os:windows,1532
 2025,os,os:windows,1701
-2026,os,os:windows,4507
+2026,os,os:windows,4518
 2023,protocol,proto:caldav,64
 2024,protocol,proto:caldav,51
 2025,protocol,proto:caldav,50
@@ -401,14 +401,14 @@ period,dim,value,count
 2023,protocol,proto:smtp,562
 2024,protocol,proto:smtp,770
 2025,protocol,proto:smtp,618
-2026,protocol,proto:smtp,283
+2026,protocol,proto:smtp,284
 2026,tb_version_major,102,13
 2026,tb_version_major,104,1
 2026,tb_version_major,115,117
 2026,tb_version_major,128,27
 2026,tb_version_major,137,1
 2026,tb_version_major,139,3
-2026,tb_version_major,140,973
+2026,tb_version_major,140,974
 2026,tb_version_major,141,1
 2025,tb_version_major,142,1
 2026,tb_version_major,142,5
@@ -422,7 +422,7 @@ period,dim,value,count
 2026,tb_version_major,150,436
 2026,tb_version_major,151,332
 2026,tb_version_major,152,376
-2026,tb_version_major,153,300
+2026,tb_version_major,153,310
 2026,tb_version_major,154,3
 2026,tb_version_major,155,1
 2026,tb_version_major,156,1
@@ -430,4 +430,4 @@ period,dim,value,count
 2023,total,all,11558
 2024,total,all,15379
 2025,total,all,15171
-2026,total,all,6161
+2026,total,all,6173
