@@ -5,11 +5,11 @@ title: WEEKLY: Thunderbird Desktop — Support Spike Report
 
 # WEEKLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2026-02-16 … 2026-08-10 · **weekly** grain · trailing 26 weeks · 4752 questions · no AI (regex + traditional stats)_
+_Generated 2026-02-16 … 2026-08-10 · **weekly** grain · trailing 26 weeks · 4765 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 4752 questions, 182.8/week avg
-- **Answered (non-creator):** 3865/4752 (81%)
-- **First-answer time (median):** 3.4h (p25 1.0h / p75 11.7h)
+- **Volume:** 4765 questions, 183.3/week avg
+- **Answered (non-creator):** 3873/4765 (81%)
+- **First-answer time (median):** 3.4h (p25 1.0h / p75 11.6h)
 - **Total volume trend:** `▆█▇▇▆▆▆▆▅▅▆▆▆▅▆▅▆▅▅▅▅▅▅▅▆▃`
 
 > ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
@@ -58,15 +58,15 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 | v150 | 436 | `▁▁▁▁▁▁▁▁▁▄▇██▄▂▁▁▁▁▁▂▁▁▁▂▁` |
 | v152 | 376 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅██▇▆▄▂▁▁` |
 | v151 | 333 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▅█▆█▃▂▁▁▁▁▁▁▁` |
-| v153 | 318 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▅█▄` |
+| v153 | 329 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▅█▄` |
 | v149 | 313 | `▁▁▁▁▁▃▄▇█▄▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
 ### Top mail providers
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 438 | `▅▅▇▇▆▇█▇▅▃▇▇▅▄▅▃▃▄▅▆▅▄▅▄▆▃` |
-| m:microsoftemail | 358 | `▇█▆▇▄▅▆▇▄▅▆▆█▆▄▇▄▃▄▆▄▃▃▃▅▃` |
+| m:gmail | 439 | `▅▅▇▇▆▇█▇▅▃▇▇▅▄▅▃▃▄▅▆▅▄▅▄▆▃` |
+| m:microsoftemail | 359 | `▇█▆▇▄▅▆▇▄▅▆▆█▆▄▇▄▃▄▆▄▃▃▃▅▃` |
 | m:yahooemail | 244 | `▃█▇▆▄▄▂▄▂▃▃▄▄▃▅▃▃▂▂▄▃▂▂▄▅▄` |
 | m:comcast | 71 | `▁▅▅▃▁▃▂▅█▃▁▄▃▂▆▄▄▅▄▄▄▄▃▅▂▁` |
 | m:spectrum | 70 | `▄▂▂▂▂▂▂▁▃▂▂▄▂▅▂▄█▂▁▂▂▂▂▂▃▂` |
@@ -76,8 +76,8 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 337 | `▆▆█▇▅█▅▄▅▃▄▆▅▇▆▆▄▄▅▆▆▅▅▄▅▄` |
-| proto:pop | 220 | `▅█▄▆▃▄▃▄▆▆▄▅▆▇▆▅▆▂▃▇▆▅▄▆█▃` |
+| proto:imap | 338 | `▆▆█▇▅█▅▄▅▃▄▆▅▇▆▆▄▄▅▆▆▅▅▄▅▄` |
+| proto:pop | 221 | `▅█▄▆▃▄▃▄▆▆▄▅▆▇▆▅▆▂▃▇▆▅▄▆█▃` |
 | proto:smtp | 201 | `▅▆█▄▄▇▅▃▃▂▄▇▆▄▂▅▅▃▂▃▆▃▅▃▄▃` |
 | proto:oauth | 117 | `▂██▃▄▃▄▂▃▂▁▂▄▃▃▂▂▄▁▂▄▃▃▂▂▃` |
 | proto:caldav | 15 | `▁█▃▁▃▁▁▃▃▁▃▁▁▁▃▆▁▁▃▁▃▁▆▁▁▁` |
@@ -98,9 +98,9 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 3788 | `▆█▆▆▆▆▆▆▅▅▅▆▅▅▆▅▆▅▅▅▅▅▅▅▆▃` |
+| os:windows | 3799 | `▆█▆▆▆▆▆▆▅▅▅▆▅▅▆▅▆▅▅▅▅▅▅▅▆▃` |
 | os:linux | 413 | `▆▆▇▆▆▅▅▄▅▃▆▄▅▅▄▅▄▃▇▅▃▄▅▆█▃` |
-| os:macos | 344 | `▆▆▆█▆▆▆▄▆▃▆▄▇▃▅▄▅▃▆▄▅▄▃▃▇▃` |
+| os:macos | 345 | `▆▆▆█▆▆▆▄▆▃▆▄▇▃▅▄▅▃▆▄▅▄▃▃▇▃` |
 | os:android | 48 | `▂▃▂▇▃▃▂▃▃▃█▅▁▁▃▁▃▂▁▅▆▁▂▂▅▃` |
 | os:other | 47 | `▆▁▃▆▁▁▁▂▁▁▅▅▁▅▂▃▅▃▅█▂▃▃▃▅▁` |
 
@@ -119,4 +119,4 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 _Notes: spikes detected at **weekly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-weekly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-weekly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-weekly-rollup.csv`._
 
-_Last updated: 2026-08-13 05:07 UTC_
+_Last updated: 2026-08-13 16:50 UTC_

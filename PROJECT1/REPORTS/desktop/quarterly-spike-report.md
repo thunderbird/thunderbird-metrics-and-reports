@@ -5,10 +5,10 @@ title: QUARTERLY: Thunderbird Desktop — Support Spike Report
 
 # QUARTERLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2023-Q4 … 2026-Q3 · **quarterly** grain · trailing 12 quarters · 40584 questions · no AI (regex + traditional stats)_
+_Generated 2023-Q4 … 2026-Q3 · **quarterly** grain · trailing 12 quarters · 40597 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 40584 questions, 3382.0/quarter avg
-- **Answered (non-creator):** 30702/40584 (76%)
+- **Volume:** 40597 questions, 3383.1/quarter avg
+- **Answered (non-creator):** 30710/40597 (76%)
 - **First-answer time (median):** 3.5h (p25 1.0h / p75 12.3h)
 - **Total volume trend:** `▇▆▅██▇▆▇▆▅▄▃`
 
@@ -36,7 +36,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 |---:|:--|:--|--:|:--|--:|:--|:--|
 | **49.0×** | 2025-08 | av:bitdefender | 49 | 100% ans · 2.6h | 1.0 | [1528472](https://support.mozilla.org/questions/1528472 "Messagerie illisible (bitdefender)") [1528498](https://support.mozilla.org/questions/1528498 "Recent emails are coming in unformatted and missing subject and sender info (bit") [1528506](https://support.mozilla.org/questions/1528506 "Recent emails are coming in unformatted and missing subject and sender info (bit") [1528543](https://support.mozilla.org/questions/1528543 "Corrupted btinternet emails (bitdefender)") [1528577](https://support.mozilla.org/questions/1528577 "Strange code dominating incoming emails (bitdefender)") [1528582](https://support.mozilla.org/questions/1528582 "my emails are coming in some strange type of figures and numbers starting today ") +43 · [explore ↗](explorer.html#grain=monthly&cause=av:bitdefender&period=2025-08) | `▂▂▁▂▂▄▂█▂▂▂▂` |
 | **30.0×** | 2023-10 | m:frontier | 15 | ⚠️ 53% ans · 7.9h | 0.5 | [1426135](https://support.mozilla.org/questions/1426135 "Email not working after update to SuperNova?  Multiple - gmail, dreamhost, front") [1426500](https://support.mozilla.org/questions/1426500 "Thunderbird Version	119.0b3 - hangs") [1426532](https://support.mozilla.org/questions/1426532 "Thunderbird downloading messages from frontier.com") [1426537](https://support.mozilla.org/questions/1426537 "using Frontier.com for email.  TB v 102 stopped working yesterday.  Updated to v") [1426556](https://support.mozilla.org/questions/1426556 "Tbird 115.2.1 stopped downloading emails on all accounts.") [1426687](https://support.mozilla.org/questions/1426687 "URGENT REQUEST FOR 'basic' HELP - My Email-setting has been changed by 'SKYPE'..") +9 · [explore ↗](explorer.html#grain=monthly&cause=m:frontier&period=2023-10) | `█▂▂▂▄▂▂▂▂▁▂▁` |
-| **7.0×** | 2024-12 | m:orange | 14 | ⚠️ 50% ans · 0.6h | 2.0 | [1476744](https://support.mozilla.org/questions/1476744 "Boite mail") [1477337](https://support.mozilla.org/questions/1477337 "suite a une intervention de orange") [1477350](https://support.mozilla.org/questions/1477350 "envoi des messages") [1477378](https://support.mozilla.org/questions/1477378 "impossible d'envoyer mes mails lorsque je suis chez moi en wifi") [1477476](https://support.mozilla.org/questions/1477476 "Paramètres Orange Obsolètes") [1477498](https://support.mozilla.org/questions/1477498 "i cannot inscribe on thunder bird a new code as orange ask me to use thunderbird") +8 · [explore ↗](explorer.html#grain=monthly&cause=m:orange&period=2024-12) | `▂▂▂▃██▃▆▄▄▃▁` |
+| **7.0×** | 2024-12 | m:orange | 14 | ⚠️ 50% ans · 0.6h | 2.0 | [1476744](https://support.mozilla.org/questions/1476744 "Boite mail") [1477337](https://support.mozilla.org/questions/1477337 "suite a une intervention de orange") [1477350](https://support.mozilla.org/questions/1477350 "envoi des messages") [1477378](https://support.mozilla.org/questions/1477378 "impossible d'envoyer mes mails lorsque je suis chez moi en wifi") [1477476](https://support.mozilla.org/questions/1477476 "Paramètres Orange Obsolètes") [1477498](https://support.mozilla.org/questions/1477498 "i cannot inscribe on thunder bird a new code as orange ask me to use thunderbird") +8 · [explore ↗](explorer.html#grain=monthly&cause=m:orange&period=2024-12) | `▂▂▂▃██▃▆▄▄▃▂` |
 | **6.8×** | 2025-01 | av:bitdefender | 17 | 88% ans · 3.4h | 2.5 | [1482921](https://support.mozilla.org/questions/1482921 "Transferring Thunderbird Profile from Windows 10 Computer to Windows 11 Computer") [1484507](https://support.mozilla.org/questions/1484507 "All'avvio Thunderbird si apre 3 secondo e poi si chiude inaspettatamente") [1484717](https://support.mozilla.org/questions/1484717 "Thunderbird Freezing (＂Not Responding＂) Repeatedly") [1485005](https://support.mozilla.org/questions/1485005 "Thunderbird crashes when trying to open settings, caused by Bitdefender") [1485049](https://support.mozilla.org/questions/1485049 "Thunderbird crashes on startup, caused by Bitdefender") [1485835](https://support.mozilla.org/questions/1485835 "Sent radio buttons do not exist, send unsent email option greyed out under File ") +11 · [explore ↗](explorer.html#grain=monthly&cause=av:bitdefender&period=2025-01) | `▂▂▁▂▂▄▂█▂▂▂▂` |
 | **6.0×** | 2025-08 | m:btinternet | 9 | 89% ans · 10.7h | 1.5 | [1528543](https://support.mozilla.org/questions/1528543 "Corrupted btinternet emails (bitdefender)") [1528732](https://support.mozilla.org/questions/1528732 "I have started receiving emails as attached. (bitdefender)") [1528856](https://support.mozilla.org/questions/1528856 "I no longer receive correct emails from Thunderbird.   Each message received sta") [1528919](https://support.mozilla.org/questions/1528919 "receiving emails with no header (bitdefender)") [1529008](https://support.mozilla.org/questions/1529008 "Incoming emails from my BT email account are in gibberish (bitdefender)") [1529260](https://support.mozilla.org/questions/1529260 "Incoming emails into BT internet account lose formatting and attachements") +3 · [explore ↗](explorer.html#grain=monthly&cause=m:btinternet&period=2025-08) | `▃▆██▆▆▃▇▅▆▆▃` |
 | **6.0×** | 2024-05 | m:cox | 24 | 92% ans · 3.9h | 4.0 | [1446257](https://support.mozilla.org/questions/1446257 "Cox / yahoo - User Name keeps changing. The fix I read does not work for me in 2") [1446337](https://support.mozilla.org/questions/1446337 "Cox moving email services to Yahoo") [1446412](https://support.mozilla.org/questions/1446412 "Thunderbird vs the Cox email to Yahoo email migration") [1446501](https://support.mozilla.org/questions/1446501 "New cox.net email") [1446525](https://support.mozilla.org/questions/1446525 "Transitioning to Yahoo from Cox") [1446535](https://support.mozilla.org/questions/1446535 "Rearrange email domains in the left tool box?") +18 · [explore ↗](explorer.html#grain=monthly&cause=m:cox&period=2024-05) | `▂▂█▃▂▂▂▂▁▁▁▁` |
@@ -65,15 +65,15 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | v150 | 436 | `▁▁▁▁▁▁▁▁▁▁█▂` |
 | v152 | 376 | `▁▁▁▁▁▁▁▁▁▁▆█` |
 | v151 | 333 | `▁▁▁▁▁▁▁▁▁▁█▁` |
-| v153 | 318 | `▁▁▁▁▁▁▁▁▁▁▁█` |
+| v153 | 329 | `▁▁▁▁▁▁▁▁▁▁▁█` |
 | v149 | 313 | `▁▁▁▁▁▁▁▁▁▂█▁` |
 
 ### Top mail providers
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 3723 | `▆▆▅██▆▅▆▅▅▄▂` |
-| m:microsoftemail | 3018 | `▅▅▄█▇▅▄▅▄▄▄▂` |
+| m:gmail | 3724 | `▆▆▅██▆▅▆▅▅▄▃` |
+| m:microsoftemail | 3019 | `▅▅▄█▇▅▄▅▄▄▄▂` |
 | m:yahooemail | 1176 | `▅▄█▇▆▅▄█▇█▆▄` |
 | m:comcast | 523 | `▅▇▆██▇▅▇▇▃▆▃` |
 | m:spectrum | 442 | `█▆▄▇▅▆▅▆▅▄▆▂` |
@@ -83,9 +83,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 2872 | `▆▆▆██▇▅▆▅▅▄▃` |
+| proto:imap | 2873 | `▆▆▆██▇▅▆▅▅▄▃` |
 | proto:smtp | 1831 | `▆▆▆█▇▆▅▆▄▅▃▂` |
-| proto:pop | 1806 | `▅▅▄█▇▆▅▆▅▄▄▃` |
+| proto:pop | 1807 | `▅▅▄█▇▆▅▆▅▄▄▃` |
 | proto:oauth | 720 | `▃▂▄█▅▃▃▃▃▄▃▂` |
 | proto:caldav | 137 | `▆▆▃▆█▇▆▆▄▆▄▂` |
 | proto:carddav | 75 | `▄▅▅▇▇█▃█▅▇▅▂` |
@@ -105,9 +105,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 8189 | `▃▂▂▃▃▃▂▃▃██▄` |
+| os:windows | 8200 | `▃▂▂▃▃▃▂▃▃██▄` |
 | os:linux | 1713 | `▆▅▄▆▆▅▅▅▅█▇▄` |
-| os:macos | 1134 | `▄▄▃▄▄▄▃▅▃█▇▃` |
+| os:macos | 1135 | `▄▄▃▄▄▄▃▅▃█▇▄` |
 | os:other | 130 | `▁▁▁▁▁▁▁▁▁█▃▂` |
 | os:android | 99 | `▁▂▂▂▁▂▂▂▂█▆▄` |
 
@@ -126,4 +126,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-quarterly-rollup.csv`._
 
-_Last updated: 2026-08-13 05:07 UTC_
+_Last updated: 2026-08-13 16:50 UTC_
