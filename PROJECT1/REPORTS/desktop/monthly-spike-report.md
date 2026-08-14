@@ -5,10 +5,10 @@ title: MONTHLY: Thunderbird Desktop — Support Spike Report
 
 # MONTHLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2024-09 … 2026-08 · **monthly** grain · trailing 24 months · 27806 questions · no AI (regex + traditional stats)_
+_Generated 2024-09 … 2026-08 · **monthly** grain · trailing 24 months · 27824 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 27806 questions, 1158.6/month avg
-- **Answered (non-creator):** 21522/27806 (77%)
+- **Volume:** 27824 questions, 1159.3/month avg
+- **Answered (non-creator):** 21540/27824 (77%)
 - **First-answer time (median):** 3.3h (p25 0.9h / p75 11.8h)
 - **Total volume trend:** `▇█▇▇█▆▆▆▆▅▇▇▆▆▅▅▅▅▅▄▄▄▄▂`
 
@@ -53,17 +53,17 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | v140 | 975 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▇▂` |
 | v150 | 436 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▁▂▁` |
 | v152 | 376 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁` |
+| v153 | 339 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█` |
 | v151 | 333 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁▁` |
-| v153 | 329 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█` |
 | v149 | 313 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▂▁▁▁` |
 
 ### Top mail providers
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 2476 | `██▇▇▇▆▆▆▅▄▅▆▆▅▅▅▅▄▅▄▄▃▄▂` |
-| m:microsoftemail | 1996 | `██▆▅▅▅▄▄▃▃▄▄▄▅▄▄▄▄▄▃▄▃▂▂` |
-| m:yahooemail | 822 | `▆▅▄▅▆▃▄▃▃▄▇▆▆▆▇▄▄▇█▅▆▄▅▄` |
+| m:gmail | 2477 | `██▇▇▇▆▆▆▅▄▅▆▆▅▅▅▅▄▅▄▄▃▄▂` |
+| m:microsoftemail | 1997 | `██▆▅▅▅▄▄▃▃▄▄▄▅▄▄▄▄▄▃▄▃▂▂` |
+| m:yahooemail | 823 | `▆▅▄▅▆▃▄▃▃▄▇▆▆▆▇▄▄▇█▅▆▄▅▄` |
 | m:comcast | 348 | `▆▆▆▅▆▄▅▄▄▃▃█▄▄▆▅▂▃▃▅▄▄▄▂` |
 | m:spectrum | 282 | `█▇▄▅▅▇▅▅▅▅▅▆▆▃▇▅▄▆▃▃██▃▃` |
 | m:att | 190 | `▄▄▅██▅▃▃▅▃▇▇▃▂▄▆▃▃▅▃▂▂▃▂` |
@@ -72,9 +72,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 1908 | `█▇▇██▇▅▅▅▄▆▆▅▆▅▄▅▄▅▃▅▄▄▂` |
-| proto:smtp | 1210 | `█▇▇▅▇▅▅▅▅▄▅▇▅▄▄▃▅▅▅▃▄▃▄▂` |
-| proto:pop | 1198 | `█▇█▆█▆▄▅▅▅▆▇▅▆▄▃▅▄▄▄▄▃▅▃` |
+| proto:imap | 1909 | `█▇▇██▇▅▅▅▄▆▆▅▆▅▄▅▄▅▃▅▄▄▂` |
+| proto:smtp | 1211 | `█▇▇▅▇▅▅▅▅▄▅▇▅▄▄▃▅▅▅▃▄▃▄▂` |
+| proto:pop | 1201 | `█▇█▆█▆▄▅▅▅▆▇▅▆▄▃▅▄▄▄▄▃▅▃` |
 | proto:oauth | 488 | `█▆▄▄▄▂▃▃▂▂▃▃▂▃▃▂▃▃▅▂▃▂▃▂` |
 | proto:caldav | 97 | `▅▆▆▅█▃▃▃▆▅▆▄▃▄▂▃▅▆▃▃▂▃▃▁` |
 | proto:carddav | 53 | `▃▄▅▃▄▂▇▃▂▁▃█▂▃▃▂▂▄▅▄▂▂▂▁` |
@@ -85,7 +85,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 |:--|--:|:--|
 | av:bitdefender | 116 | `▂▁▁▁▃▁▁▁▁▁▁█▂▂▂▁▁▁▂▁▁▁▁▁` |
 | av:norton | 89 | `▅▄▅▃█▃▄▂▂▂▆▅▃▃▂▂▂▂▂▂▃▂▃▁` |
-| av:defender | 51 | `▄▂█▃▂▃▂▃▃▁▃▃▃▃▃▁▁▂▃▂▄▄▃▁` |
+| av:defender | 52 | `▄▂█▃▂▃▂▃▃▁▃▃▃▃▃▁▁▂▃▂▄▄▃▂` |
 | av:avast | 50 | `▅▂▇▄▅█▄▅▂▁▅▁▁▄▇▂▅▂▂▇▄▄▄▂` |
 | av:mcafee | 32 | `▁█▃▆▃▃▃▆█▃▃█▆█▁▁▁▃▃▆▆▃▃▁` |
 | av:kaspersky | 22 | `▆▆▃▁▅▁▃▁▆▅▁█▁▃▃▁▁▃▁▁▁▁▁▁` |
@@ -94,8 +94,8 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 6841 | `▂▃▃▂▃▂▂▂▂▂▃▃▂▃▂▂▅██▇▇▇▇▃` |
-| os:linux | 1235 | `▆▆▆▅▆▅▃▄▅▄▃▅▅▄▄▄▆▇█▆▇▆▆▅` |
+| os:windows | 6857 | `▂▃▃▂▃▂▂▂▂▂▃▃▂▃▂▂▅██▇▇▇▇▄` |
+| os:linux | 1237 | `▆▆▆▅▆▅▃▄▅▄▃▅▅▄▄▄▆▇█▆▇▆▆▅` |
 | os:macos | 839 | `▄▄▃▃▃▄▃▃▃▂▄▄▄▂▄▂▆▇█▆▆▅▅▃` |
 | os:other | 128 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▂▁▂▃▃▂` |
 | os:android | 89 | `▁▂▁▁▂▂▂▂▁▂▃▃▁▂▂▁▇█▇█▅▃▅▅` |
@@ -115,4 +115,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-monthly-rollup.csv`._
 
-_Last updated: 2026-08-13 16:50 UTC_
+_Last updated: 2026-08-14 05:06 UTC_
