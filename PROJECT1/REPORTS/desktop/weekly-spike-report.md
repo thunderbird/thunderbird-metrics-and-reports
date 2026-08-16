@@ -5,10 +5,10 @@ title: WEEKLY: Thunderbird Desktop — Support Spike Report
 
 # WEEKLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2026-02-16 … 2026-08-10 · **weekly** grain · trailing 26 weeks · 4837 questions · no AI (regex + traditional stats)_
+_Generated 2026-02-16 … 2026-08-10 · **weekly** grain · trailing 26 weeks · 4849 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 4837 questions, 186.0/week avg
-- **Answered (non-creator):** 3935/4837 (81%)
+- **Volume:** 4849 questions, 186.5/week avg
+- **Answered (non-creator):** 3940/4849 (81%)
 - **First-answer time (median):** 3.4h (p25 1.0h / p75 11.6h)
 - **Total volume trend:** `▆█▇▇▆▆▆▆▅▅▆▆▆▅▆▅▆▅▅▅▅▅▅▅▆▅`
 
@@ -23,8 +23,8 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 
 | Signal | Lift | When | Version × Cause | Qs | Served | Example questions | Trend |
 |:--|---:|:--|:--|--:|:--|:--|:--|
-| 🆕 new | **7.6×** | 2026-06-01 | v151 × m:icloud | 4 | ⚠️ 25% ans · 9.2h | [1585107](https://support.mozilla.org/questions/1585107 "Cannot use thunderbird to access my mac.com emails") [1585187](https://support.mozilla.org/questions/1585187 "Can't send email anymore") [1585720](https://support.mozilla.org/questions/1585720 "iCloud Calendar Not Adding Events - using app specific password") [1585786](https://support.mozilla.org/questions/1585786 "Thunderbird 151.0.1 (64 Bit) Windows 10; an error occurred when writing to the c") · [explore ↗](explorer.html#grain=weekly&version=151&cause=m:icloud&period=2026-06-01) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁▁▁▁▁▁▁▁▁▁` |
-| 🆕 new | **5.4×** | 2026-05-18 | v140 × m:spectrum | 4 | 75% ans · 2.9h | [1582358](https://support.mozilla.org/questions/1582358 "unable to send or recieve emails from roadrunner") [1582537](https://support.mozilla.org/questions/1582537 "Thunderbird suddenly can't connect with my email server to send outgoing message") [1583227](https://support.mozilla.org/questions/1583227 "I have deleted my out-of-date password for Spectrum but when I restart Thunderbi") [1583421](https://support.mozilla.org/questions/1583421 "＂Thunderbird can't connect to the server＂ Part 2") · [explore ↗](explorer.html#grain=weekly&version=140&cause=m:spectrum&period=2026-05-18) | `▃▁▁▁▁▁▁▁▃▃▁▅▃█▁▅▅▁▁▁▁▁▁▁▁▁` |
+| 🆕 new | **7.7×** | 2026-06-01 | v151 × m:icloud | 4 | ⚠️ 25% ans · 9.2h | [1585107](https://support.mozilla.org/questions/1585107 "Cannot use thunderbird to access my mac.com emails") [1585187](https://support.mozilla.org/questions/1585187 "Can't send email anymore") [1585720](https://support.mozilla.org/questions/1585720 "iCloud Calendar Not Adding Events - using app specific password") [1585786](https://support.mozilla.org/questions/1585786 "Thunderbird 151.0.1 (64 Bit) Windows 10; an error occurred when writing to the c") · [explore ↗](explorer.html#grain=weekly&version=151&cause=m:icloud&period=2026-06-01) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁▁▁▁▁▁▁▁▁▁` |
+| 🆕 new | **5.5×** | 2026-05-18 | v140 × m:spectrum | 4 | 75% ans · 2.9h | [1582358](https://support.mozilla.org/questions/1582358 "unable to send or recieve emails from roadrunner") [1582537](https://support.mozilla.org/questions/1582537 "Thunderbird suddenly can't connect with my email server to send outgoing message") [1583227](https://support.mozilla.org/questions/1583227 "I have deleted my out-of-date password for Spectrum but when I restart Thunderbi") [1583421](https://support.mozilla.org/questions/1583421 "＂Thunderbird can't connect to the server＂ Part 2") · [explore ↗](explorer.html#grain=weekly&version=140&cause=m:spectrum&period=2026-05-18) | `▃▁▁▁▁▁▁▁▃▃▁▅▃█▁▅▅▁▁▁▁▁▁▁▁▁` |
 | 🆕 new | **4.0×** | 2026-02-23 | v148 × proto:oauth | 7 | 100% ans · 4.4h | [1567488](https://support.mozilla.org/questions/1567488 "dossier envoyés contient seulements le mois en cours") [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567818](https://support.mozilla.org/questions/1567818 "thunderbird update 148 rompe oauth2 de yahoo") [1567961](https://support.mozilla.org/questions/1567961 "Mail sync issue led to Mail disappearing after troubleshooting then selecting ＂c") [1568282](https://support.mozilla.org/questions/1568282 "Thunderbird suddenly started asking for Crendentials for yahoo account.  ＂Someth") [1568434](https://support.mozilla.org/questions/1568434 "OAUTH to Yahoo fails after TB v148 upgrade") +1 · [explore ↗](explorer.html#grain=weekly&version=148&cause=proto:oauth&period=2026-02-23) | `▁█▇▃▃▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | 🆕 new | **3.7×** | 2026-06-08 | v140 × proto:smtp | 7 | 71% ans · 0.9h | [1586270](https://support.mozilla.org/questions/1586270 "Can't send emails - tried everything") [1586285](https://support.mozilla.org/questions/1586285 "Thunderbird can not send emails from my Spectrum email account.") [1586356](https://support.mozilla.org/questions/1586356 "verifica blocco invio email verso Hotmail/Outlook") [1586431](https://support.mozilla.org/questions/1586431 "Unable to send e-mail - please help") [1587007](https://support.mozilla.org/questions/1587007 "Bij het opstarten van Thunderbird zie ik vaak de melding versvhijnen dat geen ve") [1587132](https://support.mozilla.org/questions/1587132 "Password/authentication prompt lacks information to know what account the login ") +1 · [explore ↗](explorer.html#grain=weekly&version=140&cause=proto:smtp&period=2026-06-08) | `▂▅▃▂▂▄▂▁▄▁▃▄▃▁▁▄█▁▂▃▆▄▅▂▁▁` |
 | 🆕 new | **3.4×** | 2026-04-13 | v149 × m:comcast | 5 | 80% ans · 5.2h | [1576242](https://support.mozilla.org/questions/1576242 "I cannot receive emails in Thunderbird from my Comcast email account,  The app r") [1576770](https://support.mozilla.org/questions/1576770 "I changed from comcast email to yahoo email but I'm having trouble getting Thund") [1576781](https://support.mozilla.org/questions/1576781 "won｀t download e-mail from xfinity") [1576905](https://support.mozilla.org/questions/1576905 "Unable to configure COMCAST e-mail") [1577059](https://support.mozilla.org/questions/1577059 "Login to Server imap.comcast.net with Username Failed") · [explore ↗](explorer.html#grain=weekly&version=149&cause=m:comcast&period=2026-04-13) | `▁▁▁▁▁▁▁▁█▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
@@ -54,10 +54,10 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 955 | `▅▆▃▅▅▄▄▆▇▆▇▇█▇██▆▆▇▇▆▆▇▅▄▃` |
+| v140 | 957 | `▅▆▃▅▅▄▄▆▇▆▇▇█▇██▆▆▇▇▆▆▇▅▄▃` |
 | v150 | 438 | `▁▁▁▁▁▁▁▁▁▄▇██▄▂▁▁▁▁▁▂▁▁▁▂▁` |
+| v153 | 386 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▅█▇` |
 | v152 | 377 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅██▇▆▄▂▁▁` |
-| v153 | 377 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▅█▇` |
 | v151 | 334 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▅█▆█▃▂▁▁▁▁▁▁▁` |
 | v149 | 313 | `▁▁▁▁▁▃▄▇█▄▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
@@ -66,8 +66,8 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 | Value | Total | Trend |
 |:--|--:|:--|
 | m:gmail | 446 | `▅▅▇▇▆▇█▇▅▃▇▇▅▄▅▃▃▄▅▆▅▄▅▄▆▅` |
-| m:microsoftemail | 362 | `▇█▆▇▄▅▆▇▄▅▆▆█▆▄▇▄▃▄▆▄▃▃▃▅▄` |
-| m:yahooemail | 249 | `▃█▇▆▄▄▂▄▂▃▃▄▄▃▅▃▃▂▂▄▃▂▂▄▅▅` |
+| m:microsoftemail | 363 | `▇█▆▇▄▅▆▇▄▅▆▆█▆▄▇▄▃▄▆▄▃▃▃▅▅` |
+| m:yahooemail | 250 | `▃█▇▆▄▄▂▄▂▃▃▄▄▃▅▃▃▂▂▄▃▂▂▄▅▅` |
 | m:comcast | 72 | `▁▅▅▃▁▃▂▅█▃▁▄▃▂▆▄▄▅▄▄▄▄▃▅▂▂` |
 | m:spectrum | 71 | `▄▂▂▂▂▂▂▁▃▂▂▄▂▅▂▄█▂▁▂▂▂▂▂▃▃` |
 | m:icloud | 35 | `▂▇▂▄▂▁▄▁▂▂▂▄▁▁▅█▁▁▅▂▄▄▂▁▄▁` |
@@ -98,9 +98,9 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 3855 | `▆█▆▆▆▆▆▆▅▅▅▆▅▅▆▅▆▅▅▅▅▅▅▅▆▅` |
-| os:linux | 421 | `▆▆▇▆▆▅▅▄▅▃▆▄▅▅▄▅▄▃▇▅▃▄▅▆█▅` |
-| os:macos | 349 | `▆▆▆█▆▆▆▄▆▃▆▄▇▃▅▄▅▃▆▄▅▄▃▃▇▄` |
+| os:windows | 3862 | `▆█▆▆▆▆▆▆▅▅▅▆▅▅▆▅▆▅▅▅▅▅▅▅▆▅` |
+| os:linux | 425 | `▆▆▇▆▆▅▅▄▅▃▆▄▅▅▄▅▄▃▇▅▃▄▅▆█▆` |
+| os:macos | 350 | `▆▆▆█▆▆▆▄▆▃▆▄▇▃▅▄▅▃▆▄▅▄▃▃▇▄` |
 | os:android | 48 | `▂▃▂▇▃▃▂▃▃▃█▅▁▁▃▁▃▂▁▅▆▁▂▂▅▃` |
 | os:other | 47 | `▆▁▃▆▁▁▁▂▁▁▅▅▁▅▂▃▅▃▅█▂▃▃▃▅▁` |
 
@@ -119,4 +119,4 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 _Notes: spikes detected at **weekly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-weekly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-weekly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-weekly-rollup.csv`._
 
-_Last updated: 2026-08-16 04:44 UTC_
+_Last updated: 2026-08-16 16:42 UTC_
