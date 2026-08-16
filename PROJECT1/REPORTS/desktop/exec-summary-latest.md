@@ -5,7 +5,7 @@ title: "2026-07 exec summary: Thunderbird Desktop support spikes"
 
 # July 2026 — Thunderbird Desktop support spikes
 
-_Executive summary · **2026-07** · 731 questions · regenerated 2026-08-15 05:38 UTC · no AI (regex + traditional stats)_
+_Executive summary · **2026-07** · 731 questions · regenerated 2026-08-16 05:39 UTC · no AI (regex + traditional stats)_
 
 ## ✅ July 2026 was clean
 
