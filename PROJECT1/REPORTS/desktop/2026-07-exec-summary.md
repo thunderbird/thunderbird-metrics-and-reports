@@ -5,7 +5,7 @@ title: "2026-07 exec summary: Thunderbird Desktop support spikes"
 
 # July 2026 — Thunderbird Desktop support spikes
 
-_Executive summary · **2026-07** · 731 questions · regenerated 2026-08-16 05:39 UTC · no AI (regex + traditional stats)_
+_Executive summary · **2026-07** · 731 questions · regenerated 2026-08-17 05:41 UTC · no AI (regex + traditional stats)_
 
 ## ✅ July 2026 was clean
 
@@ -34,7 +34,7 @@ Clusters the same detectors flag at **0.75× the thresholds** (i.e. within ~25% 
 
 | Grain | Lift | When | Version × Cause | Qs | Served | Example questions |
 |:--|--:|:--|:--|--:|:--|:--|
-| weekly | 3.0× | 2026-07-27 | v153 × m:comcast | 4 | 75% ans · 5.4h | [1595937](https://support.mozilla.org/questions/1595937 "Need help recovering my profile from a zip file") [1595941](https://support.mozilla.org/questions/1595941 "Why can't Thunderbird use new yahoo email platform for Comcast on MacBook Air?") [1596164](https://support.mozilla.org/questions/1596164 "") [1596297](https://support.mozilla.org/questions/1596297 "") |
+| weekly | 2.9× | 2026-07-27 | v153 × m:comcast | 4 | 75% ans · 5.4h | [1595937](https://support.mozilla.org/questions/1595937 "Need help recovering my profile from a zip file") [1595941](https://support.mozilla.org/questions/1595941 "Why can't Thunderbird use new yahoo email platform for Comcast on MacBook Air?") [1596164](https://support.mozilla.org/questions/1596164 "") [1596297](https://support.mozilla.org/questions/1596297 "") |
 | daily | 2.8× | 2026-07-02 | v152 × proto:imap | 4 | ⚠️ 50% ans · 7.6h | [1590718](https://support.mozilla.org/questions/1590718 "Accidentally moved IMAP Gmail label to Local Folders - Emails disappeared, Local") [1590790](https://support.mozilla.org/questions/1590790 "Thunderbird and GoDaddy account") [1590808](https://support.mozilla.org/questions/1590808 "Forwarded attachments disappear after first IMAP draft save and subsequent saves") [1590848](https://support.mozilla.org/questions/1590848 "Continue to have ＂Authentication Required＂ POPup errors at startup.") |
 | weekly | 2.7× | 2026-07-06 | v152 × proto:oauth | 5 | 80% ans · 5.4h | [1591762](https://support.mozilla.org/questions/1591762 "Even with verions 152.01, Oauth for smtp through Yahoo.com is not an available c") [1591813](https://support.mozilla.org/questions/1591813 "Oauth challenge never appears") [1591979](https://support.mozilla.org/questions/1591979 "Outlook: OAuth Authentication failure with IMAP") [1592379](https://support.mozilla.org/questions/1592379 "Gmail oauth gives Authentication failure after restarting Thunderbird") [1592479](https://support.mozilla.org/questions/1592479 "cannot set OAuth authentication method in Thunderbird 152.0.1") |
 | weekly | 2.6× | 2026-07-06 | v140 × proto:smtp | 5 | 100% ans · 6.1h | [1591795](https://support.mozilla.org/questions/1591795 "Impossibile inviare messaggi") [1591885](https://support.mozilla.org/questions/1591885 "Can't find outgoing server after login following Win 11 sleeps") [1591986](https://support.mozilla.org/questions/1591986 "After the last Thunderbird update I cannot send e-mails but still receive emails") [1592019](https://support.mozilla.org/questions/1592019 "IMAP, SMTP и POP3") [1592468](https://support.mozilla.org/questions/1592468 "I have problems with my Orcon emails and they say it is Thunderbird.") |
