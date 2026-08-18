@@ -9,13 +9,13 @@ title: Desktop Engineering Support Summary — August 2026
 
 _For **engineering**: the support signals worth investigating this month vs last — flagged incidents, moving cause clusters, and release adoption. (Community/support-ops KPIs — answered & solved rates, response time — are a separate upcoming report.) Non-AI: regex + traditional stats._
 
-> ⚠️ **August 2026 is in progress** — data through day 17 of 31. Counts are partial, so the deltas below understate August 2026; treat volume changes as directional until the month closes.
+> ⚠️ **August 2026 is in progress** — data through day 18 of 31. Counts are partial, so the deltas below understate August 2026; treat volume changes as directional until the month closes.
 
 ## Headline
 
 | | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 731 | 457 | ▼ -274 (-37%) |
+| Support questions (load) | 731 | 470 | ▼ -261 (-36%) |
 | Version × cause spikes flagged | 0 | 4 | ▲ +4 |
 | — of which **new** regressions | 0 | 0 | ▬ 0 |
 | Cause-level surges flagged | 0 | 0 | ▬ 0 |
@@ -41,14 +41,14 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 
 | Cause clusters (provider / protocol / AV) | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| m:gmail | 73 | 35 | ▼ -38 (-52%) |
-| proto:imap | 56 | 35 | ▼ -21 (-38%) |
-| proto:smtp | 35 | 17 | ▼ -18 (-51%) |
-| proto:pop | 42 | 30 | ▼ -12 (-29%) |
-| proto:oauth | 20 | 9 | ▼ -11 (-55%) |
+| m:gmail | 73 | 37 | ▼ -36 (-49%) |
+| proto:imap | 56 | 36 | ▼ -20 (-36%) |
+| proto:smtp | 35 | 18 | ▼ -17 (-49%) |
+| proto:pop | 42 | 31 | ▼ -11 (-26%) |
+| proto:oauth | 20 | 10 | ▼ -10 (-50%) |
 | m:yahooemail | 30 | 37 | ▲ +7 (+23%) |
-| m:comcast | 13 | 7 | ▼ -6 (-46%) |
 | m:microsoftemail | 36 | 30 | ▼ -6 (-17%) |
+| m:comcast | 13 | 7 | ▼ -6 (-46%) |
 
 ### 🆕 New cause clusters (first appearance ever)
 
@@ -58,20 +58,20 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| v153 | 101 | 304 | ▲ +203 (+201%) |
-| v140 | 186 | 37 | ▼ -149 (-80%) |
+| v153 | 101 | 312 | ▲ +211 (+209%) |
+| v140 | 186 | 39 | ▼ -147 (-79%) |
 | v152 | 211 | 6 | ▼ -205 (-97%) |
 | v150 | 26 | 16 | ▼ -10 (-38%) |
-| v115 | 16 | 14 | ▼ -2 (-12%) |
+| v115 | 16 | 15 | ▼ -1 (-6%) |
 | v151 | 4 | 5 | ▲ +1 |
 
 ### Operating-system mix
 
 | Operating-system mix | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 589 | 339 | ▼ -250 (-42%) |
+| os:windows | 589 | 351 | ▼ -238 (-40%) |
 | os:linux | 61 | 59 | ▼ -2 (-3%) |
-| os:macos | 45 | 36 | ▼ -9 (-20%) |
+| os:macos | 45 | 37 | ▼ -8 (-18%) |
 | os:other | 11 | 4 | ▼ -7 (-64%) |
 | os:android | 7 | 6 | ▼ -1 |
 
@@ -79,15 +79,15 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 
 | Topic mix | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 185 | 98 | ▼ -87 (-47%) |
+| send-and-receive-email | 185 | 103 | ▼ -82 (-44%) |
 | customization | 73 | 52 | ▼ -21 (-29%) |
-| email-and-messaging | 82 | 41 | ▼ -41 (-50%) |
+| email-and-messaging | 82 | 43 | ▼ -39 (-48%) |
 | passwords-and-sign-in | 53 | 28 | ▼ -25 (-47%) |
-| import-and-export-email | 30 | 23 | ▼ -7 (-23%) |
-| junk-mail-and-spam | 24 | 22 | ▼ -2 (-8%) |
+| import-and-export-email | 30 | 24 | ▼ -6 (-20%) |
+| junk-mail-and-spam | 24 | 23 | ▼ -1 (-4%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · August 2026 vs July 2026._
 
-_Last updated: 2026-08-17 20:05 UTC_
+_Last updated: 2026-08-18 08:09 UTC_
