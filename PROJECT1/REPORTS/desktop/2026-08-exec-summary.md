@@ -5,7 +5,7 @@ title: "2026-08 exec summary: Thunderbird Desktop support spikes"
 
 # August 2026 — Thunderbird Desktop support spikes
 
-_Executive summary · **2026-08** · 470 questions · regenerated 2026-08-18 05:40 UTC · no AI (regex + traditional stats)_
+_Executive summary · **2026-08** · 507 questions · regenerated 2026-08-19 05:40 UTC · no AI (regex + traditional stats)_
 
 ## 🚨 August 2026: 5 spikes to investigate
 
@@ -19,8 +19,8 @@ _Executive summary · **2026-08** · 470 questions · regenerated 2026-08-18 05:
 | **version×cause** (release regressions) | 4 | 0 | 0 |
 | **cause-level** (provider · protocol · AV) | 0 | 1 | 0 |
 
-- **Volume:** 470 questions (`▅▄▇▇▆▇██▅▇▅▆▇▇▅▇▇▂` by day), 141 (30%) carry a cause tag
-- **Answered (non-creator):** 357/470 (76%) · median first answer 2.2h
+- **Volume:** 507 questions (`▅▃▇▇▆▆▇▇▄▆▄▆▆▆▅▆▆█` by day), 156 (31%) carry a cause tag
+- **Answered (non-creator):** 386/507 (76%) · median first answer 2.2h
 - **Release-adoption version spikes:** 12 (expected after a release — not incidents; collapsed below)
 
 > ⏱ **Spike timing lags the incident.** A spike dates when users *piled in*, typically days after onset and often near resolution. Treat these as pain-cluster / triage signals, not real-time detection.
@@ -28,7 +28,7 @@ _Executive summary · **2026-08** · 470 questions · regenerated 2026-08-18 05:
 > 🔄 **This verdict is not frozen when the month ends.** Lift is measured against each cause's rate across all history, so later questions shift a closed month's expected values and rows can cross the threshold in either direction; answered-% keeps firming up as late answers land. That is why this page regenerates daily — and because each day's version is committed, `git log -p` on this file shows exactly how the verdict evolved.
 
 <details markdown="1">
-<summary><strong>🔍 Near misses (within ~25% of threshold)</strong> — 4 rows</summary>
+<summary><strong>🔍 Near misses (within ~25% of threshold)</strong> — 5 rows</summary>
 
 Clusters the same detectors flag at **0.75× the thresholds** (i.e. within ~25% of firing) but which did NOT clear the real ones. Not incidents — context, so that “clean” is not confused with “quiet”.
 
@@ -37,7 +37,8 @@ Clusters the same detectors flag at **0.75× the thresholds** (i.e. within ~25% 
 | Grain | Lift | When | Version × Cause | Qs | Served | Example questions |
 |:--|--:|:--|:--|--:|:--|:--|
 | weekly | 2.9× | 2026-07-27 | v153 × m:comcast | 4 | 75% ans · 5.4h | [1595937](https://support.mozilla.org/questions/1595937 "") [1595941](https://support.mozilla.org/questions/1595941 "") [1596164](https://support.mozilla.org/questions/1596164 "With version 153: Unable to send from gmail account.  And cannot create a new gm") [1596297](https://support.mozilla.org/questions/1596297 "Trying to set APP Password to connect with Yahoo Mail conversion at Comcast.") |
-| monthly | 2.8× | 2026-08 | v140 × m:yahooemail | 6 | 67% ans · 3.2h | [1596676](https://support.mozilla.org/questions/1596676 "preventing a 2nd email  address from popping up in thunderbird") [1596925](https://support.mozilla.org/questions/1596925 "How to create local folders?") [1597230](https://support.mozilla.org/questions/1597230 "How To Get ALL emails down from Yahoo and Saved on Disk?") [1597665](https://support.mozilla.org/questions/1597665 "Yahoo IMAP Mailbox Reserved Loop: Bulk folder stuck inside Trash") [1597819](https://support.mozilla.org/questions/1597819 "how to ensure  my yahoo continuing yahoo mail is kept in local folders?") [1598226](https://support.mozilla.org/questions/1598226 "Danger  associated with preserving Yahoo mails") |
+| monthly | 2.7× | 2026-08 | v140 × m:yahooemail | 6 | 83% ans · 4.6h | [1596676](https://support.mozilla.org/questions/1596676 "preventing a 2nd email  address from popping up in thunderbird") [1596925](https://support.mozilla.org/questions/1596925 "How to create local folders?") [1597230](https://support.mozilla.org/questions/1597230 "How To Get ALL emails down from Yahoo and Saved on Disk?") [1597665](https://support.mozilla.org/questions/1597665 "Yahoo IMAP Mailbox Reserved Loop: Bulk folder stuck inside Trash") [1597819](https://support.mozilla.org/questions/1597819 "how to ensure  my yahoo continuing yahoo mail is kept in local folders?") [1598226](https://support.mozilla.org/questions/1598226 "Danger  associated with preserving Yahoo mails") |
+| daily | 2.5× | 2026-08-18 | v153 × m:gmail | 6 | ⚠️ 17% ans · 0.7h | [1598887](https://support.mozilla.org/questions/1598887 "＂Authentification Failure while connecting to server imap.gmail.com＂ How do I re") [1598903](https://support.mozilla.org/questions/1598903 "emails from senders with gmail accounts not being downloaded") [1598918](https://support.mozilla.org/questions/1598918 "Thunderbird has stopped receiving email") [1598928](https://support.mozilla.org/questions/1598928 "Thunderbird PC app and Android both loading and syncing incoming email and all f") [1598949](https://support.mozilla.org/questions/1598949 "Unable to sync address book with Gmail") [1598950](https://support.mozilla.org/questions/1598950 "Unable to sync address book with Gmail (locked duplicate)") |
 | daily | 2.4× | 2026-08-03 | v153 × m:microsoftemail | 4 | 100% ans · 15.7h | [1596378](https://support.mozilla.org/questions/1596378 "cartelle cscomparse account posta hotmail") [1596433](https://support.mozilla.org/questions/1596433 "Mijn agenda op Thunderbird.") [1596442](https://support.mozilla.org/questions/1596442 "Aanmelden bij outlook met mailadres dat hoofdletters bevat is niet meer mogelijk") [1596497](https://support.mozilla.org/questions/1596497 "Thunderbird cannot log-in to my mail accounts") |
 
 **Cause-level**
@@ -70,7 +71,7 @@ Clusters the same detectors flag at **0.75× the thresholds** (i.e. within ~25% 
 
 | Grain | Rise | When | Cause | Qs | Served | Baseline | Example questions |
 |:--|--:|:--|:--|--:|:--|--:|:--|
-| weekly | **3.5×** | 2026-08-10 | m:yahooemail | 19 | ⚠️ 53% ans · 2.0h | 5.5 | [1597571](https://support.mozilla.org/questions/1597571 "Email collection over pop failed on one account, server settings rejected when I") [1597605](https://support.mozilla.org/questions/1597605 "I am still canot open my yahoo.co.uk email account? I have deleted the account f") [1597650](https://support.mozilla.org/questions/1597650 "why am i getting a pop-up window demanding that I agree to allow thunderbird mai") [1597665](https://support.mozilla.org/questions/1597665 "Yahoo IMAP Mailbox Reserved Loop: Bulk folder stuck inside Trash") [1597759](https://support.mozilla.org/questions/1597759 "Why is Yahoo_mail not updatuing in Thunderbird since two weeks?") [1597789](https://support.mozilla.org/questions/1597789 "Yahoo mail authentication failure after the newest update") +13 |
+| weekly | **3.5×** | 2026-08-10 | m:yahooemail | 19 | 63% ans · 3.4h | 5.5 | [1597571](https://support.mozilla.org/questions/1597571 "Email collection over pop failed on one account, server settings rejected when I") [1597605](https://support.mozilla.org/questions/1597605 "I am still canot open my yahoo.co.uk email account? I have deleted the account f") [1597650](https://support.mozilla.org/questions/1597650 "why am i getting a pop-up window demanding that I agree to allow thunderbird mai") [1597665](https://support.mozilla.org/questions/1597665 "Yahoo IMAP Mailbox Reserved Loop: Bulk folder stuck inside Trash") [1597759](https://support.mozilla.org/questions/1597759 "Why is Yahoo_mail not updatuing in Thunderbird since two weeks?") [1597789](https://support.mozilla.org/questions/1597789 "Yahoo mail authentication failure after the newest update") +13 |
 
 </details>
 
@@ -89,7 +90,7 @@ Version and OS are **filters, not causes** — a bare version spike is release a
 | daily | **4.9×** | 2026-08-06 | tb_version_major | 153 | 22 [1596881](https://support.mozilla.org/questions/1596881 "Can no longer drag and drop email attachments from emails to folders after 153es") [1596896](https://support.mozilla.org/questions/1596896 "gmail linkage") | 4.5 |
 | daily | **5.0×** | 2026-08-07 | os | os:linux | 10 [1597113](https://support.mozilla.org/questions/1597113 "i just need account to identify online access to verify my online social media d") [1597136](https://support.mozilla.org/questions/1597136 "Jak spravne nastavit thunderbird pro pop3?") | 2.0 |
 | daily | **3.7×** | 2026-08-07 | tb_version_major | 153 | 22 [1597076](https://support.mozilla.org/questions/1597076 "Update to Thunderbird 153.0.2esr (32-bit) freezes up and locks.  64 bit version ") [1597080](https://support.mozilla.org/questions/1597080 "how many adresses can I have in a single Thunderbird email?") | 6.0 |
-| monthly | **624.0×** | 2026-08 | tb_version_major | 153 | 312 [1596031](https://support.mozilla.org/questions/1596031 "why is thunderbird not working") [1596048](https://support.mozilla.org/questions/1596048 "thunderbrd version 153.0.1 64bit: some registered adress get filtered as spam th") | 0.5 |
+| monthly | **670.0×** | 2026-08 | tb_version_major | 153 | 335 [1596031](https://support.mozilla.org/questions/1596031 "why is thunderbird not working") [1596048](https://support.mozilla.org/questions/1596048 "thunderbrd version 153.0.1 64bit: some registered adress get filtered as spam th") | 0.5 |
 | weekly | **new** | 2026-07-27 | tb_version_major | 153 | 79 [1595089](https://support.mozilla.org/questions/1595089 "") [1595090](https://support.mozilla.org/questions/1595090 "") | 0.0 |
 | weekly | **274.0×** | 2026-08-03 | tb_version_major | 153 | 137 [1596331](https://support.mozilla.org/questions/1596331 "When a message must be Sent Later, where is the draft stored???") [1596345](https://support.mozilla.org/questions/1596345 "InsertSignature button moved from formatting toolbar to top toolbar after Thunde") | 0.5 |
 | weekly | **52.0×** | 2026-08-10 | tb_version_major | 153 | 130 [1597513](https://support.mozilla.org/questions/1597513 "Migrate emails to another provider") [1597551](https://support.mozilla.org/questions/1597551 "Thunderbird POP stopped retrieving email from one mail box, No error message") | 2.5 |
@@ -103,8 +104,8 @@ Version and OS are **filters, not causes** — a bare version spike is release a
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| v153 | 312 | `▅▄█▇▆███▆█▅▇██▅█▇▂` |
-| v140 | 39 | `▃▃▅▆█▅▆█▃▆█▅▁▅▆▅▅▁` |
+| v153 | 335 | `▅▄▇▇▅▇▇▇▅▇▄▆▇▇▅▇▇█` |
+| v140 | 41 | `▃▃▅▆█▅▆█▃▆█▅▁▅▆▅▅▅` |
 | v150 | 16 | `▁▁▅▁▃▆▃█▁▃▁▁▁▃▃▃▃▁` |
 | v115 | 15 | `▃▁▃▃▆▁▃▃▁█▁▁▁▁▃▆▆▁` |
 | v152 | 6 | `█▁█▁█▁█▁█▁▁▁▁▁█▁▁▁` |
@@ -114,21 +115,21 @@ Version and OS are **filters, not causes** — a bare version spike is release a
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| m:gmail | 37 | `▂▁█▇▂▇▂▇▁▅▂▄▅▄▅▁▅▁` |
-| m:yahooemail | 37 | `▃▅▆▅▃▅▃▆▅██▅▃▆▃█▃▁` |
-| m:microsoftemail | 30 | `▄▂▇█▄▁▄▂▁▅▂▄▅▄▁▂▂▁` |
-| m:comcast | 7 | `▃▃▁▁▃▁▁▁▁▁▁▁▁▁▃█▁▁` |
-| m:spectrum | 7 | `▁▅▁▁▅▁▁▅▅▁▁█▁▅▁▁▁▁` |
+| m:gmail | 44 | `▂▁▆▅▂▅▂▅▁▄▂▃▄▃▄▁▄█` |
+| m:yahooemail | 39 | `▃▅▆▅▃▅▃▆▅██▅▃▆▃█▃▅` |
+| m:microsoftemail | 32 | `▄▂▇█▄▁▄▂▁▅▂▄▅▄▁▂▂▄` |
+| m:comcast | 8 | `▃▃▁▁▃▁▁▁▁▁▁▁▁▁▃█▁▃` |
+| m:spectrum | 8 | `▁▅▁▁▅▁▁▅▅▁▁█▁▅▁▁▁▅` |
 | m:cox | 4 | `▁▁▁▁▁▁▁█▁▁▁███▁▁▁▁` |
 
 **Top protocols**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| proto:imap | 36 | `▃▁▆▃▅▁▁▃▃█▂▂▅▆▃▂▅▁` |
-| proto:pop | 31 | `▃▃▅▆▃▅▅▆▅█▁▁██▁▁▅▁` |
-| proto:smtp | 18 | `▁▃█▁▃▁▃▃▃▆▁▆▆▆▃▁▃▁` |
-| proto:oauth | 10 | `▁▁▃▁▁▁▁▆▁█▃▁▃▁▃▁▃▁` |
+| proto:imap | 41 | `▃▁▆▃▅▁▁▃▃█▂▂▅▆▃▂▅▇` |
+| proto:pop | 33 | `▃▃▅▆▃▅▅▆▅█▁▁██▁▁▅▅` |
+| proto:smtp | 19 | `▁▃█▁▃▁▃▃▃▆▁▆▆▆▃▁▃▃` |
+| proto:oauth | 11 | `▁▁▃▁▁▁▁▆▁█▃▁▃▁▃▁▃▃` |
 | proto:ews | 2 | `█▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁` |
 | proto:carddav | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁` |
 
@@ -145,10 +146,10 @@ Version and OS are **filters, not causes** — a bare version spike is release a
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| os:windows | 351 | `▅▃█▇▅▆▆▇▅▇▃▇█▇▄▅█▂` |
-| os:linux | 59 | `▄▃▃▂▃▄█▅▁▃▄▂▂▃▄▅▂▁` |
-| os:macos | 37 | `▂▂▂▅█▅▃▃▃▂▅▂▂▁▅█▂▁` |
-| os:android | 6 | `▁▅▁▁▁▅▁█▁▁▅▅▁▁▁▁▁▁` |
+| os:windows | 377 | `▅▃█▇▅▆▆▇▅▇▃▇█▇▄▅██` |
+| os:linux | 62 | `▄▃▃▂▃▄█▅▁▃▄▂▂▃▄▅▂▃` |
+| os:macos | 41 | `▂▂▂▅█▅▃▃▃▂▅▂▂▁▅█▂▆` |
+| os:android | 9 | `▁▃▁▁▁▃▁▆▁▁▃▃▁▁▁▁▁█` |
 | os:other | 4 | `▁▅▁▅▁▁█▁▁▁▁▁▁▁▁▁▁▁` |
 
 **macOS releases (filter dimension)**
