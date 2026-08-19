@@ -187,7 +187,7 @@ period,dim,value,count
 2023,mail_provider,m:gmail,1117
 2024,mail_provider,m:gmail,1535
 2025,mail_provider,m:gmail,1278
-2026,mail_provider,m:gmail,587
+2026,mail_provider,m:gmail,588
 2023,mail_provider,m:gmx,36
 2024,mail_provider,m:gmx,35
 2025,mail_provider,m:gmx,31
@@ -230,7 +230,7 @@ period,dim,value,count
 2023,mail_provider,m:microsoftemail,929
 2024,mail_provider,m:microsoftemail,1357
 2025,mail_provider,m:microsoftemail,948
-2026,mail_provider,m:microsoftemail,475
+2026,mail_provider,m:microsoftemail,476
 2023,mail_provider,m:onecom,4
 2024,mail_provider,m:onecom,10
 2025,mail_provider,m:onecom,10
@@ -268,7 +268,7 @@ period,dim,value,count
 2023,mail_provider,m:sfr,1
 2024,mail_provider,m:sfr,12
 2025,mail_provider,m:sfr,15
-2026,mail_provider,m:sfr,7
+2026,mail_provider,m:sfr,8
 2023,mail_provider,m:shaw,18
 2024,mail_provider,m:shaw,28
 2025,mail_provider,m:shaw,19
@@ -300,7 +300,7 @@ period,dim,value,count
 2023,mail_provider,m:tiscali,8
 2024,mail_provider,m:tiscali,24
 2025,mail_provider,m:tiscali,31
-2026,mail_provider,m:tiscali,7
+2026,mail_provider,m:tiscali,8
 2023,mail_provider,m:tonline,12
 2024,mail_provider,m:tonline,16
 2025,mail_provider,m:tonline,22
@@ -363,7 +363,7 @@ period,dim,value,count
 2023,os,os:linux,483
 2024,os,os:linux,546
 2025,os,os:linux,496
-2026,os,os:linux,529
+2026,os,os:linux,530
 2023,os,os:macos,295
 2024,os,os:macos,319
 2025,os,os:macos,288
@@ -374,7 +374,7 @@ period,dim,value,count
 2023,os,os:windows,1386
 2024,os,os:windows,1532
 2025,os,os:windows,1701
-2026,os,os:windows,4668
+2026,os,os:windows,4678
 2023,protocol,proto:caldav,64
 2024,protocol,proto:caldav,51
 2025,protocol,proto:caldav,50
@@ -390,11 +390,11 @@ period,dim,value,count
 2023,protocol,proto:imap,948
 2024,protocol,proto:imap,1203
 2025,protocol,proto:imap,989
-2026,protocol,proto:imap,460
+2026,protocol,proto:imap,462
 2023,protocol,proto:oauth,200
 2024,protocol,proto:oauth,349
 2025,protocol,proto:oauth,180
-2026,protocol,proto:oauth,143
+2026,protocol,proto:oauth,144
 2023,protocol,proto:pop,586
 2024,protocol,proto:pop,741
 2025,protocol,proto:pop,622
@@ -402,7 +402,7 @@ period,dim,value,count
 2023,protocol,proto:smtp,562
 2024,protocol,proto:smtp,770
 2025,protocol,proto:smtp,618
-2026,protocol,proto:smtp,292
+2026,protocol,proto:smtp,293
 2026,tb_version_major,102,13
 2026,tb_version_major,104,1
 2026,tb_version_major,115,122
@@ -420,15 +420,15 @@ period,dim,value,count
 2026,tb_version_major,147,119
 2026,tb_version_major,148,240
 2026,tb_version_major,149,313
-2026,tb_version_major,150,440
+2026,tb_version_major,150,441
 2026,tb_version_major,151,335
 2026,tb_version_major,152,377
-2026,tb_version_major,153,440
-2026,tb_version_major,154,5
+2026,tb_version_major,153,445
+2026,tb_version_major,154,9
 2026,tb_version_major,155,1
 2026,tb_version_major,156,1
 2026,tb_version_major,159,1
 2023,total,all,11558
 2024,total,all,15379
 2025,total,all,15171
-2026,total,all,6367
+2026,total,all,6378
