@@ -138,6 +138,7 @@ period,dim,value,count
 2026-05,av,av:mcafee,2
 2026-06,av,av:mcafee,1
 2026-07,av,av:mcafee,1
+2026-08,av,av:mcafee,1
 2024-09,av,av:norton,7
 2024-10,av,av:norton,5
 2024-11,av,av:norton,7
@@ -596,7 +597,7 @@ period,dim,value,count
 2026-05,mail_provider,m:gmail,76
 2026-06,mail_provider,m:gmail,52
 2026-07,mail_provider,m:gmail,73
-2026-08,mail_provider,m:gmail,45
+2026-08,mail_provider,m:gmail,46
 2024-09,mail_provider,m:gmx,1
 2024-10,mail_provider,m:gmx,3
 2024-11,mail_provider,m:gmx,5
@@ -1239,7 +1240,7 @@ period,dim,value,count
 2026-05,os,os:linux,69
 2026-06,os,os:linux,62
 2026-07,os,os:linux,61
-2026-08,os,os:linux,63
+2026-08,os,os:linux,64
 2024-09,os,os:macos,30
 2024-10,os,os:macos,38
 2024-11,os,os:macos,27
@@ -1263,7 +1264,7 @@ period,dim,value,count
 2026-05,os,os:macos,53
 2026-06,os,os:macos,49
 2026-07,os,os:macos,45
-2026-08,os,os:macos,41
+2026-08,os,os:macos,42
 2024-09,os,os:other,2
 2025-03,os,os:other,2
 2025-04,os,os:other,1
@@ -1303,7 +1304,7 @@ period,dim,value,count
 2026-05,os,os:windows,655
 2026-06,os,os:windows,589
 2026-07,os,os:windows,589
-2026-08,os,os:windows,387
+2026-08,os,os:windows,400
 2024-09,protocol,proto:caldav,5
 2024-10,protocol,proto:caldav,7
 2024-11,protocol,proto:caldav,6
@@ -1551,9 +1552,9 @@ period,dim,value,count
 2026-05,tb_version_major,153,1
 2026-06,tb_version_major,153,3
 2026-07,tb_version_major,153,101
-2026-08,tb_version_major,153,340
+2026-08,tb_version_major,153,348
 2026-07,tb_version_major,154,2
-2026-08,tb_version_major,154,7
+2026-08,tb_version_major,154,12
 2026-02,tb_version_major,155,1
 2026-06,tb_version_major,156,1
 2026-05,tb_version_major,159,1
@@ -1580,4 +1581,4 @@ period,dim,value,count
 2026-05,total,all,812
 2026-06,total,all,724
 2026-07,total,all,731
-2026-08,total,all,518
+2026-08,total,all,533

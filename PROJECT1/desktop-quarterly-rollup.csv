@@ -100,7 +100,7 @@ period,dim,value,count
 2025-Q4,av,av:mcafee,3
 2026-Q1,av,av:mcafee,2
 2026-Q2,av,av:mcafee,5
-2026-Q3,av,av:mcafee,1
+2026-Q3,av,av:mcafee,2
 2023-Q4,av,av:norton,6
 2024-Q1,av,av:norton,4
 2024-Q2,av,av:norton,12
@@ -421,7 +421,7 @@ period,dim,value,count
 2025-Q4,mail_provider,m:gmail,277
 2026-Q1,mail_provider,m:gmail,265
 2026-Q2,mail_provider,m:gmail,205
-2026-Q3,mail_provider,m:gmail,118
+2026-Q3,mail_provider,m:gmail,119
 2023-Q4,mail_provider,m:gmx,10
 2024-Q1,mail_provider,m:gmx,2
 2024-Q2,mail_provider,m:gmx,4
@@ -863,7 +863,7 @@ period,dim,value,count
 2025-Q4,os,os:linux,118
 2026-Q1,os,os:linux,219
 2026-Q2,os,os:linux,187
-2026-Q3,os,os:linux,124
+2026-Q3,os,os:linux,125
 2023-Q4,os,os:macos,94
 2024-Q1,os,os:macos,83
 2024-Q2,os,os:macos,65
@@ -875,7 +875,7 @@ period,dim,value,count
 2025-Q4,os,os:macos,60
 2026-Q1,os,os:macos,200
 2026-Q2,os,os:macos,162
-2026-Q3,os,os:macos,86
+2026-Q3,os,os:macos,87
 2024-Q2,os,os:other,1
 2024-Q3,os,os:other,3
 2025-Q1,os,os:other,2
@@ -896,7 +896,7 @@ period,dim,value,count
 2025-Q4,os,os:windows,431
 2026-Q1,os,os:windows,1847
 2026-Q2,os,os:windows,1855
-2026-Q3,os,os:windows,976
+2026-Q3,os,os:windows,989
 2023-Q4,protocol,proto:caldav,12
 2024-Q1,protocol,proto:caldav,14
 2024-Q2,protocol,proto:caldav,6
@@ -1023,8 +1023,8 @@ period,dim,value,count
 2026-Q2,tb_version_major,152,160
 2026-Q3,tb_version_major,152,217
 2026-Q2,tb_version_major,153,4
-2026-Q3,tb_version_major,153,441
-2026-Q3,tb_version_major,154,9
+2026-Q3,tb_version_major,153,449
+2026-Q3,tb_version_major,154,14
 2026-Q1,tb_version_major,155,1
 2026-Q2,tb_version_major,156,1
 2026-Q2,tb_version_major,159,1
@@ -1039,4 +1039,4 @@ period,dim,value,count
 2025-Q4,total,all,3282
 2026-Q1,total,all,2834
 2026-Q2,total,all,2295
-2026-Q3,total,all,1249
+2026-Q3,total,all,1264
