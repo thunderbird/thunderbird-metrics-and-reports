@@ -5,10 +5,10 @@ title: WEEKLY: Thunderbird Desktop — Support Spike Report
 
 # WEEKLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2026-02-23 … 2026-08-17 · **weekly** grain · trailing 26 weeks · 4757 questions · no AI (regex + traditional stats)_
+_Generated 2026-02-23 … 2026-08-17 · **weekly** grain · trailing 26 weeks · 4773 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 4757 questions, 183.0/week avg
-- **Answered (non-creator):** 3844/4757 (81%)
+- **Volume:** 4773 questions, 183.6/week avg
+- **Answered (non-creator):** 3852/4773 (81%)
 - **First-answer time (median):** 3.3h (p25 1.0h / p75 11.4h)
 - **Total volume trend:** `█▇▇▆▆▆▆▅▅▆▆▆▅▆▅▆▅▅▅▅▅▅▅▆▆▄`
 
@@ -55,9 +55,9 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 930 | `▆▃▅▅▄▄▆▇▆▇▇█▇██▆▆▇▇▆▆▇▅▄▃▂` |
-| v153 | 455 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▅██▄` |
-| v150 | 441 | `▁▁▁▁▁▁▁▁▄▇██▄▂▁▁▁▁▁▂▁▁▁▂▁▁` |
+| v140 | 931 | `▆▃▅▅▄▄▆▇▆▇▇█▇██▆▆▇▇▆▆▇▅▄▃▂` |
+| v153 | 459 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▅██▄` |
+| v150 | 442 | `▁▁▁▁▁▁▁▁▄▇██▄▂▁▁▁▁▁▂▁▁▁▂▁▁` |
 | v152 | 377 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅██▇▆▄▂▁▁▁` |
 | v151 | 335 | `▁▁▁▁▁▁▁▁▁▁▁▁▅█▆█▃▂▁▁▁▁▁▁▁▁` |
 | v149 | 313 | `▁▁▁▁▃▄▇█▄▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
@@ -66,9 +66,9 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 445 | `▅▇▇▆▇█▇▅▃▇▇▅▄▅▃▃▄▅▆▅▄▅▄▆▅▅` |
-| m:microsoftemail | 348 | `█▆▇▄▅▆▇▄▅▆▆█▆▄▇▄▃▄▆▄▃▃▃▅▅▂` |
-| m:yahooemail | 251 | `█▇▆▄▄▂▄▂▃▃▄▄▃▅▃▃▂▂▄▃▂▂▄▅▆▂` |
+| m:gmail | 447 | `▅▇▇▆▇█▇▅▃▇▇▅▄▅▃▃▄▅▆▅▄▅▄▆▅▅` |
+| m:microsoftemail | 350 | `█▆▇▄▅▆▇▄▅▆▆█▆▄▇▄▃▄▆▄▃▃▃▅▅▃` |
+| m:yahooemail | 252 | `█▇▆▄▄▂▄▂▃▃▄▄▃▅▃▃▂▂▄▃▂▂▄▅▆▂` |
 | m:comcast | 76 | `▅▅▃▁▃▂▅█▃▁▄▃▂▆▄▄▅▄▄▄▄▃▅▂▅▂` |
 | m:spectrum | 67 | `▂▂▂▂▂▂▁▃▂▂▄▂▅▂▄█▂▁▂▂▂▂▂▃▃▂` |
 | m:icloud | 35 | `▇▂▄▂▁▄▁▂▂▂▄▁▁▅█▁▁▅▂▄▄▂▁▄▁▂` |
@@ -79,7 +79,7 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 |:--|--:|:--|
 | proto:imap | 342 | `▆█▇▅█▅▄▅▃▄▆▅▇▆▆▄▄▅▆▆▅▅▄▅▇▄` |
 | proto:pop | 225 | `█▄▆▃▄▃▄▆▆▄▅▆▇▆▅▆▂▃▇▆▅▄▆█▇▃` |
-| proto:smtp | 200 | `▆█▄▄▇▅▃▃▂▄▇▆▄▂▅▅▃▂▃▆▃▅▃▄▅▃` |
+| proto:smtp | 201 | `▆█▄▄▇▅▃▃▂▄▇▆▄▂▅▅▃▂▃▆▃▅▃▄▅▃` |
 | proto:oauth | 119 | `██▃▄▃▄▂▃▂▁▂▄▃▃▂▂▄▁▂▄▃▃▂▂▄▂` |
 | proto:caldav | 15 | `█▃▁▃▁▁▃▃▁▃▁▁▁▃▆▁▁▃▁▃▁▆▁▁▁▁` |
 | proto:ews | 11 | `▁█▁▁▁▁▁▁▁▃▃▁▃▃▁▃▁▁▃▁▁▁▃▃▁▁` |
@@ -89,7 +89,7 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 | Value | Total | Trend |
 |:--|--:|:--|
 | av:bitdefender | 16 | `▁▃▆▃▁█▃▁▁▁▃▁▁▃▁▁▁▃█▁▁▁▁▆▁▁` |
-| av:defender | 14 | `▁▁█▁▁▁▅▁▁▁▅▅▅▅▅▅▅▁▅▅▁▁▅▁▅▁` |
+| av:defender | 15 | `▁▁█▁▁▁▅▁▁▁▅▅▅▅▅▅▅▁▅▅▁▁▅▁▅▅` |
 | av:norton | 14 | `▁▁▅▁▁█▅▁▁▁▁▁██▅▁▅▁▁▅▁▁█▁▁▅` |
 | av:avast | 13 | `▃▁▁▁▁█▆▁▁▃▁▃▁▁▁▃▃▁▁▆▁▁▁▃▁▁` |
 | av:mcafee | 8 | `▁▁▅▁▁▁█▁▁▁▁▁▅▅▁▁▅▁▁▁▁▅▁▁▁▅` |
@@ -99,8 +99,8 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 3792 | `█▆▆▆▆▆▆▅▅▅▆▅▅▆▅▆▅▅▅▅▅▅▅▆▅▄` |
-| os:linux | 415 | `▆▇▆▆▅▅▄▅▃▆▄▅▅▄▅▄▃▇▅▃▄▅▆█▇▃` |
+| os:windows | 3807 | `█▆▆▆▆▆▆▅▅▅▆▅▅▆▅▆▅▅▅▅▅▅▅▆▅▄` |
+| os:linux | 416 | `▆▇▆▆▅▅▄▅▃▆▄▅▅▄▅▄▃▇▅▃▄▅▆█▇▃` |
 | os:macos | 342 | `▆▆█▆▆▆▄▆▃▆▄▇▃▅▄▅▃▆▄▅▄▃▃▇▆▃` |
 | os:android | 50 | `▃▂▇▃▃▂▃▃▃█▅▁▁▃▁▃▂▁▅▆▁▂▂▅▃▅` |
 | os:other | 43 | `▁▃▆▁▁▁▂▁▁▅▅▁▅▂▃▅▃▅█▂▃▃▃▅▁▁` |
@@ -120,4 +120,4 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 _Notes: spikes detected at **weekly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-weekly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-weekly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-weekly-rollup.csv`._
 
-_Last updated: 2026-08-20 16:46 UTC_
+_Last updated: 2026-08-21 04:44 UTC_
