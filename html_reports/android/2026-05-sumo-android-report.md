@@ -5,7 +5,7 @@ title: Thunderbird Android Report - 2026-05
 
 # Thunderbird Android Report - 2026-05
 
-*Last updated: 2026-08-22T16:05:58.728259*
+*Last updated: 2026-08-22T17:07:01.569516*
 
 ## Summary
 
