@@ -5,10 +5,10 @@ title: MONTHLY: Thunderbird Desktop — Support Spike Report
 
 # MONTHLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2024-09 … 2026-08 · **monthly** grain · trailing 24 months · 28072 questions · no AI (regex + traditional stats)_
+_Generated 2024-09 … 2026-08 · **monthly** grain · trailing 24 months · 28083 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 28072 questions, 1169.7/month avg
-- **Answered (non-creator):** 21693/28072 (77%)
+- **Volume:** 28083 questions, 1170.1/month avg
+- **Answered (non-creator):** 21713/28083 (77%)
 - **First-answer time (median):** 3.3h (p25 0.9h / p75 11.8h)
 - **Total volume trend:** `▇█▇▇█▆▆▆▆▅▇▇▆▆▅▅▅▅▅▄▄▄▄▃`
 
@@ -23,7 +23,7 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 
 | Signal | Lift | When | Version × Cause | Qs | Served | Example questions | Trend |
 |:--|---:|:--|:--|--:|:--|:--|:--|
-| 🆕 new | **3.9×** | 2026-06 | v151 × m:spectrum | 12 | 100% ans · 15.8h | [1585052](https://support.mozilla.org/questions/1585052 "get error message ＂Unable to log in at server. Probably wrong configuration, use") [1585941](https://support.mozilla.org/questions/1585941 "Unable to send email") [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") +6 · [explore ↗](explorer.html#grain=monthly&version=151&cause=m:spectrum&period=2026-06) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▁▂` |
+| 🆕 new | **3.8×** | 2026-06 | v151 × m:spectrum | 12 | 100% ans · 15.8h | [1585052](https://support.mozilla.org/questions/1585052 "get error message ＂Unable to log in at server. Probably wrong configuration, use") [1585941](https://support.mozilla.org/questions/1585941 "Unable to send email") [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") +6 · [explore ↗](explorer.html#grain=monthly&version=151&cause=m:spectrum&period=2026-06) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▁▂` |
 | 🆕 new | **3.1×** | 2026-02 | v148 × proto:oauth | 5 | 100% ans · 4.4h | [1567488](https://support.mozilla.org/questions/1567488 "dossier envoyés contient seulements le mois en cours") [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567818](https://support.mozilla.org/questions/1567818 "thunderbird update 148 rompe oauth2 de yahoo") [1567961](https://support.mozilla.org/questions/1567961 "Mail sync issue led to Mail disappearing after troubleshooting then selecting ＂c") [1568282](https://support.mozilla.org/questions/1568282 "Thunderbird suddenly started asking for Crendentials for yahoo account.  ＂Someth") · [explore ↗](explorer.html#grain=monthly&version=148&cause=proto:oauth&period=2026-02) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▂▁▁▁▁` |
 
 ## 📮 Cause-level spikes — provider / protocol / AV
@@ -34,7 +34,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Rise | When | Cause | Qs | Served | Baseline | Example questions | Trend |
 |---:|:--|:--|--:|:--|--:|:--|:--|
 | **49.0×** | 2025-08 | av:bitdefender | 49 | 100% ans · 2.6h | 1.0 | [1528472](https://support.mozilla.org/questions/1528472 "Messagerie illisible (bitdefender)") [1528498](https://support.mozilla.org/questions/1528498 "Recent emails are coming in unformatted and missing subject and sender info (bit") [1528506](https://support.mozilla.org/questions/1528506 "Recent emails are coming in unformatted and missing subject and sender info (bit") [1528543](https://support.mozilla.org/questions/1528543 "Corrupted btinternet emails (bitdefender)") [1528577](https://support.mozilla.org/questions/1528577 "Strange code dominating incoming emails (bitdefender)") [1528582](https://support.mozilla.org/questions/1528582 "my emails are coming in some strange type of figures and numbers starting today ") +43 · [explore ↗](explorer.html#grain=monthly&cause=av:bitdefender&period=2025-08) | `▂▁▁▁▃▁▁▁▁▁▁█▂▂▂▁▁▁▂▁▁▁▁▁` |
-| **7.0×** | 2024-12 | m:orange | 14 | ⚠️ 50% ans · 0.6h | 2.0 | [1476744](https://support.mozilla.org/questions/1476744 "Boite mail") [1477337](https://support.mozilla.org/questions/1477337 "suite a une intervention de orange") [1477350](https://support.mozilla.org/questions/1477350 "envoi des messages") [1477378](https://support.mozilla.org/questions/1477378 "impossible d'envoyer mes mails lorsque je suis chez moi en wifi") [1477476](https://support.mozilla.org/questions/1477476 "Paramètres Orange Obsolètes") [1477498](https://support.mozilla.org/questions/1477498 "i cannot inscribe on thunder bird a new code as orange ask me to use thunderbird") +8 · [explore ↗](explorer.html#grain=monthly&cause=m:orange&period=2024-12) | `▄▃▅█▇▅▄▂▃▃▅▄▃▃▃▃▁▃▃▂▁▄▁▁` |
+| **7.0×** | 2024-12 | m:orange | 14 | ⚠️ 50% ans · 0.6h | 2.0 | [1476744](https://support.mozilla.org/questions/1476744 "Boite mail") [1477337](https://support.mozilla.org/questions/1477337 "suite a une intervention de orange") [1477350](https://support.mozilla.org/questions/1477350 "envoi des messages") [1477378](https://support.mozilla.org/questions/1477378 "impossible d'envoyer mes mails lorsque je suis chez moi en wifi") [1477476](https://support.mozilla.org/questions/1477476 "Paramètres Orange Obsolètes") [1477498](https://support.mozilla.org/questions/1477498 "i cannot inscribe on thunder bird a new code as orange ask me to use thunderbird") +8 · [explore ↗](explorer.html#grain=monthly&cause=m:orange&period=2024-12) | `▄▃▅█▇▅▄▂▃▃▅▄▃▃▃▃▁▃▃▂▁▄▁▂` |
 | **6.8×** | 2025-01 | av:bitdefender | 17 | 88% ans · 3.4h | 2.5 | [1482921](https://support.mozilla.org/questions/1482921 "Transferring Thunderbird Profile from Windows 10 Computer to Windows 11 Computer") [1484507](https://support.mozilla.org/questions/1484507 "All'avvio Thunderbird si apre 3 secondo e poi si chiude inaspettatamente") [1484717](https://support.mozilla.org/questions/1484717 "Thunderbird Freezing (＂Not Responding＂) Repeatedly") [1485005](https://support.mozilla.org/questions/1485005 "Thunderbird crashes when trying to open settings, caused by Bitdefender") [1485049](https://support.mozilla.org/questions/1485049 "Thunderbird crashes on startup, caused by Bitdefender") [1485835](https://support.mozilla.org/questions/1485835 "Sent radio buttons do not exist, send unsent email option greyed out under File ") +11 · [explore ↗](explorer.html#grain=monthly&cause=av:bitdefender&period=2025-01) | `▂▁▁▁▃▁▁▁▁▁▁█▂▂▂▁▁▁▂▁▁▁▁▁` |
 | **6.0×** | 2025-08 | m:btinternet | 9 | 89% ans · 10.7h | 1.5 | [1528543](https://support.mozilla.org/questions/1528543 "Corrupted btinternet emails (bitdefender)") [1528732](https://support.mozilla.org/questions/1528732 "I have started receiving emails as attached. (bitdefender)") [1528856](https://support.mozilla.org/questions/1528856 "I no longer receive correct emails from Thunderbird.   Each message received sta") [1528919](https://support.mozilla.org/questions/1528919 "receiving emails with no header (bitdefender)") [1529008](https://support.mozilla.org/questions/1529008 "Incoming emails from my BT email account are in gibberish (bitdefender)") [1529260](https://support.mozilla.org/questions/1529260 "Incoming emails into BT internet account lose formatting and attachements") +3 · [explore ↗](explorer.html#grain=monthly&cause=m:btinternet&period=2025-08) | `▆▄▄▅▄▆▂▃▂▃▂█▄▃▃▅▄▆▂▄▄▄▆▁` |
 | **5.3×** | 2025-12 | m:gmx | 8 | 88% ans · 17.0h | 1.5 | [1552704](https://support.mozilla.org/questions/1552704 "GMX IMAP Login Failure") [1553040](https://support.mozilla.org/questions/1553040 "Login to the server pop.gmx.net with username ＂...＂ failed.") [1555220](https://support.mozilla.org/questions/1555220 "warum verlangt https://caldav.gmx.net verlangt einen Benutzernamen und ein Passw") [1555687](https://support.mozilla.org/questions/1555687 "Account creation not possible despite confirmed login credentials") [1556443](https://support.mozilla.org/questions/1556443 "cannot receive mails in my inbox, basis is GMX") [1556657](https://support.mozilla.org/questions/1556657 "Ich kann mit Thunderbird keine Emails mehr versenden u. empfangen und mittlerwei") +2 · [explore ↗](explorer.html#grain=monthly&cause=m:gmx&period=2025-12) | `▁▂▃▅▃▂▂▁▁▁▁▂▃▂▁▅▂▃█▃▂▂▃▁` |
@@ -49,8 +49,8 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 992 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▇▃` |
-| v153 | 472 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃█` |
+| v140 | 993 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▇▃` |
+| v153 | 475 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃█` |
 | v150 | 442 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▁▂▁` |
 | v152 | 377 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁` |
 | v151 | 335 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁▁` |
@@ -60,21 +60,21 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 2502 | `██▇▇▇▆▆▆▅▄▅▆▆▅▅▅▅▄▅▄▄▃▄▃` |
-| m:microsoftemail | 2009 | `██▆▅▅▅▄▄▃▃▄▄▄▅▄▄▄▄▄▃▄▃▂▂` |
-| m:yahooemail | 838 | `▆▅▄▅▆▃▄▃▃▄▇▆▆▆▇▄▄▇█▅▆▄▅▆` |
+| m:gmail | 2503 | `██▇▇▇▆▆▆▅▄▅▆▆▅▅▅▅▄▅▄▄▃▄▃` |
+| m:microsoftemail | 2011 | `██▆▅▅▅▄▄▃▃▄▄▄▅▄▄▄▄▄▃▄▃▂▃` |
+| m:yahooemail | 839 | `▆▅▄▅▆▃▄▃▃▄▇▆▆▆▇▄▄▇█▅▆▄▅▆` |
 | m:comcast | 354 | `▆▆▆▅▆▄▅▄▄▃▃█▄▄▆▅▂▃▃▅▄▄▄▃` |
-| m:spectrum | 286 | `█▇▄▅▅▇▅▅▅▅▅▆▆▃▇▅▄▆▃▃██▃▅` |
+| m:spectrum | 288 | `█▇▄▅▅▇▅▅▅▅▅▆▆▃▇▅▄▆▃▃██▃▅` |
 | m:att | 190 | `▄▄▅██▅▃▃▅▃▇▇▃▂▄▆▃▃▅▃▂▂▃▂` |
 
 ### Top protocols
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 1929 | `█▇▇██▇▅▅▅▄▆▆▅▆▅▄▅▄▅▃▅▄▄▃` |
-| proto:smtp | 1222 | `█▇▇▅▇▅▅▅▅▄▅▇▅▄▄▃▅▅▅▃▄▃▄▃` |
-| proto:pop | 1211 | `█▇█▆█▆▄▅▅▅▆▇▅▆▄▃▅▄▄▄▄▃▅▄` |
-| proto:oauth | 492 | `█▆▄▄▄▂▃▃▂▂▃▃▂▃▃▂▃▃▅▂▃▂▃▂` |
+| proto:imap | 1931 | `█▇▇██▇▅▅▅▄▆▆▅▆▅▄▅▄▅▃▅▄▄▄` |
+| proto:smtp | 1223 | `█▇▇▅▇▅▅▅▅▄▅▇▅▄▄▃▅▅▅▃▄▃▄▃` |
+| proto:pop | 1212 | `█▇█▆█▆▄▅▅▅▆▇▅▆▄▃▅▄▄▄▄▃▅▄` |
+| proto:oauth | 493 | `█▆▄▄▄▂▃▃▂▂▃▃▂▃▃▂▃▃▅▂▃▂▃▂` |
 | proto:caldav | 97 | `▅▆▆▅█▃▃▃▆▅▆▄▃▄▂▃▅▆▃▃▂▃▃▁` |
 | proto:carddav | 54 | `▃▄▅▃▄▂▇▃▂▁▃█▂▃▃▂▂▄▅▄▂▂▂▂` |
 
@@ -93,9 +93,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 7057 | `▂▃▃▂▃▂▂▂▂▂▃▃▂▃▂▂▅██▇▇▇▇▅` |
-| os:linux | 1259 | `▆▆▆▅▆▅▃▄▅▄▃▅▅▄▄▄▆▇█▆▇▆▆▇` |
-| os:macos | 856 | `▄▄▃▃▃▄▃▃▃▂▄▄▄▂▄▂▆▇█▆▆▅▅▅` |
+| os:windows | 7066 | `▂▃▃▂▃▂▂▂▂▂▃▃▂▃▂▂▅██▇▇▇▇▆` |
+| os:linux | 1260 | `▆▆▆▅▆▅▃▄▅▄▃▅▅▄▄▄▆▇█▆▇▆▆▇` |
+| os:macos | 857 | `▄▄▃▃▃▄▃▃▃▂▄▄▄▂▄▂▆▇█▆▆▅▅▅` |
 | os:other | 128 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▂▁▂▃▃▂` |
 | os:android | 92 | `▁▂▁▁▂▂▂▂▁▂▃▃▁▂▂▁▇█▇█▅▃▅▆` |
 
@@ -114,4 +114,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-monthly-rollup.csv`._
 
-_Last updated: 2026-08-22 04:43 UTC_
+_Last updated: 2026-08-22 16:42 UTC_
