@@ -1,0 +1,2 @@
+date_created_utc,elapsed,creator,creator_url,version,os,question_id,question_url,question_title,question_content,assignee,assignee_url
+2026-08-14 10:01,8d 21h,archie.mccann,https://support.mozilla.org/en-US/user/archie.mccann/,22.0,Android,1598251,https://support.mozilla.org/questions/1598251,Mark as unread button doesn't work.,"When reading an email, the ""Mark as unread"" button at the top does not work. Instead, it closes the email as expected but does not change the status from ""read"" to ""unread"". This used to be functional before the most recent update. ",,
