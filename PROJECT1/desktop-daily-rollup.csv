@@ -224,6 +224,7 @@ period,dim,value,count
 2026-07-19,mail_provider,m:gmx,1
 2026-07-20,mail_provider,m:gmx,1
 2026-07-28,mail_provider,m:gmx,1
+2026-08-25,mail_provider,m:gmx,1
 2026-05-29,mail_provider,m:icloud,2
 2026-06-01,mail_provider,m:icloud,1
 2026-06-02,mail_provider,m:icloud,1
@@ -319,6 +320,7 @@ period,dim,value,count
 2026-08-22,mail_provider,m:microsoftemail,2
 2026-08-23,mail_provider,m:microsoftemail,1
 2026-08-24,mail_provider,m:microsoftemail,1
+2026-08-25,mail_provider,m:microsoftemail,1
 2026-06-02,mail_provider,m:orange,1
 2026-06-05,mail_provider,m:orange,2
 2026-06-07,mail_provider,m:orange,1
@@ -745,7 +747,7 @@ period,dim,value,count
 2026-08-22,os,os:windows,28
 2026-08-23,os,os:windows,23
 2026-08-24,os,os:windows,36
-2026-08-25,os,os:windows,5
+2026-08-25,os,os:windows,10
 2026-06-05,protocol,proto:caldav,1
 2026-06-07,protocol,proto:caldav,1
 2026-06-27,protocol,proto:caldav,1
@@ -1364,7 +1366,7 @@ period,dim,value,count
 2026-08-22,tb_version_major,154,13
 2026-08-23,tb_version_major,154,10
 2026-08-24,tb_version_major,154,19
-2026-08-25,tb_version_major,154,2
+2026-08-25,tb_version_major,154,5
 2026-06-25,tb_version_major,156,1
 2026-05-28,total,all,35
 2026-05-29,total,all,24
@@ -1455,4 +1457,4 @@ period,dim,value,count
 2026-08-22,total,all,33
 2026-08-23,total,all,25
 2026-08-24,total,all,41
-2026-08-25,total,all,5
+2026-08-25,total,all,12

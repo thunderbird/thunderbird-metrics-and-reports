@@ -5,12 +5,12 @@ title: DAILY: Thunderbird Desktop — Support Spike Report
 
 # DAILY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2026-05-28 … 2026-08-25 · **daily** grain · trailing 90 days · 2248 questions · no AI (regex + traditional stats)_
+_Generated 2026-05-28 … 2026-08-25 · **daily** grain · trailing 90 days · 2255 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 2248 questions, 25.0/day avg
-- **Answered (non-creator):** 1773/2248 (79%)
+- **Volume:** 2255 questions, 25.1/day avg
+- **Answered (non-creator):** 1779/2255 (79%)
 - **First-answer time (median):** 3.2h (p25 0.9h / p75 11.2h)
-- **Total volume trend:** `▇▅▄▄▅▅▆▅▅▄▄▆▆▆▅▇▄▅▅▅▆▆▅▄▃▄▇▆▇▅▄▄▅▆▅▆▅▅▄▆▆▅▆▅▄▃▆▆▄▄▄▅▄▆▆▅▇▅▃▆▆▅▅▄▆▅▃▇▆▆▆▇▇▄▆▄▆▆▆▅▆▆█▅▆▇▇▅█▂`
+- **Total volume trend:** `▇▅▄▄▅▅▆▅▅▄▄▆▆▆▅▇▄▅▅▅▆▆▅▄▃▄▇▆▇▅▄▄▅▆▅▆▅▅▄▆▆▅▆▅▄▃▆▆▄▄▄▅▄▆▆▅▇▅▃▆▆▅▅▄▆▅▃▇▆▆▆▇▇▄▆▄▆▆▆▅▆▆█▅▆▇▇▅█▃`
 
 > ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
 
@@ -47,7 +47,7 @@ _No cause-level spikes in this window at current thresholds._
 | v140 | 450 | `▆▆▆▄▅▇█▆▇▂▅▆▄▄▅▅▄▄▅▆▄▇▂▃▂▂▇▆▇▂▄▇▄▅▄▅▅▆▅▆▅▅▇▄▄▂▅▄▅▅▅▄▄▇▅▅▅▇▂▆▅▄▇▃▄▂▂▂▃▄▂▃▄▂▃▄▂▁▂▃▂▂▂▁▃▂▃▃▂▂` |
 | v152 | 376 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▄▆▆▄▄▅▅▆▇█▆▃█▅▆█▄▆▃▆▇▆▆▄▂▃▆█▄▃▁▆▃▅▆▂▂▁▁▂▁▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | v151 | 244 | `█▆▃▄▄▅▅▃▆▅▅▇█▆▅▅▃▄▄▅▂▁▂▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| v154 | 87 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▄▅█▆▅█▂` |
+| v154 | 90 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▄▅█▆▅█▃` |
 | v150 | 65 | `▅▁▁▃▁▃▃▃▁▁▁▆▃▁▃▃▁▁▁▃▁▁▁▁▁▁▅▁▁▃▁▁▃▆▁▃▃▁▁▃▆▁▅▃▅▁▃▁▁▃▁▆▅▅▅▃▁▁▁▃▁▃▃▁▁▁▁▅▁▃▆▃█▁▃▁▁▁▃▃▃▃▁▃▃▁▁▁▃▁` |
 
 ### Top mail providers
@@ -55,7 +55,7 @@ _No cause-level spikes in this window at current thresholds._
 | Value | Total | Trend |
 |:--|--:|:--|
 | m:gmail | 195 | `▇▄▂▁▄▃▃▁▁▁▃▄▁▄▃▂▁▂▄▂▃▁▃▃▃▂▂▃▄▄▂▅▁▇▃▄▄▄▅▂▃▄▄▅▄▁▁▅▁▃▄▄▂▁▁▄▂▇▂▇▃▄▂▅▃▂▁▆▅▂▅▂▅▁▄▂▃▄▃▄▁▄█▃▅▃▄▄▁▃` |
-| m:microsoftemail | 135 | `▃▂▂▁▅▅▂▃▆▅▅▁▅▂▂▅▂▁▃▂▁▂▃▂▁▂▃▃▂▃▂▃█▃▁▅▃▂▂▁▁▃█▁▁▅▁▅▁▃▂▁▁▃▂▃▂▁▁▂▃▂▂▂▁▃▂▆▇▃▁▃▂▁▅▂▃▅▃▁▂▂▂▂▃▅▃▂▂▁` |
+| m:microsoftemail | 136 | `▃▂▂▁▅▅▂▃▆▅▅▁▅▂▂▅▂▁▃▂▁▂▃▂▁▂▃▃▂▃▂▃█▃▁▅▃▂▂▁▁▃█▁▁▅▁▅▁▃▂▁▁▃▂▃▂▁▁▂▃▂▂▂▁▃▂▆▇▃▁▃▂▁▅▂▃▅▃▁▂▂▂▂▃▅▃▂▂▂` |
 | m:yahooemail | 108 | `▅▃▆▅▃▁▅▅▃▁▁▁▃▆▃▃▃▃▁▃▆▁▁▁▁▆▁▁▃▁▁▁▅▅▃▅▃▁▆▃▃▃▃▃▁▃▃▁▁▁▁▃▃▁▃▁▁▅▁▅▃█▅▁▅▃▅▆▅▃▅▃▆▅██▅▃▆▃█▃▅▁▅▅▃▁▁▁` |
 | m:spectrum | 47 | `▁▁▁▁▂▂▃▁▁▂▁▂█▅▁▂▁▁▁▂▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▂▂▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▂▁▁▁▁▁▁▂▁▁▂▁▁▂▂▁▁▃▁▂▁▁▁▂▁▁▃▅▅▅▁` |
 | m:comcast | 39 | `▁▃▃▁▃▁▃▁▁▁▃▁▁▃▁▃▃▁▃▃▆▁▁▁▁▆▁▁▃▁▁▁▁▃▁▃▁▃▁▁▁▃▆▁▁▁▁▃▃▁▁▃▁▁▁▁▃▁▁▃▁▁▃▁▆▃▃▁▁▃▁▁▁▁▁▁▁▁▁▃█▁▃▁▁▃▃▁▁▁` |
@@ -87,7 +87,7 @@ _No cause-level spikes in this window at current thresholds._
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 1803 | `▇▅▄▄▄▅▆▅▅▄▄▆▆▆▅▅▃▄▄▅▅▆▆▄▃▃▆▅▆▅▃▄▆▅▄▅▄▅▄▅▆▅▆▄▄▃▆▆▄▄▃▅▃▆▆▄▆▅▂▅▆▅▅▄▇▄▃▇▆▄▅▅▆▄▆▃▆▆▆▄▄▆▆▅▆▇▆▅█▂` |
+| os:windows | 1808 | `▇▅▄▄▄▅▆▅▅▄▄▆▆▆▅▅▃▄▄▅▅▆▆▄▃▃▆▅▆▅▃▄▆▅▄▅▄▅▄▅▆▅▆▄▄▃▆▆▄▄▃▅▃▆▆▄▆▅▂▅▆▅▅▄▇▄▃▇▆▄▅▅▆▄▆▃▆▆▆▄▄▆▆▅▆▇▆▅█▃` |
 | os:linux | 202 | `▂▁▂▂▄▄▂▂▂▁▂▂▂▂▂▄▁▂▂▂▂▂▁▂▂▂▂▅▅▂▂▄▂▂▅▃▄▁▁▁▂▂▂▂▁▁▃▂▁▂▃▂▂▂▁▃▅▁▂▅▃▄▂▃▂▄▃▃▂▃▄█▅▁▃▄▂▂▃▄▅▂▃▂▂▂▃▂▂▁` |
 | os:macos | 151 | `▃▃▂▃▂▁▃▁▁▃▆▂▁▁▅▆▆▃▃▁▅▃▁▁▂▆▃▁▅▂▆▂▁▅▂▇▁▃▁▇▁▅▂▃▂▃▃▃▃▁▂▅▁▃▁▂▃▃▁▁▂▁▅▂▂▂▂▂▅█▅▃▃▃▂▅▂▂▁▅█▂▆▂▁▃▃▂▅▁` |
 | os:other | 26 | `▁▁▁▁▅▁▅▁▁▁▁▁▁▁▁▅▅▅█▁▁▁▁▁▁▁█▁▁▁▅▁▁▅▅▅█▅▁▁▁▁▁▅▁▁▁▅▁▅▁▁▁▁▁▅▁▅▁▁▅▁▁▁▁▁▅▁▅▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
@@ -108,4 +108,4 @@ _No cause-level spikes in this window at current thresholds._
 
 _Notes: spikes detected at **daily** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-daily-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-daily-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-daily-rollup.csv`._
 
-_Last updated: 2026-08-25 04:44 UTC_
+_Last updated: 2026-08-25 16:49 UTC_

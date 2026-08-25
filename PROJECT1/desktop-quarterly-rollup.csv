@@ -434,7 +434,7 @@ period,dim,value,count
 2025-Q4,mail_provider,m:gmx,10
 2026-Q1,mail_provider,m:gmx,23
 2026-Q2,mail_provider,m:gmx,9
-2026-Q3,mail_provider,m:gmx,4
+2026-Q3,mail_provider,m:gmx,5
 2023-Q4,mail_provider,m:icloud,13
 2024-Q1,mail_provider,m:icloud,19
 2024-Q2,mail_provider,m:icloud,14
@@ -532,7 +532,7 @@ period,dim,value,count
 2025-Q4,mail_provider,m:microsoftemail,228
 2026-Q1,mail_provider,m:microsoftemail,216
 2026-Q2,mail_provider,m:microsoftemail,191
-2026-Q3,mail_provider,m:microsoftemail,77
+2026-Q3,mail_provider,m:microsoftemail,78
 2023-Q4,mail_provider,m:onecom,1
 2024-Q1,mail_provider,m:onecom,2
 2024-Q2,mail_provider,m:onecom,2
@@ -898,7 +898,7 @@ period,dim,value,count
 2025-Q4,os,os:windows,431
 2026-Q1,os,os:windows,1847
 2026-Q2,os,os:windows,1855
-2026-Q3,os,os:windows,1135
+2026-Q3,os,os:windows,1140
 2023-Q4,protocol,proto:caldav,12
 2024-Q1,protocol,proto:caldav,14
 2024-Q2,protocol,proto:caldav,6
@@ -1027,7 +1027,7 @@ period,dim,value,count
 2026-Q3,tb_version_major,152,217
 2026-Q2,tb_version_major,153,4
 2026-Q3,tb_version_major,153,491
-2026-Q3,tb_version_major,154,87
+2026-Q3,tb_version_major,154,90
 2026-Q1,tb_version_major,155,1
 2026-Q2,tb_version_major,156,1
 2026-Q2,tb_version_major,159,1
@@ -1042,4 +1042,4 @@ period,dim,value,count
 2025-Q4,total,all,3282
 2026-Q1,total,all,2834
 2026-Q2,total,all,2295
-2026-Q3,total,all,1429
+2026-Q3,total,all,1436
