@@ -5,7 +5,7 @@ title: "2026-08 exec summary: Thunderbird Desktop support spikes"
 
 # August 2026 — Thunderbird Desktop support spikes
 
-_Executive summary · **2026-08** · 698 questions · regenerated 2026-08-25 05:40 UTC · no AI (regex + traditional stats)_
+_Executive summary · **2026-08** · 725 questions · regenerated 2026-08-26 05:42 UTC · no AI (regex + traditional stats)_
 
 ## 🚨 August 2026: 8 spikes to investigate
 
@@ -16,19 +16,19 @@ _Executive summary · **2026-08** · 698 questions · regenerated 2026-08-25 05:
 
 | Detector | daily | weekly | monthly |
 |:--|--:|--:|--:|
-| **version×cause** (release regressions) | 4 | 1 | 1 |
+| **version×cause** (release regressions) | 4 | 2 | 0 |
 | **cause-level** (provider · protocol · AV) | 0 | 2 | 0 |
 
-- **Volume:** 698 questions (`▅▃▇▆▆▆▇▇▄▆▄▆▆▆▅▆▆█▅▆▇▇▅█▂` by day), 216 (31%) carry a cause tag
-- **Answered (non-creator):** 502/698 (72%) · median first answer 2.5h
-- **Release-adoption version spikes:** 22 (expected after a release — not incidents; collapsed below)
+- **Volume:** 725 questions (`▅▃▇▆▆▆▇▇▄▆▄▆▆▆▅▆▆█▅▆▇▇▅█▆▂` by day), 224 (31%) carry a cause tag
+- **Answered (non-creator):** 516/725 (71%) · median first answer 2.4h
+- **Release-adoption version spikes:** 23 (expected after a release — not incidents; collapsed below)
 
 > ⏱ **Spike timing lags the incident.** A spike dates when users *piled in*, typically days after onset and often near resolution. Treat these as pain-cluster / triage signals, not real-time detection.
 
 > 🔄 **This verdict is not frozen when the month ends.** Lift is measured against each cause's rate across all history, so later questions shift a closed month's expected values and rows can cross the threshold in either direction; answered-% keeps firming up as late answers land. That is why this page regenerates daily — and because each day's version is committed, `git log -p` on this file shows exactly how the verdict evolved.
 
 <details markdown="1">
-<summary><strong>🔍 Near misses (within ~25% of threshold)</strong> — 5 rows</summary>
+<summary><strong>🔍 Near misses (within ~25% of threshold)</strong> — 6 rows</summary>
 
 Clusters the same detectors flag at **0.75× the thresholds** (i.e. within ~25% of firing) but which did NOT clear the real ones. Not incidents — context, so that “clean” is not confused with “quiet”.
 
@@ -36,10 +36,11 @@ Clusters the same detectors flag at **0.75× the thresholds** (i.e. within ~25% 
 
 | Grain | Lift | When | Version × Cause | Qs | Served | Example questions |
 |:--|--:|:--|:--|--:|:--|:--|
-| weekly | 3.0× | 2026-08-17 | v153 × m:spectrum | 5 | 80% ans · 10.1h | [1598964](https://support.mozilla.org/questions/1598964 "Thunderbird connection resets when using Mozilla VPN.") [1599516](https://support.mozilla.org/questions/1599516 "When trying to send an email it will not go") [1599553](https://support.mozilla.org/questions/1599553 "I can't receive or send emails in thunderbird.") [1599823](https://support.mozilla.org/questions/1599823 "After latest update can't connect to spectrum email") [1599836](https://support.mozilla.org/questions/1599836 "all INBOX emails disappeared--no luck repairing folder or deleting INBOX.msf but") |
+| monthly | 2.9× | 2026-08 | v154 × m:spectrum | 5 | 80% ans · 4.2h | [1599683](https://support.mozilla.org/questions/1599683 "Suddenly not receiving email") [1599738](https://support.mozilla.org/questions/1599738 "Thunderbird is not receiving in coming mail from Charter") [1599818](https://support.mozilla.org/questions/1599818 "Thunderbird not connecting to server.  Cannot send or receive emails.") [1599874](https://support.mozilla.org/questions/1599874 "Ability to send emails using roadrunner (mail.twc.com) account") [1600052](https://support.mozilla.org/questions/1600052 "Trouble connecting to my email provider Time Warner Corporation to send emails u") |
 | weekly | 2.9× | 2026-07-27 | v153 × m:comcast | 4 | 75% ans · 5.4h | [1595937](https://support.mozilla.org/questions/1595937 "") [1595941](https://support.mozilla.org/questions/1595941 "") [1596164](https://support.mozilla.org/questions/1596164 "With version 153: Unable to send from gmail account.  And cannot create a new gm") [1596297](https://support.mozilla.org/questions/1596297 "Trying to set APP Password to connect with Yahoo Mail conversion at Comcast.") |
 | daily | 2.6× | 2026-08-18 | v153 × m:gmail | 6 | ⚠️ 17% ans · 0.7h | [1598887](https://support.mozilla.org/questions/1598887 "＂Authentification Failure while connecting to server imap.gmail.com＂ How do I re") [1598903](https://support.mozilla.org/questions/1598903 "emails from senders with gmail accounts not being downloaded") [1598918](https://support.mozilla.org/questions/1598918 "Thunderbird has stopped receiving email") [1598928](https://support.mozilla.org/questions/1598928 "Thunderbird PC app and Android both loading and syncing incoming email and all f") [1598949](https://support.mozilla.org/questions/1598949 "Unable to sync address book with Gmail") [1598950](https://support.mozilla.org/questions/1598950 "Unable to sync address book with Gmail (locked duplicate)") |
 | daily | 2.4× | 2026-08-03 | v153 × m:microsoftemail | 4 | 100% ans · 15.7h | [1596378](https://support.mozilla.org/questions/1596378 "cartelle cscomparse account posta hotmail") [1596433](https://support.mozilla.org/questions/1596433 "Mijn agenda op Thunderbird.") [1596442](https://support.mozilla.org/questions/1596442 "Aanmelden bij outlook met mailadres dat hoofdletters bevat is niet meer mogelijk") [1596497](https://support.mozilla.org/questions/1596497 "Thunderbird cannot log-in to my mail accounts") |
+| daily | 2.3× | 2026-08-14 | v153 × proto:imap | 4 | 100% ans · 15.5h | [1598269](https://support.mozilla.org/questions/1598269 "IMAP/SMTP server connected, but receives and send fails") [1598279](https://support.mozilla.org/questions/1598279 "Thunderbird Shift + F5 not working") [1598311](https://support.mozilla.org/questions/1598311 "Thunderbird went goofy for multiple gmail accounts - deleted email does not show") [1598357](https://support.mozilla.org/questions/1598357 "Recently Unable to send (SMTP) from Thunderbird from Cox.com (now thru Yahoo).") |
 
 **Cause-level**
 
@@ -64,7 +65,7 @@ Clusters the same detectors flag at **0.75× the thresholds** (i.e. within ~25% 
 | daily | **3.3×** | 2026-08-13 | v153 × proto:pop | 4 | 100% ans · 1.2h | recurring | [1598091](https://support.mozilla.org/questions/1598091 "thunderbird has stopped receiving emails from century link") [1598146](https://support.mozilla.org/questions/1598146 "Can't access my account") [1598151](https://support.mozilla.org/questions/1598151 "How to set up automatic email forwarding from Thunderbird to Gmail") [1598175](https://support.mozilla.org/questions/1598175 "Thunderbird won't download email messages from Yahoo (formerly Cox) account") |
 | daily | **3.3×** | 2026-08-10 | v153 × proto:pop | 4 | 75% ans · 1.1h | spreading | [1597551](https://support.mozilla.org/questions/1597551 "Thunderbird POP stopped retrieving email from one mail box, No error message") [1597571](https://support.mozilla.org/questions/1597571 "Email collection over pop failed on one account, server settings rejected when I") [1597638](https://support.mozilla.org/questions/1597638 "How logging onto wowway with old password?") [1597683](https://support.mozilla.org/questions/1597683 "Hotmail personal account: IMAP OAuth2 works but SMTP OAuth2 fails with message: ") |
 | daily | **3.2×** | 2026-08-04 | v153 × m:microsoftemail | 5 | 100% ans · 0.8h | spreading | [1596545](https://support.mozilla.org/questions/1596545 "Microsoft Outlook authentication failure.") [1596547](https://support.mozilla.org/questions/1596547 "I just had a fake prompt to add a password to a website mimicking Thunderbird") [1596591](https://support.mozilla.org/questions/1596591 "email not collegament to app thunderbird pc (email outlook)") [1596602](https://support.mozilla.org/questions/1596602 "Import from Outlook (M365) Mac OS to Thunderbird?") [1596606](https://support.mozilla.org/questions/1596606 "Cannot import contacts from outlook 2016") |
-| monthly | **3.1×** | 2026-08 | v154 × m:spectrum | 5 | 80% ans · 4.2h | spreading | [1599683](https://support.mozilla.org/questions/1599683 "Suddenly not receiving email") [1599738](https://support.mozilla.org/questions/1599738 "Thunderbird is not receiving in coming mail from Charter") [1599818](https://support.mozilla.org/questions/1599818 "Thunderbird not connecting to server.  Cannot send or receive emails.") [1599874](https://support.mozilla.org/questions/1599874 "Ability to send emails using roadrunner (mail.twc.com) account") [1600052](https://support.mozilla.org/questions/1600052 "Trouble connecting to my email provider Time Warner Corporation to send emails u") |
+| weekly | **3.0×** | 2026-08-17 | v153 × m:spectrum | 5 | 80% ans · 10.1h | spreading | [1598964](https://support.mozilla.org/questions/1598964 "Thunderbird connection resets when using Mozilla VPN.") [1599516](https://support.mozilla.org/questions/1599516 "When trying to send an email it will not go") [1599553](https://support.mozilla.org/questions/1599553 "I can't receive or send emails in thunderbird.") [1599823](https://support.mozilla.org/questions/1599823 "After latest update can't connect to spectrum email") [1599836](https://support.mozilla.org/questions/1599836 "all INBOX emails disappeared--no luck repairing folder or deleting INBOX.msf but") |
 
 </details>
 
@@ -79,7 +80,7 @@ Clusters the same detectors flag at **0.75× the thresholds** (i.e. within ~25% 
 </details>
 
 <details markdown="1">
-<summary><strong>📦 Release-adoption version/OS spikes (not incidents)</strong> — 22 rows</summary>
+<summary><strong>📦 Release-adoption version/OS spikes (not incidents)</strong> — 23 rows</summary>
 
 Version and OS are **filters, not causes** — a bare version spike is release adoption, not a regression. Listed for manual checking only.
 
@@ -99,14 +100,15 @@ Version and OS are **filters, not causes** — a bare version spike is release a
 | daily | **new** | 2026-08-22 | tb_version_major | 154 | 13 [1599566](https://support.mozilla.org/questions/1599566 "My Thunderbird is freezing up") [1599568](https://support.mozilla.org/questions/1599568 "Thunderbird is freezing up after a few minutes or when I try to select a folder.") | 0.0 |
 | daily | **new** | 2026-08-23 | tb_version_major | 154 | 10 [1599762](https://support.mozilla.org/questions/1599762 "How do I  add my Outlook Calendar to TB 154 using Owl") [1599777](https://support.mozilla.org/questions/1599777 "mail indirmeyi çok yavaş yapıyor.nedeni nedir ? 1000 mb internet hızım var.") | 0.0 |
 | daily | **new** | 2026-08-24 | tb_version_major | 154 | 19 [1599916](https://support.mozilla.org/questions/1599916 "Are you having problems with the program right now?") [1599944](https://support.mozilla.org/questions/1599944 "Transfer Thunderbird from PC to Laptop") | 0.0 |
-| monthly | **new** | 2026-08 | tb_version_major | 154 | 85 [1596686](https://support.mozilla.org/questions/1596686 "Cannot print Pdf files from within Thunderbird") [1598813](https://support.mozilla.org/questions/1598813 "Missing SENT messages. Folder ＂greyed out＂") | 0.0 |
-| monthly | **780.0×** | 2026-08 | tb_version_major | 153 | 390 [1596031](https://support.mozilla.org/questions/1596031 "why is thunderbird not working") [1596048](https://support.mozilla.org/questions/1596048 "thunderbrd version 153.0.1 64bit: some registered adress get filtered as spam th") | 0.5 |
+| daily | **new** | 2026-08-25 | tb_version_major | 154 | 9 [1600116](https://support.mozilla.org/questions/1600116 "Account Passwords need frequent updating") [1600119](https://support.mozilla.org/questions/1600119 "Every time Thunderbird queries gmail, it starts downloading my hundreds of thous") | 0.0 |
+| monthly | **new** | 2026-08 | tb_version_major | 154 | 92 [1596686](https://support.mozilla.org/questions/1596686 "Cannot print Pdf files from within Thunderbird") [1598813](https://support.mozilla.org/questions/1598813 "Missing SENT messages. Folder ＂greyed out＂") | 0.0 |
+| monthly | **792.0×** | 2026-08 | tb_version_major | 153 | 396 [1596031](https://support.mozilla.org/questions/1596031 "why is thunderbird not working") [1596048](https://support.mozilla.org/questions/1596048 "thunderbrd version 153.0.1 64bit: some registered adress get filtered as spam th") | 0.5 |
 | weekly | **new** | 2026-07-27 | tb_version_major | 153 | 79 [1595089](https://support.mozilla.org/questions/1595089 "") [1595090](https://support.mozilla.org/questions/1595090 "") | 0.0 |
 | weekly | **274.0×** | 2026-08-03 | tb_version_major | 153 | 137 [1596331](https://support.mozilla.org/questions/1596331 "When a message must be Sent Later, where is the draft stored???") [1596345](https://support.mozilla.org/questions/1596345 "InsertSignature button moved from formatting toolbar to top toolbar after Thunde") | 0.5 |
 | weekly | **52.0×** | 2026-08-10 | tb_version_major | 153 | 130 [1597513](https://support.mozilla.org/questions/1597513 "Migrate emails to another provider") [1597551](https://support.mozilla.org/questions/1597551 "Thunderbird POP stopped retrieving email from one mail box, No error message") | 2.5 |
 | weekly | **new** | 2026-08-17 | tb_version_major | 154 | 63 [1598813](https://support.mozilla.org/questions/1598813 "Missing SENT messages. Folder ＂greyed out＂") [1598989](https://support.mozilla.org/questions/1598989 "Over the weekend Thuderbird stopped allowing me to send emails and will not set ") | 0.0 |
 | weekly | **3.8×** | 2026-08-17 | tb_version_major | 153 | 89 [1598650](https://support.mozilla.org/questions/1598650 "I am trying to restore a backed up profile for use in thunderbird.") [1598659](https://support.mozilla.org/questions/1598659 "Please remover the annpying Yahoo signip splash screen") | 23.5 |
-| weekly | **new** | 2026-08-24 | tb_version_major | 154 | 21 [1599916](https://support.mozilla.org/questions/1599916 "Are you having problems with the program right now?") [1599944](https://support.mozilla.org/questions/1599944 "Transfer Thunderbird from PC to Laptop") | 0.0 |
+| weekly | **new** | 2026-08-24 | tb_version_major | 154 | 28 [1599916](https://support.mozilla.org/questions/1599916 "Are you having problems with the program right now?") [1599944](https://support.mozilla.org/questions/1599944 "Transfer Thunderbird from PC to Laptop") | 0.0 |
 
 </details>
 
@@ -117,65 +119,65 @@ Version and OS are **filters, not causes** — a bare version spike is release a
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| v153 | 390 | `▅▄▇▇▅▇▇▇▅▇▄▇▇▇▅▇▇█▄▄▅▃▃▄▁` |
-| v154 | 85 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▄▅█▆▅█▂` |
-| v140 | 56 | `▃▃▅▆█▅▆█▃▆█▅▁▅▆▅▅▅▁▆▅▆▆▅▅` |
-| v115 | 19 | `▃▁▃▃▆▁▃▃▁█▁▁▁▁▃▆▆▁▁▁▁▆▁▆▁` |
-| v150 | 19 | `▁▁▅▁▃▆▃█▁▃▁▁▁▃▃▃▃▁▃▃▁▁▁▃▁` |
-| v152 | 6 | `█▁█▁█▁█▁█▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁` |
+| v153 | 396 | `▅▄▇▇▅▇▇▇▅▇▄▇▇▇▅▇▇█▄▄▅▃▃▄▂▂` |
+| v154 | 92 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▄▅█▆▅█▄▁` |
+| v140 | 56 | `▃▃▅▆█▅▆█▃▆█▅▁▅▆▅▅▅▁▆▅▆▆▅▅▁` |
+| v115 | 20 | `▃▁▃▃▆▁▃▃▁█▁▁▁▁▃▆▆▁▁▁▁▆▁▆▃▁` |
+| v150 | 19 | `▁▁▅▁▃▆▃█▁▃▁▁▁▃▃▃▃▁▃▃▁▁▁▃▁▁` |
+| v152 | 6 | `█▁█▁█▁█▁█▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁` |
 
 **Top mail providers**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| m:gmail | 60 | `▂▁▆▅▂▅▂▅▁▄▂▃▄▃▄▁▄█▃▅▃▄▄▁▃` |
-| m:yahooemail | 44 | `▃▅▆▅▃▅▃▆▅██▅▃▆▃█▃▅▁▅▅▃▁▁▁` |
-| m:microsoftemail | 41 | `▄▂▇█▄▁▄▂▁▅▂▄▅▄▁▂▂▂▂▄▅▄▂▂▁` |
-| m:spectrum | 22 | `▁▃▁▁▃▁▁▃▃▁▁▅▁▃▁▁▁▃▁▁▅███▁` |
-| m:comcast | 10 | `▃▃▁▁▃▁▁▁▁▁▁▁▁▁▃█▁▃▁▁▃▃▁▁▁` |
-| m:cox | 5 | `▁▁▁▁▁▁▁█▁▁▁███▁▁▁▁▁▁▁█▁▁▁` |
+| m:gmail | 62 | `▂▁▆▅▂▅▂▅▁▄▂▃▄▃▄▁▄█▃▅▃▄▄▁▄▂` |
+| m:yahooemail | 46 | `▃▅▆▅▃▅▃▆▅██▅▃▆▃█▃▅▁▅▅▃▁▁▅▁` |
+| m:microsoftemail | 43 | `▄▂▇█▄▁▄▂▁▅▂▄▅▄▁▂▂▂▂▄▅▄▂▂▄▁` |
+| m:spectrum | 23 | `▁▃▁▁▃▁▁▃▃▁▁▅▁▃▁▁▁▃▁▁▅███▃▁` |
+| m:comcast | 10 | `▃▃▁▁▃▁▁▁▁▁▁▁▁▁▃█▁▃▁▁▃▃▁▁▁▁` |
+| m:cox | 5 | `▁▁▁▁▁▁▁█▁▁▁███▁▁▁▁▁▁▁█▁▁▁▁` |
 
 **Top protocols**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| proto:imap | 53 | `▃▁▇▃▅▁▁▃▃█▂▂▅▆▃▂▅▆▃▁▃▅▃▅▁` |
-| proto:pop | 37 | `▃▃▅▆▃▅▅▆▅█▁▁██▁▁▅▅▁▃▃▃▁▃▁` |
-| proto:smtp | 30 | `▁▃█▁▃▁▃▃▃▆▁▆▆▆▃▁▃▃▃▆█▆▃▆▁` |
-| proto:oauth | 12 | `▁▁▃▁▁▁▁▆▁█▃▁▃▁▃▁▃▁▃▁▁▃▁▁▁` |
-| proto:ews | 3 | `█▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁` |
-| proto:carddav | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁█▁` |
+| proto:imap | 54 | `▃▁▇▃▅▁▁▃▃█▂▂▅▆▃▂▅▆▃▁▃▅▃▅▂▁` |
+| proto:pop | 37 | `▃▃▅▆▃▅▅▆▅█▁▁██▁▁▅▅▁▃▃▃▁▃▁▁` |
+| proto:smtp | 31 | `▁▃█▁▃▁▃▃▃▆▁▆▆▆▃▁▃▃▃▆█▆▃▆▃▁` |
+| proto:oauth | 13 | `▁▁▃▁▁▁▁▆▁█▃▁▃▁▃▁▃▁▃▁▁▃▁▁▃▁` |
+| proto:ews | 3 | `█▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁` |
+| proto:carddav | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁█▁▁` |
 
 **Top antivirus**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| av:bitdefender | 2 | `▁▁█▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| av:avast | 2 | `▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█` |
-| av:defender | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁█▁▁▁▁▁` |
-| av:norton | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁` |
-| av:mcafee | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁` |
-| av:kaspersky | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁` |
+| av:bitdefender | 2 | `▁▁█▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| av:avast | 2 | `▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁` |
+| av:defender | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁█▁▁▁▁▁▁` |
+| av:norton | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁` |
+| av:mcafee | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁` |
+| av:kaspersky | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁` |
 
 **OS mix (filter dimension)**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| os:windows | 546 | `▄▃▇▆▄▅▅▆▄▆▃▆▆▆▄▄▆▆▅▆▇▆▅█▂` |
-| os:linux | 74 | `▄▃▃▂▃▄█▅▁▃▄▂▂▃▄▅▂▃▂▂▂▃▂▂▁` |
-| os:macos | 50 | `▂▂▂▅█▅▃▃▃▂▅▂▂▁▅█▂▆▂▁▃▃▂▅▁` |
-| os:android | 9 | `▁▃▁▁▁▃▁▆▁▁▃▃▁▁▁▁▁█▁▁▁▁▁▁▁` |
-| os:other | 4 | `▁▅▁▅▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| os:windows | 566 | `▄▃▇▆▄▅▅▆▄▆▃▆▆▆▄▄▆▆▅▆▇▆▅█▅▂` |
+| os:linux | 78 | `▄▃▃▂▃▄█▅▁▃▄▂▂▃▄▅▂▃▂▂▂▃▂▂▄▁` |
+| os:macos | 51 | `▂▂▂▅█▅▃▃▃▂▅▂▂▁▅█▂▆▂▁▃▃▂▅▂▁` |
+| os:android | 9 | `▁▃▁▁▁▃▁▆▁▁▃▃▁▁▁▁▁█▁▁▁▁▁▁▁▁` |
+| os:other | 4 | `▁▅▁▅▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
 **macOS releases (filter dimension)**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| macos:tahoe | 3 | `▁▁▁▁█▁█▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁` |
-| macos:monterey | 2 | `▁▁▁█▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| macos:sonoma | 1 | `▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| macos:sierra | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁` |
-| macos:sequoia | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁` |
+| macos:tahoe | 3 | `▁▁▁▁█▁█▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁` |
+| macos:monterey | 2 | `▁▁▁█▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| macos:sonoma | 1 | `▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| macos:sierra | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁` |
+| macos:sequoia | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁` |
 
 
 </details>
