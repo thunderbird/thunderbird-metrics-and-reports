@@ -5,12 +5,12 @@ title: WEEKLY: Thunderbird Desktop — Support Spike Report
 
 # WEEKLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2026-03-02 … 2026-08-24 · **weekly** grain · trailing 26 weeks · 4689 questions · no AI (regex + traditional stats)_
+_Generated 2026-03-02 … 2026-08-24 · **weekly** grain · trailing 26 weeks · 4718 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 4689 questions, 180.3/week avg
-- **Answered (non-creator):** 3752/4689 (80%)
+- **Volume:** 4718 questions, 181.5/week avg
+- **Answered (non-creator):** 3762/4718 (80%)
 - **First-answer time (median):** 3.3h (p25 1.0h / p75 11.5h)
-- **Total volume trend:** `██▇▇▇▇▆▆▆▇▇▆▇▆▇▆▆▆▆▅▆▆▇▇█▄`
+- **Total volume trend:** `██▇▇▇▇▆▆▆▇▇▆▇▆▇▆▆▆▆▅▆▆▇▇█▅`
 
 > ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
 
@@ -54,9 +54,9 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 905 | `▃▅▅▄▄▆▇▆▇▇█▇██▆▆▇▇▆▆▇▅▄▃▃▂` |
-| v153 | 503 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▅██▆▂` |
-| v150 | 443 | `▁▁▁▁▁▁▁▄▇██▄▂▁▁▁▁▁▂▁▁▁▂▁▁▁` |
+| v140 | 907 | `▃▅▅▄▄▆▇▆▇▇█▇██▆▆▇▇▆▆▇▅▄▃▃▂` |
+| v153 | 508 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▅██▆▂` |
+| v150 | 444 | `▁▁▁▁▁▁▁▄▇██▄▂▁▁▁▁▁▂▁▁▁▂▁▁▁` |
 | v152 | 377 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅██▇▆▄▂▁▁▁▁` |
 | v151 | 336 | `▁▁▁▁▁▁▁▁▁▁▁▅█▆█▃▂▁▁▁▁▁▁▁▁▁` |
 | v149 | 313 | `▁▁▁▃▄▇█▄▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
@@ -66,7 +66,7 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 | Value | Total | Trend |
 |:--|--:|:--|
 | m:gmail | 443 | `▇▇▆▇█▇▅▃▇▇▅▄▅▃▃▄▅▆▅▄▅▄▆▅▇▃` |
-| m:microsoftemail | 335 | `▆▇▅▅▆▇▄▅▆▇█▇▄▇▄▃▅▆▅▃▃▄▅▅▅▂` |
+| m:microsoftemail | 336 | `▆▇▅▅▆▇▄▅▆▇█▇▄▇▄▃▅▆▅▃▃▄▅▅▅▂` |
 | m:yahooemail | 233 | `█▇▄▅▂▅▂▃▃▄▅▃▆▃▄▂▂▅▃▂▃▅▆█▄▂` |
 | m:spectrum | 80 | `▂▂▂▂▂▁▃▂▂▄▂▅▂▄█▂▁▂▂▂▂▂▃▃▇▄` |
 | m:comcast | 74 | `▅▃▁▃▂▅█▃▁▄▃▂▆▄▄▅▄▄▄▄▃▅▂▅▄▂` |
@@ -76,9 +76,9 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 341 | `█▇▅█▅▄▅▃▄▆▅▇▆▆▄▄▅▆▆▅▅▄▆▇▆▄` |
-| proto:pop | 214 | `▄▆▃▄▃▄▆▆▄▅▆▇▆▅▆▂▃▇▆▅▄▆█▇▄▁` |
-| proto:smtp | 201 | `█▄▄▇▅▃▃▂▄▇▆▄▂▅▅▃▂▃▆▃▅▃▄▅▆▃` |
+| proto:imap | 342 | `█▇▅█▅▄▅▃▄▆▅▇▆▆▄▄▅▆▆▅▅▄▆▇▆▄` |
+| proto:pop | 215 | `▄▆▃▄▃▄▆▆▄▅▆▇▆▅▆▂▃▇▆▅▄▆█▇▄▂` |
+| proto:smtp | 202 | `█▄▄▇▅▃▃▂▄▇▆▄▂▅▅▃▂▃▆▃▅▃▄▅▆▄` |
 | proto:oauth | 105 | `█▃▄▃▄▂▃▂▁▂▄▃▃▃▂▄▁▂▄▃▃▃▃▄▃▁` |
 | proto:caldav | 13 | `▅▁▅▁▁▅▅▁▅▁▁▁▅█▁▁▅▁▅▁█▁▁▁▁▅` |
 | proto:ews | 12 | `█▁▁▁▁▁▁▁▃▃▁▃▃▁▃▁▁▃▁▁▁▃▃▁▃▁` |
@@ -91,15 +91,15 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 | av:defender | 15 | `▁█▁▁▁▅▁▁▁▅▅▅▅▅▅▅▁▅▅▁▁▅▁▅▅▁` |
 | av:norton | 14 | `▁▅▁▁█▅▁▁▁▁▁██▅▁▅▁▁▅▁▁█▁▁▅▁` |
 | av:avast | 13 | `▁▁▁▁█▆▁▁▃▁▃▁▁▁▃▃▁▁▆▁▁▁▃▁▁▃` |
-| av:mcafee | 8 | `▁▅▁▁▁█▁▁▁▁▁▅▅▁▁▅▁▁▁▁▅▁▁▁▅▁` |
+| av:mcafee | 9 | `▁▅▁▁▁█▁▁▁▁▁▅▅▁▁▅▁▁▁▁▅▁▁▁▅▅` |
 | av:eset | 6 | `▅▁▁▁█▁▁▁▁▁▁▁▁▁▅▁▁▅▁▁▅▁▁▁▁▁` |
 
 ### OS mix (filter dimension)
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 3745 | `█▇▇▇▇▇▆▆▆▇▆▆▇▆▇▆▆▆▆▆▆▆▇▆█▄` |
-| os:linux | 408 | `▇▆▆▅▅▄▅▃▆▄▅▅▄▅▄▃▇▅▃▄▅▆█▇▅▃` |
+| os:windows | 3771 | `█▇▇▇▇▇▆▆▆▇▆▆▇▆▇▆▆▆▆▆▆▆▇▆█▅` |
+| os:linux | 410 | `▇▆▆▅▅▄▅▃▆▄▅▅▄▅▄▃▇▅▃▄▅▆█▇▅▃` |
 | os:macos | 335 | `▆█▆▆▆▄▆▃▆▄▇▃▅▄▅▃▆▄▅▄▃▃▇▆▄▃` |
 | os:android | 49 | `▂▇▃▃▂▃▃▃█▅▁▁▃▁▃▂▁▅▆▁▂▂▅▃▅▂` |
 | os:other | 44 | `▃▆▁▁▁▂▁▁▅▅▁▅▂▃▅▃▅█▂▃▃▃▅▁▁▂` |
@@ -119,4 +119,4 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 _Notes: spikes detected at **weekly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-weekly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-weekly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-weekly-rollup.csv`._
 
-_Last updated: 2026-08-26 16:49 UTC_
+_Last updated: 2026-08-27 06:46 UTC_
