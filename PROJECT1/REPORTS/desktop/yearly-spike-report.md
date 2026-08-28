@@ -5,10 +5,10 @@ title: YEARLY: Thunderbird Desktop — Support Spike Report
 
 # YEARLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2023 … 2026 · **yearly** grain · all history · 48773 questions · no AI (regex + traditional stats)_
+_Generated 2023 … 2026 · **yearly** grain · all history · 48783 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 48773 questions, 12193.2/year avg
-- **Answered (non-creator):** 36927/48773 (76%)
+- **Volume:** 48783 questions, 12195.8/year avg
+- **Answered (non-creator):** 36941/48783 (76%)
 - **First-answer time (median):** 3.6h (p25 1.0h / p75 12.8h)
 - **Total volume trend:** `▆██▄`
 
@@ -24,7 +24,7 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 | Signal | Lift | When | Version × Cause | Qs | Served | Example questions | Trend |
 |:--|---:|:--|:--|--:|:--|:--|:--|
 | 🆕 new | **3.5×** | 2026-06 | v151 × m:spectrum | 12 | 100% ans · 15.8h | [1585052](https://support.mozilla.org/questions/1585052 "get error message ＂Unable to log in at server. Probably wrong configuration, use") [1585941](https://support.mozilla.org/questions/1585941 "Unable to send email") [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") +6 · [explore ↗](explorer.html#grain=monthly&version=151&cause=m:spectrum&period=2026-06) | `▁▁▁█` |
-| 🆕 new | **3.2×** | 2026-02 | v148 × proto:oauth | 5 | 100% ans · 4.4h | [1567488](https://support.mozilla.org/questions/1567488 "dossier envoyés contient seulements le mois en cours") [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567818](https://support.mozilla.org/questions/1567818 "thunderbird update 148 rompe oauth2 de yahoo") [1567961](https://support.mozilla.org/questions/1567961 "Mail sync issue led to Mail disappearing after troubleshooting then selecting ＂c") [1568282](https://support.mozilla.org/questions/1568282 "Thunderbird suddenly started asking for Crendentials for yahoo account.  ＂Someth") · [explore ↗](explorer.html#grain=monthly&version=148&cause=proto:oauth&period=2026-02) | `▁▁▁█` |
+| 🆕 new | **3.3×** | 2026-02 | v148 × proto:oauth | 5 | 100% ans · 4.4h | [1567488](https://support.mozilla.org/questions/1567488 "dossier envoyés contient seulements le mois en cours") [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567818](https://support.mozilla.org/questions/1567818 "thunderbird update 148 rompe oauth2 de yahoo") [1567961](https://support.mozilla.org/questions/1567961 "Mail sync issue led to Mail disappearing after troubleshooting then selecting ＂c") [1568282](https://support.mozilla.org/questions/1568282 "Thunderbird suddenly started asking for Crendentials for yahoo account.  ＂Someth") · [explore ↗](explorer.html#grain=monthly&version=148&cause=proto:oauth&period=2026-02) | `▁▁▁█` |
 
 ## 📮 Cause-level spikes — provider / protocol / AV
 
@@ -62,8 +62,8 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 1006 | `▁▁▁█` |
-| v153 | 516 | `▁▁▁█` |
+| v140 | 1007 | `▁▁▁█` |
+| v153 | 518 | `▁▁▁█` |
 | v150 | 444 | `▁▁▁█` |
 | v152 | 377 | `▁▁▁█` |
 | v151 | 336 | `▁▁▁█` |
@@ -74,7 +74,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | m:gmail | 4538 | `▆█▇▄` |
-| m:microsoftemail | 3721 | `▆█▆▄` |
+| m:microsoftemail | 3722 | `▆█▆▄` |
 | m:yahooemail | 1384 | `▅██▆` |
 | m:comcast | 615 | `▅█▇▄` |
 | m:spectrum | 534 | `▇█▇▆` |
@@ -99,14 +99,14 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | av:norton | 139 | `▄██▃` |
 | av:defender | 126 | `▅█▄▃` |
 | av:avast | 107 | `█▇▆▄` |
+| av:kaspersky | 48 | `█▇▇▂` |
 | av:malwarebytes | 47 | `█▆▅▃` |
-| av:kaspersky | 47 | `█▇▇▂` |
 
 ### OS mix (filter dimension)
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 9546 | `▃▃▃█` |
+| os:windows | 9556 | `▃▃▃█` |
 | os:linux | 2073 | `▇█▇█` |
 | os:macos | 1363 | `▅▆▅█` |
 | os:other | 132 | `▁▁▂█` |
@@ -127,4 +127,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-yearly-rollup.csv`._
 
-_Last updated: 2026-08-27 19:59 UTC_
+_Last updated: 2026-08-28 07:01 UTC_

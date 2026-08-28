@@ -79,7 +79,7 @@ period,dim,value,count
 2025-Q3,av,av:kaspersky,4
 2025-Q4,av,av:kaspersky,2
 2026-Q1,av,av:kaspersky,1
-2026-Q3,av,av:kaspersky,1
+2026-Q3,av,av:kaspersky,2
 2023-Q4,av,av:malwarebytes,2
 2024-Q1,av,av:malwarebytes,3
 2024-Q2,av,av:malwarebytes,2
@@ -532,7 +532,7 @@ period,dim,value,count
 2025-Q4,mail_provider,m:microsoftemail,228
 2026-Q1,mail_provider,m:microsoftemail,216
 2026-Q2,mail_provider,m:microsoftemail,191
-2026-Q3,mail_provider,m:microsoftemail,80
+2026-Q3,mail_provider,m:microsoftemail,81
 2023-Q4,mail_provider,m:onecom,1
 2024-Q1,mail_provider,m:onecom,2
 2024-Q2,mail_provider,m:onecom,2
@@ -898,7 +898,7 @@ period,dim,value,count
 2025-Q4,os,os:windows,431
 2026-Q1,os,os:windows,1847
 2026-Q2,os,os:windows,1855
-2026-Q3,os,os:windows,1225
+2026-Q3,os,os:windows,1235
 2023-Q4,protocol,proto:caldav,12
 2024-Q1,protocol,proto:caldav,14
 2024-Q2,protocol,proto:caldav,6
@@ -980,7 +980,7 @@ period,dim,value,count
 2026-Q3,protocol,proto:smtp,70
 2026-Q1,tb_version_major,102,5
 2026-Q2,tb_version_major,102,4
-2026-Q3,tb_version_major,102,4
+2026-Q3,tb_version_major,102,5
 2026-Q2,tb_version_major,104,1
 2026-Q1,tb_version_major,115,23
 2026-Q2,tb_version_major,115,68
@@ -994,7 +994,7 @@ period,dim,value,count
 2026-Q3,tb_version_major,139,1
 2026-Q1,tb_version_major,140,204
 2026-Q2,tb_version_major,140,556
-2026-Q3,tb_version_major,140,246
+2026-Q3,tb_version_major,140,247
 2026-Q2,tb_version_major,141,1
 2025-Q3,tb_version_major,142,1
 2026-Q1,tb_version_major,142,2
@@ -1026,8 +1026,8 @@ period,dim,value,count
 2026-Q2,tb_version_major,152,160
 2026-Q3,tb_version_major,152,217
 2026-Q2,tb_version_major,153,4
-2026-Q3,tb_version_major,153,512
-2026-Q3,tb_version_major,154,133
+2026-Q3,tb_version_major,153,514
+2026-Q3,tb_version_major,154,138
 2026-Q1,tb_version_major,155,1
 2026-Q2,tb_version_major,156,1
 2026-Q2,tb_version_major,159,1
@@ -1044,4 +1044,4 @@ period,dim,value,count
 2025-Q4,total,all,3282
 2026-Q1,total,all,2834
 2026-Q2,total,all,2295
-2026-Q3,total,all,1536
+2026-Q3,total,all,1546

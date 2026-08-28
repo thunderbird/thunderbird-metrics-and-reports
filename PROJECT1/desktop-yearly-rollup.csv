@@ -36,7 +36,7 @@ period,dim,value,count
 2023,av,av:kaspersky,17
 2024,av,av:kaspersky,14
 2025,av,av:kaspersky,14
-2026,av,av:kaspersky,2
+2026,av,av:kaspersky,3
 2023,av,av:malwarebytes,18
 2024,av,av:malwarebytes,13
 2025,av,av:malwarebytes,10
@@ -230,7 +230,7 @@ period,dim,value,count
 2023,mail_provider,m:microsoftemail,929
 2024,mail_provider,m:microsoftemail,1357
 2025,mail_provider,m:microsoftemail,948
-2026,mail_provider,m:microsoftemail,487
+2026,mail_provider,m:microsoftemail,488
 2023,mail_provider,m:onecom,4
 2024,mail_provider,m:onecom,10
 2025,mail_provider,m:onecom,10
@@ -374,7 +374,7 @@ period,dim,value,count
 2023,os,os:windows,1386
 2024,os,os:windows,1532
 2025,os,os:windows,1701
-2026,os,os:windows,4927
+2026,os,os:windows,4937
 2023,protocol,proto:caldav,64
 2024,protocol,proto:caldav,51
 2025,protocol,proto:caldav,50
@@ -403,14 +403,14 @@ period,dim,value,count
 2024,protocol,proto:smtp,770
 2025,protocol,proto:smtp,618
 2026,protocol,proto:smtp,308
-2026,tb_version_major,102,13
+2026,tb_version_major,102,14
 2026,tb_version_major,104,1
 2026,tb_version_major,115,130
 2026,tb_version_major,128,29
 2026,tb_version_major,137,1
 2026,tb_version_major,138,1
 2026,tb_version_major,139,3
-2026,tb_version_major,140,1006
+2026,tb_version_major,140,1007
 2026,tb_version_major,141,1
 2025,tb_version_major,142,1
 2026,tb_version_major,142,5
@@ -424,8 +424,8 @@ period,dim,value,count
 2026,tb_version_major,150,444
 2026,tb_version_major,151,336
 2026,tb_version_major,152,377
-2026,tb_version_major,153,516
-2026,tb_version_major,154,133
+2026,tb_version_major,153,518
+2026,tb_version_major,154,138
 2026,tb_version_major,155,1
 2026,tb_version_major,156,1
 2026,tb_version_major,159,1
@@ -434,4 +434,4 @@ period,dim,value,count
 2023,total,all,11558
 2024,total,all,15379
 2025,total,all,15171
-2026,total,all,6665
+2026,total,all,6675

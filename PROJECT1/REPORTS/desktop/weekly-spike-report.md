@@ -5,10 +5,10 @@ title: WEEKLY: Thunderbird Desktop — Support Spike Report
 
 # WEEKLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2026-03-02 … 2026-08-24 · **weekly** grain · trailing 26 weeks · 4741 questions · no AI (regex + traditional stats)_
+_Generated 2026-03-02 … 2026-08-24 · **weekly** grain · trailing 26 weeks · 4751 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 4741 questions, 182.3/week avg
-- **Answered (non-creator):** 3797/4741 (80%)
+- **Volume:** 4751 questions, 182.7/week avg
+- **Answered (non-creator):** 3811/4751 (80%)
 - **First-answer time (median):** 3.3h (p25 1.0h / p75 11.5h)
 - **Total volume trend:** `██▇▇▇▇▆▆▆▇▇▆▇▆▇▆▆▆▆▅▆▆▇▇█▆`
 
@@ -55,8 +55,8 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 909 | `▃▅▅▄▄▆▇▆▇▇█▇██▆▆▇▇▆▆▇▅▄▃▃▂` |
-| v153 | 516 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▅██▆▃` |
+| v140 | 910 | `▃▅▅▄▄▆▇▆▇▇█▇██▆▆▇▇▆▆▇▅▄▃▃▂` |
+| v153 | 518 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▅██▆▃` |
 | v150 | 444 | `▁▁▁▁▁▁▁▄▇██▄▂▁▁▁▁▁▂▁▁▁▂▁▁▁` |
 | v152 | 377 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅██▇▆▄▂▁▁▁▁` |
 | v151 | 336 | `▁▁▁▁▁▁▁▁▁▁▁▅█▆█▃▂▁▁▁▁▁▁▁▁▁` |
@@ -67,7 +67,7 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 | Value | Total | Trend |
 |:--|--:|:--|
 | m:gmail | 444 | `▇▇▆▇█▇▅▃▇▇▅▄▅▃▃▄▅▆▅▄▅▄▆▅▇▃` |
-| m:microsoftemail | 336 | `▆▇▅▅▆▇▄▅▆▇█▇▄▇▄▃▅▆▅▃▃▄▅▅▅▂` |
+| m:microsoftemail | 337 | `▆▇▅▅▆▇▄▅▆▇█▇▄▇▄▃▅▆▅▃▃▄▅▅▅▃` |
 | m:yahooemail | 233 | `█▇▄▅▂▅▂▃▃▄▅▃▆▃▄▂▂▅▃▂▃▅▆█▄▂` |
 | m:spectrum | 81 | `▂▂▂▂▂▁▃▂▂▄▂▅▂▄█▂▁▂▂▂▂▂▃▃▇▄` |
 | m:comcast | 75 | `▅▃▁▃▂▅█▃▁▄▃▂▆▄▄▅▄▄▄▄▃▅▂▅▄▃` |
@@ -99,7 +99,7 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 3790 | `█▇▇▇▇▇▆▆▆▇▆▆▇▆▇▆▆▆▆▆▆▆▇▆█▆` |
+| os:windows | 3800 | `█▇▇▇▇▇▆▆▆▇▆▆▇▆▇▆▆▆▆▆▆▆▇▆█▆` |
 | os:linux | 411 | `▇▆▆▅▅▄▅▃▆▄▅▅▄▅▄▃▇▅▃▄▅▆█▇▅▃` |
 | os:macos | 337 | `▆█▆▆▆▄▆▃▆▄▇▃▅▄▅▃▆▄▅▄▃▃▇▆▄▃` |
 | os:android | 49 | `▂▇▃▃▂▃▃▃█▅▁▁▃▁▃▂▁▅▆▁▂▂▅▃▅▂` |
@@ -120,4 +120,4 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 _Notes: spikes detected at **weekly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-weekly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-weekly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-weekly-rollup.csv`._
 
-_Last updated: 2026-08-27 19:59 UTC_
+_Last updated: 2026-08-28 07:00 UTC_
