@@ -15,7 +15,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 731 | 871 | ▲ +140 (+19%) |
+| Support questions (load) | 731 | 880 | ▲ +149 (+20%) |
 | Version × cause spikes flagged | 0 | 4 | ▲ +4 |
 | — of which **new** regressions | 0 | 0 | ▬ 0 |
 | Cause-level surges flagged | 0 | 0 | ▬ 0 |
@@ -41,12 +41,12 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 
 | Cause clusters (provider / protocol / AV) | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| m:spectrum | 5 | 30 | ▲ +25 |
+| m:spectrum | 5 | 31 | ▲ +26 |
 | m:yahooemail | 30 | 50 | ▲ +20 (+67%) |
 | m:microsoftemail | 36 | 47 | ▲ +11 (+31%) |
-| proto:imap | 56 | 65 | ▲ +9 (+16%) |
-| m:gmail | 73 | 68 | ▼ -5 (-7%) |
+| proto:imap | 56 | 66 | ▲ +10 (+18%) |
 | proto:smtp | 35 | 40 | ▲ +5 (+14%) |
+| m:gmail | 73 | 69 | ▼ -4 (-5%) |
 | proto:oauth | 20 | 16 | ▼ -4 (-20%) |
 | m:comcast | 13 | 12 | ▼ -1 (-8%) |
 
@@ -58,20 +58,20 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| v153 | 101 | 422 | ▲ +321 (+318%) |
-| v140 | 186 | 62 | ▼ -124 (-67%) |
+| v153 | 101 | 423 | ▲ +322 (+319%) |
+| v140 | 186 | 63 | ▼ -123 (-66%) |
 | v152 | 211 | 6 | ▼ -205 (-97%) |
-| v154 | 2 | 168 | ▲ +166 |
-| v150 | 26 | 22 | ▼ -4 (-15%) |
+| v154 | 2 | 173 | ▲ +171 |
+| v150 | 26 | 23 | ▼ -3 (-12%) |
 | v115 | 16 | 24 | ▲ +8 (+50%) |
 
 ### Operating-system mix
 
 | Operating-system mix | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 589 | 697 | ▲ +108 (+18%) |
-| os:linux | 61 | 84 | ▲ +23 (+38%) |
-| os:macos | 45 | 55 | ▲ +10 (+22%) |
+| os:windows | 589 | 702 | ▲ +113 (+19%) |
+| os:linux | 61 | 86 | ▲ +25 (+41%) |
+| os:macos | 45 | 56 | ▲ +11 (+24%) |
 | os:android | 7 | 10 | ▲ +3 |
 | os:other | 11 | 6 | ▼ -5 (-45%) |
 
@@ -79,15 +79,15 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 
 | Topic mix | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 185 | 215 | ▲ +30 (+16%) |
+| send-and-receive-email | 185 | 217 | ▲ +32 (+17%) |
 | email-and-messaging | 82 | 75 | ▼ -7 (-9%) |
 | customization | 73 | 82 | ▲ +9 (+12%) |
-| passwords-and-sign-in | 53 | 53 | ▬ 0 (+0%) |
-| connectivity | 25 | 43 | ▲ +18 (+72%) |
+| passwords-and-sign-in | 53 | 55 | ▲ +2 (+4%) |
+| connectivity | 25 | 44 | ▲ +19 (+76%) |
 | import-and-export-email | 30 | 33 | ▲ +3 (+10%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · August 2026 vs July 2026._
 
-_Last updated: 2026-08-30 08:07 UTC_
+_Last updated: 2026-08-30 20:06 UTC_
