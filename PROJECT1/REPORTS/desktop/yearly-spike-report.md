@@ -5,10 +5,10 @@ title: YEARLY: Thunderbird Desktop — Support Spike Report
 
 # YEARLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2023 … 2026 · **yearly** grain · all history · 48848 questions · no AI (regex + traditional stats)_
+_Generated 2023 … 2026 · **yearly** grain · all history · 48861 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 48848 questions, 12212.0/year avg
-- **Answered (non-creator):** 36992/48848 (76%)
+- **Volume:** 48861 questions, 12215.2/year avg
+- **Answered (non-creator):** 37005/48861 (76%)
 - **First-answer time (median):** 3.6h (p25 1.0h / p75 12.8h)
 - **Total volume trend:** `▆██▄`
 
@@ -23,8 +23,9 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 
 | Signal | Lift | When | Version × Cause | Qs | Served | Example questions | Trend |
 |:--|---:|:--|:--|--:|:--|:--|:--|
-| 🆕 new | **3.2×** | 2026-06 | v151 × m:spectrum | 12 | 100% ans · 15.8h | [1585052](https://support.mozilla.org/questions/1585052 "get error message ＂Unable to log in at server. Probably wrong configuration, use") [1585941](https://support.mozilla.org/questions/1585941 "Unable to send email") [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") +6 · [explore ↗](explorer.html#grain=monthly&version=151&cause=m:spectrum&period=2026-06) | `▁▁▁█` |
 | 🆕 new | **3.2×** | 2026-02 | v148 × proto:oauth | 5 | 100% ans · 4.4h | [1567488](https://support.mozilla.org/questions/1567488 "dossier envoyés contient seulements le mois en cours") [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567818](https://support.mozilla.org/questions/1567818 "thunderbird update 148 rompe oauth2 de yahoo") [1567961](https://support.mozilla.org/questions/1567961 "Mail sync issue led to Mail disappearing after troubleshooting then selecting ＂c") [1568282](https://support.mozilla.org/questions/1568282 "Thunderbird suddenly started asking for Crendentials for yahoo account.  ＂Someth") · [explore ↗](explorer.html#grain=monthly&version=148&cause=proto:oauth&period=2026-02) | `▁▁▁█` |
+| 🆕 new | **3.1×** | 2026-06 | v151 × m:spectrum | 12 | 100% ans · 15.8h | [1585052](https://support.mozilla.org/questions/1585052 "get error message ＂Unable to log in at server. Probably wrong configuration, use") [1585941](https://support.mozilla.org/questions/1585941 "Unable to send email") [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") +6 · [explore ↗](explorer.html#grain=monthly&version=151&cause=m:spectrum&period=2026-06) | `▁▁▁█` |
+| ↗ spreading | **3.3×** | 2026-08 | v154 × m:spectrum | 12 | 83% ans · 4.2h | [1599683](https://support.mozilla.org/questions/1599683 "Suddenly not receiving email") [1599738](https://support.mozilla.org/questions/1599738 "Thunderbird is not receiving in coming mail from Charter") [1599818](https://support.mozilla.org/questions/1599818 "Thunderbird not connecting to server.  Cannot send or receive emails.") [1599874](https://support.mozilla.org/questions/1599874 "Ability to send emails using roadrunner (mail.twc.com) account") [1600052](https://support.mozilla.org/questions/1600052 "Trouble connecting to my email provider Time Warner Corporation to send emails u") [1600872](https://support.mozilla.org/questions/1600872 "I can send email but can not receive.") +6 · [explore ↗](explorer.html#grain=monthly&version=154&cause=m:spectrum&period=2026-08) | `▁▁▁█` |
 
 ## 📮 Cause-level spikes — provider / protocol / AV
 
@@ -52,6 +53,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | **3.6×** | 2024-07 | m:att | 16 | 69% ans · 1.6h | 4.5 | [1451218](https://support.mozilla.org/questions/1451218 "Email issues") [1451269](https://support.mozilla.org/questions/1451269 "ATT.net") [1451284](https://support.mozilla.org/questions/1451284 "can't log into my inbound email server At&t") [1451307](https://support.mozilla.org/questions/1451307 "can't get in") [1451574](https://support.mozilla.org/questions/1451574 "unable to receive and send emails thru inbound.att.net and outbound.att.net") [1451715](https://support.mozilla.org/questions/1451715 "Inbound emails from ATT") +10 · [explore ↗](explorer.html#grain=monthly&cause=m:att&period=2024-07) | `▇██▃` |
 | **3.2×** | 2025-07 | av:norton | 8 | 75% ans · 2.1h | 2.5 | [1521509](https://support.mozilla.org/questions/1521509 "problem with auto renewal with my domain registrar hostgator, adotname, and the ") [1521569](https://support.mozilla.org/questions/1521569 "not working (locked)") [1522509](https://support.mozilla.org/questions/1522509 "Unable to receive e-mails on Thunderbird, I am prompted to enter a password for ") [1523331](https://support.mozilla.org/questions/1523331 "Migrating Thunderbird 140 To A New Windows Computer. SOLVED Norton 360 was causi") [1523343](https://support.mozilla.org/questions/1523343 "Peer certification expiration") [1523519](https://support.mozilla.org/questions/1523519 "email conver to event not working.") +2 · [explore ↗](explorer.html#grain=monthly&cause=av:norton&period=2025-07) | `▄██▃` |
 | **3.2×** | 2024-07 | m:virginmedia | 8 | 75% ans · 4.9h | 2.5 | [1451235](https://support.mozilla.org/questions/1451235 "Cannot send messages") [1451251](https://support.mozilla.org/questions/1451251 "Email") [1451478](https://support.mozilla.org/questions/1451478 "Sending emails") [1451612](https://support.mozilla.org/questions/1451612 "thunderbirds does not recognise my new virgin media password, I have tried creat") [1451720](https://support.mozilla.org/questions/1451720 "Outgoing e-mails") [1452048](https://support.mozilla.org/questions/1452048 "Since Version 115.12.2 ¦ Released June 22, 2024 can receive but not send emails ") +2 · [explore ↗](explorer.html#grain=monthly&cause=m:virginmedia&period=2024-07) | `▆█▅▃` |
+| **3.1×** | 2026-08 | m:spectrum | 33 | 76% ans · 3.7h | 10.5 | [1596316](https://support.mozilla.org/questions/1596316 "Thunderbird 1 of 7  email account stopped working from the Provider Spectrum and") [1596807](https://support.mozilla.org/questions/1596807 "Receiving, deleting, and sending messages is extremely slow for 1 of 2 users on ") [1597319](https://support.mozilla.org/questions/1597319 "thunderbird not able to access mail.twc.com") [1597495](https://support.mozilla.org/questions/1597495 "NO longer have Spectrum as email provider but need to preserve emails .") [1597964](https://support.mozilla.org/questions/1597964 "Roadrunner / TWC IMAP settings") [1597972](https://support.mozilla.org/questions/1597972 "Thunderbird tells me that the spectrum servers won't accept my password") +27 · [explore ↗](explorer.html#grain=monthly&cause=m:spectrum&period=2026-08) | `▇█▇▆` |
 | **3.1×** | 2024-08 | av:defender | 11 | 64% ans · 2.2h | 3.5 | [1456877](https://support.mozilla.org/questions/1456877 "Thunderibrd upgrade to 115 is sluggish.  SOLVED by creating an exception in Defe") [1457294](https://support.mozilla.org/questions/1457294 "Thunderbird 128 (Nebula) Hangs Constantly.  SOLVED caused by Microsoft Defender ") [1457557](https://support.mozilla.org/questions/1457557 "Message ＂Login to server with username failed＂ after software update") [1457806](https://support.mozilla.org/questions/1457806 "a trojan has been identified in an smtp folder how to spot and eliminate") [1457949](https://support.mozilla.org/questions/1457949 "Thunderbird slow downloading/opening email") [1458157](https://support.mozilla.org/questions/1458157 "Cannot delete IMAP Folder") +5 · [explore ↗](explorer.html#grain=monthly&cause=av:defender&period=2024-08) | `▅█▄▃` |
 | **3.1×** | 2024-05 | m:att | 14 | 71% ans · 2.5h | 4.5 | [1446408](https://support.mozilla.org/questions/1446408 "Cannot connect to att.net account on computer") [1446596](https://support.mozilla.org/questions/1446596 "Reinstall") [1446656](https://support.mozilla.org/questions/1446656 "Unable to sign into Thunderbird Email") [1447039](https://support.mozilla.org/questions/1447039 "Can't reestablish AT&T account in TB") [1447055](https://support.mozilla.org/questions/1447055 "not getting certain emails") [1447077](https://support.mozilla.org/questions/1447077 "Mozilla Thunderbird") +8 · [explore ↗](explorer.html#grain=monthly&cause=m:att&period=2024-05) | `▇██▃` |
 | **3.0×** | 2024-09 | proto:oauth | 66 | 82% ans · 1.7h | 22.0 | [1461626](https://support.mozilla.org/questions/1461626 "thunderbird 128.1.1esr on macbook pro") [1462076](https://support.mozilla.org/questions/1462076 "Can TB hide its client ID when it connects?") [1462199](https://support.mozilla.org/questions/1462199 "Trying to do Microsoft/Thunderbird authentication before Sept 16, 2024") [1462200](https://support.mozilla.org/questions/1462200 "dual authentication not allowing emails") [1462785](https://support.mozilla.org/questions/1462785 "Oauth2 selection option missing in SMTP server setup") [1462816](https://support.mozilla.org/questions/1462816 "Ghost folders with outlook server") +60 · [explore ↗](explorer.html#grain=monthly&cause=proto:oauth&period=2024-09) | `▅█▅▄` |
@@ -63,7 +65,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | v140 | 1009 | `▁▁▁█` |
-| v153 | 528 | `▁▁▁█` |
+| v153 | 533 | `▁▁▁█` |
 | v150 | 447 | `▁▁▁█` |
 | v152 | 377 | `▁▁▁█` |
 | v151 | 337 | `▁▁▁█` |
@@ -73,21 +75,21 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 4542 | `▆█▇▄` |
-| m:microsoftemail | 3724 | `▆█▆▄` |
-| m:yahooemail | 1387 | `▅██▆` |
+| m:gmail | 4544 | `▆█▇▄` |
+| m:microsoftemail | 3726 | `▆█▆▄` |
+| m:yahooemail | 1388 | `▅██▆` |
 | m:comcast | 615 | `▅█▇▄` |
-| m:spectrum | 541 | `▇█▇▆` |
+| m:spectrum | 543 | `▇█▇▆` |
 | m:att | 360 | `▇██▃` |
 
 ### Top protocols
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 3625 | `▇█▇▄` |
-| proto:smtp | 2263 | `▆█▇▄` |
-| proto:pop | 2250 | `▇█▇▄` |
-| proto:oauth | 877 | `▅█▅▄` |
+| proto:imap | 3626 | `▇█▇▄` |
+| proto:smtp | 2264 | `▆█▇▄` |
+| proto:pop | 2252 | `▇█▇▄` |
+| proto:oauth | 878 | `▅█▅▄` |
 | proto:caldav | 190 | `█▇▆▄` |
 | proto:carddav | 100 | `███▅` |
 
@@ -106,9 +108,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 9612 | `▃▃▃█` |
-| os:linux | 2078 | `▇█▇█` |
-| os:macos | 1365 | `▅▆▅█` |
+| os:windows | 9623 | `▃▃▃█` |
+| os:linux | 2079 | `▇█▇█` |
+| os:macos | 1366 | `▅▆▅█` |
 | os:other | 132 | `▁▁▂█` |
 | os:android | 105 | `▁▂▃█` |
 
@@ -118,7 +120,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 |:--|--:|:--|
 | macos:sonoma | 168 | `▂█▂▂` |
 | macos:sequoia | 158 | `▁▃█▂` |
-| macos:ventura | 150 | `█▂▂▁` |
+| macos:ventura | 151 | `█▂▂▁` |
 | macos:monterey | 85 | `█▆▄▂` |
 | macos:catalina | 73 | `█▆▇▂` |
 | macos:tahoe | 54 | `▁▁▆█` |
@@ -127,4 +129,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-yearly-rollup.csv`._
 
-_Last updated: 2026-08-30 16:37 UTC_
+_Last updated: 2026-08-31 04:40 UTC_
