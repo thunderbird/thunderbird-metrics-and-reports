@@ -13,7 +13,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 731 | 893 | ▲ +162 (+22%) |
+| Support questions (load) | 731 | 919 | ▲ +188 (+26%) |
 | Version × cause spikes flagged | 0 | 4 | ▲ +4 |
 | — of which **new** regressions | 0 | 0 | ▬ 0 |
 | Cause-level surges flagged | 0 | 1 | ▲ +1 |
@@ -39,7 +39,7 @@ Version-agnostic (a provider outage spans versions), vs a trailing-month baselin
 
 | Cause | Qs | Served | vs baseline | Rise | Example questions |
 |:--|--:|:--|--:|:--|:--|
-| m:spectrum | 33 | 76% ans · 3.7h | 10.5 | 3.14× | [1596316](https://support.mozilla.org/questions/1596316 "Thunderbird 1 of 7  email account stopped working from the Provider Spectrum and") [1596807](https://support.mozilla.org/questions/1596807 "Receiving, deleting, and sending messages is extremely slow for 1 of 2 users on ") [1597319](https://support.mozilla.org/questions/1597319 "thunderbird not able to access mail.twc.com") [1597495](https://support.mozilla.org/questions/1597495 "NO longer have Spectrum as email provider but need to preserve emails .") [1597964](https://support.mozilla.org/questions/1597964 "Roadrunner / TWC IMAP settings") +28 |
+| m:spectrum | 33 | 79% ans · 4.4h | 10.5 | 3.14× | [1596316](https://support.mozilla.org/questions/1596316 "Thunderbird 1 of 7  email account stopped working from the Provider Spectrum and") [1596807](https://support.mozilla.org/questions/1596807 "Receiving, deleting, and sending messages is extremely slow for 1 of 2 users on ") [1597319](https://support.mozilla.org/questions/1597319 "thunderbird not able to access mail.twc.com") [1597495](https://support.mozilla.org/questions/1597495 "NO longer have Spectrum as email provider but need to preserve emails .") [1597964](https://support.mozilla.org/questions/1597964 "Roadrunner / TWC IMAP settings") +28 |
 
 ## What moved
 
@@ -49,12 +49,12 @@ Version-agnostic (a provider outage spans versions), vs a trailing-month baselin
 |:--|--:|--:|:--|
 | m:spectrum | 5 | 33 | ▲ +28 |
 | m:yahooemail | 30 | 51 | ▲ +21 (+70%) |
-| m:microsoftemail | 36 | 49 | ▲ +13 (+36%) |
-| proto:imap | 56 | 67 | ▲ +11 (+20%) |
-| proto:smtp | 35 | 41 | ▲ +6 (+17%) |
-| proto:oauth | 20 | 17 | ▼ -3 (-15%) |
-| m:gmail | 73 | 71 | ▼ -2 (-3%) |
-| proto:pop | 42 | 44 | ▲ +2 (+5%) |
+| m:microsoftemail | 36 | 51 | ▲ +15 (+42%) |
+| proto:imap | 56 | 68 | ▲ +12 (+21%) |
+| proto:smtp | 35 | 44 | ▲ +9 (+26%) |
+| proto:pop | 42 | 46 | ▲ +4 (+10%) |
+| m:comcast | 13 | 12 | ▼ -1 (-8%) |
+| proto:oauth | 20 | 19 | ▼ -1 (-5%) |
 
 ### 🆕 New cause clusters (first appearance ever)
 
@@ -64,20 +64,20 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| v153 | 101 | 428 | ▲ +327 (+324%) |
-| v140 | 186 | 63 | ▼ -123 (-66%) |
+| v153 | 101 | 437 | ▲ +336 (+333%) |
+| v140 | 186 | 65 | ▼ -121 (-65%) |
 | v152 | 211 | 6 | ▼ -205 (-97%) |
-| v154 | 2 | 180 | ▲ +178 |
-| v150 | 26 | 23 | ▼ -3 (-12%) |
+| v154 | 2 | 192 | ▲ +190 |
+| v150 | 26 | 24 | ▼ -2 (-8%) |
 | v115 | 16 | 24 | ▲ +8 (+50%) |
 
 ### Operating-system mix
 
 | Operating-system mix | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 589 | 713 | ▲ +124 (+21%) |
-| os:linux | 61 | 87 | ▲ +26 (+43%) |
-| os:macos | 45 | 57 | ▲ +12 (+27%) |
+| os:windows | 589 | 732 | ▲ +143 (+24%) |
+| os:linux | 61 | 92 | ▲ +31 (+51%) |
+| os:macos | 45 | 59 | ▲ +14 (+31%) |
 | os:other | 11 | 6 | ▼ -5 (-45%) |
 | os:android | 7 | 10 | ▲ +3 |
 
@@ -85,15 +85,15 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 
 | Topic mix | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 185 | 223 | ▲ +38 (+21%) |
-| email-and-messaging | 82 | 76 | ▼ -6 (-7%) |
-| customization | 73 | 83 | ▲ +10 (+14%) |
-| passwords-and-sign-in | 53 | 56 | ▲ +3 (+6%) |
-| connectivity | 25 | 45 | ▲ +20 (+80%) |
-| import-and-export-email | 30 | 33 | ▲ +3 (+10%) |
+| send-and-receive-email | 185 | 227 | ▲ +42 (+23%) |
+| email-and-messaging | 82 | 80 | ▼ -2 (-2%) |
+| customization | 73 | 85 | ▲ +12 (+16%) |
+| passwords-and-sign-in | 53 | 58 | ▲ +5 (+9%) |
+| connectivity | 25 | 47 | ▲ +22 (+88%) |
+| import-and-export-email | 30 | 34 | ▲ +4 (+13%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · August 2026 vs July 2026._
 
-_Last updated: 2026-08-31 08:09 UTC_
+_Last updated: 2026-08-31 20:07 UTC_
