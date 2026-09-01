@@ -5,18 +5,18 @@ title: Thunderbird Desktop Report - 2026-09
 
 # Thunderbird Desktop Report - 2026-09
 
-*Last updated: 2026-09-01T21:13:18.340746*
+*Last updated: 2026-09-01T22:13:04.721867*
 
 ## Summary
 
 | Date | Num Questions | Num Solved | Solved Percentage | Num Ignored | Ignored Percentage | Synthetic Solved By Random Contributors | Synthetic Solved By Random Contributors Percentage | Synthetic Solved By Trusted Contributors | Synthetic Solved By Trusted Contributors Percentage | Synthetic Solved Rate |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2026-09 | 14 | 0 | 0 | 8 | 57 | 0 | 0 | 4 | 29 | 29 |
+| 2026-09 | 28 | 0 | 0 | 11 | 39 | 2 | 7 | 14 | 50 | 50 |
 
 ## Details
 
 | Date | Question Ids Question Creator Answered Last | Question Ids Trusted Contributor Answered Last | Question Ids Random Contributor Answered Last |
 | --- | --- | --- | --- |
-| 2026-09 | [1601478](https://support.mozilla.org/questions/1601478 "Thunderbird non si carica su Apple Tahoe 26.6.2"); [1601510](https://support.mozilla.org/questions/1601510 "existing emails are not password protected, password only good to retrieve new e") | [1601465](https://support.mozilla.org/questions/1601465 "VIP notifications"); [1601468](https://support.mozilla.org/questions/1601468 "Neustálé odpojování email účtů. Nepamatuje si uložená hesla."); [1601493](https://support.mozilla.org/questions/1601493 "CANNOT SEND ATTACHMENTS OVER 36 MB"); [1601501](https://support.mozilla.org/questions/1601501 "The message recipient doesn't show up after a search. Does anyone know how to fi") |  |
+| 2026-09 | 1601568 | [1601443](https://support.mozilla.org/questions/1601443 "No emails getting through"); [1601465](https://support.mozilla.org/questions/1601465 "VIP notifications"); [1601468](https://support.mozilla.org/questions/1601468 "Neustálé odpojování email účtů. Nepamatuje si uložená hesla."); [1601493](https://support.mozilla.org/questions/1601493 "CANNOT SEND ATTACHMENTS OVER 36 MB"); [1601501](https://support.mozilla.org/questions/1601501 "The message recipient doesn't show up after a search. Does anyone know how to fi"); [1601510](https://support.mozilla.org/questions/1601510 "existing emails are not password protected, password only good to retrieve new e"); [1601532](https://support.mozilla.org/questions/1601532 "cannot send email"); [1601533](https://support.mozilla.org/questions/1601533 "Thunderbird no longer receving gmail emails over last 6 days"); [1601535](https://support.mozilla.org/questions/1601535 "Thunderbird has gotten very slow sending email"); [1601573](https://support.mozilla.org/questions/1601573 "New Install on Win 11 will not send emails."); [1601574](https://support.mozilla.org/questions/1601574 "Changed Email Address - lost my folders w/emails within - on left panel"); [1601580](https://support.mozilla.org/questions/1601580 "Thunderbird Is giving me errors ..."); [1601581](https://support.mozilla.org/questions/1601581 "Thunderbird Is giving me errors ... ＂＂Failed  to send some messages.＂"); [1601598](https://support.mozilla.org/questions/1601598 "what is normal password when installing email outgoing") | [1601478](https://support.mozilla.org/questions/1601478 "Thunderbird non si carica su Apple Tahoe 26.6.2"); [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") |
 
 [Back to Dashboard](/)
