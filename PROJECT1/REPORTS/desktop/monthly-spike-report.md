@@ -5,10 +5,10 @@ title: MONTHLY: Thunderbird Desktop — Support Spike Report
 
 # MONTHLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2024-10 … 2026-09 · **monthly** grain · trailing 24 months · 26807 questions · no AI (regex + traditional stats)_
+_Generated 2024-10 … 2026-09 · **monthly** grain · trailing 24 months · 26822 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 26807 questions, 1117.0/month avg
-- **Answered (non-creator):** 20817/26807 (78%)
+- **Volume:** 26822 questions, 1117.6/month avg
+- **Answered (non-creator):** 20828/26822 (78%)
 - **First-answer time (median):** 3.3h (p25 0.9h / p75 11.7h)
 - **Total volume trend:** `█▇▇█▆▆▆▆▅▇▇▆▆▅▅▅▅▅▄▄▄▄▅▁`
 
@@ -50,7 +50,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 1016 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▇▃▁` |
+| v140 | 1017 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▇▃▁` |
 | v153 | 547 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃█▁` |
 | v150 | 449 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▁▂▂▁` |
 | v152 | 377 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁▁` |
@@ -61,7 +61,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 2359 | `█▇▇▇▆▆▆▅▄▅▆▆▅▅▅▅▄▅▄▄▃▄▄▁` |
+| m:gmail | 2360 | `█▇▇▇▆▆▆▅▄▅▆▆▅▅▅▅▄▅▄▄▃▄▄▁` |
 | m:microsoftemail | 1852 | `█▆▅▅▅▄▄▃▃▄▄▄▅▄▄▄▄▄▃▄▃▂▃▁` |
 | m:yahooemail | 806 | `▅▄▅▆▃▄▃▃▄▇▆▆▆▇▄▄▇█▅▆▄▅▇▁` |
 | m:comcast | 337 | `▆▆▅▆▄▅▄▄▃▃█▄▄▆▅▂▃▃▅▄▄▄▄▁` |
@@ -72,7 +72,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 1831 | `▇▇██▇▅▅▅▄▆▆▅▆▅▄▅▄▅▃▅▄▄▅▁` |
+| proto:imap | 1832 | `▇▇██▇▅▅▅▄▆▆▅▆▅▄▅▄▅▃▅▄▄▅▁` |
 | proto:smtp | 1149 | `█▇▆█▆▅▅▆▄▆▇▅▅▄▃▆▅▅▃▄▃▄▅▁` |
 | proto:pop | 1138 | `▇█▆█▆▄▅▅▅▆▇▅▆▄▃▅▄▄▄▄▃▅▅▁` |
 | proto:oauth | 434 | `█▅▅▅▃▃▄▃▂▃▃▃▃▃▂▃▄▆▃▃▃▄▄▁` |
@@ -86,7 +86,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | av:bitdefender | 113 | `▁▁▁▃▁▁▁▁▁▁█▂▂▂▁▁▁▂▁▁▁▁▁▁` |
 | av:norton | 83 | `▄▅▃█▃▄▂▂▂▆▅▃▃▂▂▂▂▂▂▃▂▃▂▁` |
 | av:defender | 49 | `▂█▃▂▃▂▃▃▁▃▃▃▃▃▁▁▂▃▂▄▄▃▃▁` |
-| av:avast | 48 | `▂▇▄▅█▄▅▂▁▅▁▁▄▇▂▅▂▂▇▄▄▄▄▁` |
+| av:avast | 49 | `▂▇▄▅█▄▅▂▁▅▁▁▄▇▂▅▂▂▇▄▄▄▄▂` |
 | av:mcafee | 34 | `█▃▆▃▃▃▆█▃▃█▆█▁▁▁▃▃▆▆▃▃▆▁` |
 | av:kaspersky | 21 | `▆▃▁▅▁▃▁▆▅▁█▁▃▃▁▁▃▁▁▁▁▁▅▁` |
 
@@ -94,9 +94,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 7204 | `▃▃▂▂▂▂▂▂▂▃▃▂▃▂▂▅▇█▇▇▆▆█▁` |
+| os:windows | 7216 | `▃▃▂▂▂▂▂▂▂▃▃▂▃▂▂▅▇█▇▇▆▆█▁` |
 | os:linux | 1222 | `▆▅▅▆▅▃▄▄▃▃▅▅▄▄▄▆▆▇▅▆▆▆█▁` |
-| os:macos | 841 | `▄▃▃▃▄▃▃▃▂▄▄▄▂▄▂▆▇█▆▆▅▅▆▁` |
+| os:macos | 842 | `▄▃▃▃▄▃▃▃▂▄▄▄▂▄▂▆▇█▆▆▅▅▆▁` |
 | os:other | 129 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▂▁▂▃▃▂▁` |
 | os:android | 93 | `▂▁▁▂▂▂▂▁▂▃▃▁▂▂▁▇█▇█▅▃▅▇▁` |
 
@@ -105,7 +105,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | macos:sequoia | 153 | `▅▆▅█▇▅▅▅▁▇▇▇▂▅▃▄▃▃▂▃▁▂▂▁` |
-| macos:tahoe | 54 | `▁▁▁▁▁▁▁▁▁▁▁▆▅█▇▇▆▆▂▃▅▆▅▁` |
+| macos:tahoe | 55 | `▁▁▁▁▁▁▁▁▁▁▁▆▅█▇▇▆▆▂▃▅▆▅▂` |
 | macos:sonoma | 39 | `█▅▄▃▄▁▂▁▁▁▁▂▂▅▃▅▂▂▂▃▁▂▂▁` |
 | macos:catalina | 34 | `▅▃▂▄▁▂▂▂▁█▆▄▂▂▁▂▁▂▂▂▁▁▁▁` |
 | macos:monterey | 29 | `▅▅▅▅▅█▃▃▁▃▃▅▁▅▃▃▁▁▃▃▁▃▅▁` |
@@ -115,4 +115,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-monthly-rollup.csv`._
 
-_Last updated: 2026-09-01 04:37 UTC_
+_Last updated: 2026-09-01 16:51 UTC_
