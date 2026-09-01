@@ -15,7 +15,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 941 | 5 | ▼ -936 (-99%) |
+| Support questions (load) | 941 | 20 | ▼ -921 (-98%) |
 | Version × cause spikes flagged | 4 | 0 | ▼ -4 |
 | — of which **new** regressions | 0 | 0 | ▬ 0 |
 | Cause-level surges flagged | 1 | 0 | ▼ -1 |
@@ -32,8 +32,8 @@ _No spikes flagged this month at current thresholds._
 
 | Cause clusters (provider / protocol / AV) | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| m:gmail | 75 | 0 | ▼ -75 (-100%) |
-| proto:imap | 70 | 2 | ▼ -68 (-97%) |
+| m:gmail | 75 | 1 | ▼ -74 (-99%) |
+| proto:imap | 70 | 3 | ▼ -67 (-96%) |
 | m:yahooemail | 55 | 0 | ▼ -55 (-100%) |
 | m:microsoftemail | 53 | 0 | ▼ -53 (-100%) |
 | proto:pop | 46 | 0 | ▼ -46 (-100%) |
@@ -50,8 +50,8 @@ _None — every cause cluster in September 2026 has appeared in a prior month._
 | Release adoption (version mix) | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
 | v153 | 441 | 1 | ▼ -440 (-100%) |
-| v154 | 202 | 1 | ▼ -201 (-100%) |
-| v140 | 67 | 3 | ▼ -64 (-96%) |
+| v154 | 202 | 10 | ▼ -192 (-95%) |
+| v140 | 67 | 4 | ▼ -63 (-94%) |
 | v150 | 25 | 0 | ▼ -25 (-100%) |
 | v115 | 24 | 0 | ▼ -24 (-100%) |
 | v151 | 7 | 0 | ▼ -7 |
@@ -60,9 +60,9 @@ _None — every cause cluster in September 2026 has appeared in a prior month._
 
 | Operating-system mix | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 750 | 4 | ▼ -746 (-99%) |
+| os:windows | 750 | 16 | ▼ -734 (-98%) |
 | os:linux | 93 | 0 | ▼ -93 (-100%) |
-| os:macos | 59 | 0 | ▼ -59 (-100%) |
+| os:macos | 59 | 1 | ▼ -58 (-98%) |
 | os:android | 10 | 0 | ▼ -10 (-100%) |
 | os:other | 6 | 1 | ▼ -5 |
 
@@ -70,15 +70,15 @@ _None — every cause cluster in September 2026 has appeared in a prior month._
 
 | Topic mix | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 233 | 3 | ▼ -230 (-99%) |
+| send-and-receive-email | 233 | 6 | ▼ -227 (-97%) |
 | customization | 86 | 0 | ▼ -86 (-100%) |
 | email-and-messaging | 80 | 1 | ▼ -79 (-99%) |
 | passwords-and-sign-in | 60 | 0 | ▼ -60 (-100%) |
-| connectivity | 48 | 1 | ▼ -47 (-98%) |
-| attachments | 49 | 0 | ▼ -49 (-100%) |
+| attachments | 49 | 3 | ▼ -46 (-94%) |
+| connectivity | 48 | 2 | ▼ -46 (-96%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · September 2026 vs August 2026._
 
-_Last updated: 2026-09-01 08:09 UTC_
+_Last updated: 2026-09-01 20:07 UTC_

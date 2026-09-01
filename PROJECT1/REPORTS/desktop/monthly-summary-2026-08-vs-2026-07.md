@@ -96,4 +96,4 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · August 2026 vs July 2026._
 
-_Last updated: 2026-09-01 08:09 UTC_
+_Last updated: 2026-09-01 20:07 UTC_
