@@ -1,32 +1,32 @@
 ---
 layout: base
-title: "2026-07 exec summary: Thunderbird Desktop support spikes"
+title: "2026-08 exec summary: Thunderbird Desktop support spikes"
 ---
 
-# July 2026 — Thunderbird Desktop support spikes
+# August 2026 — Thunderbird Desktop support spikes
 
-_Executive summary · **2026-07** · 731 questions · regenerated 2026-08-31 05:32 UTC · no AI (regex + traditional stats)_
+_Executive summary · **2026-08** · 941 questions · regenerated 2026-09-01 05:33 UTC · no AI (regex + traditional stats)_
 
-## ✅ July 2026 was clean
+## 🚨 August 2026: 12 spikes to investigate
 
-**No spike cleared threshold at any grain.** No provider outage, no protocol surge, no AV breakage, and no release regression in July 2026.
+**8 version×cause** (release regressions) and **4 cause-level** (provider / protocol / AV) spike(s) cleared threshold. Detail is collapsed below.
 
 
 | Detector | daily | weekly | monthly |
 |:--|--:|--:|--:|
-| **version×cause** (release regressions) | 0 | 0 | 0 |
-| **cause-level** (provider · protocol · AV) | 0 | 0 | 0 |
+| **version×cause** (release regressions) | 4 | 3 | 1 |
+| **cause-level** (provider · protocol · AV) | 0 | 3 | 1 |
 
-- **Volume:** 731 questions (`▆▇▅▆▄▇▇▆▇▆▄▃▇▇▄▅▄▅▄▇▆▅█▆▃▇▇▆▆▅▇` by day), 226 (31%) carry a cause tag
-- **Answered (non-creator):** 600/731 (82%) · median first answer 3.6h
-- **Release-adoption version spikes:** 15 (expected after a release — not incidents; collapsed below)
+- **Volume:** 941 questions (`▄▃▅▅▅▅▆▆▃▅▃▅▅▅▄▅▅▆▄▅▆▅▄▆▅█▆▅▄▄▇` by day), 292 (31%) carry a cause tag
+- **Answered (non-creator):** 696/941 (74%) · median first answer 2.6h
+- **Release-adoption version spikes:** 30 (expected after a release — not incidents; collapsed below)
 
 > ⏱ **Spike timing lags the incident.** A spike dates when users *piled in*, typically days after onset and often near resolution. Treat these as pain-cluster / triage signals, not real-time detection.
 
 > 🔄 **This verdict is not frozen when the month ends.** Lift is measured against each cause's rate across all history, so later questions shift a closed month's expected values and rows can cross the threshold in either direction; answered-% keeps firming up as late answers land. That is why this page regenerates daily — and because each day's version is committed, `git log -p` on this file shows exactly how the verdict evolved.
 
 <details markdown="1">
-<summary><strong>🔍 Near misses (within ~25% of threshold)</strong> — 4 rows</summary>
+<summary><strong>🔍 Near misses (within ~25% of threshold)</strong> — 5 rows</summary>
 
 Clusters the same detectors flag at **0.75× the thresholds** (i.e. within ~25% of firing) but which did NOT clear the real ones. Not incidents — context, so that “clean” is not confused with “quiet”.
 
@@ -34,127 +34,163 @@ Clusters the same detectors flag at **0.75× the thresholds** (i.e. within ~25% 
 
 | Grain | Lift | When | Version × Cause | Qs | Served | Example questions |
 |:--|--:|:--|:--|--:|:--|:--|
-| weekly | 2.9× | 2026-07-27 | v153 × m:comcast | 4 | 75% ans · 5.4h | [1595937](https://support.mozilla.org/questions/1595937 "Need help recovering my profile from a zip file") [1595941](https://support.mozilla.org/questions/1595941 "Why can't Thunderbird use new yahoo email platform for Comcast on MacBook Air?") [1596164](https://support.mozilla.org/questions/1596164 "") [1596297](https://support.mozilla.org/questions/1596297 "") |
-| daily | 2.8× | 2026-07-02 | v152 × proto:imap | 4 | ⚠️ 50% ans · 7.6h | [1590718](https://support.mozilla.org/questions/1590718 "Accidentally moved IMAP Gmail label to Local Folders - Emails disappeared, Local") [1590790](https://support.mozilla.org/questions/1590790 "Thunderbird and GoDaddy account") [1590808](https://support.mozilla.org/questions/1590808 "Forwarded attachments disappear after first IMAP draft save and subsequent saves") [1590848](https://support.mozilla.org/questions/1590848 "Continue to have ＂Authentication Required＂ POPup errors at startup.") |
-| weekly | 2.8× | 2026-07-06 | v152 × proto:oauth | 5 | 80% ans · 5.4h | [1591762](https://support.mozilla.org/questions/1591762 "Even with verions 152.01, Oauth for smtp through Yahoo.com is not an available c") [1591813](https://support.mozilla.org/questions/1591813 "Oauth challenge never appears") [1591979](https://support.mozilla.org/questions/1591979 "Outlook: OAuth Authentication failure with IMAP") [1592379](https://support.mozilla.org/questions/1592379 "Gmail oauth gives Authentication failure after restarting Thunderbird") [1592479](https://support.mozilla.org/questions/1592479 "cannot set OAuth authentication method in Thunderbird 152.0.1") |
-| weekly | 2.6× | 2026-07-06 | v140 × proto:smtp | 5 | 100% ans · 6.1h | [1591795](https://support.mozilla.org/questions/1591795 "Impossibile inviare messaggi") [1591885](https://support.mozilla.org/questions/1591885 "Can't find outgoing server after login following Win 11 sleeps") [1591986](https://support.mozilla.org/questions/1591986 "After the last Thunderbird update I cannot send e-mails but still receive emails") [1592019](https://support.mozilla.org/questions/1592019 "IMAP, SMTP и POP3") [1592468](https://support.mozilla.org/questions/1592468 "I have problems with my Orcon emails and they say it is Thunderbird.") |
+| weekly | 3.0× | 2026-07-27 | v153 × m:comcast | 4 | 75% ans · 5.4h | [1595937](https://support.mozilla.org/questions/1595937 "") [1595941](https://support.mozilla.org/questions/1595941 "") [1596164](https://support.mozilla.org/questions/1596164 "With version 153: Unable to send from gmail account.  And cannot create a new gm") [1596297](https://support.mozilla.org/questions/1596297 "Trying to set APP Password to connect with Yahoo Mail conversion at Comcast.") |
+| daily | 2.7× | 2026-08-18 | v153 × m:gmail | 6 | ⚠️ 17% ans · 0.7h | [1598887](https://support.mozilla.org/questions/1598887 "＂Authentification Failure while connecting to server imap.gmail.com＂ How do I re") [1598903](https://support.mozilla.org/questions/1598903 "emails from senders with gmail accounts not being downloaded") [1598918](https://support.mozilla.org/questions/1598918 "Thunderbird has stopped receiving email") [1598928](https://support.mozilla.org/questions/1598928 "Thunderbird PC app and Android both loading and syncing incoming email and all f") [1598949](https://support.mozilla.org/questions/1598949 "Unable to sync address book with Gmail") [1598950](https://support.mozilla.org/questions/1598950 "Unable to sync address book with Gmail (locked duplicate)") |
+| weekly | 2.7× | 2026-08-17 | v153 × m:spectrum | 5 | 100% ans · 11.8h | [1598964](https://support.mozilla.org/questions/1598964 "Thunderbird connection resets when using Mozilla VPN.") [1599516](https://support.mozilla.org/questions/1599516 "When trying to send an email it will not go") [1599553](https://support.mozilla.org/questions/1599553 "I can't receive or send Charter emails in thunderbird.") [1599823](https://support.mozilla.org/questions/1599823 "After latest update can't connect to spectrum Charter email") [1599836](https://support.mozilla.org/questions/1599836 "all INBOX emails disappeared--no luck repairing folder or deleting INBOX.msf but") |
+| daily | 2.5× | 2026-08-03 | v153 × m:microsoftemail | 4 | 100% ans · 15.7h | [1596378](https://support.mozilla.org/questions/1596378 "cartelle cscomparse account posta hotmail") [1596433](https://support.mozilla.org/questions/1596433 "Mijn agenda op Thunderbird.") [1596442](https://support.mozilla.org/questions/1596442 "Aanmelden bij outlook met mailadres dat hoofdletters bevat is niet meer mogelijk") [1596497](https://support.mozilla.org/questions/1596497 "Thunderbird cannot log-in to my mail accounts") |
+
+**Cause-level**
+
+| Grain | Rise | When | Cause | Qs | Served | Baseline | Example questions |
+|:--|--:|:--|:--|--:|:--|--:|:--|
+| weekly | 2.5× | 2026-08-03 | m:yahooemail | 14 | 79% ans · 3.3h | 5.5 | [1596455](https://support.mozilla.org/questions/1596455 "Recuprar la carpeta Bulk") [1596495](https://support.mozilla.org/questions/1596495 "Are thunderbird's saved logins the same logins Yahoo recognizes and accepts? Tbi") [1596497](https://support.mozilla.org/questions/1596497 "Thunderbird cannot log-in to my mail accounts") [1596560](https://support.mozilla.org/questions/1596560 "Thunderbirdサーバーにログインできなくなりました。") [1596676](https://support.mozilla.org/questions/1596676 "preventing a 2nd email  address from popping up in thunderbird") [1596708](https://support.mozilla.org/questions/1596708 "TB doesn't like to connect to my Comcast internet provider sometime.") +8 |
 
 
 </details>
 
 ---
 
-## All July 2026 detail
+## All August 2026 detail
 
 <details markdown="1">
-<summary><strong>🚨 Version × cause spikes</strong> — 0 rows</summary>
+<summary><strong>🚨 Version × cause spikes</strong> — 8 rows</summary>
 
-_None._
+| Grain | Lift | When | Version × Cause | Qs | Served | Signal | Example questions |
+|:--|--:|:--|:--|--:|:--|:--|:--|
+| weekly | **4.0×** | 2026-08-24 | v153 × m:spectrum | 4 | ⚠️ 50% ans · 1.9h | spreading | [1600000](https://support.mozilla.org/questions/1600000 "Suddenly can't send/receive emails") [1600041](https://support.mozilla.org/questions/1600041 "I can receive but not send emails") [1600103](https://support.mozilla.org/questions/1600103 "Cannot send or receive email.") [1601143](https://support.mozilla.org/questions/1601143 "IMAP accounts no longer update - Charter/Spectrum email hosting") |
+| daily | **3.5×** | 2026-08-14 | v153 × proto:pop | 4 | 100% ans · 8.0h | recurring | [1598311](https://support.mozilla.org/questions/1598311 "Thunderbird went goofy for multiple gmail accounts - deleted email does not show") [1598314](https://support.mozilla.org/questions/1598314 "Email from Roadrunner.com does not show but server test works") [1598327](https://support.mozilla.org/questions/1598327 "Unable to receive e-mail") [1598357](https://support.mozilla.org/questions/1598357 "Recently Unable to send (SMTP) from Thunderbird from Cox.com (now thru Yahoo).") |
+| daily | **3.3×** | 2026-08-13 | v153 × proto:pop | 4 | 100% ans · 1.2h | recurring | [1598091](https://support.mozilla.org/questions/1598091 "thunderbird has stopped receiving emails from century link") [1598146](https://support.mozilla.org/questions/1598146 "Can't access my account") [1598151](https://support.mozilla.org/questions/1598151 "How to set up automatic email forwarding from Thunderbird to Gmail") [1598175](https://support.mozilla.org/questions/1598175 "Thunderbird won't download email messages from Yahoo (formerly Cox) account") |
+| daily | **3.3×** | 2026-08-10 | v153 × proto:pop | 4 | 75% ans · 1.1h | spreading | [1597551](https://support.mozilla.org/questions/1597551 "Thunderbird POP stopped retrieving email from one mail box, No error message") [1597571](https://support.mozilla.org/questions/1597571 "Email collection over pop failed on one account, server settings rejected when I") [1597638](https://support.mozilla.org/questions/1597638 "How logging onto wowway with old password?") [1597683](https://support.mozilla.org/questions/1597683 "Hotmail personal account: IMAP OAuth2 works but SMTP OAuth2 fails with message: ") |
+| weekly | **3.3×** | 2026-08-24 | v154 × m:spectrum | 8 | 88% ans · 13.7h | recurring | [1600052](https://support.mozilla.org/questions/1600052 "Trouble connecting to my email provider Time Warner Corporation to send emails u") [1600872](https://support.mozilla.org/questions/1600872 "I can send email but can not receive.") [1600919](https://support.mozilla.org/questions/1600919 "how Can i get help when my email doesn't work?") [1600982](https://support.mozilla.org/questions/1600982 "Thunderbird not working again with Spectrum emails.") [1601056](https://support.mozilla.org/questions/1601056 "Thunderbird 154.0 is causing extremem issues with Spectrum email. HELP Please") [1601071](https://support.mozilla.org/questions/1601071 "After update I cant send or receive Charter emails") +2 |
+| daily | **3.2×** | 2026-08-04 | v153 × m:microsoftemail | 5 | 100% ans · 0.8h | spreading | [1596545](https://support.mozilla.org/questions/1596545 "Microsoft Outlook authentication failure.") [1596547](https://support.mozilla.org/questions/1596547 "I just had a fake prompt to add a password to a website mimicking Thunderbird") [1596591](https://support.mozilla.org/questions/1596591 "email not collegament to app thunderbird pc (email outlook)") [1596602](https://support.mozilla.org/questions/1596602 "Import from Outlook (M365) Mac OS to Thunderbird?") [1596606](https://support.mozilla.org/questions/1596606 "Cannot import contacts from outlook 2016") |
+| weekly | **3.1×** | 2026-08-17 | v154 × m:spectrum | 4 | 100% ans · 4.2h | spreading | [1599683](https://support.mozilla.org/questions/1599683 "Suddenly not receiving email") [1599738](https://support.mozilla.org/questions/1599738 "Thunderbird is not receiving in coming mail from Charter") [1599818](https://support.mozilla.org/questions/1599818 "Thunderbird not connecting to server.  Cannot send or receive emails.") [1599874](https://support.mozilla.org/questions/1599874 "Ability to send emails using roadrunner (mail.twc.com) account") |
+| monthly | **3.1×** | 2026-08 | v154 × m:spectrum | 13 | 92% ans · 4.2h | spreading | [1599683](https://support.mozilla.org/questions/1599683 "Suddenly not receiving email") [1599738](https://support.mozilla.org/questions/1599738 "Thunderbird is not receiving in coming mail from Charter") [1599818](https://support.mozilla.org/questions/1599818 "Thunderbird not connecting to server.  Cannot send or receive emails.") [1599874](https://support.mozilla.org/questions/1599874 "Ability to send emails using roadrunner (mail.twc.com) account") [1600052](https://support.mozilla.org/questions/1600052 "Trouble connecting to my email provider Time Warner Corporation to send emails u") [1600872](https://support.mozilla.org/questions/1600872 "I can send email but can not receive.") +7 |
 
 </details>
 
 <details markdown="1">
-<summary><strong>📮 Cause-level spikes (provider · protocol · AV)</strong> — 0 rows</summary>
+<summary><strong>📮 Cause-level spikes (provider · protocol · AV)</strong> — 4 rows</summary>
 
-_None._
+| Grain | Rise | When | Cause | Qs | Served | Baseline | Example questions |
+|:--|--:|:--|:--|--:|:--|--:|:--|
+| weekly | **11.0×** | 2026-08-17 | m:spectrum | 11 | 100% ans · 8.0h | 1.0 | [1598964](https://support.mozilla.org/questions/1598964 "Thunderbird connection resets when using Mozilla VPN.") [1599516](https://support.mozilla.org/questions/1599516 "When trying to send an email it will not go") [1599553](https://support.mozilla.org/questions/1599553 "I can't receive or send Charter emails in thunderbird.") [1599681](https://support.mozilla.org/questions/1599681 "I am unable to send and receive emails on two of my computers. I can do that onl") [1599683](https://support.mozilla.org/questions/1599683 "Suddenly not receiving email") [1599711](https://support.mozilla.org/questions/1599711 "I use to be able to get my email messages from Spectrum on Thunderbird, but now ") +5 |
+| weekly | **10.0×** | 2026-08-24 | m:spectrum | 15 | 80% ans · 3.1h | 1.5 | [1600000](https://support.mozilla.org/questions/1600000 "Suddenly can't send/receive emails") [1600041](https://support.mozilla.org/questions/1600041 "I can receive but not send emails") [1600052](https://support.mozilla.org/questions/1600052 "Trouble connecting to my email provider Time Warner Corporation to send emails u") [1600103](https://support.mozilla.org/questions/1600103 "Cannot send or receive email.") [1600207](https://support.mozilla.org/questions/1600207 "Can't get into my Spectrum email account through Thunderbird") [1600663](https://support.mozilla.org/questions/1600663 "can no longer get my e-mail") +9 |
+| weekly | **3.5×** | 2026-08-10 | m:yahooemail | 19 | 63% ans · 3.4h | 5.5 | [1597571](https://support.mozilla.org/questions/1597571 "Email collection over pop failed on one account, server settings rejected when I") [1597605](https://support.mozilla.org/questions/1597605 "I am still canot open my yahoo.co.uk email account? I have deleted the account f") [1597650](https://support.mozilla.org/questions/1597650 "why am i getting a pop-up window demanding that I agree to allow thunderbird mai") [1597665](https://support.mozilla.org/questions/1597665 "Yahoo IMAP Mailbox Reserved Loop: Bulk folder stuck inside Trash") [1597759](https://support.mozilla.org/questions/1597759 "Why is Yahoo_mail not updatuing in Thunderbird since two weeks?") [1597789](https://support.mozilla.org/questions/1597789 "Yahoo mail authentication failure after the newest update") +13 |
+| monthly | **3.2×** | 2026-08 | m:spectrum | 34 | 79% ans · 3.7h | 10.5 | [1596316](https://support.mozilla.org/questions/1596316 "Thunderbird 1 of 7  email account stopped working from the Provider Spectrum and") [1596807](https://support.mozilla.org/questions/1596807 "Receiving, deleting, and sending messages is extremely slow for 1 of 2 users on ") [1597319](https://support.mozilla.org/questions/1597319 "thunderbird not able to access mail.twc.com") [1597495](https://support.mozilla.org/questions/1597495 "NO longer have Spectrum as email provider but need to preserve emails .") [1597964](https://support.mozilla.org/questions/1597964 "Roadrunner / TWC IMAP settings") [1597972](https://support.mozilla.org/questions/1597972 "Thunderbird tells me that the spectrum servers won't accept my password") +28 |
 
 </details>
 
 <details markdown="1">
-<summary><strong>📦 Release-adoption version/OS spikes (not incidents)</strong> — 15 rows</summary>
+<summary><strong>📦 Release-adoption version/OS spikes (not incidents)</strong> — 30 rows</summary>
 
 Version and OS are **filters, not causes** — a bare version spike is release adoption, not a regression. Listed for manual checking only.
 
 | Grain | Rise | When | Dimension | Value | Qs | Baseline |
 |:--|--:|:--|:--|:--|:--|--:|
-| daily | **3.1×** | 2026-07-01 | tb_version_major | 152 | 11 [1590558](https://support.mozilla.org/questions/1590558 "Chyba editoru při přeposílání (inline): Uzamčení dočasných souborů v Tempu při u") [1590593](https://support.mozilla.org/questions/1590593 "Too much disk space used by Thunderbird") | 3.5 |
-| daily | **new** | 2026-07-23 | tb_version_major | 153 | 11 [1594355](https://support.mozilla.org/questions/1594355 "not sure i  lke the new version") [1594359](https://support.mozilla.org/questions/1594359 "How do I remove the English (US) dictionary from Thunderbird") | 0.0 |
-| daily | **new** | 2026-07-24 | tb_version_major | 153 | 8 [1594604](https://support.mozilla.org/questions/1594604 "＂Current operation on Inbox did not succeed for yahoo account") [1594673](https://support.mozilla.org/questions/1594673 "Can't get back to inbox from local folders") | 0.0 |
-| daily | **new** | 2026-07-26 | tb_version_major | 153 | 15 [1594896](https://support.mozilla.org/questions/1594896 "Lost my password") [1594901](https://support.mozilla.org/questions/1594901 "When opening Tbird 153.0, several servers give authentication errors") | 0.0 |
-| daily | **new** | 2026-07-27 | tb_version_major | 153 | 11 [1595089](https://support.mozilla.org/questions/1595089 "add a yohoo email account") [1595090](https://support.mozilla.org/questions/1595090 "backup zip ,841mb ,will not import into thunderbird") | 0.0 |
-| daily | **new** | 2026-07-28 | tb_version_major | 153 | 11 [1595265](https://support.mozilla.org/questions/1595265 "How to delete duplicate folders in three email acounts?") [1595273](https://support.mozilla.org/questions/1595273 "Adding a hotmail email account to Thunderbird 153.0 (64-bit) on Windows 11 Home ") | 0.0 |
-| daily | **new** | 2026-07-30 | tb_version_major | 153 | 9 [1595713](https://support.mozilla.org/questions/1595713 "Why do deleted emails remain in my All Mail box?") [1595723](https://support.mozilla.org/questions/1595723 "Thunderbird editor line spacing") | 0.0 |
-| daily | **new** | 2026-07-31 | tb_version_major | 153 | 18 [1595834](https://support.mozilla.org/questions/1595834 "Compacting folders progress bar") [1595845](https://support.mozilla.org/questions/1595845 "are you able to use thunderbird email without primary password") | 0.0 |
-| monthly | **new** | 2026-07 | tb_version_major | 153 | 101 [1590618](https://support.mozilla.org/questions/1590618 "When a proper repository for .deb packages will be available?") [1590771](https://support.mozilla.org/questions/1590771 "Can't sign in to Thunderbird") | 0.0 |
-| monthly | **422.0×** | 2026-07 | tb_version_major | 152 | 211 [1590558](https://support.mozilla.org/questions/1590558 "Chyba editoru při přeposílání (inline): Uzamčení dočasných souborů v Tempu při u") [1590593](https://support.mozilla.org/questions/1590593 "Too much disk space used by Thunderbird") | 0.5 |
-| monthly | **3.1×** | 2026-07 | tb_version_major | 150 | 26 [1590853](https://support.mozilla.org/questions/1590853 "Have difficulty deleting emails") [1591057](https://support.mozilla.org/questions/1591057 "Thunderbird Error Message : Authentication Error :  Unable To Log in at Server. ") | 8.5 |
-| weekly | **52.0×** | 2026-06-29 | tb_version_major | 152 | 78 [1590162](https://support.mozilla.org/questions/1590162 "") [1590178](https://support.mozilla.org/questions/1590178 "") | 1.5 |
-| weekly | **26.0×** | 2026-07-06 | tb_version_major | 152 | 65 [1591418](https://support.mozilla.org/questions/1591418 "Pulsante ＂Esegui ora＂ del filtro messaggi non disponibile") [1591432](https://support.mozilla.org/questions/1591432 "code-uitvoering kan niet worden voortgezet") | 2.5 |
-| weekly | **new** | 2026-07-20 | tb_version_major | 153 | 43 [1594201](https://support.mozilla.org/questions/1594201 "LỖi đăng nhập hotmail, email") [1594241](https://support.mozilla.org/questions/1594241 "Connection reset errors for CalDAV calendars when staritng Thunderbird") | 0.0 |
-| weekly | **new** | 2026-07-27 | tb_version_major | 153 | 79 [1595089](https://support.mozilla.org/questions/1595089 "add a yohoo email account") [1595090](https://support.mozilla.org/questions/1595090 "backup zip ,841mb ,will not import into thunderbird") | 0.0 |
+| daily | **new** | 2026-08-01 | tb_version_major | 153 | 13 [1596031](https://support.mozilla.org/questions/1596031 "why is thunderbird not working") [1596048](https://support.mozilla.org/questions/1596048 "thunderbrd version 153.0.1 64bit: some registered adress get filtered as spam th") | 0.0 |
+| daily | **new** | 2026-08-02 | tb_version_major | 153 | 10 [1596185](https://support.mozilla.org/questions/1596185 "I can't send or receive emails using wifi") [1596191](https://support.mozilla.org/questions/1596191 "Events shift one hour earlier in calendar") | 0.0 |
+| daily | **new** | 2026-08-03 | tb_version_major | 153 | 21 [1596331](https://support.mozilla.org/questions/1596331 "When a message must be Sent Later, where is the draft stored???") [1596345](https://support.mozilla.org/questions/1596345 "InsertSignature button moved from formatting toolbar to top toolbar after Thunde") | 0.0 |
+| daily | **new** | 2026-08-04 | tb_version_major | 153 | 20 [1596545](https://support.mozilla.org/questions/1596545 "Microsoft Outlook authentication failure.") [1596547](https://support.mozilla.org/questions/1596547 "I just had a fake prompt to add a password to a website mimicking Thunderbird") | 0.0 |
+| daily | **7.5×** | 2026-08-05 | tb_version_major | 153 | 15 [1596705](https://support.mozilla.org/questions/1596705 "Can't create or rename Inbox subfolders in Thunderbird") [1596708](https://support.mozilla.org/questions/1596708 "TB doesn't like to connect to my Comcast internet provider sometime.") | 2.0 |
+| daily | **4.9×** | 2026-08-06 | tb_version_major | 153 | 22 [1596881](https://support.mozilla.org/questions/1596881 "Can no longer drag and drop email attachments from emails to folders after 153es") [1596896](https://support.mozilla.org/questions/1596896 "gmail linkage") | 4.5 |
+| daily | **5.0×** | 2026-08-07 | os | os:linux | 10 [1597113](https://support.mozilla.org/questions/1597113 "i just need account to identify online access to verify my online social media d") [1597136](https://support.mozilla.org/questions/1597136 "Jak spravne nastavit thunderbird pro pop3?") | 2.0 |
+| daily | **3.7×** | 2026-08-07 | tb_version_major | 153 | 22 [1597076](https://support.mozilla.org/questions/1597076 "Update to Thunderbird 153.0.2esr (32-bit) freezes up and locks.  SOLVED by 153.1") [1597080](https://support.mozilla.org/questions/1597080 "how many adresses can I have in a single Thunderbird email?") | 6.0 |
+| daily | **new** | 2026-08-19 | tb_version_major | 154 | 8 [1599072](https://support.mozilla.org/questions/1599072 "Nelze zadat přihlašovací heslo") [1599085](https://support.mozilla.org/questions/1599085 "Unable to log in to my email account through the Thunderbird desktop application") | 0.0 |
+| daily | **new** | 2026-08-20 | tb_version_major | 154 | 12 [1599228](https://support.mozilla.org/questions/1599228 "Asking for authorisation after deleting account") [1599257](https://support.mozilla.org/questions/1599257 "Print emails") | 0.0 |
+| daily | **new** | 2026-08-21 | tb_version_major | 154 | 18 [1599422](https://support.mozilla.org/questions/1599422 "Sending e-mails does not work") [1599433](https://support.mozilla.org/questions/1599433 "Very slow to download and synchronize") | 0.0 |
+| daily | **new** | 2026-08-22 | tb_version_major | 154 | 13 [1599566](https://support.mozilla.org/questions/1599566 "My Thunderbird is freezing up") [1599568](https://support.mozilla.org/questions/1599568 "Thunderbird is freezing up after a few minutes or when I try to select a folder.") | 0.0 |
+| daily | **new** | 2026-08-23 | tb_version_major | 154 | 10 [1599762](https://support.mozilla.org/questions/1599762 "How do I  add my Outlook Calendar to TB 154 using Owl") [1599777](https://support.mozilla.org/questions/1599777 "mail indirmeyi çok yavaş yapıyor.nedeni nedir ? 1000 mb internet hızım var.") | 0.0 |
+| daily | **new** | 2026-08-24 | tb_version_major | 154 | 19 [1599916](https://support.mozilla.org/questions/1599916 "Are you having problems with the program right now?") [1599944](https://support.mozilla.org/questions/1599944 "Transfer Thunderbird from PC to Laptop") | 0.0 |
+| daily | **new** | 2026-08-25 | tb_version_major | 154 | 9 [1600116](https://support.mozilla.org/questions/1600116 "Account Passwords need frequent updating") [1600119](https://support.mozilla.org/questions/1600119 "Every time Thunderbird queries gmail, it starts downloading my hundreds of thous") | 0.0 |
+| daily | **new** | 2026-08-26 | tb_version_major | 154 | 27 [1600375](https://support.mozilla.org/questions/1600375 "Varför är det så svårt att sortera mapparna i bokstavordning.") [1600387](https://support.mozilla.org/questions/1600387 "thunderbird pdf viewer") | 0.0 |
+| daily | **new** | 2026-08-27 | tb_version_major | 154 | 17 [1600526](https://support.mozilla.org/questions/1600526 "Reply with Template option missing") [1600549](https://support.mozilla.org/questions/1600549 "I want to delete my account from the thunderbird server so that I can start fres") | 0.0 |
+| daily | **new** | 2026-08-28 | tb_version_major | 154 | 17 [1600770](https://support.mozilla.org/questions/1600770 "I can't highlight words on attachments") [1600772](https://support.mozilla.org/questions/1600772 "thunderbird mail") | 0.0 |
+| daily | **new** | 2026-08-29 | tb_version_major | 154 | 14 [1600904](https://support.mozilla.org/questions/1600904 "Trouble reading emails with a screenreader (JAWS)") [1600919](https://support.mozilla.org/questions/1600919 "how Can i get help when my email doesn't work?") | 0.0 |
+| daily | **new** | 2026-08-30 | tb_version_major | 154 | 13 [1601071](https://support.mozilla.org/questions/1601071 "After update I cant send or receive Charter emails") [1601074](https://support.mozilla.org/questions/1601074 "I can't print attachments.") | 0.0 |
+| daily | **44.0×** | 2026-08-31 | tb_version_major | 154 | 22 [1601271](https://support.mozilla.org/questions/1601271 "Se stampo dal Thunderbird esce il foglio bianco") [1601273](https://support.mozilla.org/questions/1601273 "Al iniciar Thunderbird se bloquea") | 0.5 |
+| monthly | **new** | 2026-08 | tb_version_major | 154 | 202 [1596686](https://support.mozilla.org/questions/1596686 "Cannot print Pdf files from within Thunderbird") [1598813](https://support.mozilla.org/questions/1598813 "Missing SENT messages. Folder ＂greyed out＂") | 0.0 |
+| monthly | **882.0×** | 2026-08 | tb_version_major | 153 | 441 [1596031](https://support.mozilla.org/questions/1596031 "why is thunderbird not working") [1596048](https://support.mozilla.org/questions/1596048 "thunderbrd version 153.0.1 64bit: some registered adress get filtered as spam th") | 0.5 |
+| weekly | **new** | 2026-07-27 | tb_version_major | 153 | 79 [1595089](https://support.mozilla.org/questions/1595089 "") [1595090](https://support.mozilla.org/questions/1595090 "") | 0.0 |
+| weekly | **274.0×** | 2026-08-03 | tb_version_major | 153 | 137 [1596331](https://support.mozilla.org/questions/1596331 "When a message must be Sent Later, where is the draft stored???") [1596345](https://support.mozilla.org/questions/1596345 "InsertSignature button moved from formatting toolbar to top toolbar after Thunde") | 0.5 |
+| weekly | **52.0×** | 2026-08-10 | tb_version_major | 153 | 130 [1597513](https://support.mozilla.org/questions/1597513 "Migrate emails to another provider") [1597551](https://support.mozilla.org/questions/1597551 "Thunderbird POP stopped retrieving email from one mail box, No error message") | 2.5 |
+| weekly | **new** | 2026-08-17 | tb_version_major | 154 | 63 [1598813](https://support.mozilla.org/questions/1598813 "Missing SENT messages. Folder ＂greyed out＂") [1598989](https://support.mozilla.org/questions/1598989 "Over the weekend Thuderbird stopped allowing me to send emails and will not set ") | 0.0 |
+| weekly | **3.8×** | 2026-08-17 | tb_version_major | 153 | 89 [1598650](https://support.mozilla.org/questions/1598650 "I am trying to restore a backed up profile for use in thunderbird.") [1598659](https://support.mozilla.org/questions/1598659 "Please remover the annpying Yahoo signip splash screen") | 23.5 |
+| weekly | **new** | 2026-08-24 | tb_version_major | 154 | 116 [1599916](https://support.mozilla.org/questions/1599916 "Are you having problems with the program right now?") [1599944](https://support.mozilla.org/questions/1599944 "Transfer Thunderbird from PC to Laptop") | 0.0 |
+| weekly | **46.0×** | 2026-08-31 | tb_version_major | 154 | 23 [1601271](https://support.mozilla.org/questions/1601271 "Se stampo dal Thunderbird esce il foglio bianco") [1601273](https://support.mozilla.org/questions/1601273 "Al iniciar Thunderbird se bloquea") | 0.5 |
 
 </details>
 
 <details markdown="1">
-<summary><strong>📈 July 2026 trends</strong> — 6 rows</summary>
+<summary><strong>📈 August 2026 trends</strong> — 6 rows</summary>
 
 **Top versions**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| v152 | 211 | `▆█▄▆▃▆▇▆▆▄▂▃▆█▄▃▁▆▃▅▆▂▂▁▁▂▁▂▂▁▁` |
-| v140 | 186 | `▅▆▆▇▆▇▅▅█▅▄▂▅▅▅▅▆▄▅▇▅▅▅█▂▇▅▄▇▃▅` |
-| v153 | 101 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▅▄▃▇▅▅▄▅█` |
-| v150 | 26 | `▁▃▃▁▁▃█▁▆▃▆▁▃▁▁▃▁█▆▆▆▃▁▁▁▃▁▃▃▁▁` |
-| v115 | 16 | `▆▃▁▁▁▃▁▁▆▁▁▃▁▃▁▁▆▁▁▁▁▁▆▁▁▁▁▁█▁▃` |
-| v149 | 6 | `█▁█▁▁▁▁▁▁▁▁▁█▁▁█▁▁█▁▁▁▁▁▁▁█▁▁▁▁` |
+| v153 | 441 | `▅▄▇▇▅▇▇▇▅▇▄▇▇▇▅▇▇█▄▄▅▃▃▄▂▄▅▃▂▂▅` |
+| v154 | 202 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▃▄▆▄▄▆▃█▅▅▅▄▇` |
+| v140 | 67 | `▃▃▅▆█▅▆█▃▆█▅▁▅▆▅▅▅▁▆▅▆▆▅▅▅▅▃▃▃█` |
+| v150 | 25 | `▁▁▅▁▃▆▃█▁▃▁▁▁▃▃▃▃▁▃▃▁▁▁▃▁▃▁▃▃▃▅` |
+| v115 | 24 | `▃▁▃▃▆▁▃▃▁█▁▁▁▁▃▆▆▁▁▁▁▆▁▆▃█▁▁▃▁▁` |
+| v151 | 7 | `▁█▁▁▁█▁▁▁▁▁█▁█▁█▁▁▁▁▁▁▁█▁▁▁▁█▁▁` |
 
 **Top mail providers**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| m:gmail | 73 | `▃▅▅▅▆▂▃▅▅▆▅▁▁▆▁▃▅▅▂▁▁▅▂█▂█▃▅▂▆▃` |
-| m:microsoftemail | 36 | `▁▅▃▂▂▁▁▃█▁▁▅▁▅▁▃▂▁▁▃▂▃▂▁▁▂▃▂▂▂▁` |
-| m:yahooemail | 30 | `▃▅▃▁▆▃▃▃▃▃▁▃▃▁▁▁▁▃▃▁▃▁▁▅▁▅▃█▅▁▅` |
-| m:comcast | 13 | `▁▅▁▅▁▁▁▅█▁▁▁▁▅▅▁▁▅▁▁▁▁▅▁▁▅▁▁▅▁█` |
-| m:icloud | 6 | `▁▅▁▁▁▁▁█▁▁▁▁▅▁▁▁▁▁▅▁▁▁▁▁▁▅▁▁▁▁▁` |
-| m:btinternet | 6 | `▁▁▁▁▁▁█▁▁█▁▁▁▁▁█▁▁▁▁█▁█▁▁▁▁▁▁█▁` |
+| m:gmail | 75 | `▂▁▆▅▂▅▂▅▁▄▂▃▄▃▄▁▄█▃▅▃▄▄▁▄▄▂▁▄▄▅` |
+| m:yahooemail | 55 | `▃▅▆▅▃▅▃▆▅██▅▃▆▃█▃▅▁▅▅▃▁▁▅▃▁▅▃▃█` |
+| m:microsoftemail | 53 | `▄▂▇█▄▁▄▂▁▅▂▄▅▄▁▂▂▂▂▄▅▄▂▂▄▂▂▄▁▄▇` |
+| m:spectrum | 34 | `▁▃▁▁▃▁▁▃▃▁▁▅▁▃▁▁▁▃▁▁▅███▃▁▃▃██▃` |
+| m:comcast | 12 | `▃▃▁▁▃▁▁▁▁▁▁▁▁▁▃█▁▃▁▁▃▃▁▁▁▃▃▁▁▁▁` |
+| m:att | 5 | `▁▁█▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁█▁▁█` |
 
 **Top protocols**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| proto:imap | 56 | `▂▇▄▄▂▅▄▄█▁▁▄▂▄▂▂▂█▁▄▄▄▇▁▁▅▅▂▄▁▄` |
-| proto:pop | 42 | `▁▃▃▅█▅█▅▅▁▁▃▅▁▃▁▁█▅▁▃▃▃▅▃▁▃▆▁▃▆` |
-| proto:smtp | 35 | `▂▂▂▁▂▁▄▇█▁▁▂▁▂▄▂▁▁▂▂█▄▁▁▂▂▂▁▂▂▂` |
-| proto:oauth | 20 | `▁▅▁▅▁▁▁██▁▅▅▅▅▁▅▅▁▁▁█▁▁▁▅█▅█▁▁▁` |
-| proto:caldav | 3 | `▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁█▁█▁▁▁▁▁▁▁▁▁` |
-| proto:ews | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| proto:imap | 70 | `▃▁▇▃▅▁▁▃▃█▂▂▅▆▃▂▅▆▃▁▃▅▃▅▂▇▃▂▅▃▅` |
+| proto:pop | 46 | `▃▃▅▆▃▅▅▆▅█▁▁██▁▁▅▅▁▃▃▃▁▃▁▁▆▃▃▃▆` |
+| proto:smtp | 44 | `▁▃█▁▃▁▃▃▃▆▁▆▆▆▃▁▃▃▃▆█▆▃▆▃█▃▆█▃█` |
+| proto:oauth | 19 | `▁▁▃▁▁▁▁▆▁█▃▁▃▁▃▁▃▁▃▁▁▃▁▁▃▁▁▆▃▃▆` |
+| proto:ews | 3 | `█▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁` |
+| proto:carddav | 3 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁█▁▁▁▁▁▁█` |
 
 **Top antivirus**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| av:norton | 3 | `▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁█` |
-| av:bitdefender | 2 | `▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| av:eset | 2 | `▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁` |
-| av:avast | 2 | `▁▁▁▁▁▁▁█▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| av:defender | 2 | `▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█` |
-| av:mcafee | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁` |
+| av:bitdefender | 3 | `▁▁█▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁` |
+| av:avast | 2 | `▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁` |
+| av:defender | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁` |
+| av:mcafee | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁█▁▁▁▁▁` |
+| av:kaspersky | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁█▁▁▁▁` |
+| av:norton | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
 **OS mix (filter dimension)**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| os:windows | 589 | `▅▆▅▅▄▆▇▆▇▅▄▃▇▇▄▅▄▅▄▇▇▅█▆▂▆▇▆▆▄█` |
-| os:linux | 61 | `▇▅▆▁▁▁▃▃▂▂▁▁▅▂▁▃▅▂▂▃▁▅▇▁▃█▅▆▃▅▃` |
-| os:macos | 45 | `▂█▁▄▁█▁▅▂▄▂▄▄▄▄▁▂▅▁▄▁▂▄▄▁▁▂▁▅▂▂` |
-| os:other | 11 | `▅▅█▅▁▁▁▁▁▅▁▁▁▅▁▅▁▁▁▁▁▅▁▅▁▁▅▁▁▁▁` |
-| os:android | 7 | `█▁▁▁█▁█▁██▁█▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁` |
+| os:windows | 750 | `▃▂▅▅▃▄▄▅▃▅▂▅▅▅▃▃▅▅▄▅▆▅▄▆▄█▆▅▄▃▇` |
+| os:linux | 93 | `▄▃▃▂▃▄█▅▁▃▄▂▂▃▄▅▂▃▂▂▂▃▂▂▄▂▂▂▁▄▅` |
+| os:macos | 59 | `▂▂▂▅█▅▃▃▃▂▅▂▂▁▅█▂▆▂▁▃▃▂▅▂▂▃▁▂▃▃` |
+| os:android | 10 | `▁▃▁▁▁▃▁▆▁▁▃▃▁▁▁▁▁█▁▁▁▁▁▁▁▃▁▁▁▁▁` |
+| os:other | 6 | `▁▅▁▅▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▅▁▁▁▁` |
 
 **macOS releases (filter dimension)**
 
 | Value | Questions | Trend (by day) |
 |:--|--:|:--|
-| macos:tahoe | 5 | `▁█▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▅▅▁` |
-| macos:sequoia | 2 | `▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁` |
-| macos:sonoma | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| macos:sierra | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁` |
-| macos:monterey | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁` |
+| macos:tahoe | 4 | `▁▁▁▁█▁█▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁█▁` |
+| macos:monterey | 2 | `▁▁▁█▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| macos:sequoia | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁█▁▁` |
+| macos:sonoma | 1 | `▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| macos:sierra | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| macos:ventura | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁` |
 
 
 </details>
 
 ---
 
-_Detectors run at daily / weekly / monthly grain; a weekly period is included when its week overlaps July 2026. Version×cause requires a known version, which is only populated from 2026-02 onward; cause-level uses all history. Full spike CSVs: `PROJECT1/desktop-{daily,weekly,monthly}-{single,version-cause}-spikes.csv`._
+_Detectors run at daily / weekly / monthly grain; a weekly period is included when its week overlaps August 2026. Version×cause requires a known version, which is only populated from 2026-02 onward; cause-level uses all history. Full spike CSVs: `PROJECT1/desktop-{daily,weekly,monthly}-{single,version-cause}-spikes.csv`._
