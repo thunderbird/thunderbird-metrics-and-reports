@@ -78,8 +78,8 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 | os:windows | 589 | 750 | ▲ +161 (+27%) |
 | os:linux | 61 | 93 | ▲ +32 (+52%) |
 | os:macos | 45 | 59 | ▲ +14 (+31%) |
-| os:android | 7 | 10 | ▲ +3 |
 | os:other | 11 | 6 | ▼ -5 (-45%) |
+| os:android | 7 | 10 | ▲ +3 |
 
 ### Topic mix
 
@@ -96,4 +96,4 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · August 2026 vs July 2026._
 
-_Last updated: 2026-09-01 20:07 UTC_
+_Last updated: 2026-09-02 08:08 UTC_
