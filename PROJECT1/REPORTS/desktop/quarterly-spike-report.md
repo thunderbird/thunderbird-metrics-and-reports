@@ -5,12 +5,12 @@ title: QUARTERLY: Thunderbird Desktop — Support Spike Report
 
 # QUARTERLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2023-Q4 … 2026-Q3 · **quarterly** grain · trailing 12 quarters · 41240 questions · no AI (regex + traditional stats)_
+_Generated 2023-Q4 … 2026-Q3 · **quarterly** grain · trailing 12 quarters · 41262 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 41240 questions, 3436.7/quarter avg
-- **Answered (non-creator):** 31180/41240 (76%)
+- **Volume:** 41262 questions, 3438.5/quarter avg
+- **Answered (non-creator):** 31187/41262 (76%)
 - **First-answer time (median):** 3.5h (p25 1.0h / p75 12.3h)
-- **Total volume trend:** `▇▆▅██▇▆▇▆▅▄▃`
+- **Total volume trend:** `▇▆▅██▇▆▇▆▅▄▄`
 
 > ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
 
@@ -62,8 +62,8 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 1017 | `▁▁▁▁▁▁▁▁▁▄█▄` |
-| v153 | 550 | `▁▁▁▁▁▁▁▁▁▁▁█` |
+| v140 | 1021 | `▁▁▁▁▁▁▁▁▁▄█▄` |
+| v153 | 554 | `▁▁▁▁▁▁▁▁▁▁▁█` |
 | v150 | 449 | `▁▁▁▁▁▁▁▁▁▁█▂` |
 | v152 | 377 | `▁▁▁▁▁▁▁▁▁▁▆█` |
 | v151 | 337 | `▁▁▁▁▁▁▁▁▁▁█▁` |
@@ -73,21 +73,21 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 3775 | `▆▆▅██▆▅▆▅▅▄▃` |
-| m:microsoftemail | 3048 | `▅▅▄█▇▅▄▅▄▄▄▂` |
-| m:yahooemail | 1206 | `▅▄█▇▆▅▄█▇█▆▅` |
+| m:gmail | 3776 | `▆▆▅██▆▅▆▅▅▄▃` |
+| m:microsoftemail | 3049 | `▅▅▄█▇▅▄▅▄▄▄▂` |
+| m:yahooemail | 1205 | `▅▄█▇▆▅▄█▇█▆▅` |
 | m:comcast | 532 | `▅▇▆██▇▅▇▇▃▆▄` |
 | m:spectrum | 472 | `█▆▄▇▅▆▅▆▅▄▆▆` |
-| m:att | 302 | `▇▃█▇█▇▅█▅▅▃▃` |
+| m:att | 303 | `▇▃█▇█▇▅█▅▅▃▃` |
 
 ### Top protocols
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 2924 | `▆▆▆██▇▅▆▅▅▄▄` |
+| proto:imap | 2925 | `▆▆▆██▇▅▆▅▅▄▄` |
 | proto:smtp | 1864 | `▆▆▆█▇▆▅▆▄▅▃▃` |
-| proto:pop | 1832 | `▅▅▄█▇▆▅▆▅▄▄▃` |
-| proto:oauth | 733 | `▃▂▄█▅▃▃▃▃▄▃▃` |
+| proto:pop | 1833 | `▅▅▄█▇▆▅▆▅▄▄▃` |
+| proto:oauth | 732 | `▃▂▄█▅▃▃▃▃▄▃▃` |
 | proto:caldav | 138 | `▆▆▃▆█▇▆▆▄▆▄▃` |
 | proto:carddav | 78 | `▄▅▅▇▇█▃█▅▇▅▄` |
 
@@ -106,11 +106,11 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 8733 | `▃▂▂▃▃▃▂▃▃██▆` |
-| os:linux | 1762 | `▆▅▄▆▆▅▅▅▅█▇▆` |
-| os:macos | 1169 | `▄▄▃▄▄▄▃▅▃█▇▅` |
+| os:windows | 8753 | `▃▂▂▃▃▃▂▃▃██▆` |
+| os:linux | 1763 | `▆▅▄▆▆▅▅▅▅█▇▆` |
+| os:macos | 1170 | `▄▄▃▄▄▄▃▅▃█▇▅` |
 | os:other | 135 | `▁▁▁▁▁▁▁▁▁█▃▃` |
-| os:android | 105 | `▁▂▂▂▁▂▂▂▂█▆▅` |
+| os:android | 104 | `▁▂▂▂▁▂▂▂▂█▆▅` |
 
 ### macOS releases (filter dimension)
 
@@ -119,12 +119,12 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | macos:sonoma | 165 | `▄▇▅█▃▂▁▁▂▂▁▁` |
 | macos:sequoia | 158 | `▁▁▁▂▆█▄█▄▃▂▂` |
 | macos:ventura | 67 | `█▂▂▂▂▂▂▃▂▁▁▁` |
+| macos:tahoe | 57 | `▁▁▁▁▁▁▁▃██▄▆` |
 | macos:monterey | 56 | `▆█▆▅▆▇▃▄▃▂▃▃` |
-| macos:tahoe | 56 | `▁▁▁▁▁▁▁▃██▄▆` |
 | macos:catalina | 51 | `▃▂▃▃▄▃▂█▂▂▂▁` |
 
 ---
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-quarterly-rollup.csv`._
 
-_Last updated: 2026-09-02 04:39 UTC_
+_Last updated: 2026-09-02 16:41 UTC_
