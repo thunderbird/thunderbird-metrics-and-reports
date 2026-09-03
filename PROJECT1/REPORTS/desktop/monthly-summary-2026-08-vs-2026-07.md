@@ -29,8 +29,8 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 | Signal | When | Version × Cause | Qs | Lift | Served | Example questions |
 |:--|:--|:--|--:|--:|:--|:--|
 | ↗ spreading | 2026-08-10 | v153 × proto:pop | 4 | 3.3× | 75% ans · 1.1h | [1597551](https://support.mozilla.org/questions/1597551 "Thunderbird POP stopped retrieving email from one mail box, No error message") [1597571](https://support.mozilla.org/questions/1597571 "Email collection over pop failed on one account, server settings rejected when I") [1597638](https://support.mozilla.org/questions/1597638 "How logging onto wowway with old password?") [1597683](https://support.mozilla.org/questions/1597683 "Hotmail personal account: IMAP OAuth2 works but SMTP OAuth2 fails with message: ") |
-| ↗ spreading | 2026-08-04 | v153 × m:microsoftemail | 5 | 3.2× | 100% ans · 0.8h | [1596545](https://support.mozilla.org/questions/1596545 "Microsoft Outlook authentication failure.") [1596547](https://support.mozilla.org/questions/1596547 "I just had a fake prompt to add a password to a website mimicking Thunderbird") [1596591](https://support.mozilla.org/questions/1596591 "email not collegament to app thunderbird pc (email outlook)") [1596602](https://support.mozilla.org/questions/1596602 "Import from Outlook (M365) Mac OS to Thunderbird?") [1596606](https://support.mozilla.org/questions/1596606 "Cannot import contacts from outlook 2016") |
-| ↻ recurring | 2026-08-14 | v153 × proto:pop | 4 | 3.4× | 100% ans · 8.0h | [1598311](https://support.mozilla.org/questions/1598311 "Thunderbird went goofy for multiple gmail accounts - deleted email does not show") [1598314](https://support.mozilla.org/questions/1598314 "Email from Roadrunner.com does not show but server test works") [1598327](https://support.mozilla.org/questions/1598327 "Unable to receive e-mail") [1598357](https://support.mozilla.org/questions/1598357 "Recently Unable to send (SMTP) from Thunderbird from Cox.com (now thru Yahoo).") |
+| ↗ spreading | 2026-08-04 | v153 × m:microsoftemail | 5 | 3.3× | 100% ans · 0.8h | [1596545](https://support.mozilla.org/questions/1596545 "Microsoft Outlook authentication failure.") [1596547](https://support.mozilla.org/questions/1596547 "I just had a fake prompt to add a password to a website mimicking Thunderbird") [1596591](https://support.mozilla.org/questions/1596591 "email not collegament to app thunderbird pc (email outlook)") [1596602](https://support.mozilla.org/questions/1596602 "Import from Outlook (M365) Mac OS to Thunderbird?") [1596606](https://support.mozilla.org/questions/1596606 "Cannot import contacts from outlook 2016") |
+| ↻ recurring | 2026-08-14 | v153 × proto:pop | 4 | 3.5× | 100% ans · 8.0h | [1598311](https://support.mozilla.org/questions/1598311 "Thunderbird went goofy for multiple gmail accounts - deleted email does not show") [1598314](https://support.mozilla.org/questions/1598314 "Email from Roadrunner.com does not show but server test works") [1598327](https://support.mozilla.org/questions/1598327 "Unable to receive e-mail") [1598357](https://support.mozilla.org/questions/1598357 "Recently Unable to send (SMTP) from Thunderbird from Cox.com (now thru Yahoo).") |
 | ↻ recurring | 2026-08-13 | v153 × proto:pop | 4 | 3.3× | 100% ans · 1.2h | [1598091](https://support.mozilla.org/questions/1598091 "thunderbird has stopped receiving emails from century link") [1598146](https://support.mozilla.org/questions/1598146 "Can't access my account") [1598151](https://support.mozilla.org/questions/1598151 "How to set up automatic email forwarding from Thunderbird to Gmail") [1598175](https://support.mozilla.org/questions/1598175 "Thunderbird won't download email messages from Yahoo (formerly Cox) account") |
 
 ### Cause-level surges — provider / protocol / AV (any version)
@@ -78,8 +78,8 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 | os:windows | 589 | 750 | ▲ +161 (+27%) |
 | os:linux | 61 | 93 | ▲ +32 (+52%) |
 | os:macos | 45 | 59 | ▲ +14 (+31%) |
-| os:android | 7 | 10 | ▲ +3 |
 | os:other | 11 | 6 | ▼ -5 (-45%) |
+| os:android | 7 | 10 | ▲ +3 |
 
 ### Topic mix
 
@@ -90,10 +90,10 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 | customization | 73 | 86 | ▲ +13 (+18%) |
 | passwords-and-sign-in | 53 | 60 | ▲ +7 (+13%) |
 | connectivity | 25 | 48 | ▲ +23 (+92%) |
-| attachments | 16 | 49 | ▲ +33 (+206%) |
+| import-and-export-email | 30 | 35 | ▲ +5 (+17%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · August 2026 vs July 2026._
 
-_Last updated: 2026-09-03 08:08 UTC_
+_Last updated: 2026-09-03 20:07 UTC_
