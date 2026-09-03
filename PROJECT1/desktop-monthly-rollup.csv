@@ -577,7 +577,7 @@ period,dim,value,count
 2026-06,mail_provider,m:gmail,52
 2026-07,mail_provider,m:gmail,73
 2026-08,mail_provider,m:gmail,75
-2026-09,mail_provider,m:gmail,6
+2026-09,mail_provider,m:gmail,8
 2024-10,mail_provider,m:gmx,3
 2024-11,mail_provider,m:gmx,5
 2024-12,mail_provider,m:gmx,9
@@ -745,7 +745,7 @@ period,dim,value,count
 2026-06,mail_provider,m:microsoftemail,54
 2026-07,mail_provider,m:microsoftemail,36
 2026-08,mail_provider,m:microsoftemail,53
-2026-09,mail_provider,m:microsoftemail,4
+2026-09,mail_provider,m:microsoftemail,5
 2024-10,mail_provider,m:onecom,2
 2025-01,mail_provider,m:onecom,1
 2025-02,mail_provider,m:onecom,1
@@ -1075,6 +1075,7 @@ period,dim,value,count
 2026-02,mail_provider,m:webde,1
 2026-03,mail_provider,m:webde,1
 2026-04,mail_provider,m:webde,1
+2026-09,mail_provider,m:webde,1
 2024-12,mail_provider,m:windstream,1
 2025-01,mail_provider,m:windstream,2
 2025-04,mail_provider,m:windstream,1
@@ -1097,6 +1098,7 @@ period,dim,value,count
 2025-03,mail_provider,m:wppl,1
 2025-10,mail_provider,m:wppl,1
 2026-05,mail_provider,m:wppl,1
+2026-09,mail_provider,m:wppl,1
 2025-08,mail_provider,m:xtra_nz,1
 2025-09,mail_provider,m:xtra_nz,2
 2026-08,mail_provider,m:xtra_nz,2
@@ -1211,7 +1213,7 @@ period,dim,value,count
 2026-06,os,os:linux,62
 2026-07,os,os:linux,61
 2026-08,os,os:linux,93
-2026-09,os,os:linux,2
+2026-09,os,os:linux,3
 2024-10,os,os:macos,38
 2024-11,os,os:macos,27
 2024-12,os,os:macos,22
@@ -1235,7 +1237,7 @@ period,dim,value,count
 2026-06,os,os:macos,49
 2026-07,os,os:macos,45
 2026-08,os,os:macos,59
-2026-09,os,os:macos,3
+2026-09,os,os:macos,4
 2025-03,os,os:other,2
 2025-04,os,os:other,1
 2025-05,os,os:other,2
@@ -1275,7 +1277,7 @@ period,dim,value,count
 2026-06,os,os:windows,589
 2026-07,os,os:windows,589
 2026-08,os,os:windows,750
-2026-09,os,os:windows,74
+2026-09,os,os:windows,97
 2024-10,protocol,proto:caldav,7
 2024-11,protocol,proto:caldav,6
 2024-12,protocol,proto:caldav,5
@@ -1321,6 +1323,7 @@ period,dim,value,count
 2026-06,protocol,proto:carddav,1
 2026-07,protocol,proto:carddav,1
 2026-08,protocol,proto:carddav,3
+2026-09,protocol,proto:carddav,1
 2024-10,protocol,proto:ews,2
 2024-11,protocol,proto:ews,1
 2025-02,protocol,proto:ews,2
@@ -1355,7 +1358,7 @@ period,dim,value,count
 2026-06,protocol,proto:imap,51
 2026-07,protocol,proto:imap,56
 2026-08,protocol,proto:imap,70
-2026-09,protocol,proto:imap,11
+2026-09,protocol,proto:imap,14
 2024-10,protocol,proto:oauth,49
 2024-11,protocol,proto:oauth,26
 2024-12,protocol,proto:oauth,27
@@ -1427,7 +1430,7 @@ period,dim,value,count
 2026-06,protocol,proto:smtp,25
 2026-07,protocol,proto:smtp,35
 2026-08,protocol,proto:smtp,44
-2026-09,protocol,proto:smtp,4
+2026-09,protocol,proto:smtp,6
 2026-02,tb_version_major,102,4
 2026-03,tb_version_major,102,1
 2026-04,tb_version_major,102,1
@@ -1464,7 +1467,7 @@ period,dim,value,count
 2026-06,tb_version_major,140,179
 2026-07,tb_version_major,140,186
 2026-08,tb_version_major,140,67
-2026-09,tb_version_major,140,8
+2026-09,tb_version_major,140,10
 2026-06,tb_version_major,141,1
 2025-08,tb_version_major,142,1
 2026-03,tb_version_major,142,2
@@ -1520,6 +1523,7 @@ period,dim,value,count
 2026-06,tb_version_major,151,189
 2026-07,tb_version_major,151,4
 2026-08,tb_version_major,151,7
+2026-09,tb_version_major,151,1
 2026-04,tb_version_major,152,1
 2026-05,tb_version_major,152,1
 2026-06,tb_version_major,152,158
@@ -1530,12 +1534,12 @@ period,dim,value,count
 2026-06,tb_version_major,153,3
 2026-07,tb_version_major,153,101
 2026-08,tb_version_major,153,441
-2026-09,tb_version_major,153,12
+2026-09,tb_version_major,153,17
 2026-07,tb_version_major,154,2
 2026-08,tb_version_major,154,202
-2026-09,tb_version_major,154,24
+2026-09,tb_version_major,154,26
 2026-02,tb_version_major,155,1
-2026-09,tb_version_major,155,16
+2026-09,tb_version_major,155,28
 2026-06,tb_version_major,156,1
 2026-05,tb_version_major,159,1
 2026-08,tb_version_major,170,1
@@ -1563,4 +1567,4 @@ period,dim,value,count
 2026-06,total,all,724
 2026-07,total,all,731
 2026-08,total,all,941
-2026-09,total,all,87
+2026-09,total,all,112
