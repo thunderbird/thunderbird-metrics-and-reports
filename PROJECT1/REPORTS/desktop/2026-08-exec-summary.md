@@ -5,7 +5,7 @@ title: "2026-08 exec summary: Thunderbird Desktop support spikes"
 
 # August 2026 — Thunderbird Desktop support spikes
 
-_Executive summary · **2026-08** · 941 questions · regenerated 2026-09-04 05:32 UTC · no AI (regex + traditional stats)_
+_Executive summary · **2026-08** · 941 questions · regenerated 2026-09-05 05:31 UTC · no AI (regex + traditional stats)_
 
 ## 🚨 August 2026: 13 spikes to investigate
 
@@ -42,8 +42,8 @@ Clusters the same detectors flag at **0.75× the thresholds** (i.e. within ~25% 
 
 | Grain | Rise | When | Cause | Qs | Served | Baseline | Example questions |
 |:--|--:|:--|:--|--:|:--|--:|:--|
+| weekly | 2.8× | 2026-08-31 | m:spectrum | 7 | ⚠️ 43% ans · 37.2h | 2.5 | [1601375](https://support.mozilla.org/questions/1601375 "my spectrum password wont log me in to thunderbird why") [1601442](https://support.mozilla.org/questions/1601442 "") [1601623](https://support.mozilla.org/questions/1601623 "") [1601790](https://support.mozilla.org/questions/1601790 "") [1601822](https://support.mozilla.org/questions/1601822 "") [1602003](https://support.mozilla.org/questions/1602003 "") +1 |
 | weekly | 2.5× | 2026-08-03 | m:yahooemail | 14 | 79% ans · 3.3h | 5.5 | [1596455](https://support.mozilla.org/questions/1596455 "Recuprar la carpeta Bulk") [1596495](https://support.mozilla.org/questions/1596495 "Are thunderbird's saved logins the same logins Yahoo recognizes and accepts? Tbi") [1596497](https://support.mozilla.org/questions/1596497 "Thunderbird cannot log-in to my mail accounts") [1596560](https://support.mozilla.org/questions/1596560 "Thunderbirdサーバーにログインできなくなりました。") [1596676](https://support.mozilla.org/questions/1596676 "preventing a 2nd email  address from popping up in thunderbird") [1596708](https://support.mozilla.org/questions/1596708 "TB doesn't like to connect to my Comcast internet provider sometime.") +8 |
-| weekly | 2.4× | 2026-08-31 | m:spectrum | 6 | ⚠️ 33% ans · 25.3h | 2.5 | [1601375](https://support.mozilla.org/questions/1601375 "my spectrum password wont log me in to thunderbird why") [1601442](https://support.mozilla.org/questions/1601442 "") [1601623](https://support.mozilla.org/questions/1601623 "") [1601790](https://support.mozilla.org/questions/1601790 "") [1601822](https://support.mozilla.org/questions/1601822 "") [1602003](https://support.mozilla.org/questions/1602003 "") |
 
 
 </details>
@@ -117,8 +117,8 @@ Version and OS are **filters, not causes** — a bare version spike is release a
 | weekly | **new** | 2026-08-17 | tb_version_major | 154 | 63 [1598813](https://support.mozilla.org/questions/1598813 "Missing SENT messages. Folder ＂greyed out＂") [1598989](https://support.mozilla.org/questions/1598989 "Over the weekend Thuderbird stopped allowing me to send emails and will not set ") | 0.0 |
 | weekly | **3.8×** | 2026-08-17 | tb_version_major | 153 | 89 [1598650](https://support.mozilla.org/questions/1598650 "I am trying to restore a backed up profile for use in thunderbird.") [1598659](https://support.mozilla.org/questions/1598659 "Please remover the annpying Yahoo signip splash screen") | 23.5 |
 | weekly | **new** | 2026-08-24 | tb_version_major | 154 | 116 [1599916](https://support.mozilla.org/questions/1599916 "Are you having problems with the program right now?") [1599944](https://support.mozilla.org/questions/1599944 "Transfer Thunderbird from PC to Laptop") | 0.0 |
-| weekly | **new** | 2026-08-31 | tb_version_major | 155 | 34 [1601641](https://support.mozilla.org/questions/1601641 "") [1601684](https://support.mozilla.org/questions/1601684 "") | 0.0 |
-| weekly | **102.0×** | 2026-08-31 | tb_version_major | 154 | 51 [1601271](https://support.mozilla.org/questions/1601271 "Se stampo dal Thunderbird esce il foglio bianco") [1601273](https://support.mozilla.org/questions/1601273 "Al iniciar Thunderbird se bloquea") | 0.5 |
+| weekly | **new** | 2026-08-31 | tb_version_major | 155 | 56 [1601641](https://support.mozilla.org/questions/1601641 "") [1601684](https://support.mozilla.org/questions/1601684 "") | 0.0 |
+| weekly | **108.0×** | 2026-08-31 | tb_version_major | 154 | 54 [1601271](https://support.mozilla.org/questions/1601271 "Se stampo dal Thunderbird esce il foglio bianco") [1601273](https://support.mozilla.org/questions/1601273 "Al iniciar Thunderbird se bloquea") | 0.5 |
 
 </details>
 
