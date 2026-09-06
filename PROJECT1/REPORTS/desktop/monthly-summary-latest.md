@@ -54,7 +54,7 @@ Version-agnostic (a provider outage spans versions), vs a trailing-month baselin
 | proto:smtp | 35 | 44 | ▲ +9 (+26%) |
 | proto:pop | 42 | 46 | ▲ +4 (+10%) |
 | m:gmail | 73 | 75 | ▲ +2 (+3%) |
-| proto:oauth | 20 | 19 | ▼ -1 (-5%) |
+| m:comcast | 13 | 12 | ▼ -1 (-8%) |
 
 ### 🆕 New cause clusters (first appearance ever)
 
@@ -96,4 +96,4 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · August 2026 vs July 2026._
 
-_Last updated: 2026-09-05 20:06 UTC_
+_Last updated: 2026-09-06 08:07 UTC_
