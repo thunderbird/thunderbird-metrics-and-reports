@@ -143,7 +143,7 @@ period,dim,value,count
 2023,mail_provider,m:btinternet,36
 2024,mail_provider,m:btinternet,59
 2025,mail_provider,m:btinternet,40
-2026,mail_provider,m:btinternet,31
+2026,mail_provider,m:btinternet,33
 2023,mail_provider,m:centurylink,22
 2024,mail_provider,m:centurylink,14
 2025,mail_provider,m:centurylink,30
@@ -151,7 +151,7 @@ period,dim,value,count
 2023,mail_provider,m:comcast,117
 2024,mail_provider,m:comcast,220
 2025,mail_provider,m:comcast,189
-2026,mail_provider,m:comcast,89
+2026,mail_provider,m:comcast,91
 2023,mail_provider,m:cox,21
 2024,mail_provider,m:cox,101
 2025,mail_provider,m:cox,22
@@ -159,7 +159,7 @@ period,dim,value,count
 2023,mail_provider,m:earthlink,37
 2024,mail_provider,m:earthlink,46
 2025,mail_provider,m:earthlink,45
-2026,mail_provider,m:earthlink,19
+2026,mail_provider,m:earthlink,20
 2023,mail_provider,m:fastmail,16
 2024,mail_provider,m:fastmail,8
 2025,mail_provider,m:fastmail,19
@@ -187,7 +187,7 @@ period,dim,value,count
 2023,mail_provider,m:gmail,1117
 2024,mail_provider,m:gmail,1535
 2025,mail_provider,m:gmail,1278
-2026,mail_provider,m:gmail,632
+2026,mail_provider,m:gmail,633
 2023,mail_provider,m:gmx,36
 2024,mail_provider,m:gmx,35
 2025,mail_provider,m:gmx,31
@@ -241,7 +241,7 @@ period,dim,value,count
 2023,mail_provider,m:optimum,24
 2024,mail_provider,m:optimum,16
 2025,mail_provider,m:optimum,9
-2026,mail_provider,m:optimum,6
+2026,mail_provider,m:optimum,7
 2023,mail_provider,m:orange,17
 2024,mail_provider,m:orange,39
 2025,mail_provider,m:orange,64
@@ -284,7 +284,7 @@ period,dim,value,count
 2023,mail_provider,m:spectrum,133
 2024,mail_provider,m:spectrum,156
 2025,mail_provider,m:spectrum,142
-2026,mail_provider,m:spectrum,120
+2026,mail_provider,m:spectrum,121
 2023,mail_provider,m:strato,1
 2024,mail_provider,m:strato,11
 2025,mail_provider,m:strato,2
@@ -343,7 +343,7 @@ period,dim,value,count
 2023,mail_provider,m:yahooemail,263
 2024,mail_provider,m:yahooemail,414
 2025,mail_provider,m:yahooemail,394
-2026,mail_provider,m:yahooemail,327
+2026,mail_provider,m:yahooemail,329
 2023,mail_provider,m:yandex,15
 2024,mail_provider,m:yandex,8
 2025,mail_provider,m:yandex,7
@@ -367,14 +367,14 @@ period,dim,value,count
 2023,os,os:macos,295
 2024,os,os:macos,319
 2025,os,os:macos,288
-2026,os,os:macos,474
+2026,os,os:macos,476
 2024,os,os:other,4
 2025,os,os:other,9
 2026,os,os:other,122
 2023,os,os:windows,1386
 2024,os,os:windows,1532
 2025,os,os:windows,1701
-2026,os,os:windows,5209
+2026,os,os:windows,5224
 2023,protocol,proto:caldav,64
 2024,protocol,proto:caldav,51
 2025,protocol,proto:caldav,50
@@ -390,7 +390,7 @@ period,dim,value,count
 2023,protocol,proto:imap,948
 2024,protocol,proto:imap,1203
 2025,protocol,proto:imap,989
-2026,protocol,proto:imap,507
+2026,protocol,proto:imap,511
 2023,protocol,proto:oauth,200
 2024,protocol,proto:oauth,349
 2025,protocol,proto:oauth,180
@@ -398,11 +398,11 @@ period,dim,value,count
 2023,protocol,proto:pop,586
 2024,protocol,proto:pop,741
 2025,protocol,proto:pop,622
-2026,protocol,proto:pop,311
+2026,protocol,proto:pop,312
 2023,protocol,proto:smtp,562
 2024,protocol,proto:smtp,770
 2025,protocol,proto:smtp,618
-2026,protocol,proto:smtp,328
+2026,protocol,proto:smtp,329
 2026,tb_version_major,102,14
 2026,tb_version_major,104,1
 2026,tb_version_major,115,134
@@ -419,14 +419,14 @@ period,dim,value,count
 2026,tb_version_major,145,6
 2026,tb_version_major,146,12
 2026,tb_version_major,147,119
-2026,tb_version_major,148,240
+2026,tb_version_major,148,241
 2026,tb_version_major,149,316
 2026,tb_version_major,150,452
 2026,tb_version_major,151,338
 2026,tb_version_major,152,379
-2026,tb_version_major,153,570
-2026,tb_version_major,154,237
-2026,tb_version_major,155,73
+2026,tb_version_major,153,575
+2026,tb_version_major,154,238
+2026,tb_version_major,155,79
 2026,tb_version_major,156,1
 2026,tb_version_major,159,1
 2026,tb_version_major,170,1
@@ -434,4 +434,4 @@ period,dim,value,count
 2023,total,all,11558
 2024,total,all,15379
 2025,total,all,15171
-2026,total,all,6994
+2026,total,all,7012
