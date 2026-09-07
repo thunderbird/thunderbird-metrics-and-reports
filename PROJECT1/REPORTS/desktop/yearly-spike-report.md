@@ -5,10 +5,10 @@ title: YEARLY: Thunderbird Desktop — Support Spike Report
 
 # YEARLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2023 … 2026 · **yearly** grain · all history · 49120 questions · no AI (regex + traditional stats)_
+_Generated 2023 … 2026 · **yearly** grain · all history · 49148 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 49120 questions, 12280.0/year avg
-- **Answered (non-creator):** 37209/49120 (76%)
+- **Volume:** 49148 questions, 12287.0/year avg
+- **Answered (non-creator):** 37237/49148 (76%)
 - **First-answer time (median):** 3.6h (p25 1.0h / p75 12.8h)
 - **Total volume trend:** `▆██▄`
 
@@ -34,12 +34,12 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Rise | When | Cause | Qs | Served | Baseline | Example questions | Trend |
 |---:|:--|:--|--:|:--|--:|:--|:--|
-| **49.0×** | 2025-08 | av:bitdefender | 49 | 100% ans · 2.6h | 1.0 | [1528472](https://support.mozilla.org/questions/1528472 "Messagerie illisible (bitdefender)") [1528498](https://support.mozilla.org/questions/1528498 "Recent emails are coming in unformatted and missing subject and sender info (bit") [1528506](https://support.mozilla.org/questions/1528506 "Recent emails are coming in unformatted and missing subject and sender info (bit") [1528543](https://support.mozilla.org/questions/1528543 "Corrupted btinternet emails (bitdefender)") [1528577](https://support.mozilla.org/questions/1528577 "Strange code dominating incoming emails (bitdefender)") [1528582](https://support.mozilla.org/questions/1528582 "my emails are coming in some strange type of figures and numbers starting today ") +43 · [explore ↗](explorer.html#grain=monthly&cause=av:bitdefender&period=2025-08) | `▃▃█▂` |
+| **49.0×** | 2025-08 | av:bitdefender | 49 | 100% ans · 2.6h | 1.0 | [1528472](https://support.mozilla.org/questions/1528472 "Messagerie illisible (bitdefender)") [1528498](https://support.mozilla.org/questions/1528498 "Recent emails are coming in unformatted and missing subject and sender info (bit") [1528506](https://support.mozilla.org/questions/1528506 "Recent emails are coming in unformatted and missing subject and sender info (bit") [1528543](https://support.mozilla.org/questions/1528543 "Corrupted btinternet emails (bitdefender)") [1528577](https://support.mozilla.org/questions/1528577 "Strange code dominating incoming emails (bitdefender)") [1528582](https://support.mozilla.org/questions/1528582 "my emails are coming in some strange type of figures and numbers starting today ") +43 · [explore ↗](explorer.html#grain=monthly&cause=av:bitdefender&period=2025-08) | `▃▃█▃` |
 | **30.0×** | 2023-10 | m:frontier | 15 | ⚠️ 53% ans · 7.9h | 0.5 | [1426135](https://support.mozilla.org/questions/1426135 "Email not working after update to SuperNova?  Multiple - gmail, dreamhost, front") [1426500](https://support.mozilla.org/questions/1426500 "Thunderbird Version	119.0b3 - hangs") [1426532](https://support.mozilla.org/questions/1426532 "Thunderbird downloading messages from frontier.com") [1426537](https://support.mozilla.org/questions/1426537 "using Frontier.com for email.  TB v 102 stopped working yesterday.  Updated to v") [1426556](https://support.mozilla.org/questions/1426556 "Tbird 115.2.1 stopped downloading emails on all accounts.") [1426687](https://support.mozilla.org/questions/1426687 "URGENT REQUEST FOR 'basic' HELP - My Email-setting has been changed by 'SKYPE'..") +9 · [explore ↗](explorer.html#grain=monthly&cause=m:frontier&period=2023-10) | `█▅▄▂` |
 | **12.0×** | 2023-06 | m:libero | 12 | 100% ans · 0.3h | 1.0 | [1415683](https://support.mozilla.org/questions/1415683 "percentuale casella occupata") [1416246](https://support.mozilla.org/questions/1416246 "Problemi configurazione posta virgilio su Thunderbird") [1416249](https://support.mozilla.org/questions/1416249 "scaricamento posta da Libero") [1416250](https://support.mozilla.org/questions/1416250 "connessione al server imapmail fuori tempo massimo") [1416254](https://support.mozilla.org/questions/1416254 "Impossibile autenticarsi - Account Libero") [1416255](https://support.mozilla.org/questions/1416255 "libero non funziona sul pc") +6 · [explore ↗](explorer.html#grain=monthly&cause=m:libero&period=2023-06) | `█▇█▃` |
 | **10.0×** | 2023-09 | m:optimum | 10 | 90% ans · 4.1h | 1.0 | [1423380](https://support.mozilla.org/questions/1423380 "Emails not downloading from Optimum/optonline") [1423389](https://support.mozilla.org/questions/1423389 "Suddenly, I stopped receiving new emails") [1423424](https://support.mozilla.org/questions/1423424 "Thunderbird Mail") [1423567](https://support.mozilla.org/questions/1423567 "Updated Thunderbird but it will not pull Optimum mail. It worked yesterday") [1423718](https://support.mozilla.org/questions/1423718 "emails thunderbird") [1423727](https://support.mozilla.org/questions/1423727 "problems with Optonline") +4 · [explore ↗](explorer.html#grain=monthly&cause=m:optimum&period=2023-09) | `█▆▄▃` |
 | **7.0×** | 2024-12 | m:orange | 14 | ⚠️ 50% ans · 0.6h | 2.0 | [1476744](https://support.mozilla.org/questions/1476744 "Boite mail") [1477337](https://support.mozilla.org/questions/1477337 "suite a une intervention de orange") [1477350](https://support.mozilla.org/questions/1477350 "envoi des messages") [1477378](https://support.mozilla.org/questions/1477378 "impossible d'envoyer mes mails lorsque je suis chez moi en wifi") [1477476](https://support.mozilla.org/questions/1477476 "Paramètres Orange Obsolètes") [1477498](https://support.mozilla.org/questions/1477498 "i cannot inscribe on thunder bird a new code as orange ask me to use thunderbird") +8 · [explore ↗](explorer.html#grain=monthly&cause=m:orange&period=2024-12) | `▃▅█▄` |
-| **6.8×** | 2025-01 | av:bitdefender | 17 | 88% ans · 3.4h | 2.5 | [1482921](https://support.mozilla.org/questions/1482921 "Transferring Thunderbird Profile from Windows 10 Computer to Windows 11 Computer") [1484507](https://support.mozilla.org/questions/1484507 "All'avvio Thunderbird si apre 3 secondo e poi si chiude inaspettatamente") [1484717](https://support.mozilla.org/questions/1484717 "Thunderbird Freezing (＂Not Responding＂) Repeatedly") [1485005](https://support.mozilla.org/questions/1485005 "Thunderbird crashes when trying to open settings, caused by Bitdefender") [1485049](https://support.mozilla.org/questions/1485049 "Thunderbird crashes on startup, caused by Bitdefender") [1485835](https://support.mozilla.org/questions/1485835 "Sent radio buttons do not exist, send unsent email option greyed out under File ") +11 · [explore ↗](explorer.html#grain=monthly&cause=av:bitdefender&period=2025-01) | `▃▃█▂` |
+| **6.8×** | 2025-01 | av:bitdefender | 17 | 88% ans · 3.4h | 2.5 | [1482921](https://support.mozilla.org/questions/1482921 "Transferring Thunderbird Profile from Windows 10 Computer to Windows 11 Computer") [1484507](https://support.mozilla.org/questions/1484507 "All'avvio Thunderbird si apre 3 secondo e poi si chiude inaspettatamente") [1484717](https://support.mozilla.org/questions/1484717 "Thunderbird Freezing (＂Not Responding＂) Repeatedly") [1485005](https://support.mozilla.org/questions/1485005 "Thunderbird crashes when trying to open settings, caused by Bitdefender") [1485049](https://support.mozilla.org/questions/1485049 "Thunderbird crashes on startup, caused by Bitdefender") [1485835](https://support.mozilla.org/questions/1485835 "Sent radio buttons do not exist, send unsent email option greyed out under File ") +11 · [explore ↗](explorer.html#grain=monthly&cause=av:bitdefender&period=2025-01) | `▃▃█▃` |
 | **6.0×** | 2025-08 | m:btinternet | 9 | 89% ans · 10.7h | 1.5 | [1528543](https://support.mozilla.org/questions/1528543 "Corrupted btinternet emails (bitdefender)") [1528732](https://support.mozilla.org/questions/1528732 "I have started receiving emails as attached. (bitdefender)") [1528856](https://support.mozilla.org/questions/1528856 "I no longer receive correct emails from Thunderbird.   Each message received sta") [1528919](https://support.mozilla.org/questions/1528919 "receiving emails with no header (bitdefender)") [1529008](https://support.mozilla.org/questions/1529008 "Incoming emails from my BT email account are in gibberish (bitdefender)") [1529260](https://support.mozilla.org/questions/1529260 "Incoming emails into BT internet account lose formatting and attachements") +3 · [explore ↗](explorer.html#grain=monthly&cause=m:btinternet&period=2025-08) | `▅█▆▅` |
 | **6.0×** | 2024-05 | m:cox | 24 | 92% ans · 3.9h | 4.0 | [1446257](https://support.mozilla.org/questions/1446257 "Cox / yahoo - User Name keeps changing. The fix I read does not work for me in 2") [1446337](https://support.mozilla.org/questions/1446337 "Cox moving email services to Yahoo") [1446412](https://support.mozilla.org/questions/1446412 "Thunderbird vs the Cox email to Yahoo email migration") [1446501](https://support.mozilla.org/questions/1446501 "New cox.net email") [1446525](https://support.mozilla.org/questions/1446525 "Transitioning to Yahoo from Cox") [1446535](https://support.mozilla.org/questions/1446535 "Rearrange email domains in the left tool box?") +18 · [explore ↗](explorer.html#grain=monthly&cause=m:cox&period=2024-05) | `▂█▃▁` |
 | **6.0×** | 2024-04 | m:cox | 24 | 83% ans · 6.2h | 4.0 | [1443922](https://support.mozilla.org/questions/1443922 "Switching from COX Internet to a competitors 5G wireless network for internet.") [1444186](https://support.mozilla.org/questions/1444186 "email from yahoo") [1444249](https://support.mozilla.org/questions/1444249 "Thunderbird v115.9.0 (32-bit) not sending Yahoo email") [1444457](https://support.mozilla.org/questions/1444457 "Can't send a message with Mozilla Thunderbird - just hangs - no error message") [1444635](https://support.mozilla.org/questions/1444635 "Cox email") [1444650](https://support.mozilla.org/questions/1444650 "Email service") +18 · [explore ↗](explorer.html#grain=monthly&cause=m:cox&period=2024-04) | `▂█▃▁` |
@@ -53,7 +53,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | **3.6×** | 2024-07 | m:att | 16 | 69% ans · 1.6h | 4.5 | [1451218](https://support.mozilla.org/questions/1451218 "Email issues") [1451269](https://support.mozilla.org/questions/1451269 "ATT.net") [1451284](https://support.mozilla.org/questions/1451284 "can't log into my inbound email server At&t") [1451307](https://support.mozilla.org/questions/1451307 "can't get in") [1451574](https://support.mozilla.org/questions/1451574 "unable to receive and send emails thru inbound.att.net and outbound.att.net") [1451715](https://support.mozilla.org/questions/1451715 "Inbound emails from ATT") +10 · [explore ↗](explorer.html#grain=monthly&cause=m:att&period=2024-07) | `▇██▃` |
 | **3.2×** | 2026-08 | m:spectrum | 34 | 82% ans · 4.4h | 10.5 | [1596316](https://support.mozilla.org/questions/1596316 "Thunderbird 1 of 7  email account stopped working from the Provider Spectrum and") [1596807](https://support.mozilla.org/questions/1596807 "Receiving, deleting, and sending messages is extremely slow for 1 of 2 users on ") [1597319](https://support.mozilla.org/questions/1597319 "thunderbird not able to access mail.twc.com") [1597495](https://support.mozilla.org/questions/1597495 "NO longer have Spectrum as email provider but need to preserve emails .") [1597964](https://support.mozilla.org/questions/1597964 "Roadrunner / TWC IMAP settings") [1597972](https://support.mozilla.org/questions/1597972 "Thunderbird tells me that the spectrum servers won't accept my password") +28 · [explore ↗](explorer.html#grain=monthly&cause=m:spectrum&period=2026-08) | `▇█▇▆` |
 | **3.2×** | 2025-07 | av:norton | 8 | 75% ans · 2.1h | 2.5 | [1521509](https://support.mozilla.org/questions/1521509 "problem with auto renewal with my domain registrar hostgator, adotname, and the ") [1521569](https://support.mozilla.org/questions/1521569 "not working (locked)") [1522509](https://support.mozilla.org/questions/1522509 "Unable to receive e-mails on Thunderbird, I am prompted to enter a password for ") [1523331](https://support.mozilla.org/questions/1523331 "Migrating Thunderbird 140 To A New Windows Computer. SOLVED Norton 360 was causi") [1523343](https://support.mozilla.org/questions/1523343 "Peer certification expiration") [1523519](https://support.mozilla.org/questions/1523519 "email conver to event not working.") +2 · [explore ↗](explorer.html#grain=monthly&cause=av:norton&period=2025-07) | `▄██▃` |
-| **3.2×** | 2024-07 | m:virginmedia | 8 | 75% ans · 4.9h | 2.5 | [1451235](https://support.mozilla.org/questions/1451235 "Cannot send messages") [1451251](https://support.mozilla.org/questions/1451251 "Email") [1451478](https://support.mozilla.org/questions/1451478 "Sending emails") [1451612](https://support.mozilla.org/questions/1451612 "thunderbirds does not recognise my new virgin media password, I have tried creat") [1451720](https://support.mozilla.org/questions/1451720 "Outgoing e-mails") [1452048](https://support.mozilla.org/questions/1452048 "Since Version 115.12.2 ¦ Released June 22, 2024 can receive but not send emails ") +2 · [explore ↗](explorer.html#grain=monthly&cause=m:virginmedia&period=2024-07) | `▆█▅▃` |
+| **3.2×** | 2024-07 | m:virginmedia | 8 | 75% ans · 4.9h | 2.5 | [1451235](https://support.mozilla.org/questions/1451235 "Cannot send messages") [1451251](https://support.mozilla.org/questions/1451251 "Email") [1451478](https://support.mozilla.org/questions/1451478 "Sending emails") [1451612](https://support.mozilla.org/questions/1451612 "thunderbirds does not recognise my new virgin media password, I have tried creat") [1451720](https://support.mozilla.org/questions/1451720 "Outgoing e-mails") [1452048](https://support.mozilla.org/questions/1452048 "Since Version 115.12.2 ¦ Released June 22, 2024 can receive but not send emails ") +2 · [explore ↗](explorer.html#grain=monthly&cause=m:virginmedia&period=2024-07) | `▆█▅▄` |
 | **3.1×** | 2024-08 | av:defender | 11 | 64% ans · 2.2h | 3.5 | [1456877](https://support.mozilla.org/questions/1456877 "Thunderibrd upgrade to 115 is sluggish.  SOLVED by creating an exception in Defe") [1457294](https://support.mozilla.org/questions/1457294 "Thunderbird 128 (Nebula) Hangs Constantly.  SOLVED caused by Microsoft Defender ") [1457557](https://support.mozilla.org/questions/1457557 "Message ＂Login to server with username failed＂ after software update") [1457806](https://support.mozilla.org/questions/1457806 "a trojan has been identified in an smtp folder how to spot and eliminate") [1457949](https://support.mozilla.org/questions/1457949 "Thunderbird slow downloading/opening email") [1458157](https://support.mozilla.org/questions/1458157 "Cannot delete IMAP Folder") +5 · [explore ↗](explorer.html#grain=monthly&cause=av:defender&period=2024-08) | `▅█▄▃` |
 | **3.1×** | 2024-05 | m:att | 14 | 71% ans · 2.5h | 4.5 | [1446408](https://support.mozilla.org/questions/1446408 "Cannot connect to att.net account on computer") [1446596](https://support.mozilla.org/questions/1446596 "Reinstall") [1446656](https://support.mozilla.org/questions/1446656 "Unable to sign into Thunderbird Email") [1447039](https://support.mozilla.org/questions/1447039 "Can't reestablish AT&T account in TB") [1447055](https://support.mozilla.org/questions/1447055 "not getting certain emails") [1447077](https://support.mozilla.org/questions/1447077 "Mozilla Thunderbird") +8 · [explore ↗](explorer.html#grain=monthly&cause=m:att&period=2024-05) | `▇██▃` |
 | **3.0×** | 2024-09 | proto:oauth | 66 | 82% ans · 1.7h | 22.0 | [1461626](https://support.mozilla.org/questions/1461626 "thunderbird 128.1.1esr on macbook pro") [1462076](https://support.mozilla.org/questions/1462076 "Can TB hide its client ID when it connects?") [1462199](https://support.mozilla.org/questions/1462199 "Trying to do Microsoft/Thunderbird authentication before Sept 16, 2024") [1462200](https://support.mozilla.org/questions/1462200 "dual authentication not allowing emails") [1462785](https://support.mozilla.org/questions/1462785 "Oauth2 selection option missing in SMTP server setup") [1462816](https://support.mozilla.org/questions/1462816 "Ghost folders with outlook server") +60 · [explore ↗](explorer.html#grain=monthly&cause=proto:oauth&period=2024-09) | `▅█▅▄` |
@@ -64,8 +64,8 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 1027 | `▁▁▁█` |
-| v153 | 575 | `▁▁▁█` |
+| v140 | 1029 | `▁▁▁█` |
+| v153 | 579 | `▁▁▁█` |
 | v150 | 452 | `▁▁▁█` |
 | v152 | 379 | `▁▁▁█` |
 | v151 | 338 | `▁▁▁█` |
@@ -77,7 +77,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 |:--|--:|:--|
 | m:gmail | 4563 | `▆█▇▄` |
 | m:microsoftemail | 3735 | `▆█▆▄` |
-| m:yahooemail | 1400 | `▅██▇` |
+| m:yahooemail | 1402 | `▅██▇` |
 | m:comcast | 617 | `▅█▇▄` |
 | m:spectrum | 552 | `▇█▇▆` |
 | m:att | 363 | `▇██▃` |
@@ -86,9 +86,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 3651 | `▇█▇▄` |
+| proto:imap | 3656 | `▇█▇▄` |
 | proto:smtp | 2279 | `▆█▇▄` |
-| proto:pop | 2261 | `▇█▇▄` |
+| proto:pop | 2267 | `▇█▇▄` |
 | proto:oauth | 887 | `▅█▅▄` |
 | proto:caldav | 191 | `█▇▆▄` |
 | proto:carddav | 102 | `███▅` |
@@ -97,7 +97,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| av:bitdefender | 148 | `▃▃█▂` |
+| av:bitdefender | 149 | `▃▃█▃` |
 | av:norton | 140 | `▄██▃` |
 | av:defender | 128 | `▅█▄▃` |
 | av:avast | 108 | `█▇▆▅` |
@@ -108,9 +108,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 9843 | `▃▃▃█` |
-| os:linux | 2094 | `▇█▇█` |
-| os:macos | 1378 | `▅▆▅█` |
+| os:windows | 9869 | `▃▃▃█` |
+| os:linux | 2095 | `▇█▇█` |
+| os:macos | 1379 | `▅▆▅█` |
 | os:other | 135 | `▁▁▂█` |
 | os:android | 107 | `▁▂▃█` |
 
@@ -119,7 +119,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | macos:sonoma | 168 | `▂█▂▂` |
-| macos:sequoia | 158 | `▁▃█▂` |
+| macos:sequoia | 159 | `▁▃█▃` |
 | macos:ventura | 151 | `█▂▂▁` |
 | macos:monterey | 85 | `█▆▄▂` |
 | macos:catalina | 73 | `█▆▇▂` |
@@ -129,4 +129,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-yearly-rollup.csv`._
 
-_Last updated: 2026-09-07 04:39 UTC_
+_Last updated: 2026-09-07 16:39 UTC_
