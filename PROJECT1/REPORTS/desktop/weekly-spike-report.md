@@ -5,12 +5,12 @@ title: WEEKLY: Thunderbird Desktop — Support Spike Report
 
 # WEEKLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2026-03-16 … 2026-09-07 · **weekly** grain · trailing 26 weeks · 4711 questions · no AI (regex + traditional stats)_
+_Generated 2026-03-16 … 2026-09-07 · **weekly** grain · trailing 26 weeks · 4727 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 4711 questions, 181.2/week avg
-- **Answered (non-creator):** 3780/4711 (80%)
-- **First-answer time (median):** 3.4h (p25 1.0h / p75 11.7h)
-- **Total volume trend:** `▆▆▆▆▆▅▆▆▆▆▆▅▆▅▆▆▅▅▆▆▇▆▇██▃`
+- **Volume:** 4727 questions, 181.8/week avg
+- **Answered (non-creator):** 3783/4727 (80%)
+- **First-answer time (median):** 3.4h (p25 1.0h / p75 11.6h)
+- **Total volume trend:** `▆▆▆▆▆▅▆▆▆▆▆▅▆▅▆▆▅▅▆▆▇▆▇██▄`
 
 > ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
 
@@ -23,8 +23,9 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 
 | Signal | Lift | When | Version × Cause | Qs | Served | Example questions | Trend |
 |:--|---:|:--|:--|--:|:--|:--|:--|
-| 🆕 new | **8.8×** | 2026-06-01 | v151 × m:icloud | 4 | ⚠️ 25% ans · 9.2h | [1585107](https://support.mozilla.org/questions/1585107 "Cannot use thunderbird to access my mac.com emails") [1585187](https://support.mozilla.org/questions/1585187 "Can't send email anymore") [1585720](https://support.mozilla.org/questions/1585720 "iCloud Calendar Not Adding Events - using app specific password") [1585786](https://support.mozilla.org/questions/1585786 "Thunderbird 151.0.1 (64 Bit) Windows 10; an error occurred when writing to the c") · [explore ↗](explorer.html#grain=weekly&version=151&cause=m:icloud&period=2026-06-01) | `▁▁▁▁▁▁▁▁▁▁▆█▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| 🆕 new | **8.9×** | 2026-06-01 | v151 × m:icloud | 4 | ⚠️ 25% ans · 9.2h | [1585107](https://support.mozilla.org/questions/1585107 "Cannot use thunderbird to access my mac.com emails") [1585187](https://support.mozilla.org/questions/1585187 "Can't send email anymore") [1585720](https://support.mozilla.org/questions/1585720 "iCloud Calendar Not Adding Events - using app specific password") [1585786](https://support.mozilla.org/questions/1585786 "Thunderbird 151.0.1 (64 Bit) Windows 10; an error occurred when writing to the c") · [explore ↗](explorer.html#grain=weekly&version=151&cause=m:icloud&period=2026-06-01) | `▁▁▁▁▁▁▁▁▁▁▆█▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | 🆕 new | **4.2×** | 2026-05-18 | v140 × m:spectrum | 4 | 75% ans · 2.9h | [1582358](https://support.mozilla.org/questions/1582358 "unable to send or recieve emails from roadrunner") [1582537](https://support.mozilla.org/questions/1582537 "Thunderbird suddenly can't connect with my email server to send outgoing message") [1583227](https://support.mozilla.org/questions/1583227 "I have deleted my out-of-date password for Spectrum but when I restart Thunderbi") [1583421](https://support.mozilla.org/questions/1583421 "＂Thunderbird can't connect to the server＂ Part 2") · [explore ↗](explorer.html#grain=weekly&version=140&cause=m:spectrum&period=2026-05-18) | `▁▁▁▁▃▃▁▅▃█▁▅▅▁▁▁▁▁▁▁▁▁▃▁▃▁` |
+| 🆕 new | **3.7×** | 2026-09-07 | v153 × m:gmail | 6 | ⚠️ 17% ans · 3.8h | [1602816](https://support.mozilla.org/questions/1602816 "How can I get emails coming into the correct account and be able to send respons") [1602865](https://support.mozilla.org/questions/1602865 "I am being asked for ＂new password＂ when sending email and it doesn't recognise ") [1602984](https://support.mozilla.org/questions/1602984 "Emails not appearing in Thunderbird for days but appear in Outlook without delay") [1603033](https://support.mozilla.org/questions/1603033 "authentication errors") [1603075](https://support.mozilla.org/questions/1603075 "Inability to transfer Emails from one account in Thunderbird to another account ") [1603103](https://support.mozilla.org/questions/1603103 "Thunderbird Mail has 'stopped working'") · [explore ↗](explorer.html#grain=weekly&version=153&cause=m:gmail&period=2026-09-07) | `▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▃▅▇▇█▂▂▅` |
 | 🆕 new | **3.6×** | 2026-04-13 | v149 × m:comcast | 5 | 80% ans · 5.2h | [1576242](https://support.mozilla.org/questions/1576242 "I cannot receive emails in Thunderbird from my Comcast email account,  The app r") [1576770](https://support.mozilla.org/questions/1576770 "I changed from comcast email to yahoo email but I'm having trouble getting Thund") [1576781](https://support.mozilla.org/questions/1576781 "won｀t download e-mail from xfinity") [1576905](https://support.mozilla.org/questions/1576905 "Unable to configure COMCAST e-mail") [1577059](https://support.mozilla.org/questions/1577059 "Login to Server imap.comcast.net with Username Failed") · [explore ↗](explorer.html#grain=weekly&version=149&cause=m:comcast&period=2026-04-13) | `▁▁▁▁█▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | 🆕 new | **3.5×** | 2026-06-08 | v140 × proto:smtp | 7 | 71% ans · 0.9h | [1586270](https://support.mozilla.org/questions/1586270 "Can't send emails - tried everything") [1586285](https://support.mozilla.org/questions/1586285 "Thunderbird can not send emails from my Spectrum email account.") [1586356](https://support.mozilla.org/questions/1586356 "verifica blocco invio email verso Hotmail/Outlook") [1586431](https://support.mozilla.org/questions/1586431 "Unable to send e-mail - please help") [1587007](https://support.mozilla.org/questions/1587007 "Bij het opstarten van Thunderbird zie ik vaak de melding versvhijnen dat geen ve") [1587132](https://support.mozilla.org/questions/1587132 "Password/authentication prompt lacks information to know what account the login ") +1 · [explore ↗](explorer.html#grain=weekly&version=140&cause=proto:smtp&period=2026-06-08) | `▂▄▂▁▄▁▃▄▃▁▁▄█▁▂▃▆▄▅▂▁▁▂▁▁▁` |
 | ↗ spreading | **5.0×** | 2026-06-08 | v151 × m:spectrum | 9 | 100% ans · 14.3h | [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") [1586486](https://support.mozilla.org/questions/1586486 "Thunderbird is showing Certificate for mobile.charter.net:993 does not come from") [1586494](https://support.mozilla.org/questions/1586494 "Mozilla TWC account failures") +3 · [explore ↗](explorer.html#grain=weekly&version=151&cause=m:spectrum&period=2026-06-08) | `▁▁▁▁▁▁▁▁▁▁▂▃█▂▁▁▁▁▁▂▁▁▁▁▁▁` |
@@ -46,7 +47,7 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 | **4.0×** | 2026-05-18 | m:spectrum | 8 | ⚠️ 50% ans · 4.4h | 2.0 | [1582358](https://support.mozilla.org/questions/1582358 "unable to send or recieve emails from roadrunner") [1582421](https://support.mozilla.org/questions/1582421 "Not accessing my mail server") [1582506](https://support.mozilla.org/questions/1582506 "MESSAGES IN 'INFOLDER' ARE DELETED AFTER ABOUT 5-7 DAYS") [1582537](https://support.mozilla.org/questions/1582537 "Thunderbird suddenly can't connect with my email server to send outgoing message") [1583013](https://support.mozilla.org/questions/1583013 "Thunderbird set up problem") [1583186](https://support.mozilla.org/questions/1583186 "Outgoing Spectrum (wi.rr.com) emails sometimes not processing.") +2 · [explore ↗](explorer.html#grain=weekly&cause=m:spectrum&period=2026-05-18) | `▂▂▁▁▂▂▁▄▂▅▂▃▇▂▁▁▂▁▁▁▂▂▆█▅▁` |
 | **4.0×** | 2026-04-13 | m:comcast | 8 | 88% ans · 1.4h | 2.0 | [1576218](https://support.mozilla.org/questions/1576218 "Are missing emails recoverable?") [1576242](https://support.mozilla.org/questions/1576242 "I cannot receive emails in Thunderbird from my Comcast email account,  The app r") [1576770](https://support.mozilla.org/questions/1576770 "I changed from comcast email to yahoo email but I'm having trouble getting Thund") [1576781](https://support.mozilla.org/questions/1576781 "won｀t download e-mail from xfinity") [1576905](https://support.mozilla.org/questions/1576905 "Unable to configure COMCAST e-mail") [1577044](https://support.mozilla.org/questions/1577044 "Getting a message about being blacklisted") +2 · [explore ↗](explorer.html#grain=weekly&cause=m:comcast&period=2026-04-13) | `▁▃▂▅█▃▁▄▃▂▆▄▄▅▄▄▄▄▃▅▂▅▄▃▂▂` |
 | **3.6×** | 2026-08-31 | m:spectrum | 9 | 78% ans · 37.2h | 2.5 | [1601375](https://support.mozilla.org/questions/1601375 "my spectrum password wont log me in to thunderbird why") [1601442](https://support.mozilla.org/questions/1601442 "Correct Outgoing SMPT settings for IMAP") [1601623](https://support.mozilla.org/questions/1601623 "no access to Thunderbird email through Spectrum") [1601790](https://support.mozilla.org/questions/1601790 "Charter + pop, all new messages are going to the trash folder, not my inbox, and") [1601822](https://support.mozilla.org/questions/1601822 "trouble sending and receiving messages interfacing with Spectrum (locked duplica") [1602003](https://support.mozilla.org/questions/1602003 "Spectrum Emails are disappearing from my Thunderbird Inbox after downloading. Th") +3 · [explore ↗](explorer.html#grain=weekly&cause=m:spectrum&period=2026-08-31) | `▂▂▁▁▂▂▁▄▂▅▂▃▇▂▁▁▂▁▁▁▂▂▆█▅▁` |
-| **3.5×** | 2026-08-10 | m:yahooemail | 19 | 63% ans · 3.4h | 5.5 | [1597571](https://support.mozilla.org/questions/1597571 "Email collection over pop failed on one account, server settings rejected when I") [1597605](https://support.mozilla.org/questions/1597605 "I am still canot open my yahoo.co.uk email account? I have deleted the account f") [1597650](https://support.mozilla.org/questions/1597650 "why am i getting a pop-up window demanding that I agree to allow thunderbird mai") [1597665](https://support.mozilla.org/questions/1597665 "Yahoo IMAP Mailbox Reserved Loop: Bulk folder stuck inside Trash") [1597759](https://support.mozilla.org/questions/1597759 "Why is Yahoo_mail not updatuing in Thunderbird since two weeks?") [1597789](https://support.mozilla.org/questions/1597789 "Yahoo mail authentication failure after the newest update") +13 · [explore ↗](explorer.html#grain=weekly&cause=m:yahooemail&period=2026-08-10) | `▄▅▂▅▂▃▄▄▅▄▆▃▄▂▂▅▃▂▃▅▆█▄▄▅▃` |
+| **3.5×** | 2026-08-10 | m:yahooemail | 19 | 63% ans · 3.4h | 5.5 | [1597571](https://support.mozilla.org/questions/1597571 "Email collection over pop failed on one account, server settings rejected when I") [1597605](https://support.mozilla.org/questions/1597605 "I am still canot open my yahoo.co.uk email account? I have deleted the account f") [1597650](https://support.mozilla.org/questions/1597650 "why am i getting a pop-up window demanding that I agree to allow thunderbird mai") [1597665](https://support.mozilla.org/questions/1597665 "Yahoo IMAP Mailbox Reserved Loop: Bulk folder stuck inside Trash") [1597759](https://support.mozilla.org/questions/1597759 "Why is Yahoo_mail not updatuing in Thunderbird since two weeks?") [1597789](https://support.mozilla.org/questions/1597789 "Yahoo mail authentication failure after the newest update") +13 · [explore ↗](explorer.html#grain=weekly&cause=m:yahooemail&period=2026-08-10) | `▄▅▂▅▂▃▄▄▅▄▆▃▄▂▂▅▃▂▃▅▆█▄▄▅▄` |
 | **3.0×** | 2026-05-25 | m:comcast | 6 | 83% ans · 15.8h | 2.0 | [1583799](https://support.mozilla.org/questions/1583799 "Authentication error when migrating Yahoo mail to Thunderbird") [1583916](https://support.mozilla.org/questions/1583916 "Comcast has sent our accounts to yahoo, emal name remains the same.") [1583925](https://support.mozilla.org/questions/1583925 "Can I access my Comcast email server via Thunderbird via mozilla VPN?") [1584040](https://support.mozilla.org/questions/1584040 "can't receive messages since I updated this morning") [1584576](https://support.mozilla.org/questions/1584576 "Cannot send outgoing mail") [1584737](https://support.mozilla.org/questions/1584737 "How do I add my Comcast email account to Thunderbird?") · [explore ↗](explorer.html#grain=weekly&cause=m:comcast&period=2026-05-25) | `▁▃▂▅█▃▁▄▃▂▆▄▄▅▄▄▄▄▃▅▂▅▄▃▂▂` |
 | **3.0×** | 2026-05-04 | m:spectrum | 6 | 100% ans · 5.0h | 2.0 | [1580858](https://support.mozilla.org/questions/1580858 "＂Thunderbird can't connect to the server＂") [1580863](https://support.mozilla.org/questions/1580863 "Connection was refused") [1580867](https://support.mozilla.org/questions/1580867 "Lost Thunderbird connectivity on Spectrum today 5/9/26") [1580871](https://support.mozilla.org/questions/1580871 "New update Version 140.10.2esr ¦ Released May 8, 2026.  Today I cannot send emai") [1580877](https://support.mozilla.org/questions/1580877 "Cannot send or receive email in thunderbird") [1580980](https://support.mozilla.org/questions/1580980 "Am I the Only One Having Issues Connecting to my Email Accounts") · [explore ↗](explorer.html#grain=weekly&cause=m:spectrum&period=2026-05-04) | `▂▂▁▁▂▂▁▄▂▅▂▃▇▂▁▁▂▁▁▁▂▂▆█▅▁` |
 
@@ -56,8 +57,8 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 883 | `▅▄▄▆▇▆▇▇█▇██▆▆▇▇▆▆▇▅▄▃▃▂▃▂` |
-| v153 | 587 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▅██▆▃▃▂` |
+| v140 | 884 | `▅▄▄▆▇▆▇▇█▇██▆▆▇▇▆▆▇▅▄▃▃▂▃▂` |
+| v153 | 591 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▅██▆▃▃▂` |
 | v150 | 453 | `▁▁▁▁▁▄▇██▄▂▁▁▁▁▁▂▁▁▁▂▁▁▁▁▁` |
 | v152 | 379 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▅██▇▆▄▂▁▁▁▁▁▁` |
 | v151 | 338 | `▁▁▁▁▁▁▁▁▁▅█▆█▃▂▁▁▁▁▁▁▁▁▁▁▁` |
@@ -67,9 +68,9 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 432 | `▆▇█▇▅▃▇▇▅▄▅▃▃▄▅▆▅▄▅▄▆▅▇▄▆▃` |
-| m:microsoftemail | 319 | `▅▅▆▇▄▅▆▇█▇▄▇▄▃▅▆▅▃▃▄▅▅▅▄▄▃` |
-| m:yahooemail | 217 | `▄▅▂▅▂▃▄▄▅▄▆▃▄▂▂▅▃▂▃▅▆█▄▄▅▃` |
+| m:gmail | 436 | `▆▇█▇▅▃▇▇▅▄▅▃▃▄▅▆▅▄▅▄▆▅▇▄▆▄` |
+| m:microsoftemail | 321 | `▅▅▆▇▄▅▆▇█▇▄▇▄▃▅▆▅▃▃▄▅▅▅▄▄▃` |
+| m:yahooemail | 218 | `▄▅▂▅▂▃▄▄▅▄▆▃▄▂▂▅▃▂▃▅▆█▄▄▅▄` |
 | m:spectrum | 97 | `▂▂▁▁▂▂▁▄▂▅▂▃▇▂▁▁▂▁▁▁▂▂▆█▅▁` |
 | m:comcast | 71 | `▁▃▂▅█▃▁▄▃▂▆▄▄▅▄▄▄▄▃▅▂▅▄▃▂▂` |
 | m:icloud | 28 | `▂▁▄▁▂▂▂▄▁▁▅█▁▁▅▂▄▄▂▁▄▁▁▁▂▁` |
@@ -78,10 +79,10 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 344 | `▅▇▄▄▅▃▃▆▅▆▅▆▄▃▅▆▅▄▅▄▅▆▆▆█▄` |
+| proto:imap | 345 | `▅▇▄▄▅▃▃▆▅▆▅▆▄▃▅▆▅▄▅▄▅▆▆▆█▄` |
 | proto:pop | 221 | `▃▄▃▄▆▆▄▅▆▇▆▅▆▂▃▇▆▅▄▆█▇▄▄▆▅` |
-| proto:smtp | 203 | `▅█▆▃▃▃▅█▇▄▃▅▅▃▃▃▇▃▆▃▅▅▇▇█▃` |
-| proto:oauth | 100 | `▆▄▆▃▄▃▂▃▆▄▄▃▃▆▂▃▆▄▅▃▃▆▃▅█▂` |
+| proto:smtp | 204 | `▅█▆▃▃▃▅█▇▄▃▅▅▃▃▃▇▃▆▃▅▅▇▇█▃` |
+| proto:oauth | 101 | `▆▄▆▃▄▃▂▃▆▄▄▃▃▆▂▃▆▄▅▃▃▆▃▅█▃` |
 | proto:caldav | 13 | `▅▁▁▅▅▁▅▁▁▁▅█▁▁▅▁▅▁█▁▁▁▁▅▅▁` |
 | proto:carddav | 12 | `▅▅▅█▁▁▁▅▁▁▁▁▁▁▅▁▁▅▁▁▁▅▁▅█▁` |
 
@@ -100,9 +101,9 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 3809 | `▆▆▆▆▅▅▅▆▅▆▆▅▆▅▅▅▅▅▆▅▆▆▇██▃` |
-| os:linux | 393 | `▆▅▅▄▅▃▆▄▅▅▄▅▄▃▇▅▃▄▅▆█▇▅▅▅▂` |
-| os:macos | 319 | `▇▇▇▅▇▄▇▅█▄▆▄▆▄▇▅▆▅▄▄█▇▅▅▅▄` |
+| os:windows | 3821 | `▆▆▆▆▅▅▅▆▅▆▆▅▆▅▅▅▅▅▆▅▆▆▇██▄` |
+| os:linux | 395 | `▆▅▅▄▅▃▆▄▅▅▄▅▄▃▇▅▃▄▅▆█▇▅▅▅▃` |
+| os:macos | 321 | `▇▇▇▅▇▄▇▅█▄▆▄▆▄▇▅▆▅▄▄█▇▅▅▅▄` |
 | os:android | 45 | `▃▃▂▃▃▃█▅▁▁▃▁▃▂▁▅▆▁▂▂▅▃▅▂▃▁` |
 | os:other | 43 | `▁▁▁▂▁▁▅▅▁▅▂▃▅▃▅█▂▃▃▃▅▁▁▃▅▂` |
 
@@ -121,4 +122,4 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 _Notes: spikes detected at **weekly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-weekly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-weekly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-weekly-rollup.csv`._
 
-_Last updated: 2026-09-09 04:37 UTC_
+_Last updated: 2026-09-09 16:40 UTC_

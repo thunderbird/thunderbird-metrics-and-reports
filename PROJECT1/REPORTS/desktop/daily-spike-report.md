@@ -5,12 +5,12 @@ title: DAILY: Thunderbird Desktop — Support Spike Report
 
 # DAILY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2026-06-12 … 2026-09-09 · **daily** grain · trailing 90 days · 2419 questions · no AI (regex + traditional stats)_
+_Generated 2026-06-12 … 2026-09-09 · **daily** grain · trailing 90 days · 2435 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 2419 questions, 26.9/day avg
-- **Answered (non-creator):** 1910/2419 (79%)
+- **Volume:** 2435 questions, 27.1/day avg
+- **Answered (non-creator):** 1913/2435 (79%)
 - **First-answer time (median):** 3.2h (p25 0.9h / p75 11.0h)
-- **Total volume trend:** `▅▃▄▄▄▅▅▄▃▃▃▅▅▆▄▃▄▄▅▄▅▄▄▃▅▅▄▅▄▃▃▅▅▃▃▃▄▃▅▅▄▆▄▂▅▅▄▄▃▅▄▃▅▅▅▅▆▆▃▅▃▅▅▅▄▅▅▆▄▅▆▅▄▆▅█▆▅▄▄▇▆▇▇▆▄▄▇▆▁`
+- **Total volume trend:** `▅▃▄▄▄▅▅▄▃▃▃▅▅▆▄▃▄▄▅▄▅▄▄▃▅▅▄▅▄▃▃▅▅▃▃▃▄▃▅▅▄▆▄▂▅▅▄▄▃▅▄▃▅▅▅▅▆▆▃▅▃▅▅▅▄▅▅▆▄▅▆▅▄▆▅█▆▅▄▄▇▆▇▇▆▄▄▇▆▃`
 
 > ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
 
@@ -27,8 +27,8 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 | ↗ spreading | **5.0×** | 2026-06-29 | v152 × m:microsoftemail | 6 | 67% ans · 87.5h | [1590178](https://support.mozilla.org/questions/1590178 "Adding 2nd outlook accound") [1590198](https://support.mozilla.org/questions/1590198 "Thunderbird emails have started to only show links and not the pictures within t") [1590208](https://support.mozilla.org/questions/1590208 "Can't connect to my live and outlook accounts since 2 weeks") [1590210](https://support.mozilla.org/questions/1590210 "TBird152.0  is not displaing HTML emails properly.") [1590301](https://support.mozilla.org/questions/1590301 "One-hour delay in the guest's meeting schedule (Atraso de uma hora na agenda do ") [1590307](https://support.mozilla.org/questions/1590307 "I got a message: ＂Authentication failure while connecting to server outlook.offi") · [explore ↗](explorer.html#grain=daily&version=152&cause=m:microsoftemail&period=2026-06-29) | `▁▁▁▁▁▁▂▁▂▁▂▂▂▂▃▂▁█▁▁▃▁▂▂▁▁▁▅▁▁▃▁▂▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | ↗ spreading | **4.0×** | 2026-09-07 | v155 × proto:pop | 4 | 75% ans · 5.2h | [1602660](https://support.mozilla.org/questions/1602660 "pop3 account creation error") [1602682](https://support.mozilla.org/questions/1602682 "Login to server pop3.virginmedia.com with username ******* failed") [1602703](https://support.mozilla.org/questions/1602703 "Thunderbird freezes downloading messages when it reaches a message from aliexpre") [1602714](https://support.mozilla.org/questions/1602714 "Is syncronization bidirectional with IMAP accounts?") · [explore ↗](explorer.html#grain=daily&version=155&cause=proto:pop&period=2026-09-07) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆▁▃▃▁█▁▁` |
 | ↗ spreading | **3.3×** | 2026-08-10 | v153 × proto:pop | 4 | 75% ans · 1.1h | [1597551](https://support.mozilla.org/questions/1597551 "Thunderbird POP stopped retrieving email from one mail box, No error message") [1597571](https://support.mozilla.org/questions/1597571 "Email collection over pop failed on one account, server settings rejected when I") [1597638](https://support.mozilla.org/questions/1597638 "How logging onto wowway with old password?") [1597683](https://support.mozilla.org/questions/1597683 "Hotmail personal account: IMAP OAuth2 works but SMTP OAuth2 fails with message: ") · [explore ↗](explorer.html#grain=daily&version=153&cause=proto:pop&period=2026-08-10) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▃▁▁▁▃▁▁▆▃▃▅▅▁▅▃▃▅█▁▁██▁▁▃▃▁▃▁▁▁▁▁▁▃▃▃▁▆▁▁▁▁▁▃▁▃▁` |
-| ↗ spreading | **3.3×** | 2026-08-04 | v153 × m:microsoftemail | 5 | 100% ans · 0.8h | [1596545](https://support.mozilla.org/questions/1596545 "Microsoft Outlook authentication failure.") [1596547](https://support.mozilla.org/questions/1596547 "I just had a fake prompt to add a password to a website mimicking Thunderbird") [1596591](https://support.mozilla.org/questions/1596591 "email not collegament to app thunderbird pc (email outlook)") [1596602](https://support.mozilla.org/questions/1596602 "Import from Outlook (M365) Mac OS to Thunderbird?") [1596606](https://support.mozilla.org/questions/1596606 "Cannot import contacts from outlook 2016") · [explore ↗](explorer.html#grain=daily&version=153&cause=m:microsoftemail&period=2026-08-04) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▁▁▁▂▄▂▁▂▁▁▂▇█▄▁▂▂▁▅▂▄▄▂▁▂▂▁▁▂▂▁▁▁▂▁▁▂▁▁▂▁▁▂▁▁▁▁▂▁` |
-| ↻ recurring | **3.4×** | 2026-08-14 | v153 × proto:pop | 4 | 100% ans · 8.0h | [1598311](https://support.mozilla.org/questions/1598311 "Thunderbird went goofy for multiple gmail accounts - deleted email does not show") [1598314](https://support.mozilla.org/questions/1598314 "Email from Roadrunner.com does not show but server test works") [1598327](https://support.mozilla.org/questions/1598327 "Unable to receive e-mail") [1598357](https://support.mozilla.org/questions/1598357 "Recently Unable to send (SMTP) from Thunderbird from Cox.com (now thru Yahoo).") · [explore ↗](explorer.html#grain=daily&version=153&cause=proto:pop&period=2026-08-14) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▃▁▁▁▃▁▁▆▃▃▅▅▁▅▃▃▅█▁▁██▁▁▃▃▁▃▁▁▁▁▁▁▃▃▃▁▆▁▁▁▁▁▃▁▃▁` |
+| ↗ spreading | **3.3×** | 2026-08-04 | v153 × m:microsoftemail | 5 | 100% ans · 0.8h | [1596545](https://support.mozilla.org/questions/1596545 "Microsoft Outlook authentication failure.") [1596547](https://support.mozilla.org/questions/1596547 "I just had a fake prompt to add a password to a website mimicking Thunderbird") [1596591](https://support.mozilla.org/questions/1596591 "email not collegament to app thunderbird pc (email outlook)") [1596602](https://support.mozilla.org/questions/1596602 "Import from Outlook (M365) Mac OS to Thunderbird?") [1596606](https://support.mozilla.org/questions/1596606 "Cannot import contacts from outlook 2016") · [explore ↗](explorer.html#grain=daily&version=153&cause=m:microsoftemail&period=2026-08-04) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▁▁▁▂▄▂▁▂▁▁▂▇█▄▁▂▂▁▅▂▄▄▂▁▂▂▁▁▂▂▁▁▁▂▁▁▂▁▁▂▁▁▂▁▁▁▁▂▄` |
+| ↻ recurring | **3.5×** | 2026-08-14 | v153 × proto:pop | 4 | 100% ans · 8.0h | [1598311](https://support.mozilla.org/questions/1598311 "Thunderbird went goofy for multiple gmail accounts - deleted email does not show") [1598314](https://support.mozilla.org/questions/1598314 "Email from Roadrunner.com does not show but server test works") [1598327](https://support.mozilla.org/questions/1598327 "Unable to receive e-mail") [1598357](https://support.mozilla.org/questions/1598357 "Recently Unable to send (SMTP) from Thunderbird from Cox.com (now thru Yahoo).") · [explore ↗](explorer.html#grain=daily&version=153&cause=proto:pop&period=2026-08-14) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▃▁▁▁▃▁▁▆▃▃▅▅▁▅▃▃▅█▁▁██▁▁▃▃▁▃▁▁▁▁▁▁▃▃▃▁▆▁▁▁▁▁▃▁▃▁` |
 | ↻ recurring | **3.3×** | 2026-08-13 | v153 × proto:pop | 4 | 100% ans · 1.2h | [1598091](https://support.mozilla.org/questions/1598091 "thunderbird has stopped receiving emails from century link") [1598146](https://support.mozilla.org/questions/1598146 "Can't access my account") [1598151](https://support.mozilla.org/questions/1598151 "How to set up automatic email forwarding from Thunderbird to Gmail") [1598175](https://support.mozilla.org/questions/1598175 "Thunderbird won't download email messages from Yahoo (formerly Cox) account") · [explore ↗](explorer.html#grain=daily&version=153&cause=proto:pop&period=2026-08-13) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▃▁▁▁▃▁▁▆▃▃▅▅▁▅▃▃▅█▁▁██▁▁▃▃▁▃▁▁▁▁▁▁▃▃▃▁▆▁▁▁▁▁▃▁▃▁` |
 
 ## 📮 Cause-level spikes — provider / protocol / AV
@@ -43,20 +43,20 @@ _No cause-level spikes in this window at current thresholds._
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v153 | 586 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▄▃▂▅▄▄▃▄▆▅▄▇▇▅▇▇▇▅▇▄▇▇▇▅▇▇█▄▄▅▃▃▄▂▄▅▃▂▂▅▂▃▃▂▁▂▃▃▁` |
-| v140 | 377 | `▆▅▅▅▇▅▇▂▃▂▂█▇▇▂▅▇▅▅▅▆▆▇▆▇▅▅█▅▄▂▅▅▅▅▆▄▅▇▅▅▅█▂▇▅▄▇▃▅▂▂▂▃▄▂▃▄▂▃▄▂▁▂▃▂▂▂▁▃▂▃▃▂▂▂▂▂▂▂▄▄▄▃▂▂▁▂▂▁` |
+| v153 | 590 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▄▃▂▅▄▄▃▄▆▅▄▇▇▅▇▇▇▅▇▄▇▇▇▅▇▇█▄▄▅▃▃▄▂▄▅▃▂▂▅▂▃▃▂▁▂▃▃▂` |
+| v140 | 378 | `▆▅▅▅▇▅▇▂▃▂▂█▇▇▂▅▇▅▅▅▆▆▇▆▇▅▅█▅▄▂▅▅▅▅▆▄▅▇▅▅▅█▂▇▅▄▇▃▅▂▂▂▃▄▂▃▄▂▃▄▂▁▂▃▂▂▂▁▃▂▃▃▂▂▂▂▂▂▂▄▄▄▃▂▂▁▂▂▂` |
 | v152 | 374 | `▁▁▁▁▂▄▆▆▄▄▅▅▆▇█▆▃█▅▆█▄▆▃▆▇▆▆▄▂▃▆█▄▃▁▆▃▅▆▂▂▁▁▂▁▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁` |
 | v154 | 242 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▃▄▆▄▄▆▃█▅▅▅▄▇▅▃▂▂▁▁▂▂▁` |
-| v155 | 110 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆██▅▆▇▆▁` |
+| v155 | 117 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆██▅▆▇▆▄` |
 | v151 | 73 | `█▅▆▆▇▃▂▂▁▂▁▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▂▂▁▂▁▁▁▁▁▁▁▁▁▂▁▁▁▂▁▁▁▁▁▂▁▂▁▂▁▁▁▁▁▁▁▂▁▁▁▁▂▁▁▁▁▂▁▁▁▁▁▁` |
 
 ### Top mail providers
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 206 | `▂▁▂▄▂▃▁▃▃▃▂▂▃▄▄▂▅▁▇▃▄▄▄▅▂▃▄▄▅▄▁▁▅▁▃▄▄▂▁▁▄▂▇▂▇▃▄▂▅▃▂▁▆▅▂▅▂▅▁▄▂▃▄▃▄▁▄█▃▅▃▄▄▁▄▄▂▁▄▄▅▃▄▄▆▁▃▂█▁` |
-| m:microsoftemail | 129 | `▅▂▁▃▂▁▂▃▂▁▂▃▃▂▃▂▃█▃▁▅▃▂▂▁▁▃█▁▁▅▁▅▁▃▂▁▁▃▂▃▂▁▁▂▃▂▂▂▁▃▂▆▇▃▁▃▂▁▅▂▃▅▃▁▂▂▂▂▃▅▃▂▂▃▂▂▃▁▃▆▂▅▂▁▁▁▂▆▁` |
-| m:yahooemail | 113 | `▃▃▃▁▃▆▁▁▁▁▆▁▁▃▁▁▁▅▅▃▅▃▁▆▃▃▃▃▃▁▃▃▁▁▁▁▃▃▁▃▁▁▅▁▅▃█▅▁▅▃▅▆▅▃▅▃▆▅██▅▃▆▃█▃▅▁▅▅▃▁▁▅▃▁▅▃▃█▁▃▅▆▁▃▆▆▁` |
+| m:gmail | 210 | `▂▁▂▄▂▃▁▃▃▃▂▂▃▄▄▂▅▁▇▃▄▄▄▅▂▃▄▄▅▄▁▁▅▁▃▄▄▂▁▁▄▂▇▂▇▃▄▂▅▃▂▁▆▅▂▅▂▅▁▄▂▃▄▃▄▁▄█▃▅▃▄▄▁▄▄▂▁▄▄▅▃▄▄▆▁▃▂█▅` |
+| m:microsoftemail | 131 | `▅▂▁▃▂▁▂▃▂▁▂▃▃▂▃▂▃█▃▁▅▃▂▂▁▁▃█▁▁▅▁▅▁▃▂▁▁▃▂▃▂▁▁▂▃▂▂▂▁▃▂▆▇▃▁▃▂▁▅▂▃▅▃▁▂▂▂▂▃▅▃▂▂▃▂▂▃▁▃▆▂▅▂▁▁▁▂▆▃` |
+| m:yahooemail | 114 | `▃▃▃▁▃▆▁▁▁▁▆▁▁▃▁▁▁▅▅▃▅▃▁▆▃▃▃▃▃▁▃▃▁▁▁▁▃▃▁▃▁▁▅▁▅▃█▅▁▅▃▅▆▅▃▅▃▆▅██▅▃▆▃█▃▅▁▅▅▃▁▁▅▃▁▅▃▃█▁▃▅▆▁▃▆▆▃` |
 | m:spectrum | 51 | `▃▁▁▁▃▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▃▃▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▃▁▁▁▁▁▁▃▁▁▃▁▁▃▃▁▁▅▁▃▁▁▁▃▁▁▅███▃▁▃▃██▃▅▅▃▁▃▅▁▃▁` |
 | m:comcast | 37 | `▃▃▁▃▃▆▁▁▁▁▆▁▁▃▁▁▁▁▃▁▃▁▃▁▁▁▃▆▁▁▁▁▃▃▁▁▃▁▁▁▁▃▁▁▃▁▁▃▁▆▃▃▁▁▃▁▁▁▁▁▁▁▁▁▃█▁▃▁▁▃▃▁▁▁▃▃▁▁▁▁▁▁▁▁▁▃▃▁▁` |
 | m:att | 14 | `▁▁▁█▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁██▁▁█▁▁▁▁▁█▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁█▁▁███▁▁▁▁█▁▁` |
@@ -65,10 +65,10 @@ _No cause-level spikes in this window at current thresholds._
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 187 | `▆▃▁▂▄▂▂▂▂▁▂▃▁▄▃▂▄▄▃▂▅▃▃▂▄▃▃▆▁▁▃▂▃▂▂▂▆▁▃▃▃▅▁▁▄▄▂▃▁▃▃▁▆▃▄▁▁▃▃▇▂▂▄▅▃▂▄▅▃▁▃▄▃▄▂▆▃▂▄▃▄▆▆▅▂▂▅█▂▂` |
+| proto:imap | 188 | `▆▃▁▂▄▂▂▂▂▁▂▃▁▄▃▂▄▄▃▂▅▃▃▂▄▃▃▆▁▁▃▂▃▂▂▂▆▁▃▃▃▅▁▁▄▄▂▃▁▃▃▁▆▃▄▁▁▃▃▇▂▂▄▅▃▂▄▅▃▁▃▄▃▅▂▆▃▂▄▃▄▆▆▅▂▂▅█▂▂` |
 | proto:pop | 121 | `▅▂▃▁▁▂▃▁▁▁▁▂▁▃▁▂▂▅▂▁▂▂▃▆▃▆▃▃▁▁▂▃▁▂▁▁▆▃▁▂▂▂▃▂▁▂▅▁▂▅▂▂▃▅▂▃▃▅▃▆▁▁▆▆▁▁▃▃▁▂▂▂▁▂▁▁▅▂▂▂▅▂▅▁▂▂▂█▃▁` |
-| proto:smtp | 105 | `▄▁▂▅▂▂▁▁▁▁▁▁▁▂▁▄▁▁▂▂▂▂▁▂▁▄▇█▁▁▂▁▂▄▂▁▁▂▂█▄▁▁▂▂▂▁▂▂▂▁▂▅▁▂▁▂▂▂▄▁▄▄▄▂▁▂▂▂▄▅▄▂▄▂▅▂▄▅▂▅▂▅▄▅▁▄▂▄▁` |
-| proto:oauth | 54 | `▁▁▁▃▃▃▃▃▃▁▁▁▁▃▁▁▁▁▁▁▃▁▃▁▁▁▅▅▁▃▃▃▃▁▃▃▁▁▁▅▁▁▁▃▅▃▅▁▁▁▁▁▃▁▁▁▁▅▁▆▃▁▃▁▃▁▃▁▃▁▁▃▁▁▃▁▁▅▃▃▅▃▃▁█▃▁▁▃▁` |
+| proto:smtp | 106 | `▄▁▂▅▂▂▁▁▁▁▁▁▁▂▁▄▁▁▂▂▂▂▁▂▁▄▇█▁▁▂▁▂▄▂▁▁▂▂█▄▁▁▂▂▂▁▂▂▂▁▂▅▁▂▁▂▂▂▄▁▄▄▄▂▁▂▂▂▄▅▄▂▄▂▅▂▄▅▂▅▂▅▄▅▁▄▂▄▂` |
+| proto:oauth | 55 | `▁▁▁▃▃▃▃▃▃▁▁▁▁▃▁▁▁▁▁▁▃▁▃▁▁▁▅▅▁▃▃▃▃▁▃▃▁▁▁▅▁▁▁▃▅▃▅▁▁▁▁▁▃▁▁▁▁▅▁▆▃▁▃▁▃▁▃▁▃▁▁▃▁▁▃▁▁▅▃▃▅▃▃▁█▃▁▁▃▃` |
 | proto:caldav | 6 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁█▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁` |
 | proto:carddav | 6 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁█▁▁▁▁▁▁█▁▁█▁▁▁▁▁▁` |
 
@@ -80,16 +80,16 @@ _No cause-level spikes in this window at current thresholds._
 | av:defender | 8 | `▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁` |
 | av:avast | 7 | `█▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁█▁▁▁▁▁▁▁▁` |
 | av:norton | 6 | `▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁` |
-| av:mcafee | 4 | `▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | av:malwarebytes | 4 | `▁▁▁▁█▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁` |
+| av:mcafee | 4 | `▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
 ### OS mix (filter dimension)
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 1947 | `▄▃▃▃▄▄▄▅▃▂▂▅▄▅▄▃▃▄▄▃▄▃▄▃▄▅▄▅▃▃▂▄▄▃▃▃▄▃▅▅▃▅▄▂▄▄▄▄▃▅▃▂▅▅▃▄▄▅▃▅▂▅▅▅▃▃▅▅▄▅▆▅▄▆▄█▆▅▄▃▇▅▇▇▅▄▄▇▅▁` |
-| os:linux | 209 | `▄▁▂▂▂▂▂▁▂▂▂▂▅▅▂▂▄▂▂▅▃▄▁▁▁▂▂▂▂▁▁▃▂▁▂▃▂▂▂▁▃▅▁▂▅▃▄▂▃▂▄▃▃▂▃▄█▅▁▃▄▂▂▃▄▅▂▃▂▂▂▃▂▂▄▂▂▂▁▄▅▁▂▂▅▂▁▂▃▁` |
-| os:macos | 156 | `▆▆▃▃▁▅▃▁▁▂▆▃▁▅▂▆▂▁▅▂▇▁▃▁▇▁▅▂▃▂▃▃▃▃▁▂▅▁▃▁▂▃▃▁▁▂▁▅▂▂▂▂▂▅█▅▃▃▃▂▅▂▂▁▅█▂▆▂▁▃▃▂▅▂▂▃▁▂▃▃▃▂▂▃▂▃▅▅▂` |
+| os:windows | 1959 | `▄▃▃▃▄▄▄▅▃▂▂▅▄▅▄▃▃▄▄▃▄▃▄▃▄▅▄▅▃▃▂▄▄▃▃▃▄▃▅▅▃▅▄▂▄▄▄▄▃▅▃▂▅▅▃▄▄▅▃▅▂▅▅▅▃▃▅▅▄▅▆▅▄▆▄█▆▅▄▃▇▅▇▇▅▄▄▇▅▃` |
+| os:linux | 211 | `▄▁▂▂▂▂▂▁▂▂▂▂▅▅▂▂▄▂▂▅▃▄▁▁▁▂▂▂▂▁▁▃▂▁▂▃▂▂▂▁▃▅▁▂▅▃▄▂▃▂▄▃▃▂▃▄█▅▁▃▄▂▂▃▄▅▂▃▂▂▂▃▂▂▄▂▂▂▁▄▅▁▂▂▅▂▁▂▃▂` |
+| os:macos | 158 | `▆▆▃▃▁▅▃▁▁▂▆▃▁▅▂▆▂▁▅▂▇▁▃▁▇▁▅▂▃▂▃▃▃▃▁▂▅▁▃▁▂▃▃▁▁▂▁▅▂▂▂▂▂▅█▅▃▃▃▂▅▂▂▁▅█▂▆▂▁▃▃▂▅▂▂▃▁▂▃▃▃▂▂▃▂▃▅▅▅` |
 | os:other | 30 | `▃▃▃▆▁▁▁▁▁▁▁▆▁▁▁▃▁▁▃▃▃▆▃▁▁▁▁▁▃▁▁▁▃▁▃▁▁▁▁▁▃▁▃▁▁▃▁▁▁▁▁▃▁▃▁▁▆▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▃▁▁▁▁█▁▁▁▁▁▃▁▁` |
 | os:android | 22 | `▃▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▃▃▁▁▁▃▁▃▁▃▃▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▃▁▁▁▃▁▆▁▁▃▃▁▁▁▁▁█▁▁▁▁▁▁▁▃▁▁▁▁▁▁▆▁▁▁▁▁▁▁` |
 
@@ -108,4 +108,4 @@ _No cause-level spikes in this window at current thresholds._
 
 _Notes: spikes detected at **daily** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-daily-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-daily-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-daily-rollup.csv`._
 
-_Last updated: 2026-09-09 04:37 UTC_
+_Last updated: 2026-09-09 16:40 UTC_
