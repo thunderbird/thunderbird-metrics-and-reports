@@ -8,12 +8,12 @@ company, all tagged `m:spectrum`.
 
 ## When it started: 2026-08-21, 18:47 UTC
 
-The first question of the cluster is **1599516 at 2026-08-21 18:47Z** ("When
-trying to send an email it will not go"), followed by 1599553 at 22:19Z ("I can't
+The first question of the cluster is **[1599516](https://support.mozilla.org/questions/1599516) at 2026-08-21 18:47Z** ("When
+trying to send an email it will not go"), followed by [1599553](https://support.mozilla.org/questions/1599553) at 22:19Z ("I can't
 receive or send Charter emails in thunderbird"). Before it there is a **2.9-day
-quiet gap** — the previous `m:spectrum` question (Aug 18 18:58Z) is an unrelated
-Mozilla-VPN connection-reset report, and the one before that (Aug 14) an unrelated
-Roadrunner display issue.
+quiet gap** — the previous `m:spectrum` question ([1598964](https://support.mozilla.org/questions/1598964), Aug 18 18:58Z) is an
+unrelated Mozilla-VPN connection-reset report, and the one before that
+([1598314](https://support.mozilla.org/questions/1598314), Aug 14) an unrelated Roadrunner display issue.
 
 The rate change is unambiguous, against a long-run baseline of **11–12
 questions/month (0.39/day)** measured over 2023-01→2026-06:
@@ -47,8 +47,8 @@ ended".**
 ## Attribution: provider-side, not Thunderbird-side
 
 10 of the 36 questions blame a Thunderbird update ("After latest update can't
-connect to spectrum Charter email"), and one names v154 directly ("Thunderbird
-154.0 is causing extreme issues with Spectrum email"). The timing invites that
+connect to spectrum Charter email", [1599823](https://support.mozilla.org/questions/1599823)), and one names v154 directly
+("Thunderbird 154.0 is causing extreme issues with Spectrum email", [1601056](https://support.mozilla.org/questions/1601056)). The timing invites that
 reading — v154 rolled out Aug 18–19, two days before onset.
 
 **The cross-provider control test rejects it.** If a Thunderbird release had
@@ -84,9 +84,9 @@ separates them into three unrelated root causes:
 
 | Episode | n | Dominant symptom | Signature |
 |:--|--:|:--|:--|
-| **May 9–27** | 19 | connect / send-receive (46%) + auth (44%) | "Lost Thunderbird connectivity on Spectrum today 5/9/26" |
-| **Jun 9–16** | 20 | **cert/SSL (18% overall, 7 clustered on Jun 9–10)** | "The certificate for `mobile.charter.net:993` does not come from a trusted source" |
-| **Aug 21 → ongoing** | 36 | connect / send-receive (53%) + auth (19%), cert ~0 | "Cannot send or receive email", "not connecting to server" |
+| **May 9–27** | 19 | connect / send-receive (46%) + auth (44%) | "Lost Thunderbird connectivity on Spectrum today 5/9/26" ([1580867](https://support.mozilla.org/questions/1580867)) |
+| **Jun 9–16** | 20 | **cert/SSL (18% overall, 7 clustered on Jun 9–10)** | "The certificate for `mobile.charter.net:993` does not come from a trusted source" ([1586504](https://support.mozilla.org/questions/1586504)) |
+| **Aug 21 → ongoing** | 36 | connect / send-receive (53%) + auth (19%), cert ~0 | "Cannot send or receive email" ([1600103](https://support.mozilla.org/questions/1600103)), "not connecting to server" ([1599818](https://support.mozilla.org/questions/1599818)) |
 
 So August is **not** a recurrence of the June certificate incident (that one was a
 specific untrusted-cert failure on `mobile.charter.net:993`, and is the episode
@@ -103,8 +103,8 @@ floats above chronic provider load.
 ## Possibly a distinct sub-cluster in September
 
 Two v155 users report Charter/POP mail being routed to **Trash instead of Inbox**
-(Sep 2, Sep 5) — a different symptom on a new version, and one that
-`m:spectrum` absorbs rather than surfacing separately. Worth checking on its own.
+(Sep 2, [1601790](https://support.mozilla.org/questions/1601790); Sep 5, [1602271](https://support.mozilla.org/questions/1602271)) — a different symptom on a new
+version, and one that `m:spectrum` absorbs rather than surfacing separately. Worth checking on its own.
 
 ## Served
 
