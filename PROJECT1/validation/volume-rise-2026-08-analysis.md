@@ -57,13 +57,36 @@ matching two clusters is counted once), they explain a bit over half the rise:
 | `feat:printing` (v154 regression, Bugzilla 2065922) | 4 | 36 | **+32** |
 | `m:spectrum` (provider incident from Aug 21) | 5 | 34 | **+29** |
 | `m:yahooemail` (wk 08-10 cluster, 3.45×, 63% answered) | 30 | 55 | **+25** |
-| crash topics (`app-crash` + `crashing-and-slow-performance`) | 27 | 64 | **+37** |
-| **Union of the four** | **66** | **185** | **+119 (57% of the rise)** |
-| **Residual — everything else** | **665** | **756** | **+91 (43% of the rise)** |
+| crashes (title-verified — see the provenance note below) | 18 | 28 | **+10** |
+| **Union of the four** | **56** | **152** | **+96 (46% of the rise)** |
+| **Residual — everything else** | **675** | **789** | **+114 (54% of the rise)** |
 
-The residual is not flat noise: it runs 21.5/day in July → 24.4/day in August →
-**30.3/day in September**. Whatever is lifting the floor is still lifting it, and
-it is bigger than any single incident.
+The residual is not flat noise: it runs 21.8/day in July → 25.5/day in August →
+**31.4/day in September**. Whatever is lifting the floor is still lifting it, and
+it is bigger than every identified incident combined.
+
+### Provenance note on the crash figure (corrected 2026-09-10)
+
+An earlier version of this table put the crash component at **+37**, taken from
+the SUMO **`topic`** column — questions filed under `app-crash` or
+`crashing-and-slow-performance`. That is topic metadata carried verbatim from the
+scraper's questions CSV (44 possible values, exactly one per question); it is
+**not** crash-stats, not telemetry, and not a regex over the question text.
+
+Checked against the titles, it is a poor proxy. Of August's 29
+`crashing-and-slow-performance` questions, **2 are crash-worded, 5 are
+slow-worded, and 22 are neither** — the bucket also holds "Print Preview Printing
+Blanks" (part of the printing cluster), "Thunderbird Mail does not display the
+body of the email msg" and "Profile Manager". `app-crash` holds up better (15 of
+35 crash-worded, and several of the rest describe a crash in other words: "non si
+apre più", "my email froze").
+
+Using a **title regex** for crash/freeze/hang/not-responding wording instead gives
+Jul 18 → Aug 28, i.e. **+10**, at 2.5% → 3.0% of volume — well inside the normal
+oscillation (May 2.5%, June 3.9%, September 3.7%). **So "crashes roughly doubled"
+is not supported.** The revision moves ~27 questions out of an identified cluster
+and into the residual, which *raises* the unexplained share of the rise from 43%
+to 54%.
 
 ## Hypotheses TESTED against the corpus
 
@@ -73,7 +96,7 @@ it is bigger than any single incident.
 | A new locale / traffic source | **Rejected** | Locale mix stable: en-US 85.2% → 86.9%; it/nl/es all within a point. |
 | SUMO-funnel or scraper-wide change | **Rejected** | **Android went the other way: −11% Jul→Aug** while desktop went +29%. A funnel or scraper cause would hit both. (Caveat: android is only ~2/day, so its noise is wide.) |
 | v154 caused it | **Partly — a third at most** | The changepoint is wk Aug 3; Aug 1–17 already ran 1.16× July before v154 shipped. v154 does coincide with the steeper second half (1.44×). |
-| The crash rise is a v154 regression | **Rejected** | Cohort crash rates Aug 18–Sep 9: v154 7.1%, v153 5.5%, v155 6.3%, **v140 10.2%**, unknown 10.7% — no version specificity. (Contrast printing: v154 13.4% vs v153 0.0%.) June 2026 also ran 8.4%, so crash share oscillates. |
+| The crash rise is a v154 regression | **Rejected — and the rise itself is mostly an artefact** | Cohort rates over the SUMO crash/perf topics, Aug 18–Sep 9: v154 7.1%, v153 5.5%, v155 6.3%, **v140 10.2%**, unknown 10.7% — no version specificity (contrast printing: v154 13.4% vs v153 0.0%). And title-verified crashes only rose +10 (2.5% → 3.0%), within normal oscillation. See the provenance note above. |
 | Seasonality (Jul→Aug is normally up) | **Weak / inconsistent** | 2023: −3%. **2024: +34%.** 2025: +6%. 2026: +29%. August *can* jump, but two of three prior years did not. |
 
 ## Hypotheses that need EXTERNAL data (cannot be settled from the corpus)
@@ -88,8 +111,10 @@ it is bigger than any single incident.
 3. **Release cadence and user base.** Three releases in six weeks (v153 ~Jul 25–26,
    v154 Aug 18–19, v155 Sep 1) versus a quieter July. More releases → more
    "after the update" questions. Independently, did the desktop install base grow?
-4. **The crash rise (+37).** Not version-specific and not explained here. Needs a
-   crash-stats / telemetry cross-check.
+4. **The crash question (+10, not +37).** Small and within historical oscillation,
+   so it is no longer a leading candidate — but a crash-stats / telemetry
+   cross-check would settle whether even the +10 is real, since the support
+   corpus cannot distinguish a crash from a hang or a failed launch.
 5. **September's send-and-receive-email doubling.** The single biggest mover:
    5.97/day (Jul) → **12.44/day** (Sep). It is diffuse — 68% of those questions
    carry no provider tag, versus 64% in July — so it is not one unnamed provider
