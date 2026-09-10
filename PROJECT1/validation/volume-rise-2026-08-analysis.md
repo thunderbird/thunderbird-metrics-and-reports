@@ -15,10 +15,16 @@ The BigQuery ground truth now runs through August 2026 and the rise is real:
 | 2026-06 | 724 | 725 | 100.1% |
 | 2026-07 | 732 | 731 | 99.9% |
 | **2026-08** | **943** | **941** | **99.8%** |
+| 2026-09 (Sep 1–8) | 291 | 291 | 100.0% |
 
-Across all 44 months the two agree to 100.0% (49,419 against 49,422), and the old
-2023-11 scraper gap is closed. So the +29% is not a scraper artefact. See
-`README.md` in this directory.
+Across all 44 complete months the two agree to 100.0% (49,419 against 49,422),
+and the old 2023-11 scraper gap is closed. So the +29% is not a scraper artefact.
+See `README.md` in this directory.
+
+The September figure is a partial export. BigQuery gives 291, and this repo's
+cumulative count through 2026-09-08 is 291 exactly, so the export ends with
+September 8 and the two agree to the question. That puts the September run rate
+at **36.4/day in ground truth**, against 30.4/day in August.
 
 ## First: it is not an "August bump"
 
@@ -134,17 +140,21 @@ That reframes the decomposition above. The named clusters (printing +32, Spectru
 +29, Yahoo Mail +25, crashes +10, union **+96**) do not cover half of +211; they
 cover **more than all of the +83 excess**. The residual is largely the calendar.
 
+September behaves the same way. The index says September runs 1.19 / 1.16 = 1.03×
+August, which from a 30.4/day August predicts **31.2/day**. Ground truth gives
+**36.4/day** through September 8, so September carries about **+5.2/day of excess**,
+larger than August's +2.7/day. The excess is growing even though the rise itself
+is mostly seasonal, and that is the part worth watching.
+
 Two cautions. The index rests on three Augusts, and 2023 does not fit it (index
-0.86, the year Supernova pushed the peak to October). And September and October
-are seasonally higher still, so the September run rate of 36.3/day is what the
-calendar predicts, not evidence that the rise is accelerating.
+0.86, the year Supernova pushed the peak to October). And eight days is a short
+window: one busy Monday moves it.
 
 ## Hypotheses that need EXTERNAL data (cannot be settled from the corpus)
 
-1. ~~**Is the rise real in ground truth?**~~ **SETTLED 2026-09-09: yes.** BigQuery
-   gives 943 for August against this repo's 941, and all 44 months agree to 100.0%.
-   September is not in the export yet, so the 36.3/day run rate is still
-   scraper-only.
+1. ~~**Is the rise real in ground truth?**~~ **SETTLED 2026-09-09: yes, for both
+   months.** BigQuery gives 943 for August against this repo's 941, and 291 for
+   September 1–8 against 291 here. All 44 complete months agree to 100.0%.
 2. **Did SUMO change the ask-a-question funnel in early August?** A more prominent
    AAQ entry point, a changed help-article CTA, or a support-routing change would
    raise *every* topic at once — which is exactly the residual's signature.
