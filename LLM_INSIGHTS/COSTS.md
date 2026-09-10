@@ -83,6 +83,27 @@ insensitive → biggest saving); keep the **reduce** stage (2 calls) **live** (b
 couple of calls saves pennies and adds latency); **Android stays live** (saving ~$0.15
 isn't worth the complexity at ~46 q/mo).
 
+## August 2026 run (2026-09-10)
+
+First run after the May/June proof of concept, and the first two-style run.
+
+| Stage | Month | Questions | Cost |
+|:--|:--|--:|--:|
+| Stage 1 classify | 2026-07 | 731 | $4.93 |
+| Stage 1 classify | 2026-08 | 940 | $6.25 |
+| Stage 2 clustering + two narratives | 2026-08 vs 2026-07 | 1,671 | $0.64 |
+| **Total** | | | **$11.82** |
+
+Per question the classify stage held its unit rate: $0.00674 for July and
+$0.00665 for August, against $0.00665 for May in Bucket 2. The two-style run
+(`--style both`) narrates twice over ONE clustering pass, so the second page
+cost about $0.11, not a second $0.64.
+
+Two of August's 941 questions carry no label (`1598608`, `1601275`) and one
+label belongs to a neighbouring id (`1598609`). That is 0.2% of the month. The
+classify script has no resume flag, so fixing it means paying $6.25 again for two
+questions. Left alone; the report says 940.
+
 ## Notes
 - All figures are well under the $50/run circuit-breaker.
 - Cost scales with the enriched text size; if it ever grows, re-baseline the unit rate with the Bucket-0 preview: `uv run scripts/llm_insights_cost.py <month> <month> <product>`.

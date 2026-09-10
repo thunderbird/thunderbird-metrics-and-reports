@@ -74,6 +74,7 @@ prototype for review.
 resolved-rate, and clickable example questions:
 
 - [Desktop — LLM Insights monthly summary (latest)](LLM_INSIGHTS/REPORTS/desktop/monthly-summary-latest.html)
+- [Desktop — LLM Insights monthly summary, plain English](LLM_INSIGHTS/REPORTS/desktop/monthly-summary-latest-plain-english.html) — the same month, same numbers and same ranking, written for a reader outside the team, with the jargon in a collapsed glossary
 - [Android — LLM Insights monthly summary (latest)](LLM_INSIGHTS/REPORTS/android/monthly-summary-latest.html)
 
 _(Prototype — feedback welcome.)_

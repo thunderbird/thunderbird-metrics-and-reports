@@ -206,6 +206,36 @@ load is lower priority. Be concrete and specific; name likely root causes; never
 pad. This is an LLM-derived signal over free-text support questions — a triage \
 pointer, not proof."""
 
+# The house style used by the Project 1 pages (simple-english, in the spirit of
+# ASD-STE100). Appended to the system prompt for --style plain so the LLM prose
+# matches the scaffolding around it; the numbers and the ranking are identical.
+PLAIN_SYS = """
+
+WRITE IN PLAIN ENGLISH. Rules, all of them:
+- Short sentences. 25 words at most. One idea per sentence.
+- Active voice and simple tenses. Name the actor: "engineering must look at".
+- No semicolons, no em dashes, no contractions, no emoji, no bold for emphasis.
+- Do not write "should", "may", "might" or "could". Use "can", "will", "must".
+- Say the fact, not its importance. Delete "crucial", "significant", "notably", "it is worth noting", "in order to".
+- Define a term of art the first time you use it, in a few words.
+- A reader outside the Thunderbird team must understand it on one read."""
+
+PLAIN_GLOSSARY = """<details markdown="1">
+<summary>Glossary</summary>
+
+| Term | Meaning |
+|:--|:--|
+| question | One post by a user on the Thunderbird support site. |
+| cluster | A group of questions that describe the same concrete problem. Claude reads each question and names the problem, and questions with the same named problem form one cluster. |
+| new cluster | A cluster with no questions in the previous month. |
+| severity | How much the problem hurts the user, from 1 (cosmetic or a how-to) to 5 (data loss or no mail at all). Claude rates each question. |
+| resolved | The question has an accepted solution, or a trusted contributor gave the last answer. |
+| unanswered | Nobody except the person who asked has replied. |
+| rank | A Python score, not a Claude opinion. It weights new clusters, badly served clusters, severity and volume, in that order. |
+
+</details>
+"""
+
 NARR_SCHEMA = {
     "type": "object", "additionalProperties": False,
     "properties": {
@@ -228,7 +258,8 @@ NARR_SCHEMA = {
 }
 
 
-def narrate(client, cur_m, prev_m, top, cat_mom, headline_stats, usage):
+def narrate(client, cur_m, prev_m, top, cat_mom, headline_stats, usage,
+            style="original"):
     payload = {
         "current_month": human_month(cur_m),
         "previous_month": human_month(prev_m),
@@ -248,7 +279,8 @@ def narrate(client, cur_m, prev_m, top, cat_mom, headline_stats, usage):
             "ranked issue a 1-sentence `why` it matters and a 1-sentence `action` "
             "(what engineering should look at). Reference issues by their rank.\n\n"
             + json.dumps(payload, ensure_ascii=False))
-    system = [{"type": "text", "text": NARR_SYS}]
+    system = [{"type": "text",
+                "text": NARR_SYS + (PLAIN_SYS if style == "plain" else "")}]
 
     ct = client.messages.count_tokens(model=MODEL, system=system,
                                       messages=[{"role": "user", "content": user}])
@@ -276,7 +308,7 @@ def links(ids, titles):
 
 
 def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
-           product="desktop"):
+           product="desktop", style="original"):
     issue_prose = {x["rank"]: x for x in narr.get("issues", [])}
     pcap = product.capitalize()
     out, W = [], lambda s: out.append(s)
@@ -285,14 +317,29 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
     W(f"title: {pcap} LLM Insights — {human_month(cur_m)}")
     W("---")
     W("")
+    plain = style == "plain"
     W(f"# Thunderbird {pcap} — LLM Insights (Engineering)")
-    W(f"\n## {human_month(cur_m)} vs {human_month(prev_m)}\n")
-    W("_The **AI counterpart to Project 1**: Claude reads every support question "
-      "(plus the creator's own follow-ups, the accepted solution, and trusted-"
-      "contributor replies), names the concrete problem, hypothesises a root cause, "
-      "and rates severity — surfacing emerging / worst-served pain that regex + "
-      "stats can't. Counts are exact (computed in Python); clustering and prose are "
-      "LLM-derived. A triage pointer, not proof._\n")
+    if plain:
+        W(f"\n## {human_month(cur_m)} against {human_month(prev_m)}\n")
+        W("Claude read every support question of both months. For each question "
+          "it named the concrete problem, guessed a root cause and rated how much "
+          "the problem hurts the user. It also read the answers: the follow-ups "
+          "from the person who asked, the accepted solution, and the replies from "
+          "trusted contributors.")
+        W("")
+        W("Python did the counting and the ranking. Claude grouped the named "
+          "problems and wrote the prose. Read this page as a pointer for triage, "
+          "not as proof.")
+        W("")
+        W(PLAIN_GLOSSARY)
+    else:
+        W(f"\n## {human_month(cur_m)} vs {human_month(prev_m)}\n")
+        W("_The **AI counterpart to Project 1**: Claude reads every support question "
+          "(plus the creator's own follow-ups, the accepted solution, and trusted-"
+          "contributor replies), names the concrete problem, hypothesises a root cause, "
+          "and rates severity — surfacing emerging / worst-served pain that regex + "
+          "stats can't. Counts are exact (computed in Python); clustering and prose are "
+          "LLM-derived. A triage pointer, not proof._\n")
 
     W("## Headline\n")
     W(f"| | {human_month(prev_m)} | {human_month(cur_m)} | Change |")
@@ -303,17 +350,28 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
     W(f"| New issue clusters this month | — | {int(top['is_new'].sum()) if len(top) else 0} | |")
     W("")
     if narr.get("headline"):
-        W(f"**{narr['headline']}**\n")
+        W((narr["headline"] if plain else f"**{narr['headline']}**") + "\n")
     if narr.get("narrative_md"):
         W(narr["narrative_md"] + "\n")
 
-    W("## 🚨 Issues to investigate\n")
-    W("_Ranked by a transparent score weighting new/emerging + worst-served "
-      "(low resolved %) + severity + volume. **Resolved %** = solved or a trusted "
-      "contributor gave the last word; ⚠️ marks poorly-served clusters._\n")
+    if plain:
+        W("## Issues to investigate\n")
+        W("The order comes from a Python score. It weights new clusters, badly "
+          "served clusters, severity and volume, in that order. Resolved means "
+          "the question has an accepted solution, or a trusted contributor gave "
+          "the last answer. A resolved figure under 50% is marked.\n")
+    else:
+        W("## 🚨 Issues to investigate\n")
+        W("_Ranked by a transparent score weighting new/emerging + worst-served "
+          "(low resolved %) + severity + volume. **Resolved %** = solved or a trusted "
+          "contributor gave the last word; ⚠️ marks poorly-served clusters._\n")
     for i, (_, r) in enumerate(top.iterrows(), 1):
-        flag = " ⚠️" if r["served_pct"] < 50 else ""
-        new = " · 🆕 new this month" if r["is_new"] else ""
+        if plain:
+            flag = " (below 50%)" if r["served_pct"] < 50 else ""
+            new = ", new this month" if r["is_new"] else ""
+        else:
+            flag = " ⚠️" if r["served_pct"] < 50 else ""
+            new = " · 🆕 new this month" if r["is_new"] else ""
         W(f"### {i}. {r['label']}{new}\n")
         W(f"| Cluster | {human_month(prev_m)} | {human_month(cur_m)} | Change | "
           f"Sev (≥4) | Resolved | Unanswered |")
@@ -323,13 +381,20 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
           f"{r['served_pct']}%{flag} | {r['unanswered_pct']}% |")
         W("")
         p = issue_prose.get(i)
-        if p:
-            W(f"- **Why:** {p['why']}")
-            W(f"- **Look at:** {p['action']}")
-        W(f"- **Examples:** {links(r['examples'], titles)}")
+        if plain:
+            if p:
+                W(f"- Why it matters: {p['why']}")
+                W(f"- What to look at: {p['action']}")
+            W(f"- Example questions: {links(r['examples'], titles)}")
+        else:
+            if p:
+                W(f"- **Why:** {p['why']}")
+                W(f"- **Look at:** {p['action']}")
+            W(f"- **Examples:** {links(r['examples'], titles)}")
         W("")
 
-    W("## Category mix — month over month\n")
+    W("## Category mix, month over month\n" if plain
+      else "## Category mix — month over month\n")
     W(f"| Category | {human_month(prev_m)} | {human_month(cur_m)} | Change |")
     W("|:--|--:|--:|:--|")
     for c in cat_mom_rows:
@@ -337,10 +402,17 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
     W("")
 
     W("---")
-    W(f"\n_Prototype LLM-insights report · Claude {MODEL} over Stage-1 per-question "
-      f"labels · {human_month(cur_m)} vs {human_month(prev_m)} · this run cost "
-      f"${cost:.2f}._")
-    W(f"\n_Last updated: {datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}_")
+    if plain:
+        W(f"\nThis is a prototype. Claude {MODEL} wrote the labels for each "
+          f"question, and this run of the report cost ${cost:.2f}. The page "
+          f"covers {human_month(cur_m)} against {human_month(prev_m)}. The same "
+          f"month is also published in the original format, for comparison.")
+        W(f"\nLast updated: {datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}")
+    else:
+        W(f"\n_Prototype LLM-insights report · Claude {MODEL} over Stage-1 per-question "
+          f"labels · {human_month(cur_m)} vs {human_month(prev_m)} · this run cost "
+          f"${cost:.2f}._")
+        W(f"\n_Last updated: {datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}_")
     return "\n".join(out) + "\n"
 
 
@@ -365,6 +437,13 @@ def main():
     ap.add_argument("product", nargs="?", default="desktop",
                     choices=["desktop", "android"])
     ap.add_argument("--latest", action="store_true")
+    ap.add_argument("--style", default="original",
+                    choices=["original", "plain", "both"],
+                    help="page style: the original format, plain English (the "
+                         "simple-english house style), or both from ONE run. "
+                         "'both' reuses the same clustering and the same "
+                         "ranking, and narrates twice, so the two pages differ "
+                         "only in wording.")
     args = ap.parse_args()
 
     if not os.getenv("ANTHROPIC_API_KEY"):
@@ -395,26 +474,31 @@ def main():
     headline_stats = {"questions_prev": len(prev), "questions_cur": len(cur),
                       "new_clusters": int(featured["is_new"].sum())}
 
-    narr = narrate(client, args.current, args.previous, featured, cat_mom,
-                   headline_stats, usage)
+    styles = ["original", "plain"] if args.style == "both" else [args.style]
+    narrs = {st: narrate(client, args.current, args.previous, featured, cat_mom,
+                         headline_stats, usage, style=st) for st in styles}
 
     cost = actual_cost(usage)
     print(f"\n💵 ACTUAL Stage-2 cost: ${cost:.4f}  "
           f"(in {usage['in']:,} | cache_read {usage['cr']:,} | out {usage['out']:,})")
 
-    content = render(args.current, args.previous, cur, prev, featured, cat_mom,
-                     narr, titles, cost, args.product)
     rdir = REPORT_DIR.format(product=args.product)
     os.makedirs(rdir, exist_ok=True)
-    path = f"{rdir}/monthly-summary-{args.current}-vs-{args.previous}.md"
-    with open(path, "w") as f:
-        f.write(content)
-    print(f"   wrote {path}")
-    if args.latest:
-        latest = f"{rdir}/monthly-summary-latest.md"
-        with open(latest, "w") as f:
+    for st in styles:
+        # the two styles differ only in wording, so they share the clustering,
+        # the ranking and the cost line above
+        suffix = "-plain-english" if st == "plain" else ""
+        content = render(args.current, args.previous, cur, prev, featured,
+                         cat_mom, narrs[st], titles, cost, args.product, st)
+        path = f"{rdir}/monthly-summary-{args.current}-vs-{args.previous}{suffix}.md"
+        with open(path, "w") as f:
             f.write(content)
-        print(f"   wrote {latest}")
+        print(f"   wrote {path}")
+        if args.latest:
+            latest = f"{rdir}/monthly-summary-latest{suffix}.md"
+            with open(latest, "w") as f:
+                f.write(content)
+            print(f"   wrote {latest}")
 
 
 if __name__ == "__main__":
