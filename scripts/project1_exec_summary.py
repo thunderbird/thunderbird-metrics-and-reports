@@ -590,16 +590,17 @@ def main():
         shown = tags[:MAX_CLUSTERS]
         lead = " and ".join(cause_name(t) for t in shown[:2])
         rest_n = len(tags) - len(shown[:2])
+        stands_out = "[What stands out](#what-stands-out)"
         in_short = f"In short: {lead}." + (
-            f" Both are in the list below, with {rest_n} smaller cluster"
+            f" Both are in {stands_out}, with {rest_n} smaller cluster"
             f"{'s' if rest_n != 1 else ''}." if len(shown[:2]) == 2 and rest_n
-            else (f" The list below has {rest_n} smaller cluster"
+            else (f" {stands_out} has {rest_n} smaller cluster"
                   f"{'s' if rest_n != 1 else ''} as well." if rest_n
-                  else " The list below has the detail."))
+                  else f" {stands_out} has the detail."))
         out.insert(in_short_at, "")
         out.insert(in_short_at, in_short)
 
-        W("## What stands out")
+        W("## What stands out {#what-stands-out}")
         W("")
         for i_, tag in enumerate(shown, start=1):
             nj = int((jall["_cause"] == tag).sum()) if not jall.empty else 0

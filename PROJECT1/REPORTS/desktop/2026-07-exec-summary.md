@@ -5,7 +5,7 @@ title: "2026-07 exec summary: Thunderbird Desktop support spikes"
 
 # July 2026: Thunderbird Desktop support spikes
 
-Executive summary for 2026-07. It covers 731 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:37 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-07. It covers 731 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:45 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -31,7 +31,7 @@ Executive summary for 2026-07. It covers 731 Thunderbird Desktop support questio
 
 All 6 tie to a Thunderbird version. None of them are cause-level. Every row is in the collapsed blocks below.
 
-In short: Search and Attachments. Both are in the list below, with 2 smaller clusters.
+In short: Search and Attachments. Both are in [What stands out](#what-stands-out), with 2 smaller clusters.
 
 | Detector | daily | weekly | monthly |
 |:--|--:|--:|--:|
@@ -46,7 +46,7 @@ Three more numbers for context:
 
 Every spike row, with its example questions, is in [All July 2026 detail](#all-july-2026-detail) below.
 
-## What stands out
+## What stands out {#what-stands-out}
 
 1. Search ([`feat:search`](explorer.html#grain=monthly&cause=feat:search&period=2026-07), 2 spikes): 10 questions in July, under the monthly bar. It peaked in the week of 2026-07-06 at 12.5 times expected, on Thunderbird 140.
 2. Attachments ([`feat:attachments`](explorer.html#grain=monthly&cause=feat:attachments&period=2026-07), 2 spikes): 16 questions in July, under the monthly bar. It peaked in the week of 2026-07-06 at 3.9 times expected, on Thunderbird 152.

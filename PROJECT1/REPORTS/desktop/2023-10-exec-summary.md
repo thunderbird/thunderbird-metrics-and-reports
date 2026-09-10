@@ -5,7 +5,7 @@ title: "2023-10 exec summary: Thunderbird Desktop support spikes"
 
 # October 2023: Thunderbird Desktop support spikes
 
-Executive summary for 2023-10. It covers 1977 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:36 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2023-10. It covers 1977 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:44 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -31,7 +31,7 @@ Executive summary for 2023-10. It covers 1977 Thunderbird Desktop support questi
 
 None of them tie to a Thunderbird version. All 11 are cause-level. Every row is in the collapsed blocks below.
 
-In short: Frontier and Search. Both are in the list below, with 4 smaller clusters.
+In short: Frontier and Search. Both are in [What stands out](#what-stands-out), with 4 smaller clusters.
 
 | Detector | daily | weekly | monthly |
 |:--|--:|--:|--:|
@@ -48,7 +48,7 @@ Three more numbers for context:
 
 Every spike row, with its example questions, is in [All October 2023 detail](#all-october-2023-detail) below.
 
-## What stands out
+## What stands out {#what-stands-out}
 
 1. Frontier ([`m:frontier`](explorer.html#grain=monthly&cause=m:frontier&period=2023-10), 3 spikes): 15 questions in October, 30.0 times the baseline of 0.5. It peaked in the week of 2023-10-09 with 6 questions, where earlier periods had none.
 2. Search ([`feat:search`](explorer.html#grain=monthly&cause=feat:search&period=2023-10), 1 spike): 34 questions in October, 4.5 times the baseline of 7.5.

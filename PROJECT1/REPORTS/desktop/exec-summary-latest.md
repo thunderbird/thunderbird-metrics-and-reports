@@ -5,7 +5,7 @@ title: "2026-08 exec summary: Thunderbird Desktop support spikes"
 
 # August 2026: Thunderbird Desktop support spikes
 
-Executive summary for 2026-08. It covers 941 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:37 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-08. It covers 941 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:45 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -31,7 +31,7 @@ Executive summary for 2026-08. It covers 941 Thunderbird Desktop support questio
 
 17 of them tie to a Thunderbird version. 10 of them are cause-level. Every row is in the collapsed blocks below.
 
-In short: Printing and Spectrum. Both are in the list below, with 5 smaller clusters.
+In short: Printing and Spectrum. Both are in [What stands out](#what-stands-out), with 5 smaller clusters.
 
 | Detector | daily | weekly | monthly |
 |:--|--:|--:|--:|
@@ -46,7 +46,7 @@ Three more numbers for context:
 
 Every spike row, with its example questions, is in [All August 2026 detail](#all-august-2026-detail) below.
 
-## What stands out
+## What stands out {#what-stands-out}
 
 1. Printing ([`feat:printing`](explorer.html#grain=monthly&cause=feat:printing&period=2026-08), 11 spikes): 36 questions in August, 8.0 times the baseline of 4.5. It peaked on 2026-08-20 at 24.3 times expected, on Thunderbird 154.
 2. Spectrum ([`m:spectrum`](explorer.html#grain=monthly&cause=m:spectrum&period=2026-08), 8 spikes): 34 questions in August, 3.2 times the baseline of 10.5. It peaked in the week of 2026-08-17 at 11.0 times its baseline.
