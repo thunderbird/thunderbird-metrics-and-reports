@@ -5,10 +5,10 @@ title: MONTHLY: Thunderbird Desktop — Support Spike Report
 
 # MONTHLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2024-10 … 2026-09 · **monthly** grain · trailing 24 months · 27130 questions · no AI (regex + traditional stats)_
+_Generated 2024-10 … 2026-09 · **monthly** grain · trailing 24 months · 27131 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 27130 questions, 1130.4/month avg
-- **Answered (non-creator):** 21069/27130 (78%)
+- **Volume:** 27131 questions, 1130.5/month avg
+- **Answered (non-creator):** 21069/27131 (78%)
 - **First-answer time (median):** 3.3h (p25 0.9h / p75 11.7h)
 - **Total volume trend:** `█▇▇█▆▆▆▆▅▇▇▆▆▅▅▅▅▅▄▄▄▄▅▂`
 
@@ -114,7 +114,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 7474 | `▃▃▂▂▂▂▂▂▂▃▃▂▃▂▂▅▇█▇▇▇▆█▄` |
+| os:windows | 7475 | `▃▃▂▂▂▂▂▂▂▃▃▂▃▂▂▅▇█▇▇▇▆█▄` |
 | os:linux | 1242 | `▆▅▅▆▅▃▄▄▃▃▅▅▄▄▄▆▆▇▅▆▆▆█▃` |
 | os:macos | 860 | `▄▃▃▃▄▃▃▃▂▄▄▄▂▄▂▆▇█▆▆▅▅▆▃` |
 | os:other | 132 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▂▁▂▃▃▂▂` |
@@ -129,10 +129,10 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | macos:sonoma | 39 | `█▅▄▃▄▁▂▁▁▁▁▂▂▅▃▅▂▂▂▃▁▂▂▁` |
 | macos:catalina | 34 | `▅▃▂▄▁▂▂▂▁█▆▄▂▂▁▂▁▂▂▂▁▁▁▁` |
 | macos:monterey | 29 | `▅▅▅▅▅█▃▃▁▃▃▅▁▅▃▃▁▁▃▃▁▃▅▁` |
-| macos:high_sierra | 26 | `█▄▂▁▇▂▁▇▁▂▂▂▁▂▂▄▁▁▁▁▄▁▁▁` |
+| macos:ventura | 26 | `▅▃▅▆▃▁▃▃▆▆▁█▅▃▁▃▁▁▁▁▁▁▃▁` |
 
 ---
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-monthly-rollup.csv`._
 
-_Last updated: 2026-09-10 00:19 UTC_
+_Last updated: 2026-09-10 04:37 UTC_

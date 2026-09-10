@@ -1604,7 +1604,7 @@ period,dim,value,count
 2026-06,os,os:windows,590
 2026-07,os,os:windows,589
 2026-08,os,os:windows,750
-2026-09,os,os:windows,273
+2026-09,os,os:windows,274
 2024-10,protocol,proto:caldav,7
 2024-11,protocol,proto:caldav,6
 2024-12,protocol,proto:caldav,5
@@ -1874,7 +1874,7 @@ period,dim,value,count
 2026-08,tb_version_major,154,202
 2026-09,tb_version_major,154,38
 2026-02,tb_version_major,155,1
-2026-09,tb_version_major,155,126
+2026-09,tb_version_major,155,127
 2026-06,tb_version_major,156,1
 2026-05,tb_version_major,159,1
 2026-08,tb_version_major,170,1
@@ -1902,4 +1902,4 @@ period,dim,value,count
 2026-06,total,all,725
 2026-07,total,all,731
 2026-08,total,all,941
-2026-09,total,all,327
+2026-09,total,all,328

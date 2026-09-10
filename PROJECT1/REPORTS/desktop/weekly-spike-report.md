@@ -5,10 +5,10 @@ title: WEEKLY: Thunderbird Desktop — Support Spike Report
 
 # WEEKLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2026-03-16 … 2026-09-07 · **weekly** grain · trailing 26 weeks · 4746 questions · no AI (regex + traditional stats)_
+_Generated 2026-03-16 … 2026-09-07 · **weekly** grain · trailing 26 weeks · 4747 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 4746 questions, 182.5/week avg
-- **Answered (non-creator):** 3803/4746 (80%)
+- **Volume:** 4747 questions, 182.6/week avg
+- **Answered (non-creator):** 3803/4747 (80%)
 - **First-answer time (median):** 3.4h (p25 1.0h / p75 11.7h)
 - **Total volume trend:** `▆▆▆▆▆▅▆▆▆▆▆▅▆▅▆▆▅▅▆▆▇▆▇██▄`
 
@@ -32,8 +32,8 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 | 🆕 new | **3.2×** | 2026-06-29 | v140 × feat:junk | 4 | 100% ans · 6.7h | [1590147](https://support.mozilla.org/questions/1590147 "Way to Get spam and fake sites off") [1590586](https://support.mozilla.org/questions/1590586 "Mijn pc zou spam versturen.") [1590755](https://support.mozilla.org/questions/1590755 "How to run junk mail filters on a particular folder") [1591038](https://support.mozilla.org/questions/1591038 "How do I install a junk folder in with the other folders ( inbox, drafts, sent, ") · [explore ↗](explorer.html#grain=weekly&version=140&cause=feat:junk&period=2026-06-29) | `▁▁▁▁▃▃▆▃▃▃▅▆▁▃▆█▁▁▁▃▃▁▃▃▁▁` |
 | 🆕 new | **3.0×** | 2026-06-22 | v152 × feat:addressbook | 5 | 80% ans · 6.3h | [1589199](https://support.mozilla.org/questions/1589199 "how do I copy my windows 10 thunderbird address book to my windows 11 thunderbir") [1589395](https://support.mozilla.org/questions/1589395 "TB address book has duplicate entries or other entries that will not delete or e") [1589557](https://support.mozilla.org/questions/1589557 "Empty Contacts add book") [1589656](https://support.mozilla.org/questions/1589656 "Create a new CardDav contacts list (connected to Gmail) on Thunderbird. Authenti") [1589657](https://support.mozilla.org/questions/1589657 "How can I create a recipient group in the Thunderbird address book?") · [explore ↗](explorer.html#grain=weekly&version=152&cause=feat:addressbook&period=2026-06-22) | `▁▁▁▁▁▁▁▁▁▁▁▂▁▂█▁▁▂▁▁▁▁▁▁▁▁` |
 | ↗ spreading | **5.0×** | 2026-06-08 | v151 × m:spectrum | 9 | 100% ans · 14.3h | [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") [1586486](https://support.mozilla.org/questions/1586486 "Thunderbird is showing Certificate for mobile.charter.net:993 does not come from") [1586494](https://support.mozilla.org/questions/1586494 "Mozilla TWC account failures") +3 · [explore ↗](explorer.html#grain=weekly&version=151&cause=m:spectrum&period=2026-06-08) | `▁▁▁▁▁▁▁▁▁▁▂▃█▂▁▁▁▁▁▂▁▁▁▁▁▁` |
-| ↗ spreading | **4.0×** | 2026-09-07 | v155 × feat:filters | 4 | ⚠️ 50% ans · 2.4h | [1602820](https://support.mozilla.org/questions/1602820 "Email filter problem after update") [1602914](https://support.mozilla.org/questions/1602914 "Message filters screwed up in Thuderbird 155") [1602916](https://support.mozilla.org/questions/1602916 "message filters have stopped working.") [1603094](https://support.mozilla.org/questions/1603094 "Cuando bajo los correos estos no respetan la regla de filtro de mensaje y la may") · [explore ↗](explorer.html#grain=weekly&version=155&cause=feat:filters&period=2026-09-07) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█` |
 | ↗ spreading | **4.0×** | 2026-08-24 | v153 × m:spectrum | 4 | 75% ans · 3.7h | [1600000](https://support.mozilla.org/questions/1600000 "Suddenly can't send/receive emails") [1600041](https://support.mozilla.org/questions/1600041 "I can receive but not send emails") [1600103](https://support.mozilla.org/questions/1600103 "Cannot send or receive email. (locked duplicate)") [1601143](https://support.mozilla.org/questions/1601143 "IMAP accounts no longer update - Charter/Spectrum email hosting") · [explore ↗](explorer.html#grain=weekly&version=153&cause=m:spectrum&period=2026-08-24) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▅▅█▇▂▁` |
+| ↗ spreading | **3.9×** | 2026-09-07 | v155 × feat:filters | 4 | ⚠️ 50% ans · 2.4h | [1602820](https://support.mozilla.org/questions/1602820 "Email filter problem after update") [1602914](https://support.mozilla.org/questions/1602914 "Message filters screwed up in Thuderbird 155") [1602916](https://support.mozilla.org/questions/1602916 "message filters have stopped working.") [1603094](https://support.mozilla.org/questions/1603094 "Cuando bajo los correos estos no respetan la regla de filtro de mensaje y la may") · [explore ↗](explorer.html#grain=weekly&version=155&cause=feat:filters&period=2026-09-07) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█` |
 | ↗ spreading | **3.9×** | 2026-07-06 | v152 × feat:attachments | 6 | 83% ans · 9.4h | [1591539](https://support.mozilla.org/questions/1591539 "Couldn't forward attachment which I received.") [1591623](https://support.mozilla.org/questions/1591623 "Adding items to the files & attachment section") [1591963](https://support.mozilla.org/questions/1591963 "sending of the message failed. there was an error attaching file. please check t") [1592003](https://support.mozilla.org/questions/1592003 "**Intermittent error when forwarding emails with attachments (IMAP, Windows 11)*") [1592159](https://support.mozilla.org/questions/1592159 "In un ambiente aziendale, gli archivi localizzati o in dischi in rete o locali n") [1592598](https://support.mozilla.org/questions/1592598 "PDF file attachment does not print correctly") · [explore ↗](explorer.html#grain=weekly&version=152&cause=feat:attachments&period=2026-07-06) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▃█▁▁▁▁▁▁▁▁▁` |
 | ↗ spreading | **3.8×** | 2026-08-31 | v154 × feat:attachments | 5 | 100% ans · 3.5h | [1601404](https://support.mozilla.org/questions/1601404 "can not print email attachments") [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") [1601835](https://support.mozilla.org/questions/1601835 "I have problems as I can not send attachments") · [explore ↗](explorer.html#grain=weekly&version=154&cause=feat:attachments&period=2026-08-31) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅█▆▁` |
 | ↗ spreading | **3.7×** | 2026-07-20 | v140 × feat:attachments | 4 | 75% ans · 4.7h | [1593912](https://support.mozilla.org/questions/1593912 "How to open an attachment in Thunderbird?") [1594596](https://support.mozilla.org/questions/1594596 "Attachment preview problem") [1594642](https://support.mozilla.org/questions/1594642 "Delete attachments Thunderbird has opened.") [1594710](https://support.mozilla.org/questions/1594710 "Thunderbird email attachments disappear when message trashed") · [explore ↗](explorer.html#grain=weekly&version=140&cause=feat:attachments&period=2026-07-20) | `▁▁▁▁▁▅▁▁▁▅▆▃▃▅▁▁▁▁█▅▁▁▁▁▃▁` |
@@ -128,7 +128,7 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 3833 | `▆▆▆▆▅▅▅▆▅▆▆▅▆▅▅▅▅▅▆▅▆▆▇██▄` |
+| os:windows | 3834 | `▆▆▆▆▅▅▅▆▅▆▆▅▆▅▅▅▅▅▆▅▆▆▇██▄` |
 | os:linux | 399 | `▆▅▅▄▅▃▆▄▅▅▄▅▄▃▇▅▃▄▅▆█▇▅▅▅▄` |
 | os:macos | 322 | `▇▇▇▅▇▄▇▅█▄▆▄▆▄▇▅▆▅▄▄█▇▅▅▅▅` |
 | os:android | 45 | `▃▃▂▃▃▃█▅▁▁▃▁▃▂▁▅▆▁▂▂▅▃▅▂▃▁` |
@@ -142,11 +142,11 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 | macos:sequoia | 13 | `▁▅▅▁█▁▁▁█▁▅▁▁▁▁▁▅▁▅▁▁▁▁█▁█` |
 | macos:sonoma | 6 | `█▁█▁▁▁▁█▁█▁▁▁▁▁▁▁█▁▁█▁▁▁▁▁` |
 | macos:monterey | 5 | `▁▁▁▁▁▁▅▁▁▁▅▁▁▁▁▁▁▁▁▅█▁▁▁▁▁` |
-| macos:catalina | 3 | `█▁▁█▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | macos:sierra | 3 | `▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁█▁▁█▁▁▁▁` |
+| macos:catalina | 3 | `█▁▁█▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
 ---
 
 _Notes: spikes detected at **weekly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-weekly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-weekly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-weekly-rollup.csv`._
 
-_Last updated: 2026-09-10 00:19 UTC_
+_Last updated: 2026-09-10 04:37 UTC_

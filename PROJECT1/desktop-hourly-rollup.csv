@@ -9,7 +9,6 @@ period,dim,value,count
 2026-09-05 18:00,feature,feat:addons,1
 2026-09-04 14:00,feature,feat:addressbook,1
 2026-09-05 17:00,feature,feat:addressbook,1
-2026-09-02 22:00,feature,feat:attachments,1
 2026-09-03 18:00,feature,feat:attachments,1
 2026-09-04 09:00,feature,feat:attachments,2
 2026-09-05 13:00,feature,feat:attachments,1
@@ -96,7 +95,6 @@ period,dim,value,count
 2026-09-07 14:00,mail_provider,m:orange,1
 2026-09-05 00:00,mail_provider,m:protonmail,1
 2026-09-08 10:00,mail_provider,m:rogers,1
-2026-09-02 21:00,mail_provider,m:spectrum,1
 2026-09-03 17:00,mail_provider,m:spectrum,1
 2026-09-05 01:00,mail_provider,m:spectrum,1
 2026-09-06 00:00,mail_provider,m:spectrum,1
@@ -160,8 +158,6 @@ period,dim,value,count
 2026-09-09 12:00,os,os:macos,1
 2026-09-09 17:00,os,os:macos,1
 2026-09-07 17:00,os,os:other,1
-2026-09-02 21:00,os,os:windows,1
-2026-09-02 22:00,os,os:windows,2
 2026-09-03 01:00,os,os:windows,1
 2026-09-03 02:00,os,os:windows,2
 2026-09-03 03:00,os,os:windows,1
@@ -271,6 +267,7 @@ period,dim,value,count
 2026-09-09 18:00,os,os:windows,2
 2026-09-09 19:00,os,os:windows,4
 2026-09-09 20:00,os,os:windows,2
+2026-09-10 00:00,os,os:windows,1
 2026-09-03 22:00,protocol,proto:caldav,1
 2026-09-03 14:00,protocol,proto:carddav,1
 2026-09-03 02:00,protocol,proto:imap,1
@@ -359,7 +356,6 @@ period,dim,value,count
 2026-09-08 10:00,tb_version_major,150,1
 2026-09-09 03:00,tb_version_major,150,1
 2026-09-03 16:00,tb_version_major,151,1
-2026-09-02 22:00,tb_version_major,153,1
 2026-09-03 02:00,tb_version_major,153,1
 2026-09-03 08:00,tb_version_major,153,1
 2026-09-03 09:00,tb_version_major,153,1
@@ -394,7 +390,6 @@ period,dim,value,count
 2026-09-09 17:00,tb_version_major,153,1
 2026-09-09 19:00,tb_version_major,153,3
 2026-09-09 20:00,tb_version_major,153,1
-2026-09-02 22:00,tb_version_major,154,1
 2026-09-03 09:00,tb_version_major,154,2
 2026-09-03 17:00,tb_version_major,154,1
 2026-09-03 18:00,tb_version_major,154,1
@@ -487,8 +482,7 @@ period,dim,value,count
 2026-09-09 17:00,tb_version_major,155,4
 2026-09-09 18:00,tb_version_major,155,1
 2026-09-09 20:00,tb_version_major,155,1
-2026-09-02 21:00,total,all,1
-2026-09-02 22:00,total,all,2
+2026-09-10 00:00,tb_version_major,155,1
 2026-09-03 01:00,total,all,2
 2026-09-03 02:00,total,all,2
 2026-09-03 03:00,total,all,1
@@ -607,3 +601,4 @@ period,dim,value,count
 2026-09-09 18:00,total,all,2
 2026-09-09 19:00,total,all,5
 2026-09-09 20:00,total,all,2
+2026-09-10 00:00,total,all,1
