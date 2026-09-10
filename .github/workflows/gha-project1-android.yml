@@ -1,0 +1,111 @@
+name: gha-project1-android
+
+# Project 1 for ANDROID, in one job.
+#
+# Desktop splits this across two workflows (gha-project1-desktop-spike-reports at
+# 0430/1630 refreshes features + detectors, gha-project1-desktop-exec-summary at
+# 0530 writes the pages). Android does not need the split: the whole corpus is
+# ~1400 questions, the run takes a couple of minutes, and the only android page
+# today is the executive summary. One job also removes the ordering risk of a
+# lightweight page job racing the detector job.
+#
+# Reads the aaq-scraper per-day files directly, so it does not depend on the
+# monthly concat pipeline. The hourly website workflow publishes the .md pages.
+#
+# NOT here yet, on purpose:
+#   - the six spike report grains (project1_report.py): android has 17 spikes in
+#     its whole history and none since 2024, so there is nothing to browse.
+#   - the month-over-month report and the explorer: no android explorer.html
+#     exists, and project1_report.py links the explorer only when the file is
+#     there, so nothing emits a dead link.
+#   - thresholds tuned for android volume. The detectors run at the desktop
+#     floors (8 questions of one kind in a day, 6 in a week, 8 in a month)
+#     against ~40 questions a month, so a zero means "nothing large enough to
+#     fire". The exec summary says so on the page.
+
+on:
+  schedule:
+    - cron: '0 7 * * *'     # 0700 UTC — clear of every desktop Project 1 run
+  workflow_dispatch:
+    inputs:
+      full_backfill:
+        description: 'Re-extract ALL history (run after a project1_regexes.py change) instead of just prev+current month'
+        type: boolean
+        default: false
+      month:
+        description: 'Regenerate one specific month (YYYY-MM) instead of the auto-rolling pair'
+        type: string
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  project1-android:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Checkout aaq-scraper data repo
+      uses: actions/checkout@v5
+      with:
+        repository: thunderbird/aaq-scraper
+        path: aaq-data
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+      with:
+        python-version: '3.14'
+        enable-cache: true
+    - name: Create virtual environment
+      run: uv venv
+    - name: Install dependencies
+      run: uv pip install -r requirements.txt
+    - name: Refresh features and run the detectors (android)
+      run: |
+        set -euo pipefail
+        if [ "${{ inputs.full_backfill }}" = "true" ]; then
+          # after a project1_regexes.py change: re-extract ALL history so the
+          # cause tags and the detector baselines are consistent, not half
+          # old-tagged and half new-tagged.
+          echo "FULL re-extract of all history (regex change)"
+          uv run scripts/project1_backfill_features.py android
+        else
+          # normal runs: previous + current month only. Older months are
+          # committed and unchanged, and still feed the detectors.
+          PREV=$(date --date="$(date +%Y-%m-15) -1 month" +%Y-%m)
+          echo "Incremental refresh: feature tables from $PREV onward"
+          uv run scripts/project1_backfill_features.py android --start "$PREV"
+        fi
+        for g in daily weekly monthly; do
+          uv run scripts/project1_spike_detect.py android --grain "$g"
+          uv run scripts/project1_joint_spike_detect.py android --grain "$g"
+        done
+    - name: Generate the executive summary (android)
+      run: |
+        set -euo pipefail
+        if [ -n "${{ inputs.month }}" ]; then
+          echo "Manual run for ${{ inputs.month }}"
+          uv run scripts/project1_exec_summary.py "${{ inputs.month }}" android
+        else
+          CUR=$(date +%Y-%m)
+          # -1 month from the 15th, so this never lands on a short-month edge
+          PREV=$(date --date="$(date +%Y-%m-15) -1 month" +%Y-%m)
+          echo "Auto-roll: last complete month=$PREV (--latest), in progress=$CUR"
+          uv run scripts/project1_exec_summary.py "$PREV" android --latest
+          uv run scripts/project1_exec_summary.py "$CUR"  android
+        fi
+    # Gate the commit: kramdown silently degrades a malformed table to
+    # paragraphs, with no error and no warning, so a page can lose every table
+    # and still "build". Failing here leaves the pages stale and the run RED,
+    # which beats publishing tables that render as literal pipe text.
+    - name: Verify the generated pages render every table
+      run: uv run scripts/check_report_render.py 'PROJECT1/REPORTS/android/*.md'
+    - name: Commit changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add PROJECT1/
+        git commit -m "Project 1: regenerate android features, detectors and executive summary" || { echo "No changes"; exit 0; }
+        git pull --rebase origin "${GITHUB_REF_NAME}"
+        git push

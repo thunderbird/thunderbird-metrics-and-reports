@@ -489,9 +489,19 @@ is feature-complete and shipping (desktop, no-AI). Next steps, in priority order
    engineering MoM infra (`project1_mom_report.py` + its workflow); the
    responsiveness amplifier (#68) already built the per-question answered/FAT
    plumbing. Distinct audience from the engineering MoM — keep separate.
-2. **Port to android** (no issue yet). Everything takes `android` as a `product`
-   arg; needs: run backfill/detectors/reports for android + android workflows
-   (desktop workflows are clean templates) + android trusted-contributors.
+2. **Port to android** — PARTLY DONE 2026-09-09. Features backfilled (25 months,
+   1393 questions), both detectors run at all three grains, the **executive
+   summary** is generated and linked from `index.md`, and
+   **`gha-project1-android.yml`** (daily 0700 UTC) does features → detectors →
+   exec summary → render-check → commit in ONE job (desktop's split into
+   spike-reports + exec-summary buys nothing at this size). STILL TO DO: the six
+   spike report grains, the MoM report, an android explorer, android
+   trusted-contributors, and **thresholds tuned for android volume** — android
+   runs ~40 questions/month against desktop floors of 8/6/8, has 17 spikes in its
+   whole history and none since 2024, and only 2% of its questions carry a
+   version. The exec summary therefore says "no spike cleared the threshold"
+   rather than "was clean" whenever a month holds fewer than 20× the monthly
+   floor, and prints the floors.
 3. **Non-coding / cross-repo:** #67 (WHY the volume decline — BQ-confirmed real,
    a product/support-strategy question) and **aaq-scraper#19** (2023-11 scraper
    backfill gap, the only history gap).
