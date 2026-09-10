@@ -56,9 +56,12 @@ Printing was the story of April 2025. Questions about printing reached 24 for th
 month, three times the baseline of 8. The same cluster fired in two separate
 weeks, and the week of April 7 reached six times its baseline. Many of the
 printing questions came from users who printed a PDF file or an attachment.
-Sign-in questions (`proto:oauth`) reached three times the baseline in the week of
-April 28. Users got good service in all four clusters: 67% to 83% of the
-questions got an answer.
+
+Sign-in was the other cluster. Questions that name the sign-in protocol OAuth
+(`proto:oauth`) reached 9 in the week of April 28, three times the baseline of 3.
+
+Users got good service in all four clusters. Between 67% and 83% of the questions
+got an answer from somebody other than the person who asked.
 
 | Grain | Rise | When | Cause | Questions | Served | Baseline |
 |:--|--:|:--|:--|--:|:--|--:|
@@ -67,7 +70,7 @@ questions got an answer.
 | weekly | 3.0× | 2025-04-14 | feat:printing | 6 | 83% answered, 1.4h | 2.0 |
 | monthly | 3.0× | 2025-04 | feat:printing | 24 | 83% answered, 2.8h | 8.0 |
 
-The example questions for each row are in the detail section below.
+The example questions for each row are in [All April 2025 detail](#all-april-2025-detail) below.
 
 ## Two limits of these dates
 
@@ -99,6 +102,10 @@ clean month.
 | weekly | 2.2× | 2025-04-07 | feat:attachments | 9 | 78% answered, 12.2h | 4.0 | [1504522](https://support.mozilla.org/questions/1504522 "Attachments to a message will not be printed directly from Thunderbird.") [1504827](https://support.mozilla.org/questions/1504827 "allegati") [1505274](https://support.mozilla.org/questions/1505274 "Emails being quarantined dues to Thunderbird Filelink HTML attachments") [1505281](https://support.mozilla.org/questions/1505281 "Problem with printing email attachments") [1505330](https://support.mozilla.org/questions/1505330 "How to open attached file in email?") [1505373](https://support.mozilla.org/questions/1505373 "Problema trascinamento allegati su scrivania MacBook") +3 |
 
 </details>
+
+---
+
+## All April 2025 detail {#all-april-2025-detail}
 
 <details markdown="1">
 <summary>The four cause-level spikes with example questions, 4 rows</summary>
