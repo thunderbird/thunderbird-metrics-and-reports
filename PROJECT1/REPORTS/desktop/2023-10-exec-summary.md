@@ -1,0 +1,168 @@
+---
+layout: base
+title: "2023-10 exec summary: Thunderbird Desktop support spikes"
+---
+
+# October 2023 — Thunderbird Desktop support spikes
+
+_Executive summary · **2023-10** · 1977 questions · regenerated 2026-09-10 00:28 UTC · no AI (regex + traditional stats)_
+
+## 🚨 October 2023: 11 spikes to investigate
+
+**0 version×cause** (release regressions) and **11 cause-level** (provider / protocol / AV / feature) spike(s) cleared threshold. Detail is collapsed below.
+
+
+| Detector | daily | weekly | monthly |
+|:--|--:|--:|--:|
+| **version×cause** (release regressions) | 0 | 0 | 0 |
+| **cause-level** (provider · protocol · AV · feature) | 1 | 7 | 3 |
+
+- **Volume:** 1977 questions (`▄▆██▆▇▅▄▆▆▇▆▅▅▃▆▆▅▆▄▄▃▄▄▄▅▅▃▃▅▄` by day), 685 (35%) carry a cause tag
+- **Answered (non-creator):** 1212/1977 (61%) · median first answer 4.4h
+- **Release-adoption version spikes:** 1 (expected after a release — not incidents; collapsed below)
+
+> ⏱ **Spike timing lags the incident.** A spike dates when users *piled in*, typically days after onset and often near resolution. Treat these as pain-cluster / triage signals, not real-time detection.
+
+> 🔄 **This verdict is not frozen when the month ends.** Lift is measured against each cause's rate across all history, so later questions shift a closed month's expected values and rows can cross the threshold in either direction; answered-% keeps firming up as late answers land. That is why this page regenerates daily — and because each day's version is committed, `git log -p` on this file shows exactly how the verdict evolved.
+
+<details markdown="1">
+<summary><strong>🔍 Near misses (within ~25% of threshold)</strong> — 15 rows</summary>
+
+Clusters the same detectors flag at **0.75× the thresholds** (i.e. within ~25% of firing) but which did NOT clear the real ones. Not incidents — context, so that “clean” is not confused with “quiet”.
+
+**Cause-level**
+
+| Grain | Rise | When | Cause | Qs | Served | Baseline | Example questions |
+|:--|--:|:--|:--|--:|:--|--:|:--|
+| weekly | 2.8× | 2023-10-02 | feat:junk | 11 | 64% ans · 2.5h | 4.0 | [1425933](https://support.mozilla.org/questions/1425933 "No Junk folder on new, single-account Thunderbird installation") [1425977](https://support.mozilla.org/questions/1425977 "sistema di posta bloccato a causa di attività di spam") [1426159](https://support.mozilla.org/questions/1426159 "Thunderbird 115 has no junk removal tool") [1426281](https://support.mozilla.org/questions/1426281 "Spam isn't removed from Spam filter in Mozilla Thunderbird") [1426306](https://support.mozilla.org/questions/1426306 "Help needed troubleshooting automatic junk filter") [1426388](https://support.mozilla.org/questions/1426388 "Msgs marked as junk are not moved to ＂Junk＂ folder") +5 |
+| daily | 2.7× | 2023-10-27 | m:microsoftemail | 8 | 88% ans · 8.5h | 3.0 | [1429015](https://support.mozilla.org/questions/1429015 "Synchronizing multiple calendars - automatically copy events from one calendar t") [1429030](https://support.mozilla.org/questions/1429030 "Account on Thunderbird not receiving emails") [1429044](https://support.mozilla.org/questions/1429044 "All address books gone this morning") [1429089](https://support.mozilla.org/questions/1429089 "Freeze Favorites in the Inbox Left Pane") [1429106](https://support.mozilla.org/questions/1429106 "Can't send or receive messages on new Thunderbird 115.4.1") [1429108](https://support.mozilla.org/questions/1429108 "This latest upgrade to 115.4.1 ＂SUPERNOVA＂ lives up to its name - it blew up my ") +2 |
+| daily | 2.7× | 2023-10-03 | proto:imap | 8 | ⚠️ 38% ans · 3.4h | 3.0 | [1425973](https://support.mozilla.org/questions/1425973 "Find default profile in profiles.ini") [1425997](https://support.mozilla.org/questions/1425997 "Problema TLS con Thunderbird dopo trasferimento profilo - SOLUZIONE") [1426017](https://support.mozilla.org/questions/1426017 "No SMTP authentication method works with Synology Mail Server (SSL, port 465)") [1426028](https://support.mozilla.org/questions/1426028 "Transfer 400k email from 3 gmail accounts to 1 new account") [1426035](https://support.mozilla.org/questions/1426035 "Blank message display tabs when opening inbox and sent mails") [1426062](https://support.mozilla.org/questions/1426062 "Passwort prompt comes up for deleted account") +2 |
+| weekly | 2.7× | 2023-10-09 | feat:search | 8 | ⚠️ 50% ans · 11.9h | 3.0 | [1426874](https://support.mozilla.org/questions/1426874 "Can I Resize the Search Bar in Supernova?") [1427372](https://support.mozilla.org/questions/1427372 "Search bar function opens waaaaay too many emails") [1427447](https://support.mozilla.org/questions/1427447 "After the update search finds but does not open an individual email") [1427514](https://support.mozilla.org/questions/1427514 "unifed inbox searches in 802 (sub-)folders") [1427521](https://support.mozilla.org/questions/1427521 "Folder colors in search folders, or: Automatically set tags based on folder name") [1427582](https://support.mozilla.org/questions/1427582 "Turning off threading in Ctrl+Shift+F method of Search") +2 |
+| weekly | 2.7× | 2023-10-02 | proto:oauth | 12 | ⚠️ 58% ans · 11.1h | 4.5 | [1425833](https://support.mozilla.org/questions/1425833 "Sending emails from O365 account not working") [1426035](https://support.mozilla.org/questions/1426035 "Blank message display tabs when opening inbox and sent mails") [1426060](https://support.mozilla.org/questions/1426060 "Problems with 102 -> 115 Upgrade") [1426229](https://support.mozilla.org/questions/1426229 "Can't connect to Gmail") [1426352](https://support.mozilla.org/questions/1426352 "Cant send email from an office 365 email") [1426506](https://support.mozilla.org/questions/1426506 "I have answered my own question") +6 |
+| weekly | 2.6× | 2023-10-02 | feat:attachments | 9 | ⚠️ 56% ans · 12.7h | 3.5 | [1425880](https://support.mozilla.org/questions/1425880 "Can only intermittently drag and drop file attachments into email") [1426248](https://support.mozilla.org/questions/1426248 "Opening attachments from email") [1426265](https://support.mozilla.org/questions/1426265 "Email attachments disappeared after update to Version  115.2.3 Build ID  2023091") [1426330](https://support.mozilla.org/questions/1426330 "Attaching a photo to an email") [1426338](https://support.mozilla.org/questions/1426338 "Receiving emails with unwanted image attachments") [1426405](https://support.mozilla.org/questions/1426405 "Remove Attachments?") +3 |
+| weekly | 2.4× | 2023-10-09 | feat:addons | 6 | 67% ans · 11.5h | 2.5 | [1426866](https://support.mozilla.org/questions/1426866 "Thunderbird 115 and up with IMAP ACL Extension") [1427086](https://support.mozilla.org/questions/1427086 "System theme auto is enabled but does not reflect system theme") [1427199](https://support.mozilla.org/questions/1427199 "Upgrade from 115.3.1 to 115.3.2 breaks Owl extension - can I downgrade to 115.3.") [1427314](https://support.mozilla.org/questions/1427314 "Thunderbird: Revert to Old Theme - new theme has too much color, blue circles fo") [1427377](https://support.mozilla.org/questions/1427377 "An Exchange account is not saved in Thunderbird (I'm using Exquilla plugin)") [1427634](https://support.mozilla.org/questions/1427634 "Why does my Thunderbird light screen AddOn keep changing to a dark screen") |
+| weekly | 2.4× | 2023-10-02 | feat:search | 6 | 83% ans · 4.9h | 2.5 | [1426165](https://support.mozilla.org/questions/1426165 "Ricerca messaggi funziona male") [1426197](https://support.mozilla.org/questions/1426197 "Global Search in Thunderbird 115.3 shows wrong sender and recipient in the resul") [1426395](https://support.mozilla.org/questions/1426395 "＂C＂ key creates new email, I can't type C on search (win10)") [1426476](https://support.mozilla.org/questions/1426476 "Problemi ricerca e posizionamento cursore, dopo aggiornamento.") [1426483](https://support.mozilla.org/questions/1426483 "Search feature still doesn't work") [1426530](https://support.mozilla.org/questions/1426530 "Add-on questions regarding search engines?") |
+| weekly | 2.4× | 2023-10-02 | m:yahooemail | 13 | ⚠️ 54% ans · 4.9h | 5.5 | [1425912](https://support.mozilla.org/questions/1425912 "Set IMAP so that local copy does NOT get deleted when it's deleted from the serv") [1425961](https://support.mozilla.org/questions/1425961 "Mancato invio email") [1425969](https://support.mozilla.org/questions/1425969 "cannot send emails") [1425972](https://support.mozilla.org/questions/1425972 "Outgoing server error after upgrade to Thunderbird 115.3.1") [1426004](https://support.mozilla.org/questions/1426004 "Yahoo mail won't send messages from Thunderbird 115.3.1 (64-bit)") [1426018](https://support.mozilla.org/questions/1426018 "Unable to log in at server. Probably wrong configuration, username, or password'") +7 |
+| weekly | 2.3× | 2023-09-25 | feat:import_export | 14 | ⚠️ 50% ans · 8.2h | 6.0 | [1425043](https://support.mozilla.org/questions/1425043 "") [1425071](https://support.mozilla.org/questions/1425071 "") [1425093](https://support.mozilla.org/questions/1425093 "") [1425193](https://support.mozilla.org/questions/1425193 "") [1425359](https://support.mozilla.org/questions/1425359 "") [1425399](https://support.mozilla.org/questions/1425399 "") +8 |
+| monthly | 2.3× | 2023-10 | m:spectrum | 21 | 71% ans · 7.0h | 9.0 | [1426534](https://support.mozilla.org/questions/1426534 "Sending & Receiving Emails") [1426655](https://support.mozilla.org/questions/1426655 "Thunderbird E-Mail Behavior since latest update") [1427444](https://support.mozilla.org/questions/1427444 "Can't send email after update") [1427470](https://support.mozilla.org/questions/1427470 "twc.com account ＂junkmail＂ folder not identifiable as ＂junk＂ folder") [1427756](https://support.mozilla.org/questions/1427756 "Problem after update to 115.3.2 32 bit") [1427862](https://support.mozilla.org/questions/1427862 "unable to send emails, unable to print incoming documents") +15 |
+| monthly | 2.3× | 2023-10 | m:att | 15 | 80% ans · 4.2h | 6.5 | [1425745](https://support.mozilla.org/questions/1425745 "Messages won't download on one email account since 115 update") [1426839](https://support.mozilla.org/questions/1426839 "Where are my Lost emails and pass word unrecognized after installing 115.") [1427052](https://support.mozilla.org/questions/1427052 "Thunderbird stopped downloading POP3 AT&T/Yahoo emails") [1427059](https://support.mozilla.org/questions/1427059 "Why can't I sign in after update115") [1427654](https://support.mozilla.org/questions/1427654 "Suddenly I cannot send or receive emails") [1427757](https://support.mozilla.org/questions/1427757 "Thunderbird") +9 |
+| daily | 2.2× | 2023-10-12 | m:microsoftemail | 9 | ⚠️ 44% ans · 1.4h | 4.0 | [1427224](https://support.mozilla.org/questions/1427224 "Account office 365 non si installa dopo ultima versione") [1427227](https://support.mozilla.org/questions/1427227 "microsoft outlook accounts, all lost from Thunderbird interface") [1427232](https://support.mozilla.org/questions/1427232 "Problem: ＂A unique identity matching the From address was not found＂") [1427240](https://support.mozilla.org/questions/1427240 "Problema con configurazione account Oulook su Thunderbird") [1427265](https://support.mozilla.org/questions/1427265 "SMTP Password not an option") [1427270](https://support.mozilla.org/questions/1427270 "Microsoft Exchange - odchozí pošta") +3 |
+| daily | 2.2× | 2023-10-11 | m:microsoftemail | 9 | ⚠️ 44% ans · 4.9h | 4.0 | [1427108](https://support.mozilla.org/questions/1427108 "Problemi con la nuova release di Thunderbird") [1427114](https://support.mozilla.org/questions/1427114 "Account disappeared and unable to add back again") [1427138](https://support.mozilla.org/questions/1427138 "Thunderbird update automatically merged two accounts???") [1427143](https://support.mozilla.org/questions/1427143 "missing mail") [1427155](https://support.mozilla.org/questions/1427155 "Thunderbird looses Email account when closed") [1427171](https://support.mozilla.org/questions/1427171 "Using Thunderbird email with new oauth2 and Microsoft 365") +3 |
+| daily | 2.2× | 2023-10-03 | m:gmail | 9 | 78% ans · 11.6h | 4.0 | [1425997](https://support.mozilla.org/questions/1425997 "Problema TLS con Thunderbird dopo trasferimento profilo - SOLUZIONE") [1426003](https://support.mozilla.org/questions/1426003 "Outlook email missing from Unified Archives in Thunderbird.") [1426028](https://support.mozilla.org/questions/1426028 "Transfer 400k email from 3 gmail accounts to 1 new account") [1426033](https://support.mozilla.org/questions/1426033 "Disappointing release, Thunderbird Team") [1426035](https://support.mozilla.org/questions/1426035 "Blank message display tabs when opening inbox and sent mails") [1426067](https://support.mozilla.org/questions/1426067 "thunderbird - mancato reindirizzamento a siti internet") +3 |
+
+
+</details>
+
+---
+
+## All October 2023 detail
+
+<details markdown="1">
+<summary><strong>🚨 Version × cause spikes</strong> — 0 rows</summary>
+
+_None._
+
+</details>
+
+<details markdown="1">
+<summary><strong>📮 Cause-level spikes (provider · protocol · AV · feature)</strong> — 11 rows</summary>
+
+| Grain | Rise | When | Cause | Qs | Served | Baseline | Example questions |
+|:--|--:|:--|:--|--:|:--|--:|:--|
+| weekly | **new** | 2023-10-02 | m:frontier | 9 | 67% ans · 10.5h | 0.0 | [1426135](https://support.mozilla.org/questions/1426135 "Email not working after update to SuperNova?  Multiple - gmail, dreamhost, front") [1426500](https://support.mozilla.org/questions/1426500 "Thunderbird Version	119.0b3 - hangs") [1426532](https://support.mozilla.org/questions/1426532 "Thunderbird downloading messages from frontier.com") [1426537](https://support.mozilla.org/questions/1426537 "using Frontier.com for email.  TB v 102 stopped working yesterday.  Updated to v") [1426556](https://support.mozilla.org/questions/1426556 "Tbird 115.2.1 stopped downloading emails on all accounts.") [1426687](https://support.mozilla.org/questions/1426687 "URGENT REQUEST FOR 'basic' HELP - My Email-setting has been changed by 'SKYPE'..") +3 |
+| weekly | **new** | 2023-10-09 | m:frontier | 6 | ⚠️ 33% ans · 1.0h | 0.0 | [1426814](https://support.mozilla.org/questions/1426814 "Lost download of e-mails with version 115.3.1") [1426860](https://support.mozilla.org/questions/1426860 "Cannot login") [1426996](https://support.mozilla.org/questions/1426996 "E-Mails") [1427039](https://support.mozilla.org/questions/1427039 "on log in I get to <connected to server...> and no further action.") [1427191](https://support.mozilla.org/questions/1427191 "Lost email") [1427196](https://support.mozilla.org/questions/1427196 "Thunderbird stopped logging into Frontier communications to get my email. Help") |
+| monthly | **30.0×** | 2023-10 | m:frontier | 15 | ⚠️ 53% ans · 7.9h | 0.5 | [1426135](https://support.mozilla.org/questions/1426135 "Email not working after update to SuperNova?  Multiple - gmail, dreamhost, front") [1426500](https://support.mozilla.org/questions/1426500 "Thunderbird Version	119.0b3 - hangs") [1426532](https://support.mozilla.org/questions/1426532 "Thunderbird downloading messages from frontier.com") [1426537](https://support.mozilla.org/questions/1426537 "using Frontier.com for email.  TB v 102 stopped working yesterday.  Updated to v") [1426556](https://support.mozilla.org/questions/1426556 "Tbird 115.2.1 stopped downloading emails on all accounts.") [1426687](https://support.mozilla.org/questions/1426687 "URGENT REQUEST FOR 'basic' HELP - My Email-setting has been changed by 'SKYPE'..") +9 |
+| monthly | **4.5×** | 2023-10 | feat:search | 34 | 68% ans · 4.3h | 7.5 | [1426165](https://support.mozilla.org/questions/1426165 "Ricerca messaggi funziona male") [1426197](https://support.mozilla.org/questions/1426197 "Global Search in Thunderbird 115.3 shows wrong sender and recipient in the resul") [1426395](https://support.mozilla.org/questions/1426395 "＂C＂ key creates new email, I can't type C on search (win10)") [1426476](https://support.mozilla.org/questions/1426476 "Problemi ricerca e posizionamento cursore, dopo aggiornamento.") [1426483](https://support.mozilla.org/questions/1426483 "Search feature still doesn't work") [1426530](https://support.mozilla.org/questions/1426530 "Add-on questions regarding search engines?") +28 |
+| weekly | **4.0×** | 2023-10-16 | m:spectrum | 8 | ⚠️ 38% ans · 7.0h | 2.0 | [1427756](https://support.mozilla.org/questions/1427756 "Problem after update to 115.3.2 32 bit") [1427862](https://support.mozilla.org/questions/1427862 "unable to send emails, unable to print incoming documents") [1427863](https://support.mozilla.org/questions/1427863 "unable to send emails, unable to print incoming documents") [1427897](https://support.mozilla.org/questions/1427897 "115.3.1 Will Not Allow Me To Send Emails") [1427993](https://support.mozilla.org/questions/1427993 "Sending and now receiving mail via Brighthouse.com") [1428138](https://support.mozilla.org/questions/1428138 "SMTP Server User Name across multiple email accounts") +2 |
+| monthly | **4.0×** | 2023-10 | feat:addons | 16 | 69% ans · 4.4h | 4.0 | [1426361](https://support.mozilla.org/questions/1426361 "GTK (Linux Mint) Theme Broken After Thunderbird Update") [1426374](https://support.mozilla.org/questions/1426374 "Deselect on Delete TB78 add-on not working") [1426530](https://support.mozilla.org/questions/1426530 "Add-on questions regarding search engines?") [1426717](https://support.mozilla.org/questions/1426717 "Temporary extension location") [1426866](https://support.mozilla.org/questions/1426866 "Thunderbird 115 and up with IMAP ACL Extension") [1427086](https://support.mozilla.org/questions/1427086 "System theme auto is enabled but does not reflect system theme") +10 |
+| daily | **3.7×** | 2023-10-11 | proto:imap | 11 | ⚠️ 36% ans · 3.7h | 3.0 | [1427077](https://support.mozilla.org/questions/1427077 "Selecting multiple IMAP folders on Supernova running on MacOS Big Sur (11.7.10)") [1427101](https://support.mozilla.org/questions/1427101 "Thunderbird 155.3.2 past update storage grow too much") [1427104](https://support.mozilla.org/questions/1427104 "Update 15.3.2 (64-bit) broke Thunderbird") [1427127](https://support.mozilla.org/questions/1427127 "How to restore tags from a profile backup?") [1427138](https://support.mozilla.org/questions/1427138 "Thunderbird update automatically merged two accounts???") [1427163](https://support.mozilla.org/questions/1427163 "Thunderbird fails to download new mails (POP & IMAP)") +5 |
+| weekly | **3.6×** | 2023-10-30 | m:spectrum | 9 | 89% ans · 3.3h | 2.5 | [1429422](https://support.mozilla.org/questions/1429422 "No Incoming EMail Only Outgoing On My TWC Emai Account") [1429596](https://support.mozilla.org/questions/1429596 "Sending messages has started failing") [1429597](https://support.mozilla.org/questions/1429597 "Filtered Messages Not Syncing with IMAP Server") [1429663](https://support.mozilla.org/questions/1429663 "") [1429664](https://support.mozilla.org/questions/1429664 "") [1429681](https://support.mozilla.org/questions/1429681 "") +3 |
+| weekly | **3.1×** | 2023-10-16 | feat:attachments | 11 | ⚠️ 45% ans · 3.1h | 3.5 | [1427710](https://support.mozilla.org/questions/1427710 "Cannot open attachments from Flatpak on Linux Mint 21") [1427763](https://support.mozilla.org/questions/1427763 "Attached photos do not display") [1427764](https://support.mozilla.org/questions/1427764 "Attached photos do not display") [1427911](https://support.mozilla.org/questions/1427911 "115.3.2 (64-bit) Thunderbird- can I set a default folder for sending attachments") [1428170](https://support.mozilla.org/questions/1428170 "email attachments") [1428179](https://support.mozilla.org/questions/1428179 "When opening attachments they are not readable") +5 |
+| weekly | **3.0×** | 2023-09-25 | feat:attachments | 9 | ⚠️ 11% ans · 6.5h | 3.0 | [1425047](https://support.mozilla.org/questions/1425047 "") [1425254](https://support.mozilla.org/questions/1425254 "") [1425486](https://support.mozilla.org/questions/1425486 "") [1425576](https://support.mozilla.org/questions/1425576 "") [1425578](https://support.mozilla.org/questions/1425578 "") [1425618](https://support.mozilla.org/questions/1425618 "") +3 |
+| weekly | **3.0×** | 2023-10-23 | m:spectrum | 6 | 100% ans · 8.1h | 2.0 | [1428950](https://support.mozilla.org/questions/1428950 "115.4.1 is terribly slow downloading and filtering messages.  (win10, spectrum, ") [1429003](https://support.mozilla.org/questions/1429003 "unable to send email after update to 115 10/2023") [1429052](https://support.mozilla.org/questions/1429052 "Outgoing email has stopped since Thunderbird update") [1429069](https://support.mozilla.org/questions/1429069 "email error") [1429086](https://support.mozilla.org/questions/1429086 "Newest Thunderbird version doesn't work with my internet provider") [1429098](https://support.mozilla.org/questions/1429098 "Sending email") |
+
+</details>
+
+<details markdown="1">
+<summary><strong>📦 Release-adoption version/OS spikes (not incidents)</strong> — 1 row</summary>
+
+Version and OS are **filters, not causes** — a bare version spike is release adoption, not a regression. Listed for manual checking only.
+
+| Grain | Rise | When | Dimension | Value | Qs | Baseline |
+|:--|--:|:--|:--|:--|:--|--:|
+| daily | **5.3×** | 2023-10-04 | os | os:linux | 8 [1426156](https://support.mozilla.org/questions/1426156 "Unable to copy HTML-formatted table from Firefox on Linux") [1426159](https://support.mozilla.org/questions/1426159 "Thunderbird 115 has no junk removal tool") | 1.5 |
+
+</details>
+
+<details markdown="1">
+<summary><strong>📈 October 2023 trends</strong> — 7 rows</summary>
+
+**Top mail providers**
+
+| Value | Questions | Trend (by day) |
+|:--|--:|:--|
+| m:gmail | 146 | `▃▆█▆▃▄▆▂▄▅▅█▇▅▄▆▄▅▃▃▅▃▃▄▆▅▃▃▃▆▅` |
+| m:microsoftemail | 130 | `▆▃▃▅▅▆▃▁▆▆██▃▆▂▆▆▃▇▃▃▂▃▃▃▃▇▃▃▂▂` |
+| m:yahooemail | 36 | `▃▂█▃▁▂▅▁▂▃▁▂▂▃▃▁▁▃▂▃▃▁▂▂▃▁▂▁▁▁▁` |
+| m:spectrum | 21 | `▁▁▁▁▁▃▃▁▁▁▁▁▅▁▁▃▆▃▅▁▃▁▁▁▁▅█▁▁▃▅` |
+| m:att | 15 | `▅▁▁▁▁▁▁▁▅█▁▁▁▁▅▅▅▅█▁▁▁▁▅▅▁█▁▁▅▁` |
+| m:frontier | 15 | `▁▁▃▁▁█▆▃▅▅▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+
+**Top feature areas**
+
+| Value | Questions | Trend (by day) |
+|:--|--:|:--|
+| feat:calendar | 48 | `▂▄▇▇▇▁▁▅▂▅█▅▂▂▂▇▁▁▂▁▁▁▁▄▂▂▅▁▁▅▁` |
+| feat:search | 34 | `▁▁▁▅▃▆▁▁▃▁▁▃▃▆▅▅▁▅▃▅▅▁▁▃▁▁▆▅▁█▃` |
+| feat:junk | 32 | `▁▃▃█▃▃▆▆▁█▁▃▆▁▁▁▃▆▃█▃▆▁▁▁▁▆▁▁█▁` |
+| feat:import_export | 31 | `█▁▃▅▁▃▅▃▁▁▃▃▁▁▃▅▆▃▅▃▅▁▃▁▁▁▃▁▃▃▅` |
+| feat:attachments | 30 | `▃▃▁▆█▆▃▁▁▃▃▁▁▁▁█▃▁▆█▃▃▁▆▃█▁▁▃▁▁` |
+| feat:filters | 29 | `▃▆▅█▁▃▁▅▃▃▁▁▅▅▁▃▃▃▃▁▁▁▁▁▃▃▁▁▃▅▃` |
+
+**Top protocols**
+
+| Value | Questions | Trend (by day) |
+|:--|--:|:--|
+| proto:imap | 113 | `▃▃▆▃▂▄▄▂▃▅█▃▅▄▂▄▅▄▄▂▄▃▄▁▂▂▃▁▂▃▃` |
+| proto:pop | 81 | `▃▇▄█▂▁▃▄▇▅▆▃▁▁▂▆▅▄▄▂▂▂▄▃▄▂▂▁▅▅▄` |
+| proto:smtp | 75 | `▃▂▇▅▂▅▂▁▁▅▂█▅▂▂▃▇▆▇▂▂▅▃▃▆▁▇▃▇▃▂` |
+| proto:oauth | 28 | `▃▃▆▃▃██▃▃▆▃▆▁▁▁▆▆▁▁▁▆▁▃▁▁▁▃▁▃▁▁` |
+| proto:caldav | 5 | `▁█▁▁▁▁▁▁▁▁▁▁██▁▁▁▁▁▁▁▁▁▁▁▁█▁▁█▁` |
+| proto:carddav | 3 | `▁█▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁` |
+
+**Top antivirus**
+
+| Value | Questions | Trend (by day) |
+|:--|--:|:--|
+| av:avast | 7 | `▁▁▁▁▁█▁▁▁▁▁▁██▁▁▁▁▁▁█▁█▁█▁▁▁▁█▁` |
+| av:kaspersky | 4 | `▁▅▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| av:eset | 4 | `▁▁█▁▁▁▁▁█▁▁▁█▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁` |
+| av:norton | 3 | `▁▁█▁▁▁▁▁▁▁▁█▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| av:defender | 3 | `▁▁▁▁▁▁▁▁▁▁▁▁▁██▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁` |
+| av:comodo | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁` |
+
+**OS mix (filter dimension)**
+
+| Value | Questions | Trend (by day) |
+|:--|--:|:--|
+| os:windows | 198 | `▃▆█▅▇▇▃▄▆▆▆▄▅▃▄▅▆█▅▆▃▃▃▃▅▄▅▃▃▃▄` |
+| os:linux | 87 | `▄▂▆█▅▄▃▅▄▅▄▃▅▂▁▄▅▃▃▂▅▃▅▂▁▃▂▄▃▄▃` |
+| os:macos | 49 | `▃▁█▂▆▇▂▁▂▃▆▂▂▂▁▂▃▁▆▂▁▃▂▃▂▁▂▃▂▂▂` |
+
+**macOS releases (filter dimension)**
+
+| Value | Questions | Trend (by day) |
+|:--|--:|:--|
+| macos:ventura | 15 | `▁▁▃▃█▁▃▁▃▆▃▁▁▁▁▁▁▁▃▁▁▆▁▁▁▁▃▁▃▁▁` |
+| macos:big_sur | 6 | `▁▁█▁▁█▁▁▁▁██▁▁▁▁▁▁▁▁▁▁▁█▁▁▁█▁▁▁` |
+| macos:sonoma | 5 | `▁▁█▁▁▅▁▁▁▁▅▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| macos:monterey | 4 | `█▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁█▁` |
+| macos:high_sierra | 2 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁` |
+| macos:mojave | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+
+
+</details>
+
+---
+
+_Detectors run at daily / weekly / monthly grain; a weekly period is included when its week overlaps October 2023. Version×cause requires a known version, which is only populated from 2026-02 onward; cause-level uses all history. Full spike CSVs: `PROJECT1/desktop-{daily,weekly,monthly}-{single,version-cause}-spikes.csv`._

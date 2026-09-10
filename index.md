@@ -37,6 +37,18 @@ Desktop spike report by time grain:
 - [Quarterly](PROJECT1/REPORTS/desktop/quarterly-spike-report.html) (trailing 12 quarters)
 - [Yearly](PROJECT1/REPORTS/desktop/yearly-spike-report.html) (all history)
 
+### Back-tests and historical episodes
+
+Known incidents used to check that the detector fires on real events, plus the
+one-month pages for past episodes worth a look. Pre-2026-02 months have almost no
+version data, so their signal is **cause-level only** (version×cause reads 0 —
+that is missing data, not a clean month).
+
+- [Aug 2025 — Bitdefender AV breakage](https://github.com/thunderbird/thunderbird-metrics-and-reports/blob/main/PROJECT1/validation/detector-backtest-bitdefender-2025-08.md) (back-test: caught, day one, all three grains)
+- [Aug 2026 — v154 blank-printing regression](https://github.com/thunderbird/thunderbird-metrics-and-reports/blob/main/PROJECT1/validation/detector-backtest-printing-2026-08.md) (back-test: missed until the `feature` dimension existed, then caught on the onset day)
+- [Apr 2025 exec summary](PROJECT1/REPORTS/desktop/2025-04-exec-summary.html) — `feat:printing` 24 questions, 3.0× ([vs Mar 2025](PROJECT1/REPORTS/desktop/monthly-summary-2025-04-vs-2025-03.html))
+- [Oct 2023 exec summary](PROJECT1/REPORTS/desktop/2023-10-exec-summary.html) — `feat:search` 4.5× and `feat:addons` 4.0×, the Thunderbird 115 "Supernova" fallout ([vs Sep 2023](PROJECT1/REPORTS/desktop/monthly-summary-2023-10-vs-2023-09.html))
+
 ## LLM Insights (experimental — AI)
 
 The AI counterpart to Project 1. Claude reads each support question (plus the
