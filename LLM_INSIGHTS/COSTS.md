@@ -117,6 +117,37 @@ Spectrum/Charter/Roadrunner cluster (2→36, severity 4.4) merged into the broad
 "Cannot send or receive at all" cluster on the second pass, dropping out of the
 top five. The disk cache pins whichever pass is kept, which is the point of it.
 
+### Third run: cause-tag hints + a deterministic split ($0.68)
+
+Fixing the nondeterministic clustering above. Three layers, cheapest last:
+
+1. Project 1's `mail_provider` / `av` / `protocol` tags are appended to every
+   theme line in the clustering prompt (`tags=m:spectrum`). 510 of the 1,633
+   themes carry one. The threshold for showing a tag is **1** question, not 2:
+   themes are almost all unique, so a tag can never cover two questions of the
+   same theme.
+2. The clustering prompt says to keep a host-specific or antivirus-specific
+   problem in its own cluster, because a provider incident and a client defect
+   go to different people.
+3. `split_by_cause()` then splits, in Python, any cluster mixing a **spiking**
+   cause (one Project 1 flagged this month, at any grain) with other themes. No
+   LLM involved, so the separation does not depend on the model. It runs over
+   BOTH months: splitting only the current month would leave the previous
+   month's questions in the base cluster and make every split cluster read "new
+   this month" with growth measured from zero.
+
+Result: the Spectrum cluster is back, at **34 questions, 3 in July, mean severity
+4.3**, which matches Project 1's `m:spectrum` count of 34 exactly. A
+Yahoo/AT&T/AOL app-specific-password cluster also separated out at 29% resolved,
+the worst-served cluster of the month. The run also prints a warning when a
+spiking cause has no cluster of its own.
+
+| Call | Cost |
+|:--|--:|
+| Re-cluster with hints (`--refresh`) | $0.62 |
+| Narrative for the new ranking | $0.06 |
+| **Day total, all runs** | **$13.05** |
+
 ## Notes
 - All figures are well under the $50/run circuit-breaker.
 - Cost scales with the enriched text size; if it ever grows, re-baseline the unit rate with the Bucket-0 preview: `uv run scripts/llm_insights_cost.py <month> <month> <product>`.

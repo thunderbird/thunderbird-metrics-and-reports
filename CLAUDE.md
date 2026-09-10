@@ -16,9 +16,21 @@ Mozilla) data and publishes them as a Jekyll site on GitHub Pages:
    `gha-project1-desktop-spike-reports.yml` and committed to `main`. **PAUSED** —
    see the "Project 1 — RESUME POINT" note below; work resumes after Project
    "LLM insights".
-4. **Project "LLM insights"** (NEXT / not started). LLM-assisted insights over the
-   questions and answers (the AI counterpart to Project 1's no-AI detectors). No
-   code yet; this is the next project to build before resuming Project 1.
+4. **Project "LLM insights"** (IN PROGRESS, desktop + android prototypes shipped).
+   LLM-assisted insights over the questions and answers, the AI counterpart to
+   Project 1's no-AI detectors. `scripts/llm_insights_classify.py` labels each
+   question (Claude Opus 5, structured outputs) and
+   `scripts/llm_insights_mom_report.py` clusters the labels and writes the
+   month-over-month page under `LLM_INSIGHTS/REPORTS/{product}/`. **Plain English
+   is the only style (#83)**, the page opens with a TL;DR table of the top five,
+   both LLM calls are cached under `LLM_INSIGHTS/cache/` (so layout changes are
+   free; `--refresh` pays again), and `LLM_INSIGHTS/known-status.csv` carries
+   facts the corpus cannot know, such as "printing fixed in 155". **Clustering is
+   nondeterministic**, so Project 1's cause tags are fed in as hints AND a
+   deterministic `split_by_cause()` keeps any SPIKING cause (per the Project 1
+   spike CSVs) in its own cluster, over both months. Costs are logged per run in
+   `LLM_INSIGHTS/COSTS.md`; a $50 pre-spend gate lives in
+   `scripts/llm_insights_cost.py`.
 
 #1 and #2 are regenerated automatically by GitHub Actions and committed to `main`.
 

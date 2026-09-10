@@ -1,66 +1,66 @@
 {
- "headline": "Printing and attachment regressions in 153.x and 154 drove support volume up 29 percent, and users get the least help on them",
- "narrative_md": "Support questions rose from 731 in July to 940 in August, a 29 percent jump. No brand new problem clusters appeared. The growth came from existing clusters getting much worse after the 153.x and 154 releases. The attachments category more than tripled, from 17 to 55 questions. Performance and crash reports went from 29 to 69.\n\nThe sharpest new pain is rank 1. PDF and email attachments print as blank pages after the 154 update. This went from 1 question to 38 in one month. Only 37 percent of those users got a resolution, and 21 percent got no reply at all. Rank 11, broken drag and drop of messages to the file system in 153.x, points at the same area. Both suggest a change in how Thunderbird hands file data to the operating system.\n\nThe worst-served users are in rank 7, slow mail download. Only 29 percent reach a resolution and 35 percent get no answer. Rank 9, Gmail OAuth2 sign-in failure, leaves 48 percent of askers with no reply. OAuth2 is the token-based login Google requires instead of a password. Helpers appear to lack a working diagnosis for both.\n\nThe highest-severity clusters remain connection failures. Ranks 3, 4, 5 and 6 all average above 4 out of 5 on severity, meaning users cannot send or receive mail. Rank 4, where mail retrieval stops silently until a restart, leaves 32 percent unanswered. This is an LLM-derived signal over free-text support text. Treat it as a triage pointer, not proof.",
+ "headline": "Attachment printing and Spectrum mail failures drive an August support surge that Thunderbird engineering must triage first",
+ "narrative_md": "Support volume rose from 731 questions in July to 940 in August, a jump of 209. No brand new problem clusters appeared. The growth came from existing clusters getting much worse after the 153 and 154 releases. Attachments questions more than tripled, from 17 to 55. Performance and crash questions more than doubled, from 29 to 69.\n\nThe sharpest new pain is rank 1, blank pages when printing PDF and email attachments. It went from 1 question to 38 in one month. Only 37 percent of those threads reached a resolution, meaning support had no working fix to give. This pattern points at a print or PDF rendering regression, that is a bug introduced by the 154 release. Rank 7, broken drag and drop of messages and attachments to the file system after 153, points at the same release window and likely shares a file handling root cause.\n\nThe most severe pain sits with one provider. Rank 2 covers Spectrum, Charter and Roadrunner mail download and connection failures. Thirty one of its 34 questions scored severity 4 or higher, so users lost mail access entirely. This looks like a server side authentication or TLS change at the provider, not a Thunderbird build issue, but Thunderbird must confirm and publish guidance.\n\nTwo credential clusters are served worst. Rank 11, Yahoo, AT&T and AOL password rejections, resolved only 29 percent of the time. Rank 9, repeated password prompts, left 42 percent of users with no reply at all. Both suggest gaps in app specific password handling and in stored credential renewal.",
  "issues": [
   {
    "rank": 1,
-   "why": "Attachment printing went from 1 question to 38 after the 154 release, and under four in ten users got a fix.",
-   "action": "Engineering must diff the 154 print and attachment rendering path, and confirm whether the blank output depends on the operating system print driver."
+   "why": "Printing attachments as blank pages jumped from 1 to 38 questions and only 37 percent of users got a fix.",
+   "action": "Engineering must bisect print and PDF viewer changes in the 154 release and reproduce blank output across Windows print drivers."
   },
   {
    "rank": 2,
-   "why": "Startup hangs doubled to 36 questions and carry a 4.2 mean severity, which means the application is unusable for those users.",
-   "action": "Engineering must collect startup profiles and check profile size, folder database rebuild, and add-on load order as triggers."
+   "why": "Spectrum, Charter and Roadrunner users lost mail access outright, with 31 of 34 reports at the top severity band.",
+   "action": "Engineering must capture connection logs from affected accounts and check for a provider side authentication, port or TLS change."
   },
   {
    "rank": 3,
-   "why": "Total loss of server connection more than doubled to 31 questions at the highest severity in the set, 4.5.",
-   "action": "Engineering must check whether recent TLS, proxy, or connection-timeout changes shipped in 153.x and 154 explain the increase."
+   "why": "The missing Send button and compose toolbar hit 28 users, up from 8, though 89 percent got a workaround.",
+   "action": "x"
   },
   {
    "rank": 4,
-   "why": "Mail retrieval that stops silently until restart hits 38 users and leaves 32 percent with no reply, so the failure is hard to diagnose.",
-   "action": "Engineering must add visible logging or a stalled-poll indicator to the IMAP and POP polling loop so helpers can identify the stall."
+   "why": "Startup hangs tied to the System Integration dialog reached 22 reports at 4.2 mean severity, and 23 percent of askers got no reply.",
+   "action": "Engineering must review the default mail client check on startup for a blocking call and add a timeout."
   },
   {
    "rank": 5,
-   "why": "Login failures with correct credentials rose to 29 questions and only half get resolved, which points at a client-side authentication bug.",
-   "action": "Engineering must review the authentication method negotiation and stored credential handling for accounts that use plain IMAP and POP login."
+   "why": "Freezes and crashes during normal use grew to 25 reports with 20 at high severity.",
+   "action": "Engineering must pull crash and hang signatures from 153 and 154 telemetry and compare against message load paths."
   },
   {
    "rank": 6,
-   "why": "SMTP send failures stay high at 36 questions and 4.4 severity, but 75 percent of users get a fix, so the playbook works.",
-   "action": "Engineering must keep the existing guidance and check only whether the growth from 30 to 36 tracks a specific provider change."
+   "why": "Total send and receive failure carries the highest mean severity at 4.5 and leaves 29 percent of askers unanswered.",
+   "action": "Engineering must check whether these reports overlap with rank 2 or form a separate connection stack regression."
   },
   {
    "rank": 7,
-   "why": "Slow mail download is the worst-served cluster, with 29 percent resolved and 35 percent unanswered across 17 questions.",
-   "action": "Engineering must define a reproducible slow-download test and publish a diagnosis path, because helpers currently have no answer."
+   "why": "Drag and drop of messages and attachments to the file system broke after 153, moving from 1 report to 16.",
+   "action": "Engineering must test file drag targets on all three desktop platforms against the 153 file handling changes."
   },
   {
    "rank": 8,
-   "why": "The missing Send button in the compose window hit 26 users, but 88 percent got a resolution and only 4 percent went unanswered.",
-   "action": "Engineering must ship the fix for bug 1989214 and then let this cluster close on its own."
+   "why": "Stored password recovery requests rose to 26 and 31 percent of those users received no answer.",
+   "action": "Engineering must review whether the password manager exposes saved credentials clearly enough after recent profile changes."
   },
   {
    "rank": 9,
-   "why": "Nearly half of the 25 Gmail OAuth2 questions get no reply at all, which is the highest silence rate in the set.",
-   "action": "Engineering must reproduce the HTTP 400 and blank popup cases and check the localhost redirect handler against current Google policy."
+   "why": "Repeated password prompts despite saved credentials resolved only 42 percent of the time and left 42 percent unanswered, the worst reply rate on the list.",
+   "action": "Engineering must trace token refresh and credential store reads when a saved password exists but the server rejects it."
   },
   {
    "rank": 10,
-   "why": "Rejected or lost stored passwords reached 30 questions, and 63 percent get resolved, so the pain is real but manageable.",
-   "action": "Engineering must check whether the password store is losing entries on upgrade, which would link this to ranks 5 and 9."
+   "why": "Blank message bodies reached 19 reports with 13 at high severity and only 47 percent resolved.",
+   "action": "Engineering must check message rendering and remote content handling for a regression that empties the reading pane."
   },
   {
    "rank": 11,
-   "why": "Drag and drop of messages to the file system broke in 153.x, moving from 1 question to 16.",
-   "action": "Engineering must test the file drop path together with rank 1, since both involve exporting message data out of the application."
+   "why": "Yahoo, AT&T and AOL password rejections resolved just 29 percent of the time, the worst outcome of any cluster.",
+   "action": "Engineering must add an in product prompt that detects these providers and guides users to create an app specific password."
   },
   {
    "rank": 12,
-   "why": "Blank message bodies with headers only tripled to 15 questions at 4.1 severity, and a third of askers got no reply.",
-   "action": "Engineering must check message body fetch and local cache invalidation for accounts set to download headers first."
+   "why": "Disappearing folders and messages fell from 35 to 28 reports but still leaves half of users unresolved and 29 percent unanswered.",
+   "action": "Engineering must review local folder index rebuilds and IMAP subscription state for silent folder loss."
   }
  ]
 }

@@ -87,8 +87,8 @@ def human_month(m):
     return datetime.strptime(m, "%Y-%m").strftime("%B %Y")
 
 
-def md_safe(s):
-    return (s or "").replace("|", "¦").replace('"', "＂")[:80]
+def md_safe(s, limit=80):
+    return (s or "").replace("|", "¦").replace('"', "＂")[:limit]
 
 
 def delta(old, new, pct=True):
@@ -121,6 +121,97 @@ def load_titles(m, product="desktop"):
     return dict(zip(q["id"], q["title"]))
 
 
+# ---- Project 1 cause tags as clustering hints ---------------------------- #
+#
+# Clustering is not deterministic, and on 2026-09-10 the Spectrum/Charter cluster
+# (36 questions, mean severity 4.4) merged into a generic "cannot send or receive"
+# cluster and fell out of the top five. Project 1 already knows which mail host /
+# protocol / antivirus each question names, so we hand those tags to the model as
+# hints AND enforce the split afterwards in Python. Three layers, cheapest last:
+#   1. the tags appear on every theme line in the prompt;
+#   2. the prompt says to keep host-specific and antivirus-specific clusters apart;
+#   3. split_by_cause() splits any cluster that mixes a SPIKING cause tag with
+#      other themes, so the separation does not depend on the model at all.
+FEATURES = "PROJECT1/{m}-{product}-features.csv"
+CAUSE_COLS = ["mail_provider", "av", "protocol"]   # feature is too broad a hint
+# Themes are almost all unique (1,633 distinct themes over 1,671 questions), so a
+# tag can essentially never cover two questions of the SAME theme. The threshold
+# is therefore 1: one tagged question is the whole theme.
+HINT_MIN = 1
+
+
+def cause_tags_by_theme(all_df, months, product):
+    """-> {theme: [tag, ...]} from the Project 1 feature tables."""
+    frames = []
+    for m in months:
+        path = FEATURES.format(m=m, product=product)
+        if os.path.exists(path):
+            frames.append(pd.read_csv(path, dtype=str, keep_default_na=False))
+    if not frames:
+        return {}
+    feats = pd.concat(frames, ignore_index=True)
+    tag_by_id = {}
+    for _, r in feats.iterrows():
+        tags = [t for c in CAUSE_COLS for t in str(r[c]).split(";") if t]
+        if tags:
+            tag_by_id[r["id"]] = tags
+    out = {}
+    for theme, g in all_df.groupby("discovered_theme"):
+        counts = {}
+        for qid in g["id"]:
+            for t in tag_by_id.get(qid, []):
+                counts[t] = counts.get(t, 0) + 1
+        keep = sorted((t for t, n in counts.items() if n >= HINT_MIN),
+                      key=lambda t: -counts[t])[:3]
+        if keep:
+            out[theme] = keep
+    return out
+
+
+def spiking_causes(product, month):
+    """Cause values Project 1 flagged as a spike in `month`, at any grain.
+
+    These are the clusters that MUST stay separate: a provider outage that the
+    no-AI detector already found should not disappear into a generic bucket on
+    the AI page."""
+    hits = set()
+    for grain in ("daily", "weekly", "monthly"):
+        path = f"PROJECT1/{product}-{grain}-single-spikes.csv"
+        if not os.path.exists(path):
+            continue
+        df = pd.read_csv(path, dtype=str, keep_default_na=False)
+        if df.empty:
+            continue
+        rows = df[df["period"].str.startswith(month)
+                  & df["dim"].isin(CAUSE_COLS)]
+        hits |= set(rows["value"])
+    return hits
+
+
+def split_by_cause(theme_to_label, hints, spiking):
+    """Force a cluster apart when it mixes a spiking cause tag with other themes.
+
+    Deterministic: no LLM involved. A theme whose top tag is a spiking cause goes
+    into its own "<label> (<tag>)" cluster; everything else keeps the label.
+
+    Applies to BOTH months. Splitting only the current month would leave the
+    previous month's questions in the base cluster, so every split cluster would
+    read "new this month" and its growth would be measured from zero."""
+    if not spiking:
+        return theme_to_label, []
+    moved = []
+    out = dict(theme_to_label)
+    for theme, label in theme_to_label.items():
+        tag = next((t for t in hints.get(theme, []) if t in spiking), None)
+        if not tag:
+            continue
+        if f"({tag})" in label or tag in label:
+            continue
+        out[theme] = f"{label} ({tag})"
+        moved.append((theme, tag, label))
+    return out, moved
+
+
 # ---- Stage 2b: LLM semantic clustering of themes -------------------------- #
 
 CLUSTER_SYS = """You are grouping Thunderbird support-question THEMES into named \
@@ -132,7 +223,16 @@ on send", "outgoing mail fails" → one cluster). Aim for roughly 30-60 clusters
 do not over-merge distinct problems. Give each cluster a concise, specific, \
 engineering-facing label (a problem, not a category — e.g. "Spectrum/Charter IMAP \
 certificate not trusted", not "email issues"). Assign EVERY index to EXACTLY ONE \
-cluster."""
+cluster.
+
+Some lines carry `tags=` — mail-host, antivirus and protocol tags derived \
+separately by regex over the question text. KEEP A HOST-SPECIFIC OR \
+ANTIVIRUS-SPECIFIC PROBLEM IN ITS OWN CLUSTER: "Spectrum mail stops \
+downloading" must NOT merge into a generic "cannot receive mail" cluster, \
+because one is a provider incident and the other is a client defect, and they go \
+to different people. Name the host or the product in the label when the tag says \
+so. Protocol tags are weaker evidence: use them only when the protocol IS the \
+problem."""
 
 CLUSTER_SCHEMA = {
     "type": "object", "additionalProperties": False,
@@ -154,7 +254,7 @@ CLUSTER_SCHEMA = {
 }
 
 
-def cluster_themes(client, all_df, usage):
+def cluster_themes(client, all_df, usage, hints=None):
     """Return dict theme_string -> cluster_label via one LLM call."""
     # unique themes with count + dominant category
     g = (all_df.groupby("discovered_theme")
@@ -162,8 +262,12 @@ def cluster_themes(client, all_df, usage):
               cat=("category", lambda s: s.mode().iat[0] if not s.mode().empty else "other"))
          .reset_index())
     themes = g["discovered_theme"].tolist()
-    lines = [f"{i}\t{r.discovered_theme}  (n={r.n}, cat={r.cat})"
-             for i, r in enumerate(g.itertuples())]
+    hints = hints or {}
+    lines = []
+    for i, r in enumerate(g.itertuples()):
+        tg = hints.get(r.discovered_theme)
+        tail = f", tags={','.join(tg)}" if tg else ""
+        lines.append(f"{i}\t{r.discovered_theme}  (n={r.n}, cat={r.cat}{tail})")
     user = ("Cluster these themes. Return every index exactly once.\n\n"
             + "\n".join(lines))
     system = [{"type": "text", "text": CLUSTER_SYS,
@@ -373,7 +477,7 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
         for i, (_, r) in enumerate(tldr, 1):
             low = " (below 50%)" if r["served_pct"] < 50 else ""
             new = ", new this month" if r["is_new"] else ""
-            W(f"| [{i}](#issue-{i}) | [{md_safe(r['label'])}](#issue-{i}){new} | "
+            W(f"| [{i}](#issue-{i}) | [{md_safe(r['label'], 130)}](#issue-{i}){new} | "
               f"{r['prev']} | {r['cur']} | {r['mean_sev']} | "
               f"{r['served_pct']}%{low} | {status_for(r['label'], known) or '—'} |")
         W("")
@@ -421,7 +525,8 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
         W(f"| Cluster | {human_month(prev_m)} | {human_month(cur_m)} | Change | "
           f"Sev (≥4) | Resolved | Unanswered |")
         W("|:--|--:|--:|:--|:--|:--|--:|")
-        W(f"| {md_safe(r['label'])} ({r['category']}) | {r['prev']} | {r['cur']} | "
+        W(f"| {md_safe(r['label'], 130)} ({r['category']}) | {r['prev']} | "
+          f"{r['cur']} | "
           f"{delta(r['prev'], r['cur'])} | {r['mean_sev']} ({r['n_sev4']}) | "
           f"{r['served_pct']}%{flag} | {r['unanswered_pct']}% |")
         W("")
@@ -493,8 +598,29 @@ def main():
     ckey = dict(product=args.product, cur=args.current, prev=args.previous)
     cluster_path = CACHE.format(what="clusters", **ckey)
     narr_path = CACHE.format(what="narrative", **ckey)
+
+    hints = cause_tags_by_theme(all_df, [args.previous, args.current],
+                                args.product)
+    spiking = spiking_causes(args.product, args.current)
+    print(f"   [hints] {len(hints)} themes carry a Project 1 cause tag; "
+          f"{len(spiking)} cause(s) spiking in {args.current}: "
+          f"{', '.join(sorted(spiking)) or 'none'}")
     theme_to_label = cached(cluster_path, args.refresh,
-                            lambda: cluster_themes(client, all_df, usage))
+                            lambda: cluster_themes(client, all_df, usage, hints))
+    theme_to_label, moved = split_by_cause(theme_to_label, hints, spiking)
+    if moved:
+        print(f"   [split] {len(moved)} theme(s) pulled into a cause-specific "
+              f"cluster: " + ", ".join(sorted({t for _, t, _ in moved})))
+
+    # The promise this enforces: a cause Project 1 flagged as spiking has its own
+    # cluster on this page. Warn loudly rather than fail — a spike with only one
+    # or two questions in the labels legitimately falls under MIN_CLUSTER.
+    for tag in sorted(spiking):
+        owners = {lb for th, lb in theme_to_label.items()
+                  if tag in lb and th in set(cur["discovered_theme"])}
+        if not owners:
+            print(f"   ⚠️  spiking cause {tag} has no cluster of its own",
+                  file=sys.stderr)
     top = cluster_stats(cur, prev, theme_to_label, titles)
     top.attrs["n_clusters"] = int(cur["discovered_theme"].map(theme_to_label).nunique())
     top.attrs["n_clusters_prev"] = int(prev["discovered_theme"].map(theme_to_label).nunique())
