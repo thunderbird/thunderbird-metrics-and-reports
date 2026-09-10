@@ -51,6 +51,17 @@ that is missing data, not a clean month).
 - [Spectrum / Charter, from Aug 21 2026](https://github.com/thunderbird/thunderbird-metrics-and-reports/blob/main/PROJECT1/validation/incident-spectrum-2026-08.md) — incident analysis of a **still-open** cluster: 6× baseline, provider-side (cross-provider control test), the third distinct Spectrum episode of 2026
 - [Why volume rose in Aug 2026](https://github.com/thunderbird/thunderbird-metrics-and-reports/blob/main/PROJECT1/validation/volume-rise-2026-08-analysis.md) — 731 → 941 questions (+29%), and still climbing in September: what the corpus can and cannot explain
 
+### Android (new, low volume)
+
+Android carries about 40 support questions a month, against detector floors of 8
+questions of one kind in a day, 6 in a week and 8 in a month. Nothing has cleared
+those floors since 2024, and only 2% of android questions carry a Thunderbird
+version, so the page reads "no spike cleared the threshold" rather than "clean".
+Read it as a volume and answered-rate page for now. Thresholds tuned for android
+are the open question.
+
+- [Android executive summary (last complete month)](PROJECT1/REPORTS/android/exec-summary-latest.html)
+
 ## LLM Insights (experimental — AI)
 
 The AI counterpart to Project 1. Claude reads each support question (plus the

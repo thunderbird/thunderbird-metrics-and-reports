@@ -303,6 +303,9 @@ def main():
         low = " (below 60%)" if ap_ < 60 else ""
         return f"{ap_}% answered{low}{f', {md}h' if md else ''}"
 
+    # Known before the verdict: on a small corpus "clean" is the wrong word.
+    low_volume = n < 20 * GRAIN_DEFAULTS["monthly"]["single_min_count"]
+
     out, W = [], None
     W = out.append
     label = start.strftime("%B %Y")
@@ -328,7 +331,8 @@ def main():
 
     # ---- the verdict ------------------------------------------------------
     if incidents == 0:
-        W(f"## {label} was clean")
+        W(f"## {label}: no spike cleared the threshold" if low_volume
+          else f"## {label} was clean")
         W("")
         W("No spike cleared the threshold at any grain. The tool found no mail "
           "host outage, no protocol surge, no antivirus breakage and no release "
@@ -363,6 +367,21 @@ def main():
     W("| cause-level (mail host, protocol, antivirus, feature) | "
       + " | ".join(str(len(cause[g])) for g in DETECTOR_GRAINS) + " |")
     W("")
+
+    # "Clean" on a small corpus mostly means "too small to fire": android runs
+    # ~40 questions a month against a daily floor of 8 of one KIND in one day.
+    # Saying so is the difference between an honest zero and a false all-clear.
+    d_floor = GRAIN_DEFAULTS["daily"]["single_min_count"]
+    w_floor = GRAIN_DEFAULTS["weekly"]["single_min_count"]
+    m_floor = GRAIN_DEFAULTS["monthly"]["single_min_count"]
+    if low_volume:
+        per_day = n / max(1, len(days))
+        W(f"{label} holds {n} questions, about {per_day:.0f} a day. The "
+          f"detectors need {d_floor} questions of one kind in a day, {w_floor} "
+          f"in a week or {m_floor} in a month before they call a spike. At this "
+          f"volume most real clusters cannot clear those floors, so read a zero "
+          f"as \"nothing large enough to fire\", not as \"nothing happened\".")
+        W("")
 
     # A zero in the version×cause row means one of two very different things.
     # Before 2026-02 the scraper has almost no version, so the detector CANNOT

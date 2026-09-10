@@ -5,7 +5,7 @@ title: "2025-04 exec summary: Thunderbird Desktop support spikes"
 
 # April 2025: Thunderbird Desktop support spikes
 
-Executive summary for 2025-04. It covers 1173 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:44 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2025-04. It covers 1173 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:50 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
