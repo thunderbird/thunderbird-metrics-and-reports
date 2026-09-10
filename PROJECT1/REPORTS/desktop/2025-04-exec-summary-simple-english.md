@@ -14,15 +14,17 @@ expressions and standard statistics only. The source page carried the timestamp
 <details markdown="1">
 <summary>Glossary</summary>
 
-- A **question** is one post by a user on the Thunderbird support site.
-- A **cause tag** says what a question is about. `m:gmail` is the mail host Gmail, and `proto:oauth` is the sign-in protocol OAuth. `av:avast` is the antivirus product Avast, and `feat:printing` is the printing feature of Thunderbird.
-- A **spike** is a period with many more questions of one kind than normal.
-- The **baseline** is the normal count for that kind of question. The tool takes the middle value of earlier periods.
-- The **rise** is the measured count divided by the expected count. A rise of 3.0× means three times as many questions as expected.
-- The **grain** is the length of the period that the tool measured: one day, one week, or one month.
-- **Served** says how many of the questions got an answer from somebody other than the person who asked. Served also gives the time to the first answer.
-- A **version×cause spike** ties a rise to one Thunderbird version and one cause. Such a spike points to a problem that a Thunderbird release caused.
-- A **cause-level spike** ignores the version. Such a spike points to a problem at a mail host, in a protocol, in an antivirus product, or in one Thunderbird feature.
+| Term | Meaning |
+|:--|:--|
+| question | One post by a user on the Thunderbird support site. |
+| cause tag | What a question is about. `m:gmail` is the mail host Gmail. `proto:oauth` is the sign-in protocol OAuth. `av:avast` is the antivirus product Avast. `feat:printing` is the printing feature of Thunderbird. |
+| spike | A period with many more questions of one kind than normal. |
+| baseline | The normal count for that kind of question. The tool takes the middle value of earlier periods. |
+| rise | The measured count divided by the expected count. A rise of 3.0× means three times as many questions as expected. |
+| grain | The length of the period that the tool measured: one day, one week, or one month. |
+| served | How many of the questions got an answer from somebody other than the person who asked, and the time to the first answer. |
+| version×cause spike | A rise tied to one Thunderbird version and one cause. It points to a problem that a Thunderbird release caused. |
+| cause-level spike | A rise that ignores the version. It points to a problem at a mail host, in a protocol, in an antivirus product, or in one Thunderbird feature. |
 
 </details>
 
