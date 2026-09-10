@@ -5,7 +5,7 @@ title: "2026-08 exec summary: Thunderbird Desktop support spikes"
 
 # August 2026: Thunderbird Desktop support spikes
 
-Executive summary for 2026-08. It covers 941 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:27 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-08. It covers 941 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:37 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -31,6 +31,8 @@ Executive summary for 2026-08. It covers 941 Thunderbird Desktop support questio
 
 17 of them tie to a Thunderbird version. 10 of them are cause-level. Every row is in the collapsed blocks below.
 
+In short: Printing and Spectrum. Both are in the list below, with 5 smaller clusters.
+
 | Detector | daily | weekly | monthly |
 |:--|--:|--:|--:|
 | version×cause (a release caused the problem) | 7 | 8 | 2 |
@@ -46,17 +48,13 @@ Every spike row, with its example questions, is in [All August 2026 detail](#all
 
 ## What stands out
 
-Printing (`feat:printing`): 7 version×cause spikes and 4 cause-level spikes. It fired hardest on 2026-08-20, with 4 questions about Thunderbird 154 at 24.3 times the expected count. For the month it reached 36 questions, 8.0 times its baseline of 4.5.
+1. Printing ([`feat:printing`](explorer.html#grain=monthly&cause=feat:printing&period=2026-08), 11 spikes): 36 questions in August, 8.0 times the baseline of 4.5. It peaked on 2026-08-20 at 24.3 times expected, on Thunderbird 154.
+2. Spectrum ([`m:spectrum`](explorer.html#grain=monthly&cause=m:spectrum&period=2026-08), 8 spikes): 34 questions in August, 3.2 times the baseline of 10.5. It peaked in the week of 2026-08-17 at 11.0 times its baseline.
+3. Attachments ([`feat:attachments`](explorer.html#grain=monthly&cause=feat:attachments&period=2026-08), 2 spikes): 27 questions in August, under the monthly bar. It peaked in the week of 2026-08-31 at 3.8 times expected, on Thunderbird 154.
+4. POP ([`proto:pop`](explorer.html#grain=monthly&cause=proto:pop&period=2026-08), 3 spikes): 46 questions in August, under the monthly bar. It peaked on 2026-08-14 at 3.5 times expected, on Thunderbird 153.
+5. Yahoo Mail ([`m:yahooemail`](explorer.html#grain=monthly&cause=m:yahooemail&period=2026-08), 1 spike): 55 questions in August, under the monthly bar. It peaked in the week of 2026-08-10 at 3.5 times its baseline.
 
-Spectrum (`m:spectrum`): 4 version×cause spikes and 4 cause-level spikes. It fired hardest in the week of 2026-08-17, with 11 questions at 11.0 times its baseline of 1.0. For the month it reached 34 questions, 3.2 times its baseline of 10.5.
-
-Attachments (`feat:attachments`): 1 version×cause spike and 1 cause-level spike. It fired hardest in the week of 2026-08-31, with 5 questions about Thunderbird 154 at 3.8 times the expected count. Across August 2026 it appears in 27 questions, which did not clear the monthly threshold.
-
-POP (`proto:pop`): 3 version×cause spikes. It fired hardest on 2026-08-14, with 4 questions about Thunderbird 153 at 3.5 times the expected count. Across August 2026 it appears in 46 questions, which did not clear the monthly threshold.
-
-Yahoo Mail (`m:yahooemail`): 1 cause-level spike. It fired hardest in the week of 2026-08-10, with 19 questions at 3.5 times its baseline of 5.5. Across August 2026 it appears in 55 questions, which did not clear the monthly threshold.
-
-2 more clusters fired: `m:microsoftemail`, `m:comcast`. They are in the detail below.
+2 more clusters fired: [`m:microsoftemail`](explorer.html#grain=monthly&cause=m:microsoftemail&period=2026-08), [`m:comcast`](explorer.html#grain=monthly&cause=m:comcast&period=2026-08). They are in the detail below.
 
 In 2 clusters, fewer than 60% of the questions got an answer: `v154 × feat:printing` in the week of 2026-08-17 (43% answered), `feat:printing` in the week of 2026-08-17 (38% answered).
 

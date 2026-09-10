@@ -5,7 +5,7 @@ title: "2025-04 exec summary: Thunderbird Desktop support spikes"
 
 # April 2025: Thunderbird Desktop support spikes
 
-Executive summary for 2025-04. It covers 1173 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:26 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2025-04. It covers 1173 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:38 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -31,6 +31,8 @@ Executive summary for 2025-04. It covers 1173 Thunderbird Desktop support questi
 
 None of them tie to a Thunderbird version. All 4 are cause-level. Every row is in the collapsed blocks below.
 
+In short: Printing and OAuth. The list below has the detail.
+
 | Detector | daily | weekly | monthly |
 |:--|--:|--:|--:|
 | version×cause (a release caused the problem) | 0 | 0 | 0 |
@@ -48,9 +50,8 @@ Every spike row, with its example questions, is in [All April 2025 detail](#all-
 
 ## What stands out
 
-Printing (`feat:printing`): 3 cause-level spikes. It fired hardest in the week of 2025-04-07, with 12 questions at 6.0 times its baseline of 2.0. For the month it reached 24 questions, 3.0 times its baseline of 8.0.
-
-OAUTH (`proto:oauth`): 1 cause-level spike. It fired hardest in the week of 2025-04-28, with 9 questions at 3.0 times its baseline of 3.0. Across April 2025 it appears in 19 questions, which did not clear the monthly threshold.
+1. Printing ([`feat:printing`](explorer.html#grain=monthly&cause=feat:printing&period=2025-04), 3 spikes): 24 questions in April, 3.0 times the baseline of 8.0. It peaked in the week of 2025-04-07 at 6.0 times its baseline.
+2. OAuth ([`proto:oauth`](explorer.html#grain=monthly&cause=proto:oauth&period=2025-04), 1 spike): 19 questions in April, under the monthly bar. It peaked in the week of 2025-04-28 at 3.0 times its baseline.
 
 ## Two limits of these dates
 

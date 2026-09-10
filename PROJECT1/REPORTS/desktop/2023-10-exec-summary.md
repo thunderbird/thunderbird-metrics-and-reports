@@ -5,7 +5,7 @@ title: "2023-10 exec summary: Thunderbird Desktop support spikes"
 
 # October 2023: Thunderbird Desktop support spikes
 
-Executive summary for 2023-10. It covers 1977 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:25 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2023-10. It covers 1977 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:36 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -31,6 +31,8 @@ Executive summary for 2023-10. It covers 1977 Thunderbird Desktop support questi
 
 None of them tie to a Thunderbird version. All 11 are cause-level. Every row is in the collapsed blocks below.
 
+In short: Frontier and Search. Both are in the list below, with 4 smaller clusters.
+
 | Detector | daily | weekly | monthly |
 |:--|--:|--:|--:|
 | version×cause (a release caused the problem) | 0 | 0 | 0 |
@@ -48,17 +50,13 @@ Every spike row, with its example questions, is in [All October 2023 detail](#al
 
 ## What stands out
 
-Frontier (`m:frontier`): 3 cause-level spikes. It fired hardest in the week of 2023-10-09, with 6 questions where earlier periods had none. For the month it reached 15 questions, 30.0 times its baseline of 0.5.
+1. Frontier ([`m:frontier`](explorer.html#grain=monthly&cause=m:frontier&period=2023-10), 3 spikes): 15 questions in October, 30.0 times the baseline of 0.5. It peaked in the week of 2023-10-09 with 6 questions, where earlier periods had none.
+2. Search ([`feat:search`](explorer.html#grain=monthly&cause=feat:search&period=2023-10), 1 spike): 34 questions in October, 4.5 times the baseline of 7.5.
+3. Add-ons ([`feat:addons`](explorer.html#grain=monthly&cause=feat:addons&period=2023-10), 1 spike): 16 questions in October, 4.0 times the baseline of 4.0.
+4. Spectrum ([`m:spectrum`](explorer.html#grain=monthly&cause=m:spectrum&period=2023-10), 3 spikes): 21 questions in October, under the monthly bar. It peaked in the week of 2023-10-16 at 4.0 times its baseline.
+5. IMAP ([`proto:imap`](explorer.html#grain=monthly&cause=proto:imap&period=2023-10), 1 spike): 113 questions in October, under the monthly bar. It peaked on 2023-10-11 at 3.7 times its baseline.
 
-Search (`feat:search`): 1 cause-level spike. It fired hardest in 2023-10, with 34 questions at 4.5 times its baseline of 7.5.
-
-Add-ons (`feat:addons`): 1 cause-level spike. It fired hardest in 2023-10, with 16 questions at 4.0 times its baseline of 4.0.
-
-Spectrum (`m:spectrum`): 3 cause-level spikes. It fired hardest in the week of 2023-10-16, with 8 questions at 4.0 times its baseline of 2.0. Across October 2023 it appears in 21 questions, which did not clear the monthly threshold.
-
-IMAP (`proto:imap`): 1 cause-level spike. It fired hardest on 2023-10-11, with 11 questions at 3.7 times its baseline of 3.0. Across October 2023 it appears in 113 questions, which did not clear the monthly threshold.
-
-1 more cluster fired: `feat:attachments`. It is in the detail below.
+1 more cluster fired: [`feat:attachments`](explorer.html#grain=monthly&cause=feat:attachments&period=2023-10). It is in the detail below.
 
 In 6 clusters, fewer than 60% of the questions got an answer: `proto:imap` on 2023-10-11 (36% answered), `m:spectrum` in the week of 2023-10-16 (38% answered), `feat:attachments` in the week of 2023-10-16 (45% answered), `m:frontier` in the week of 2023-10-09 (33% answered), and 2 more.
 

@@ -230,13 +230,16 @@ sentences, active voice, simple tenses, no emoji, no bold for emphasis, and ever
 term of art defined in a collapsed **Glossary** table at the top (`GLOSSARY` in
 the script). `served` reads `43% answered (below 60%), 3.2h` instead of the old
 `⚠️ 43% ans · 3.2h`; the Qs/Signal columns are `Questions`/`Novelty`. Two
-generated additions came with it: a mechanical **What stands out** section (one
-paragraph per distinct CAUSE that fired, ranked by its strongest rise, five at
-most plus a "N more" line, each giving spike counts, the hardest period and the
-month total, then the clusters served under 60% — never interpretation; grouping
-by cause is what makes a cross-version incident like the Aug 2026 Spectrum
-cluster visible above the fold, since its rows split across v153/v154 and three
-grains), and a note under the detector table when a month has <20%
+generated additions came with it: a mechanical **What stands out** section (a
+NUMBERED LIST, one line per distinct CAUSE that fired, ranked by its strongest
+rise, five at most plus a "N more" line, each giving spike count, month total and
+peak, then the clusters served under 60% — never interpretation; the cause tag in
+each item deep-links to the explorer at monthly grain. A one-line **"In short:"**
+sits directly under the verdict, naming the top two clusters — it is written late
+but `out.insert()`ed into a slot recorded early. Grouping by cause is what makes a
+cross-version incident like the Aug 2026 Spectrum cluster visible above the fold,
+since its rows split across v153/v154 and three grains; before that the section
+named only the top pair and top cause, which in Aug 2026 were both printing), and a note under the detector table when a month has <20%
 version coverage, so a 0 in the version×cause row is not misread as clean. Titles
 for example questions are looked up over ALL history, because a week that
 straddles the month end links next month's questions (they used to render with an

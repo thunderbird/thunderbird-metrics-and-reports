@@ -70,6 +70,7 @@ CAUSE_NAMES = {
     "m:talktalk": "TalkTalk", "m:mailcom": "Mail.com", "m:web_de": "Web.de",
     "m:t_online": "T-Online", "m:free_fr": "Free.fr",
     "m:mailbox_org": "Mailbox.org", "m:1and1": "1&1",
+    "proto:oauth": "OAuth", "proto:caldav": "CalDAV", "proto:carddav": "CardDAV",
     "feat:import_export": "Import and export", "feat:addressbook": "Address book",
     "feat:spellcheck": "Spell check", "feat:junk": "Junk mail",
     "feat:addons": "Add-ons",
@@ -351,6 +352,9 @@ def main():
     if partial:
         W(f"{label} is still in progress. The counts will grow.")
         W("")
+    # The one-line summary is written further down, once the clusters are ranked,
+    # but it belongs HERE, directly under the verdict. Remember the slot.
+    in_short_at = len(out)
 
     W("| Detector | daily | weekly | monthly |")
     W("|:--|--:|--:|--:|")
@@ -493,6 +497,7 @@ def main():
             return f"in the week of {period}"
         return f"on {period}" if grain == "daily" else f"in {period}"
 
+    short_month = start.strftime("%B")
     jall, sall = _concat(joint), _concat(cause)
     if incidents:
         # One paragraph per distinct CAUSE, ranked by its strongest rise, so a
@@ -540,16 +545,14 @@ def main():
             r = jbest if use_joint else sbest
             wh = when(r["_g"], r["period"])
             if use_joint:
-                return (f"It fired hardest {wh}, with {r['observed']} questions "
-                        f"about Thunderbird {r['version_major']} at "
-                        f"{r['lift']} times the expected count."), False
+                return (f"It peaked {wh} at {r['lift']} times expected, on "
+                        f"Thunderbird {r['version_major']}."), False
             monthly_peak = r["_g"] == "monthly"
             if r["magnitude"] == "new":
-                return (f"It fired hardest {wh}, with {r['count']} questions "
-                        f"where earlier periods had none."), monthly_peak
-            return (f"It fired hardest {wh}, with {r['count']} questions at "
-                    f"{float(r['magnitude']):.1f} times its baseline of "
-                    f"{r['baseline_median']}."), monthly_peak
+                return (f"It peaked {wh} with {r['count']} questions, where "
+                        f"earlier periods had none."), monthly_peak
+            return (f"It peaked {wh} at {float(r['magnitude']):.1f} times its "
+                    f"baseline."), monthly_peak
 
         def month_sentence(tag):
             """The monthly cause-level row if there is one, else the raw count."""
@@ -559,37 +562,56 @@ def main():
             if not row.empty:
                 r = row.iloc[0]
                 if r["magnitude"] == "new":
-                    return (f"For the month it reached {r['count']} questions, "
-                            f"where earlier months had none.")
-                return (f"For the month it reached {r['count']} questions, "
-                        f"{float(r['magnitude']):.1f} times its baseline of "
+                    return (f"{r['count']} questions in {short_month}, where "
+                            f"earlier months had none.")
+                return (f"{r['count']} questions in {short_month}, "
+                        f"{float(r['magnitude']):.1f} times the baseline of "
                         f"{r['baseline_median']}.")
             dim = next((d for d in CAUSE_DIMS
                         if df[d].str.contains(tag, regex=False).any()), None)
             if dim is None:
                 return ""
             hits = df[dim].apply(lambda c: tag in (c.split(";") if c else "")).sum()
-            return (f"Across {label} it appears in {hits} question"
-                    f"{'s' if hits != 1 else ''}, which did not clear the "
-                    f"monthly threshold.")
+            return (f"{hits} question{'s' if hits != 1 else ''} in "
+                    f"{short_month}, under the monthly bar.")
+
+        # The explorer page is committed per product (desktop today); link to it
+        # only when it is there, so an android page never emits a dead link. The
+        # deep link uses the MONTHLY grain, which is the cluster's own scale.
+        explorer_exists = os.path.exists(
+            f"{REPORT_DIR.format(product=product)}/explorer.html")
+
+        def cluster_link(tag):
+            if not explorer_exists:
+                return f"`{tag}`"
+            return (f"[`{tag}`](explorer.html#grain=monthly&cause={tag}"
+                    f"&period={month})")
+
+        shown = tags[:MAX_CLUSTERS]
+        lead = " and ".join(cause_name(t) for t in shown[:2])
+        rest_n = len(tags) - len(shown[:2])
+        in_short = f"In short: {lead}." + (
+            f" Both are in the list below, with {rest_n} smaller cluster"
+            f"{'s' if rest_n != 1 else ''}." if len(shown[:2]) == 2 and rest_n
+            else (f" The list below has {rest_n} smaller cluster"
+                  f"{'s' if rest_n != 1 else ''} as well." if rest_n
+                  else " The list below has the detail."))
+        out.insert(in_short_at, "")
+        out.insert(in_short_at, in_short)
 
         W("## What stands out")
         W("")
-        for tag in tags[:MAX_CLUSTERS]:
+        for i_, tag in enumerate(shown, start=1):
             nj = int((jall["_cause"] == tag).sum()) if not jall.empty else 0
             ns = int((sall["_cause"] == tag).sum()) if not sall.empty else 0
-            counts = []
-            if nj:
-                counts.append(f"{nj} version×cause spike{'s' if nj != 1 else ''}")
-            if ns:
-                counts.append(f"{ns} cause-level spike{'s' if ns != 1 else ''}")
+            k = nj + ns
             peak, is_monthly_peak = peak_sentence(tag)
-            tail = "" if is_monthly_peak else " " + month_sentence(tag)
-            W(f"{cause_name(tag)} (`{tag}`): " + " and ".join(counts) + ". "
-              + peak + tail.rstrip())
-            W("")
+            W(f"{i_}. {cause_name(tag)} ({cluster_link(tag)}, {k} spike"
+              f"{'s' if k != 1 else ''}): {month_sentence(tag)}"
+              + ("" if is_monthly_peak else " " + peak))
+        W("")
         if len(tags) > MAX_CLUSTERS:
-            rest = ", ".join(f"`{t}`" for t in tags[MAX_CLUSTERS:])
+            rest = ", ".join(cluster_link(t) for t in tags[MAX_CLUSTERS:])
             k = len(tags) - MAX_CLUSTERS
             W(f"{k} more cluster{'s' if k != 1 else ''} fired: {rest}. "
               f"{'They are' if k != 1 else 'It is'} in the detail below.")

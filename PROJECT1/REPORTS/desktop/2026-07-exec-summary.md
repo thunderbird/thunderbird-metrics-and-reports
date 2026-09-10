@@ -5,7 +5,7 @@ title: "2026-07 exec summary: Thunderbird Desktop support spikes"
 
 # July 2026: Thunderbird Desktop support spikes
 
-Executive summary for 2026-07. It covers 731 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:26 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-07. It covers 731 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:37 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -31,6 +31,8 @@ Executive summary for 2026-07. It covers 731 Thunderbird Desktop support questio
 
 All 6 tie to a Thunderbird version. None of them are cause-level. Every row is in the collapsed blocks below.
 
+In short: Search and Attachments. Both are in the list below, with 2 smaller clusters.
+
 | Detector | daily | weekly | monthly |
 |:--|--:|--:|--:|
 | version×cause (a release caused the problem) | 0 | 5 | 1 |
@@ -46,13 +48,10 @@ Every spike row, with its example questions, is in [All July 2026 detail](#all-j
 
 ## What stands out
 
-Search (`feat:search`): 2 version×cause spikes. It fired hardest in the week of 2026-07-06, with 5 questions about Thunderbird 140 at 12.5 times the expected count. Across July 2026 it appears in 10 questions, which did not clear the monthly threshold.
-
-Attachments (`feat:attachments`): 2 version×cause spikes. It fired hardest in the week of 2026-07-06, with 6 questions about Thunderbird 152 at 3.9 times the expected count. Across July 2026 it appears in 16 questions, which did not clear the monthly threshold.
-
-Junk mail (`feat:junk`): 1 version×cause spike. It fired hardest in the week of 2026-06-29, with 4 questions about Thunderbird 140 at 3.2 times the expected count. Across July 2026 it appears in 13 questions, which did not clear the monthly threshold.
-
-Comcast (`m:comcast`): 1 version×cause spike. It fired hardest in the week of 2026-07-27, with 4 questions about Thunderbird 153 at 3.1 times the expected count. Across July 2026 it appears in 13 questions, which did not clear the monthly threshold.
+1. Search ([`feat:search`](explorer.html#grain=monthly&cause=feat:search&period=2026-07), 2 spikes): 10 questions in July, under the monthly bar. It peaked in the week of 2026-07-06 at 12.5 times expected, on Thunderbird 140.
+2. Attachments ([`feat:attachments`](explorer.html#grain=monthly&cause=feat:attachments&period=2026-07), 2 spikes): 16 questions in July, under the monthly bar. It peaked in the week of 2026-07-06 at 3.9 times expected, on Thunderbird 152.
+3. Junk mail ([`feat:junk`](explorer.html#grain=monthly&cause=feat:junk&period=2026-07), 1 spike): 13 questions in July, under the monthly bar. It peaked in the week of 2026-06-29 at 3.2 times expected, on Thunderbird 140.
+4. Comcast ([`m:comcast`](explorer.html#grain=monthly&cause=m:comcast&period=2026-07), 1 spike): 13 questions in July, under the monthly bar. It peaked in the week of 2026-07-27 at 3.1 times expected, on Thunderbird 153.
 
 ## Two limits of these dates
 

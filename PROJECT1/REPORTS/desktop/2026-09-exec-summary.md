@@ -5,7 +5,7 @@ title: "2026-09 exec summary: Thunderbird Desktop support spikes"
 
 # September 2026: Thunderbird Desktop support spikes
 
-Executive summary for 2026-09. It covers 327 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:26 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-09. It covers 327 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:37 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -33,6 +33,8 @@ Executive summary for 2026-09. It covers 327 Thunderbird Desktop support questio
 
 September 2026 is still in progress. The counts will grow.
 
+In short: Printing and POP. Both are in the list below, with 3 smaller clusters.
+
 | Detector | daily | weekly | monthly |
 |:--|--:|--:|--:|
 | version×cause (a release caused the problem) | 2 | 3 | 1 |
@@ -48,15 +50,11 @@ Every spike row, with its example questions, is in [All September 2026 detail](#
 
 ## What stands out
 
-Printing (`feat:printing`): 3 version×cause spikes and 1 cause-level spike. It fired hardest on 2026-09-01, with 4 questions about Thunderbird 154 at 17.2 times the expected count. Across September 2026 it appears in 8 questions, which did not clear the monthly threshold.
-
-POP (`proto:pop`): 1 version×cause spike. It fired hardest on 2026-09-07, with 4 questions about Thunderbird 155 at 4.1 times the expected count. Across September 2026 it appears in 15 questions, which did not clear the monthly threshold.
-
-Filters (`feat:filters`): 1 version×cause spike. It fired hardest in the week of 2026-09-07, with 4 questions about Thunderbird 155 at 4.0 times the expected count. Across September 2026 it appears in 11 questions, which did not clear the monthly threshold.
-
-Attachments (`feat:attachments`): 1 version×cause spike and 1 cause-level spike. It fired hardest in the week of 2026-08-31, with 5 questions about Thunderbird 154 at 3.8 times the expected count. Across September 2026 it appears in 14 questions, which did not clear the monthly threshold.
-
-Spectrum (`m:spectrum`): 1 cause-level spike. It fired hardest in the week of 2026-08-31, with 9 questions at 3.6 times its baseline of 2.5. Across September 2026 it appears in 10 questions, which did not clear the monthly threshold.
+1. Printing ([`feat:printing`](explorer.html#grain=monthly&cause=feat:printing&period=2026-09), 4 spikes): 8 questions in September, under the monthly bar. It peaked on 2026-09-01 at 17.2 times expected, on Thunderbird 154.
+2. POP ([`proto:pop`](explorer.html#grain=monthly&cause=proto:pop&period=2026-09), 1 spike): 15 questions in September, under the monthly bar. It peaked on 2026-09-07 at 4.1 times expected, on Thunderbird 155.
+3. Filters ([`feat:filters`](explorer.html#grain=monthly&cause=feat:filters&period=2026-09), 1 spike): 11 questions in September, under the monthly bar. It peaked in the week of 2026-09-07 at 4.0 times expected, on Thunderbird 155.
+4. Attachments ([`feat:attachments`](explorer.html#grain=monthly&cause=feat:attachments&period=2026-09), 2 spikes): 14 questions in September, under the monthly bar. It peaked in the week of 2026-08-31 at 3.8 times expected, on Thunderbird 154.
+5. Spectrum ([`m:spectrum`](explorer.html#grain=monthly&cause=m:spectrum&period=2026-09), 1 spike): 10 questions in September, under the monthly bar. It peaked in the week of 2026-08-31 at 3.6 times its baseline.
 
 In 1 cluster, fewer than 60% of the questions got an answer: `v155 × feat:filters` in the week of 2026-09-07 (50% answered).
 
