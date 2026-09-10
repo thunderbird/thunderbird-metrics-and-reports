@@ -48,6 +48,7 @@ that is missing data, not a clean month).
 - [Aug 2026 — v154 blank-printing regression](https://github.com/thunderbird/thunderbird-metrics-and-reports/blob/main/PROJECT1/validation/detector-backtest-printing-2026-08.md) (back-test: missed until the `feature` dimension existed, then caught on the onset day)
 - [Apr 2025 exec summary](PROJECT1/REPORTS/desktop/2025-04-exec-summary.html) — `feat:printing` 24 questions, 3.0× ([vs Mar 2025](PROJECT1/REPORTS/desktop/monthly-summary-2025-04-vs-2025-03.html))
 - [Oct 2023 exec summary](PROJECT1/REPORTS/desktop/2023-10-exec-summary.html) — `feat:search` 4.5× and `feat:addons` 4.0×, the Thunderbird 115 "Supernova" fallout ([vs Sep 2023](PROJECT1/REPORTS/desktop/monthly-summary-2023-10-vs-2023-09.html))
+- [Spectrum / Charter, from Aug 21 2026](https://github.com/thunderbird/thunderbird-metrics-and-reports/blob/main/PROJECT1/validation/incident-spectrum-2026-08.md) — incident analysis of a **still-open** cluster: 6× baseline, provider-side (cross-provider control test), the third distinct Spectrum episode of 2026
 
 ## LLM Insights (experimental — AI)
 
