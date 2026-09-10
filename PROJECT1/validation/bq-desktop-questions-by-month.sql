@@ -1,3 +1,4 @@
+-- https://console.cloud.google.com/bigquery?ws=!1m7!1m6!12m5!1m3!1smoz-fx-sumo-prod!2sus-central1!3s5960c9c7-693e-427f-9264-d4ff2501225c!2e1
 -- Thunderbird DESKTOP SUMO questions, monthly counts, from the SUMO BigQuery
 -- ground-truth table. Used to validate this repo's / the aaq-scraper's counts
 -- (see README.md and issue #67). No BigQuery API access from CI — run this in the
