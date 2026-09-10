@@ -586,6 +586,17 @@ unless explicitly asked to work on one.
 
 ## Important Notes
 
+- **CRUCIAL LOCKED DECISION — always link a SUMO question.** Every question id
+  named in any generated or hand-written report, markdown or HTML, must be a
+  link to `https://support.mozilla.org/questions/{id}`. This holds for prose
+  ("the first question of the cluster is 1599516"), for table cells, for quoted
+  titles (put the linked id in parentheses after the quote), and for validation
+  and analysis pages under `PROJECT1/validation/`, not only for the automated
+  spike reports. A report that names a question the reader cannot open makes the
+  reader search SUMO by hand. When a page discusses a whole cluster, also give
+  the full list: a collapsed `<details markdown="1">` table of every question in
+  it, with date, linked id, version, 80-character title and whether somebody
+  answered (see `PROJECT1/validation/incident-spectrum-2026-08.md`).
 - CSV field size limits are raised to `sys.maxsize` in the analysis scripts to
   handle large content fields.
 - Question titles are truncated to 80 characters for markdown tooltips.
