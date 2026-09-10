@@ -7,8 +7,13 @@ sentiment) builds on.
 Per question we derive:
   - native dims: os (native operating_system, regex fallback), tb_version /
     tb_version_major (native thunderbird_version), locale, topic, tags
-  - text dims (regex over title+content): mail_provider[], isp[], protocol[],
-    av[]
+  - text dims (regex over title+content): mail_provider[], protocol[], av[]
+  - feature[] — which part of Thunderbird the question is ABOUT (feat:printing,
+    feat:calendar, …). Matched over the TITLE ONLY, unlike every other text dim:
+    feature words are ambient vocabulary in question bodies and Thunderbird's
+    pasted Troubleshooting Information contains a literal "Printing" section, so
+    content matching is overwhelmingly incidental (issue #76 — see the rationale
+    on FEATURE_AREA_PATTERNS in project1_regexes.py).
   - answer dims: is_answered / first_answer_hours (first NON-creator, non-spam
     answer), num_answers, is_solved / solved_by
   - question_url for the "clickable example questions" requirement
@@ -25,7 +30,8 @@ import argparse
 import pandas as pd
 
 sys.path.insert(0, "scripts")
-from project1_regexes import DIMENSIONS, normalize_os, OS_FALLBACK_PATTERNS
+from project1_regexes import (DIMENSIONS, TITLE_ONLY_DIMENSIONS, normalize_os,
+                              OS_FALLBACK_PATTERNS)
 
 csv.field_size_limit(sys.maxsize)
 
@@ -100,6 +106,11 @@ def build_features(q, a):
         qid = r["id"]
         text = f"{r.get('title', '')}\n{r.get('content', '')}"
 
+        # Which text a dimension sees: title+content normally, title alone for
+        # the dims in TITLE_ONLY_DIMENSIONS (feature areas — see #76).
+        def dim_text(dim):
+            return (r.get("title", "") or "") if dim in TITLE_ONLY_DIMENSIONS else text
+
         os_tag = normalize_os(r.get("operating_system", ""))
         if not os_tag:  # regex fallback only when native is blank
             os_tag = tag_text(text, OS_FALLBACK).split(";")[0] if tag_text(text, OS_FALLBACK) else ""
@@ -125,12 +136,13 @@ def build_features(q, a):
             "question_url": QUESTION_URL.format(id=qid),
             "os": os_tag,
             "os_raw": r.get("operating_system", ""),
-            "macos_release": tag_text(text, COMPILED["macos_release"]),
+            "macos_release": tag_text(dim_text("macos_release"), COMPILED["macos_release"]),
             "tb_version": ver,
             "tb_version_major": major_version(ver),
-            "mail_provider": tag_text(text, COMPILED["mail_provider"]),
-            "protocol": tag_text(text, COMPILED["protocol"]),
-            "av": tag_text(text, COMPILED["av"]),
+            "mail_provider": tag_text(dim_text("mail_provider"), COMPILED["mail_provider"]),
+            "feature": tag_text(dim_text("feature"), COMPILED["feature"]),
+            "protocol": tag_text(dim_text("protocol"), COMPILED["protocol"]),
+            "av": tag_text(dim_text("av"), COMPILED["av"]),
             "num_answers": r.get("num_answers", ""),
             "is_answered": "true" if pd.notna(fa) else "false",
             "first_answer_hours": first_answer_hours,
@@ -174,6 +186,7 @@ def main():
     print(f"  mail_provider: {pct(nonblank('mail_provider'))}")
     print(f"  protocol:      {pct(nonblank('protocol'))}")
     print(f"  av:            {pct(nonblank('av'))}")
+    print(f"  feature:       {pct(nonblank('feature'))}  (title-only)")
     print(f"  is_answered:   {pct(feats['is_answered'] == 'true')}")
     fa = pd.to_numeric(feats["first_answer_hours"], errors="coerce").dropna()
     if len(fa):
@@ -190,7 +203,7 @@ def main():
         items = sorted(ctr.items(), key=lambda x: -x[1])[:k]
         return ", ".join(f"{t}={c}" for t, c in items) or "(none)"
 
-    for dim in ["os", "mail_provider", "protocol", "av", "macos_release"]:
+    for dim in ["os", "mail_provider", "protocol", "av", "feature", "macos_release"]:
         print(f"TOP {dim}: {top(dim)}")
     print("TOP tb_version_major:", top("tb_version_major"))
 

@@ -6,7 +6,7 @@ series per (dimension, value) at the chosen GRAIN (daily / weekly / monthly),
 compares each period to a trailing baseline, and flags spikes — each backed by
 clickable example questions (priority-1 requirement).
 
-Dimensions: total volume, os, tb_version_major, mail_provider, isp, protocol, av.
+Dimensions: total volume, os, tb_version_major, mail_provider, protocol, av, feature.
 Multi-tag questions count toward EACH of their values (confirmed decision).
 
 A (dimension, value, period) is flagged a SPIKE when, that period:
@@ -41,7 +41,7 @@ csv.field_size_limit(sys.maxsize)
 
 FEATURES_GLOB = "PROJECT1/*-{product}-features.csv"
 OUT = "PROJECT1/{product}-{grain}-single-spikes.csv"
-TAG_DIMS = ["os", "tb_version_major", "mail_provider", "protocol", "av"]
+TAG_DIMS = ["os", "tb_version_major", "mail_provider", "protocol", "av", "feature"]
 N_EXAMPLE_TITLES = 5  # title previews are capped for readability; IDs/URLs are not
 
 

@@ -264,7 +264,7 @@ def main():
         W(f"## 🚨 {label}: {incidents} spike"
           f"{'s' if incidents != 1 else ''} to investigate\n")
         W(f"**{n_joint} version×cause** (release regressions) and **{n_cause} "
-          f"cause-level** (provider / protocol / AV) spike(s) cleared threshold. "
+          f"cause-level** (provider / protocol / AV / feature) spike(s) cleared threshold. "
           f"Detail is collapsed below.\n")
     if partial:
         W(f"> ⏳ **{label} is still in progress** — counts will grow.\n")
@@ -274,7 +274,7 @@ def main():
     W("|:--|--:|--:|--:|")
     W("| **version×cause** (release regressions) | "
       + " | ".join(str(len(joint[g])) for g in DETECTOR_GRAINS) + " |")
-    W("| **cause-level** (provider · protocol · AV) | "
+    W("| **cause-level** (provider · protocol · AV · feature) | "
       + " | ".join(str(len(cause[g])) for g in DETECTOR_GRAINS) + " |")
     W("")
 
@@ -361,6 +361,7 @@ def main():
     def trends_body():
         for dim, heading in [("tb_version_major", "Top versions"),
                              ("mail_provider", "Top mail providers"),
+                             ("feature", "Top feature areas"),
                              ("protocol", "Top protocols"),
                              ("av", "Top antivirus"),
                              ("os", "OS mix (filter dimension)"),
@@ -435,7 +436,7 @@ def main():
     W(f"## All {label} detail\n")
 
     details("🚨 Version × cause spikes", joint_body, n_joint)
-    details("📮 Cause-level spikes (provider · protocol · AV)", cause_body, n_cause)
+    details("📮 Cause-level spikes (provider · protocol · AV · feature)", cause_body, n_cause)
     details("📦 Release-adoption version/OS spikes (not incidents)", verdim_body, nv)
     details(f"📈 {label} trends", trends_body, len(TREND_DIMS))
 

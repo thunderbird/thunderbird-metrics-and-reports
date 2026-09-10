@@ -7,7 +7,7 @@ Presentation layer over the feature tables and the spike detectors. Produces:
   2. PROJECT1/REPORTS/{product}/{grain}-spike-report.md — a Jekyll-ready blog
      post with TWO engineering signals, both with clickable IDs + sparklines:
        - version×cause spikes (ranked by lift — "is this a release regression?")
-       - cause-level spikes (provider/protocol/AV surging regardless of
+       - cause-level spikes (provider/protocol/AV/feature surging regardless of
          version — provider outages like GMX that span versions), plus volume /
          version / cause trends and a responsiveness summary.
 
@@ -76,7 +76,7 @@ UNIT = {"hourly": "hour", "daily": "day", "weekly": "week", "monthly": "month",
 # --window N (N periods); --window 0 = all.
 WINDOW_DEFAULTS = {"hourly": 168, "daily": 90, "weekly": 26, "monthly": 24,
                    "quarterly": 12, "yearly": None}
-CAUSE_DIMS = ["mail_provider", "protocol", "av"]  # OS is a filter, not a cause
+CAUSE_DIMS = ["mail_provider", "protocol", "av", "feature"]  # OS is a filter, not a cause
 TREND_DIMS = ["tb_version_major"] + CAUSE_DIMS + ["os", "macos_release"]
 
 
@@ -299,7 +299,7 @@ def main():
     # Engineering signal #2 — cause-level spikes (version-agnostic: provider/ISP
     # outages, protocol/AV surges — e.g. the March 2026 GMX provider outage, which
     # spans versions and so never shows up in the version×cause table above).
-    W("## 📮 Cause-level spikes — provider / protocol / AV\n")
+    W("## 📮 Cause-level spikes — provider / protocol / AV / feature\n")
     W(f"Causes surging **regardless of version** vs a trailing {UNIT[dgrain]} "
       f"baseline — provider/ISP outages and protocol/AV issues. Not necessarily a "
       f"Thunderbird bug, but worth a triage look. Ranked by magnitude.\n")
@@ -328,6 +328,7 @@ def main():
     W("## 📈 Trends\n")
     for dim, title in [("tb_version_major", "Top versions"),
                        ("mail_provider", "Top mail providers"),
+                       ("feature", "Top feature areas"),
                        ("protocol", "Top protocols"),
                        ("av", "Top antivirus"),
                        ("os", "OS mix (filter dimension)"),

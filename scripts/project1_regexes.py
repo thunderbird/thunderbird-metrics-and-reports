@@ -163,6 +163,82 @@ PROTOCOL_PATTERNS = [
 # (ISP_PATTERNS retired — issue #70: ISP-provided email folded into mail_provider
 # above; a separate isp cause dimension double-reported the same brand.)
 
+# --- FEATURE AREAS — NET-NEW cause dimension (issue #76). Which part of
+# Thunderbird the question is ABOUT: printing, calendar, address book, …
+#
+# WHY THIS IS A CAUSE: the other cause dims are all EXTERNAL (a mail host, a
+# protocol, an AV vendor). A release regression in a feature area is just as much
+# a root cause, and version×feature is the strongest actionable signal there is —
+# "v154 breaks printing" is one bug report. Without this dimension such a spike
+# has nowhere to cluster: in the August 2026 v154 blank-printing regression, 41 of
+# the 50 questions on 08-31 carried no cause tag at all and the cluster scattered
+# across providers, so no threshold at any grain could have caught it (#76).
+#
+# *** TITLE-ONLY (see TITLE_ONLY_DIMENSIONS below) — the load-bearing decision. ***
+# Every other dimension matches title+content. For feature areas, content
+# matching is unusable, measured on the corpus:
+#   1. "Please find the attached screenshot" — SUMO users routinely attach images
+#      to their questions, so matching content tags 237 questions feat:attachments
+#      where the title tags 82; the extra 155 are overwhelmingly incidental.
+#   2. Thunderbird's own **Troubleshooting Information** blob, which users paste
+#      wholesale, contains a literal "Printing / Modified print settings" section
+#      — so every paste false-matches feat:printing whatever the subject.
+#   3. Ambient vocabulary: "according to a search engine", "I have been searching
+#      daily for a solution", a profile listing that happens to contain
+#      "extensions".
+# A brand name in the body is EVIDENCE ("my gmail account won't connect"); a
+# feature word in the body is just vocabulary. The title is what the user says the
+# question is ABOUT. Title-only still gives ample signal (it is how the August
+# cluster was found) at 0.24–2.7% of the corpus per tag — the same order as the
+# provider tags.
+#
+# Multilingual on purpose: ~16% of the corpus is non-English and the printing
+# cluster alone showed up in English, Italian, Dutch, Czech, German, French,
+# Spanish and Portuguese.
+#
+# feat:folders was EVALUATED AND REJECTED: it matches 8.4% of ALL titles, and the
+# matches are usually incidental context ("emails ending up in the Junk folder"),
+# not the subject. Too generic to be a cause.
+FEATURE_AREA_PATTERNS = [
+    # (?<!finger) stops "fingerprint"; -out covers "printout".
+    ("feat:printing",
+     r"(?<!finger)\bprint(s|ed|ing|er|ers|out|outs)?\b|afdrukk|\bstampa(re|nte|te)?\b|"
+     r"\bstampe\b|printen|\bdruck(en|t|er)?\b|\bimprim(er|ir|ant|e)\b|vytisk|\btisk\b|"
+     r"impress[ãa]o"),
+    ("feat:calendar",
+     r"\bcalendar(s)?\b|calendario|\bkalender\b|calendrier|\bagenda\b|\blightning\b|"
+     r"\.ics\b|\bical\b"),
+    ("feat:addressbook",
+     r"address ?-?book|addressbook|\bcontacts\b|\bcontatti\b|\brubrica\b|adressbuch|"
+     r"adresboek|carnet d.adresses|libreta de direcciones|\bkontakte\b"),
+    ("feat:attachments",
+     r"attach(ment|ments|ed|ing)?\b|\ballegat(o|i)\b|\banlage\b|\banhang\b|bijlage|"
+     r"pi[èe]ce[s]? jointe|\badjunto\b|p[řr][íi]loha"),
+    ("feat:search",
+     r"\bsearch(ing|es)?\b|\bricerca\b|\bsuche\b|\bzoeken\b|\brecherche\b|\bbuscar\b"),
+    ("feat:filters",
+     r"\bfilter(s|ing|ed)?\b|\bfiltro(s)?\b|\bfiltri\b|\bfiltre(s)?\b|filteren"),
+    # \bimport\b deliberately does NOT match "important"/"importante" (\b guard).
+    ("feat:import_export",
+     r"\bimport(ing|ed|s)?\b|\bexport(ing|ed|s)?\b|\bbackup(s)?\b|"
+     r"\bmigrat(e|ion|ing)\b|\bimportare\b|\bexportar\b"),
+    ("feat:addons",
+     r"add-?on(s)?\b|\bextension(s)?\b|\bplugin(s)?\b|\bthem(e|es)\b|"
+     r"\bcomponente aggiuntivo\b"),
+    ("feat:encryption",
+     r"openpgp|\bpgp\b|s/?mime\b|\bgpg\b|encrypt(ed|ion)?\b|verschl[üu]ssel|"
+     r"crittograf|\bchiffr"),
+    ("feat:spellcheck",
+     r"spell ?-?check|spelling|dictionar(y|ies)|ortograf|spellingcontrole|"
+     r"w[öo]rterbuch"),
+    ("feat:notifications",
+     r"notification(s)?\b|notifica(zione|zioni)?\b|benachrichtigung|\bmelding(en)?\b"),
+    ("feat:junk",
+     r"\bjunk\b|\bspam\b|\bphishing\b|posta indesiderata|ongewenst"),
+    ("feat:signature",
+     r"signature(s)?\b|\bfirma\b|unterschrift|ondertekening"),
+]
+
 # --- macOS RELEASES — NET-NEW per-release dimension (refines the os:macos
 # FILTER; NOT a cause, so it does not feed the version×cause joint detector).
 # Names + version numbers from the Wikipedia "Timeline of releases" table
@@ -222,8 +298,16 @@ DIMENSIONS = {
     "mail_provider": PROVIDER_PATTERNS,
     "protocol": PROTOCOL_PATTERNS,
     "av": ANTIVIRUS_PATTERNS,
+    "feature": FEATURE_AREA_PATTERNS,
     "macos_release": MACOS_RELEASE_PATTERNS,
 }
+
+# Dimensions matched against the TITLE ALONE, not title+content. See the long
+# rationale on FEATURE_AREA_PATTERNS: feature words are ambient vocabulary in
+# question bodies (and Thunderbird's pasted Troubleshooting Information contains
+# a "Printing" section), so content matching produces mostly incidental hits.
+# Consumers (project1_extract_features.build_features) must honour this.
+TITLE_ONLY_DIMENSIONS = {"feature"}
 
 
 def normalize_os(native_value):

@@ -58,10 +58,11 @@ TITLE_MAX = 90  # link text only; the full title is one click away on SUMO
 
 # Cause dimensions (what the joint detector ranks) then the filter dimensions.
 # Same split as project1_report.py: OS and macos_release are FILTERS, not causes.
-CAUSE_DIMS = ["mail_provider", "protocol", "av"]
+CAUSE_DIMS = ["mail_provider", "protocol", "av", "feature"]
 FILTER_DIMS = ["os", "macos_release"]
 DIM_LABELS = {
     "mail_provider": "Mail provider",
+    "feature": "Feature area",
     "protocol": "Protocol",
     "av": "Antivirus",
     "os": "OS",

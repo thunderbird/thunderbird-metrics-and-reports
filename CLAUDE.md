@@ -149,7 +149,7 @@ the detector baselines half old-/half new-tagged).
 **Goal / the one decision it drives:** surface to Thunderbird *engineering*
 (audience priority #1) the support-question spikes worth investigating *right
 now*. A spike is actionable only when it is **cause-clustered** (mail provider /
-ISP / protocol / AV) **and version-correlated**, rises a real margin above
+protocol / AV / feature area) **and version-correlated**, rises a real margin above
 baseline, and links to **clickable example questions**. **Responsiveness**
 (answered-rate / first-answer-time) is the chosen amplifier, not the headline
 (#68); sentiment was evaluated and deferred (uniformly-negative + 16% non-English
@@ -170,7 +170,7 @@ cause.** No AI/LLM — regex dictionaries + traditional stats only.
    backfill; the two share code.
 2. `project1_spike_detect.py {product} [--grain daily|weekly|monthly]` →
    single-dimension spikes `PROJECT1/{product}-{grain}-single-spikes.csv` vs a
-   trailing-median baseline. The **cause dims** (provider/protocol/AV) feed
+   trailing-median baseline. The **cause dims** (provider/protocol/AV/feature) feed
    the report's cause-level signal; version/os spikes stay a manual-checking dump
    (bare version spikes ≈ release-adoption noise).
 3. `project1_joint_spike_detect.py {product} [--grain ...]` → **headline**
@@ -323,6 +323,33 @@ drag to zoom, ← → to step. Seven things to know:
   overlay are both load-bearing (see the comments in the file for what broke without
   them).
 
+**The `feature` cause dimension (`feat:` tags, #76 — added 2026-09-09)** covers
+WHICH PART of Thunderbird the question is about (13 tags: printing, calendar,
+addressbook, attachments, search, filters, import_export, addons, encryption,
+spellcheck, notifications, junk, signature; each multilingual). It exists because
+the **v154 blank-printing regression (Bugzilla 2065922, Aug–Sep 2026)** was
+structurally invisible: the other cause dims are all EXTERNAL (mail host /
+protocol / AV), so a feature-area regression had nowhere to cluster — 41 of the 50
+questions on 2026-08-31 carried no cause tag at all. No threshold could have
+caught it. With the dimension it fires on its ONSET DAY (2026-08-20, v154 ×
+feat:printing, 4 qs, 24.3× lift, `new`) and at 10.5× for the month. **`feature` is
+the ONLY dimension matched against the TITLE ALONE** — content matching is
+unusable for feature words, verified on the corpus: Thunderbird's own pasted
+Troubleshooting Information blob contains a literal "Printing / Modified print
+settings" section (so every paste false-matches), "please find the attached
+screenshot" inflates feat:attachments from 82 to 237, and "according to a search
+engine" inflates feat:search. A brand name in the body is *evidence*; a feature
+word in the body is *vocabulary*. `TITLE_ONLY_DIMENSIONS` in
+`project1_regexes.py` carries this and `build_features()`'s `dim_text()` honours
+it. `feat:folders` was evaluated and REJECTED (8.4% of ALL titles, usually
+incidental context). See
+`PROJECT1/validation/detector-backtest-printing-2026-08.md` — the back-test also
+reproduces the Bugzilla verdict from support data alone (printing rate 14.7% for
+v154 users vs 0.8% for post-fix v155 users vs 0.6% baseline — version-specific,
+not time-specific). NOTE the same incident also lights up `feat:attachments`
+("print **attachments**"): intended multi-tag behaviour, but read the two rows as
+one incident.
+
 `scripts/project1_regexes.py` holds the detection dictionaries — ported from
 `thunderbird/github-action-thunderbird-aaq/regexes.rb` (the `os:`/`av:`/`m:` tag
 convention), a net-new `proto:` dimension, an expanded `mail_provider` covering
@@ -339,8 +366,11 @@ anchored to a `mac os`/`os x` prefix (a bare `10.N` false-matches private IPs
 All spike CSVs carry a `question_ids` column (ALL ids) for manual checking; spike
 CSVs are keyed by a `period` column (day/Monday/`YYYY-MM`).
 
-**Locked decisions:** **email hosts (webmail AND ISP-provided) all live in the
-`mail_provider` cause dimension; the separate `isp:` dimension was RETIRED (#70)**
+**Locked decisions:** **`feature` (`feat:`) is a CAUSE dimension and is matched
+TITLE-ONLY** (#76 — a release regression in a feature area is a root cause, and
+version×feature is the most actionable signal there is; see the paragraph above
+for why content matching is unusable). **email hosts (webmail AND ISP-provided)
+all live in the `mail_provider` cause dimension; the separate `isp:` dimension was RETIRED (#70)**
 — many brands are both an ISP and a mail host, and two cause dimensions
 double-reported the same spike. AV expanded to ~32 vendors (was 14). multi-tag
 questions count toward each value; OS is a filter not a cause; sparklines are

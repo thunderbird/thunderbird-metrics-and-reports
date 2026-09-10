@@ -53,7 +53,10 @@ FEATURES_GLOB = "PROJECT1/*-{product}-features.csv"
 OUT = "PROJECT1/{product}-{grain}-version-cause-spikes.csv"
 # OS is a secondary FILTER, not a primary cause (decision 2026-06-28): a bare
 # v140 x os:linux joint is "Linux users ask varied things", not a root cause.
-CAUSE_DIMS = ["mail_provider", "protocol", "av"]
+# `feature` (feat:printing, feat:calendar…) joined the cause dims in #76: a
+# release regression in a feature area is a root cause too, and version×feature
+# is the single most actionable signal ("v154 breaks printing" = one bug).
+CAUSE_DIMS = ["mail_provider", "protocol", "av", "feature"]
 N_EXAMPLE_TITLES = 5
 
 
