@@ -24,6 +24,8 @@ incidents that a daily threshold misses surface at the monthly report.
 
 **Start here** — [Executive summary (last complete month)](PROJECT1/REPORTS/desktop/exec-summary-latest.html): was last month clean? A single verdict and a detector × grain count table, with all the month's detail collapsed underneath. Regenerated daily, because a closed month's verdict keeps moving as later questions shift the baselines. (Bookmark this.)
 
+Also in plain English: [Aug 2026 exec summary, plain English](PROJECT1/REPORTS/desktop/2026-08-exec-summary-simple-english.html) — the same August page rewritten for a reader outside the team (same numbers, jargon in a collapsed glossary). Compare it with the [generated Aug 2026 page](PROJECT1/REPORTS/desktop/2026-08-exec-summary.html); the choice between the two styles is tracked in [#81](https://github.com/thunderbird/thunderbird-metrics-and-reports/issues/81).
+
 **For engineering management** — [Monthly summary (current vs previous month)](PROJECT1/REPORTS/desktop/monthly-summary-latest.html): incidents to investigate, moving cause clusters, and release adoption, month over month. (Bookmark this — it always points to the latest complete comparison.)
 
 **To explore any bump, not just the ones that fired** — [Interactive spike explorer](PROJECT1/REPORTS/desktop/explorer.html): pick a grain, version and cause, then **click any point on the chart** to read that period's questions. The spike reports below can only link the questions of the periods that cleared a threshold; their sparklines are static text. Each spike row links straight to its own bucket here.
