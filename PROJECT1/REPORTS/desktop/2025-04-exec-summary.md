@@ -5,7 +5,7 @@ title: "2025-04 exec summary: Thunderbird Desktop support spikes"
 
 # April 2025: Thunderbird Desktop support spikes
 
-Executive summary for 2025-04. It covers 1173 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:10 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2025-04. It covers 1173 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:26 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -48,7 +48,9 @@ Every spike row, with its example questions, is in [All April 2025 detail](#all-
 
 ## What stands out
 
-Counted without the version, `feat:printing` stands out most. It reached 12 questions in the week of 2025-04-07, 6.0 times its baseline of 2.0.
+Printing (`feat:printing`): 3 cause-level spikes. It fired hardest in the week of 2025-04-07, with 12 questions at 6.0 times its baseline of 2.0. For the month it reached 24 questions, 3.0 times its baseline of 8.0.
+
+OAUTH (`proto:oauth`): 1 cause-level spike. It fired hardest in the week of 2025-04-28, with 9 questions at 3.0 times its baseline of 3.0. Across April 2025 it appears in 19 questions, which did not clear the monthly threshold.
 
 ## Two limits of these dates
 

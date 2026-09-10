@@ -5,7 +5,7 @@ title: "2026-07 exec summary: Thunderbird Desktop support spikes"
 
 # July 2026: Thunderbird Desktop support spikes
 
-Executive summary for 2026-07. It covers 731 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:09 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-07. It covers 731 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:26 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -46,7 +46,13 @@ Every spike row, with its example questions, is in [All July 2026 detail](#all-j
 
 ## What stands out
 
-The pair `v140 × feat:search` fired 2 times. It fired hardest in the week of 2026-07-06, with 5 questions at 12.5 times the expected count.
+Search (`feat:search`): 2 version×cause spikes. It fired hardest in the week of 2026-07-06, with 5 questions about Thunderbird 140 at 12.5 times the expected count. Across July 2026 it appears in 10 questions, which did not clear the monthly threshold.
+
+Attachments (`feat:attachments`): 2 version×cause spikes. It fired hardest in the week of 2026-07-06, with 6 questions about Thunderbird 152 at 3.9 times the expected count. Across July 2026 it appears in 16 questions, which did not clear the monthly threshold.
+
+Junk mail (`feat:junk`): 1 version×cause spike. It fired hardest in the week of 2026-06-29, with 4 questions about Thunderbird 140 at 3.2 times the expected count. Across July 2026 it appears in 13 questions, which did not clear the monthly threshold.
+
+Comcast (`m:comcast`): 1 version×cause spike. It fired hardest in the week of 2026-07-27, with 4 questions about Thunderbird 153 at 3.1 times the expected count. Across July 2026 it appears in 13 questions, which did not clear the monthly threshold.
 
 ## Two limits of these dates
 

@@ -58,6 +58,35 @@ REPORT_DIR = "PROJECT1/REPORTS/{product}"
 # Every term of art the page uses, defined once, collapsed. A table rather than a
 # bold-led list: the house style keeps bold out of the prose, and a Term/Meaning
 # table reads the same in the browser and in the raw markdown.
+# Plain-English name for a cause tag, so the summary reads "Spectrum" rather than
+# "m:spectrum". The tag itself is always printed next to it, so an entry missing
+# here degrades to a capitalised tag, never to a wrong name.
+CAUSE_NAMES = {
+    "m:microsoftemail": "Microsoft mail", "m:yahooemail": "Yahoo Mail",
+    "m:gmail": "Gmail", "m:icloud": "iCloud", "m:gmx": "GMX", "m:aol": "AOL",
+    "m:att": "AT&T", "m:sbcglobal": "SBCGlobal", "m:bellsouth": "BellSouth",
+    "m:btinternet": "BT Internet", "m:earthlink": "EarthLink",
+    "m:optonline": "Optimum Online", "m:virginmedia": "Virgin Media",
+    "m:talktalk": "TalkTalk", "m:mailcom": "Mail.com", "m:web_de": "Web.de",
+    "m:t_online": "T-Online", "m:free_fr": "Free.fr",
+    "m:mailbox_org": "Mailbox.org", "m:1and1": "1&1",
+    "feat:import_export": "Import and export", "feat:addressbook": "Address book",
+    "feat:spellcheck": "Spell check", "feat:junk": "Junk mail",
+    "feat:addons": "Add-ons",
+}
+CAUSE_PREFIX_STYLE = {"proto": str.upper, "av": str.capitalize,
+                      "m": str.capitalize, "feat": str.capitalize}
+
+
+def cause_name(tag):
+    """`m:spectrum` -> 'Spectrum', `proto:pop` -> 'POP'."""
+    if tag in CAUSE_NAMES:
+        return CAUSE_NAMES[tag]
+    prefix, _, rest = tag.partition(":")
+    rest = rest.replace("_", " ")
+    return CAUSE_PREFIX_STYLE.get(prefix, str.capitalize)(rest) if rest else tag
+
+
 GLOSSARY = """<details markdown="1">
 <summary>Glossary</summary>
 
@@ -466,35 +495,106 @@ def main():
 
     jall, sall = _concat(joint), _concat(cause)
     if incidents:
+        # One paragraph per distinct CAUSE, ranked by its strongest rise, so a
+        # cluster that fires at several grains (or on several versions) is one
+        # story and not eight table rows. Five at most: in a busy month the
+        # sixth onward stop being a summary.
+        MAX_CLUSTERS = 5
+        if not jall.empty:
+            jall["_r"] = pd.to_numeric(jall["lift"], errors="coerce")
+            jall["_cause"] = jall["cause_value"].astype(str)
+        if not sall.empty:
+            sall["_r"] = pd.to_numeric(sall["magnitude"].replace("new", 1e9),
+                                       errors="coerce")
+            sall["_cause"] = sall["value"].astype(str)
+
+        def strongest(tag):
+            """Biggest rise for `tag`, joint or cause-level. A cause that fires
+            in only one of the two detectors gives NaN for the other, and
+            max([nan, 3.5]) is nan, which used to scramble the ranking."""
+            vals = []
+            for frame in (jall, sall):
+                if frame.empty:
+                    continue
+                v = frame.loc[frame["_cause"] == tag, "_r"].max()
+                if pd.notna(v):
+                    vals.append(float(v))
+            return max(vals) if vals else 0.0
+
+        tags = sorted(
+            set(jall["_cause"] if not jall.empty else [])
+            | set(sall["_cause"] if not sall.empty else []),
+            key=lambda t: (-strongest(t), t))
+
+        def peak_sentence(tag):
+            """The single hardest period for `tag`, joint or cause-level.
+
+            -> (sentence, used_the_monthly_cause_row). The flag stops the month
+            sentence from repeating a peak that IS the monthly row."""
+            jr = jall[jall["_cause"] == tag] if not jall.empty else pd.DataFrame()
+            sr = sall[sall["_cause"] == tag] if not sall.empty else pd.DataFrame()
+            jbest = jr.loc[jr["_r"].idxmax()] if not jr.empty else None
+            sbest = sr.loc[sr["_r"].idxmax()] if not sr.empty else None
+            use_joint = sbest is None or (
+                jbest is not None and jbest["_r"] >= sbest["_r"])
+            r = jbest if use_joint else sbest
+            wh = when(r["_g"], r["period"])
+            if use_joint:
+                return (f"It fired hardest {wh}, with {r['observed']} questions "
+                        f"about Thunderbird {r['version_major']} at "
+                        f"{r['lift']} times the expected count."), False
+            monthly_peak = r["_g"] == "monthly"
+            if r["magnitude"] == "new":
+                return (f"It fired hardest {wh}, with {r['count']} questions "
+                        f"where earlier periods had none."), monthly_peak
+            return (f"It fired hardest {wh}, with {r['count']} questions at "
+                    f"{float(r['magnitude']):.1f} times its baseline of "
+                    f"{r['baseline_median']}."), monthly_peak
+
+        def month_sentence(tag):
+            """The monthly cause-level row if there is one, else the raw count."""
+            monthly = cause["monthly"]
+            row = monthly[monthly["value"] == tag] if not monthly.empty \
+                else pd.DataFrame()
+            if not row.empty:
+                r = row.iloc[0]
+                if r["magnitude"] == "new":
+                    return (f"For the month it reached {r['count']} questions, "
+                            f"where earlier months had none.")
+                return (f"For the month it reached {r['count']} questions, "
+                        f"{float(r['magnitude']):.1f} times its baseline of "
+                        f"{r['baseline_median']}.")
+            dim = next((d for d in CAUSE_DIMS
+                        if df[d].str.contains(tag, regex=False).any()), None)
+            if dim is None:
+                return ""
+            hits = df[dim].apply(lambda c: tag in (c.split(";") if c else "")).sum()
+            return (f"Across {label} it appears in {hits} question"
+                    f"{'s' if hits != 1 else ''}, which did not clear the "
+                    f"monthly threshold.")
+
         W("## What stands out")
         W("")
-        if not jall.empty:
-            jall["_l"] = pd.to_numeric(jall["lift"], errors="coerce")
-            jall["_pair"] = ("v" + jall["version_major"].astype(str) + " × "
-                             + jall["cause_value"].astype(str))
-            pair = jall["_pair"].value_counts().index[0]
-            rows = jall[jall["_pair"] == pair]
-            top, k = rows.loc[rows["_l"].idxmax()], len(rows)
-            W(f"The pair `{pair}` fired {k} time{'s' if k != 1 else ''}. It "
-              f"fired hardest {when(top['_g'], top['period'])}, with "
-              f"{top['observed']} questions at {top['lift']} times the expected "
-              f"count.")
+        for tag in tags[:MAX_CLUSTERS]:
+            nj = int((jall["_cause"] == tag).sum()) if not jall.empty else 0
+            ns = int((sall["_cause"] == tag).sum()) if not sall.empty else 0
+            counts = []
+            if nj:
+                counts.append(f"{nj} version×cause spike{'s' if nj != 1 else ''}")
+            if ns:
+                counts.append(f"{ns} cause-level spike{'s' if ns != 1 else ''}")
+            peak, is_monthly_peak = peak_sentence(tag)
+            tail = "" if is_monthly_peak else " " + month_sentence(tag)
+            W(f"{cause_name(tag)} (`{tag}`): " + " and ".join(counts) + ". "
+              + peak + tail.rstrip())
             W("")
-        if not sall.empty:
-            sall["_m"] = pd.to_numeric(sall["magnitude"].replace("new", 1e9),
-                                       errors="coerce")
-            val = sall["value"].value_counts().index[0]
-            rows = sall[sall["value"] == val]
-            top = rows.loc[rows["_m"].idxmax()]
-            if top["magnitude"] == "new":
-                tail = "and the tool had seen none in an earlier period"
-            else:
-                tail = (f"{float(top['magnitude']):.1f} times its baseline of "
-                        f"{top['baseline_median']}")
-            W(f"Counted without the version, `{val}` stands out most. It reached "
-              f"{top['count']} questions {when(top['_g'], top['period'])}, "
-              f"{tail}.")
+        if len(tags) > MAX_CLUSTERS:
+            rest = ", ".join(f"`{t}`" for t in tags[MAX_CLUSTERS:])
+            k = len(tags) - MAX_CLUSTERS
+            W(f"{k} more cluster{'s' if k != 1 else ''} fired: {rest}. "
+              f"{'They are' if k != 1 else 'It is'} in the detail below.")
             W("")
+
         bad = []
         for frame, name in ((jall, lambda r: f"`v{r['version_major']} × {r['cause_value']}`"),
                             (sall, lambda r: f"`{r['value']}`")):

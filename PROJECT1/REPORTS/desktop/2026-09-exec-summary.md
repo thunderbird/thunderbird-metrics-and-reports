@@ -5,7 +5,7 @@ title: "2026-09 exec summary: Thunderbird Desktop support spikes"
 
 # September 2026: Thunderbird Desktop support spikes
 
-Executive summary for 2026-09. It covers 327 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:12 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-09. It covers 327 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-10 04:26 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -48,9 +48,15 @@ Every spike row, with its example questions, is in [All September 2026 detail](#
 
 ## What stands out
 
-The pair `v154 × feat:printing` fired 3 times. It fired hardest on 2026-09-01, with 4 questions at 17.2 times the expected count.
+Printing (`feat:printing`): 3 version×cause spikes and 1 cause-level spike. It fired hardest on 2026-09-01, with 4 questions about Thunderbird 154 at 17.2 times the expected count. Across September 2026 it appears in 8 questions, which did not clear the monthly threshold.
 
-Counted without the version, `feat:printing` stands out most. It reached 13 questions in the week of 2026-08-31, 8.7 times its baseline of 1.5.
+POP (`proto:pop`): 1 version×cause spike. It fired hardest on 2026-09-07, with 4 questions about Thunderbird 155 at 4.1 times the expected count. Across September 2026 it appears in 15 questions, which did not clear the monthly threshold.
+
+Filters (`feat:filters`): 1 version×cause spike. It fired hardest in the week of 2026-09-07, with 4 questions about Thunderbird 155 at 4.0 times the expected count. Across September 2026 it appears in 11 questions, which did not clear the monthly threshold.
+
+Attachments (`feat:attachments`): 1 version×cause spike and 1 cause-level spike. It fired hardest in the week of 2026-08-31, with 5 questions about Thunderbird 154 at 3.8 times the expected count. Across September 2026 it appears in 14 questions, which did not clear the monthly threshold.
+
+Spectrum (`m:spectrum`): 1 cause-level spike. It fired hardest in the week of 2026-08-31, with 9 questions at 3.6 times its baseline of 2.5. Across September 2026 it appears in 10 questions, which did not clear the monthly threshold.
 
 In 1 cluster, fewer than 60% of the questions got an answer: `v155 × feat:filters` in the week of 2026-09-07 (50% answered).
 
