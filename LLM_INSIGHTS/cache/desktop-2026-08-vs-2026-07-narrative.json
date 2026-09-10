@@ -1,0 +1,66 @@
+{
+ "headline": "Printing and attachment regressions in 153.x and 154 drove support volume up 29 percent, and users get the least help on them",
+ "narrative_md": "Support questions rose from 731 in July to 940 in August, a 29 percent jump. No brand new problem clusters appeared. The growth came from existing clusters getting much worse after the 153.x and 154 releases. The attachments category more than tripled, from 17 to 55 questions. Performance and crash reports went from 29 to 69.\n\nThe sharpest new pain is rank 1. PDF and email attachments print as blank pages after the 154 update. This went from 1 question to 38 in one month. Only 37 percent of those users got a resolution, and 21 percent got no reply at all. Rank 11, broken drag and drop of messages to the file system in 153.x, points at the same area. Both suggest a change in how Thunderbird hands file data to the operating system.\n\nThe worst-served users are in rank 7, slow mail download. Only 29 percent reach a resolution and 35 percent get no answer. Rank 9, Gmail OAuth2 sign-in failure, leaves 48 percent of askers with no reply. OAuth2 is the token-based login Google requires instead of a password. Helpers appear to lack a working diagnosis for both.\n\nThe highest-severity clusters remain connection failures. Ranks 3, 4, 5 and 6 all average above 4 out of 5 on severity, meaning users cannot send or receive mail. Rank 4, where mail retrieval stops silently until a restart, leaves 32 percent unanswered. This is an LLM-derived signal over free-text support text. Treat it as a triage pointer, not proof.",
+ "issues": [
+  {
+   "rank": 1,
+   "why": "Attachment printing went from 1 question to 38 after the 154 release, and under four in ten users got a fix.",
+   "action": "Engineering must diff the 154 print and attachment rendering path, and confirm whether the blank output depends on the operating system print driver."
+  },
+  {
+   "rank": 2,
+   "why": "Startup hangs doubled to 36 questions and carry a 4.2 mean severity, which means the application is unusable for those users.",
+   "action": "Engineering must collect startup profiles and check profile size, folder database rebuild, and add-on load order as triggers."
+  },
+  {
+   "rank": 3,
+   "why": "Total loss of server connection more than doubled to 31 questions at the highest severity in the set, 4.5.",
+   "action": "Engineering must check whether recent TLS, proxy, or connection-timeout changes shipped in 153.x and 154 explain the increase."
+  },
+  {
+   "rank": 4,
+   "why": "Mail retrieval that stops silently until restart hits 38 users and leaves 32 percent with no reply, so the failure is hard to diagnose.",
+   "action": "Engineering must add visible logging or a stalled-poll indicator to the IMAP and POP polling loop so helpers can identify the stall."
+  },
+  {
+   "rank": 5,
+   "why": "Login failures with correct credentials rose to 29 questions and only half get resolved, which points at a client-side authentication bug.",
+   "action": "Engineering must review the authentication method negotiation and stored credential handling for accounts that use plain IMAP and POP login."
+  },
+  {
+   "rank": 6,
+   "why": "SMTP send failures stay high at 36 questions and 4.4 severity, but 75 percent of users get a fix, so the playbook works.",
+   "action": "Engineering must keep the existing guidance and check only whether the growth from 30 to 36 tracks a specific provider change."
+  },
+  {
+   "rank": 7,
+   "why": "Slow mail download is the worst-served cluster, with 29 percent resolved and 35 percent unanswered across 17 questions.",
+   "action": "Engineering must define a reproducible slow-download test and publish a diagnosis path, because helpers currently have no answer."
+  },
+  {
+   "rank": 8,
+   "why": "The missing Send button in the compose window hit 26 users, but 88 percent got a resolution and only 4 percent went unanswered.",
+   "action": "Engineering must ship the fix for bug 1989214 and then let this cluster close on its own."
+  },
+  {
+   "rank": 9,
+   "why": "Nearly half of the 25 Gmail OAuth2 questions get no reply at all, which is the highest silence rate in the set.",
+   "action": "Engineering must reproduce the HTTP 400 and blank popup cases and check the localhost redirect handler against current Google policy."
+  },
+  {
+   "rank": 10,
+   "why": "Rejected or lost stored passwords reached 30 questions, and 63 percent get resolved, so the pain is real but manageable.",
+   "action": "Engineering must check whether the password store is losing entries on upgrade, which would link this to ranks 5 and 9."
+  },
+  {
+   "rank": 11,
+   "why": "Drag and drop of messages to the file system broke in 153.x, moving from 1 question to 16.",
+   "action": "Engineering must test the file drop path together with rank 1, since both involve exporting message data out of the application."
+  },
+  {
+   "rank": 12,
+   "why": "Blank message bodies with headers only tripled to 15 questions at 4.1 severity, and a third of askers got no reply.",
+   "action": "Engineering must check message body fetch and local cache invalidation for accounts set to download headers first."
+  }
+ ]
+}

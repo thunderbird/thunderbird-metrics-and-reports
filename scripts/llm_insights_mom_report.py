@@ -8,6 +8,10 @@ Division of labour (see BUCKET2 key finding — discovered themes are ~all-uniqu
 so they don't group by string match):
   - Python does ALL the counting (exact per-cluster MoM deltas, severity, value
     signals) — LLMs can't count 1,500 rows reliably.
+  - The page is written in PLAIN ENGLISH (the simple-english house style), which
+    is now the only style (#83, mirroring #81 for the Project 1 exec summary).
+    Both LLM calls are CACHED on disk under LLM_INSIGHTS/cache/, so changing the
+    page layout costs nothing; --refresh pays for them again.
   - The LLM does the two things only it can: (1) SEMANTIC CLUSTERING of the free-
     text themes into named engineering issues, and (2) the NARRATIVE + per-issue
     "why / what to look at" prose.
@@ -17,10 +21,12 @@ so they don't group by string match):
 Cost is estimated + gated ($50) before each LLM call; actual printed after.
 
 Usage:
-  uv run scripts/llm_insights_mom_report.py 2026-06 2026-05 --latest
+  uv run scripts/llm_insights_mom_report.py 2026-08 2026-07 --latest
+  uv run scripts/llm_insights_mom_report.py 2026-08 2026-07 --latest --refresh
 """
 import sys
 import os
+import re
 import json
 import argparse
 from datetime import datetime, timezone
@@ -38,6 +44,43 @@ REPORT_DIR = "LLM_INSIGHTS/REPORTS/{product}"
 QUESTION_URL = "https://support.mozilla.org/questions/{id}"
 TOP_N = 12          # ranked issues to feature
 MIN_CLUSTER = 3     # a featured cluster needs >= this many current-month questions
+
+
+# Both Stage-2 calls are cached on disk, keyed by month pair and product. The
+# LLM output does not change when only the PAGE LAYOUT changes, and iterating on
+# layout used to cost $0.64 a render. Pass --refresh to pay for them again.
+CACHE = "LLM_INSIGHTS/cache/{product}-{cur}-vs-{prev}-{what}.json"
+# Facts the corpus cannot know: a shipped fix, a provider's own resolution, a
+# duplicate of a Bugzilla bug. One row per fact, matched case-insensitively
+# against the cluster label. Hand-maintained, deliberately tiny.
+KNOWN_STATUS = "LLM_INSIGHTS/known-status.csv"
+
+
+def load_known_status():
+    if not os.path.exists(KNOWN_STATUS):
+        return []
+    df = pd.read_csv(KNOWN_STATUS, dtype=str, keep_default_na=False)
+    return [(re.compile(r["pattern"]), r["status"]) for _, r in df.iterrows()]
+
+
+def status_for(label, known):
+    for pattern, text in known:
+        if pattern.search(label or ""):
+            return text
+    return ""
+
+
+def cached(path, refresh, produce):
+    """Return the cached JSON at `path`, or produce it and write it there."""
+    if not refresh and os.path.exists(path):
+        print(f"   [cache] reusing {path} (no LLM call; --refresh to redo)")
+        with open(path) as f:
+            return json.load(f)
+    value = produce()
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as f:
+        json.dump(value, f, ensure_ascii=False, indent=1)
+    return value
 
 
 def human_month(m):
@@ -207,8 +250,9 @@ pad. This is an LLM-derived signal over free-text support questions — a triage
 pointer, not proof."""
 
 # The house style used by the Project 1 pages (simple-english, in the spirit of
-# ASD-STE100). Appended to the system prompt for --style plain so the LLM prose
-# matches the scaffolding around it; the numbers and the ranking are identical.
+# ASD-STE100). Always appended to the system prompt, so the LLM prose matches the
+# scaffolding around it. Plain English is the only style as of 2026-09-10 (#83);
+# the original format is in git history.
 PLAIN_SYS = """
 
 WRITE IN PLAIN ENGLISH. Rules, all of them:
@@ -258,8 +302,7 @@ NARR_SCHEMA = {
 }
 
 
-def narrate(client, cur_m, prev_m, top, cat_mom, headline_stats, usage,
-            style="original"):
+def narrate(client, cur_m, prev_m, top, cat_mom, headline_stats, usage):
     payload = {
         "current_month": human_month(cur_m),
         "previous_month": human_month(prev_m),
@@ -279,8 +322,7 @@ def narrate(client, cur_m, prev_m, top, cat_mom, headline_stats, usage,
             "ranked issue a 1-sentence `why` it matters and a 1-sentence `action` "
             "(what engineering should look at). Reference issues by their rank.\n\n"
             + json.dumps(payload, ensure_ascii=False))
-    system = [{"type": "text",
-                "text": NARR_SYS + (PLAIN_SYS if style == "plain" else "")}]
+    system = [{"type": "text", "text": NARR_SYS + PLAIN_SYS}]
 
     ct = client.messages.count_tokens(model=MODEL, system=system,
                                       messages=[{"role": "user", "content": user}])
@@ -308,7 +350,7 @@ def links(ids, titles):
 
 
 def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
-           product="desktop", style="original"):
+           product="desktop"):
     issue_prose = {x["rank"]: x for x in narr.get("issues", [])}
     pcap = product.capitalize()
     out, W = [], lambda s: out.append(s)
@@ -317,10 +359,30 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
     W(f"title: {pcap} LLM Insights — {human_month(cur_m)}")
     W("---")
     W("")
-    plain = style == "plain"
+    known = load_known_status()
     W(f"# Thunderbird {pcap} — LLM Insights (Engineering)")
-    if plain:
-        W(f"\n## {human_month(cur_m)} against {human_month(prev_m)}\n")
+    W(f"\n## {human_month(cur_m)} against {human_month(prev_m)}\n")
+
+    # ---- TL;DR: the top five, first thing on the page ----------------------
+    tldr = list(top.iterrows())[:5]
+    if tldr:
+        W("## TL;DR: the five issues to look at first {#tldr}\n")
+        W(f"| # | Issue | {human_month(prev_m)} | {human_month(cur_m)} | "
+          f"Severity | Resolved | Known status |")
+        W("|--:|:--|--:|--:|--:|--:|:--|")
+        for i, (_, r) in enumerate(tldr, 1):
+            low = " (below 50%)" if r["served_pct"] < 50 else ""
+            new = ", new this month" if r["is_new"] else ""
+            W(f"| [{i}](#issue-{i}) | [{md_safe(r['label'])}](#issue-{i}){new} | "
+              f"{r['prev']} | {r['cur']} | {r['mean_sev']} | "
+              f"{r['served_pct']}%{low} | {status_for(r['label'], known) or '—'} |")
+        W("")
+        W("Each number links to the same issue in "
+          "[Issues to investigate](#issues-to-investigate) below, which carries "
+          "the reason, what to look at, and the example questions.")
+        W("")
+
+    if True:
         W("Claude read every support question of both months. For each question "
           "it named the concrete problem, guessed a root cause and rated how much "
           "the problem hurts the user. It also read the answers: the follow-ups "
@@ -332,14 +394,7 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
           "not as proof.")
         W("")
         W(PLAIN_GLOSSARY)
-    else:
-        W(f"\n## {human_month(cur_m)} vs {human_month(prev_m)}\n")
-        W("_The **AI counterpart to Project 1**: Claude reads every support question "
-          "(plus the creator's own follow-ups, the accepted solution, and trusted-"
-          "contributor replies), names the concrete problem, hypothesises a root cause, "
-          "and rates severity — surfacing emerging / worst-served pain that regex + "
-          "stats can't. Counts are exact (computed in Python); clustering and prose are "
-          "LLM-derived. A triage pointer, not proof._\n")
+
 
     W("## Headline\n")
     W(f"| | {human_month(prev_m)} | {human_month(cur_m)} | Change |")
@@ -350,29 +405,19 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
     W(f"| New issue clusters this month | — | {int(top['is_new'].sum()) if len(top) else 0} | |")
     W("")
     if narr.get("headline"):
-        W((narr["headline"] if plain else f"**{narr['headline']}**") + "\n")
+        W(narr["headline"] + "\n")
     if narr.get("narrative_md"):
         W(narr["narrative_md"] + "\n")
 
-    if plain:
-        W("## Issues to investigate\n")
-        W("The order comes from a Python score. It weights new clusters, badly "
-          "served clusters, severity and volume, in that order. Resolved means "
-          "the question has an accepted solution, or a trusted contributor gave "
-          "the last answer. A resolved figure under 50% is marked.\n")
-    else:
-        W("## 🚨 Issues to investigate\n")
-        W("_Ranked by a transparent score weighting new/emerging + worst-served "
-          "(low resolved %) + severity + volume. **Resolved %** = solved or a trusted "
-          "contributor gave the last word; ⚠️ marks poorly-served clusters._\n")
+    W("## Issues to investigate {#issues-to-investigate}\n")
+    W("The order comes from a Python score. It weights new clusters, badly "
+      "served clusters, severity and volume, in that order. Resolved means "
+      "the question has an accepted solution, or a trusted contributor gave "
+      "the last answer. A resolved figure under 50% is marked.\n")
     for i, (_, r) in enumerate(top.iterrows(), 1):
-        if plain:
-            flag = " (below 50%)" if r["served_pct"] < 50 else ""
-            new = ", new this month" if r["is_new"] else ""
-        else:
-            flag = " ⚠️" if r["served_pct"] < 50 else ""
-            new = " · 🆕 new this month" if r["is_new"] else ""
-        W(f"### {i}. {r['label']}{new}\n")
+        flag = " (below 50%)" if r["served_pct"] < 50 else ""
+        new = ", new this month" if r["is_new"] else ""
+        W(f"### {i}. {r['label']}{new} {{#issue-{i}}}\n")
         W(f"| Cluster | {human_month(prev_m)} | {human_month(cur_m)} | Change | "
           f"Sev (≥4) | Resolved | Unanswered |")
         W("|:--|--:|--:|:--|:--|:--|--:|")
@@ -381,20 +426,16 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
           f"{r['served_pct']}%{flag} | {r['unanswered_pct']}% |")
         W("")
         p = issue_prose.get(i)
-        if plain:
-            if p:
-                W(f"- Why it matters: {p['why']}")
-                W(f"- What to look at: {p['action']}")
-            W(f"- Example questions: {links(r['examples'], titles)}")
-        else:
-            if p:
-                W(f"- **Why:** {p['why']}")
-                W(f"- **Look at:** {p['action']}")
-            W(f"- **Examples:** {links(r['examples'], titles)}")
+        st = status_for(r["label"], known)
+        if st:
+            W(f"- Known status: {st}")
+        if p:
+            W(f"- Why it matters: {p['why']}")
+            W(f"- What to look at: {p['action']}")
+        W(f"- Example questions: {links(r['examples'], titles)}")
         W("")
 
-    W("## Category mix, month over month\n" if plain
-      else "## Category mix — month over month\n")
+    W("## Category mix, month over month\n")
     W(f"| Category | {human_month(prev_m)} | {human_month(cur_m)} | Change |")
     W("|:--|--:|--:|:--|")
     for c in cat_mom_rows:
@@ -402,17 +443,12 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
     W("")
 
     W("---")
-    if plain:
-        W(f"\nThis is a prototype. Claude {MODEL} wrote the labels for each "
-          f"question, and this run of the report cost ${cost:.2f}. The page "
-          f"covers {human_month(cur_m)} against {human_month(prev_m)}. The same "
-          f"month is also published in the original format, for comparison.")
-        W(f"\nLast updated: {datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}")
-    else:
-        W(f"\n_Prototype LLM-insights report · Claude {MODEL} over Stage-1 per-question "
-          f"labels · {human_month(cur_m)} vs {human_month(prev_m)} · this run cost "
-          f"${cost:.2f}._")
-        W(f"\n_Last updated: {datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}_")
+    W(f"\nThis is a prototype. Claude {MODEL} wrote the labels for each "
+      f"question, and this run of the report cost ${cost:.2f}. The page covers "
+      f"{human_month(cur_m)} against {human_month(prev_m)}. Facts the corpus "
+      f"cannot know, such as a shipped fix, come from "
+      f"`{KNOWN_STATUS}` and appear as Known status.")
+    W(f"\nLast updated: {datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}")
     return "\n".join(out) + "\n"
 
 
@@ -437,13 +473,9 @@ def main():
     ap.add_argument("product", nargs="?", default="desktop",
                     choices=["desktop", "android"])
     ap.add_argument("--latest", action="store_true")
-    ap.add_argument("--style", default="original",
-                    choices=["original", "plain", "both"],
-                    help="page style: the original format, plain English (the "
-                         "simple-english house style), or both from ONE run. "
-                         "'both' reuses the same clustering and the same "
-                         "ranking, and narrates twice, so the two pages differ "
-                         "only in wording.")
+    ap.add_argument("--refresh", action="store_true",
+                    help="ignore the cached clustering and narrative for this "
+                         "month pair and pay for both LLM calls again")
     args = ap.parse_args()
 
     if not os.getenv("ANTHROPIC_API_KEY"):
@@ -458,7 +490,11 @@ def main():
     all_df = pd.concat([prev, cur], ignore_index=True)
     usage = {"in": 0, "out": 0, "cr": 0, "cw": 0}
 
-    theme_to_label = cluster_themes(client, all_df, usage)
+    ckey = dict(product=args.product, cur=args.current, prev=args.previous)
+    cluster_path = CACHE.format(what="clusters", **ckey)
+    narr_path = CACHE.format(what="narrative", **ckey)
+    theme_to_label = cached(cluster_path, args.refresh,
+                            lambda: cluster_themes(client, all_df, usage))
     top = cluster_stats(cur, prev, theme_to_label, titles)
     top.attrs["n_clusters"] = int(cur["discovered_theme"].map(theme_to_label).nunique())
     top.attrs["n_clusters_prev"] = int(prev["discovered_theme"].map(theme_to_label).nunique())
@@ -474,9 +510,9 @@ def main():
     headline_stats = {"questions_prev": len(prev), "questions_cur": len(cur),
                       "new_clusters": int(featured["is_new"].sum())}
 
-    styles = ["original", "plain"] if args.style == "both" else [args.style]
-    narrs = {st: narrate(client, args.current, args.previous, featured, cat_mom,
-                         headline_stats, usage, style=st) for st in styles}
+    narr = cached(narr_path, args.refresh,
+                  lambda: narrate(client, args.current, args.previous, featured,
+                                  cat_mom, headline_stats, usage))
 
     cost = actual_cost(usage)
     print(f"\n💵 ACTUAL Stage-2 cost: ${cost:.4f}  "
@@ -484,21 +520,15 @@ def main():
 
     rdir = REPORT_DIR.format(product=args.product)
     os.makedirs(rdir, exist_ok=True)
-    for st in styles:
-        # the two styles differ only in wording, so they share the clustering,
-        # the ranking and the cost line above
-        suffix = "-plain-english" if st == "plain" else ""
-        content = render(args.current, args.previous, cur, prev, featured,
-                         cat_mom, narrs[st], titles, cost, args.product, st)
-        path = f"{rdir}/monthly-summary-{args.current}-vs-{args.previous}{suffix}.md"
+    content = render(args.current, args.previous, cur, prev, featured,
+                     cat_mom, narr, titles, cost, args.product)
+    paths = [f"{rdir}/monthly-summary-{args.current}-vs-{args.previous}.md"]
+    if args.latest:
+        paths.append(f"{rdir}/monthly-summary-latest.md")
+    for path in paths:
         with open(path, "w") as f:
             f.write(content)
         print(f"   wrote {path}")
-        if args.latest:
-            latest = f"{rdir}/monthly-summary-latest{suffix}.md"
-            with open(latest, "w") as f:
-                f.write(content)
-            print(f"   wrote {latest}")
 
 
 if __name__ == "__main__":

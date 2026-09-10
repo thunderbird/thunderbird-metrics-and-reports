@@ -5,153 +5,183 @@ title: Desktop LLM Insights — August 2026
 
 # Thunderbird Desktop — LLM Insights (Engineering)
 
-## August 2026 vs July 2026
+## August 2026 against July 2026
 
-_The **AI counterpart to Project 1**: Claude reads every support question (plus the creator's own follow-ups, the accepted solution, and trusted-contributor replies), names the concrete problem, hypothesises a root cause, and rates severity — surfacing emerging / worst-served pain that regex + stats can't. Counts are exact (computed in Python); clustering and prose are LLM-derived. A triage pointer, not proof._
+## TL;DR: the five issues to look at first {#tldr}
+
+| # | Issue | July 2026 | August 2026 | Severity | Resolved | Known status |
+|--:|:--|--:|--:|--:|--:|:--|
+| [1](#issue-1) | [PDF/email attachments print as blank pages (154 regression)](#issue-1) | 1 | 38 | 3.3 | 37% (below 50%) | Fixed in Thunderbird 155, released 2026-09-01 (Bugzilla 2065922). The reports that arrive after that date come from users still on 154. |
+| [2](#issue-2) | [Thunderbird hangs or freezes at startup / becomes unresponsive](#issue-2) | 18 | 36 | 4.2 | 64% | — |
+| [3](#issue-3) | [Cannot send or receive at all — no server connection](#issue-3) | 14 | 31 | 4.5 | 52% | — |
+| [4](#issue-4) | [Mail retrieval silently stops until restart (IMAP/POP polling stalls)](#issue-4) | 30 | 38 | 4.2 | 55% | — |
+| [5](#issue-5) | [IMAP/POP login authentication failure with correct credentials](#issue-5) | 18 | 29 | 4.0 | 52% | — |
+
+Each number links to the same issue in [Issues to investigate](#issues-to-investigate) below, which carries the reason, what to look at, and the example questions.
+
+Claude read every support question of both months. For each question it named the concrete problem, guessed a root cause and rated how much the problem hurts the user. It also read the answers: the follow-ups from the person who asked, the accepted solution, and the replies from trusted contributors.
+
+Python did the counting and the ranking. Claude grouped the named problems and wrote the prose. Read this page as a pointer for triage, not as proof.
+
+<details markdown="1">
+<summary>Glossary</summary>
+
+| Term | Meaning |
+|:--|:--|
+| question | One post by a user on the Thunderbird support site. |
+| cluster | A group of questions that describe the same concrete problem. Claude reads each question and names the problem, and questions with the same named problem form one cluster. |
+| new cluster | A cluster with no questions in the previous month. |
+| severity | How much the problem hurts the user, from 1 (cosmetic or a how-to) to 5 (data loss or no mail at all). Claude rates each question. |
+| resolved | The question has an accepted solution, or a trusted contributor gave the last answer. |
+| unanswered | Nobody except the person who asked has replied. |
+| rank | A Python score, not a Claude opinion. It weights new clusters, badly served clusters, severity and volume, in that order. |
+
+</details>
 
 ## Headline
 
 | | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
 | Support questions (load) | 731 | 940 | ▲ +209 (+29%) |
-| Distinct issue clusters | 87 | 98 | ▲ +11 |
+| Distinct issue clusters | 103 | 113 | ▲ +10 |
 | New issue clusters this month | — | 0 | |
 
-**Support volume up 29% (731→940) with no new clusters — the surge is concentrated in a blank-page attachment printing regression, a Spectrum/Charter mail outage pattern, and startup crashes, while Microsoft OAuth remains the worst-served pain point.**
+Printing and attachment regressions in 153.x and 154 drove support volume up 29 percent, and users get the least help on them
 
-**Outcome first:** August added ~209 questions over July with zero genuinely new clusters, meaning existing defects are amplifying rather than new surface area appearing. Three categories carry nearly all the growth: attachments (17→55, 3.2x), performance-crash (29→69, 2.4x), and send-receive (122→169). The single sharpest movers are rank 1 (blank-page printing, 2→39) and rank 2 (Spectrum/Charter/Roadrunner download failures, 2→36) — both went from noise to top-of-list in one month, which is the classic shape of a shipped regression or an upstream provider change.
+Support questions rose from 731 in July to 940 in August, a 29 percent jump. No brand new problem clusters appeared. The growth came from existing clusters getting much worse after the 153.x and 154 releases. The attachments category more than tripled, from 17 to 55 questions. Performance and crash reports went from 29 to 69.
 
-**Where users are being failed worst:** rank 11 (Microsoft/Office365 OAuth) is only 29% resolved with 53% of questions unanswered at severity 4.1 — support has no playbook and engineering has no documented fix path. Rank 4 (IMAP silently stops until restart) and rank 9 (slow/memory-leak performance) sit at 47%/37% resolved with ~40% unanswered. These are low-volume-per-thread but high-frustration; they are diagnosis problems, not staffing problems, and only engineering can unblock them.
+The sharpest new pain is rank 1. PDF and email attachments print as blank pages after the 154 update. This went from 1 question to 38 in one month. Only 37 percent of those users got a resolution, and 21 percent got no reply at all. Rank 11, broken drag and drop of messages to the file system in 153.x, points at the same area. Both suggest a change in how Thunderbird hands file data to the operating system.
 
-**Lower priority despite size:** rank 8 (UI elements missing after 153/154) is the biggest single cluster at 44 but mean severity 2.2 and 66% resolved — it's a discoverability/settings-reset issue being handled well. Rank 10 (profile migration) is shrinking and 73% resolved. Rank 7 is 89% resolved. Don't spend engineering cycles there.
+The worst-served users are in rank 7, slow mail download. Only 29 percent reach a resolution and 35 percent get no answer. Rank 9, Gmail OAuth2 sign-in failure, leaves 48 percent of askers with no reply. OAuth2 is the token-based login Google requires instead of a password. Helpers appear to lack a working diagnosis for both.
 
-*Caveat: these are LLM-derived clusters over free-text support questions — treat as a triage pointer for reproduction work, not as verified defect counts.*
+The highest-severity clusters remain connection failures. Ranks 3, 4, 5 and 6 all average above 4 out of 5 on severity, meaning users cannot send or receive mail. Rank 4, where mail retrieval stops silently until a restart, leaves 32 percent unanswered. This is an LLM-derived signal over free-text support text. Treat it as a triage pointer, not proof.
 
-## 🚨 Issues to investigate
+## Issues to investigate {#issues-to-investigate}
 
-_Ranked by a transparent score weighting new/emerging + worst-served (low resolved %) + severity + volume. **Resolved %** = solved or a trusted contributor gave the last word; ⚠️ marks poorly-served clusters._
+The order comes from a Python score. It weights new clusters, badly served clusters, severity and volume, in that order. Resolved means the question has an accepted solution, or a trusted contributor gave the last answer. A resolved figure under 50% is marked.
 
-### 1. PDF/email attachments print as blank pages
-
-| Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
-|:--|--:|--:|:--|:--|:--|--:|
-| PDF/email attachments print as blank pages (attachments) | 2 | 39 | ▲ +37 | 3.3 (12) | 38% ⚠️ | 21% |
-
-- **Why:** A 2→39 jump in one month at 38% resolved is the signature of a print-path regression, likely in the PDF viewer/Gecko print pipeline shipped with a recent release, and users have no workaround.
-- **Look at:** Bisect print-to-PDF and print-to-physical-printer of attachment previews across the 153/154 builds, focusing on the print-preview render surface and PDF.js integration on Windows print drivers.
-- **Examples:** [1601404](https://support.mozilla.org/questions/1601404 "can not print email attachments") [1600392](https://support.mozilla.org/questions/1600392 "Printing from Thunderbird since version 154.0 on Windows 11 produces only blank ") [1601389](https://support.mozilla.org/questions/1601389 "Problema  con ultimo  aggiornamento") [1601387](https://support.mozilla.org/questions/1601387 "problemi con la stampa degli allegati della posta, stampa e salva tutto bianco,p") [1599285](https://support.mozilla.org/questions/1599285 "PDF attachments now blank when printed.  Worked great til today.") +1
-
-### 2. Spectrum/Charter/Roadrunner IMAP/POP mail stops downloading or times out
+### 1. PDF/email attachments print as blank pages (154 regression) {#issue-1}
 
 | Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Spectrum/Charter/Roadrunner IMAP/POP mail stops downloading or times out (send-receive) | 2 | 36 | ▲ +34 | 4.4 (35) | 61% | 17% |
+| PDF/email attachments print as blank pages (154 regression) (attachments) | 1 | 38 | ▲ +37 | 3.3 (12) | 37% (below 50%) | 21% |
 
-- **Why:** A provider-specific cluster exploding 2→36 at mean severity 4.4 almost certainly reflects a Spectrum/Charter server-side change (TLS/cert, hostname consolidation, or auth policy) that Thunderbird handles as a silent timeout rather than an actionable error.
-- **Look at:** Reproduce against Spectrum IMAP/POP endpoints, verify autoconfig entries and TLS negotiation, and make connection timeouts surface a specific, actionable error instead of hanging.
-- **Examples:** [1599683](https://support.mozilla.org/questions/1599683 "Suddenly not receiving email") [1599681](https://support.mozilla.org/questions/1599681 "I am unable to send and receive emails on two of my computers. I can do that onl") [1600103](https://support.mozilla.org/questions/1600103 "Cannot send or receive email. (locked duplicate)") [1600872](https://support.mozilla.org/questions/1600872 "I can send email but can not receive.") [1600000](https://support.mozilla.org/questions/1600000 "Suddenly can't send/receive emails") +1
+- Known status: Fixed in Thunderbird 155, released 2026-09-01 (Bugzilla 2065922). The reports that arrive after that date come from users still on 154.
+- Why it matters: Attachment printing went from 1 question to 38 after the 154 release, and under four in ten users got a fix.
+- What to look at: Engineering must diff the 154 print and attachment rendering path, and confirm whether the blank output depends on the operating system print driver.
+- Example questions: [1600414](https://support.mozilla.org/questions/1600414 "Puste strony i brak podglądu przy drukowaniu załączników PDF (Canon MF450, Windo") [1600149](https://support.mozilla.org/questions/1600149 "Thunderbird 154 PDF preview prints blank pages") [1601389](https://support.mozilla.org/questions/1601389 "Problema  con ultimo  aggiornamento") [1601387](https://support.mozilla.org/questions/1601387 "problemi con la stampa degli allegati della posta, stampa e salva tutto bianco,p") [1601306](https://support.mozilla.org/questions/1601306 "Problemi di stampa") +1
 
-### 3. Thunderbird hangs/freezes or crashes at startup
-
-| Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
-|:--|--:|--:|:--|:--|:--|--:|
-| Thunderbird hangs/freezes or crashes at startup (performance-crash) | 18 | 41 | ▲ +23 (+128%) | 4.3 (38) | 56% | 27% |
-
-- **Why:** 41 startup hangs/crashes at mean severity 4.3 with 38 at severity 4+ and 27% unanswered means a meaningful slice of users cannot open the client at all.
-- **Look at:** Pull crash-stat signatures for the same release window and check profile/global-messages-db.sqlite rebuild, add-on incompatibility, and graphics-init paths as the likely blocking causes.
-- **Examples:** [1596317](https://support.mozilla.org/questions/1596317 "Dal 17/07 Thunderbird si avvia in background ma non mostra la finestra (funziona") [1598340](https://support.mozilla.org/questions/1598340 "I was deleting old emails a few days ago and my email froze. It hasn’t responded") [1601279](https://support.mozilla.org/questions/1601279 "Thunderbird va in crasi alla connessione") [1601277](https://support.mozilla.org/questions/1601277 "Thundrbird va in crash all'accesso") [1601273](https://support.mozilla.org/questions/1601273 "Al iniciar Thunderbird se bloquea") +1
-
-### 4. IMAP/POP mail silently stops downloading until restart
+### 2. Thunderbird hangs or freezes at startup / becomes unresponsive {#issue-2}
 
 | Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| IMAP/POP mail silently stops downloading until restart (send-receive) | 27 | 34 | ▲ +7 (+26%) | 4.1 (29) | 47% ⚠️ | 41% |
+| Thunderbird hangs or freezes at startup / becomes unresponsive (performance-crash) | 18 | 36 | ▲ +18 (+100%) | 4.2 (31) | 64% | 19% |
 
-- **Why:** 41% unanswered and only 47% resolved on a long-running defect where mail silently stops until restart means we have never actually root-caused it, and users lose mail delivery without any visible signal.
-- **Look at:** Instrument IMAP connection-state recovery after network suspend/resume and NIC changes, and add a visible stale-connection indicator plus automatic reconnect.
-- **Examples:** [1601356](https://support.mozilla.org/questions/1601356 "I have not received any emails for 2-3 days???") [1600778](https://support.mozilla.org/questions/1600778 "I can not down load Emails from Yahoo to Thunderbird  tired all listed solutions") [1600220](https://support.mozilla.org/questions/1600220 "Emails won’t show from 2024") [1600092](https://support.mozilla.org/questions/1600092 "Folders Enumerate but do not populate") [1598049](https://support.mozilla.org/questions/1598049 "After update 153.0.3 I can't receive emails but I can send them.") +1
+- Why it matters: Startup hangs doubled to 36 questions and carry a 4.2 mean severity, which means the application is unusable for those users.
+- What to look at: Engineering must collect startup profiles and check profile size, folder database rebuild, and add-on load order as triggers.
+- Example questions: [1596317](https://support.mozilla.org/questions/1596317 "Dal 17/07 Thunderbird si avvia in background ma non mostra la finestra (funziona") [1598321](https://support.mozilla.org/questions/1598321 "encountering a message of ＂The installation seems to be incomplete.") [1601277](https://support.mozilla.org/questions/1601277 "Thundrbird va in crash all'accesso") [1601273](https://support.mozilla.org/questions/1601273 "Al iniciar Thunderbird se bloquea") [1600948](https://support.mozilla.org/questions/1600948 "Mozilla Thunderbird stopped responding") +1
 
-### 5. Cannot send or receive at all / connection refused to mail server
-
-| Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
-|:--|--:|--:|:--|:--|:--|--:|
-| Cannot send or receive at all / connection refused to mail server (send-receive) | 13 | 25 | ▲ +12 (+92%) | 4.4 (22) | 56% | 24% |
-
-- **Why:** Doubling to 25 at severity 4.4 with total loss of send and receive is maximal user impact, and it likely overlaps with the rank 2 provider cluster.
-- **Look at:** Cross-reference these reports against rank 2 to determine whether this is one ISP/TLS root cause or a distinct connection-refused path in the socket layer.
-- **Examples:** [1599843](https://support.mozilla.org/questions/1599843 "I've been w/o email for two days.  How can I get help?") [1597006](https://support.mozilla.org/questions/1597006 "Although I use the right Password I cannot get any connection to my postbox nor ") [1601287](https://support.mozilla.org/questions/1601287 "Buongiorno, non riesco ad inviare e ricevere mail") [1601282](https://support.mozilla.org/questions/1601282 "Na installatie nwe versie komt er geen mail meer binnen en kan ik geen mail verz") [1598269](https://support.mozilla.org/questions/1598269 "IMAP/SMTP server connected, but receives and send fails") +1
-
-### 6. Password rejected / cannot log in with correct credentials
+### 3. Cannot send or receive at all — no server connection {#issue-3}
 
 | Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Password rejected / cannot log in with correct credentials (account-login) | 25 | 31 | ▲ +6 (+24%) | 3.9 (25) | 58% | 29% |
+| Cannot send or receive at all — no server connection (send-receive) | 14 | 31 | ▲ +17 (+121%) | 4.5 (30) | 52% | 29% |
 
-- **Why:** 31 reports of correct credentials being rejected at 58% resolved suggests password-manager or token-store corruption rather than genuine user error.
-- **Look at:** Audit the credential store read/write path and the fallback from OAuth to basic auth, especially where a stale token causes a misleading 'wrong password' prompt.
-- **Examples:** [1597026](https://support.mozilla.org/questions/1597026 "Error message login to server pop.wbforme.com with username failed") [1601104](https://support.mozilla.org/questions/1601104 "retrouver messagerie de Thunderbird car mots de passe non reconnus") [1600222](https://support.mozilla.org/questions/1600222 "E-Mail Programm meldet alle Passwörter wären falsch") [1599070](https://support.mozilla.org/questions/1599070 "impossible to connect to my mail serveur; ask always same question about pass wo") [1599264](https://support.mozilla.org/questions/1599264 "this last update completely broke my emails") +1
+- Why it matters: Total loss of server connection more than doubled to 31 questions at the highest severity in the set, 4.5.
+- What to look at: Engineering must check whether recent TLS, proxy, or connection-timeout changes shipped in 153.x and 154 explain the increase.
+- Example questions: [1599683](https://support.mozilla.org/questions/1599683 "Suddenly not receiving email") [1599839](https://support.mozilla.org/questions/1599839 "Thunderbird will not connect with my server") [1599747](https://support.mozilla.org/questions/1599747 "can not get email after latest update 154.0") [1599843](https://support.mozilla.org/questions/1599843 "I've been w/o email for two days.  How can I get help?") [1599681](https://support.mozilla.org/questions/1599681 "I am unable to send and receive emails on two of my computers. I can do that onl") +1
 
-### 7. Send button / composition toolbar missing in compose window
-
-| Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
-|:--|--:|--:|:--|:--|:--|--:|
-| Send button / composition toolbar missing in compose window (ui-ux) | 10 | 27 | ▲ +17 (+170%) | 3.1 (9) | 89% | 4% |
-
-- **Why:** 27 reports of a missing Send button is a real compose-window layout defect, though 89% resolved means support already has a reliable fix.
-- **Look at:** Ship the known workaround as a defensive default — validate toolbar customization state on compose-window open and restore missing primary actions automatically.
-- **Examples:** [1596605](https://support.mozilla.org/questions/1596605 "SEND button vanished after update (bug1989214)") [1598077](https://support.mozilla.org/questions/1598077 "Send, delete, forward boxes have vanished from my Thunderbird write screen (bug1") [1596407](https://support.mozilla.org/questions/1596407 "Errors in compose menu after Update to 153.0.1esr (Menus gone)") [1597318](https://support.mozilla.org/questions/1597318 "THe Send button has vanished in T'bird (bug1989214)") [1597330](https://support.mozilla.org/questions/1597330 "My ＂Send＂ button has disappeared from my Thunderbird mail client.  Is there a ke") +1
-
-### 8. UI elements missing after 153/154 update (toolbars, menus, panes)
+### 4. Mail retrieval silently stops until restart (IMAP/POP polling stalls) {#issue-4}
 
 | Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| UI elements missing after 153/154 update (toolbars, menus, panes) (ui-ux) | 33 | 44 | ▲ +11 (+33%) | 2.2 (1) | 66% | 14% |
+| Mail retrieval silently stops until restart (IMAP/POP polling stalls) (send-receive) | 30 | 38 | ▲ +8 (+27%) | 4.2 (34) | 55% | 32% |
 
-- **Why:** Largest cluster at 44 but severity 2.2 and 66% resolved — high volume, low pain, and a known consequence of the 153/154 UI changes.
-- **Look at:** Reduce load with in-product migration hints on first run after upgrade rather than engineering investigation.
-- **Examples:** [1600361](https://support.mozilla.org/questions/1600361 "thinderbird mail tabs blank, show an X on tab, no content.") [1597229](https://support.mozilla.org/questions/1597229 "Thunderbird, versão 153.0esr: Problema com as Pastas favoritas") [1597563](https://support.mozilla.org/questions/1597563 "today I have a FREDOM pop up from thunderbird and now cannot access any mail") [1600623](https://support.mozilla.org/questions/1600623 "v140.13.0esr on Linux Debian 11: impossible to resize windows") [1596413](https://support.mozilla.org/questions/1596413 "The 'Customise Menu＂ function does nothing in v153.0.1 (64-bit)") +1
+- Why it matters: Mail retrieval that stops silently until restart hits 38 users and leaves 32 percent with no reply, so the failure is hard to diagnose.
+- What to look at: Engineering must add visible logging or a stalled-poll indicator to the IMAP and POP polling loop so helpers can identify the stall.
+- Example questions: [1599295](https://support.mozilla.org/questions/1599295 "Thunderbird stopped downloading Yahoo email") [1599738](https://support.mozilla.org/questions/1599738 "Thunderbird is not receiving in coming mail from Charter") [1601143](https://support.mozilla.org/questions/1601143 "IMAP accounts no longer update - Charter/Spectrum email hosting") [1600985](https://support.mozilla.org/questions/1600985 "Again no email using Spectrum") [1600872](https://support.mozilla.org/questions/1600872 "I can send email but can not receive.") +1
 
-### 9. Slow performance: sluggish mail loading, sync, memory leaks
-
-| Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
-|:--|--:|--:|:--|:--|:--|--:|
-| Slow performance: sluggish mail loading, sync, memory leaks (performance-crash) | 7 | 19 | ▲ +12 | 3.4 (8) | 37% ⚠️ | 37% |
-
-- **Why:** 37% resolved and 37% unanswered means sluggishness and memory growth reports are effectively being dropped, and the 7→19 growth tracks the same release window as rank 3.
-- **Look at:** Request memory-report and profiler captures from these users and check whether the startup-crash and slow-load clusters share a common indexing or database cause.
-- **Examples:** [1600636](https://support.mozilla.org/questions/1600636 "My Thunderbird has stopped working") [1599061](https://support.mozilla.org/questions/1599061 "emails home page open extremely slow, send and receive are extraordinary slow") [1596484](https://support.mozilla.org/questions/1596484 "Thunderbird not downloading gmail") [1598092](https://support.mozilla.org/questions/1598092 "Takes forever opening Thunderbird and when selecting account settings it hangs u") [1598432](https://support.mozilla.org/questions/1598432 "Thunderbird High CPU with status bar on") +1
-
-### 10. Profile migration to new computer loses mail/accounts
+### 5. IMAP/POP login authentication failure with correct credentials {#issue-5}
 
 | Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Profile migration to new computer loses mail/accounts (migration-import) | 50 | 44 | ▼ -6 (-12%) | 3.4 (20) | 73% | 7% |
+| IMAP/POP login authentication failure with correct credentials (account-login) | 18 | 29 | ▲ +11 (+61%) | 4.0 (25) | 52% | 28% |
 
-- **Why:** Volume is declining (50→44) and 73% resolved with only 7% unanswered — this is a documentation-served problem, not an engineering one.
-- **Look at:** No engineering action; monitor only, and confirm the profile-migration guidance stays current with recent releases.
-- **Examples:** [1598972](https://support.mozilla.org/questions/1598972 "updated to 153.0.3 and no folders.") [1597960](https://support.mozilla.org/questions/1597960 "where are all my emails, sent emails and deleted emails? My last PC died and aft") [1597907](https://support.mozilla.org/questions/1597907 "Lost sub folders") [1597858](https://support.mozilla.org/questions/1597858 "After updateing to a new version of Thunderbird my old profile has disappeared") [1599476](https://support.mozilla.org/questions/1599476 "if i download an older version of thunderbird, will i loose all my current email") +1
+- Why it matters: Login failures with correct credentials rose to 29 questions and only half get resolved, which points at a client-side authentication bug.
+- What to look at: Engineering must review the authentication method negotiation and stored credential handling for accounts that use plain IMAP and POP login.
+- Example questions: [1598989](https://support.mozilla.org/questions/1598989 "Over the weekend Thuderbird stopped allowing me to send emails and will not set ") [1599070](https://support.mozilla.org/questions/1599070 "impossible to connect to my mail serveur; ask always same question about pass wo") [1596931](https://support.mozilla.org/questions/1596931 "Problemi di autenticazione server con account Gmail") [1597026](https://support.mozilla.org/questions/1597026 "Error message login to server pop.wbforme.com with username failed") [1600395](https://support.mozilla.org/questions/1600395 "Kako da popravimo grešku koja izbacuje ,,Greška sa povezivanjem na server,,") +1
 
-### 11. Microsoft/Outlook/Office365 OAuth login and authentication failures
-
-| Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
-|:--|--:|--:|:--|:--|:--|--:|
-| Microsoft/Outlook/Office365 OAuth login and authentication failures (sync-oauth) | 8 | 17 | ▲ +9 | 4.1 (14) | 29% ⚠️ | 53% |
-
-- **Why:** Worst-served issue in the set — 29% resolved, 53% unanswered, severity 4.1 — meaning more than half of users hitting Microsoft OAuth failures get no response at all.
-- **Look at:** Own this directly: test the full OAuth flow against Office365 tenants with conditional access and modern-auth-only policies, verify redirect URI and refresh-token renewal, and publish a diagnostic decision tree for support.
-- **Examples:** [1598006](https://support.mozilla.org/questions/1598006 "Hotmail authenticator error") [1598566](https://support.mozilla.org/questions/1598566 "Cant get hotmail to work on thunderbird linux ubuntu") [1597324](https://support.mozilla.org/questions/1597324 "No sync on exchange email account after updating to v153") [1598437](https://support.mozilla.org/questions/1598437 "Unable to Connect MS- Email") [1596314](https://support.mozilla.org/questions/1596314 "Unable to add a personal Outlook email to Thunderbird") +1
-
-### 12. SMTP send fails / timeouts while receiving works
+### 6. Cannot send outgoing mail — SMTP connection/auth failure {#issue-6}
 
 | Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| SMTP send fails / timeouts while receiving works (send-receive) | 33 | 29 | ▼ -4 (-12%) | 4.6 (28) | 66% | 21% |
+| Cannot send outgoing mail — SMTP connection/auth failure (send-receive) | 30 | 36 | ▲ +6 (+20%) | 4.4 (32) | 75% | 19% |
 
-- **Why:** Highest mean severity in the set at 4.6 and shrinking slightly, but SMTP-only failure while receiving works remains a total send outage for affected users.
-- **Look at:** Review SMTP timeout and port-fallback behavior, and check whether these reports concentrate on the same providers as rank 2.
-- **Examples:** [1599327](https://support.mozilla.org/questions/1599327 "＂Sending of the message failed. The message could not be sent because the connec") [1598759](https://support.mozilla.org/questions/1598759 "Unable to send email from Thunderbird after Network Solutions changed SMTP serve") [1600308](https://support.mozilla.org/questions/1600308 "unable to send messages after upgrade") [1600281](https://support.mozilla.org/questions/1600281 "unanle to send messages") [1600197](https://support.mozilla.org/questions/1600197 "Email msgs not received") +1
+- Why it matters: SMTP send failures stay high at 36 questions and 4.4 severity, but 75 percent of users get a fix, so the playbook works.
+- What to look at: Engineering must keep the existing guidance and check only whether the growth from 30 to 36 tracks a specific provider change.
+- Example questions: [1599422](https://support.mozilla.org/questions/1599422 "Sending e-mails does not work") [1598639](https://support.mozilla.org/questions/1598639 "Cannot send emails") [1600308](https://support.mozilla.org/questions/1600308 "unable to send messages after upgrade") [1600281](https://support.mozilla.org/questions/1600281 "unanle to send messages") [1599511](https://support.mozilla.org/questions/1599511 "Falló el envío del mensaje. El mensaje no se ha podido enviar porque ha caducado") +1
 
-## Category mix — month over month
+### 7. Slow mail download / sluggish performance {#issue-7}
+
+| Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+|:--|--:|--:|:--|:--|:--|--:|
+| Slow mail download / sluggish performance (performance-crash) | 3 | 17 | ▲ +14 | 3.6 (9) | 29% (below 50%) | 35% |
+
+- Why it matters: Slow mail download is the worst-served cluster, with 29 percent resolved and 35 percent unanswered across 17 questions.
+- What to look at: Engineering must define a reproducible slow-download test and publish a diagnosis path, because helpers currently have no answer.
+- Example questions: [1600636](https://support.mozilla.org/questions/1600636 "My Thunderbird has stopped working") [1599061](https://support.mozilla.org/questions/1599061 "emails home page open extremely slow, send and receive are extraordinary slow") [1600424](https://support.mozilla.org/questions/1600424 "Why so many problems with 154.0 (aarch64)?") [1596484](https://support.mozilla.org/questions/1596484 "Thunderbird not downloading gmail") [1598092](https://support.mozilla.org/questions/1598092 "Takes forever opening Thunderbird and when selecting account settings it hangs u") +1
+
+### 8. Compose window Send button / composition toolbar missing (bug 1989214) {#issue-8}
+
+| Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+|:--|--:|--:|:--|:--|:--|--:|
+| Compose window Send button / composition toolbar missing (bug 1989214) (ui-ux) | 9 | 26 | ▲ +17 | 3.2 (9) | 88% | 4% |
+
+- Why it matters: The missing Send button in the compose window hit 26 users, but 88 percent got a resolution and only 4 percent went unanswered.
+- What to look at: Engineering must ship the fix for bug 1989214 and then let this cluster close on its own.
+- Example questions: [1596605](https://support.mozilla.org/questions/1596605 "SEND button vanished after update (bug1989214)") [1598077](https://support.mozilla.org/questions/1598077 "Send, delete, forward boxes have vanished from my Thunderbird write screen (bug1") [1596407](https://support.mozilla.org/questions/1596407 "Errors in compose menu after Update to 153.0.1esr (Menus gone)") [1597318](https://support.mozilla.org/questions/1597318 "THe Send button has vanished in T'bird (bug1989214)") [1597330](https://support.mozilla.org/questions/1597330 "My ＂Send＂ button has disappeared from my Thunderbird mail client.  Is there a ke") +1
+
+### 9. Gmail OAuth2 sign-in failures (HTTP 400 / localhost redirect / blank popup) {#issue-9}
+
+| Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+|:--|--:|--:|:--|:--|:--|--:|
+| Gmail OAuth2 sign-in failures (HTTP 400 / localhost redirect / blank popup) (sync-oauth) | 16 | 25 | ▲ +9 (+56%) | 3.5 (13) | 48% (below 50%) | 48% |
+
+- Why it matters: Nearly half of the 25 Gmail OAuth2 questions get no reply at all, which is the highest silence rate in the set.
+- What to look at: Engineering must reproduce the HTTP 400 and blank popup cases and check the localhost redirect handler against current Google policy.
+- Example questions: [1599099](https://support.mozilla.org/questions/1599099 "I received a large pop up window from Google saying 'malformed' so I've lost Thu") [1600615](https://support.mozilla.org/questions/1600615 "Thunderbird start niet meer op") [1599866](https://support.mozilla.org/questions/1599866 "Sudden block of account by gmail.") [1598376](https://support.mozilla.org/questions/1598376 "＂Authentication failure＂ with Gmail Oauth login (Linux/Nixos)") [1596733](https://support.mozilla.org/questions/1596733 "Cannot setup Gmail in Thunderbird, authentication popup is empty!") +1
+
+### 10. Stored password rejected / lost, cannot recover account password {#issue-10}
+
+| Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+|:--|--:|--:|:--|:--|:--|--:|
+| Stored password rejected / lost, cannot recover account password (account-login) | 22 | 30 | ▲ +8 (+36%) | 3.2 (14) | 63% | 13% |
+
+- Why it matters: Rejected or lost stored passwords reached 30 questions, and 63 percent get resolved, so the pain is real but manageable.
+- What to look at: Engineering must check whether the password store is losing entries on upgrade, which would link this to ranks 5 and 9.
+- Example questions: [1601385](https://support.mozilla.org/questions/1601385 "Thunderbird loses passwords") [1597006](https://support.mozilla.org/questions/1597006 "Although I use the right Password I cannot get any connection to my postbox nor ") [1601104](https://support.mozilla.org/questions/1601104 "retrouver messagerie de Thunderbird car mots de passe non reconnus") [1600222](https://support.mozilla.org/questions/1600222 "E-Mail Programm meldet alle Passwörter wären falsch") [1598973](https://support.mozilla.org/questions/1598973 "Changed password on email account not working in Thunderbird") +1
+
+### 11. Drag-and-drop of messages/attachments to filesystem broken in 153.x {#issue-11}
+
+| Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+|:--|--:|--:|:--|:--|:--|--:|
+| Drag-and-drop of messages/attachments to filesystem broken in 153.x (attachments) | 1 | 16 | ▲ +15 | 3.2 (3) | 56% | 19% |
+
+- Why it matters: Drag and drop of messages to the file system broke in 153.x, moving from 1 question to 16.
+- What to look at: Engineering must test the file drop path together with rank 1, since both involve exporting message data out of the application.
+- Example questions: [1597011](https://support.mozilla.org/questions/1597011 "trascinamento fallisce con tutti i PDF") [1597120](https://support.mozilla.org/questions/1597120 "Drag-and-drop email export to Windows Explorer no longer works in Thunderbird 15") [1601351](https://support.mozilla.org/questions/1601351 "Thunderbird shuts down when I try to drag items to a different folder.") [1596881](https://support.mozilla.org/questions/1596881 "Can no longer drag and drop email attachments from emails to folders after 153es") [1596923](https://support.mozilla.org/questions/1596923 "Errore durante lo spostamento del file o della cartella") +1
+
+### 12. Message bodies blank / headers only downloaded {#issue-12}
+
+| Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+|:--|--:|--:|:--|:--|:--|--:|
+| Message bodies blank / headers only downloaded (send-receive) | 5 | 15 | ▲ +10 | 4.1 (12) | 53% | 33% |
+
+- Why it matters: Blank message bodies with headers only tripled to 15 questions at 4.1 severity, and a third of askers got no reply.
+- What to look at: Engineering must check message body fetch and local cache invalidation for accounts set to download headers first.
+- Example questions: [1600007](https://support.mozilla.org/questions/1600007 "My emails won't open, none show up in sent or delete files, it is very slow to l") [1600049](https://support.mozilla.org/questions/1600049 "8.24.2026 As of yesterday, Thunderbird Inbox messages are being received and old") [1600073](https://support.mozilla.org/questions/1600073 "Inbox email shows only sender and subject line.  Content not available,") [1601048](https://support.mozilla.org/questions/1601048 "8.29.2026 Once again I am having same problem with email content not loading. No") [1599663](https://support.mozilla.org/questions/1599663 "windows thunderbird has stopped displaying message body of my emails") +1
+
+## Category mix, month over month
 
 | Category | July 2026 | August 2026 | Change |
 |:--|--:|--:|:--|
@@ -172,6 +202,6 @@ _Ranked by a transparent score weighting new/emerging + worst-served (low resolv
 
 ---
 
-_Prototype LLM-insights report · Claude claude-opus-5 over Stage-1 per-question labels · August 2026 vs July 2026 · this run cost $0.64._
+This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run of the report cost $0.55. The page covers August 2026 against July 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-_Last updated: 2026-09-10 07:11 UTC_
+Last updated: 2026-09-10 07:25 UTC

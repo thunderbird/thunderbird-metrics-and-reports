@@ -104,6 +104,19 @@ label belongs to a neighbouring id (`1598609`). That is 0.2% of the month. The
 classify script has no resume flag, so fixing it means paying $6.25 again for two
 questions. Left alone; the report says 940.
 
+### Follow-up run the same day: plain-only + TL;DR ($0.55)
+
+Plain English became the only style (#83), the page gained a TL;DR table of the
+top five, and both Stage-2 calls are now **cached on disk** under
+`LLM_INSIGHTS/cache/`. Re-rendering for a layout change therefore costs **$0**;
+`--refresh` pays for the two calls again. Day total: **$12.37**.
+
+One caveat found by re-running: **clustering is not deterministic.** The same
+labels gave 65 clusters on the first pass and 68 on the second, and the
+Spectrum/Charter/Roadrunner cluster (2→36, severity 4.4) merged into the broader
+"Cannot send or receive at all" cluster on the second pass, dropping out of the
+top five. The disk cache pins whichever pass is kept, which is the point of it.
+
 ## Notes
 - All figures are well under the $50/run circuit-breaker.
 - Cost scales with the enriched text size; if it ever grows, re-baseline the unit rate with the Bucket-0 preview: `uv run scripts/llm_insights_cost.py <month> <month> <product>`.

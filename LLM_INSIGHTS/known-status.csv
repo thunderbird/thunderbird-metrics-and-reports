@@ -1,0 +1,2 @@
+pattern,status
+(?i)print.*(blank|white)|blank.*print,"Fixed in Thunderbird 155, released 2026-09-01 (Bugzilla 2065922). The reports that arrive after that date come from users still on 154."

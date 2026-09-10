@@ -73,8 +73,7 @@ prototype for review.
 **For engineering** — ranked issues to investigate, each with severity,
 resolved-rate, and clickable example questions:
 
-- [Desktop — LLM Insights monthly summary (latest)](LLM_INSIGHTS/REPORTS/desktop/monthly-summary-latest.html)
-- [Desktop — LLM Insights monthly summary, plain English](LLM_INSIGHTS/REPORTS/desktop/monthly-summary-latest-plain-english.html) — the same month, same numbers and same ranking, written for a reader outside the team, with the jargon in a collapsed glossary
+- [Desktop — LLM Insights monthly summary (latest)](LLM_INSIGHTS/REPORTS/desktop/monthly-summary-latest.html) — plain English, and it opens with a TL;DR table of the five issues to look at first
 - [Android — LLM Insights monthly summary (latest)](LLM_INSIGHTS/REPORTS/android/monthly-summary-latest.html)
 
 _(Prototype — feedback welcome.)_
