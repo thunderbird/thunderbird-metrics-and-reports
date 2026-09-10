@@ -13,6 +13,17 @@ Updated twice daily:
 
 [Monthly reports archive](reports.html)
 
+## Android reports
+
+Thunderbird for Android carries about 40 support questions a month, so the two
+reports answer different questions. Read the AI one first: at this volume the
+per-issue detail is the signal, and a month-over-month change of one or two
+questions is noise.
+
+- [Android — LLM Insights, monthly (AI)](LLM_INSIGHTS/REPORTS/android/monthly-summary-latest.html) — Claude reads every question, names the problem, rates severity, and lists the issues to look at first. August 2026 found stored passwords that revert, AOL and Yahoo login loops, and a crash on opening a downloaded email.
+- [Android — executive summary (no AI)](PROJECT1/REPORTS/android/exec-summary-latest.html) — volume, answered rate, cause and version mix from regex and statistics. Nothing has cleared a spike threshold since 2024, which is a volume fact rather than a health fact, and the page says so.
+- [Android — unanswered questions](UNANSWERED_QUESTIONS/HTML_REPORTS/android-latest-unanswered-questions.html) — the triage list, updated twice daily.
+
 ## Spike Reports (Project 1 — experimental)
 
 Engineering-focused spike detection (no AI; regex + traditional stats) over the
