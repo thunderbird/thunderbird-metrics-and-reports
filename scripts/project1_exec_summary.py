@@ -28,6 +28,13 @@ pushed expected from 1.33 to 2.21. Answered-% and first-answer-time firm up the
 same way as late answers land. Rows therefore cross the threshold in EITHER
 direction for weeks after a month ends.
 
+STYLE: the page is written in plain English (the simple-english house style,
+in the spirit of ASD-STE100). Short sentences, active voice, simple tenses, one
+idea per sentence. No emoji, no bold for emphasis, and every term of art defined
+in the collapsed glossary at the top. The verdict, the numbers and the links are
+unchanged — only the wording is. Keep it that way when editing: a reader outside
+the team has to get the answer on one read.
+
 No AI — pure pandas + stdlib. Run AFTER the detectors for all three grains.
 """
 import os
@@ -48,6 +55,29 @@ from project1_report import (  # noqa: E402  (shared with the spike reports)
 from project1_grains import GRAIN_DEFAULTS  # noqa: E402
 
 REPORT_DIR = "PROJECT1/REPORTS/{product}"
+# Every term of art the page uses, defined once, collapsed. A table rather than a
+# bold-led list: the house style keeps bold out of the prose, and a Term/Meaning
+# table reads the same in the browser and in the raw markdown.
+GLOSSARY = """<details markdown="1">
+<summary>Glossary</summary>
+
+| Term | Meaning |
+|:--|:--|
+| question | One post by a user on the Thunderbird support site. |
+| cause tag | What a question is about. `m:spectrum` is the mail host Spectrum. `proto:pop` is the mail protocol POP. `av:avast` is the antivirus product Avast. `feat:printing` is the printing feature of Thunderbird. |
+| spike | A period with many more questions of one kind than normal. |
+| baseline | The normal count for that kind of question. The tool takes the middle value of earlier periods. |
+| rise | The measured count divided by the baseline. A rise of 3.0× means three times as many questions as normal. |
+| lift | The same idea for one version and one cause together. The tool divides the count by the count it expects from the number of questions about that version and the normal rate of that cause. A lift above 1 means the cause hits that version harder than the rest. |
+| grain | The length of the period that the tool measured: one day, one week, or one month. |
+| served | How many of the questions got an answer from somebody other than the person who asked, and the time to the first answer. Below 60% is marked. |
+| novelty | Whether the tool saw the pair before. `new` is the first time. `spreading` is a known cause on a new version. `recurring` is a pair that fires again. |
+| version×cause spike | A rise tied to one Thunderbird version and one cause. It points to a problem that a Thunderbird release caused. |
+| cause-level spike | A rise that ignores the version. It points to a problem at a mail host, in a protocol, in an antivirus product, or in one Thunderbird feature. |
+| release-adoption spike | A rise in the bare count of one version or one operating system. Users move to a new release, so the count rises. This is not an incident. |
+
+</details>
+"""
 DETECTOR_GRAINS = ["daily", "weekly", "monthly"]
 # A weekly period is keyed by its Monday, so a week can straddle two months. For a
 # "did anything happen in <month>" verdict we take any week that OVERLAPS the
@@ -187,6 +217,7 @@ def main():
     start, end = month_bounds(month)
 
     df, _ = load_features(product)
+    all_titles = dict(zip(df["id"], df["title"]))
     naive = df["created_dt"].dt.tz_convert(None)
     df = df[(naive >= start) & (naive <= end)].copy()
     if df.empty:
@@ -212,7 +243,10 @@ def main():
     fat = pd.to_numeric(df["first_answer_hours"], errors="coerce").dropna()
     tagged = df[CAUSE_DIMS].apply(lambda r: any(r), axis=1).sum()
     days = pd.date_range(start, min(end, df["day"].max()), freq="D")
-    title_by_id = dict(zip(df["id"], df["title"]))
+    # Titles come from ALL history, not just this month: a weekly period can
+    # straddle the month end, so its example questions are often next month's and
+    # used to render with an empty tooltip.
+    title_by_id = all_titles
 
     def links_for(ids, limit=6, more=True):
         ids = [i for i in ids if i]
@@ -236,7 +270,8 @@ def main():
             return ""
         ap_ = int(float(ap_))
         md = str(r.get("median_first_answer_h", "")).strip()
-        return f"{'⚠️ ' if ap_ < 60 else ''}{ap_}% ans{f' · {md}h' if md else ''}"
+        low = " (below 60%)" if ap_ < 60 else ""
+        return f"{ap_}% answered{low}{f', {md}h' if md else ''}"
 
     out, W = [], None
     W = out.append
@@ -244,64 +279,95 @@ def main():
     # month_bounds is tz-naive UTC, like created_dt after tz_convert(None)
     partial = end > pd.Timestamp.now(tz="UTC").tz_localize(None).normalize()
 
+    anchor = f"all-{label.lower().replace(' ', '-')}-detail"
+
     W("---")
     W("layout: base")  # minima 3.x renamed 'default' -> 'base' (#72)
     W(f"title: \"{month} exec summary: Thunderbird {product.title()} support spikes\"")
     W("---")
     W("")
-    W(f"# {label} — Thunderbird {product.title()} support spikes")
-    W(f"\n_Executive summary · **{month}** · {n} questions · regenerated "
-      f"{datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC} · no AI (regex + "
-      f"traditional stats)_\n")
+    W(f"# {label}: Thunderbird {product.title()} support spikes")
+    W("")
+    W(f"Executive summary for {month}. It covers {n} Thunderbird "
+      f"{product.title()} support questions. The tool wrote this page on "
+      f"{datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}. No AI read the "
+      f"questions. The tool uses regular expressions and standard statistics "
+      f"only.")
+    W("")
+    W(GLOSSARY)
 
     # ---- the verdict ------------------------------------------------------
     if incidents == 0:
-        W(f"## ✅ {label} was clean\n")
-        W(f"**No spike cleared threshold at any grain.** No provider outage, no "
-          f"protocol surge, no AV breakage, and no release regression in "
-          f"{label}.\n")
+        W(f"## {label} was clean")
+        W("")
+        W("No spike cleared the threshold at any grain. The tool found no mail "
+          "host outage, no protocol surge, no antivirus breakage and no release "
+          f"regression in {label}.")
+        W("")
     else:
-        W(f"## 🚨 {label}: {incidents} spike"
-          f"{'s' if incidents != 1 else ''} to investigate\n")
-        W(f"**{n_joint} version×cause** (release regressions) and **{n_cause} "
-          f"cause-level** (provider / protocol / AV / feature) spike(s) cleared threshold. "
-          f"Detail is collapsed below.\n")
+        W(f"## {label}: {incidents} spike"
+          f"{'s' if incidents != 1 else ''} to investigate")
+        W("")
+        if n_joint and n_cause:
+            split = (f"{n_joint} of them tie to a Thunderbird version. "
+                     f"{n_cause} of them are cause-level.")
+        elif n_joint:
+            split = (f"All {n_joint} tie to a Thunderbird version. None of them "
+                     f"are cause-level.")
+        else:
+            split = (f"None of them tie to a Thunderbird version. All "
+                     f"{n_cause} are cause-level.")
+        W(f"{split} Every row is in the collapsed blocks below.")
+        W("")
     if partial:
-        W(f"> ⏳ **{label} is still in progress** — counts will grow.\n")
+        W(f"{label} is still in progress. The counts will grow.")
+        W("")
 
-    W("")
     W("| Detector | daily | weekly | monthly |")
     W("|:--|--:|--:|--:|")
-    W("| **version×cause** (release regressions) | "
+    W("| version×cause (a release caused the problem) | "
       + " | ".join(str(len(joint[g])) for g in DETECTOR_GRAINS) + " |")
-    W("| **cause-level** (provider · protocol · AV · feature) | "
+    W("| cause-level (mail host, protocol, antivirus, feature) | "
       + " | ".join(str(len(cause[g])) for g in DETECTOR_GRAINS) + " |")
     W("")
 
-    W(f"- **Volume:** {n} questions "
-      f"(`{spark([int((df['day'] == d).sum()) for d in days])}` by day), "
-      f"{tagged} ({100*tagged/n:.0f}%) carry a cause tag")
-    W(f"- **Answered (non-creator):** {answered}/{n} ({100*answered/n:.0f}%)"
-      + (f" · median first answer {fat.median():.1f}h" if len(fat) else ""))
-    nv = sum(len(v) for v in verdim.values())
-    W(f"- **Release-adoption version spikes:** {nv} "
-      f"(expected after a release — not incidents; collapsed below)\n")
+    # A zero in the version×cause row means one of two very different things.
+    # Before 2026-02 the scraper has almost no version, so the detector CANNOT
+    # fire, and reading that as "no release regression" is the worse error.
+    known_version = df["tb_version_major"].str.fullmatch(r"\d+").fillna(False).mean()
+    if known_version < 0.2:
+        lead = (f"Almost no {label} question carries a Thunderbird version."
+                if known_version < 0.02 else
+                f"Only {100*known_version:.0f}% of the {label} questions carry a "
+                f"Thunderbird version.")
+        W(f"{lead} The version×cause detector therefore cannot fire. Read its "
+          f"zero as missing data, not as a clean result.")
+        W("")
 
-    W("> ⏱ **Spike timing lags the incident.** A spike dates when users *piled "
-      "in*, typically days after onset and often near resolution. Treat these as "
-      "pain-cluster / triage signals, not real-time detection.\n")
-    W("> 🔄 **This verdict is not frozen when the month ends.** Lift is measured "
-      "against each cause's rate across all history, so later questions shift a "
-      "closed month's expected values and rows can cross the threshold in either "
-      "direction; answered-% keeps firming up as late answers land. That is why "
-      "this page regenerates daily — and because each day's version is committed, "
-      "`git log -p` on this file shows exactly how the verdict evolved.\n")
+    nv = sum(len(v) for v in verdim.values())
+    first_day, last_day = days[0], days[-1]
+    W("Three more numbers for context:")
+    W("")
+    W(f"- Volume: {n} questions. {tagged} of them ({100*tagged/n:.0f}%) carry a "
+      f"cause tag. The count per day was "
+      f"`{spark([int((df['day'] == d).sum()) for d in days])}`, one block per day "
+      f"from {first_day:%B} {first_day.day} to {last_day:%B} {last_day.day}.")
+    W(f"- Answers: {answered} of the {n} questions ({100*answered/n:.0f}%) got an "
+      f"answer from somebody other than the person who asked."
+      + (f" The middle time to the first answer was {fat.median():.1f} hours."
+         if len(fat) else ""))
+    W(f"- Release-adoption version spikes: {nv}. Users move to a new release, so "
+      f"the bare counts rise. These are not incidents.")
+    W("")
+    W(f"Every spike row, with its example questions, is in "
+      f"[All {label} detail](#{anchor}) below.")
+    W("")
 
     def details(summary, body_fn, count):
         """One collapsed block. kramdown needs markdown="1" to parse markdown
         inside a block-level HTML element."""
         W(f'<details markdown="1">')
-        W(f"<summary><strong>{summary}</strong> — {count} row"
+        W(f"<summary>{summary}, {count} row"
           f"{'s' if count != 1 else ''}</summary>")
         W("")
         body_fn()
@@ -313,14 +379,14 @@ def main():
         rows = pd.concat([j.assign(_g=g) for g, j in joint.items() if not j.empty]) \
             if any(len(j) for j in joint.values()) else pd.DataFrame()
         if rows.empty:
-            W("_None._")
+            W("None.")
             return
         rows = rows.assign(_l=pd.to_numeric(rows["lift"], errors="coerce")) \
                    .sort_values("_l", ascending=False)
-        W("| Grain | Lift | When | Version × Cause | Qs | Served | Signal | Example questions |")
+        W("| Grain | Lift | When | Version × Cause | Questions | Served | Novelty | Example questions |")
         W("|:--|--:|:--|:--|--:|:--|:--|:--|")
         for _, r in rows.iterrows():
-            W(f"| {r['_g']} | **{r['lift']}×** | {r['period']} | "
+            W(f"| {r['_g']} | {r['lift']}× | {r['period']} | "
               f"v{r['version_major']} × {r['cause_value']} | {r['observed']} | "
               f"{served(r)} | {r.get('novelty','')} | "
               f"{links_for(str(r['question_ids']).split())} |")
@@ -329,16 +395,16 @@ def main():
         rows = pd.concat([c.assign(_g=g) for g, c in cause.items() if not c.empty]) \
             if any(len(c) for c in cause.values()) else pd.DataFrame()
         if rows.empty:
-            W("_None._")
+            W("None.")
             return
         rows = rows.assign(_m=pd.to_numeric(rows["magnitude"].replace("new", 1e9),
                                             errors="coerce")) \
                    .sort_values(["_m", "count"], ascending=False)
-        W("| Grain | Rise | When | Cause | Qs | Served | Baseline | Example questions |")
+        W("| Grain | Rise | When | Cause | Questions | Served | Baseline | Example questions |")
         W("|:--|--:|:--|:--|--:|:--|--:|:--|")
         for _, r in rows.iterrows():
             mag = "new" if r["magnitude"] == "new" else f"{float(r['magnitude']):.1f}×"
-            W(f"| {r['_g']} | **{mag}** | {r['period']} | {r['value']} | "
+            W(f"| {r['_g']} | {mag} | {r['period']} | {r['value']} | "
               f"{r['count']} | {served(r)} | {r['baseline_median']} | "
               f"{links_for(str(r['question_ids']).split())} |")
 
@@ -346,33 +412,35 @@ def main():
         rows = pd.concat([v.assign(_g=g) for g, v in verdim.items() if not v.empty]) \
             if any(len(v) for v in verdim.values()) else pd.DataFrame()
         if rows.empty:
-            W("_None._")
+            W("None.")
             return
-        W("Version and OS are **filters, not causes** — a bare version spike is "
-          "release adoption, not a regression. Listed for manual checking only.\n")
-        W("| Grain | Rise | When | Dimension | Value | Qs | Baseline |")
-        W("|:--|--:|:--|:--|:--|:--|--:|")  # Qs holds links here -> left-align
+        W("Version and operating system are filters, not causes. A rise in the "
+          "bare count of one version is release adoption, not a regression. The "
+          "rows are here for manual checking only.\n")
+        W("| Grain | Rise | When | Dimension | Value | Questions | Baseline |")
+        W("|:--|--:|:--|:--|:--|:--|--:|")  # the count cell holds links -> left
         for _, r in rows.sort_values(["_g", "period"]).iterrows():
             mag = "new" if r["magnitude"] == "new" else f"{float(r['magnitude']):.1f}×"
-            W(f"| {r['_g']} | **{mag}** | {r['period']} | {r['dim']} | "
+            W(f"| {r['_g']} | {mag} | {r['period']} | {r['dim']} | "
               f"{r['value']} | {qs_cell(r['count'], r['question_ids'])} | "
               f"{r['baseline_median']} |")
 
     def trends_body():
-        for dim, heading in [("tb_version_major", "Top versions"),
-                             ("mail_provider", "Top mail providers"),
-                             ("feature", "Top feature areas"),
-                             ("protocol", "Top protocols"),
-                             ("av", "Top antivirus"),
-                             ("os", "OS mix (filter dimension)"),
-                             ("macos_release", "macOS releases (filter dimension)")]:
+        for dim, heading in [
+                ("tb_version_major", "The Thunderbird versions named most often were:"),
+                ("mail_provider", "The mail hosts named most often were:"),
+                ("feature", "The Thunderbird features named most often were:"),
+                ("protocol", "The protocols named most often were:"),
+                ("av", "The antivirus products named most often were:"),
+                ("os", "The operating systems named most often were:"),
+                ("macos_release", "The macOS releases named most often were:")]:
             exploded = (df[dim].str.split(";").explode().dropna())
             exploded = exploded[exploded != ""]
             if exploded.empty:
                 continue
-            W(f"**{heading}**")
+            W(heading)
             W("")
-            W("| Value | Questions | Trend (by day) |")
+            W("| Value | Questions | Count per day |")
             W("|:--|--:|:--|")
             for value, cnt in exploded.value_counts().head(6).items():
                 mask = df[dim].apply(lambda c: value in (c.split(";") if c else []))
@@ -380,6 +448,86 @@ def main():
                 disp = f"v{value}" if dim == "tb_version_major" else value
                 W(f"| {disp} | {cnt} | `{spark(by_day)}` |")
             W("")
+
+    # ---- what stands out ---------------------------------------------------
+    # Mechanical, never interpretive: the pair that fired most often, the cause
+    # that fired most often, and the clusters that were served badly. A reader
+    # gets the shape of the month without opening a 17-row table.
+    def _concat(d):
+        frames = [x.assign(_g=g) for g, x in d.items() if not x.empty]
+        return pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
+
+    def when(grain, period):
+        """A period label read out loud. A weekly period is keyed by its Monday,
+        so the bare date would read as a single day."""
+        if grain == "weekly":
+            return f"in the week of {period}"
+        return f"on {period}" if grain == "daily" else f"in {period}"
+
+    jall, sall = _concat(joint), _concat(cause)
+    if incidents:
+        W("## What stands out")
+        W("")
+        if not jall.empty:
+            jall["_l"] = pd.to_numeric(jall["lift"], errors="coerce")
+            jall["_pair"] = ("v" + jall["version_major"].astype(str) + " × "
+                             + jall["cause_value"].astype(str))
+            pair = jall["_pair"].value_counts().index[0]
+            rows = jall[jall["_pair"] == pair]
+            top, k = rows.loc[rows["_l"].idxmax()], len(rows)
+            W(f"The pair `{pair}` fired {k} time{'s' if k != 1 else ''}. It "
+              f"fired hardest {when(top['_g'], top['period'])}, with "
+              f"{top['observed']} questions at {top['lift']} times the expected "
+              f"count.")
+            W("")
+        if not sall.empty:
+            sall["_m"] = pd.to_numeric(sall["magnitude"].replace("new", 1e9),
+                                       errors="coerce")
+            val = sall["value"].value_counts().index[0]
+            rows = sall[sall["value"] == val]
+            top = rows.loc[rows["_m"].idxmax()]
+            if top["magnitude"] == "new":
+                tail = "and the tool had seen none in an earlier period"
+            else:
+                tail = (f"{float(top['magnitude']):.1f} times its baseline of "
+                        f"{top['baseline_median']}")
+            W(f"Counted without the version, `{val}` stands out most. It reached "
+              f"{top['count']} questions {when(top['_g'], top['period'])}, "
+              f"{tail}.")
+            W("")
+        bad = []
+        for frame, name in ((jall, lambda r: f"`v{r['version_major']} × {r['cause_value']}`"),
+                            (sall, lambda r: f"`{r['value']}`")):
+            if frame.empty:
+                continue
+            pct = pd.to_numeric(frame["answered_pct"], errors="coerce")
+            for _, r in frame[pct < 60].iterrows():
+                bad.append(f"{name(r)} {when(r['_g'], r['period'])} "
+                           f"({int(float(r['answered_pct']))}% answered)")
+        if bad:
+            more = f", and {len(bad) - 4} more" if len(bad) > 4 else ""
+            W(f"In {len(bad)} cluster{'s' if len(bad) != 1 else ''}, fewer than "
+              f"60% of the questions got an answer: "
+              + ", ".join(bad[:4]) + more + ".")
+            W("")
+
+    # ---- what the dates do and do not mean ---------------------------------
+    W("## Two limits of these dates")
+    W("")
+    W("Read the date of a spike as the day users came to the support site, not "
+      "as the day the problem started. Users retry and wait before they post, so "
+      "a spike usually dates days after the start of a problem, often close to "
+      "the fix. Use this page to find clusters of pain, not to detect a live "
+      "incident.")
+    W("")
+    W("A closed month can also change its verdict later. The tool measures each "
+      "rise against the rate of that cause across all history. Questions that "
+      "arrive later therefore move the expected count for a past month. Rows can "
+      "cross the threshold in both directions, and the answered percentage rises "
+      "as late answers land. This page regenerates every day, and each day's "
+      "version is committed, so `git log -p` on this file shows how the verdict "
+      "moved.")
+    W("")
 
     # ---- near misses, right after the verdict ------------------------------
     # Deliberately BEFORE the detail section: "nothing fired" and "three clusters
@@ -391,17 +539,18 @@ def main():
 
         def nearmiss_body():
             if nm_j is None:
-                W("_Could not be computed on this run (the relaxed detector pass "
-                  "failed); the verdict above is unaffected._")
+                W("The relaxed detector pass failed on this run, so this block "
+                  "is empty. The verdict above is not affected.")
                 return
-            W(f"Clusters the same detectors flag at **{args.near_miss_factor:g}× "
-              f"the thresholds** (i.e. within ~{pct}% of firing) but which did NOT "
-              f"clear the real ones. Not incidents — context, so that “clean” is "
-              f"not confused with “quiet”.\n")
+            W(f"The tool runs the same detectors a second time at "
+              f"{args.near_miss_factor:g} times the thresholds. The rows below "
+              f"came out of that second run and did not clear the real "
+              f"thresholds. They are not incidents. They are context, so that a "
+              f"quiet month is not read as a clean month.\n")
             if not nm_j.empty:
-                W("**Version × cause**")
+                W("Version and cause together:")
                 W("")
-                W("| Grain | Lift | When | Version × Cause | Qs | Served | Example questions |")
+                W("| Grain | Lift | When | Version × Cause | Questions | Served | Example questions |")
                 W("|:--|--:|:--|:--|--:|:--|:--|")
                 for _, r in nm_j.assign(
                         _l=pd.to_numeric(nm_j["lift"], errors="coerce")
@@ -412,9 +561,9 @@ def main():
                       f"{links_for(str(r['question_ids']).split())} |")
                 W("")
             if not nm_s.empty:
-                W("**Cause-level**")
+                W("Cause alone:")
                 W("")
-                W("| Grain | Rise | When | Cause | Qs | Served | Baseline | Example questions |")
+                W("| Grain | Rise | When | Cause | Questions | Served | Baseline | Example questions |")
                 W("|:--|--:|:--|:--|--:|:--|--:|:--|")
                 for _, r in nm_s.assign(
                         _m=pd.to_numeric(nm_s["magnitude"].replace("new", 1e9),
@@ -426,26 +575,33 @@ def main():
                       f"{links_for(str(r['question_ids']).split())} |")
                 W("")
             if nm_j.empty and nm_s.empty:
-                W(f"_None — nothing came within ~{pct}% of threshold either._")
+                W(f"None. Nothing came within about {pct}% of the threshold "
+                  f"either.")
 
         n_nm = 0 if nm_j is None else len(nm_j) + len(nm_s)
-        details(f"🔍 Near misses (within ~{pct}% of threshold)", nearmiss_body, n_nm)
+        details(f"Near misses (within about {pct}% of the threshold)",
+                nearmiss_body, n_nm)
 
     # ---- collapsed detail --------------------------------------------------
     W("---\n")
-    W(f"## All {label} detail\n")
+    # explicit id: the context paragraph links here, and an auto-id would change
+    # with the heading text
+    W(f"## All {label} detail {{#{anchor}}}\n")
 
-    details("🚨 Version × cause spikes", joint_body, n_joint)
-    details("📮 Cause-level spikes (provider · protocol · AV · feature)", cause_body, n_cause)
-    details("📦 Release-adoption version/OS spikes (not incidents)", verdim_body, nv)
-    details(f"📈 {label} trends", trends_body, len(TREND_DIMS))
+    details("Version × cause spikes", joint_body, n_joint)
+    details("Cause-level spikes (mail host, protocol, antivirus, feature)",
+            cause_body, n_cause)
+    details("Release-adoption version and operating-system spikes (not incidents)",
+            verdim_body, nv)
+    details(f"{label} trends", trends_body, len(TREND_DIMS))
 
     W("---")
-    W(f"\n_Detectors run at daily / weekly / monthly grain; a weekly period is "
-      f"included when its week overlaps {label}. Version×cause requires a known "
-      f"version, which is only populated from 2026-02 onward; cause-level uses all "
-      f"history. Full spike CSVs: "
-      f"`PROJECT1/{product}-{{daily,weekly,monthly}}-{{single,version-cause}}-spikes.csv`._")
+    W(f"\nThe tool ran its detectors at daily, weekly and monthly grain. A "
+      f"weekly period counts toward {label} when its week overlaps the month. "
+      f"Version×cause needs a known Thunderbird version, which the data carries "
+      f"only from 2026-02 onward. Cause-level uses all history. The full spike "
+      f"tables are in "
+      f"`PROJECT1/{product}-{{daily,weekly,monthly}}-{{single,version-cause}}-spikes.csv`.")
 
     os.makedirs(REPORT_DIR.format(product=product), exist_ok=True)
     body = "\n".join(out) + "\n"

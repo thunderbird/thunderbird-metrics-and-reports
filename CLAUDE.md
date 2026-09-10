@@ -220,11 +220,25 @@ cause.** No AI/LLM — regex dictionaries + traditional stats only.
 **One-month executive summary** (`scripts/project1_exec_summary.py {YYYY-MM}
 {product} [--latest]`) → `PROJECT1/REPORTS/{product}/{YYYY-MM}-exec-summary.md`
 (+ `exec-summary-latest.md`). Answers **"was <month> clean?"** verdict-first for
-engineering: a ✅/🚨 headline, a **detector × grain count table** (version×cause and
+engineering: a one-line verdict heading, a **detector × grain count table** (version×cause and
 cause-level across daily/weekly/monthly), volume/answered context, then ALL the
 month's detail inside collapsed `<details markdown="1">` blocks (joint spikes,
 cause-level spikes, the release-adoption version/OS dump, and per-day trends).
-Auto-generated **daily** (0530 UTC) by **`gha-project1-desktop-exec-summary.yml`**,
+**STYLE — plain English is the default (decided 2026-09-09, #81).** The page is
+written in the simple-english house style (in the spirit of ASD-STE100): short
+sentences, active voice, simple tenses, no emoji, no bold for emphasis, and every
+term of art defined in a collapsed **Glossary** table at the top (`GLOSSARY` in
+the script). `served` reads `43% answered (below 60%), 3.2h` instead of the old
+`⚠️ 43% ans · 3.2h`; the Qs/Signal columns are `Questions`/`Novelty`. Two
+generated additions came with it: a mechanical **What stands out** section (the
+pair that fired most, the top cause, and the clusters served under 60% — never
+interpretation), and a note under the detector table when a month has <20%
+version coverage, so a 0 in the version×cause row is not misread as clean. Titles
+for example questions are looked up over ALL history, because a week that
+straddles the month end links next month's questions (they used to render with an
+empty tooltip). The spike reports (`project1_report.py`) and the MoM report are
+NOT converted yet — that is the next bucket. Auto-generated **daily** (0530 UTC)
+by **`gha-project1-desktop-exec-summary.yml`**,
 which is lightweight (reads the committed feature/spike CSVs) and **auto-rolls**:
 each run does the most recent COMPLETE month (`--latest`) plus the in-progress one,
 so July keeps refreshing through August and the target advances on the 1st. Linked
