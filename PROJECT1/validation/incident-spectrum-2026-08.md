@@ -110,3 +110,53 @@ Two v155 users report Charter/POP mail being routed to **Trash instead of Inbox*
 
 84% answered (31/37 since Aug 15), median first answer 8.5h. The wk-08-31 slice is
 the worst-served of the month at 37.2h median.
+
+## Every question in the cluster
+
+All 36 `m:spectrum` questions from 2026-08-21 to 2026-09-09, oldest
+first. Titles are shortened to 80 characters. The Answered column is yes when
+a person other than the person who asked replied.
+
+<details markdown="1">
+<summary>The 36 questions</summary>
+
+| Date | Question | Version | Title | Answered |
+|:--|:--|:--|:--|:--|
+| 2026-08-21 | [1599516](https://support.mozilla.org/questions/1599516) | 153 | When trying to send an email it will not go | yes |
+| 2026-08-21 | [1599553](https://support.mozilla.org/questions/1599553) | 153 | I can't receive or send Charter emails in thunderbird. | yes |
+| 2026-08-22 | [1599681](https://support.mozilla.org/questions/1599681) | 140 | I am unable to send and receive emails on two of my computers. I can do that on… | yes |
+| 2026-08-22 | [1599683](https://support.mozilla.org/questions/1599683) | 154 | Suddenly not receiving email | yes |
+| 2026-08-22 | [1599711](https://support.mozilla.org/questions/1599711) | unknown | I use to be able to get my email messages from Spectrum on Thunderbird, but now… | yes |
+| 2026-08-22 | [1599738](https://support.mozilla.org/questions/1599738) | 154 | Thunderbird is not receiving in coming mail from Charter | yes |
+| 2026-08-23 | [1599818](https://support.mozilla.org/questions/1599818) | 154 | Thunderbird not connecting to server.  Cannot send or receive emails. | yes |
+| 2026-08-23 | [1599823](https://support.mozilla.org/questions/1599823) | 153 | After latest update can't connect to spectrum Charter email | yes |
+| 2026-08-23 | [1599836](https://support.mozilla.org/questions/1599836) | 153 | all INBOX emails disappeared--no luck repairing folder or deleting INBOX.msf bu… | yes |
+| 2026-08-23 | [1599874](https://support.mozilla.org/questions/1599874) | 154 | Ability to send emails using roadrunner (mail.twc.com) account | yes |
+| 2026-08-24 | [1600000](https://support.mozilla.org/questions/1600000) | 153 | Suddenly can't send/receive emails | no |
+| 2026-08-24 | [1600041](https://support.mozilla.org/questions/1600041) | 153 | I can receive but not send emails | yes |
+| 2026-08-24 | [1600052](https://support.mozilla.org/questions/1600052) | 154 | Trouble connecting to my email provider Time Warner Corporation to send emails … | no |
+| 2026-08-24 | [1600103](https://support.mozilla.org/questions/1600103) | 153 | Cannot send or receive email. (locked duplicate) | yes |
+| 2026-08-25 | [1600207](https://support.mozilla.org/questions/1600207) | unknown | Can't get into my Spectrum email account through Thunderbird | yes |
+| 2026-08-27 | [1600663](https://support.mozilla.org/questions/1600663) | unknown | can no longer get my e-mail | yes |
+| 2026-08-28 | [1600872](https://support.mozilla.org/questions/1600872) | 154 | I can send email but can not receive. | yes |
+| 2026-08-29 | [1600919](https://support.mozilla.org/questions/1600919) | 154 | how Can i get help when my email doesn't work? | yes |
+| 2026-08-29 | [1600982](https://support.mozilla.org/questions/1600982) | 154 | Thunderbird not working again with Spectrum emails. | yes |
+| 2026-08-29 | [1600985](https://support.mozilla.org/questions/1600985) | 150 | Again no email using Spectrum | yes |
+| 2026-08-29 | [1601056](https://support.mozilla.org/questions/1601056) | 154 | Thunderbird 154.0 is causing extremem issues with Spectrum email. HELP Please | yes |
+| 2026-08-30 | [1601071](https://support.mozilla.org/questions/1601071) | 154 | After update I cant send or receive Charter emails | yes |
+| 2026-08-30 | [1601143](https://support.mozilla.org/questions/1601143) | 153 | IMAP accounts no longer update - Charter/Spectrum email hosting | yes |
+| 2026-08-30 | [1601159](https://support.mozilla.org/questions/1601159) | 154 | thunderbird has stopped downloading email from charter. it will work if i have … | yes |
+| 2026-08-30 | [1601196](https://support.mozilla.org/questions/1601196) | 154 | Problems Sending and Receiving - Unable to Connect to Server | yes |
+| 2026-08-31 | [1601375](https://support.mozilla.org/questions/1601375) | 154 | my spectrum password wont log me in to thunderbird why | yes |
+| 2026-09-01 | [1601442](https://support.mozilla.org/questions/1601442) | 140 | Correct Outgoing SMPT settings for IMAP | no |
+| 2026-09-01 | [1601623](https://support.mozilla.org/questions/1601623) | unknown | no access to Thunderbird email through Spectrum | yes |
+| 2026-09-02 | [1601790](https://support.mozilla.org/questions/1601790) | 155 | Charter + pop, all new messages are going to the trash folder, not my inbox, an… | yes |
+| 2026-09-02 | [1601822](https://support.mozilla.org/questions/1601822) | unknown | trouble sending and receiving messages interfacing with Spectrum (locked duplic… | no |
+| 2026-09-03 | [1602003](https://support.mozilla.org/questions/1602003) | 153 | Spectrum Emails are disappearing from my Thunderbird Inbox after downloading. T… | yes |
+| 2026-09-05 | [1602271](https://support.mozilla.org/questions/1602271) | 155 | Mail coming to inbox is automatically rerouted to trash folder | yes |
+| 2026-09-06 | [1602429](https://support.mozilla.org/questions/1602429) | 155 | Cannot connect Thunderbird to Spectrum | yes |
+| 2026-09-06 | [1602561](https://support.mozilla.org/questions/1602561) | 154 | Emails without content | yes |
+| 2026-09-08 | [1602946](https://support.mozilla.org/questions/1602946) | unknown | How can i access my Thunderbird  email? It stopped recognizing my password | no |
+| 2026-09-09 | [1603164](https://support.mozilla.org/questions/1603164) | 155 | mobile.charter.net  times out? | no |
+
+</details>
