@@ -1,0 +1,36 @@
+{
+ "headline": "Android account and crash reports drive five new issue clusters while overall volume falls slightly",
+ "narrative_md": "Support volume dropped from 44 questions in July to 40 in August. But five of the six top issues are new this month. Four of those five point at Thunderbird for Android. Engineering must treat the Android client as the focus for this month.\n\nAccount and login problems grew from 4 to 6 questions. Three separate clusters describe the same shape of failure. Stored passwords revert or refuse to update on Android. AOL and Yahoo accounts loop on login prompts and stop receiving mail. Imported accounts arrive with no password and show only an Outbox. A shared credential storage or migration path is the likely root cause.\n\nCrash reports rose from 1 to 3. Two of those are one new cluster: the Android app crashes when a user opens a downloaded email. Encryption questions went from 0 to 3, and users are asking for OpenPGP and S/MIME on Android, which the client does not offer.\n\nOne issue is served badly. Contact autocomplete failures in the To field resolved at 50 percent. Every other top cluster resolved at 100 percent. That gap means support has no working answer for autocomplete. This reading comes from an automated pass over free-text support questions. Treat it as a triage pointer, not proof.",
+ "issues": [
+  {
+   "rank": 1,
+   "why": "Users on Android cannot change a stored password, and the old value returns, which locks them out of mail.",
+   "action": "Engineering must trace the Android credential store write path and check whether account settings save silently fails or gets overwritten on sync."
+  },
+  {
+   "rank": 2,
+   "why": "The Android app crashes when a user opens a downloaded message, and mean severity is 4.0, the highest in the set.",
+   "action": "Engineering must pull crash traces for the message viewer on downloaded mail and test large or unusual MIME bodies."
+  },
+  {
+   "rank": 3,
+   "why": "AOL and Yahoo accounts prompt for login in a loop and then stop receiving mail entirely.",
+   "action": "Engineering must check OAuth token refresh against current AOL and Yahoo endpoints, since both providers share one backend."
+  },
+  {
+   "rank": 4,
+   "why": "Only half of these users got a resolution, the worst rate in the set, so support has no known fix for missing contact autocomplete.",
+   "action": "Engineering must reproduce autocomplete against local address book and directory sources, then publish a diagnostic path support can follow."
+  },
+  {
+   "rank": 5,
+   "why": "Users expect OpenPGP and S/MIME encryption on Android and file support tickets when they cannot find it.",
+   "action": "Engineering must confirm the roadmap position for Android encryption and give support a clear public statement to link."
+  },
+  {
+   "rank": 6,
+   "why": "This grew from 1 to 3 questions, and imported accounts land with no password and only an Outbox visible, which looks like total data loss to the user.",
+   "action": "Engineering must audit the import routine for password carry-over and folder subscription, and connect it to the credential bugs in ranks 1 and 3."
+  }
+ ]
+}

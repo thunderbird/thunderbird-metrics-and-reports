@@ -44,6 +44,10 @@ REPORT_DIR = "LLM_INSIGHTS/REPORTS/{product}"
 QUESTION_URL = "https://support.mozilla.org/questions/{id}"
 TOP_N = 12          # ranked issues to feature
 MIN_CLUSTER = 3     # a featured cluster needs >= this many current-month questions
+# Below this many questions in the current month, cluster-level deltas are noise:
+# android runs ~40 questions a month across ~60 clusters, so almost every cluster
+# holds one or two questions and reads "new this month". The page says so.
+LOW_VOLUME = 150
 
 
 # Both Stage-2 calls are cached on disk, keyed by month pair and product. The
@@ -56,10 +60,13 @@ CACHE = "LLM_INSIGHTS/cache/{product}-{cur}-vs-{prev}-{what}.json"
 KNOWN_STATUS = "LLM_INSIGHTS/known-status.csv"
 
 
-def load_known_status():
+def load_known_status(product):
+    """Rows for `product` (or `all`). A fix that shipped in the desktop client
+    must not annotate an android cluster whose label happens to match."""
     if not os.path.exists(KNOWN_STATUS):
         return []
     df = pd.read_csv(KNOWN_STATUS, dtype=str, keep_default_na=False)
+    df = df[df["product"].isin([product, "all"])]
     return [(re.compile(r["pattern"]), r["status"]) for _, r in df.iterrows()]
 
 
@@ -463,7 +470,7 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
     W(f"title: {pcap} LLM Insights — {human_month(cur_m)}")
     W("---")
     W("")
-    known = load_known_status()
+    known = load_known_status(product)
     W(f"# Thunderbird {pcap} — LLM Insights (Engineering)")
     W(f"\n## {human_month(cur_m)} against {human_month(prev_m)}\n")
 
@@ -485,6 +492,15 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
           "[Issues to investigate](#issues-to-investigate) below, which carries "
           "the reason, what to look at, and the example questions.")
         W("")
+        if len(cur) < LOW_VOLUME:
+            W(f"Read this page as a list of the month's problems, not as a "
+              f"trend. {human_month(cur_m)} holds {len(cur)} questions in "
+              f"{top.attrs.get('n_clusters', 0)} clusters, so most clusters hold "
+              f"one or two questions. A change of one question is noise, and "
+              f"\"new this month\" often means only that nobody worded the "
+              f"problem that way last month. The severity and the resolved "
+              f"figures carry the signal here.")
+            W("")
 
     if True:
         W("Claude read every support question of both months. For each question "

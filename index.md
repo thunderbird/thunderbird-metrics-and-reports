@@ -74,6 +74,6 @@ prototype for review.
 resolved-rate, and clickable example questions:
 
 - [Desktop — LLM Insights monthly summary (latest)](LLM_INSIGHTS/REPORTS/desktop/monthly-summary-latest.html) — plain English, and it opens with a TL;DR table of the five issues to look at first
-- [Android — LLM Insights monthly summary (latest)](LLM_INSIGHTS/REPORTS/android/monthly-summary-latest.html)
+- [Android — LLM Insights monthly summary (latest)](LLM_INSIGHTS/REPORTS/android/monthly-summary-latest.html) — plain English, same TL;DR table. At ~40 questions a month the per-issue detail is the signal, not the month-over-month change, and the page says so
 
 _(Prototype — feedback welcome.)_

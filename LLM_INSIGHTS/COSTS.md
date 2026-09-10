@@ -148,6 +148,26 @@ spiking cause has no cluster of its own.
 | Narrative for the new ranking | $0.06 |
 | **Day total, all runs** | **$13.05** |
 
+### Android, August 2026 vs July 2026 ($0.66)
+
+| Stage | Questions | Cost |
+|:--|--:|--:|
+| Classify 2026-07 | 44 | $0.29 |
+| Classify 2026-08 | 40 | $0.25 |
+| Clustering + narrative | 84 | $0.12 |
+| **Total** | | **$0.66** |
+
+Android is cheap because it is small, and small is also its problem: 40 questions
+spread over 33 clusters, so most clusters hold one or two questions. The page now
+carries a note saying to read it as a list of the month's problems rather than as
+a trend, and that the severity and resolved figures carry the signal, not the
+month-over-month change. Below `LOW_VOLUME = 150` questions that note appears
+automatically, so desktop never shows it.
+
+`known-status.csv` gained a `product` column at the same time: a fix that shipped
+in the desktop client must not annotate an android cluster whose label happens to
+match the pattern.
+
 ## Notes
 - All figures are well under the $50/run circuit-breaker.
 - Cost scales with the enriched text size; if it ever grows, re-baseline the unit rate with the Bucket-0 preview: `uv run scripts/llm_insights_cost.py <month> <month> <product>`.
