@@ -18,7 +18,7 @@ WHERE
   product LIKE 'thunderbird'          -- exact match: desktop only, not thunderbird-android
   AND is_spam = FALSE
   AND DATETIME(created_utc) >= DATETIME '2023-01-01'
-  AND DATETIME(created_utc) <  DATETIME '2026-08-01'
+  AND DATETIME(created_utc) <  DATETIME '2026-09-01'
 GROUP BY
   month
 ORDER BY

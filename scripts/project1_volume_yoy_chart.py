@@ -17,7 +17,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-CSV = "PROJECT1/validation/bq-desktop-questions-by-month-2023-01_2026-07.csv"
+CSV = "PROJECT1/validation/bq-desktop-questions-by-month-2023-01_2026-08.csv"
 OUT = "PROJECT1/validation/desktop-questions-yoy.png"
 
 # dataviz reference palette — categorical slots 1..4 (fixed order), + ink tokens
@@ -26,8 +26,8 @@ INK, INK2, MUTED = "#0b0b0b", "#52514e", "#898781"
 GRID, AXIS, SURFACE = "#e1e0d9", "#c3c2b7", "#fcfcfb"
 
 # A month is "complete" only if a later month exists in the data (so the current
-# partial month isn't drawn as a cliff). Here: everything through 2026-06.
-LAST_COMPLETE = "2026-06"
+# partial month isn't drawn as a cliff). Here: everything through 2026-08.
+LAST_COMPLETE = "2026-08"
 
 
 def main():
@@ -76,8 +76,11 @@ def main():
     # keeps them from colliding / overflowing the plot.
     fig.text(0.055, 0.965, "Thunderbird Desktop — SUMO questions per month, "
              "year over year", color=INK, fontsize=14, fontweight="bold", va="top")
+    last_year = df[df["year"] == years[-1]]
+    span = (f"{calendar.month_abbr[int(last_year['m'].min())]}–"
+            f"{calendar.month_abbr[int(last_year['m'].max())]}")
     fig.text(0.055, 0.915, "Support volume ~halved from 2024/2025 to 2026  ·  "
-             "▪ 2026 partial (Jan–Jun)", color=INK2, fontsize=10, va="top")
+             f"▪ {years[-1]} partial ({span})", color=INK2, fontsize=10, va="top")
     fig.text(0.055, 0.02, "Source: BigQuery moz-fx-sumo-prod.sumo."
              "metrics_thunderbird_questions · product=thunderbird · is_spam=FALSE "
              "· created (UTC)", color=MUTED, fontsize=8, va="bottom")

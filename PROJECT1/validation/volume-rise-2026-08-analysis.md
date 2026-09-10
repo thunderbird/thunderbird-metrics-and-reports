@@ -5,6 +5,21 @@ August 2026 logged **941** desktop questions against July's **731** — **+210
 from the corpus marked as tested and the ones needing external data left open.
 Companion to issue #67 (the long-run volume decline).
 
+## Confirmed in ground truth (2026-09-09)
+
+The BigQuery ground truth now runs through August 2026 and the rise is real:
+
+| Month | BigQuery | This repo | Match |
+|:--|--:|--:|--:|
+| 2026-05 | 812 | 812 | 100.0% |
+| 2026-06 | 724 | 725 | 100.1% |
+| 2026-07 | 732 | 731 | 99.9% |
+| **2026-08** | **943** | **941** | **99.8%** |
+
+Across all 44 months the two agree to 100.0% (49,419 against 49,422), and the old
+2023-11 scraper gap is closed. So the +29% is not a scraper artefact. See
+`README.md` in this directory.
+
 ## First: it is not an "August bump"
 
 Framing it as one month misses the shape. Per-day rates (month-length neutral):
@@ -97,14 +112,39 @@ to 54%.
 | SUMO-funnel or scraper-wide change | **Rejected** | **Android went the other way: −11% Jul→Aug** while desktop went +29%. A funnel or scraper cause would hit both. (Caveat: android is only ~2/day, so its noise is wide.) |
 | v154 caused it | **Partly — a third at most** | The changepoint is wk Aug 3; Aug 1–17 already ran 1.16× July before v154 shipped. v154 does coincide with the steeper second half (1.44×). |
 | The crash rise is a v154 regression | **Rejected — and the rise itself is mostly an artefact** | Cohort rates over the SUMO crash/perf topics, Aug 18–Sep 9: v154 7.1%, v153 5.5%, v155 6.3%, **v140 10.2%**, unknown 10.7% — no version specificity (contrast printing: v154 13.4% vs v153 0.0%). And title-verified crashes only rose +10 (2.5% → 3.0%), within normal oscillation. See the provenance note above. |
-| Seasonality (Jul→Aug is normally up) | **Weak / inconsistent** | 2023: −3%. **2024: +34%.** 2025: +6%. 2026: +29%. August *can* jump, but two of three prior years did not. |
+| Seasonality (Jul→Aug is normally up) | **CONFIRMED, and it is most of the rise** | Raw ratios read as inconsistent (2023 −3%, 2024 +34%, 2025 +6%, 2026 +29%), but raw ratios mix the seasonal step with the year's trend. Detrended against a centred 12-month mean, August is a high month every year. See the section below. |
+
+## Seasonality explains about 60% of the rise
+
+Dividing each month by a centred 12-month mean removes the decline and leaves the
+calendar effect. Averaged over 2023–2026 (BigQuery):
+
+| Month | J | F | M | A | M | J | J | A | S | O | N | D |
+|:--|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| Index | 1.03 | 0.94 | 0.93 | 0.81 | 0.80 | 0.76 | 0.98 | 1.16 | 1.19 | 1.41 | 1.11 | 0.97 |
+
+June is the floor of the year and August, September and October are the peak.
+The seasonal step from July to August is 1.16 / 0.98 = **1.18×**.
+
+Applied to July 2026 (732 questions), the expected August is **860**. The actual
+is 943, which is **1.10× the seasonal expectation, or +83 questions**. So of the
++211 rise, roughly **128 is the normal August step and 83 is genuine excess**.
+
+That reframes the decomposition above. The named clusters (printing +32, Spectrum
++29, Yahoo Mail +25, crashes +10, union **+96**) do not cover half of +211; they
+cover **more than all of the +83 excess**. The residual is largely the calendar.
+
+Two cautions. The index rests on three Augusts, and 2023 does not fit it (index
+0.86, the year Supernova pushed the peak to October). And September and October
+are seasonally higher still, so the September run rate of 36.3/day is what the
+calendar predicts, not evidence that the rise is accelerating.
 
 ## Hypotheses that need EXTERNAL data (cannot be settled from the corpus)
 
-1. **Is the rise real in ground truth?** Cross-check August and September against
-   BigQuery using the #67 method (`PROJECT1/validation/bq-desktop-questions-by-month.sql`).
-   This is the cheapest decisive check and should come first — the whole analysis
-   rests on scraper counts.
+1. ~~**Is the rise real in ground truth?**~~ **SETTLED 2026-09-09: yes.** BigQuery
+   gives 943 for August against this repo's 941, and all 44 months agree to 100.0%.
+   September is not in the export yet, so the 36.3/day run rate is still
+   scraper-only.
 2. **Did SUMO change the ask-a-question funnel in early August?** A more prominent
    AAQ entry point, a changed help-article CTA, or a support-routing change would
    raise *every* topic at once — which is exactly the residual's signature.
