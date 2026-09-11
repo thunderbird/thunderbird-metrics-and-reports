@@ -15,7 +15,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 941 | 365 | ▼ -576 (-61%) |
+| Support questions (load) | 941 | 380 | ▼ -561 (-60%) |
 | Version × cause spikes flagged | 7 | 2 | ▼ -5 |
 | — of which **new** regressions | 1 | 0 | ▼ -1 |
 | Cause-level surges flagged | 2 | 0 | ▼ -2 |
@@ -31,7 +31,7 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 | Signal | When | Version × Cause | Qs | Lift | Served | Example questions |
 |:--|:--|:--|--:|--:|:--|:--|
 | ↗ spreading | 2026-09-07 | v155 × proto:pop | 4 | 4.0× | 75% ans · 5.2h | [1602660](https://support.mozilla.org/questions/1602660 "pop3 account creation error") [1602682](https://support.mozilla.org/questions/1602682 "Login to server pop3.virginmedia.com with username ******* failed") [1602703](https://support.mozilla.org/questions/1602703 "Thunderbird freezes downloading messages when it reaches a message from aliexpre") [1602714](https://support.mozilla.org/questions/1602714 "Is syncronization bidirectional with IMAP accounts?") |
-| ↻ recurring | 2026-09-01 | v154 × feat:printing | 4 | 17.3× | 100% ans · 13.8h | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") |
+| ↻ recurring | 2026-09-01 | v154 × feat:printing | 4 | 17.4× | 100% ans · 13.8h | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") |
 
 ## What moved
 
@@ -39,12 +39,12 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 
 | Cause clusters (provider / protocol / AV / feature) | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| m:gmail | 75 | 32 | ▼ -43 (-57%) |
-| m:microsoftemail | 53 | 14 | ▼ -39 (-74%) |
-| proto:imap | 71 | 34 | ▼ -37 (-52%) |
+| m:gmail | 75 | 33 | ▼ -42 (-56%) |
+| m:microsoftemail | 53 | 15 | ▼ -38 (-72%) |
+| proto:imap | 71 | 35 | ▼ -36 (-51%) |
 | m:yahooemail | 55 | 20 | ▼ -35 (-64%) |
 | feat:printing | 36 | 8 | ▼ -28 (-78%) |
-| proto:pop | 46 | 19 | ▼ -27 (-59%) |
+| proto:pop | 46 | 20 | ▼ -26 (-57%) |
 | proto:smtp | 44 | 19 | ▼ -25 (-57%) |
 | feat:addressbook | 24 | 3 | ▼ -21 (-88%) |
 
@@ -56,20 +56,20 @@ _None — every cause cluster in September 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| v153 | 441 | 61 | ▼ -380 (-86%) |
+| v153 | 441 | 62 | ▼ -379 (-86%) |
 | v154 | 202 | 39 | ▼ -163 (-81%) |
-| v155 | 0 | 141 | ▲ +141 |
-| v140 | 67 | 23 | ▼ -44 (-66%) |
-| v115 | 24 | 12 | ▼ -12 (-50%) |
+| v155 | 0 | 150 | ▲ +150 |
+| v140 | 67 | 25 | ▼ -42 (-63%) |
+| v115 | 24 | 13 | ▼ -11 (-46%) |
 | v150 | 25 | 5 | ▼ -20 (-80%) |
 
 ### Operating-system mix
 
 | Operating-system mix | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 750 | 307 | ▼ -443 (-59%) |
-| os:linux | 93 | 22 | ▼ -71 (-76%) |
-| os:macos | 59 | 20 | ▼ -39 (-66%) |
+| os:windows | 750 | 318 | ▼ -432 (-58%) |
+| os:linux | 93 | 24 | ▼ -69 (-74%) |
+| os:macos | 59 | 22 | ▼ -37 (-63%) |
 | os:android | 10 | 2 | ▼ -8 (-80%) |
 | os:other | 6 | 4 | ▼ -2 |
 
@@ -77,15 +77,15 @@ _None — every cause cluster in September 2026 has appeared in a prior month._
 
 | Topic mix | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 233 | 127 | ▼ -106 (-45%) |
-| email-and-messaging | 80 | 33 | ▼ -47 (-59%) |
-| customization | 86 | 23 | ▼ -63 (-73%) |
-| passwords-and-sign-in | 60 | 21 | ▼ -39 (-65%) |
+| send-and-receive-email | 233 | 131 | ▼ -102 (-44%) |
+| email-and-messaging | 80 | 35 | ▼ -45 (-56%) |
+| customization | 86 | 26 | ▼ -60 (-70%) |
+| passwords-and-sign-in | 60 | 22 | ▼ -38 (-63%) |
 | attachments | 49 | 16 | ▼ -33 (-67%) |
-| connectivity | 48 | 12 | ▼ -36 (-75%) |
+| connectivity | 48 | 13 | ▼ -35 (-73%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · September 2026 vs August 2026._
 
-_Last updated: 2026-09-11 08:08 UTC_
+_Last updated: 2026-09-11 20:06 UTC_
