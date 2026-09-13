@@ -56,8 +56,8 @@ Version-agnostic (a provider outage spans versions), vs a trailing-month baselin
 | m:yahooemail | 30 | 55 | ▲ +25 (+83%) |
 | m:microsoftemail | 36 | 53 | ▲ +17 (+47%) |
 | proto:imap | 56 | 71 | ▲ +15 (+27%) |
-| feat:junk | 13 | 24 | ▲ +11 (+85%) |
 | feat:attachments | 16 | 27 | ▲ +11 (+69%) |
+| feat:junk | 13 | 24 | ▲ +11 (+85%) |
 | feat:addressbook | 14 | 24 | ▲ +10 (+71%) |
 
 ### 🆕 New cause clusters (first appearance ever)
@@ -82,8 +82,8 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 | os:windows | 589 | 750 | ▲ +161 (+27%) |
 | os:linux | 61 | 93 | ▲ +32 (+52%) |
 | os:macos | 45 | 59 | ▲ +14 (+31%) |
-| os:other | 11 | 6 | ▼ -5 (-45%) |
 | os:android | 7 | 10 | ▲ +3 |
+| os:other | 11 | 6 | ▼ -5 (-45%) |
 
 ### Topic mix
 
@@ -100,4 +100,4 @@ _None — every cause cluster in August 2026 has appeared in a prior month._
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · August 2026 vs July 2026._
 
-_Last updated: 2026-09-13 08:07 UTC_
+_Last updated: 2026-09-13 20:06 UTC_
