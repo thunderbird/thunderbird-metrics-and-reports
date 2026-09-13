@@ -5,10 +5,10 @@ title: MONTHLY: Thunderbird Desktop — Support Spike Report
 
 # MONTHLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2024-10 … 2026-09 · **monthly** grain · trailing 24 months · 27208 questions · no AI (regex + traditional stats)_
+_Generated 2024-10 … 2026-09 · **monthly** grain · trailing 24 months · 27219 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 27208 questions, 1133.7/month avg
-- **Answered (non-creator):** 21122/27208 (78%)
+- **Volume:** 27219 questions, 1134.1/month avg
+- **Answered (non-creator):** 21132/27219 (78%)
 - **First-answer time (median):** 3.3h (p25 0.9h / p75 11.7h)
 - **Total volume trend:** `█▇▇█▆▆▆▆▅▇▇▆▆▅▅▅▅▅▄▄▄▄▅▃`
 
@@ -23,7 +23,7 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 
 | Signal | Lift | When | Version × Cause | Qs | Served | Example questions | Trend |
 |:--|---:|:--|:--|--:|:--|:--|:--|
-| 🆕 new | **10.6×** | 2026-08 | v154 × feat:printing | 29 | 76% ans · 4.1h | [1596686](https://support.mozilla.org/questions/1596686 "Cannot print Pdf files from within Thunderbird") [1599257](https://support.mozilla.org/questions/1599257 "Print emails") [1599261](https://support.mozilla.org/questions/1599261 "Perchè non si riesce a stampare diretta mente da Thunderbird un allegato ad un m") [1599285](https://support.mozilla.org/questions/1599285 "PDF attachments now blank when printed.  Worked great til today.") [1599333](https://support.mozilla.org/questions/1599333 "can not print attachments") [1599495](https://support.mozilla.org/questions/1599495 "Thunderbird can't print files") +23 · [explore ↗](explorer.html#grain=monthly&version=154&cause=feat:printing&period=2026-08) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂` |
+| 🆕 new | **10.7×** | 2026-08 | v154 × feat:printing | 29 | 76% ans · 4.1h | [1596686](https://support.mozilla.org/questions/1596686 "Cannot print Pdf files from within Thunderbird") [1599257](https://support.mozilla.org/questions/1599257 "Print emails") [1599261](https://support.mozilla.org/questions/1599261 "Perchè non si riesce a stampare diretta mente da Thunderbird un allegato ad un m") [1599285](https://support.mozilla.org/questions/1599285 "PDF attachments now blank when printed.  Worked great til today.") [1599333](https://support.mozilla.org/questions/1599333 "can not print attachments") [1599495](https://support.mozilla.org/questions/1599495 "Thunderbird can't print files") +23 · [explore ↗](explorer.html#grain=monthly&version=154&cause=feat:printing&period=2026-08) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂` |
 | 🆕 new | **3.8×** | 2026-07 | v140 × feat:search | 7 | 100% ans · 3.5h | [1591417](https://support.mozilla.org/questions/1591417 "How to prevent Thunderbird message search (ctrl+F) from continuing from the top?") [1591550](https://support.mozilla.org/questions/1591550 "Copying a saved search in Thunderbird") [1591650](https://support.mozilla.org/questions/1591650 "Searching by domain - issue?") [1592237](https://support.mozilla.org/questions/1592237 "Before the last update to TB I could easily search for a single email address me") [1592460](https://support.mozilla.org/questions/1592460 "Can I create a search based on text in the ＂message source＂?") [1592700](https://support.mozilla.org/questions/1592700 "Unable to see messages in Inbox but messages visible using search. Repair folder") +1 · [explore ↗](explorer.html#grain=monthly&version=140&cause=feat:search&period=2026-07) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▃▂▃▄█▃▁` |
 | 🆕 new | **3.8×** | 2026-02 | v148 × feat:calendar | 7 | 100% ans · 0.6h | [1567678](https://support.mozilla.org/questions/1567678 "TB 148 seems to 'break' Google calendars, using Provider") [1567859](https://support.mozilla.org/questions/1567859 "In Thunderbird/Adressbuch sind Geburtsdaten eingetragen. Was muß/kann ich tun, u") [1567878](https://support.mozilla.org/questions/1567878 "No connection between Google agenda since up date of thunderbird to 148.0 versio") [1567951](https://support.mozilla.org/questions/1567951 "My google calendar disappeared all of the sudden") [1567961](https://support.mozilla.org/questions/1567961 "Mail sync issue led to Mail disappearing after troubleshooting then selecting ＂c") [1568051](https://support.mozilla.org/questions/1568051 "I can't remove the calendar from view, the attached image keeps appearing") +1 · [explore ↗](explorer.html#grain=monthly&version=148&cause=feat:calendar&period=2026-02) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▂▁▁▁▁▁` |
 | 🆕 new | **3.4×** | 2026-02 | v140 × feat:calendar | 10 | ⚠️ 50% ans · 5.4h | [1565213](https://support.mozilla.org/questions/1565213 "Thunderbird-created Google Calendar invites neither include an automatic Google ") [1565246](https://support.mozilla.org/questions/1565246 "Calendar event convert to message missing date and time") [1565919](https://support.mozilla.org/questions/1565919 "Problem linking existing Thunderbird calendar to Google Calendar") [1566048](https://support.mozilla.org/questions/1566048 "Filter Calendar events by Category then sort by start") [1566095](https://support.mozilla.org/questions/1566095 "Is there a way to force the calendar to keep an event reminder until I dismiss i") [1566561](https://support.mozilla.org/questions/1566561 "How do I select a specific calendar to unsubscribe?") +4 · [explore ↗](explorer.html#grain=monthly&version=140&cause=feat:calendar&period=2026-02) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▅▄▅▅▅▃▁` |
@@ -59,7 +59,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | v140 | 1039 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▇▃▂` |
-| v153 | 612 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃█▂` |
+| v153 | 614 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃█▂` |
 | v150 | 454 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▁▂▂▁` |
 | v152 | 379 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁▁` |
 | v151 | 338 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁▁▁` |
@@ -69,19 +69,19 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 2392 | `█▇▇▇▆▆▆▅▄▅▆▆▅▅▅▅▄▅▄▄▃▄▄▂` |
+| m:gmail | 2393 | `█▇▇▇▆▆▆▅▄▅▆▆▅▅▅▅▄▅▄▄▃▄▄▂` |
 | m:microsoftemail | 1868 | `█▆▅▅▅▄▄▃▃▄▄▄▅▄▄▄▄▄▃▄▃▂▃▂` |
-| m:yahooemail | 830 | `▅▄▅▆▃▄▃▃▄▇▆▆▆▇▄▄▇█▅▆▄▅▇▄` |
+| m:yahooemail | 832 | `▅▄▅▆▃▄▃▃▄▇▆▆▆▇▄▄▇█▅▆▄▅▇▄` |
 | m:comcast | 340 | `▆▆▅▆▄▅▄▄▃▃█▄▄▆▅▂▃▃▅▄▄▄▄▂` |
 | m:spectrum | 306 | `▅▃▃▃▄▃▃▃▃▃▄▄▂▄▃▃▄▂▂▅▅▂█▄` |
-| m:att | 188 | `▄▅██▅▃▃▅▃▇▇▃▂▄▆▃▃▅▃▂▂▃▃▂` |
+| m:att | 190 | `▄▅██▅▃▃▅▃▇▇▃▂▄▆▃▃▅▃▂▂▃▃▃` |
 
 ### Top feature areas
 
 | Value | Total | Trend |
 |:--|--:|:--|
 | feat:calendar | 709 | `█▄▅▅▅▇▅▃▄▅▅▄▄▄▄▃▆▄▄▃▄▃▃▁` |
-| feat:import_export | 687 | `▆█▇█▇▅▆▅▅▇▇▆▅▅▅▅▄▅▄▅▄▅▄▂` |
+| feat:import_export | 688 | `▆█▇█▇▅▆▅▅▇▇▆▅▅▅▅▄▅▄▅▄▅▄▂` |
 | feat:junk | 566 | `▄▄▅▇▆▅▆▆▄▇█▆▇▃▅▅▅▄▅▅▅▃▅▃` |
 | feat:addressbook | 550 | `▇▇▅▇▇▅▄▅▆▆█▇▆▄▆▄▅▅▄▃▅▄▅▂` |
 | feat:attachments | 458 | `█▅▆█▆▄█▅▄▅▆▆▅▅▅▄▄▅▃▄▃▅▇▅` |
@@ -94,7 +94,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | proto:imap | 1869 | `▇▇██▇▅▅▅▄▆▆▅▆▅▄▅▄▅▃▅▄▄▅▃` |
 | proto:smtp | 1170 | `█▇▆█▆▅▅▆▄▆▇▅▅▄▃▆▅▅▃▄▃▄▅▃` |
 | proto:pop | 1161 | `▇█▆█▆▄▅▅▅▆▇▅▆▄▃▅▄▄▄▄▃▅▅▃` |
-| proto:oauth | 444 | `█▅▅▅▃▃▄▃▂▃▃▃▃▃▂▃▄▆▃▃▃▄▄▃` |
+| proto:oauth | 445 | `█▅▅▅▃▃▄▃▂▃▃▃▃▃▂▃▄▆▃▃▃▄▄▃` |
 | proto:caldav | 94 | `▆▆▅█▃▃▃▆▅▆▄▃▄▂▃▅▆▃▃▂▃▃▂▂` |
 | proto:carddav | 55 | `▄▅▃▄▂▇▃▂▁▃█▂▃▃▂▂▄▅▄▂▂▂▄▂` |
 
@@ -113,8 +113,8 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 7541 | `▃▃▂▂▂▂▂▂▂▃▃▂▃▂▂▅▇█▇▇▇▆█▄` |
-| os:linux | 1246 | `▆▅▅▆▅▃▄▄▃▃▅▅▄▄▄▆▆▇▅▆▆▆█▃` |
+| os:windows | 7550 | `▃▃▂▂▂▂▂▂▂▃▃▂▃▂▂▅▇█▇▇▇▆█▄` |
+| os:linux | 1247 | `▆▅▅▆▅▃▄▄▃▃▅▅▄▄▄▆▆▇▅▆▆▆█▃` |
 | os:macos | 866 | `▄▃▃▃▄▃▃▃▂▄▄▄▂▄▂▆▇█▆▆▅▅▆▃` |
 | os:other | 132 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▂▁▂▃▃▂▂` |
 | os:android | 95 | `▂▁▁▂▂▂▂▁▂▃▃▁▂▂▁▇█▇█▅▃▅▇▂` |
@@ -134,4 +134,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-monthly-rollup.csv`._
 
-_Last updated: 2026-09-12 16:37 UTC_
+_Last updated: 2026-09-13 05:00 UTC_
