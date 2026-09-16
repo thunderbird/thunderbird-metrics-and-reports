@@ -5,7 +5,7 @@ title: "2026-09 exec summary: Thunderbird Desktop support spikes"
 
 # September 2026: Thunderbird Desktop support spikes
 
-Executive summary for 2026-09. It covers 474 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-15 05:34 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-09. It covers 514 Thunderbird Desktop support questions. The tool wrote this page on 2026-09-16 05:34 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -42,19 +42,19 @@ In short: Printing and Virgin Media. Both are in [What stands out](#what-stands-
 
 Three more numbers for context:
 
-- Volume: 474 questions. 229 of them (48%) carry a cause tag. The count per day was `▆█▇▆▄▄█▆▆▆▆▃▅▆▁`, one block per day from September 1 to September 15.
-- Answers: 353 of the 474 questions (74%) got an answer from somebody other than the person who asked. The middle time to the first answer was 3.5 hours.
-- Release-adoption version spikes: 21. Users move to a new release, so the bare counts rise. These are not incidents.
+- Volume: 514 questions. 244 of them (47%) carry a cause tag. The count per day was `▆█▇▆▄▄█▆▆▆▆▃▅▆▇▁`, one block per day from September 1 to September 16.
+- Answers: 363 of the 514 questions (71%) got an answer from somebody other than the person who asked. The middle time to the first answer was 3.6 hours.
+- Release-adoption version spikes: 22. Users move to a new release, so the bare counts rise. These are not incidents.
 
 Every spike row, with its example questions, is in [All September 2026 detail](#all-september-2026-detail) below.
 
 ## What stands out {#what-stands-out}
 
-1. Printing ([`feat:printing`](explorer.html#grain=monthly&cause=feat:printing&period=2026-09), 4 spikes): 8 questions in September, under the monthly bar. It peaked on 2026-09-01 at 17.7 times expected, on Thunderbird 154.
-2. Virgin Media ([`m:virginmedia`](explorer.html#grain=monthly&cause=m:virginmedia&period=2026-09), 1 spike): 6 questions in September, under the monthly bar. It peaked in the week of 2026-09-07 at 16.2 times expected, on Thunderbird 155.
+1. Printing ([`feat:printing`](explorer.html#grain=monthly&cause=feat:printing&period=2026-09), 4 spikes): 8 questions in September, under the monthly bar. It peaked on 2026-09-01 at 17.8 times expected, on Thunderbird 154.
+2. Virgin Media ([`m:virginmedia`](explorer.html#grain=monthly&cause=m:virginmedia&period=2026-09), 1 spike): 6 questions in September, under the monthly bar. It peaked in the week of 2026-09-07 at 16.3 times expected, on Thunderbird 155.
 3. Attachments ([`feat:attachments`](explorer.html#grain=monthly&cause=feat:attachments&period=2026-09), 2 spikes): 17 questions in September, under the monthly bar. It peaked in the week of 2026-08-31 at 3.8 times expected, on Thunderbird 154.
-4. POP ([`proto:pop`](explorer.html#grain=monthly&cause=proto:pop&period=2026-09), 1 spike): 25 questions in September, under the monthly bar. It peaked on 2026-09-07 at 3.8 times expected, on Thunderbird 155.
-5. Spectrum ([`m:spectrum`](explorer.html#grain=monthly&cause=m:spectrum&period=2026-09), 1 spike): 15 questions in September, under the monthly bar. It peaked in the week of 2026-08-31 at 3.6 times its baseline.
+4. POP ([`proto:pop`](explorer.html#grain=monthly&cause=proto:pop&period=2026-09), 1 spike): 27 questions in September, under the monthly bar. It peaked on 2026-09-07 at 3.8 times expected, on Thunderbird 155.
+5. Spectrum ([`m:spectrum`](explorer.html#grain=monthly&cause=m:spectrum&period=2026-09), 1 spike): 16 questions in September, under the monthly bar. It peaked in the week of 2026-08-31 at 3.6 times its baseline.
 
 2 more clusters fired: [`feat:filters`](explorer.html#grain=monthly&cause=feat:filters&period=2026-09), [`m:yahooemail`](explorer.html#grain=monthly&cause=m:yahooemail&period=2026-09). They are in the detail below.
 
@@ -67,7 +67,7 @@ Read the date of a spike as the day users came to the support site, not as the d
 A closed month can also change its verdict later. The tool measures each rise against the rate of that cause across all history. Questions that arrive later therefore move the expected count for a past month. Rows can cross the threshold in both directions, and the answered percentage rises as late answers land. This page regenerates every day, and each day's version is committed, so `git log -p` on this file shows how the verdict moved.
 
 <details markdown="1">
-<summary>Near misses (within about 25% of the threshold), 6 rows</summary>
+<summary>Near misses (within about 25% of the threshold), 8 rows</summary>
 
 The tool runs the same detectors a second time at 0.75 times the thresholds. The rows below came out of that second run and did not clear the real thresholds. They are not incidents. They are context, so that a quiet month is not read as a clean month.
 
@@ -76,10 +76,12 @@ Version and cause together:
 | Grain | Lift | When | Version × Cause | Questions | Served | Example questions |
 |:--|--:|:--|:--|--:|:--|:--|
 | daily | 2.7× | 2026-09-01 | v154 × proto:imap | 4 | 25% answered (below 60%), 7.2h | [1601433](https://support.mozilla.org/questions/1601433 "Uable to add new account over one that's been hacked.") [1601534](https://support.mozilla.org/questions/1601534 "Thunderbird on Win11 will not send or receive emails") [1601629](https://support.mozilla.org/questions/1601629 "Login to inbound server fails") [1601635](https://support.mozilla.org/questions/1601635 "missing email from flders") |
-| monthly | 2.5× | 2026-09 | v153 × proto:oauth | 6 | 17% answered (below 60%), 9.6h | [1601815](https://support.mozilla.org/questions/1601815 "cannot send emails anymore") [1602845](https://support.mozilla.org/questions/1602845 "pCENT error for Yahoo when using OAuth2") [1603097](https://support.mozilla.org/questions/1603097 "Thunderbird Stopped being able to send mail through office365") [1603754](https://support.mozilla.org/questions/1603754 "OAuth Authentication and Thunderbird in 2026 using an AOL email.") [1603956](https://support.mozilla.org/questions/1603956 "authentication problem yahoo mail cannot access OAuth dialog box") [1604117](https://support.mozilla.org/questions/1604117 "Can't send emails since about 8/23/26; still receive emails") |
+| daily | 2.4× | 2026-09-15 | v155 × m:microsoftemail | 4 | 25% answered (below 60%), 7.1h | [1604263](https://support.mozilla.org/questions/1604263 "More lines in Title of Thunderbird appointments") [1604373](https://support.mozilla.org/questions/1604373 "Trying to get TB 155 to link with microsoft exchange account and failing - what ") [1604399](https://support.mozilla.org/questions/1604399 "SMTP blokkeert met outlook bij -mail.live.nl") [1604480](https://support.mozilla.org/questions/1604480 "Thunderbird adds a fix for quoted styles, then its own filter throws the fix awa") |
+| weekly | 2.4× | 2026-09-14 | v153 × proto:imap | 4 | 50% answered (below 60%), 2.1h | [1603956](https://support.mozilla.org/questions/1603956 "authentication problem yahoo mail cannot access OAuth dialog box") [1604044](https://support.mozilla.org/questions/1604044 "Getting frequent IMAP error messages now") [1604079](https://support.mozilla.org/questions/1604079 "Thunderbird emails archive") [1604290](https://support.mozilla.org/questions/1604290 "Thunderbird suddenly cannot send or receive email") |
 | weekly | 2.4× | 2026-08-31 | v155 × feat:junk | 5 | 100% answered, 4.4h | [1601955](https://support.mozilla.org/questions/1601955 "Are you aware of a bug since yesterday to handling of spam filters?") [1602091](https://support.mozilla.org/questions/1602091 "All received emails are going to spam folder (bug2068847)") [1602105](https://support.mozilla.org/questions/1602105 "Why do ALL my new emails all go to a spam folder ?") [1602303](https://support.mozilla.org/questions/1602303 "All messages ending in spam folder thunderbird after update to snap ubuntu") [1602574](https://support.mozilla.org/questions/1602574 "can't find Junk folder") |
-| monthly | 2.4× | 2026-09 | v153 × m:yahooemail | 11 | 55% answered (below 60%), 11.2h | [1602160](https://support.mozilla.org/questions/1602160 "Unable to add AOL account") [1602571](https://support.mozilla.org/questions/1602571 "T-bird connect to yahoo mail works on one laptop, not the other") [1602816](https://support.mozilla.org/questions/1602816 "How can I get emails coming into the correct account and be able to send respons") [1602845](https://support.mozilla.org/questions/1602845 "pCENT error for Yahoo when using OAuth2") [1603033](https://support.mozilla.org/questions/1603033 "authentication errors") [1603355](https://support.mozilla.org/questions/1603355 "Update: @rocketmail.com address not recognized") +5 |
-| monthly | 2.4× | 2026-09 | v155 × feat:filters | 10 | 90% answered, 5.1h | [1601684](https://support.mozilla.org/questions/1601684 "Problemi filtro  ricerca mail") [1601955](https://support.mozilla.org/questions/1601955 "Are you aware of a bug since yesterday to handling of spam filters?") [1602361](https://support.mozilla.org/questions/1602361 "Message filters has gone crazy for last 2 days") [1602761](https://support.mozilla.org/questions/1602761 "Version 155.0 64 bit -- filters now totally non selective.  Fires on all message") [1602820](https://support.mozilla.org/questions/1602820 "Email filter problem after update") [1602914](https://support.mozilla.org/questions/1602914 "Message filters screwed up in Thuderbird 155") +4 |
+| monthly | 2.4× | 2026-09 | v153 × m:yahooemail | 12 | 50% answered (below 60%), 11.2h | [1602160](https://support.mozilla.org/questions/1602160 "Unable to add AOL account") [1602571](https://support.mozilla.org/questions/1602571 "T-bird connect to yahoo mail works on one laptop, not the other") [1602816](https://support.mozilla.org/questions/1602816 "How can I get emails coming into the correct account and be able to send respons") [1602845](https://support.mozilla.org/questions/1602845 "pCENT error for Yahoo when using OAuth2") [1603033](https://support.mozilla.org/questions/1603033 "authentication errors") [1603355](https://support.mozilla.org/questions/1603355 "Update: @rocketmail.com address not recognized") +6 |
+| monthly | 2.4× | 2026-09 | v155 × feat:filters | 11 | 82% answered, 5.1h | [1601684](https://support.mozilla.org/questions/1601684 "Problemi filtro  ricerca mail") [1601955](https://support.mozilla.org/questions/1601955 "Are you aware of a bug since yesterday to handling of spam filters?") [1602361](https://support.mozilla.org/questions/1602361 "Message filters has gone crazy for last 2 days") [1602761](https://support.mozilla.org/questions/1602761 "Version 155.0 64 bit -- filters now totally non selective.  Fires on all message") [1602820](https://support.mozilla.org/questions/1602820 "Email filter problem after update") [1602914](https://support.mozilla.org/questions/1602914 "Message filters screwed up in Thuderbird 155") +5 |
+| monthly | 2.3× | 2026-09 | v153 × proto:oauth | 6 | 17% answered (below 60%), 9.6h | [1601815](https://support.mozilla.org/questions/1601815 "cannot send emails anymore") [1602845](https://support.mozilla.org/questions/1602845 "pCENT error for Yahoo when using OAuth2") [1603097](https://support.mozilla.org/questions/1603097 "Thunderbird Stopped being able to send mail through office365") [1603754](https://support.mozilla.org/questions/1603754 "OAuth Authentication and Thunderbird in 2026 using an AOL email.") [1603956](https://support.mozilla.org/questions/1603956 "authentication problem yahoo mail cannot access OAuth dialog box") [1604117](https://support.mozilla.org/questions/1604117 "Can't send emails since about 8/23/26; still receive emails") |
 
 Cause alone:
 
@@ -99,10 +101,10 @@ Cause alone:
 
 | Grain | Lift | When | Version × Cause | Questions | Served | Novelty | Example questions |
 |:--|--:|:--|:--|--:|:--|:--|:--|
-| daily | 17.7× | 2026-09-01 | v154 × feat:printing | 4 | 100% answered, 13.8h | recurring | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") |
-| weekly | 16.2× | 2026-09-07 | v155 × m:virginmedia | 4 | 25% answered (below 60%), 5.2h | new | [1602682](https://support.mozilla.org/questions/1602682 "Login to server pop3.virginmedia.com with username ******* failed") [1602701](https://support.mozilla.org/questions/1602701 "read emails for dryborough@ntlworld.com") [1602752](https://support.mozilla.org/questions/1602752 "Thunderbird says no new messages") [1603241](https://support.mozilla.org/questions/1603241 "lost all  virgin media and gmail account settings") |
-| weekly | 10.7× | 2026-08-31 | v154 × feat:printing | 8 | 100% answered, 4.7h | recurring | [1601286](https://support.mozilla.org/questions/1601286 "Ik kan niet meer printen vanuit Thunderbird. Is er een storing?") [1601306](https://support.mozilla.org/questions/1601306 "Problemi di stampa") [1601367](https://support.mozilla.org/questions/1601367 "PDF se vytiskne prázdné.") [1601404](https://support.mozilla.org/questions/1601404 "can not print email attachments") [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") +2 |
-| monthly | 9.4× | 2026-09 | v154 × feat:printing | 5 | 100% answered, 5.0h | recurring | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") [1602826](https://support.mozilla.org/questions/1602826 "When printing from Thunderbird, a white sheet is produced.") |
+| daily | 17.8× | 2026-09-01 | v154 × feat:printing | 4 | 100% answered, 13.8h | recurring | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") |
+| weekly | 16.3× | 2026-09-07 | v155 × m:virginmedia | 4 | 25% answered (below 60%), 5.2h | new | [1602682](https://support.mozilla.org/questions/1602682 "Login to server pop3.virginmedia.com with username ******* failed") [1602701](https://support.mozilla.org/questions/1602701 "read emails for dryborough@ntlworld.com") [1602752](https://support.mozilla.org/questions/1602752 "Thunderbird says no new messages") [1603241](https://support.mozilla.org/questions/1603241 "lost all  virgin media and gmail account settings") |
+| weekly | 10.8× | 2026-08-31 | v154 × feat:printing | 8 | 100% answered, 4.7h | recurring | [1601286](https://support.mozilla.org/questions/1601286 "Ik kan niet meer printen vanuit Thunderbird. Is er een storing?") [1601306](https://support.mozilla.org/questions/1601306 "Problemi di stampa") [1601367](https://support.mozilla.org/questions/1601367 "PDF se vytiskne prázdné.") [1601404](https://support.mozilla.org/questions/1601404 "can not print email attachments") [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") +2 |
+| monthly | 9.5× | 2026-09 | v154 × feat:printing | 5 | 100% answered, 5.0h | recurring | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") [1602826](https://support.mozilla.org/questions/1602826 "When printing from Thunderbird, a white sheet is produced.") |
 | weekly | 3.8× | 2026-08-31 | v154 × feat:attachments | 5 | 100% answered, 3.5h | spreading | [1601404](https://support.mozilla.org/questions/1601404 "can not print email attachments") [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") [1601835](https://support.mozilla.org/questions/1601835 "I have problems as I can not send attachments") |
 | daily | 3.8× | 2026-09-07 | v155 × proto:pop | 4 | 75% answered, 5.2h | spreading | [1602660](https://support.mozilla.org/questions/1602660 "pop3 account creation error") [1602682](https://support.mozilla.org/questions/1602682 "Login to server pop3.virginmedia.com with username ******* failed") [1602703](https://support.mozilla.org/questions/1602703 "Thunderbird freezes downloading messages when it reaches a message from aliexpre") [1602714](https://support.mozilla.org/questions/1602714 "Is syncronization bidirectional with IMAP accounts?") |
 | weekly | 3.2× | 2026-09-07 | v153 × m:yahooemail | 8 | 50% answered (below 60%), 7.3h | spreading | [1602816](https://support.mozilla.org/questions/1602816 "How can I get emails coming into the correct account and be able to send respons") [1602845](https://support.mozilla.org/questions/1602845 "pCENT error for Yahoo when using OAuth2") [1603033](https://support.mozilla.org/questions/1603033 "authentication errors") [1603355](https://support.mozilla.org/questions/1603355 "Update: @rocketmail.com address not recognized") [1603404](https://support.mozilla.org/questions/1603404 "Unable to write the email to the mailbox error message") [1603516](https://support.mozilla.org/questions/1603516 "I cannot send emails from my aol accounts in thunderbird, but I am still receivi") +2 |
@@ -123,7 +125,7 @@ Cause alone:
 </details>
 
 <details markdown="1">
-<summary>Release-adoption version and operating-system spikes (not incidents), 21 rows</summary>
+<summary>Release-adoption version and operating-system spikes (not incidents), 22 rows</summary>
 
 Version and operating system are filters, not causes. A rise in the bare count of one version is release adoption, not a regression. The rows are here for manual checking only.
 
@@ -143,13 +145,14 @@ Version and operating system are filters, not causes. A rise in the bare count o
 | daily | new | 2026-09-12 | tb_version_major | 155 | 14 [1603587](https://support.mozilla.org/questions/1603587 "'Advance to next unread message' Toggle?") [1603613](https://support.mozilla.org/questions/1603613 "I have (mis)managed to acquire thhree ＂stgilb@optusnet.com.au＂ accounts/profiles") | 0.0 |
 | daily | new | 2026-09-13 | tb_version_major | 155 | 9 [1603765](https://support.mozilla.org/questions/1603765 "Top level of Account Levels ＂doesn't take＂ (bug2069949)") [1603769](https://support.mozilla.org/questions/1603769 "Gmail Emails are going into Deleted rather than Inbox. (bug2068847)") | 0.0 |
 | daily | new | 2026-09-14 | tb_version_major | 155 | 13 [1603932](https://support.mozilla.org/questions/1603932 "Authentication error when trying to load outlook.365.com emails to Thunderbird") [1603934](https://support.mozilla.org/questions/1603934 "Thunderbird and junk mail") | 0.0 |
+| daily | new | 2026-09-15 | tb_version_major | 155 | 22 [1604201](https://support.mozilla.org/questions/1604201 "Wrong correspondent listed in correspondent column. ie Shows Progressive when it") [1604236](https://support.mozilla.org/questions/1604236 "unable to send mail using Thunderbird") | 0.0 |
 | monthly | new | 2026-09 | tb_version_major | 154 | 40 [1601433](https://support.mozilla.org/questions/1601433 "Uable to add new account over one that's been hacked.") [1601478](https://support.mozilla.org/questions/1601478 "Thunderbird non si carica su Apple Tahoe 26.6.2") | 0.0 |
-| monthly | new | 2026-09 | tb_version_major | 155 | 195 [1601641](https://support.mozilla.org/questions/1601641 "no recibos los correos") [1601684](https://support.mozilla.org/questions/1601684 "Problemi filtro  ricerca mail") | 0.0 |
-| monthly | 33.6× | 2026-09 | tb_version_major | 153 | 84 [1601441](https://support.mozilla.org/questions/1601441 "Emails not downloading") [1601614](https://support.mozilla.org/questions/1601614 "How do I change my user name in the login in for Thunderbird?") | 2.5 |
+| monthly | new | 2026-09 | tb_version_major | 155 | 216 [1601641](https://support.mozilla.org/questions/1601641 "no recibos los correos") [1601684](https://support.mozilla.org/questions/1601684 "Problemi filtro  ricerca mail") | 0.0 |
+| monthly | 37.2× | 2026-09 | tb_version_major | 153 | 93 [1601441](https://support.mozilla.org/questions/1601441 "Emails not downloading") [1601614](https://support.mozilla.org/questions/1601614 "How do I change my user name in the login in for Thunderbird?") | 2.5 |
 | weekly | new | 2026-08-31 | tb_version_major | 155 | 77 [1601641](https://support.mozilla.org/questions/1601641 "no recibos los correos") [1601684](https://support.mozilla.org/questions/1601684 "Problemi filtro  ricerca mail") | 0.0 |
 | weekly | 112.0× | 2026-08-31 | tb_version_major | 154 | 56 [1601271](https://support.mozilla.org/questions/1601271 "Se stampo dal Thunderbird esce il foglio bianco") [1601273](https://support.mozilla.org/questions/1601273 "Al iniciar Thunderbird se bloquea") | 0.5 |
 | weekly | new | 2026-09-07 | tb_version_major | 155 | 104 [1602611](https://support.mozilla.org/questions/1602611 "yahoo not populating email after password change") [1602653](https://support.mozilla.org/questions/1602653 "skupiny kontaktů Google") | 0.0 |
-| weekly | new | 2026-09-14 | tb_version_major | 155 | 14 [1603932](https://support.mozilla.org/questions/1603932 "Authentication error when trying to load outlook.365.com emails to Thunderbird") [1603934](https://support.mozilla.org/questions/1603934 "Thunderbird and junk mail") | 0.0 |
+| weekly | new | 2026-09-14 | tb_version_major | 155 | 35 [1603932](https://support.mozilla.org/questions/1603932 "Authentication error when trying to load outlook.365.com emails to Thunderbird") [1603934](https://support.mozilla.org/questions/1603934 "Thunderbird and junk mail") | 0.0 |
 
 </details>
 
@@ -160,73 +163,74 @@ The Thunderbird versions named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| v155 | 195 | `▁▆██▅▆█▆▇▆▇▆▄▆▁` |
-| v153 | 84 | `▃▇▇▄▂▄▅▆▇▇▅▂▇█▁` |
-| v154 | 40 | `█▄▃▂▁▁▂▂▁▁▁▁▁▁▁` |
-| v140 | 28 | `██▆▅▃▁▅▅▆▅▅▁▅▃▁` |
-| v115 | 15 | `▁▁▁▃▃▃█▅▅▅▁▁▃▃▁` |
-| v150 | 7 | `▁▁▁▅█▁▁▅▅▁▁▁█▁▁` |
+| v155 | 216 | `▁▅▇▇▅▅▇▅▆▅▇▅▄▅█▁` |
+| v153 | 93 | `▃▇▇▄▂▄▅▆▇▇▅▂▇█▇▁` |
+| v154 | 40 | `█▄▃▂▁▁▂▂▁▁▁▁▁▁▁▁` |
+| v140 | 28 | `██▆▅▃▁▅▅▆▅▅▁▅▃▁▁` |
+| v115 | 16 | `▁▁▁▃▃▃█▅▅▅▁▁▃▃▃▁` |
+| v150 | 9 | `▁▁▁▅█▁▁▅▅▁▁▁█▁█▁` |
 
 The mail hosts named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| m:gmail | 40 | `▃▄▄▆▁▃▂█▄▅▄▂▃▅▁` |
-| m:yahooemail | 28 | `▁▂▄▅▁▂▅▅▅▄█▂▅▂▁` |
-| m:microsoftemail | 22 | `▃▆▃▁▁▁▃██▃▃▁▅█▁` |
-| m:spectrum | 15 | `▅▅▃▁▃▅▁▃▃█▃▁▁▁▁` |
-| m:virginmedia | 6 | `▃▁▁▁▁▁█▁▁▃▁▃▁▁▁` |
-| m:att | 5 | `▅▅▁▁▁▁▅▁▁▁▁█▁▁▁` |
+| m:gmail | 40 | `▃▄▄▆▁▃▂█▄▅▄▂▃▅▁▁` |
+| m:yahooemail | 29 | `▁▂▄▅▁▂▅▅▅▄█▂▅▂▂▁` |
+| m:microsoftemail | 28 | `▂▅▂▁▁▁▂▇▇▂▂▁▄▇█▂` |
+| m:spectrum | 16 | `▅▅▃▁▃▅▁▃▃█▃▁▁▁▃▁` |
+| m:virginmedia | 6 | `▃▁▁▁▁▁█▁▁▃▁▃▁▁▁▁` |
+| m:btinternet | 6 | `▁▁▁▅▁█▁▁▁▁▁▅▅▁▅▁` |
 
 The Thunderbird features named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| feat:attachments | 17 | `▇█▂▄▄▁▁▁▁▄▁▁▂▁▁` |
-| feat:junk | 17 | `▁▅▅█▅▅██▅▅█▁▅█▁` |
-| feat:filters | 16 | `▁▂▂▁▂▁▄█▂▄▂▁▂▂▁` |
-| feat:import_export | 9 | `▁█▁▁▁▃▃▁▁▁▃▃▁▆▁` |
-| feat:printing | 8 | `█▃▁▃▃▁▁▃▁▁▁▁▁▁▁` |
-| feat:addressbook | 5 | `▅▁▁▅▅▁▁▁▁▁▁▁█▁▁` |
+| feat:attachments | 17 | `▇█▂▄▄▁▁▁▁▄▁▁▂▁▁▁` |
+| feat:filters | 17 | `▁▂▂▁▂▁▄█▂▄▂▁▂▂▂▁` |
+| feat:junk | 17 | `▁▅▅█▅▅██▅▅█▁▅█▁▁` |
+| feat:import_export | 9 | `▁█▁▁▁▃▃▁▁▁▃▃▁▆▁▁` |
+| feat:printing | 8 | `█▃▁▃▃▁▁▃▁▁▁▁▁▁▁▁` |
+| feat:addressbook | 6 | `▅▁▁▅▅▁▁▁▁▁▁▁█▁▅▁` |
 
 The protocols named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| proto:imap | 45 | `▆▆▅▂▂▅█▂▅▂▆▂▁▇▁` |
-| proto:pop | 25 | `▂▅▁▂▂▂█▃▁▃▇▂▁▃▁` |
-| proto:smtp | 24 | `▃█▆█▁▆▃▆█▃▆▃▃▆▁` |
-| proto:oauth | 14 | `▃▃▁█▃▁▁▃▅▁▃▁▃▅▁` |
-| proto:carddav | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁` |
-| proto:caldav | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁` |
+| proto:imap | 47 | `▆▆▅▂▂▅█▂▅▂▆▂▁▇▃▁` |
+| proto:smtp | 28 | `▃█▆█▁▆▃▆█▃▆▃▃▆█▃` |
+| proto:pop | 27 | `▂▅▁▂▂▂█▃▁▃▇▂▁▃▃▁` |
+| proto:oauth | 15 | `▃▃▁█▃▁▁▃▅▁▃▁▃▅▁▃` |
+| proto:carddav | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| proto:caldav | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
 The antivirus products named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| av:norton | 3 | `█▁▁█▁▁▁▁▁▁█▁▁▁▁` |
-| av:bitdefender | 2 | `▁▁▁█▁▁█▁▁▁▁▁▁▁▁` |
-| av:defender | 2 | `▁▁▁█▁▁▁▁▁▁▁▁▁▁▁` |
-| av:avast | 1 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| av:malwarebytes | 1 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| av:surfshark | 1 | `▁▁▁▁▁▁█▁▁▁▁▁▁▁▁` |
+| av:norton | 3 | `█▁▁█▁▁▁▁▁▁█▁▁▁▁▁` |
+| av:avast | 2 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁█▁` |
+| av:bitdefender | 2 | `▁▁▁█▁▁█▁▁▁▁▁▁▁▁▁` |
+| av:defender | 2 | `▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁` |
+| av:zonealarm | 2 | `▁▁▁▁▁▁▁▁█▁▁▁▁▁█▁` |
+| av:malwarebytes | 1 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
 The operating systems named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| os:windows | 402 | `▆██▆▄▅█▆▅▆▆▃▅▆▁` |
-| os:linux | 28 | `▁▂▄█▂▁▄▇█▄▄▂▄▂▁` |
-| os:macos | 27 | `▅▃▃▅▃▅▆▆█▃█▃▁▃▃` |
-| os:other | 4 | `█▁▁▁▁▁▃▁▁▁▁▁▁▁▁` |
-| os:android | 2 | `▁█▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| os:windows | 435 | `▆██▆▄▅█▆▅▆▆▃▅▆▇▁` |
+| os:macos | 32 | `▃▂▂▃▂▃▅▅▆▂▆▂▁▂█▁` |
+| os:linux | 29 | `▁▂▄█▂▁▄▇█▄▄▂▄▂▁▂` |
+| os:other | 4 | `█▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁` |
+| os:android | 3 | `▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▅` |
 
 The macOS releases named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| macos:tahoe | 4 | `█▅▁▁▁▁▁▁▁▁▅▁▁▁▁` |
-| macos:sequoia | 2 | `▁▁▁▁▁▁█▁█▁▁▁▁▁▁` |
+| macos:tahoe | 4 | `█▅▁▁▁▁▁▁▁▁▅▁▁▁▁▁` |
+| macos:sequoia | 2 | `▁▁▁▁▁▁█▁█▁▁▁▁▁▁▁` |
+| macos:golden_gate | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█` |
 
 
 </details>
