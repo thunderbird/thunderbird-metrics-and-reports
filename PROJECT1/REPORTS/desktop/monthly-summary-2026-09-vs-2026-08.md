@@ -15,7 +15,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 941 | 590 | ▼ -351 (-37%) |
+| Support questions (load) | 941 | 605 | ▼ -336 (-36%) |
 | Version × cause spikes flagged | 7 | 4 | ▼ -3 |
 | — of which **new** regressions | 1 | 1 | ▬ 0 |
 | Cause-level surges flagged | 2 | 0 | ▼ -2 |
@@ -33,7 +33,7 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 | 🆕 new | 2026-09-16 | v153 × m:yahooemail | 4 | 7.2× | 75% ans · 0.8h | [1604613](https://support.mozilla.org/questions/1604613 "Error messages.  t-bird Linux Mint ＂.p＂ and ＂UID Fetch＂") [1604699](https://support.mozilla.org/questions/1604699 "I messaggi di un account vanno anche in un secondo account") [1604799](https://support.mozilla.org/questions/1604799 "thunderbird deleting my emails from the POP server") [1604953](https://support.mozilla.org/questions/1604953 "Thunderbird won't send emails between  2 AOL accounts") |
 | ↗ spreading | 2026-09-16 | v156 × m:microsoftemail | 4 | 4.0× | ⚠️ 25% ans · 0.8h | [1604594](https://support.mozilla.org/questions/1604594 "Still can't sync outlook outgoing mail with thunderbird, i receive emails just f") [1604697](https://support.mozilla.org/questions/1604697 "Authentication Failure outlook.office365.com only on startup") [1604835](https://support.mozilla.org/questions/1604835 "ERROR AL AÑADIR CUENTA DE OUTLOOK") [1604859](https://support.mozilla.org/questions/1604859 "autenticazione non riuscita durante la connessione al server outlook su thunderb") |
 | ↗ spreading | 2026-09-07 | v155 × proto:pop | 4 | 3.8× | 75% ans · 5.2h | [1602660](https://support.mozilla.org/questions/1602660 "pop3 account creation error") [1602682](https://support.mozilla.org/questions/1602682 "Login to server pop3.virginmedia.com with username ******* failed") [1602703](https://support.mozilla.org/questions/1602703 "Thunderbird freezes downloading messages when it reaches a message from aliexpre") [1602714](https://support.mozilla.org/questions/1602714 "Is syncronization bidirectional with IMAP accounts?") |
-| ↻ recurring | 2026-09-01 | v154 × feat:printing | 4 | 18.1× | 100% ans · 13.8h | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") |
+| ↻ recurring | 2026-09-01 | v154 × feat:printing | 4 | 18.2× | 100% ans · 13.8h | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") |
 
 ## What moved
 
@@ -42,13 +42,13 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 | Cause clusters (provider / protocol / AV / feature) | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
 | feat:printing | 36 | 8 | ▼ -28 (-78%) |
-| m:gmail | 75 | 47 | ▼ -28 (-37%) |
+| m:gmail | 75 | 48 | ▼ -27 (-36%) |
 | m:yahooemail | 55 | 37 | ▼ -18 (-33%) |
-| proto:imap | 71 | 54 | ▼ -17 (-24%) |
-| feat:addressbook | 24 | 7 | ▼ -17 (-71%) |
 | m:spectrum | 34 | 17 | ▼ -17 (-50%) |
-| proto:pop | 46 | 31 | ▼ -15 (-33%) |
-| m:microsoftemail | 53 | 38 | ▼ -15 (-28%) |
+| feat:addressbook | 24 | 7 | ▼ -17 (-71%) |
+| proto:imap | 71 | 56 | ▼ -15 (-21%) |
+| proto:pop | 46 | 32 | ▼ -14 (-30%) |
+| m:microsoftemail | 53 | 39 | ▼ -14 (-26%) |
 
 ### 🆕 New cause clusters (first appearance ever)
 
@@ -58,19 +58,19 @@ _None — every cause cluster in September 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| v153 | 441 | 110 | ▼ -331 (-75%) |
+| v153 | 441 | 113 | ▼ -328 (-74%) |
 | v154 | 202 | 40 | ▼ -162 (-80%) |
-| v155 | 0 | 225 | ▲ +225 |
+| v155 | 0 | 227 | ▲ +227 |
 | v140 | 67 | 31 | ▼ -36 (-54%) |
 | v115 | 24 | 19 | ▼ -5 (-21%) |
-| v150 | 25 | 10 | ▼ -15 (-60%) |
+| v156 | 0 | 39 | ▲ +39 |
 
 ### Operating-system mix
 
 | Operating-system mix | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 750 | 503 | ▼ -247 (-33%) |
-| os:linux | 93 | 33 | ▼ -60 (-65%) |
+| os:windows | 750 | 516 | ▼ -234 (-31%) |
+| os:linux | 93 | 34 | ▼ -59 (-63%) |
 | os:macos | 59 | 34 | ▼ -25 (-42%) |
 | os:android | 10 | 3 | ▼ -7 (-70%) |
 | os:other | 6 | 5 | ▼ -1 |
@@ -79,9 +79,9 @@ _None — every cause cluster in September 2026 has appeared in a prior month._
 
 | Topic mix | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 233 | 204 | ▼ -29 (-12%) |
-| email-and-messaging | 80 | 51 | ▼ -29 (-36%) |
-| customization | 86 | 37 | ▼ -49 (-57%) |
+| send-and-receive-email | 233 | 209 | ▼ -24 (-10%) |
+| email-and-messaging | 80 | 52 | ▼ -28 (-35%) |
+| customization | 86 | 39 | ▼ -47 (-55%) |
 | passwords-and-sign-in | 60 | 33 | ▼ -27 (-45%) |
 | connectivity | 48 | 31 | ▼ -17 (-35%) |
 | attachments | 49 | 20 | ▼ -29 (-59%) |
@@ -90,4 +90,4 @@ _None — every cause cluster in September 2026 has appeared in a prior month._
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · September 2026 vs August 2026._
 
-_Last updated: 2026-09-18 08:08 UTC_
+_Last updated: 2026-09-18 20:06 UTC_
