@@ -17074,3 +17074,219 @@ id,created,updated,locale,product,title,is_solved,solution,solved_by,is_spam,las
 1605787,2026-09-18T20:51:36.163742Z,2026-09-18T20:51:36.163747Z,en-US,thunderbird,"Od poslednej aktualizácie Thunderbirdu, sa mi prestali zobrazovať vlastné priečinky .",False,,,False,,,email-and-messaging,thunderbird;windows-10;email-and-messaging;thunderbird-1560;,mahoney1277,"<p>Od poslednej aktualizácie Thunderbirdu, sa mi prestali zobrazovať vlastné priečinky, ale na na poštovom servri sú viditeľné. Jednoducho ich nenačítalo. Má niekto podobný problém? Jedná sa o poštový server  <a href=""http://azet-mail.sk"" rel=""nofollow"">azet-mail.sk</a> </p>",mahoney1277;,False,False,False,;useragent:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:156.0) Gecko/20100101 Firefox/156.0;tb_version:156.0;os:Windows 10;sanitized_product_version:156.0,0,0,0,,,,Windows 10,156.0,
 1605794,2026-09-18T21:36:01.971007Z,2026-09-18T21:36:01.971013Z,en-US,thunderbird,Thunderbird lost after latest Win11 update,False,,,False,,,install,thunderbird;windows-11;install;,neil.broomfield,"<p>I have a new (to me) Microsoft Surface pc with an ARM processor. After a very recent update to Windows 11,my entire Thunderbird installation has disappeared and I have been forced to use the Web to access my emails from <a href=""http://Posteo.de"" rel=""nofollow"">Posteo.de</a> Can you assist me please? </p>",neil.broomfield;,False,False,False,";useragent:Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36;tb_version:Not known;os:Windows 11;sanitized_product_version:",0,0,0,,,,Windows 11,Not known,
 1605828,2026-09-19T00:53:15.046846Z,2026-09-19T02:34:55.888625Z,en-US,thunderbird,password,False,,,False,1848675.0,1848675;,reset-passwords,thunderbird;reset-passwords;,wforting,<p>hello Help I have forgotten my Thunderbird email PW.  can I set a new one? </p>,wforting;rednoise;,False,False,False,;useragent:Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:155.0) Gecko/20100101 Firefox/155.0;tb_version:Mozilla/5.0 (X11;sanitized_product_version:,1,0,0,,,,,Mozilla/5.0 (X11,
+1605855,2026-09-19T03:20:22.824731Z,2026-09-19T06:19:32.675832Z,en-US,thunderbird,"""When Thunderbird is minimized, move it to the tray"" in setting for 156.0.0.0 has gone.",True,1848686.0,foxy_dude,False,1848686.0,1848678;1848686;,customization,thunderbird;customization;windows-11;,foxy_dude,"<p>""When Thunderbird is minimized, move it to the tray"" in setting for 156.0.0.0 has gone. Why? How to get this feature back? </p><p>I want &amp; need this setting. </p>",foxy_dude;Agentvirtuel;,False,False,False,;solver_id:580365;sanitized_product_version:;useragent:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:156.0) Gecko/20100101 Firefox/156.0;tb_version:156.0.0.0;os:Windows 11,2,0,0,,,,Windows 11,156.0.0.0,
+1605867,2026-09-19T03:57:55.330329Z,2026-09-19T03:57:55.330335Z,en-US,thunderbird,Thunderbird is not picking up emails from sympatico server,False,,,False,,,send-and-receive-email,thunderbird;windows-11;send-and-receive-email;firefox-1530;firefox-15304;,wilddoc,"<p>Thunderbird has been receiving emails on my PC from Bell Sympatico for years, then suddenly stopped in July 2026 without my changing any settings, and I have to go to the Bell server instead. </p>",wilddoc;,False,False,False,";useragent:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0;ff_version:153.0.4;os:Windows 11;troubleshooting:""type"": ""extension"",
+      ""version"": ""1.0.0"",
+      ""isActive"": true,
+      ""id"": ""pictureinpicture@mozilla.org"",
+      ""locationName"": ""app-builtin-addons""
+    },
+    {
+      ""name"": ""Web Compatibility Interventions"",
+      ""type"": ""extension"",
+      ""version"": ""153.10.0"",
+      ""isActive"": true,
+      ""id"": ""webcompat@mozilla.org"",
+      ""locationName"": ""app-builtin-addons""
+    },
+    {
+      ""name"": ""Zoom Extension"",
+      ""type"": ""extension"",
+      ""version"": ""2.2.13"",
+      ""isActive"": true,
+      ""id"": ""{bf855ead-d7c3-4c7b-9f88-9a7e75c0efdf}"",
+      ""locationName"": ""app-profile""
+    },
+    {
+      ""name"": ""System theme — auto"",
+      ""type"": ""theme"",
+      ""version"": ""1.4.2"",
+      ""isActive"": true,
+      ""id"": ""default-theme@mozilla.org"",
+      ""locationName"": ""app-builtin""
+    },
+    {
+      ""name"": ""Dark"",
+      ""type"": ""theme"",
+      ""version"": ""1.3.4"",
+      ""isActive"": false,
+      ""id"": ""firefox-compact-dark@mozilla.org"",
+      ""locationName"": ""app-builtin""
+    },
+    {
+      ""name"": ""Firefox Alpenglow"",
+      ""type"": ""theme"",
+      ""version"": ""1.5.3"",
+      ""isActive"": false,
+      ""id"": ""firefox-alpenglow@mozilla.org"",
+      ""locationName"": ""app-builtin""
+    },
+    {
+      ""name"": ""Light"",
+      ""type"": ""theme"",
+      ""version"": ""1.3.4"",
+      ""isActive"": false,
+      ""id"": ""firefox-compact-light@mozilla.org"",
+      ""locationName"": ""app-builtin""
+    }
+  ],
+  ""application"": {
+    ""name"": ""Firefox"",
+    ""osVersion"": ""Windows_NT 10.0 26200"",
+    ""version"": ""153.0.4"",
+    ""buildID"": ""20260810162159"",
+    ""distributionID"": """",
+    ""userAgent"": ""Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0"",
+    ""safeMode"": false,
+    ""memorySizeBytes"": 17009438720,
+    ""diskAvailableBytes"": 364394389504,
+    ""updateChannel"": ""release"",
+    ""supportURL"": ""https://support.mozilla.org/1/firefox/153.0.4/WINNT/en-US/"",
+    ""osTheme"": """",
+    ""pointingDevices"": [
+      ""pointing-device-mouse""
+    ],
+    ""numTotalWindows"": 1,
+    ""numFissionWindows"": 1,
+    ""numRemoteWindows"": 1,
+    ""launcherProcessState"": 0,
+    ""fissionAutoStart"": true,
+    ""fissionDecisionStatus"": ""enabledByDefault"",
+    ""remoteAutoStart"": true,
+    ""policiesStatus"": 0,
+    ""keyLocationServiceGoogleFound"": true,
+    ""keySafebrowsingGoogleFound"": true,
+    ""keyMozillaFound"": true
+  },
+  ""processes"": {
+    ""remoteTypes"": {
+      ""webIsolated"": 5,
+      ""socket"": 1,
+      ""prealloc"": 2,
+      ""gpu"": 1,
+      ""rdd"": 1,
+      ""webServiceWorker"": 1,
+      ""extension"": 1,
+      ""privilegedabout"": 1,
+      ""utility_jSOracle"": 1,
+      ""utility_audioDecoder_Generic"": 1,
+      ""utility_audioDecoder_WMF"": 1
+    },
+    ""maxWebContentProcesses"": 8
+  },
+  ""legacyUserStylesheets"": {
+    ""active"": false,
+    ""types"": []
+  },
+  ""normandy"": {
+    ""addonStudies"": [],
+    ""prefRollouts"": [],
+    ""prefStudies"": [],
+    ""nimbusExperiments"": [],
+    ""nimbusRollouts"": [
+      {
+        ""slug"": ""tab-notes-firefox-labs-149"",
+        ""lastSeen"": ""2026-05-11T15:56:36.860Z"",
+        ""source"": ""rs-loader"",
+        ""active"": true,
+        ""prefs"": [
+          {
+            ""name"": ""browser.tabs.notes.enabled"",
+            ""branch"": ""default"",
+            ""featureId"": ""tabNotes"",
+            ""variable"": ""enabled"",
+            ""originalValue"": false
+          }
+        ],
+        ""prefFlips"": [
+          {
+            ""name"": ""browser.tabs.notes.enabled"",
+            ""branch"": ""default"",
+            ""featureId"": ""tabNotes"",
+            ""variable"": ""enabled"",
+            ""originalValue"": false
+          }
+        ],
+        ""branch"": {
+          ""slug"": ""control"",
+          ""ratio"": 1,
+          ""feature"": {
+            ""value"": {},
+            ""enabled"": false,
+            ""featureId"": ""this-is-included-for-desktop-pre-95-support""
+          },
+          ""features"": [
+            {
+              ""value"": {
+                ""enabled"": true
+              },
+              ""enabled"": true,
+              ""featureId"": ""tabNotes""
+            }
+          ],
+          ""firefoxLabsTitle"": null
+        },
+        ""userFacingName"": ""Tab Notes - Firefox Labs 149"",
+        ""userFacingDescription"": ""This rollout makes Tab Notes feature available for all users to try out in Firefox Labs."",
+        ""featureIds"": [
+          ""tabNotes""
+        ],
+        ""isRollout"": true,
+        ""localizations"": null,
+        ""isFirefoxLabsOptIn"": true,
+        ""firefoxLabsTitle"": ""experimental-features-tab-notes"",
+        ""firefoxLabsDescription"": ""experimental-features-tab-notes-description"",
+        ""firefoxLabsDescriptionLinks"": {
+          ""connect"": ""https://connect.mozilla.org/t5/discussions/tab-notes-going-live-in-firefox-labs-please-share-your-feedback/td-p/118317""
+        },
+        ""firefoxLabsGroup"": ""experimental-features-group-productivity"",
+        ""requiresRestart"": false
+      }
+    ]
+  },
+  ""remoteSettings"": {
+    ""serverURL"": ""https://firefox.settings.services.mozilla.com/v2"",
+    ""pollingEndpoint"": ""https://firefox.settings.services.mozilla.com/v2/buckets/monitor/collections/changes/changeset"",
+    ""serverTimestamp"": null,
+    ""localTimestamp"": ""1789786622473"",
+    ""lastCheck"": ""2026-09-19T03:22:34.000Z"",
+    ""mainBucket"": ""main"",
+    ""defaultSigner"": ""remote-settings.content-signature.mozilla.org"",
+    ""previewMode"": false,
+    ""collections"": [],
+    ""history"": {
+      ""settings-sync"": [
+        {
+          ""timestamp"": 1789786622473,
+          ""status"": ""success"",
+          ""infos"": {},
+          ""datetime"": ""2026-09-19T02:57:02.473Z""
+        },
+        {
+          ""timestamp"": 1789778256339,
+          ""status"": ""success"",
+          ""infos"": {},
+          ""datetime"": ""2026-09-19T00:37:36.339Z""
+        },
+        {
+          ""timestamp"": 1789777294560,
+          ""status"": ""success"",
+          ""infos"": {},
+          ""datetime"": ""2026-09-19T00:21:34.560Z""
+        },
+        {
+          ""timestamp"": 1789765697552,
+          ""status"": ""success"",
+          ""infos"": {},
+          ""datetime"": ""2026-09-18T21:08:17.552Z""
+        },
+        {
+          ""timestamp"": 1789762209077,
+          ""status"": ""success"",
+          ""infos"": {},
+          ""datetime"": ""2026-09-18T20:10:09.077Z"";sanitized_product_version:153.0.4",0,0,0,,,,Windows 11,,153.0.4
+1605870,2026-09-19T04:23:39.254050Z,2026-09-19T04:46:59.193447Z,en-US,thunderbird,after Thunderbird crash cannot receive or send emails,False,,,False,,,accessibility,thunderbird;accessibility;windows-11;thunderbird-1560;,carson53,"<p>After the crash this morning (19/9/26) I cannot receive or send emails but can access existing emails (open them as well) I spoke to Telstra &amp; they tested my   <a href=""http://bigpond.net.au"" rel=""nofollow"">bigpond.net.au</a>   account &amp; advised all working So must be Thunderbird. In dealing with Telstra I changed my password. I have tried the old passwod &amp; the new password but error message comes up log in to ""Telstra account [redacted] @bigpond.net.au (POP3) failed"" as I cannot receive emails can I be contacted via [redacted] or [redacted] @gmail.com Hoping this can be fixed Thanks Peter Carson Cleveland, Queensland </p><p><br> /redacted phone# and emails from public community support forum. </p>",carson53;,False,False,False,";tb_version:156;os:Windows 11;sanitized_product_version:156.0;useragent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36 Edg/153.0.0.0",0,0,0,,,James,Windows 11,156,
+1605879,2026-09-19T05:15:24.132184Z,2026-09-19T07:18:40.584779Z,it,thunderbird,Ho dimenticato la password principale di Mozilla Thunderbird,False,,,False,1848691.0,1848691;,passwords-and-sign-in,thunderbird;passwords-and-sign-in;thunderbird-1560;,giuseppe17,"<p>Bungiorno, ho dimenticato (colpa mia) la Password Principale di Thunderbird. Ho la posta bloccata!!!!. Ho 84 anni, sono in panico! Bazzana Giuseppe e-mail [RIMOSSO]@[RIMOSSO].eu cell 335 [RIMOSSO] </p><p>Per cortesia sbloccatemi voi la password, chiedetemi tuttti i dati che vi servono, sono disposto a pagare i danni. </p><p>-- </p><p><em>edit: dati di contatto personali non sono richiesti, le eventuali risposte arrivano solo attraverso il forum.</em> </p>",giuseppe17;@next;,False,False,False,";tb_version:156,0 (aarch64);os:Mac OS Tahoe Versione 26,6,2;sanitized_product_version:156.0;useragent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36;kb_visits_prior:[""/it/kb/password-principale-thunderbird""]",1,0,0,,,'@next,"Mac OS Tahoe Versione 26,6,2","156,0 (aarch64)",
+1605901,2026-09-19T07:52:21.981075Z,2026-09-19T07:52:21.981079Z,en-US,thunderbird,The file or directory is corrupted and unreadable (pop up),False,,,False,,,app-crash,thunderbird;app-crash;,tim.bale077,<p>Tried to open thunderbird on lap top and says file is corrupted </p><p>But phone still seems to be working </p>,tim.bale077;,False,False,False,";useragent:Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1;tb_version:Not known;sanitized_product_version:",0,0,0,,,,,Not known,
+1605903,2026-09-19T07:56:15.877493Z,2026-09-19T07:56:15.877498Z,en-US,thunderbird,Have a pop up saying thunderbird is corrupted so can’t open email,False,,,False,,,app-crash,thunderbird;app-crash;,tim.bale077,<p>The file or directory is corrupted and readable </p>,tim.bale077;,False,False,False,";useragent:Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1;tb_version:Not known;sanitized_product_version:",0,0,0,,,,,Not known,
+1605904,2026-09-19T07:59:21.556571Z,2026-09-19T07:59:21.556577Z,en-US,thunderbird,Sort threaded messages by Date like the rest of messages,False,,,False,,,customization,thunderbird;customization;thunderbird-1550;thunderbird-15501;,coo1guy,"<p>It appears that when I invert the sorting order of messages by Date, it does not affect the order of messages in a threaded conversation. </p><p>Is this deliberate or a known issue? </p><p>Any solution to sort everything with the newest messages at the top, that is: - Messages - And messages within a thread </p><p>Thanks! </p>",coo1guy;,False,False,False,";useragent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36;tb_version:155.0.1 (64-bit);sanitized_product_version:155.0.1;kb_visits_prior:[""/en-US/kb/message-threading-thunderbird""]",0,0,0,,,,,155.0.1 (64-bit),
