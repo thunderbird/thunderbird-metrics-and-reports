@@ -5,12 +5,12 @@ title: DAILY: Thunderbird Desktop — Support Spike Report
 
 # DAILY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2026-06-22 … 2026-09-19 · **daily** grain · trailing 90 days · 2517 questions · no AI (regex + traditional stats)_
+_Generated 2026-06-22 … 2026-09-19 · **daily** grain · trailing 90 days · 2527 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 2517 questions, 28.0/day avg
-- **Answered (non-creator):** 1958/2517 (78%)
+- **Volume:** 2527 questions, 28.1/day avg
+- **Answered (non-creator):** 1966/2527 (78%)
 - **First-answer time (median):** 3.3h (p25 1.0h / p75 11.1h)
-- **Total volume trend:** `▃▅▅▆▄▃▄▄▅▄▅▄▄▃▅▅▄▅▄▃▃▅▅▃▃▃▄▃▅▅▄▆▄▂▅▅▄▄▃▅▄▃▅▅▅▅▆▆▃▅▃▅▅▅▄▅▅▆▄▅▆▅▄▆▅█▆▅▄▄▇▆▇▇▆▄▄▇▆▆▅▆▃▄▅▆▇▅▄▁`
+- **Total volume trend:** `▃▅▅▆▄▃▄▄▅▄▅▄▄▃▅▅▄▅▄▃▃▅▅▃▃▃▄▃▅▅▄▆▄▂▅▅▄▄▃▅▄▃▅▅▅▅▆▆▃▅▃▅▅▅▄▅▅▆▄▅▆▅▄▆▅█▆▅▄▄▇▆▇▇▆▄▄▇▆▆▅▆▃▄▅▆▇▅▄▃`
 
 > ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
 
@@ -23,7 +23,7 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 
 | Signal | Lift | When | Version × Cause | Qs | Served | Example questions | Trend |
 |:--|---:|:--|:--|--:|:--|:--|:--|
-| 🆕 new | **25.7×** | 2026-08-20 | v154 × feat:printing | 4 | 75% ans · 3.2h | [1599257](https://support.mozilla.org/questions/1599257 "Print emails") [1599261](https://support.mozilla.org/questions/1599261 "Perchè non si riesce a stampare diretta mente da Thunderbird un allegato ad un m") [1599285](https://support.mozilla.org/questions/1599285 "PDF attachments now blank when printed.  Worked great til today.") [1599333](https://support.mozilla.org/questions/1599333 "can not print attachments") · [explore ↗](explorer.html#grain=daily&version=154&cause=feat:printing&period=2026-08-20) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▇▄▂▁▄▄█▅▂▅▂▇▇▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁` |
+| 🆕 new | **25.8×** | 2026-08-20 | v154 × feat:printing | 4 | 75% ans · 3.2h | [1599257](https://support.mozilla.org/questions/1599257 "Print emails") [1599261](https://support.mozilla.org/questions/1599261 "Perchè non si riesce a stampare diretta mente da Thunderbird un allegato ad un m") [1599285](https://support.mozilla.org/questions/1599285 "PDF attachments now blank when printed.  Worked great til today.") [1599333](https://support.mozilla.org/questions/1599333 "can not print attachments") · [explore ↗](explorer.html#grain=daily&version=154&cause=feat:printing&period=2026-08-20) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▇▄▂▁▄▄█▅▂▅▂▇▇▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁` |
 | 🆕 new | **7.2×** | 2026-09-16 | v153 × m:yahooemail | 4 | 75% ans · 0.8h | [1604613](https://support.mozilla.org/questions/1604613 "Error messages.  t-bird Linux Mint ＂.p＂ and ＂UID Fetch＂") [1604699](https://support.mozilla.org/questions/1604699 "I messaggi di un account vanno anche in un secondo account") [1604799](https://support.mozilla.org/questions/1604799 "thunderbird deleting my emails from the POP server") [1604953](https://support.mozilla.org/questions/1604953 "Thunderbird won't send emails between  2 AOL accounts") · [explore ↗](explorer.html#grain=daily&version=153&cause=m:yahooemail&period=2026-09-16) | `▅▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▅▁▆▃▁▅▃▃▆▃▃▃▃▃▃▃▆▅▃▅▃▆▃▁▁▅▃▃▁▁▃▁▁▁▁▁▃▁▁▁▃▁▃▁▅▃▃▅▁▅▃▃█▁▃▁` |
 | 🆕 new | **4.8×** | 2026-06-30 | v152 × m:gmail | 4 | ⚠️ 50% ans · 2.5h | [1590372](https://support.mozilla.org/questions/1590372 "Urgent question: Wrong email group when I sign in coming up") [1590393](https://support.mozilla.org/questions/1590393 "Storende pop-up naar aanleiding van verwijderde google-account") [1590463](https://support.mozilla.org/questions/1590463 "Message not visible with no filter activated, all account are synchronized") [1590499](https://support.mozilla.org/questions/1590499 "archive Gmail to local storage　by Tb") · [explore ↗](explorer.html#grain=daily&version=152&cause=m:gmail&period=2026-06-30) | `▃▁▃▃▅▁▁▁█▅▆▅▆▅▃▅▃▅▆▃▁▁▃▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | ↗ spreading | **4.9×** | 2026-06-29 | v152 × m:microsoftemail | 6 | 67% ans · 87.5h | [1590178](https://support.mozilla.org/questions/1590178 "Adding 2nd outlook accound") [1590198](https://support.mozilla.org/questions/1590198 "Thunderbird emails have started to only show links and not the pictures within t") [1590208](https://support.mozilla.org/questions/1590208 "Can't connect to my live and outlook accounts since 2 weeks") [1590210](https://support.mozilla.org/questions/1590210 "TBird152.0  is not displaing HTML emails properly.") [1590301](https://support.mozilla.org/questions/1590301 "One-hour delay in the guest's meeting schedule (Atraso de uma hora na agenda do ") [1590307](https://support.mozilla.org/questions/1590307 "I got a message: ＂Authentication failure while connecting to server outlook.offi") · [explore ↗](explorer.html#grain=daily&version=152&cause=m:microsoftemail&period=2026-06-29) | `▂▂▂▂▃▂▁█▁▁▃▁▂▂▁▁▁▅▁▁▃▁▂▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
@@ -33,7 +33,7 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 | ↗ spreading | **3.3×** | 2026-08-04 | v153 × m:microsoftemail | 5 | 100% ans · 0.8h | [1596545](https://support.mozilla.org/questions/1596545 "Microsoft Outlook authentication failure.") [1596547](https://support.mozilla.org/questions/1596547 "I just had a fake prompt to add a password to a website mimicking Thunderbird") [1596591](https://support.mozilla.org/questions/1596591 "email not collegament to app thunderbird pc (email outlook)") [1596602](https://support.mozilla.org/questions/1596602 "Import from Outlook (M365) Mac OS to Thunderbird?") [1596606](https://support.mozilla.org/questions/1596606 "Cannot import contacts from outlook 2016") · [explore ↗](explorer.html#grain=daily&version=153&cause=m:microsoftemail&period=2026-08-04) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▁▁▁▂▄▂▁▂▁▁▂▇█▄▁▂▂▁▅▂▄▄▂▁▂▂▁▁▂▂▁▁▁▂▁▁▂▁▁▂▁▁▂▁▁▁▁▂▄▁▁▁▁▄▂▅▁▂▁` |
 | ↻ recurring | **18.2×** | 2026-09-01 | v154 × feat:printing | 4 | 100% ans · 13.8h | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") · [explore ↗](explorer.html#grain=daily&version=154&cause=feat:printing&period=2026-09-01) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▇▄▂▁▄▄█▅▂▅▂▇▇▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁` |
 | ↻ recurring | **14.3×** | 2026-08-26 | v154 × feat:printing | 5 | 100% ans · 13.8h | [1600392](https://support.mozilla.org/questions/1600392 "Printing from Thunderbird since version 154.0 on Windows 11 produces only blank ") [1600397](https://support.mozilla.org/questions/1600397 "Problema anteprima di stampa") [1600407](https://support.mozilla.org/questions/1600407 "PDF direct print from mozilla wil print an blanc page") [1600408](https://support.mozilla.org/questions/1600408 "Problem printing PDF files from Thunderbird.") [1600481](https://support.mozilla.org/questions/1600481 "Print Preview Printing Blanks") · [explore ↗](explorer.html#grain=daily&version=154&cause=feat:printing&period=2026-08-26) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▇▄▂▁▄▄█▅▂▅▂▇▇▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁` |
-| ↻ recurring | **14.0×** | 2026-08-31 | v154 × feat:printing | 4 | 100% ans · 2.9h | [1601286](https://support.mozilla.org/questions/1601286 "Ik kan niet meer printen vanuit Thunderbird. Is er een storing?") [1601306](https://support.mozilla.org/questions/1601306 "Problemi di stampa") [1601367](https://support.mozilla.org/questions/1601367 "PDF se vytiskne prázdné.") [1601404](https://support.mozilla.org/questions/1601404 "can not print email attachments") · [explore ↗](explorer.html#grain=daily&version=154&cause=feat:printing&period=2026-08-31) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▇▄▂▁▄▄█▅▂▅▂▇▇▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁` |
+| ↻ recurring | **14.1×** | 2026-08-31 | v154 × feat:printing | 4 | 100% ans · 2.9h | [1601286](https://support.mozilla.org/questions/1601286 "Ik kan niet meer printen vanuit Thunderbird. Is er een storing?") [1601306](https://support.mozilla.org/questions/1601306 "Problemi di stampa") [1601367](https://support.mozilla.org/questions/1601367 "PDF se vytiskne prázdné.") [1601404](https://support.mozilla.org/questions/1601404 "can not print email attachments") · [explore ↗](explorer.html#grain=daily&version=154&cause=feat:printing&period=2026-08-31) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▇▄▂▁▄▄█▅▂▅▂▇▇▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁` |
 | ↻ recurring | **3.4×** | 2026-08-14 | v153 × proto:pop | 4 | 100% ans · 8.0h | [1598311](https://support.mozilla.org/questions/1598311 "Thunderbird went goofy for multiple gmail accounts - deleted email does not show") [1598314](https://support.mozilla.org/questions/1598314 "Email from Roadrunner.com does not show but server test works") [1598327](https://support.mozilla.org/questions/1598327 "Unable to receive e-mail") [1598357](https://support.mozilla.org/questions/1598357 "Recently Unable to send (SMTP) from Thunderbird from Cox.com (now thru Yahoo).") · [explore ↗](explorer.html#grain=daily&version=153&cause=proto:pop&period=2026-08-14) | `▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▃▁▁▁▃▁▁▆▃▃▅▅▁▅▃▃▅█▁▁██▁▁▃▃▁▃▁▁▁▁▁▁▃▃▃▁▆▁▁▁▁▁▃▁▃▁▁▃▁▁▃▃▅▅▁▁` |
 | ↻ recurring | **3.3×** | 2026-08-13 | v153 × proto:pop | 4 | 100% ans · 1.2h | [1598091](https://support.mozilla.org/questions/1598091 "thunderbird has stopped receiving emails from century link") [1598146](https://support.mozilla.org/questions/1598146 "Can't access my account") [1598151](https://support.mozilla.org/questions/1598151 "How to set up automatic email forwarding from Thunderbird to Gmail") [1598175](https://support.mozilla.org/questions/1598175 "Thunderbird won't download email messages from Yahoo (formerly Cox) account") · [explore ↗](explorer.html#grain=daily&version=153&cause=proto:pop&period=2026-08-13) | `▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▃▁▁▁▃▁▁▆▃▃▅▅▁▅▃▃▅█▁▁██▁▁▃▃▁▃▁▁▁▁▁▁▃▃▃▁▆▁▁▁▁▁▃▁▃▁▁▃▁▁▃▃▅▅▁▁` |
 
@@ -52,18 +52,18 @@ Causes surging **regardless of version** vs a trailing day baseline — provider
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v153 | 659 | `▂▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▄▃▂▅▄▄▃▄▆▅▄▇▇▅▇▇▇▅▇▄▇▇▇▅▇▇█▄▄▅▃▃▄▂▄▅▃▂▂▅▂▃▃▂▁▂▃▃▄▃▃▂▃▄▄▄▃▂▁` |
+| v153 | 661 | `▂▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▄▃▂▅▄▄▃▄▆▅▄▇▇▅▇▇▇▅▇▄▇▇▇▅▇▇█▄▄▅▃▃▄▂▄▅▃▂▂▅▂▃▃▂▁▂▃▃▄▃▃▂▃▄▄▄▃▂▂` |
 | v140 | 340 | `▂█▇▇▂▅▇▅▅▅▆▆▇▆▇▅▅█▅▄▂▅▅▅▅▆▄▅▇▅▅▅█▂▇▅▄▇▃▅▂▂▂▃▄▂▃▄▂▃▄▂▁▂▃▂▂▂▁▃▂▃▃▂▂▂▂▂▂▂▄▄▄▃▂▂▁▂▂▃▂▂▁▂▂▁▃▁▂▁` |
 | v152 | 324 | `▅▅▆▇█▆▃█▅▆█▄▆▃▆▇▆▆▄▂▃▆█▄▃▁▆▃▅▆▂▂▁▁▂▁▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | v154 | 244 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▃▄▆▄▄▆▃█▅▅▅▄▇▅▃▂▂▁▁▂▂▁▁▁▁▁▁▁▁▁▁▁` |
-| v155 | 227 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▇▇▅▅▇▅▆▅▇▅▄▅█▃▂▂▁` |
-| v150 | 68 | `▁▅▁▁▃▁▁▃▆▁▃▃▁▁▃▆▁▅▃▅▁▃▁▁▃▁▆▅▅▅▃▁▁▁▃▁▃▃▁▁▁▁▅▁▃▆▃█▁▃▁▁▁▃▃▃▃▁▃▃▁▁▁▃▁▃▁▃▃▃▅▁▁▁▃▅▁▁▃▃▁▁▁▅▁▅▃▁▁▁` |
+| v155 | 228 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▇▇▅▅▇▅▆▅▇▅▄▅█▃▂▂▁` |
+| v150 | 69 | `▁▅▁▁▃▁▁▃▆▁▃▃▁▁▃▆▁▅▃▅▁▃▁▁▃▁▆▅▅▅▃▁▁▁▃▁▃▃▁▁▁▁▅▁▃▆▃█▁▃▁▁▁▃▃▃▃▁▃▃▁▁▁▃▁▃▁▃▃▃▅▁▁▁▃▅▁▁▃▃▁▁▁▅▁▅▃▁▁▃` |
 
 ### Top mail providers
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 217 | `▂▂▃▄▄▂▅▁▇▃▄▄▄▅▂▃▄▄▅▄▁▁▅▁▃▄▄▂▁▁▄▂▇▂▇▃▄▂▅▃▂▁▆▅▂▅▂▅▁▄▂▃▄▃▄▁▄█▃▅▃▄▄▁▄▄▂▁▄▄▅▃▄▄▆▁▃▂█▄▅▄▂▃▅▁▆▃▂▁` |
+| m:gmail | 218 | `▂▂▃▄▄▂▅▁▇▃▄▄▄▅▂▃▄▄▅▄▁▁▅▁▃▄▄▂▁▁▄▂▇▂▇▃▄▂▅▃▂▁▆▅▂▅▂▅▁▄▂▃▄▃▄▁▄█▃▅▃▄▄▁▄▄▂▁▄▄▅▃▄▄▆▁▃▂█▄▅▄▂▃▅▁▆▃▂▂` |
 | m:microsoftemail | 147 | `▂▃▃▂▃▂▃▆▃▁▄▃▂▂▁▁▃▆▁▁▄▁▄▁▃▂▁▁▃▂▃▂▁▁▂▃▂▂▂▁▃▂▅▅▃▁▃▂▁▄▂▃▄▃▁▂▂▂▂▃▄▃▂▂▃▂▂▃▁▃▅▂▄▂▁▁▁▂▅▅▂▂▁▃▅▅█▃▃▁` |
 | m:yahooemail | 132 | `▆▁▁▂▁▁▁▃▃▂▃▂▁▅▂▂▂▂▂▁▂▂▁▁▁▁▂▂▁▂▁▁▃▁▃▂▆▃▁▃▂▃▅▃▂▃▂▅▃▆▆▃▂▅▂▆▂▃▁▃▃▂▁▁▃▂▁▃▂▂▆▁▂▃▅▁▂▅▅▅▃▇▂▅▂▂█▂▃▁` |
 | m:spectrum | 56 | `▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▃▃▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▃▁▁▁▁▁▁▃▁▁▃▁▁▃▃▁▁▅▁▃▁▁▁▃▁▁▅███▃▁▃▃██▃▅▅▃▁▃▅▁▃▃█▃▁▁▁▃▁▃▁▁` |
@@ -85,10 +85,10 @@ Causes surging **regardless of version** vs a trailing day baseline — provider
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 200 | `▂▃▁▄▃▂▄▄▃▂▅▃▃▂▄▃▃▆▁▁▃▂▃▂▂▂▆▁▃▃▃▅▁▁▄▄▂▃▁▃▃▁▆▃▄▁▁▃▃▇▂▂▄▅▃▂▄▅▃▁▃▄▃▅▂▆▃▂▄▃▄▆▆▅▂▂▅█▂▅▂▆▂▁▇▃▅▄▃▁` |
-| proto:pop | 130 | `▁▂▁▃▁▂▂▅▂▁▂▂▃▆▃▆▃▃▁▁▂▃▁▂▁▁▆▃▁▂▂▂▃▂▁▂▅▁▂▅▂▂▃▅▂▃▃▅▃▆▁▁▆▆▁▁▃▃▁▂▂▂▁▂▁▁▅▂▂▂▅▂▅▁▂▂▂█▃▁▃▇▂▁▃▃▃▃▃▁` |
-| proto:smtp | 120 | `▁▁▁▂▁▄▁▁▂▂▂▂▁▂▁▄▇█▁▁▂▁▂▄▂▁▁▂▂█▄▁▁▂▂▂▁▂▂▂▁▂▅▁▂▁▂▂▂▄▁▄▄▄▂▁▂▂▂▄▅▄▂▄▂▅▂▄▅▂▅▂▅▄▅▁▄▂▄▅▂▄▂▂▄▅▇▅▅▁` |
-| proto:oauth | 58 | `▁▁▁▃▁▁▁▁▁▁▃▁▃▁▁▁▅▅▁▃▃▃▃▁▃▃▁▁▁▅▁▁▁▃▅▃▅▁▁▁▁▁▃▁▁▁▁▅▁▆▃▁▃▁▃▁▃▁▃▁▁▃▁▁▅▁▁▅▃▃▅▃▃▁█▃▁▁▃▅▁▃▁▃▅▁▅▁▃▁` |
+| proto:imap | 201 | `▂▃▁▄▃▂▄▄▃▂▅▃▃▂▄▃▃▆▁▁▃▂▃▂▂▂▆▁▃▃▃▅▁▁▄▄▂▃▁▃▃▁▆▃▄▁▁▃▃▇▂▂▄▅▃▂▄▅▃▁▃▄▃▅▂▆▃▂▄▃▄▆▆▅▂▂▅█▂▅▂▆▂▁▇▃▅▄▃▂` |
+| proto:pop | 131 | `▁▂▁▃▁▂▂▅▂▁▂▂▃▆▃▆▃▃▁▁▂▃▁▂▁▁▆▃▁▂▂▂▃▂▁▂▅▁▂▅▂▂▃▅▂▃▃▅▃▆▁▁▆▆▁▁▃▃▁▂▂▂▁▂▁▁▅▂▂▂▅▂▅▁▂▂▂█▃▁▃▇▂▁▃▃▃▃▃▂` |
+| proto:smtp | 121 | `▁▁▁▂▁▄▁▁▂▂▂▂▁▂▁▄▇█▁▁▂▁▂▄▂▁▁▂▂█▄▁▁▂▂▂▁▂▂▂▁▂▅▁▂▁▂▂▂▄▁▄▄▄▂▁▂▂▂▄▅▄▂▄▂▅▂▄▅▂▅▂▅▄▅▁▄▂▄▅▂▄▂▂▄▅▇▅▅▂` |
+| proto:oauth | 59 | `▁▁▁▃▁▁▁▁▁▁▃▁▃▁▁▁▅▅▁▃▃▃▃▁▃▃▁▁▁▅▁▁▁▃▅▃▅▁▁▁▁▁▃▁▁▁▁▅▁▆▃▁▃▁▃▁▃▁▃▁▁▃▁▁▅▁▁▅▃▃▅▃▃▁█▃▁▁▃▅▁▃▁▃▅▁▅▁▃▃` |
 | proto:caldav | 6 | `▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁█▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | proto:carddav | 6 | `▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁█▁▁▁▁▁▁█▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
@@ -107,9 +107,9 @@ Causes surging **regardless of version** vs a trailing day baseline — provider
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 2041 | `▂▅▄▅▄▃▃▄▄▃▄▃▄▃▄▅▄▅▃▃▂▄▄▃▃▃▄▃▅▅▃▅▄▂▄▄▄▄▃▅▃▂▅▅▃▄▄▅▃▅▂▅▅▅▃▃▅▅▄▅▆▅▄▆▄█▆▅▄▃▇▅▇▇▅▄▄▇▅▅▅▅▃▄▅▆▆▅▄▁` |
-| os:linux | 214 | `▂▂▅▅▂▂▄▂▂▅▃▄▁▁▁▂▂▂▂▁▁▃▂▁▂▃▂▂▂▁▃▅▁▂▅▃▄▂▃▂▄▃▃▂▃▄█▅▁▃▄▂▂▃▄▅▂▃▂▂▂▃▂▂▄▂▂▂▁▄▅▁▂▂▅▂▁▂▄▅▂▂▂▂▂▁▄▂▂▁` |
-| os:macos | 156 | `▆▃▁▅▂▆▂▁▅▂▇▁▃▁▇▁▅▂▃▂▃▃▃▃▁▂▅▁▃▁▂▃▃▁▁▂▁▅▂▂▂▂▂▅█▅▃▃▃▂▅▂▂▁▅█▂▆▂▁▃▃▂▅▂▂▃▁▂▃▃▃▂▂▃▂▃▅▅▆▂▆▂▁▂█▂▂▁▁` |
+| os:windows | 2046 | `▂▅▄▅▄▃▃▄▄▃▄▃▄▃▄▅▄▅▃▃▂▄▄▃▃▃▄▃▅▅▃▅▄▂▄▄▄▄▃▅▃▂▅▅▃▄▄▅▃▅▂▅▅▅▃▃▅▅▄▅▆▅▄▆▄█▆▅▄▃▇▅▇▇▅▄▄▇▅▅▅▅▃▄▅▆▆▅▄▂` |
+| os:linux | 215 | `▂▂▅▅▂▂▄▂▂▅▃▄▁▁▁▂▂▂▂▁▁▃▂▁▂▃▂▂▂▁▃▅▁▂▅▃▄▂▃▂▄▃▃▂▃▄█▅▁▃▄▂▂▃▄▅▂▃▂▂▂▃▂▂▄▂▂▂▁▄▅▁▂▂▅▂▁▂▄▅▂▂▂▂▂▁▄▂▂▂` |
+| os:macos | 157 | `▆▃▁▅▂▆▂▁▅▂▇▁▃▁▇▁▅▂▃▂▃▃▃▃▁▂▅▁▃▁▂▃▃▁▁▂▁▅▂▂▂▂▂▅█▅▃▃▃▂▅▂▂▁▅█▂▆▂▁▃▃▂▅▂▂▃▁▂▃▃▃▂▂▃▂▃▅▅▆▂▆▂▁▂█▂▂▁▂` |
 | os:other | 26 | `▁▆▁▁▁▃▁▁▃▃▃▆▃▁▁▁▁▁▃▁▁▁▃▁▃▁▁▁▁▁▃▁▃▁▁▃▁▁▁▁▁▃▁▃▁▁▆▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▃▁▁▁▁█▁▁▁▁▁▃▁▁▁▁▁▁▁▁▃▁▁▁` |
 | os:android | 21 | `▁▁▁▁▁▁▁▁▃▃▁▁▁▃▁▃▁▃▃▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▃▁▁▁▃▁▆▁▁▃▃▁▁▁▁▁█▁▁▁▁▁▁▁▃▁▁▁▁▁▁▆▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁` |
 
@@ -128,4 +128,4 @@ Causes surging **regardless of version** vs a trailing day baseline — provider
 
 _Notes: spikes detected at **daily** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-daily-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-daily-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-daily-rollup.csv`._
 
-_Last updated: 2026-09-19 04:37 UTC_
+_Last updated: 2026-09-19 16:37 UTC_
