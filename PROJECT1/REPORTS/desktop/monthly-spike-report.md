@@ -5,10 +5,10 @@ title: MONTHLY: Thunderbird Desktop — Support Spike Report
 
 # MONTHLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2024-10 … 2026-09 · **monthly** grain · trailing 24 months · 27408 questions · no AI (regex + traditional stats)_
+_Generated 2024-10 … 2026-09 · **monthly** grain · trailing 24 months · 27417 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 27408 questions, 1142.0/month avg
-- **Answered (non-creator):** 21283/27408 (78%)
+- **Volume:** 27417 questions, 1142.4/month avg
+- **Answered (non-creator):** 21296/27417 (78%)
 - **First-answer time (median):** 3.4h (p25 0.9h / p75 11.8h)
 - **Total volume trend:** `█▇▇█▆▆▆▆▅▇▇▆▆▅▅▅▅▅▄▄▄▄▅▃`
 
@@ -30,7 +30,7 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 | 🆕 new | **3.0×** | 2026-06 | v151 × m:spectrum | 12 | 100% ans · 15.8h | [1585052](https://support.mozilla.org/questions/1585052 "get error message ＂Unable to log in at server. Probably wrong configuration, use") [1585941](https://support.mozilla.org/questions/1585941 "Unable to send email") [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") +6 · [explore ↗](explorer.html#grain=monthly&version=151&cause=m:spectrum&period=2026-06) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▁▂▁` |
 | 🆕 new | **3.0×** | 2026-02 | v148 × proto:oauth | 5 | 100% ans · 4.4h | [1567488](https://support.mozilla.org/questions/1567488 "dossier envoyés contient seulements le mois en cours") [1567691](https://support.mozilla.org/questions/1567691 "Thunderbird 148.0 breaks AOL authentication") [1567818](https://support.mozilla.org/questions/1567818 "thunderbird update 148 rompe oauth2 de yahoo") [1567961](https://support.mozilla.org/questions/1567961 "Mail sync issue led to Mail disappearing after troubleshooting then selecting ＂c") [1568282](https://support.mozilla.org/questions/1568282 "Thunderbird suddenly started asking for Crendentials for yahoo account.  ＂Someth") · [explore ↗](explorer.html#grain=monthly&version=148&cause=proto:oauth&period=2026-02) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▂▁▁▁▁▁` |
 | ↗ spreading | **3.1×** | 2026-08 | v154 × m:spectrum | 13 | 92% ans · 4.2h | [1599683](https://support.mozilla.org/questions/1599683 "Suddenly not receiving email") [1599738](https://support.mozilla.org/questions/1599738 "Thunderbird is not receiving in coming mail from Charter") [1599818](https://support.mozilla.org/questions/1599818 "Thunderbird not connecting to charter server.  Cannot send or receive emails.") [1599874](https://support.mozilla.org/questions/1599874 "Ability to send emails using roadrunner (mail.twc.com) account") [1600052](https://support.mozilla.org/questions/1600052 "Trouble connecting to my email provider Time Warner Corporation to send emails u") [1600872](https://support.mozilla.org/questions/1600872 "I can send email but can not receive.") +7 · [explore ↗](explorer.html#grain=monthly&version=154&cause=m:spectrum&period=2026-08) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂` |
-| ↻ recurring | **9.6×** | 2026-09 | v154 × feat:printing | 5 | 100% ans · 5.0h | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") [1602826](https://support.mozilla.org/questions/1602826 "When printing from Thunderbird, a white sheet is produced.") · [explore ↗](explorer.html#grain=monthly&version=154&cause=feat:printing&period=2026-09) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂` |
+| ↻ recurring | **9.7×** | 2026-09 | v154 × feat:printing | 5 | 100% ans · 5.0h | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") [1602826](https://support.mozilla.org/questions/1602826 "When printing from Thunderbird, a white sheet is produced.") · [explore ↗](explorer.html#grain=monthly&version=154&cause=feat:printing&period=2026-09) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂` |
 
 ## 📮 Cause-level spikes — provider / protocol / AV / feature
 
@@ -59,7 +59,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 1045 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▇▃▂` |
+| v140 | 1046 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▇▃▂` |
 | v153 | 660 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃█▃` |
 | v150 | 459 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▁▂▂▁` |
 | v152 | 379 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁▁` |
@@ -72,7 +72,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 |:--|--:|:--|
 | m:gmail | 2407 | `█▇▇▇▆▆▆▅▄▅▆▆▅▅▅▅▄▅▄▄▃▄▄▃` |
 | m:microsoftemail | 1891 | `█▆▅▅▅▄▄▃▃▄▄▄▅▄▄▄▄▄▃▄▃▂▃▃` |
-| m:yahooemail | 844 | `▅▄▅▆▃▄▃▃▄▇▆▆▆▇▄▄▇█▅▆▄▅▇▅` |
+| m:yahooemail | 845 | `▅▄▅▆▃▄▃▃▄▇▆▆▆▇▄▄▇█▅▆▄▅▇▅` |
 | m:comcast | 342 | `▆▆▅▆▄▅▄▄▃▃█▄▄▆▅▂▃▃▅▄▄▄▄▂` |
 | m:spectrum | 308 | `▅▃▃▃▄▃▃▃▃▃▄▄▂▄▃▃▄▂▂▅▅▂█▅` |
 | m:att | 190 | `▄▅██▅▃▃▅▃▇▇▃▂▄▆▃▃▅▃▂▂▃▃▃` |
@@ -94,7 +94,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 |:--|--:|:--|
 | proto:imap | 1886 | `▇▇██▇▅▅▅▄▆▆▅▆▅▄▅▄▅▃▅▄▄▅▄` |
 | proto:smtp | 1186 | `█▇▆█▆▅▅▆▄▆▇▅▅▄▃▆▅▅▃▄▃▄▅▄` |
-| proto:pop | 1170 | `▇█▆█▆▄▅▅▅▆▇▅▆▄▃▅▄▄▄▄▃▅▅▄` |
+| proto:pop | 1171 | `▇█▆█▆▄▅▅▅▆▇▅▆▄▃▅▄▄▄▄▃▅▅▄` |
 | proto:oauth | 451 | `█▅▅▅▃▃▄▃▂▃▃▃▃▃▂▃▄▆▃▃▃▄▄▃` |
 | proto:caldav | 94 | `▆▆▅█▃▃▃▆▅▆▄▃▄▂▃▅▆▃▃▂▃▃▂▂` |
 | proto:carddav | 55 | `▄▅▃▄▂▇▃▂▁▃█▂▃▃▂▂▄▅▄▂▂▂▄▂` |
@@ -114,7 +114,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 7717 | `▃▃▂▂▂▂▂▂▂▃▃▂▃▂▂▅▇█▇▇▇▆█▆` |
+| os:windows | 7725 | `▃▃▂▂▂▂▂▂▂▃▃▂▃▂▂▅▇█▇▇▇▆█▆` |
 | os:linux | 1256 | `▆▅▅▆▅▃▄▄▃▃▅▅▄▄▄▆▆▇▅▆▆▆█▄` |
 | os:macos | 875 | `▄▃▃▃▄▃▃▃▂▄▄▄▂▄▂▆▇█▆▆▅▅▆▄` |
 | os:other | 133 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▂▁▂▃▃▂▂` |
@@ -135,4 +135,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-monthly-rollup.csv`._
 
-_Last updated: 2026-09-18 16:39 UTC_
+_Last updated: 2026-09-19 04:37 UTC_
