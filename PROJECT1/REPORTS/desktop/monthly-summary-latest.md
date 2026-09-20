@@ -15,7 +15,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 941 | 630 | ▼ -311 (-33%) |
+| Support questions (load) | 941 | 637 | ▼ -304 (-32%) |
 | Version × cause spikes flagged | 7 | 4 | ▼ -3 |
 | — of which **new** regressions | 1 | 1 | ▬ 0 |
 | Cause-level surges flagged | 2 | 0 | ▼ -2 |
@@ -45,9 +45,9 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 | m:gmail | 75 | 49 | ▼ -26 (-35%) |
 | feat:addressbook | 24 | 7 | ▼ -17 (-71%) |
 | m:spectrum | 34 | 17 | ▼ -17 (-50%) |
-| m:yahooemail | 55 | 39 | ▼ -16 (-29%) |
+| m:yahooemail | 55 | 40 | ▼ -15 (-27%) |
 | proto:imap | 71 | 57 | ▼ -14 (-20%) |
-| m:microsoftemail | 53 | 39 | ▼ -14 (-26%) |
+| m:microsoftemail | 53 | 40 | ▼ -13 (-25%) |
 | feat:calendar | 16 | 3 | ▼ -13 (-81%) |
 
 ### 🆕 New cause clusters (first appearance ever)
@@ -62,14 +62,14 @@ _None — every cause cluster in September 2026 has appeared in a prior month._
 | v154 | 202 | 40 | ▼ -162 (-80%) |
 | v155 | 0 | 228 | ▲ +228 |
 | v140 | 67 | 32 | ▼ -35 (-52%) |
-| v156 | 0 | 50 | ▲ +50 |
+| v156 | 0 | 54 | ▲ +54 |
 | v115 | 24 | 19 | ▼ -5 (-21%) |
 
 ### Operating-system mix
 
 | Operating-system mix | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 750 | 533 | ▼ -217 (-29%) |
+| os:windows | 750 | 540 | ▼ -210 (-28%) |
 | os:linux | 93 | 36 | ▼ -57 (-61%) |
 | os:macos | 59 | 35 | ▼ -24 (-41%) |
 | os:android | 10 | 4 | ▼ -6 (-60%) |
@@ -79,9 +79,9 @@ _None — every cause cluster in September 2026 has appeared in a prior month._
 
 | Topic mix | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 233 | 214 | ▼ -19 (-8%) |
-| email-and-messaging | 80 | 54 | ▼ -26 (-32%) |
-| customization | 86 | 42 | ▼ -44 (-51%) |
+| send-and-receive-email | 233 | 216 | ▼ -17 (-7%) |
+| email-and-messaging | 80 | 55 | ▼ -25 (-31%) |
+| customization | 86 | 44 | ▼ -42 (-49%) |
 | passwords-and-sign-in | 60 | 34 | ▼ -26 (-43%) |
 | connectivity | 48 | 32 | ▼ -16 (-33%) |
 | attachments | 49 | 22 | ▼ -27 (-55%) |
@@ -90,4 +90,4 @@ _None — every cause cluster in September 2026 has appeared in a prior month._
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · September 2026 vs August 2026._
 
-_Last updated: 2026-09-20 08:07 UTC_
+_Last updated: 2026-09-20 20:06 UTC_
