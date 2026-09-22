@@ -5,7 +5,7 @@ title: "2026-09 exec summary: Thunderbird Android support spikes"
 
 # September 2026: Thunderbird Android support spikes
 
-Executive summary for 2026-09. It covers 26 Thunderbird Android support questions. The tool wrote this page on 2026-09-21 07:26 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-09. It covers 28 Thunderbird Android support questions. The tool wrote this page on 2026-09-22 07:16 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -38,14 +38,14 @@ September 2026 is still in progress. The counts will grow.
 | version×cause (a release caused the problem) | 0 | 0 | 0 |
 | cause-level (mail host, protocol, antivirus, feature) | 0 | 0 | 0 |
 
-September 2026 holds 26 questions, about 1 a day. The detectors need 8 questions of one kind in a day, 6 in a week or 8 in a month before they call a spike. At this volume most real clusters cannot clear those floors, so read a zero as "nothing large enough to fire", not as "nothing happened".
+September 2026 holds 28 questions, about 1 a day. The detectors need 8 questions of one kind in a day, 6 in a week or 8 in a month before they call a spike. At this volume most real clusters cannot clear those floors, so read a zero as "nothing large enough to fire", not as "nothing happened".
 
-Only 15% of the September 2026 questions carry a Thunderbird version. The version×cause detector therefore cannot fire. Read its zero as missing data, not as a clean result.
+Only 14% of the September 2026 questions carry a Thunderbird version. The version×cause detector therefore cannot fire. Read its zero as missing data, not as a clean result.
 
 Three more numbers for context:
 
-- Volume: 26 questions. 13 of them (50%) carry a cause tag. The count per day was `▆▁█▅▁▅▁▁▃▁▃▁▃▅▃█▅▃▃▃`, one block per day from September 1 to September 20.
-- Answers: 21 of the 26 questions (81%) got an answer from somebody other than the person who asked. The middle time to the first answer was 3.0 hours.
+- Volume: 28 questions. 13 of them (46%) carry a cause tag. The count per day was `▆▁█▅▁▅▁▁▃▁▃▁▃▅▃█▅▃▃▃▅`, one block per day from September 1 to September 21.
+- Answers: 23 of the 28 questions (82%) got an answer from somebody other than the person who asked. The middle time to the first answer was 3.2 hours.
 - Release-adoption version spikes: 0. Users move to a new release, so the bare counts rise. These are not incidents.
 
 Every spike row, with its example questions, is in [All September 2026 detail](#all-september-2026-detail) below.
@@ -97,46 +97,46 @@ The Thunderbird versions named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| v155 | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁` |
-| v162 | 1 | `▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁` |
-| v140 | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁` |
+| v155 | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁` |
+| v162 | 1 | `▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁` |
+| v140 | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁` |
 
 The mail hosts named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| m:gmail | 6 | `▅▁█▁▁▅▁▁▁▁▁▁▁▁▅▁▁▁▅▁` |
-| m:microsoftemail | 3 | `█▁█▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| m:spectrum | 2 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁` |
-| m:thundermail | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁` |
-| m:fastmail | 1 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| m:yahooemail | 1 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| m:gmail | 6 | `▅▁█▁▁▅▁▁▁▁▁▁▁▁▅▁▁▁▅▁▁` |
+| m:microsoftemail | 3 | `█▁█▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| m:spectrum | 2 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁` |
+| m:thundermail | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁` |
+| m:fastmail | 1 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| m:yahooemail | 1 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
 The Thunderbird features named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| feat:addressbook | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| feat:import_export | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| feat:notifications | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| feat:junk | 1 | `▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| feat:addressbook | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| feat:import_export | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| feat:notifications | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| feat:junk | 1 | `▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
 The protocols named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| proto:smtp | 1 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| proto:oauth | 1 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| proto:imap | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁` |
+| proto:smtp | 1 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| proto:oauth | 1 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| proto:imap | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁` |
 
 The operating systems named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| os:android | 19 | `▅▁█▁▁▅▁▁▃▁▃▁▁▅▃▅▅▃▃▁` |
-| os:other | 2 | `█▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| os:windows | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁` |
-| os:linux | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁` |
+| os:android | 21 | `▅▁█▁▁▅▁▁▃▁▃▁▁▅▃▅▅▃▃▁▅` |
+| os:other | 2 | `█▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| os:windows | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁` |
+| os:linux | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁` |
 
 
 </details>
