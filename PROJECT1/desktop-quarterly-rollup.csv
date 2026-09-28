@@ -168,7 +168,7 @@ period,dim,value,count
 2025-Q4,feature,feat:addressbook,67
 2026-Q1,feature,feat:addressbook,59
 2026-Q2,feature,feat:addressbook,48
-2026-Q3,feature,feat:addressbook,50
+2026-Q3,feature,feat:addressbook,51
 2023-Q4,feature,feat:attachments,66
 2024-Q1,feature,feat:attachments,62
 2024-Q2,feature,feat:attachments,43
@@ -899,7 +899,7 @@ period,dim,value,count
 2025-Q4,mail_provider,m:verizon,15
 2026-Q1,mail_provider,m:verizon,1
 2026-Q2,mail_provider,m:verizon,6
-2026-Q3,mail_provider,m:verizon,4
+2026-Q3,mail_provider,m:verizon,5
 2023-Q4,mail_provider,m:virgilio,2
 2024-Q1,mail_provider,m:virgilio,1
 2024-Q2,mail_provider,m:virgilio,1
@@ -977,7 +977,7 @@ period,dim,value,count
 2025-Q4,mail_provider,m:yahooemail,122
 2026-Q1,mail_provider,m:yahooemail,136
 2026-Q2,mail_provider,m:yahooemail,101
-2026-Q3,mail_provider,m:yahooemail,137
+2026-Q3,mail_provider,m:yahooemail,138
 2023-Q4,mail_provider,m:yandex,5
 2024-Q2,mail_provider,m:yandex,2
 2024-Q3,mail_provider,m:yandex,1
@@ -1035,7 +1035,7 @@ period,dim,value,count
 2025-Q4,os,os:linux,118
 2026-Q1,os,os:linux,219
 2026-Q2,os,os:linux,187
-2026-Q3,os,os:linux,203
+2026-Q3,os,os:linux,205
 2023-Q4,os,os:macos,106
 2024-Q1,os,os:macos,83
 2024-Q2,os,os:macos,65
@@ -1068,7 +1068,7 @@ period,dim,value,count
 2025-Q4,os,os:windows,431
 2026-Q1,os,os:windows,1847
 2026-Q2,os,os:windows,1856
-2026-Q3,os,os:windows,2073
+2026-Q3,os,os:windows,2079
 2023-Q4,protocol,proto:caldav,13
 2024-Q1,protocol,proto:caldav,14
 2024-Q2,protocol,proto:caldav,6
@@ -1200,12 +1200,12 @@ period,dim,value,count
 2026-Q2,tb_version_major,152,160
 2026-Q3,tb_version_major,152,220
 2026-Q2,tb_version_major,153,5
-2026-Q3,tb_version_major,153,710
+2026-Q3,tb_version_major,153,713
 2026-Q3,tb_version_major,154,246
 2026-Q1,tb_version_major,155,1
 2026-Q3,tb_version_major,155,234
 2026-Q2,tb_version_major,156,1
-2026-Q3,tb_version_major,156,151
+2026-Q3,tb_version_major,156,153
 2026-Q3,tb_version_major,157,1
 2026-Q2,tb_version_major,159,1
 2026-Q3,tb_version_major,170,1
@@ -1221,4 +1221,4 @@ period,dim,value,count
 2025-Q4,total,all,3282
 2026-Q1,total,all,2834
 2026-Q2,total,all,2296
-2026-Q3,total,all,2541
+2026-Q3,total,all,2549
