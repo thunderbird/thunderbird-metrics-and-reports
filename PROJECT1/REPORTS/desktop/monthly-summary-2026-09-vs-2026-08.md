@@ -15,7 +15,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 943 | 907 | ▼ -36 (-4%) |
+| Support questions (load) | 943 | 922 | ▼ -21 (-2%) |
 | Version × cause spikes flagged | 7 | 5 | ▼ -2 |
 | — of which **new** regressions | 1 | 2 | ▲ +1 |
 | Cause-level surges flagged | 2 | 1 | ▼ -1 |
@@ -30,11 +30,11 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 
 | Signal | When | Version × Cause | Qs | Lift | Served | Example questions |
 |:--|:--|:--|--:|--:|:--|:--|
-| 🆕 new | 2026-09-23 | v153 × m:alice_it | 5 | 77.6× | 100% ans · 3.1h | [1606888](https://support.mozilla.org/questions/1606888 "non mi funziona la mail alice.it") [1606928](https://support.mozilla.org/questions/1606928 "non ricevo le mail di Alicemail") [1606938](https://support.mozilla.org/questions/1606938 "Alice mail") [1607000](https://support.mozilla.org/questions/1607000 "non scarico messaggi") [1607026](https://support.mozilla.org/questions/1607026 "Non riesco a scaricare posta alice su thunderbid, mi da errore di collegamento..") |
-| 🆕 new | 2026-09-16 | v153 × m:yahooemail | 4 | 7.2× | 75% ans · 0.8h | [1604613](https://support.mozilla.org/questions/1604613 "Error messages.  t-bird Linux Mint ＂.p＂ and ＂UID Fetch＂") [1604699](https://support.mozilla.org/questions/1604699 "I messaggi di un account vanno anche in un secondo account") [1604799](https://support.mozilla.org/questions/1604799 "thunderbird deleting my emails from the POP server") [1604953](https://support.mozilla.org/questions/1604953 "Thunderbird won't send emails between  2 AOL accounts") |
+| 🆕 new | 2026-09-23 | v153 × m:alice_it | 5 | 77.8× | 100% ans · 3.1h | [1606888](https://support.mozilla.org/questions/1606888 "non mi funziona la mail alice.it") [1606928](https://support.mozilla.org/questions/1606928 "non ricevo le mail di Alicemail") [1606938](https://support.mozilla.org/questions/1606938 "Alice mail") [1607000](https://support.mozilla.org/questions/1607000 "non scarico messaggi") [1607026](https://support.mozilla.org/questions/1607026 "Non riesco a scaricare posta alice su thunderbid, mi da errore di collegamento..") |
+| 🆕 new | 2026-09-16 | v153 × m:yahooemail | 4 | 7.3× | 75% ans · 0.8h | [1604613](https://support.mozilla.org/questions/1604613 "Error messages.  t-bird Linux Mint ＂.p＂ and ＂UID Fetch＂") [1604699](https://support.mozilla.org/questions/1604699 "I messaggi di un account vanno anche in un secondo account") [1604799](https://support.mozilla.org/questions/1604799 "thunderbird deleting my emails from the POP server") [1604953](https://support.mozilla.org/questions/1604953 "Thunderbird won't send emails between  2 AOL accounts") |
 | ↗ spreading | 2026-09-16 | v156 × m:microsoftemail | 4 | 4.0× | 75% ans · 50.5h | [1604594](https://support.mozilla.org/questions/1604594 "Still can't sync outlook outgoing mail with thunderbird, i receive emails just f") [1604697](https://support.mozilla.org/questions/1604697 "Authentication Failure outlook.office365.com only on startup") [1604835](https://support.mozilla.org/questions/1604835 "ERROR AL AÑADIR CUENTA DE OUTLOOK") [1604859](https://support.mozilla.org/questions/1604859 "autenticazione non riuscita durante la connessione al server outlook su thunderb") |
 | ↗ spreading | 2026-09-07 | v155 × proto:pop | 4 | 3.7× | 75% ans · 5.2h | [1602660](https://support.mozilla.org/questions/1602660 "pop3 account creation error") [1602682](https://support.mozilla.org/questions/1602682 "Login to server pop3.virginmedia.com with username ******* failed") [1602703](https://support.mozilla.org/questions/1602703 "Thunderbird freezes downloading messages when it reaches a message from aliexpre") [1602714](https://support.mozilla.org/questions/1602714 "Is syncronization bidirectional with IMAP accounts?") |
-| ↻ recurring | 2026-09-01 | v154 × feat:printing | 4 | 18.8× | 100% ans · 13.8h | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") |
+| ↻ recurring | 2026-09-01 | v154 × feat:printing | 4 | 18.9× | 100% ans · 13.8h | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") |
 
 ### Cause-level surges — provider / protocol / AV / feature (any version)
 
@@ -52,12 +52,12 @@ Version-agnostic (a provider outage spans versions), vs a trailing-month baselin
 |:--|--:|--:|:--|
 | feat:printing | 37 | 8 | ▼ -29 (-78%) |
 | m:alice_it | 1 | 20 | ▲ +19 |
-| feat:addressbook | 25 | 12 | ▼ -13 (-52%) |
+| proto:pop | 46 | 59 | ▲ +13 (+28%) |
 | m:spectrum | 34 | 22 | ▼ -12 (-35%) |
-| proto:pop | 46 | 57 | ▲ +11 (+24%) |
+| feat:addressbook | 25 | 14 | ▼ -11 (-44%) |
 | feat:filters | 11 | 21 | ▲ +10 (+91%) |
 | m:gmail | 75 | 66 | ▼ -9 (-12%) |
-| feat:calendar | 16 | 8 | ▼ -8 (-50%) |
+| feat:attachments | 27 | 20 | ▼ -7 (-26%) |
 
 ### 🆕 New cause clusters (first appearance ever)
 
@@ -67,20 +67,20 @@ _None — every cause cluster in September 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| v153 | 441 | 176 | ▼ -265 (-60%) |
+| v153 | 441 | 178 | ▼ -263 (-60%) |
 | v154 | 202 | 42 | ▼ -160 (-79%) |
-| v155 | 0 | 236 | ▲ +236 |
-| v156 | 0 | 169 | ▲ +169 |
-| v140 | 69 | 43 | ▼ -26 (-38%) |
+| v155 | 0 | 237 | ▲ +237 |
+| v156 | 0 | 179 | ▲ +179 |
+| v140 | 69 | 44 | ▼ -25 (-36%) |
 | v115 | 24 | 24 | ▬ 0 (+0%) |
 
 ### Operating-system mix
 
 | Operating-system mix | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 750 | 764 | ▲ +14 (+2%) |
-| os:linux | 94 | 55 | ▼ -39 (-41%) |
-| os:macos | 59 | 55 | ▼ -4 (-7%) |
+| os:windows | 750 | 775 | ▲ +25 (+3%) |
+| os:linux | 94 | 56 | ▼ -38 (-40%) |
+| os:macos | 59 | 57 | ▼ -2 (-3%) |
 | os:android | 10 | 5 | ▼ -5 (-50%) |
 | os:other | 6 | 7 | ▲ +1 |
 
@@ -89,14 +89,14 @@ _None — every cause cluster in September 2026 has appeared in a prior month._
 | Topic mix | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
 | send-and-receive-email | 233 | 302 | ▲ +69 (+30%) |
-| email-and-messaging | 80 | 77 | ▼ -3 (-4%) |
+| email-and-messaging | 80 | 81 | ▲ +1 (+1%) |
 | customization | 86 | 65 | ▼ -21 (-24%) |
 | passwords-and-sign-in | 60 | 51 | ▼ -9 (-15%) |
 | connectivity | 48 | 48 | ▬ 0 (+0%) |
-| account-management | 34 | 47 | ▲ +13 (+38%) |
+| account-management | 34 | 49 | ▲ +15 (+44%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · September 2026 vs August 2026._
 
-_Last updated: 2026-09-29 08:09 UTC_
+_Last updated: 2026-09-29 20:08 UTC_
