@@ -5,10 +5,10 @@ title: QUARTERLY: Thunderbird Desktop — Support Spike Report
 
 # QUARTERLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2023-Q4 … 2026-Q3 · **quarterly** grain · trailing 12 quarters · 42636 questions · no AI (regex + traditional stats)_
+_Generated 2023-Q4 … 2026-Q3 · **quarterly** grain · trailing 12 quarters · 42650 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 42636 questions, 3553.0/quarter avg
-- **Answered (non-creator):** 32242/42636 (76%)
+- **Volume:** 42650 questions, 3554.2/quarter avg
+- **Answered (non-creator):** 32251/42650 (76%)
 - **First-answer time (median):** 3.5h (p25 1.0h / p75 12.3h)
 - **Total volume trend:** `▇▆▅██▇▆▇▆▅▄▅`
 
@@ -23,9 +23,9 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 
 | Signal | Lift | When | Version × Cause | Qs | Served | Example questions | Trend |
 |:--|---:|:--|:--|--:|:--|:--|:--|
-| 🆕 new | **11.5×** | 2026-08 | v154 × feat:printing | 29 | 79% ans · 4.3h | [1596686](https://support.mozilla.org/questions/1596686 "Cannot print Pdf files from within Thunderbird") [1599257](https://support.mozilla.org/questions/1599257 "Print emails") [1599261](https://support.mozilla.org/questions/1599261 "Perchè non si riesce a stampare diretta mente da Thunderbird un allegato ad un m") [1599285](https://support.mozilla.org/questions/1599285 "PDF attachments now blank when printed.  Worked great til today.") [1599333](https://support.mozilla.org/questions/1599333 "can not print attachments") [1599495](https://support.mozilla.org/questions/1599495 "Thunderbird can't print files") +23 · [explore ↗](explorer.html#grain=monthly&version=154&cause=feat:printing&period=2026-08) | `▁▁▁▁▁▁▁▁▁▁▁█` |
-| 🆕 new | **11.0×** | 2026-09 | v153 × m:alice_it | 9 | 100% ans · 3.1h | [1605600](https://support.mozilla.org/questions/1605600 "Risposta alle mail diversa da prima") [1606403](https://support.mozilla.org/questions/1606403 "non ricevo posta su pino.[RIMOSSO]@alice.it, sono con starlink, nè riesco a invi") [1606888](https://support.mozilla.org/questions/1606888 "non mi funziona la mail alice.it") [1606928](https://support.mozilla.org/questions/1606928 "non ricevo le mail di Alicemail") [1606938](https://support.mozilla.org/questions/1606938 "Alice mail") [1607000](https://support.mozilla.org/questions/1607000 "non scarico messaggi") +3 · [explore ↗](explorer.html#grain=monthly&version=153&cause=m:alice_it&period=2026-09) | `▁▁▁▁▁▁▁▁▁▁▁█` |
-| 🆕 new | **7.3×** | 2026-09 | v156 × m:alice_it | 6 | 100% ans · 0.5h | [1606677](https://support.mozilla.org/questions/1606677 "Uso Thunderbird e non ricevo più la posta dal server in.alice.it") [1606766](https://support.mozilla.org/questions/1606766 "problemi all'accesso e ricezione delle mail con @alice") [1606943](https://support.mozilla.org/questions/1606943 "Non riesco più a scaricare la posta in arrivo.") [1607001](https://support.mozilla.org/questions/1607001 "da alcuni giorni non scarica la posta da alice.it") [1607008](https://support.mozilla.org/questions/1607008 "sul server di alice non ricevo la posta, posso inviare ma in arrivo connessione ") [1607177](https://support.mozilla.org/questions/1607177 "Non è possibile connettersi al server in.alice.it; la connessione è stata rifiut") · [explore ↗](explorer.html#grain=monthly&version=156&cause=m:alice_it&period=2026-09) | `▁▁▁▁▁▁▁▁▁▁▁█` |
+| 🆕 new | **11.6×** | 2026-08 | v154 × feat:printing | 29 | 79% ans · 4.3h | [1596686](https://support.mozilla.org/questions/1596686 "Cannot print Pdf files from within Thunderbird") [1599257](https://support.mozilla.org/questions/1599257 "Print emails") [1599261](https://support.mozilla.org/questions/1599261 "Perchè non si riesce a stampare diretta mente da Thunderbird un allegato ad un m") [1599285](https://support.mozilla.org/questions/1599285 "PDF attachments now blank when printed.  Worked great til today.") [1599333](https://support.mozilla.org/questions/1599333 "can not print attachments") [1599495](https://support.mozilla.org/questions/1599495 "Thunderbird can't print files") +23 · [explore ↗](explorer.html#grain=monthly&version=154&cause=feat:printing&period=2026-08) | `▁▁▁▁▁▁▁▁▁▁▁█` |
+| 🆕 new | **10.7×** | 2026-09 | v153 × m:alice_it | 9 | 100% ans · 3.1h | [1605600](https://support.mozilla.org/questions/1605600 "Risposta alle mail diversa da prima") [1606403](https://support.mozilla.org/questions/1606403 "non ricevo posta su pino.[RIMOSSO]@alice.it, sono con starlink, nè riesco a invi") [1606888](https://support.mozilla.org/questions/1606888 "non mi funziona la mail alice.it") [1606928](https://support.mozilla.org/questions/1606928 "non ricevo le mail di Alicemail") [1606938](https://support.mozilla.org/questions/1606938 "Alice mail") [1607000](https://support.mozilla.org/questions/1607000 "non scarico messaggi") +3 · [explore ↗](explorer.html#grain=monthly&version=153&cause=m:alice_it&period=2026-09) | `▁▁▁▁▁▁▁▁▁▁▁█` |
+| 🆕 new | **7.1×** | 2026-09 | v156 × m:alice_it | 6 | 100% ans · 0.5h | [1606677](https://support.mozilla.org/questions/1606677 "Uso Thunderbird e non ricevo più la posta dal server in.alice.it") [1606766](https://support.mozilla.org/questions/1606766 "problemi all'accesso e ricezione delle mail con @alice") [1606943](https://support.mozilla.org/questions/1606943 "Non riesco più a scaricare la posta in arrivo.") [1607001](https://support.mozilla.org/questions/1607001 "da alcuni giorni non scarica la posta da alice.it") [1607008](https://support.mozilla.org/questions/1607008 "sul server di alice non ricevo la posta, posso inviare ma in arrivo connessione ") [1607177](https://support.mozilla.org/questions/1607177 "Non è possibile connettersi al server in.alice.it; la connessione è stata rifiut") · [explore ↗](explorer.html#grain=monthly&version=156&cause=m:alice_it&period=2026-09) | `▁▁▁▁▁▁▁▁▁▁▁█` |
 | 🆕 new | **4.0×** | 2026-02 | v148 × feat:calendar | 7 | 100% ans · 0.6h | [1567678](https://support.mozilla.org/questions/1567678 "TB 148 seems to 'break' Google calendars, using Provider") [1567859](https://support.mozilla.org/questions/1567859 "In Thunderbird/Adressbuch sind Geburtsdaten eingetragen. Was muß/kann ich tun, u") [1567878](https://support.mozilla.org/questions/1567878 "No connection between Google agenda since up date of thunderbird to 148.0 versio") [1567951](https://support.mozilla.org/questions/1567951 "My google calendar disappeared all of the sudden") [1567961](https://support.mozilla.org/questions/1567961 "Mail sync issue led to Mail disappearing after troubleshooting then selecting ＂c") [1568051](https://support.mozilla.org/questions/1568051 "I can't remove the calendar from view, the attached image keeps appearing") +1 · [explore ↗](explorer.html#grain=monthly&version=148&cause=feat:calendar&period=2026-02) | `▁▁▁▁▁▁▁▁▁█▁▁` |
 | 🆕 new | **3.7×** | 2026-07 | v140 × feat:search | 7 | 100% ans · 3.5h | [1591417](https://support.mozilla.org/questions/1591417 "How to prevent Thunderbird message search (ctrl+F) from continuing from the top?") [1591550](https://support.mozilla.org/questions/1591550 "Copying a saved search in Thunderbird") [1591650](https://support.mozilla.org/questions/1591650 "Searching by domain - issue?") [1592237](https://support.mozilla.org/questions/1592237 "Before the last update to TB I could easily search for a single email address me") [1592460](https://support.mozilla.org/questions/1592460 "Can I create a search based on text in the ＂message source＂?") [1592700](https://support.mozilla.org/questions/1592700 "Unable to see messages in Inbox but messages visible using search. Repair folder") +1 · [explore ↗](explorer.html#grain=monthly&version=140&cause=feat:search&period=2026-07) | `▁▁▁▁▁▁▁▁▁▃▆█` |
 | 🆕 new | **3.6×** | 2026-02 | v140 × feat:calendar | 10 | ⚠️ 50% ans · 5.4h | [1565213](https://support.mozilla.org/questions/1565213 "Thunderbird-created Google Calendar invites neither include an automatic Google ") [1565246](https://support.mozilla.org/questions/1565246 "Calendar event convert to message missing date and time") [1565919](https://support.mozilla.org/questions/1565919 "Problem linking existing Thunderbird calendar to Google Calendar") [1566048](https://support.mozilla.org/questions/1566048 "Filter Calendar events by Category then sort by start") [1566095](https://support.mozilla.org/questions/1566095 "Is there a way to force the calendar to keep an event reminder until I dismiss i") [1566561](https://support.mozilla.org/questions/1566561 "How do I select a specific calendar to unsubscribe?") +4 · [explore ↗](explorer.html#grain=monthly&version=140&cause=feat:calendar&period=2026-02) | `▁▁▁▁▁▁▁▁▁██▅` |
@@ -77,9 +77,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | v140 | 1060 | `▁▁▁▁▁▁▁▁▁▄█▅` |
-| v153 | 725 | `▁▁▁▁▁▁▁▁▁▁▁█` |
+| v153 | 730 | `▁▁▁▁▁▁▁▁▁▁▁█` |
 | v150 | 471 | `▁▁▁▁▁▁▁▁▁▁█▂` |
-| v152 | 380 | `▁▁▁▁▁▁▁▁▁▁▆█` |
+| v152 | 381 | `▁▁▁▁▁▁▁▁▁▁▆█` |
 | v151 | 338 | `▁▁▁▁▁▁▁▁▁▁█▁` |
 | v149 | 323 | `▁▁▁▁▁▁▁▁▁▂█▁` |
 
@@ -88,8 +88,8 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | m:gmail | 3894 | `▇▆▅██▆▅▆▅▅▄▄` |
-| m:microsoftemail | 3150 | `▅▅▄█▇▅▄▅▄▄▄▃` |
-| m:yahooemail | 1277 | `▆▄█▇▆▅▄▇▇█▆█` |
+| m:microsoftemail | 3152 | `▅▅▄█▇▅▄▅▄▄▄▃` |
+| m:yahooemail | 1278 | `▅▄▇▇▅▅▄▇▇█▆█` |
 | m:comcast | 544 | `▅▇▆██▇▅▇▇▃▆▅` |
 | m:spectrum | 497 | `█▆▄▆▅▅▄▅▅▄▆█` |
 | m:att | 314 | `█▂▇▇▇▆▄▇▅▄▂▃` |
@@ -99,9 +99,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | feat:calendar | 1097 | `█▄▅███▆▆▅▆▅▃` |
-| feat:import_export | 1043 | `▆▆▅▇█▇▆█▆▅▅▅` |
+| feat:import_export | 1046 | `▆▆▅▇█▇▆█▆▅▅▅` |
 | feat:junk | 808 | `▆▄▄▅▅▇▆█▆▅▆▅` |
-| feat:addressbook | 801 | `▅▅▄▇▇▇▆█▆▅▄▅` |
+| feat:addressbook | 803 | `▅▅▄▇▇▇▆█▆▅▄▅` |
 | feat:attachments | 706 | `▇▇▅██▇▇▇▆▅▄▇` |
 | feat:filters | 684 | `█▆▅█▆▅▅▆▅▅▄▅` |
 
@@ -109,9 +109,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 3034 | `▇▆▆██▇▅▆▅▅▄▅` |
+| proto:imap | 3035 | `▇▆▆██▇▅▆▅▅▄▅` |
 | proto:smtp | 1938 | `▆▆▆█▇▆▅▆▄▅▃▅` |
-| proto:pop | 1914 | `▆▅▄█▇▆▅▆▅▄▄▅` |
+| proto:pop | 1915 | `▆▅▄█▇▆▅▆▅▄▄▅` |
 | proto:oauth | 765 | `▄▂▄█▅▃▃▃▃▄▃▄` |
 | proto:caldav | 142 | `▆▆▃▆█▇▆▆▄▆▄▄` |
 | proto:carddav | 79 | `▄▅▅▇▇█▃█▅▇▅▅` |
@@ -131,9 +131,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 9539 | `▃▂▂▂▃▂▂▃▂▇▇█` |
+| os:windows | 9549 | `▃▂▂▂▃▂▂▃▂▇▇█` |
 | os:linux | 1834 | `▇▅▄▆▆▅▅▅▅█▇█` |
-| os:macos | 1236 | `▅▄▃▄▄▄▃▅▃█▇▇` |
+| os:macos | 1238 | `▅▄▃▄▄▄▃▅▃█▇▇` |
 | os:other | 139 | `▁▁▁▁▁▁▁▁▁█▃▃` |
 | os:android | 108 | `▁▂▂▂▁▂▂▂▂█▆▆` |
 
@@ -152,4 +152,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-quarterly-rollup.csv`._
 
-_Last updated: 2026-09-29 16:45 UTC_
+_Last updated: 2026-09-30 04:42 UTC_
