@@ -1,0 +1,3 @@
+id,created,created_date,locale,topic,tags,creator,title,question_url,os,os_raw,macos_release,tb_version,tb_version_major,mail_provider,feature,protocol,av,num_answers,is_answered,first_answer_hours,is_solved,solved_by
+1608771,2026-10-01T00:38:28.087236Z,2026-10-01,en-US,customization,thunderbird;customization;windows-11;,csteel51,"Microscopic fonts appear in compose screen, cannot change. Fix?",https://support.mozilla.org/questions/1608771,os:windows,Windows 11,,86 en-US (2026-08-,,,,,,0,false,,False,
+1608779,2026-10-01T01:45:20.911663Z,2026-10-01,en-US,account-management,thunderbird;windows-11;account-management;thunderbird-1570;,m4vrj2v62k,アカウント削除した元に戻したい,https://support.mozilla.org/questions/1608779,os:windows,Windows 11,,157.0,157,,,,,0,false,,False,
