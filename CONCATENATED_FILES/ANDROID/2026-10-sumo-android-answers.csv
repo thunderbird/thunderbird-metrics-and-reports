@@ -1,0 +1,3 @@
+id,question_id,created,updated,content,creator,is_spam,num_helpful,num_unhelpful
+1851887,1608898,2026-10-01T14:07:42.409956Z,2026-10-01T14:07:42.409963Z,"<p>Threaded view sounds like what your looking for.  It groups messages by conversation. To enable it, navigate to settings &gt;general settings &gt; display &gt; threaded view. </p>",platform34,False,0,0
+1851888,1608898,2026-10-01T14:13:10.582999Z,2026-10-01T14:13:10.583005Z,"<p>I've done that but it only shows me the emails the sender has sent to me, not the answer I give to that emails. </p>",daniel143,False,0,0
