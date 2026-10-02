@@ -5,7 +5,7 @@ title: "2026-10 exec summary: Thunderbird Desktop support spikes"
 
 # October 2026: Thunderbird Desktop support spikes
 
-Executive summary for 2026-10. It covers 2 Thunderbird Desktop support questions. The tool wrote this page on 2026-10-01 05:36 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-10. It covers 39 Thunderbird Desktop support questions. The tool wrote this page on 2026-10-02 05:36 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -27,35 +27,36 @@ Executive summary for 2026-10. It covers 2 Thunderbird Desktop support questions
 
 </details>
 
-## October 2026: 2 spikes to investigate
+## October 2026: 3 spikes to investigate
 
-All 2 tie to a Thunderbird version. None of them are cause-level. Every row is in the collapsed blocks below.
+2 of them tie to a Thunderbird version. 1 of them are cause-level. Every row is in the collapsed blocks below.
 
 October 2026 is still in progress. The counts will grow.
 
-In short: Address book and Import and export. [What stands out](#what-stands-out) has the detail.
+In short: Shaw and Address book. Both are in [What stands out](#what-stands-out), with 1 smaller cluster.
 
 | Detector | daily | weekly | monthly |
 |:--|--:|--:|--:|
 | version×cause (a release caused the problem) | 0 | 2 | 0 |
-| cause-level (mail host, protocol, antivirus, feature) | 0 | 0 | 0 |
+| cause-level (mail host, protocol, antivirus, feature) | 0 | 1 | 0 |
 
-October 2026 holds 2 questions, about 2 a day. The detectors need 8 questions of one kind in a day, 6 in a week or 8 in a month before they call a spike. At this volume most real clusters cannot clear those floors, so read a zero as "nothing large enough to fire", not as "nothing happened".
+October 2026 holds 39 questions, about 20 a day. The detectors need 8 questions of one kind in a day, 6 in a week or 8 in a month before they call a spike. At this volume most real clusters cannot clear those floors, so read a zero as "nothing large enough to fire", not as "nothing happened".
 
 Three more numbers for context:
 
-- Volume: 2 questions. 0 of them (0%) carry a cause tag. The count per day was `█`, one block per day from October 1 to October 1.
-- Answers: 0 of the 2 questions (0%) got an answer from somebody other than the person who asked.
-- Release-adoption version spikes: 1. Users move to a new release, so the bare counts rise. These are not incidents.
+- Volume: 39 questions. 16 of them (41%) carry a cause tag. The count per day was `█▂`, one block per day from October 1 to October 2.
+- Answers: 8 of the 39 questions (21%) got an answer from somebody other than the person who asked. The middle time to the first answer was 1.4 hours.
+- Release-adoption version spikes: 5. Users move to a new release, so the bare counts rise. These are not incidents.
 
 Every spike row, with its example questions, is in [All October 2026 detail](#all-october-2026-detail) below.
 
 ## What stands out {#what-stands-out}
 
-1. Address book ([`feat:addressbook`](explorer.html#grain=monthly&cause=feat:addressbook&period=2026-10), 1 spike):  It peaked in the week of 2026-09-28 at 3.7 times expected, on Thunderbird 156.
-2. Import and export ([`feat:import_export`](explorer.html#grain=monthly&cause=feat:import_export&period=2026-10), 1 spike):  It peaked in the week of 2026-09-28 at 3.5 times expected, on Thunderbird 156.
+1. Shaw ([`m:shaw`](explorer.html#grain=monthly&cause=m:shaw&period=2026-10), 1 spike): 2 questions in October, under the monthly bar. It peaked in the week of 2026-09-28 at 12.0 times its baseline.
+2. Address book ([`feat:addressbook`](explorer.html#grain=monthly&cause=feat:addressbook&period=2026-10), 1 spike): 1 question in October, under the monthly bar. It peaked in the week of 2026-09-28 at 3.2 times expected, on Thunderbird 156.
+3. Import and export ([`feat:import_export`](explorer.html#grain=monthly&cause=feat:import_export&period=2026-10), 1 spike):  It peaked in the week of 2026-09-28 at 3.0 times expected, on Thunderbird 156.
 
-In 1 cluster, fewer than 60% of the questions got an answer: `v156 × feat:import_export` in the week of 2026-09-28 (40% answered).
+In 2 clusters, fewer than 60% of the questions got an answer: `v156 × feat:import_export` in the week of 2026-09-28 (40% answered), `m:shaw` in the week of 2026-09-28 (50% answered).
 
 ## Two limits of these dates
 
@@ -86,26 +87,32 @@ Cause alone:
 
 | Grain | Lift | When | Version × Cause | Questions | Served | Novelty | Example questions |
 |:--|--:|:--|:--|--:|:--|:--|:--|
-| weekly | 3.7× | 2026-09-28 | v156 × feat:addressbook | 4 | 75% answered, 0.1h | new | [1608295](https://support.mozilla.org/questions/1608295 "reloaded Thuderbird but address book .sqlite file not reloading") [1608307](https://support.mozilla.org/questions/1608307 "How to sync iCloud Contacts to Thunderbird") [1608370](https://support.mozilla.org/questions/1608370 "How to import contacts from Thunderbird to Zoho") [1608602](https://support.mozilla.org/questions/1608602 "Remove Personall Address Book and Collected Addresses from Address Book") |
-| weekly | 3.5× | 2026-09-28 | v156 × feat:import_export | 5 | 40% answered (below 60%), 1.0h | spreading | [1607999](https://support.mozilla.org/questions/1607999 "How do I import Thunderbird profile from Windows 11 to Ubuntu 24.04?") [1608076](https://support.mozilla.org/questions/1608076 "Import from Outlook") [1608271](https://support.mozilla.org/questions/1608271 "preciso de ajuda para fazer backup no thunderbird.") [1608370](https://support.mozilla.org/questions/1608370 "How to import contacts from Thunderbird to Zoho") [1608599](https://support.mozilla.org/questions/1608599 "Export/Import accounts only") |
+| weekly | 3.2× | 2026-09-28 | v156 × feat:addressbook | 4 | 75% answered, 0.1h | new | [1608295](https://support.mozilla.org/questions/1608295 "reloaded Thuderbird but address book .sqlite file not reloading") [1608307](https://support.mozilla.org/questions/1608307 "How to sync iCloud Contacts to Thunderbird") [1608370](https://support.mozilla.org/questions/1608370 "How to import contacts from Thunderbird to Zoho") [1608602](https://support.mozilla.org/questions/1608602 "Remove Personall Address Book and Collected Addresses from Address Book") |
+| weekly | 3.0× | 2026-09-28 | v156 × feat:import_export | 5 | 40% answered (below 60%), 1.0h | spreading | [1607999](https://support.mozilla.org/questions/1607999 "How do I import Thunderbird profile from Windows 11 to Ubuntu 24.04?") [1608076](https://support.mozilla.org/questions/1608076 "Import from Outlook") [1608271](https://support.mozilla.org/questions/1608271 "preciso de ajuda para fazer backup no thunderbird.") [1608370](https://support.mozilla.org/questions/1608370 "How to import contacts from Thunderbird to Zoho") [1608599](https://support.mozilla.org/questions/1608599 "Export/Import accounts only") |
 
 </details>
 
 <details markdown="1">
-<summary>Cause-level spikes (mail host, protocol, antivirus, feature), 0 rows</summary>
+<summary>Cause-level spikes (mail host, protocol, antivirus, feature), 1 row</summary>
 
-None.
+| Grain | Rise | When | Cause | Questions | Served | Baseline | Example questions |
+|:--|--:|:--|:--|--:|:--|--:|:--|
+| weekly | 12.0× | 2026-09-28 | m:shaw | 6 | 50% answered (below 60%), 11.1h | 0.5 | [1608189](https://support.mozilla.org/questions/1608189 "Host Name and Port error as I try to set up Thunderbird. I have shaw mail.") [1608378](https://support.mozilla.org/questions/1608378 "certificate for imap.shaw.ca does not come from a trusted source") [1608647](https://support.mozilla.org/questions/1608647 "Certificate not from trusted source.") [1608660](https://support.mozilla.org/questions/1608660 "Repeated message 'Thunderbird: The certificate for imap.shaw.ca ' keeps showing ") [1608967](https://support.mozilla.org/questions/1608967 "I lost the ability to sync thunderbird to shaw rmail6") [1608978](https://support.mozilla.org/questions/1608978 "Windows 11 preview update results in invalid certificate error - timezone change") |
 
 </details>
 
 <details markdown="1">
-<summary>Release-adoption version and operating-system spikes (not incidents), 1 row</summary>
+<summary>Release-adoption version and operating-system spikes (not incidents), 5 rows</summary>
 
 Version and operating system are filters, not causes. A rise in the bare count of one version is release adoption, not a regression. The rows are here for manual checking only.
 
 | Grain | Rise | When | Dimension | Value | Questions | Baseline |
 |:--|--:|:--|:--|:--|:--|--:|
-| weekly | new | 2026-09-28 | tb_version_major | 156 | 51 [1607958](https://support.mozilla.org/questions/1607958 "free large video and large file  sender  to send large files  videos in Thunderb") [1607999](https://support.mozilla.org/questions/1607999 "How do I import Thunderbird profile from Windows 11 to Ubuntu 24.04?") | 0.0 |
+| daily | new | 2026-10-01 | tb_version_major | 157 | 12 [1608779](https://support.mozilla.org/questions/1608779 "アカウント削除した元に戻したい") [1608924](https://support.mozilla.org/questions/1608924 "Installing language dictionary") | 0.0 |
+| monthly | new | 2026-10 | tb_version_major | 156 | 8 [1608889](https://support.mozilla.org/questions/1608889 "Thunderbird Gone!  - no icon, not in app list in windows 11") [1608938](https://support.mozilla.org/questions/1608938 "Thunderbird non riceve i miei indirizzi maxs21r@hotmail-it e maxs21r  ò   gmail.") | 0.0 |
+| monthly | new | 2026-10 | tb_version_major | 157 | 12 [1608779](https://support.mozilla.org/questions/1608779 "アカウント削除した元に戻したい") [1608924](https://support.mozilla.org/questions/1608924 "Installing language dictionary") | 0.0 |
+| weekly | new | 2026-09-28 | tb_version_major | 156 | 59 [1607958](https://support.mozilla.org/questions/1607958 "free large video and large file  sender  to send large files  videos in Thunderb") [1607999](https://support.mozilla.org/questions/1607999 "How do I import Thunderbird profile from Windows 11 to Ubuntu 24.04?") | 0.0 |
+| weekly | new | 2026-09-28 | tb_version_major | 157 | 14 [1608636](https://support.mozilla.org/questions/1608636 "problème archivage des messages envoyés") [1608734](https://support.mozilla.org/questions/1608734 "I can no longer copy and paste") | 0.0 |
 
 </details>
 
@@ -116,13 +123,49 @@ The Thunderbird versions named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| v157 | 1 | `█` |
+| v157 | 12 | `█▁` |
+| v156 | 8 | `█▃` |
+| v153 | 5 | `█▁` |
+| v140 | 2 | `██` |
+| v102 | 1 | `█▁` |
+| v128 | 1 | `█▁` |
+
+The mail hosts named most often were:
+
+| Value | Questions | Count per day |
+|:--|--:|:--|
+| m:yahooemail | 3 | `█▁` |
+| m:microsoftemail | 3 | `█▁` |
+| m:shaw | 2 | `█▁` |
+| m:gmail | 1 | `█▁` |
+| m:rogers | 1 | `█▁` |
+| m:spectrum | 1 | `█▁` |
+
+The Thunderbird features named most often were:
+
+| Value | Questions | Count per day |
+|:--|--:|:--|
+| feat:calendar | 2 | `█▁` |
+| feat:addons | 2 | `█▁` |
+| feat:spellcheck | 1 | `█▁` |
+| feat:attachments | 1 | `█▁` |
+| feat:addressbook | 1 | `█▁` |
+
+The protocols named most often were:
+
+| Value | Questions | Count per day |
+|:--|--:|:--|
+| proto:pop | 3 | `█▁` |
+| proto:imap | 2 | `█▁` |
+| proto:smtp | 2 | `█▁` |
 
 The operating systems named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| os:windows | 2 | `█` |
+| os:windows | 33 | `█▁` |
+| os:linux | 4 | `█▃` |
+| os:android | 1 | `█▁` |
 
 
 </details>
