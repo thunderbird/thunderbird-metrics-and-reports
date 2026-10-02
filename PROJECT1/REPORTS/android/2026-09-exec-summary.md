@@ -5,7 +5,7 @@ title: "2026-09 exec summary: Thunderbird Android support spikes"
 
 # September 2026: Thunderbird Android support spikes
 
-Executive summary for 2026-09. It covers 40 Thunderbird Android support questions. The tool wrote this page on 2026-09-30 07:22 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-09. It covers 41 Thunderbird Android support questions. The tool wrote this page on 2026-10-02 07:20 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -31,21 +31,19 @@ Executive summary for 2026-09. It covers 40 Thunderbird Android support question
 
 No spike cleared the threshold at any grain. The tool found no mail host outage, no protocol surge, no antivirus breakage and no release regression in September 2026.
 
-September 2026 is still in progress. The counts will grow.
-
 | Detector | daily | weekly | monthly |
 |:--|--:|--:|--:|
 | version×cause (a release caused the problem) | 0 | 0 | 0 |
 | cause-level (mail host, protocol, antivirus, feature) | 0 | 0 | 0 |
 
-September 2026 holds 40 questions, about 1 a day. The detectors need 8 questions of one kind in a day, 6 in a week or 8 in a month before they call a spike. At this volume most real clusters cannot clear those floors, so read a zero as "nothing large enough to fire", not as "nothing happened".
+September 2026 holds 41 questions, about 1 a day. The detectors need 8 questions of one kind in a day, 6 in a week or 8 in a month before they call a spike. At this volume most real clusters cannot clear those floors, so read a zero as "nothing large enough to fire", not as "nothing happened".
 
 Only 15% of the September 2026 questions carry a Thunderbird version. The version×cause detector therefore cannot fire. Read its zero as missing data, not as a clean result.
 
 Three more numbers for context:
 
-- Volume: 40 questions. 19 of them (48%) carry a cause tag. The count per day was `▆▁█▅▁▅▁▁▃▁▃▁▃▅▃█▅▃▃▃▅▃▅▅▅▃▃▁▅▃`, one block per day from September 1 to September 30.
-- Answers: 32 of the 40 questions (80%) got an answer from somebody other than the person who asked. The middle time to the first answer was 4.1 hours.
+- Volume: 41 questions. 20 of them (49%) carry a cause tag. The count per day was `▆▁█▅▁▅▁▁▃▁▃▁▃▅▃█▅▃▃▃▅▃▅▅▅▃▃▁▅▅`, one block per day from September 1 to September 30.
+- Answers: 34 of the 41 questions (83%) got an answer from somebody other than the person who asked. The middle time to the first answer was 4.4 hours.
 - Release-adoption version spikes: 0. Users move to a new release, so the bare counts rise. These are not incidents.
 
 Every spike row, with its example questions, is in [All September 2026 detail](#all-september-2026-detail) below.
@@ -117,7 +115,7 @@ The Thunderbird features named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| feat:notifications | 3 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁█▁▁▁` |
+| feat:notifications | 4 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁█▁▁█` |
 | feat:addressbook | 2 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁` |
 | feat:import_export | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | feat:junk | 1 | `▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
@@ -135,7 +133,7 @@ The operating systems named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| os:android | 30 | `▅▁█▁▁▅▁▁▃▁▃▁▁▅▃▅▅▃▃▁▅▃▃▃▅▁▃▁▅▃` |
+| os:android | 31 | `▅▁█▁▁▅▁▁▃▁▃▁▁▅▃▅▅▃▃▁▅▃▃▃▅▁▃▁▅▅` |
 | os:windows | 3 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▅▁▁▁▁▁▁▁` |
 | os:other | 2 | `█▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | os:linux | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |

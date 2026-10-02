@@ -1,11 +1,11 @@
 ---
 layout: base
-title: "2026-08 exec summary: Thunderbird Android support spikes"
+title: "2026-09 exec summary: Thunderbird Android support spikes"
 ---
 
-# August 2026: Thunderbird Android support spikes
+# September 2026: Thunderbird Android support spikes
 
-Executive summary for 2026-08. It covers 40 Thunderbird Android support questions. The tool wrote this page on 2026-09-30 07:22 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-09. It covers 41 Thunderbird Android support questions. The tool wrote this page on 2026-10-02 07:20 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -27,26 +27,26 @@ Executive summary for 2026-08. It covers 40 Thunderbird Android support question
 
 </details>
 
-## August 2026: no spike cleared the threshold
+## September 2026: no spike cleared the threshold
 
-No spike cleared the threshold at any grain. The tool found no mail host outage, no protocol surge, no antivirus breakage and no release regression in August 2026.
+No spike cleared the threshold at any grain. The tool found no mail host outage, no protocol surge, no antivirus breakage and no release regression in September 2026.
 
 | Detector | daily | weekly | monthly |
 |:--|--:|--:|--:|
 | version×cause (a release caused the problem) | 0 | 0 | 0 |
 | cause-level (mail host, protocol, antivirus, feature) | 0 | 0 | 0 |
 
-August 2026 holds 40 questions, about 1 a day. The detectors need 8 questions of one kind in a day, 6 in a week or 8 in a month before they call a spike. At this volume most real clusters cannot clear those floors, so read a zero as "nothing large enough to fire", not as "nothing happened".
+September 2026 holds 41 questions, about 1 a day. The detectors need 8 questions of one kind in a day, 6 in a week or 8 in a month before they call a spike. At this volume most real clusters cannot clear those floors, so read a zero as "nothing large enough to fire", not as "nothing happened".
 
-Only 2% of the August 2026 questions carry a Thunderbird version. The version×cause detector therefore cannot fire. Read its zero as missing data, not as a clean result.
+Only 15% of the September 2026 questions carry a Thunderbird version. The version×cause detector therefore cannot fire. Read its zero as missing data, not as a clean result.
 
 Three more numbers for context:
 
-- Volume: 40 questions. 18 of them (45%) carry a cause tag. The count per day was `▁▆▃▅▆▁▃█▅▃▅▁▃▅▁▃▁▆▁▃▃▁▃▅▆▃▃▃▁▃▅`, one block per day from August 1 to August 31.
-- Answers: 36 of the 40 questions (90%) got an answer from somebody other than the person who asked. The middle time to the first answer was 5.3 hours.
+- Volume: 41 questions. 20 of them (49%) carry a cause tag. The count per day was `▆▁█▅▁▅▁▁▃▁▃▁▃▅▃█▅▃▃▃▅▃▅▅▅▃▃▁▅▅`, one block per day from September 1 to September 30.
+- Answers: 34 of the 41 questions (83%) got an answer from somebody other than the person who asked. The middle time to the first answer was 4.4 hours.
 - Release-adoption version spikes: 0. Users move to a new release, so the bare counts rise. These are not incidents.
 
-Every spike row, with its example questions, is in [All August 2026 detail](#all-august-2026-detail) below.
+Every spike row, with its example questions, is in [All September 2026 detail](#all-september-2026-detail) below.
 
 ## Two limits of these dates
 
@@ -65,7 +65,7 @@ None. Nothing came within about 25% of the threshold either.
 
 ---
 
-## All August 2026 detail {#all-august-2026-detail}
+## All September 2026 detail {#all-september-2026-detail}
 
 <details markdown="1">
 <summary>Version × cause spikes, 0 rows</summary>
@@ -89,55 +89,58 @@ None.
 </details>
 
 <details markdown="1">
-<summary>August 2026 trends, 7 rows</summary>
+<summary>September 2026 trends, 7 rows</summary>
 
 The Thunderbird versions named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| v140 | 1 | `▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| v155 | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| v156 | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁█` |
+| v162 | 1 | `▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| v140 | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
 The mail hosts named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| m:yahooemail | 4 | `▁▁▁▁▁▁▁▁▁▁█▁█▁▁▁▁█▁▁█▁▁▁▁▁▁▁▁▁▁` |
-| m:gmail | 2 | `▁▁▁██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| m:telus | 1 | `▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| m:btinternet | 1 | `▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| m:thundermail | 1 | `▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| m:icloud | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁` |
+| m:gmail | 8 | `▅▁█▁▁▅▁▁▁▁▁▁▁▁▅▁▁▁▅▁▁▁▁▁▅▅▁▁▁▁` |
+| m:microsoftemail | 4 | `█▁█▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁` |
+| m:yahooemail | 2 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█` |
+| m:spectrum | 2 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| m:thundermail | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| m:fastmail | 1 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
 The Thunderbird features named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| feat:import_export | 2 | `▁█▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| feat:encryption | 2 | `▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁` |
-| feat:junk | 2 | `▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁` |
-| feat:printing | 1 | `▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| feat:filters | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁` |
-| feat:attachments | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁` |
+| feat:notifications | 4 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁█▁▁█` |
+| feat:addressbook | 2 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁` |
+| feat:import_export | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| feat:junk | 1 | `▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
 The protocols named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| proto:smtp | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| proto:imap | 1 | `▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| proto:pop | 1 | `▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| proto:smtp | 2 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁` |
+| proto:imap | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁` |
+| proto:oauth | 1 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| proto:pop | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁` |
 
 The operating systems named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| os:android | 32 | `▁▃▃▆█▁▃▆▆▃▆▁▁▆▁▃▁▆▁▃▃▁▁▆█▃▃▃▁▁▆` |
-| os:other | 2 | `▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| os:windows | 2 | `▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| os:android | 31 | `▅▁█▁▁▅▁▁▃▁▃▁▁▅▃▅▅▃▃▁▅▃▃▃▅▁▃▁▅▅` |
+| os:windows | 3 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▅▁▁▁▁▁▁▁` |
+| os:other | 2 | `█▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| os:linux | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
 
 </details>
 
 ---
 
-The tool ran its detectors at daily, weekly and monthly grain. A weekly period counts toward August 2026 when its week overlaps the month. Version×cause needs a known Thunderbird version, which the data carries only from 2026-02 onward. Cause-level uses all history. The full spike tables are in `PROJECT1/android-{daily,weekly,monthly}-{single,version-cause}-spikes.csv`.
+The tool ran its detectors at daily, weekly and monthly grain. A weekly period counts toward September 2026 when its week overlaps the month. Version×cause needs a known Thunderbird version, which the data carries only from 2026-02 onward. Cause-level uses all history. The full spike tables are in `PROJECT1/android-{daily,weekly,monthly}-{single,version-cause}-spikes.csv`.

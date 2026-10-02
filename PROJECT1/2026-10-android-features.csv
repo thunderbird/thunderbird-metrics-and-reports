@@ -1,0 +1,2 @@
+id,created,created_date,locale,topic,tags,creator,title,question_url,os,os_raw,macos_release,tb_version,tb_version_major,mail_provider,feature,protocol,av,num_answers,is_answered,first_answer_hours,is_solved,solved_by
+1608898,2026-10-01T12:15:15.171169Z,2026-10-01,en-US,email-and-messaging,android;email-and-messaging;thunderbird-android;firefox-1560;,daniel143,Ser email threads on Thunderbird mobile,https://support.mozilla.org/questions/1608898,os:android,Android,,,,,,,,2,true,1.87,False,
