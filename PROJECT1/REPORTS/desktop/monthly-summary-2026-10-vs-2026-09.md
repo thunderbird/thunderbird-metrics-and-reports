@@ -15,7 +15,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 971 | 39 | ▼ -932 (-96%) |
+| Support questions (load) | 971 | 58 | ▼ -913 (-94%) |
 | Version × cause spikes flagged | 5 | 0 | ▼ -5 |
 | — of which **new** regressions | 2 | 0 | ▼ -2 |
 | Cause-level surges flagged | 1 | 0 | ▼ -1 |
@@ -32,13 +32,13 @@ _No spikes flagged this month at current thresholds._
 
 | Cause clusters (provider / protocol / AV / feature) | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| proto:imap | 78 | 2 | ▼ -76 (-97%) |
-| m:gmail | 66 | 1 | ▼ -65 (-98%) |
-| m:microsoftemail | 66 | 3 | ▼ -63 (-95%) |
+| proto:imap | 78 | 4 | ▼ -74 (-95%) |
+| m:microsoftemail | 66 | 4 | ▼ -62 (-94%) |
+| m:gmail | 66 | 4 | ▼ -62 (-94%) |
 | proto:pop | 62 | 3 | ▼ -59 (-95%) |
-| m:yahooemail | 59 | 3 | ▼ -56 (-95%) |
-| proto:smtp | 53 | 2 | ▼ -51 (-96%) |
-| proto:oauth | 27 | 0 | ▼ -27 (-100%) |
+| m:yahooemail | 59 | 5 | ▼ -54 (-92%) |
+| proto:smtp | 53 | 4 | ▼ -49 (-92%) |
+| proto:oauth | 27 | 1 | ▼ -26 (-96%) |
 | feat:import_export | 23 | 0 | ▼ -23 (-100%) |
 
 ### 🆕 New cause clusters (first appearance ever)
@@ -50,35 +50,35 @@ _None — every cause cluster in October 2026 has appeared in a prior month._
 | Release adoption (version mix) | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
 | v155 | 237 | 0 | ▼ -237 (-100%) |
-| v156 | 203 | 8 | ▼ -195 (-96%) |
-| v153 | 192 | 5 | ▼ -187 (-97%) |
+| v156 | 203 | 10 | ▼ -193 (-95%) |
+| v153 | 192 | 8 | ▼ -184 (-96%) |
 | v140 | 44 | 2 | ▼ -42 (-95%) |
 | v154 | 42 | 0 | ▼ -42 (-100%) |
-| v115 | 24 | 0 | ▼ -24 (-100%) |
+| v157 | 3 | 21 | ▲ +18 |
 
 ### Operating-system mix
 
 | Operating-system mix | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 811 | 33 | ▼ -778 (-96%) |
-| os:linux | 62 | 4 | ▼ -58 (-94%) |
-| os:macos | 62 | 0 | ▼ -62 (-100%) |
-| os:other | 7 | 0 | ▼ -7 |
+| os:windows | 811 | 49 | ▼ -762 (-94%) |
+| os:linux | 62 | 5 | ▼ -57 (-92%) |
+| os:macos | 62 | 1 | ▼ -61 (-98%) |
+| os:other | 7 | 1 | ▼ -6 |
 | os:android | 5 | 1 | ▼ -4 |
 
 ### Topic mix
 
 | Topic mix | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 317 | 7 | ▼ -310 (-98%) |
+| send-and-receive-email | 317 | 15 | ▼ -302 (-95%) |
 | email-and-messaging | 84 | 3 | ▼ -81 (-96%) |
-| customization | 71 | 5 | ▼ -66 (-93%) |
+| customization | 71 | 6 | ▼ -65 (-92%) |
 | passwords-and-sign-in | 51 | 3 | ▼ -48 (-94%) |
 | account-management | 50 | 3 | ▼ -47 (-94%) |
-| connectivity | 50 | 0 | ▼ -50 (-100%) |
+| connectivity | 50 | 1 | ▼ -49 (-98%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · October 2026 vs September 2026._
 
-_Last updated: 2026-10-02 08:08 UTC_
+_Last updated: 2026-10-02 20:07 UTC_
