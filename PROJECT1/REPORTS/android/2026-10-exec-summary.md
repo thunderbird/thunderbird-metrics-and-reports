@@ -5,7 +5,7 @@ title: "2026-10 exec summary: Thunderbird Android support spikes"
 
 # October 2026: Thunderbird Android support spikes
 
-Executive summary for 2026-10. It covers 1 Thunderbird Android support questions. The tool wrote this page on 2026-10-02 07:20 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-10. It covers 6 Thunderbird Android support questions. The tool wrote this page on 2026-10-03 07:20 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -38,14 +38,14 @@ October 2026 is still in progress. The counts will grow.
 | version×cause (a release caused the problem) | 0 | 0 | 0 |
 | cause-level (mail host, protocol, antivirus, feature) | 0 | 0 | 0 |
 
-October 2026 holds 1 questions, about 1 a day. The detectors need 8 questions of one kind in a day, 6 in a week or 8 in a month before they call a spike. At this volume most real clusters cannot clear those floors, so read a zero as "nothing large enough to fire", not as "nothing happened".
+October 2026 holds 6 questions, about 2 a day. The detectors need 8 questions of one kind in a day, 6 in a week or 8 in a month before they call a spike. At this volume most real clusters cannot clear those floors, so read a zero as "nothing large enough to fire", not as "nothing happened".
 
-Almost no October 2026 question carries a Thunderbird version. The version×cause detector therefore cannot fire. Read its zero as missing data, not as a clean result.
+Only 17% of the October 2026 questions carry a Thunderbird version. The version×cause detector therefore cannot fire. Read its zero as missing data, not as a clean result.
 
 Three more numbers for context:
 
-- Volume: 1 questions. 0 of them (0%) carry a cause tag. The count per day was `█`, one block per day from October 1 to October 1.
-- Answers: 1 of the 1 questions (100%) got an answer from somebody other than the person who asked. The middle time to the first answer was 1.9 hours.
+- Volume: 6 questions. 3 of them (50%) carry a cause tag. The count per day was `▃█▃`, one block per day from October 1 to October 3.
+- Answers: 4 of the 6 questions (67%) got an answer from somebody other than the person who asked. The middle time to the first answer was 2.7 hours.
 - Release-adoption version spikes: 0. Users move to a new release, so the bare counts rise. These are not incidents.
 
 Every spike row, with its example questions, is in [All October 2026 detail](#all-october-2026-detail) below.
@@ -93,11 +93,31 @@ None.
 <details markdown="1">
 <summary>October 2026 trends, 7 rows</summary>
 
+The Thunderbird versions named most often were:
+
+| Value | Questions | Count per day |
+|:--|--:|:--|
+| v153 | 1 | `▁█▁` |
+
+The mail hosts named most often were:
+
+| Value | Questions | Count per day |
+|:--|--:|:--|
+| m:gmail | 1 | `▁█▁` |
+| m:yahooemail | 1 | `▁▁█` |
+
+The Thunderbird features named most often were:
+
+| Value | Questions | Count per day |
+|:--|--:|:--|
+| feat:import_export | 1 | `▁█▁` |
+
 The operating systems named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| os:android | 1 | `█` |
+| os:android | 3 | `▅█▁` |
+| os:windows | 2 | `▁██` |
 
 
 </details>
