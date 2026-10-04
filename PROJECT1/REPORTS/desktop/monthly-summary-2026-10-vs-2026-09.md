@@ -15,16 +15,22 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 971 | 111 | ▼ -860 (-89%) |
-| Version × cause spikes flagged | 5 | 0 | ▼ -5 |
-| — of which **new** regressions | 2 | 0 | ▼ -2 |
+| Support questions (load) | 974 | 126 | ▼ -848 (-87%) |
+| Version × cause spikes flagged | 5 | 1 | ▼ -4 |
+| — of which **new** regressions | 2 | 1 | ▼ -1 |
 | Cause-level surges flagged | 1 | 0 | ▼ -1 |
 
 ## 🚨 Incidents to investigate
 
 > ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
 
-_No spikes flagged this month at current thresholds._
+### Version × cause — possible release regressions
+
+Ranked new → spreading → recurring, then by lift (× above what release adoption alone explains).
+
+| Signal | When | Version × Cause | Qs | Lift | Served | Example questions |
+|:--|:--|:--|--:|--:|:--|:--|
+| 🆕 new | 2026-10-04 | v157 × feat:attachments | 4 | 13.7× | ⚠️ 50% ans · 0.9h | [1609599](https://support.mozilla.org/questions/1609599 "na de laatste update kan ik geen bijlages toevoegen aan een e-mail") [1609601](https://support.mozilla.org/questions/1609601 "Change the app that opens email attachments") [1609642](https://support.mozilla.org/questions/1609642 "Attach button does not respond. Drag and Drop works. (bug2077590)") [1609643](https://support.mozilla.org/questions/1609643 "email beantwoorden, bijlage knop werkt niet") |
 
 ## What moved
 
@@ -32,11 +38,11 @@ _No spikes flagged this month at current thresholds._
 
 | Cause clusters (provider / protocol / AV / feature) | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| proto:imap | 78 | 8 | ▼ -70 (-90%) |
-| m:microsoftemail | 66 | 8 | ▼ -58 (-88%) |
-| proto:pop | 62 | 5 | ▼ -57 (-92%) |
-| m:gmail | 66 | 10 | ▼ -56 (-85%) |
-| m:yahooemail | 59 | 6 | ▼ -53 (-90%) |
+| proto:imap | 79 | 10 | ▼ -69 (-87%) |
+| proto:pop | 62 | 6 | ▼ -56 (-90%) |
+| m:gmail | 66 | 11 | ▼ -55 (-83%) |
+| m:microsoftemail | 66 | 11 | ▼ -55 (-83%) |
+| m:yahooemail | 60 | 6 | ▼ -54 (-90%) |
 | proto:smtp | 53 | 7 | ▼ -46 (-87%) |
 | proto:oauth | 27 | 1 | ▼ -26 (-96%) |
 | feat:import_export | 23 | 0 | ▼ -23 (-100%) |
@@ -50,18 +56,18 @@ _None — every cause cluster in October 2026 has appeared in a prior month._
 | Release adoption (version mix) | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
 | v155 | 237 | 0 | ▼ -237 (-100%) |
-| v153 | 192 | 25 | ▼ -167 (-87%) |
+| v153 | 193 | 26 | ▼ -167 (-87%) |
 | v156 | 203 | 12 | ▼ -191 (-94%) |
+| v157 | 3 | 54 | ▲ +51 |
 | v140 | 44 | 4 | ▼ -40 (-91%) |
-| v157 | 3 | 43 | ▲ +40 |
 | v154 | 42 | 0 | ▼ -42 (-100%) |
 
 ### Operating-system mix
 
 | Operating-system mix | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 811 | 99 | ▼ -712 (-88%) |
-| os:linux | 62 | 7 | ▼ -55 (-89%) |
+| os:windows | 814 | 112 | ▼ -702 (-86%) |
+| os:linux | 62 | 9 | ▼ -53 (-85%) |
 | os:macos | 62 | 2 | ▼ -60 (-97%) |
 | os:other | 7 | 1 | ▼ -6 |
 | os:android | 5 | 1 | ▼ -4 |
@@ -70,15 +76,15 @@ _None — every cause cluster in October 2026 has appeared in a prior month._
 
 | Topic mix | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 317 | 33 | ▼ -284 (-90%) |
-| email-and-messaging | 84 | 5 | ▼ -79 (-94%) |
+| send-and-receive-email | 317 | 36 | ▼ -281 (-89%) |
+| email-and-messaging | 84 | 6 | ▼ -78 (-93%) |
 | customization | 71 | 10 | ▼ -61 (-86%) |
-| passwords-and-sign-in | 51 | 5 | ▼ -46 (-90%) |
+| passwords-and-sign-in | 53 | 5 | ▼ -48 (-91%) |
+| attachments | 28 | 28 | ▬ 0 (+0%) |
 | account-management | 50 | 5 | ▼ -45 (-90%) |
-| connectivity | 50 | 1 | ▼ -49 (-98%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · October 2026 vs September 2026._
 
-_Last updated: 2026-10-04 10:07 UTC_
+_Last updated: 2026-10-04 20:42 UTC_
