@@ -255,10 +255,13 @@ _SYSTEM_PROMPT_TOKENS = 700     # shared instruction+schema prefix (cached once)
 _OUT_TOKENS = {"low": 100, "expected": 160, "high": 260}   # structured label size
 
 
-def preview_map_cost(months, product="desktop", model="claude-opus-4-8"):
+def preview_map_cost(months, product="desktop", model="claude-opus-5",
+                     enforce=True):
     """Print a $0 projected-cost band for the Stage-1 map pass over the given
     months (list of 'YYYY-MM'). Uses count_tokens if a client is available,
-    else the char heuristic."""
+    else the char heuristic. Returns the figures as a dict. `enforce=False`
+    skips the $50 gate, for callers that report the estimate instead of
+    spending it (the monthly approval issue)."""
     client, counting = _maybe_client()
     grand_in = 0
     grand_q = 0
@@ -291,7 +294,12 @@ def preview_map_cost(months, product="desktop", model="claude-opus-4-8"):
     # Gate on the high-band live estimate — the worst realistic case.
     worst = dollars(grand_in, grand_q * _OUT_TOKENS["high"], model)
     print()
-    gate(worst, label=f"Stage-1 map over {'+'.join(months)} (high-band, live)")
+    if enforce:
+        gate(worst, label=f"Stage-1 map over {'+'.join(months)} (high-band, live)")
+    return {"questions": grand_q, "input_tokens": grand_in, "counting": counting,
+            "model": model,
+            "bands": {b: dollars(grand_in, grand_q * o, model)
+                      for b, o in _OUT_TOKENS.items()}}
 
 
 def _maybe_client():

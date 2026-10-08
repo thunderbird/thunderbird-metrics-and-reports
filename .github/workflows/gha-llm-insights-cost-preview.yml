@@ -1,0 +1,64 @@
+name: gha-llm-insights-cost-preview
+
+# Monthly LLM Insights cost-approval issue (#88). On the 2nd of each month it
+# previews the classification cost for the month that just closed, for desktop
+# and android, and opens an issue assigned to rtanglao with the estimate and the
+# ordered checklist (the shape of #84). Nothing is spent until he approves.
+#
+# No Anthropic API key: without ANTHROPIC_API_KEY the preview estimates tokens
+# from text length (September 2026: $5.80 estimated, $6.17 spent). The issue is
+# opened with the built-in GITHUB_TOKEN.
+#
+# The 2nd, not the 1st, so the concat workflow (4x/day) and the spike workflow
+# (0430/1630) have run over the whole closed month first.
+
+on:
+  schedule:
+    - cron: '0 12 2 * *'    # 1200 UTC on the 2nd of each month
+  workflow_dispatch:
+    inputs:
+      month:
+        description: 'Month to report on (YYYY-MM). Blank = the month that just closed'
+        type: string
+        required: false
+      dry_run:
+        description: 'Print the issue body only; open no issue'
+        type: boolean
+        default: true
+      title_prefix:
+        description: 'Prepended to the issue title, for a test run (for example "[TEST] ")'
+        type: string
+        required: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  cost-preview:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+      with:
+        python-version: '3.14'
+        enable-cache: true
+    - name: Create virtual environment
+      run: uv venv
+    - name: Install dependencies
+      run: uv pip install -r requirements.txt
+    - name: Preview the cost and open the approval issue
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        MONTH: ${{ inputs.month }}
+        DRY_RUN: ${{ inputs.dry_run }}
+        TITLE_PREFIX: ${{ inputs.title_prefix }}
+      run: |
+        set -euo pipefail
+        args=()
+        [ -n "${MONTH:-}" ] && args+=(--month "$MONTH")
+        [ "${DRY_RUN:-false}" = "true" ] && args+=(--dry-run)
+        [ -n "${TITLE_PREFIX:-}" ] && args+=(--title-prefix "$TITLE_PREFIX")
+        uv run scripts/llm_insights_monthly_issue.py "${args[@]}" | tee preview.txt
+        sed -n '/^This issue/,$p' preview.txt >> "$GITHUB_STEP_SUMMARY"
