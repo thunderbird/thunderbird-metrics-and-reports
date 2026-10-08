@@ -30,7 +30,16 @@ Mozilla) data and publishes them as a Jekyll site on GitHub Pages:
    deterministic `split_by_cause()` keeps any SPIKING cause (per the Project 1
    spike CSVs) in its own cluster, over both months. Costs are logged per run in
    `LLM_INSIGHTS/COSTS.md`; a $50 pre-spend gate lives in
-   `scripts/llm_insights_cost.py`.
+   `scripts/llm_insights_cost.py`. The LLM runs stay manual, but on the 2nd of
+   each month **`gha-llm-insights-cost-preview.yml`** runs
+   `scripts/llm_insights_monthly_issue.py`. The script previews the cost for the
+   month that just closed and opens an approval issue assigned to rtanglao, with
+   the estimate and the #84 checklist (#88). It needs no API key, because the
+   preview estimates tokens from text length ($5.80 against $6.17 spent in Sep
+   2026). It does not open a second issue with the same title. Dispatch it with
+   `dry_run` (the default) to see the body without opening anything.
+   `llm_insights_mom_report.py` also rewrites `LLM_INSIGHTS/REPORTS/archive.md`
+   on every run (#87).
 
 #1 and #2 are regenerated automatically by GitHub Actions and committed to `main`.
 
