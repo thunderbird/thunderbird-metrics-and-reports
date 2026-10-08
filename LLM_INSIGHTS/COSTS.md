@@ -168,6 +168,22 @@ automatically, so desktop never shows it.
 in the desktop client must not annotate an android cluster whose label happens to
 match the pattern.
 
+## September 2026 run (2026-10-08, #84)
+
+August was already labelled, so only September needed a classification pass. The approved estimate was about $10.20 at the high end.
+
+| Stage | Questions | Cost |
+|:--|--:|--:|
+| Classify desktop 2026-09 | 976 | $6.17 |
+| Desktop clustering and narrative | | $0.71 |
+| Classify android 2026-09 | 41 | $0.30 |
+| Android clustering and narrative | | $0.11 |
+| **Total** | | **$7.28** |
+
+Every September question has a label, for both products. Three desktop causes were spiking in September (`m:alice_it`, `m:microsoftemail`, `m:shaw`), and `split_by_cause()` moved 142 themes into cause-specific clusters. The run printed no "spiking cause has no cluster" warning.
+
+A layout rerun reads both Stage-2 calls from the cache. The page footer used to say "this run of the report cost $0.00" after such a rerun. It now says that the run reused the cache and points to this file.
+
 ## Notes
 - All figures are well under the $50/run circuit-breaker.
 - Cost scales with the enriched text size; if it ever grows, re-baseline the unit rate with the Bucket-0 preview: `uv run scripts/llm_insights_cost.py <month> <month> <product>`.

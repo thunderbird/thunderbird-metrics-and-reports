@@ -1,0 +1,36 @@
+{
+ "headline": "Android background sync and empty message bodies lead six new issue clusters in September 2026",
+ "narrative_md": "Total support questions held flat. August had 40, September has 41. But six new issue clusters appeared, and all six point at Thunderbird for Android. Engineering must treat the mobile client as this month's hot spot.\n\nTwo new clusters carry real user pain. Background sync and push notifications fail unless the user opens the app. Only 33 percent of those reports got resolved. Message bodies render blank in the Android viewer. That cluster also sits at 33 percent resolved, and 67 percent of the reports got no answer at all. Unanswered means no support reply was recorded.\n\nCategory shifts match the story. Sync and OAuth rose from 3 to 5. Settings and config rose from 3 to 6. Migration and import rose from 1 to 3. Send and receive rose from 5 to 7. UI and UX fell from 8 to 6, and attachments dropped to zero.\n\nThis signal comes from a language model reading free-text support questions. Use it to pick where to dig, not as proof of a defect.",
+ "issues": [
+  {
+   "rank": 1,
+   "why": "Three users report that mail only arrives when they open the app, and support resolved just one of the three.",
+   "action": "Engineering must check Firebase push delivery, Android background work scheduling, and battery optimisation exemptions on recent Android versions."
+  },
+  {
+   "rank": 2,
+   "why": "Three users see blank message bodies in the Android viewer, and two of the three reports got no reply at all.",
+   "action": "Engineering must reproduce blank rendering against HTML and multipart messages, and inspect the WebView rendering path and MIME body selection."
+  },
+  {
+   "rank": 3,
+   "why": "Three users cannot finish desktop-to-mobile setup because the QR code import button is missing or dead.",
+   "action": "Engineering must test the QR import entry point across fresh installs and check camera permission handling and the account transfer build flag."
+  },
+  {
+   "rank": 4,
+   "why": "Two users report late notifications and no clear way to turn notifications back on after Android disables them.",
+   "action": "Engineering must measure notification latency end to end and add an in-app path to restore a disabled notification channel."
+  },
+  {
+   "rank": 5,
+   "why": "Two users want remote images to load by default and found no setting, which is a small gap but a repeated one.",
+   "action": "Engineering must decide whether to add a per-account always-show-remote-images preference on Android, matching desktop behaviour."
+  },
+  {
+   "rank": 6,
+   "why": "Two users expect folder creation and contact management on Android and did not find them.",
+   "action": "Engineering must confirm these are known gaps and publish the roadmap position so support can answer in one line."
+  }
+ ]
+}

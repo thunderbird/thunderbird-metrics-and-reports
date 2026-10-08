@@ -1,0 +1,66 @@
+{
+ "headline": "Mail delivery failures drove support up in September, and three connection clusters got almost no working answers",
+ "narrative_md": "Support volume rose from 940 to 976 questions. Send and receive problems grew most, from 169 to 233. Engineering must treat mail transport as the September focus, not the interface.\n\nThe worst user pain sits in three clusters with very low resolved rates. Resolved rate means the share of questions where the user got a fix. Alice.it and TIM users (rank 3) resolved at 14 percent. Microsoft OAuth2 failures (rank 4) resolved at 18 percent, with 55 percent of questions never answered. AOL and Yahoo failures (rank 5) resolved at 33 percent. These look like provider side changes to servers, ports or token rules that Thunderbird does not detect or explain.\n\nOne regression is clear and already well handled. The Thunderbird 155 filter bug (rank 2) jumped from 2 to 35 questions and resolves at 80 percent. Blank filter conditions match every message and misroute mail. The fix belongs in code, not in support text.\n\nOne cluster is new this month. POP downloads fail with \"Unable to write the email to the mailbox\" (rank 11), at 7 questions. Volume is small. Severity is high because mail can be lost on download.",
+ "issues": [
+  {
+   "rank": 1,
+   "why": "This is the largest cluster at 50 questions, up 21, and 30 percent of users got no answer at all.",
+   "action": "Engineering must add clearer failure reasons to the receive path so users and helpers can tell server refusal apart from local index or profile faults."
+  },
+  {
+   "rank": 2,
+   "why": "A Thunderbird 155 regression makes filters with blank conditions match every message and misroute mail, and it grew from 2 to 35 questions.",
+   "action": "Engineering must block or ignore empty filter conditions at save and at run time, and ship the fix in the next point release."
+  },
+  {
+   "rank": 3,
+   "why": "Alice.it and TIM users jumped from 1 to 21 questions and only 14 percent got a fix, the worst rate on the board.",
+   "action": "Engineering must test current Alice.it and TIM server settings, then update the autoconfiguration entry for that provider."
+  },
+  {
+   "rank": 4,
+   "why": "Microsoft OAuth2 sign in fails for 22 users, 18 percent get a fix, and 55 percent get no reply at all.",
+   "action": "Engineering must capture the exact Microsoft token error in the account setup log and check tenant and consent policy changes on the Microsoft side."
+  },
+  {
+   "rank": 5,
+   "why": "AOL and Yahoo accounts stopped sending and receiving for 21 users, with 43 percent unanswered and only 33 percent resolved.",
+   "action": "Engineering must verify whether Yahoo now requires app passwords or OAuth for these accounts and surface that requirement in the error dialog."
+  },
+  {
+   "rank": 6,
+   "why": "Outbound sending fails while receiving works for 28 users, which points at SMTP settings or provider port and authentication changes.",
+   "action": "Engineering must review SMTP error reporting so the dialog names the rejecting server and the reason."
+  },
+  {
+   "rank": 7,
+   "why": "The Account Settings panel stops responding and users cannot save or delete accounts, growing from 3 to 18 questions under bug 2069949.",
+   "action": "Engineering must prioritise bug 2069949 and check for a blocking call in the settings save path."
+  },
+  {
+   "rank": 8,
+   "why": "Startup hangs fell to 24 questions but carry the highest mean severity at 4.4 and resolve at only 38 percent.",
+   "action": "Engineering must collect startup profiles from affected users and check folder index and add-on loading at launch."
+  },
+  {
+   "rank": 9,
+   "why": "Profile moves to a new computer still fail or lose data for 32 users, and data loss is permanent.",
+   "action": "Engineering must review the profile copy guidance and build a supported export and import path."
+  },
+  {
+   "rank": 10,
+   "why": "Folders vanish after updates or profile rebuilds for 15 users, and only 40 percent recover them.",
+   "action": "Engineering must check folder subscription and index rebuild behaviour after version upgrades."
+  },
+  {
+   "rank": 11,
+   "why": "This cluster is new this month and the error stops POP mail from being written to local storage, which risks message loss.",
+   "action": "Engineering must check disk permissions, mailbox file locking and antivirus interference on the POP download path."
+  },
+  {
+   "rank": 12,
+   "why": "Spectrum and Charter failures dropped from 33 to 18 questions but still resolve at only 50 percent with severity 4.4.",
+   "action": "Engineering must confirm the current Spectrum server settings and close out the stale autoconfiguration entry."
+  }
+ ]
+}

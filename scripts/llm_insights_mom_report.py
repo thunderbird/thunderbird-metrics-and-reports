@@ -564,8 +564,13 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
     W("")
 
     W("---")
+    # A rerun that reads both Stage-2 calls from the cache costs $0.00, which
+    # reads as "this page was free". Point at the cost log instead.
+    cost_note = (f"this run of the report cost ${cost:.2f}" if cost > 0 else
+                 "this run reused the cached LLM output and cost $0.00 "
+                 "(the full cost is in `LLM_INSIGHTS/COSTS.md`)")
     W(f"\nThis is a prototype. Claude {MODEL} wrote the labels for each "
-      f"question, and this run of the report cost ${cost:.2f}. The page covers "
+      f"question, and {cost_note}. The page covers "
       f"{human_month(cur_m)} against {human_month(prev_m)}. Facts the corpus "
       f"cannot know, such as a shipped fix, come from "
       f"`{KNOWN_STATUS}` and appear as Known status.")
