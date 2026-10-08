@@ -1,3 +1,4 @@
 product,pattern,status
 desktop,(?i)print.*(blank|white)|blank.*print,"Fixed in Thunderbird 155, released 2026-09-01 (Bugzilla 2065922). The reports that arrive after that date come from users still on 154."
 desktop,(?i)filter.*(blank|empty)|(blank|empty).*filter,"Fixed in Thunderbird 155.0.1, released 2026-09-09 (Bugzilla 2068847, duplicate 2068955). ESR 153 was never affected. 27 of the 37 September reports came before the release, and the last one arrived on 2026-09-14."
+desktop,(?i)alice|tim\.it,"A POP problem on the TIM server in.alice.it, not IMAP. TIM fixed it by 2026-09-24. Until then, the POP server pop.tim.it worked as a workaround ([1606677](https://support.mozilla.org/questions/1606677))."

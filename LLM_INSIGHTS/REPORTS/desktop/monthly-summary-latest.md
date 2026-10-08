@@ -13,7 +13,7 @@ title: Desktop LLM Insights — September 2026
 |--:|:--|--:|--:|--:|--:|:--|
 | [1](#issue-1) | [Generic 'cannot receive mail' / mail stopped arriving](#issue-1) | 29 | 50 | 4.1 | 50% | — |
 | [2](#issue-2) | [TB 155 message filters with blank conditions match everything and misroute mail](#issue-2) | 2 | 35 | 4.3 | 80% | Fixed in Thunderbird 155.0.1, released 2026-09-09 (Bugzilla 2068847, duplicate 2068955). ESR 153 was never affected. 27 of the 37 September reports came before the release, and the last one arrived on 2026-09-14. |
-| [3](#issue-3) | [Alice.it/TIM POP/IMAP server connection refused (m:alice_it)](#issue-3) | 1 | 21 | 4.2 | 14% (below 50%) | — |
+| [3](#issue-3) | [Alice.it/TIM POP/IMAP server connection refused (m:alice_it)](#issue-3) | 1 | 21 | 4.2 | 14% (below 50%) | A POP problem on the TIM server in.alice.it, not IMAP. TIM fixed it by 2026-09-24. Until then, the POP server pop.tim.it worked as a workaround ([1606677](https://support.mozilla.org/questions/1606677)). |
 | [4](#issue-4) | [Microsoft/Outlook OAuth2 authentication failures (m:microsoftemail)](#issue-4) | 14 | 22 | 3.8 | 18% (below 50%) | — |
 | [5](#issue-5) | [AOL/Yahoo account cannot send or receive](#issue-5) | 12 | 21 | 4.1 | 33% (below 50%) | — |
 
@@ -87,6 +87,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 |:--|--:|--:|:--|:--|:--|--:|
 | Alice.it/TIM POP/IMAP server connection refused (m:alice_it) (send-receive) | 1 | 21 | ▲ +20 | 4.2 (21) | 14% (below 50%) | 0% |
 
+- Known status: A POP problem on the TIM server in.alice.it, not IMAP. TIM fixed it by 2026-09-24. Until then, the POP server pop.tim.it worked as a workaround ([1606677](https://support.mozilla.org/questions/1606677)).
 - Why it matters: Alice.it and TIM users jumped from 1 to 21 questions and only 14 percent got a fix, the worst rate on the board.
 - What to look at: Engineering must test current Alice.it and TIM server settings, then update the autoconfiguration entry for that provider.
 - Example questions: [1606928](https://support.mozilla.org/questions/1606928 "non ricevo le mail di Alicemail") [1606939](https://support.mozilla.org/questions/1606939 "Da ieri 22-09-2026 non si scarica più la posta in arrivo da Alice") [1606943](https://support.mozilla.org/questions/1606943 "Non riesco più a scaricare la posta in arrivo.") [1606403](https://support.mozilla.org/questions/1606403 "non ricevo posta su pino.[RIMOSSO]@alice.it, sono con starlink, nè riesco a invi") [1602510](https://support.mozilla.org/questions/1602510 "Connessione rifiutata con alice.it") +1
@@ -204,4 +205,4 @@ The order comes from a Python score. It weights new clusters, badly served clust
 
 This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers September 2026 against August 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-10-08 04:07 UTC
+Last updated: 2026-10-08 04:15 UTC
