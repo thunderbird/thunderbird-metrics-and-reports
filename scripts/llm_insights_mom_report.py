@@ -94,6 +94,36 @@ def human_month(m):
     return datetime.strptime(m, "%Y-%m").strftime("%B %Y")
 
 
+ARCHIVE = "LLM_INSIGHTS/REPORTS/archive.md"
+
+
+def write_archive():
+    """Write the archive page: every month-pair page of both products, newest
+    first. It is rebuilt from the files on disk on every run, so it never needs
+    a hand edit."""
+    out = ["---", "layout: base", "title: LLM Insights archive", "---", "",
+           "# LLM Insights: every monthly report", "",
+           "Each page compares one month with the month before it. The "
+           "`latest` pages on the home page are copies of the newest one.", ""]
+    for product in ("desktop", "android"):
+        rdir = REPORT_DIR.format(product=product)
+        pages = sorted((f for f in os.listdir(rdir)
+                        if re.fullmatch(r"monthly-summary-\d{4}-\d\d-vs-\d{4}-\d\d\.md", f)),
+                       reverse=True) if os.path.isdir(rdir) else []
+        out += [f"## {product.capitalize()}", ""]
+        for f in pages:
+            cur_m, prev_m = re.findall(r"\d{4}-\d\d", f)
+            with open(f"{rdir}/{f}") as fh:
+                old = "{#tldr}" not in fh.read()
+            note = " (old style, before the plain-English change in [#83](https://github.com/thunderbird/thunderbird-metrics-and-reports/issues/83))" if old else ""
+            out.append(f"- [{human_month(cur_m)} against {human_month(prev_m)}]"
+                       f"({product}/{f[:-3]}.html){note}")
+        out.append("")
+    with open(ARCHIVE, "w") as fh:
+        fh.write("\n".join(out))
+    print(f"   wrote {ARCHIVE}")
+
+
 def md_safe(s, limit=80):
     return (s or "").replace("|", "¦").replace('"', "＂")[:limit]
 
@@ -676,6 +706,7 @@ def main():
         with open(path, "w") as f:
             f.write(content)
         print(f"   wrote {path}")
+    write_archive()
 
 
 if __name__ == "__main__":
