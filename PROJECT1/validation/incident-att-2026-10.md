@@ -47,7 +47,7 @@ The Reddit thread [ATT email / DigiCert certificate revoked](https://www.reddit.
 2. DigiCert revoked it on 2026-10-05 and gave no reason code. A new certificate was issued the same day. A commenter concluded that the owner, AT&T, asked for the revocation and the new certificate.
 3. Two other incidents are unrelated. The DigiCert cyberattack of April 2026 covered other CA certificates, and DigiCert closed it two months ago. The counterfeit TLS certificates for Google in October 2026 do not include `inbound.att.net`, which is revoked through the DigiCert CRL only.
 4. Outlook users have the same problem. Several fixed it with the Outlook account Repair function.
-5. Norton users fixed the warning when they turned off Norton 360 email protection. One user installed the certificate by hand, and it did not help.
+5. When Norton users turned off Norton 360 email protection, the warning stopped. One user installed the certificate by hand, and it did not help.
 6. A Thunderbird user reported "Connection to server inbound.att.net reset" popping up constantly, about 8 hours before the screenshot. That is around 2026-10-07 20:00 UTC, after the new certificate started.
 7. Wayne Mery asked whether AT&T or Yahoo had posted a status. Nobody found one.
 
