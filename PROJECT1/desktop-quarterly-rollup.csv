@@ -169,7 +169,7 @@ period,dim,value,count
 2026-Q1,feature,feat:attachments,46
 2026-Q2,feature,feat:attachments,35
 2026-Q3,feature,feat:attachments,63
-2026-Q4,feature,feat:attachments,47
+2026-Q4,feature,feat:attachments,55
 2024-Q1,feature,feat:calendar,63
 2024-Q2,feature,feat:calendar,71
 2024-Q3,feature,feat:calendar,124
@@ -181,7 +181,7 @@ period,dim,value,count
 2026-Q1,feature,feat:calendar,87
 2026-Q2,feature,feat:calendar,72
 2026-Q3,feature,feat:calendar,42
-2026-Q4,feature,feat:calendar,9
+2026-Q4,feature,feat:calendar,10
 2024-Q1,feature,feat:encryption,20
 2024-Q2,feature,feat:encryption,8
 2024-Q3,feature,feat:encryption,14
@@ -216,7 +216,7 @@ period,dim,value,count
 2026-Q1,feature,feat:import_export,70
 2026-Q2,feature,feat:import_export,66
 2026-Q3,feature,feat:import_export,74
-2026-Q4,feature,feat:import_export,2
+2026-Q4,feature,feat:import_export,3
 2024-Q1,feature,feat:junk,49
 2024-Q2,feature,feat:junk,51
 2024-Q3,feature,feat:junk,64
@@ -558,7 +558,7 @@ period,dim,value,count
 2026-Q1,mail_provider,m:gmail,265
 2026-Q2,mail_provider,m:gmail,205
 2026-Q3,mail_provider,m:gmail,214
-2026-Q4,mail_provider,m:gmail,21
+2026-Q4,mail_provider,m:gmail,23
 2024-Q1,mail_provider,m:gmx,2
 2024-Q2,mail_provider,m:gmx,4
 2024-Q3,mail_provider,m:gmx,12
@@ -617,7 +617,7 @@ period,dim,value,count
 2026-Q1,mail_provider,m:libero,4
 2026-Q2,mail_provider,m:libero,2
 2026-Q3,mail_provider,m:libero,3
-2026-Q4,mail_provider,m:libero,2
+2026-Q4,mail_provider,m:libero,3
 2024-Q1,mail_provider,m:mailcom,1
 2024-Q2,mail_provider,m:mailcom,3
 2024-Q3,mail_provider,m:mailcom,3
@@ -664,7 +664,7 @@ period,dim,value,count
 2026-Q1,mail_provider,m:microsoftemail,216
 2026-Q2,mail_provider,m:microsoftemail,191
 2026-Q3,mail_provider,m:microsoftemail,156
-2026-Q4,mail_provider,m:microsoftemail,16
+2026-Q4,mail_provider,m:microsoftemail,17
 2024-Q1,mail_provider,m:onecom,2
 2024-Q2,mail_provider,m:onecom,2
 2024-Q3,mail_provider,m:onecom,4
@@ -1025,7 +1025,7 @@ period,dim,value,count
 2026-Q1,os,os:windows,1847
 2026-Q2,os,os:windows,1856
 2026-Q3,os,os:windows,2154
-2026-Q4,os,os:windows,276
+2026-Q4,os,os:windows,301
 2024-Q1,protocol,proto:caldav,14
 2024-Q2,protocol,proto:caldav,6
 2024-Q3,protocol,proto:caldav,13
@@ -1037,7 +1037,7 @@ period,dim,value,count
 2026-Q1,protocol,proto:caldav,14
 2026-Q2,protocol,proto:caldav,7
 2026-Q3,protocol,proto:caldav,7
-2026-Q4,protocol,proto:caldav,3
+2026-Q4,protocol,proto:caldav,4
 2024-Q1,protocol,proto:carddav,6
 2024-Q2,protocol,proto:carddav,5
 2024-Q3,protocol,proto:carddav,9
@@ -1113,7 +1113,7 @@ period,dim,value,count
 2026-Q1,tb_version_major,115,23
 2026-Q2,tb_version_major,115,68
 2026-Q3,tb_version_major,115,64
-2026-Q4,tb_version_major,115,7
+2026-Q4,tb_version_major,115,9
 2026-Q1,tb_version_major,128,9
 2026-Q2,tb_version_major,128,12
 2026-Q3,tb_version_major,128,14
@@ -1128,7 +1128,7 @@ period,dim,value,count
 2026-Q1,tb_version_major,140,204
 2026-Q2,tb_version_major,140,556
 2026-Q3,tb_version_major,140,299
-2026-Q4,tb_version_major,140,16
+2026-Q4,tb_version_major,140,17
 2026-Q2,tb_version_major,141,1
 2025-Q3,tb_version_major,142,1
 2026-Q1,tb_version_major,142,2
@@ -1168,7 +1168,7 @@ period,dim,value,count
 2026-Q4,tb_version_major,152,1
 2026-Q2,tb_version_major,153,5
 2026-Q3,tb_version_major,153,735
-2026-Q4,tb_version_major,153,82
+2026-Q4,tb_version_major,153,91
 2026-Q3,tb_version_major,154,246
 2026-Q1,tb_version_major,155,1
 2026-Q3,tb_version_major,155,239
@@ -1176,7 +1176,7 @@ period,dim,value,count
 2026-Q3,tb_version_major,156,203
 2026-Q4,tb_version_major,156,15
 2026-Q3,tb_version_major,157,3
-2026-Q4,tb_version_major,157,136
+2026-Q4,tb_version_major,157,149
 2026-Q4,tb_version_major,158,1
 2026-Q2,tb_version_major,159,1
 2026-Q4,tb_version_major,159,1
@@ -1193,4 +1193,4 @@ period,dim,value,count
 2026-Q1,total,all,2834
 2026-Q2,total,all,2296
 2026-Q3,total,all,2650
-2026-Q4,total,all,323
+2026-Q4,total,all,351
