@@ -12,7 +12,7 @@ title: Desktop LLM Insights — September 2026
 | # | Issue | August 2026 | September 2026 | Severity | Resolved | Known status |
 |--:|:--|--:|--:|--:|--:|:--|
 | [1](#issue-1) | [Generic 'cannot receive mail' / mail stopped arriving](#issue-1) | 29 | 50 | 4.1 | 50% | — |
-| [2](#issue-2) | [TB 155 message filters with blank conditions match everything and misroute mail](#issue-2) | 2 | 35 | 4.3 | 80% | — |
+| [2](#issue-2) | [TB 155 message filters with blank conditions match everything and misroute mail](#issue-2) | 2 | 35 | 4.3 | 80% | Fixed in Thunderbird 155.0.1 (Bugzilla 2068847, duplicate 2068955). ESR 153 was never affected. |
 | [3](#issue-3) | [Alice.it/TIM POP/IMAP server connection refused (m:alice_it)](#issue-3) | 1 | 21 | 4.2 | 14% (below 50%) | — |
 | [4](#issue-4) | [Microsoft/Outlook OAuth2 authentication failures (m:microsoftemail)](#issue-4) | 14 | 22 | 3.8 | 18% (below 50%) | — |
 | [5](#issue-5) | [AOL/Yahoo account cannot send or receive](#issue-5) | 12 | 21 | 4.1 | 33% (below 50%) | — |
@@ -76,6 +76,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 |:--|--:|--:|:--|:--|:--|--:|
 | TB 155 message filters with blank conditions match everything and misroute mail (spam-filters) | 2 | 35 | ▲ +33 | 4.3 (33) | 80% | 9% |
 
+- Known status: Fixed in Thunderbird 155.0.1 (Bugzilla 2068847, duplicate 2068955). ESR 153 was never affected.
 - Why it matters: A Thunderbird 155 regression makes filters with blank conditions match every message and misroute mail, and it grew from 2 to 35 questions.
 - What to look at: Engineering must block or ignore empty filter conditions at save and at run time, and ship the fix in the next point release.
 - Example questions: [1602807](https://support.mozilla.org/questions/1602807 "Thunderbird sending all inbox messages to deleted (bug2068847)") [1603340](https://support.mozilla.org/questions/1603340 "Incoming messages routed to Trash (bug2068847?)") [1602820](https://support.mozilla.org/questions/1602820 "Email filter problem after update") [1603074](https://support.mozilla.org/questions/1603074 "How do I get rid of 155.0 Beta version") [1602453](https://support.mozilla.org/questions/1602453 "All of my new emails go to Trash with Thunderbird 155.0 (bug2068847)") +1
@@ -203,4 +204,4 @@ The order comes from a Python score. It weights new clusters, badly served clust
 
 This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers September 2026 against August 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-10-08 03:57 UTC
+Last updated: 2026-10-08 04:06 UTC
