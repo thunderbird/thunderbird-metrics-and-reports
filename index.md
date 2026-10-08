@@ -61,6 +61,7 @@ that is missing data, not a clean month).
 - [Oct 2023 exec summary](PROJECT1/REPORTS/desktop/2023-10-exec-summary.html) — `feat:search` 4.5× and `feat:addons` 4.0×, the Thunderbird 115 "Supernova" fallout ([vs Sep 2023](PROJECT1/REPORTS/desktop/monthly-summary-2023-10-vs-2023-09.html))
 - [Spectrum / Charter, from Aug 21 2026](https://github.com/thunderbird/thunderbird-metrics-and-reports/blob/main/PROJECT1/validation/incident-spectrum-2026-08.md) — incident analysis of a **still-open** cluster: 6× baseline, provider-side (cross-provider control test), the third distinct Spectrum episode of 2026
 - [AT&T POP certificate, from Oct 5 2026](https://github.com/thunderbird/thunderbird-metrics-and-reports/blob/main/PROJECT1/validation/incident-att-2026-10.md) — incident analysis of a **still-open** cluster: 23 questions in three days, POP only, provider-side (no other host moved, Linux users without antivirus fail too)
+- [Attach button does nothing, from Oct 2 2026](https://github.com/thunderbird/thunderbird-metrics-and-reports/blob/main/PROJECT1/validation/incident-attach-dialog-2026-10.md) — incident analysis of bug 2077590: 32 questions on 157.0.1 and 153.4.0esr, fix planned for the 2026-10-13 releases, workaround available
 - [Why volume rose in Aug 2026](https://github.com/thunderbird/thunderbird-metrics-and-reports/blob/main/PROJECT1/validation/volume-rise-2026-08-analysis.md) — 731 → 941 questions (+29%), and still climbing in September: what the corpus can and cannot explain
 
 ### Android (new, low volume)
