@@ -1,3 +1,3 @@
 product,pattern,status
 desktop,(?i)print.*(blank|white)|blank.*print,"Fixed in Thunderbird 155, released 2026-09-01 (Bugzilla 2065922). The reports that arrive after that date come from users still on 154."
-desktop,(?i)filter.*(blank|empty)|(blank|empty).*filter,"Fixed in Thunderbird 155.0.1 (Bugzilla 2068847, duplicate 2068955). ESR 153 was never affected."
+desktop,(?i)filter.*(blank|empty)|(blank|empty).*filter,"Fixed in Thunderbird 155.0.1, released 2026-09-09 (Bugzilla 2068847, duplicate 2068955). ESR 153 was never affected. 27 of the 37 September reports came before the release, and the last one arrived on 2026-09-14."
