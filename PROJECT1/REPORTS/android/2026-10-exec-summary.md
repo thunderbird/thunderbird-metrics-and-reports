@@ -5,7 +5,7 @@ title: "2026-10 exec summary: Thunderbird Android support spikes"
 
 # October 2026: Thunderbird Android support spikes
 
-Executive summary for 2026-10. It covers 18 Thunderbird Android support questions. The tool wrote this page on 2026-10-09 07:23 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-10. It covers 18 Thunderbird Android support questions. The tool wrote this page on 2026-10-10 07:17 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -45,7 +45,7 @@ Only 6% of the October 2026 questions carry a Thunderbird version. The version×
 Three more numbers for context:
 
 - Volume: 18 questions. 7 of them (39%) carry a cause tag. The count per day was `▂▇█▂▅▁▂▅`, one block per day from October 1 to October 8.
-- Answers: 16 of the 18 questions (89%) got an answer from somebody other than the person who asked. The middle time to the first answer was 3.5 hours.
+- Answers: 17 of the 18 questions (94%) got an answer from somebody other than the person who asked. The middle time to the first answer was 3.5 hours.
 - Release-adoption version spikes: 0. Users move to a new release, so the bare counts rise. These are not incidents.
 
 Every spike row, with its example questions, is in [All October 2026 detail](#all-october-2026-detail) below.
