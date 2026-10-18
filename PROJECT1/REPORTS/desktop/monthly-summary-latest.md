@@ -15,7 +15,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 977 | 653 | ▼ -324 (-33%) |
+| Support questions (load) | 977 | 657 | ▼ -320 (-33%) |
 | Version × cause spikes flagged | 5 | 13 | ▲ +8 |
 | — of which **new** regressions | 2 | 2 | ▬ 0 |
 | Cause-level surges flagged | 1 | 3 | ▲ +2 |
@@ -30,7 +30,7 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 
 | Signal | When | Version × Cause | Qs | Lift | Served | Example questions |
 |:--|:--|:--|--:|--:|:--|:--|
-| 🆕 new | 2026-10-06 | v140 × m:att | 4 | 105.8× | 75% ans · 2.7h | [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") [1610258](https://support.mozilla.org/questions/1610258 "The certificate for inbound.att.net does not come from a trusted source.") [1610259](https://support.mozilla.org/questions/1610259 "Why Thunderbird on Linux will no longer connect to att.net email with POP3.") [1610309](https://support.mozilla.org/questions/1610309 "AOL setup on MX Linux... fails authentication") |
+| 🆕 new | 2026-10-06 | v140 × m:att | 4 | 105.9× | 75% ans · 2.7h | [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") [1610258](https://support.mozilla.org/questions/1610258 "The certificate for inbound.att.net does not come from a trusted source.") [1610259](https://support.mozilla.org/questions/1610259 "Why Thunderbird on Linux will no longer connect to att.net email with POP3.") [1610309](https://support.mozilla.org/questions/1610309 "AOL setup on MX Linux... fails authentication") |
 | 🆕 new | 2026-10-04 | v157 × feat:attachments | 5 | 7.0× | 100% ans · 12.1h | [1609599](https://support.mozilla.org/questions/1609599 "na de laatste update kan ik geen bijlages toevoegen aan een e-mail") [1609601](https://support.mozilla.org/questions/1609601 "Change the app that opens email attachments") [1609642](https://support.mozilla.org/questions/1609642 "Attach button does not respond. Drag and Drop works. (bug2077590)") [1609643](https://support.mozilla.org/questions/1609643 "email beantwoorden, bijlage knop werkt niet") [1609719](https://support.mozilla.org/questions/1609719 "Unable to attach files to email") |
 | ↗ spreading | 2026-10-05 | v153 × feat:attachments | 6 | 10.7× | 83% ans · 0.6h | [1609864](https://support.mozilla.org/questions/1609864 "allegati che non si possono più inserire nell'email") [1609904](https://support.mozilla.org/questions/1609904 "Unable to attach a document to a return email") [1609918](https://support.mozilla.org/questions/1609918 "allegati") [1609979](https://support.mozilla.org/questions/1609979 "why can't i attach files to sent email?") [1609986](https://support.mozilla.org/questions/1609986 "not launching file explorer to attach files") +1 |
 | ↗ spreading | 2026-10-14 | v158 × m:gmail | 5 | 4.0× | 80% ans · 20.5h | [1611781](https://support.mozilla.org/questions/1611781 "Unable to write the email to the mailbox - can't pop download emails from gmail") [1611880](https://support.mozilla.org/questions/1611880 "Unable to Add a Gmail Account to Thunderbird Despite Successful Authentication") [1611900](https://support.mozilla.org/questions/1611900 "Address Books in Desktop Thundermail in Windows 11") [1611935](https://support.mozilla.org/questions/1611935 "Google Popup Sign-in from T-0Bird links to a *ghost*/ disabled gmail account") [1611950](https://support.mozilla.org/questions/1611950 "problem with double entries in the sent folder") |
@@ -63,8 +63,8 @@ Version-agnostic (a provider outage spans versions), vs a trailing-month baselin
 | feat:attachments | 20 | 101 | ▲ +81 (+405%) |
 | proto:smtp | 53 | 18 | ▼ -35 (-66%) |
 | proto:imap | 79 | 45 | ▼ -34 (-43%) |
-| proto:pop | 62 | 30 | ▼ -32 (-52%) |
 | m:microsoftemail | 67 | 35 | ▼ -32 (-48%) |
+| proto:pop | 62 | 31 | ▼ -31 (-50%) |
 | m:yahooemail | 60 | 32 | ▼ -28 (-47%) |
 | m:att | 6 | 26 | ▲ +20 |
 | m:alice_it | 20 | 1 | ▼ -19 (-95%) |
@@ -77,20 +77,20 @@ _None — every cause cluster in October 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| v153 | 193 | 170 | ▼ -23 (-12%) |
-| v157 | 3 | 256 | ▲ +253 |
+| v153 | 193 | 171 | ▼ -22 (-11%) |
+| v157 | 3 | 257 | ▲ +254 |
 | v155 | 239 | 2 | ▼ -237 (-99%) |
 | v156 | 203 | 17 | ▼ -186 (-92%) |
 | v140 | 44 | 28 | ▼ -16 (-36%) |
-| v158 | 0 | 47 | ▲ +47 |
+| v158 | 0 | 48 | ▲ +48 |
 
 ### Operating-system mix
 
 | Operating-system mix | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 816 | 554 | ▼ -262 (-32%) |
-| os:linux | 63 | 42 | ▼ -21 (-33%) |
-| os:macos | 62 | 35 | ▼ -27 (-44%) |
+| os:windows | 816 | 556 | ▼ -260 (-32%) |
+| os:linux | 63 | 43 | ▼ -20 (-32%) |
+| os:macos | 62 | 36 | ▼ -26 (-42%) |
 | os:other | 7 | 7 | ▬ 0 |
 | os:android | 5 | 3 | ▼ -2 |
 
@@ -98,10 +98,10 @@ _None — every cause cluster in October 2026 has appeared in a prior month._
 
 | Topic mix | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 317 | 144 | ▼ -173 (-55%) |
+| send-and-receive-email | 317 | 145 | ▼ -172 (-54%) |
 | attachments | 28 | 175 | ▲ +147 (+525%) |
 | email-and-messaging | 85 | 45 | ▼ -40 (-47%) |
-| customization | 71 | 48 | ▼ -23 (-32%) |
+| customization | 71 | 49 | ▼ -22 (-31%) |
 | passwords-and-sign-in | 54 | 24 | ▼ -30 (-56%) |
 | connectivity | 50 | 23 | ▼ -27 (-54%) |
 
@@ -109,4 +109,4 @@ _None — every cause cluster in October 2026 has appeared in a prior month._
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · October 2026 vs September 2026._
 
-_Last updated: 2026-10-18 08:07 UTC_
+_Last updated: 2026-10-18 20:06 UTC_
