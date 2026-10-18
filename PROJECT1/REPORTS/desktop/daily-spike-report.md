@@ -5,12 +5,12 @@ title: DAILY: Thunderbird Desktop — Support Spike Report
 
 # DAILY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2026-07-21 … 2026-10-18 · **daily** grain · trailing 90 days · 2851 questions · no AI (regex + traditional stats)_
+_Generated 2026-07-21 … 2026-10-18 · **daily** grain · trailing 90 days · 2855 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 2851 questions, 31.7/day avg
-- **Answered (non-creator):** 2177/2851 (76%)
+- **Volume:** 2855 questions, 31.7/day avg
+- **Answered (non-creator):** 2186/2855 (77%)
 - **First-answer time (median):** 3.3h (p25 0.9h / p75 11.8h)
-- **Total volume trend:** `▄▃▅▄▂▄▄▄▄▃▄▃▃▄▄▄▄▅▅▃▄▃▄▄▄▃▄▄▅▃▄▅▄▄▅▄▆▅▄▄▃▆▅▆▆▅▃▃▆▅▅▄▅▃▄▄▅▆▄▃▃▃▄▅▇▅▄▃▃▄▄▅▅▅▄▄▇█▇▆▆▃▃▅▅▅▅▄▂▁`
+- **Total volume trend:** `▄▃▅▄▂▄▄▄▄▃▄▃▃▄▄▄▄▅▅▃▄▃▄▄▄▃▄▄▅▃▄▅▄▄▅▄▆▅▄▄▃▆▅▆▆▅▃▃▆▅▅▄▅▃▄▄▅▆▄▃▃▃▄▅▇▅▄▃▃▄▄▅▅▅▄▄▇█▇▆▆▃▃▅▅▅▅▄▂▂`
 
 > ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
 
@@ -23,7 +23,7 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 
 | Signal | Lift | When | Version × Cause | Qs | Served | Example questions | Trend |
 |:--|---:|:--|:--|--:|:--|:--|:--|
-| 🆕 new | **105.8×** | 2026-10-06 | v140 × m:att | 4 | 75% ans · 2.7h | [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") [1610258](https://support.mozilla.org/questions/1610258 "The certificate for inbound.att.net does not come from a trusted source.") [1610259](https://support.mozilla.org/questions/1610259 "Why Thunderbird on Linux will no longer connect to att.net email with POP3.") [1610309](https://support.mozilla.org/questions/1610309 "AOL setup on MX Linux... fails authentication") · [explore ↗](explorer.html#grain=daily&version=140&cause=m:att&period=2026-10-06) | `▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁` |
+| 🆕 new | **105.9×** | 2026-10-06 | v140 × m:att | 4 | 75% ans · 2.7h | [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") [1610258](https://support.mozilla.org/questions/1610258 "The certificate for inbound.att.net does not come from a trusted source.") [1610259](https://support.mozilla.org/questions/1610259 "Why Thunderbird on Linux will no longer connect to att.net email with POP3.") [1610309](https://support.mozilla.org/questions/1610309 "AOL setup on MX Linux... fails authentication") · [explore ↗](explorer.html#grain=daily&version=140&cause=m:att&period=2026-10-06) | `▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁` |
 | 🆕 new | **84.2×** | 2026-09-23 | v153 × m:alice_it | 5 | 100% ans · 3.1h | [1606888](https://support.mozilla.org/questions/1606888 "non mi funziona la mail alice.it") [1606928](https://support.mozilla.org/questions/1606928 "non ricevo le mail di Alicemail") [1606938](https://support.mozilla.org/questions/1606938 "Alice mail") [1607000](https://support.mozilla.org/questions/1607000 "non scarico messaggi") [1607026](https://support.mozilla.org/questions/1607026 "Non riesco a scaricare posta alice su thunderbid, mi da errore di collegamento..") · [explore ↗](explorer.html#grain=daily&version=153&cause=m:alice_it&period=2026-09-23) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▂▁█▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁` |
 | 🆕 new | **29.8×** | 2026-08-20 | v154 × feat:printing | 4 | 75% ans · 3.2h | [1599257](https://support.mozilla.org/questions/1599257 "Print emails") [1599261](https://support.mozilla.org/questions/1599261 "Perchè non si riesce a stampare diretta mente da Thunderbird un allegato ad un m") [1599285](https://support.mozilla.org/questions/1599285 "PDF attachments now blank when printed.  Worked great til today.") [1599333](https://support.mozilla.org/questions/1599333 "can not print attachments") · [explore ↗](explorer.html#grain=daily&version=154&cause=feat:printing&period=2026-08-20) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▇▄▂▁▄▄█▅▂▅▂▇▇▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | 🆕 new | **7.3×** | 2026-09-16 | v153 × m:yahooemail | 4 | 75% ans · 0.8h | [1604613](https://support.mozilla.org/questions/1604613 "Error messages.  t-bird Linux Mint ＂.p＂ and ＂UID Fetch＂") [1604699](https://support.mozilla.org/questions/1604699 "I messaggi di un account vanno anche in un secondo account") [1604799](https://support.mozilla.org/questions/1604799 "thunderbird deleting my emails from the POP server") [1604953](https://support.mozilla.org/questions/1604953 "Thunderbird won't send emails between  2 AOL accounts") · [explore ↗](explorer.html#grain=daily&version=153&cause=m:yahooemail&period=2026-09-16) | `▁▁▁▃▁▅▁▆▃▁▅▃▃▆▃▃▃▃▃▃▃▆▅▃▅▃▆▃▁▁▅▃▃▁▁▃▁▁▁▁▁▃▁▁▁▃▁▃▁▅▃▃▅▁▅▃▃█▁▃▃▁▁▁▁▃▁▃▃▁▃▁▃▃▁▃▁▃▁▁▅▃▁▁▃▁▁▁▁▁` |
@@ -73,8 +73,8 @@ Causes surging **regardless of version** vs a trailing day baseline — provider
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v153 | 903 | `▁▂▄▃▂▅▄▄▃▄▆▅▄▇▇▅▇▇▇▅▇▄▇▇▇▅▇▇█▄▄▅▃▃▄▂▄▅▃▂▂▅▂▃▃▂▁▂▃▃▄▃▃▂▃▄▄▄▃▂▂▂▃▂▅▄▂▃▂▃▃▄▂▄▃▂▅█▅▅▅▃▂▄▅▃▅▂▂▁` |
-| v157 | 259 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▅▆▇█▇▇▇▃▃▆▅▃▃▁▁▁` |
+| v153 | 904 | `▁▂▄▃▂▅▄▄▃▄▆▅▄▇▇▅▇▇▇▅▇▄▇▇▇▅▇▇█▄▄▅▃▃▄▂▄▅▃▂▂▅▂▃▃▂▁▂▃▃▄▃▃▂▃▄▄▄▃▂▂▂▃▂▅▄▂▃▂▃▃▄▂▄▃▂▅█▅▅▅▃▂▄▅▃▅▂▂▂` |
+| v157 | 260 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▅▆▇█▇▇▇▃▃▆▅▃▃▁▁▁` |
 | v154 | 250 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▃▄▆▄▄▆▃█▅▅▅▄▇▅▃▂▂▁▁▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | v155 | 241 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▇▇▅▅▇▅▆▅▇▅▄▅█▄▂▂▁▁▁▂▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | v156 | 220 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▆▅▂▄▅▅█▆▄▃▄▆▆▆▃▂▂▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁` |
@@ -98,7 +98,7 @@ Causes surging **regardless of version** vs a trailing day baseline — provider
 | feat:attachments | 156 | `▁▁▁▃▁▁▂▁▂▁▁▂▁▁▁▁▂▁▂▂▂▁▂▁▂▁▁▃▁▂▃▁▂▁▂▂▂▂▂▂▂▃▃▄▂▂▂▁▁▁▁▂▁▁▂▁▁▂▂▁▁▁▂▁▁▁▁▁▁▁▁▁▂▅▃▅▇▇▆▇█▅▃▆▅▂▃▂▂▁` |
 | feat:junk | 64 | `▂▁▁▂▁▄▁▁▁▇▁▂▁█▁▁▁▁▂▄▂▁▁▂▂▁▂▂▁▂▄▄▁▁▂▂▁▁▂▄▁▁▁▂▂▄▂▂▄▄▂▂▄▁▂▄▁▁▁▁▁▁▂▁▁▂▁▁▁▂▁▁▁▁▄▄▂▂▁▁▂▁▁▂▁▁▂▅▁▁` |
 | feat:import_export | 62 | `▁▁▅▁▃▆▃▁▁▁▅▁▅▁▆▁▃▃▆▁▃▅▁▁▁▁▁▁▁▁▃▁▃▁▃▁▆▁▅▁▁▆▁▆▁▁▁▃▃▁▁▁▃▃▁▅▁▃▁▁▁▁▃▃▁▃▁▁▃▆█▅▁▁▁▁▅▁▁▃▁▃▃▁▁▃▁▁▁▁` |
-| feat:addressbook | 59 | `▁▁▃▁▁▁▁▁▅▃▅▁▁▃▃▁▅▁▆▃▃▃▃▁▃▁▅▃▅▁▁▁▃▃▃▁▃▁▅▃▁▃▃▁▁▃▃▁▁▁▁▁▁▁▅▁▃▃▁▁▁▁▃▃▁▅▁▁▁▃█▃▃▁▁▁▁▁▁▁▁▁▃▃▁▅▅▆▃▁` |
+| feat:addressbook | 60 | `▁▁▃▁▁▁▁▁▅▃▅▁▁▃▃▁▅▁▆▃▃▃▃▁▃▁▅▃▅▁▁▁▃▃▃▁▃▁▅▃▁▃▃▁▁▃▃▁▁▁▁▁▁▁▅▁▃▃▁▁▁▁▃▃▁▅▁▁▁▃█▃▃▁▁▁▁▁▁▁▁▁▃▃▁▅▅▆▃▃` |
 | feat:calendar | 47 | `▁▆▃▁▁▃▁▁▁▁▃▁▃▆▁▁▁▁▁▁▃▁▁▁▁▃▃▆▁▁▃▆▁▃▁▁▆▁▁▁▃▃▁▁▃▃▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▃▃▃▁▁▃▃▃▆▆▃▃▃▃▃▃▁▁▁▁▆▃█▁▁▁` |
 | feat:printing | 47 | `▁▁▁▁▁▁▁▁▁▁▂▁▂▁▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▆▅▂▁▃▅█▅▂▅▂█▆▂▁▂▂▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁` |
 
@@ -107,7 +107,7 @@ Causes surging **regardless of version** vs a trailing day baseline — provider
 | Value | Total | Trend |
 |:--|--:|:--|
 | proto:imap | 214 | `▃▃▅▁▁▄▄▂▃▁▃▃▁▆▃▄▁▁▃▃▇▂▂▄▅▃▂▄▅▃▁▃▄▃▅▂▆▃▂▄▃▄▆▆▅▂▂▅█▂▅▂▆▂▁▇▄▅▄▃▁▃▃▂▂▂▄▂▃▂▄▆▃▅▃▄▅▅▄▁▃▂▃▂█▂▇▂▃▁` |
-| proto:pop | 152 | `▂▂▂▃▂▁▂▅▁▂▅▂▂▃▅▂▃▃▅▃▆▁▁▆▆▁▁▃▃▁▂▂▂▁▂▁▁▅▂▂▂▅▂▅▁▂▂▂█▃▁▃▇▂▁▃▃▃▃▃▂▃▃▃▆▇▂▃▃▅▅▃▅▃▁▂▃▅▅▁▃▂▃▂▃▅▃▃▂▁` |
+| proto:pop | 153 | `▂▂▂▃▂▁▂▅▁▂▅▂▂▃▅▂▃▃▅▃▆▁▁▆▆▁▁▃▃▁▂▂▂▁▂▁▁▅▂▂▂▅▂▅▁▂▂▂█▃▁▃▇▂▁▃▃▃▃▃▂▃▃▃▆▇▂▃▃▅▅▃▅▃▁▂▃▅▅▁▃▂▃▂▃▅▃▃▂▂` |
 | proto:smtp | 128 | `█▄▁▁▂▂▂▁▂▂▂▁▂▅▁▂▁▂▂▂▄▁▄▄▄▂▁▂▂▂▄▅▄▂▄▂▅▂▄▅▂▅▂▅▄▅▁▄▂▄▅▂▄▂▂▄▅▇▅▅▁▁▅▄▄▁▇▂▁▂▂▄▄▇▂▁▂▄▂▁▂▁▂▁▂▂▂▄▁▁` |
 | proto:oauth | 70 | `▅▁▁▁▃▅▃▅▁▁▁▁▁▃▁▁▁▁▅▁▆▃▁▃▁▃▁▃▁▃▁▁▃▁▁▅▁▁▅▃▃▅▃▃▁█▃▁▁▃▅▁▃▁▃▅▁▅▁▃▁▁▃▃▁▁▅▃▁▁▃█▁▃▁▃▃▅▁▃▅▁▃▁▆▃▃▁▃▁` |
 | proto:caldav | 13 | `▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁█▁▁▁▁▁▁██▁▁▁███▁▁▁█▁██▁▁` |
@@ -128,9 +128,9 @@ Causes surging **regardless of version** vs a trailing day baseline — provider
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 2347 | `▄▃▄▄▂▄▄▃▃▃▄▃▂▄▄▃▄▃▄▃▄▂▄▄▄▃▃▄▄▃▄▅▄▄▅▄▇▅▄▄▃▆▄▆▆▄▃▃▆▄▄▄▅▃▄▄▅▅▄▄▂▃▄▅▇▅▄▂▃▄▄▄▅▅▅▄▇█▆▆▆▃▃▄▅▄▅▄▃▁` |
-| os:linux | 229 | `▁▃▅▁▂▅▃▄▂▃▂▄▃▃▂▃▅█▅▁▃▄▂▂▃▄▅▂▃▂▂▂▃▂▂▄▂▂▂▁▄▅▁▂▂▅▂▁▂▄▅▂▂▂▂▂▁▅▂▂▂▁▂▄▁▃▂▂▂▆▂▅▃▂▂▂▂▄▅▁▂▂▄▄▃▂▂▃▁▁` |
-| os:macos | 167 | `▁▂▃▃▁▁▂▁▄▂▂▂▂▂▄▆▄▃▃▃▂▄▂▂▁▄▆▂▅▂▁▃▃▂▄▂▂▃▁▂▃▃▃▂▂▃▂▃▄▄▅▂▅▂▁▂▆▂▂▁▂▃▂▄▄▅▁▄▂▄▅▄▁▂▂▁▄▄█▂▂▂▁▅▄▃▅▂▁▂` |
+| os:windows | 2349 | `▄▃▄▄▂▄▄▃▃▃▄▃▂▄▄▃▄▃▄▃▄▂▄▄▄▃▃▄▄▃▄▅▄▄▅▄▇▅▄▄▃▆▄▆▆▄▃▃▆▄▄▄▅▃▄▄▅▅▄▄▂▃▄▅▇▅▄▂▃▄▄▄▅▅▅▄▇█▆▆▆▃▃▄▅▄▅▄▃▁` |
+| os:linux | 230 | `▁▃▅▁▂▅▃▄▂▃▂▄▃▃▂▃▅█▅▁▃▄▂▂▃▄▅▂▃▂▂▂▃▂▂▄▂▂▂▁▄▅▁▂▂▅▂▁▂▄▅▂▂▂▂▂▁▅▂▂▂▁▂▄▁▃▂▂▂▆▂▅▃▂▂▂▂▄▅▁▂▂▄▄▃▂▂▃▁▂` |
+| os:macos | 168 | `▁▂▃▃▁▁▂▁▄▂▂▂▂▂▄▆▄▃▃▃▂▄▂▂▁▄▆▂▅▂▁▃▃▂▄▂▂▃▁▂▃▃▃▂▂▃▂▃▄▄▅▂▅▂▁▂▆▂▂▁▂▃▂▄▄▅▁▄▂▄▅▄▁▂▂▁▄▄█▂▂▂▁▅▄▃▅▂▁▃` |
 | os:other | 23 | `▁▃▁▃▁▁▃▁▁▁▁▁▃▁▃▁▁▆▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▃▁▁▁▁█▁▁▁▁▁▃▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▃▃▁▁▁▁▃▁▃▃▃▁▁▁▃▁▃▃▁▁▁▁▁` |
 | os:android | 19 | `▁▁▁▁▁▃▁▁▁▁▁▁▃▁▁▁▃▁▆▁▁▃▃▁▁▁▁▁█▁▁▁▁▁▁▁▃▁▁▁▁▁▁▆▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▃▁▁▁▁▁▃▁▁▁▁▁▃▁▁▁▃▁▁▁▁▃▁▁▁▁▁▁▁▁` |
 
@@ -149,4 +149,4 @@ Causes surging **regardless of version** vs a trailing day baseline — provider
 
 _Notes: spikes detected at **daily** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-daily-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-daily-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-daily-rollup.csv`._
 
-_Last updated: 2026-10-18 04:39 UTC_
+_Last updated: 2026-10-18 16:39 UTC_
