@@ -69,7 +69,7 @@ period,dim,value,count
 2026-07,av,av:defender,2
 2026-08,av,av:defender,2
 2026-09,av,av:defender,2
-2026-10,av,av:defender,2
+2026-10,av,av:defender,3
 2024-11,av,av:eset,3
 2025-02,av,av:eset,2
 2025-03,av,av:eset,1
@@ -278,7 +278,7 @@ period,dim,value,count
 2026-07,feature,feat:calendar,16
 2026-08,feature,feat:calendar,16
 2026-09,feature,feat:calendar,10
-2026-10,feature,feat:calendar,22
+2026-10,feature,feat:calendar,23
 2024-11,feature,feat:encryption,1
 2024-12,feature,feat:encryption,3
 2025-01,feature,feat:encryption,11
@@ -372,7 +372,7 @@ period,dim,value,count
 2026-07,feature,feat:junk,13
 2026-08,feature,feat:junk,24
 2026-09,feature,feat:junk,20
-2026-10,feature,feat:junk,18
+2026-10,feature,feat:junk,19
 2024-11,feature,feat:notifications,5
 2024-12,feature,feat:notifications,6
 2025-01,feature,feat:notifications,3
@@ -898,7 +898,7 @@ period,dim,value,count
 2026-07,mail_provider,m:gmail,73
 2026-08,mail_provider,m:gmail,75
 2026-09,mail_provider,m:gmail,66
-2026-10,mail_provider,m:gmail,75
+2026-10,mail_provider,m:gmail,78
 2024-11,mail_provider,m:gmx,5
 2024-12,mail_provider,m:gmx,9
 2025-01,mail_provider,m:gmx,5
@@ -1389,6 +1389,7 @@ period,dim,value,count
 2026-07,mail_provider,m:virginmedia,2
 2026-08,mail_provider,m:virginmedia,1
 2026-09,mail_provider,m:virginmedia,6
+2026-10,mail_provider,m:virginmedia,1
 2025-01,mail_provider,m:vodafone,2
 2025-02,mail_provider,m:vodafone,2
 2025-03,mail_provider,m:vodafone,1
@@ -1463,7 +1464,7 @@ period,dim,value,count
 2026-07,mail_provider,m:yahooemail,30
 2026-08,mail_provider,m:yahooemail,55
 2026-09,mail_provider,m:yahooemail,60
-2026-10,mail_provider,m:yahooemail,38
+2026-10,mail_provider,m:yahooemail,39
 2024-12,mail_provider,m:yandex,3
 2025-03,mail_provider,m:yandex,2
 2025-08,mail_provider,m:yandex,2
@@ -1615,7 +1616,7 @@ period,dim,value,count
 2026-07,os,os:windows,589
 2026-08,os,os:windows,750
 2026-09,os,os:windows,816
-2026-10,os,os:windows,677
+2026-10,os,os:windows,686
 2024-11,protocol,proto:caldav,6
 2024-12,protocol,proto:caldav,5
 2025-01,protocol,proto:caldav,9
@@ -1697,7 +1698,7 @@ period,dim,value,count
 2026-07,protocol,proto:imap,56
 2026-08,protocol,proto:imap,71
 2026-09,protocol,proto:imap,79
-2026-10,protocol,proto:imap,58
+2026-10,protocol,proto:imap,59
 2024-11,protocol,proto:oauth,26
 2024-12,protocol,proto:oauth,27
 2025-01,protocol,proto:oauth,26
@@ -1745,7 +1746,7 @@ period,dim,value,count
 2026-07,protocol,proto:pop,42
 2026-08,protocol,proto:pop,46
 2026-09,protocol,proto:pop,62
-2026-10,protocol,proto:pop,41
+2026-10,protocol,proto:pop,42
 2024-11,protocol,proto:smtp,73
 2024-12,protocol,proto:smtp,59
 2025-01,protocol,proto:smtp,79
@@ -1769,7 +1770,7 @@ period,dim,value,count
 2026-07,protocol,proto:smtp,35
 2026-08,protocol,proto:smtp,44
 2026-09,protocol,proto:smtp,53
-2026-10,protocol,proto:smtp,23
+2026-10,protocol,proto:smtp,25
 2026-02,tb_version_major,102,4
 2026-03,tb_version_major,102,1
 2026-04,tb_version_major,102,1
@@ -1787,7 +1788,7 @@ period,dim,value,count
 2026-07,tb_version_major,115,16
 2026-08,tb_version_major,115,24
 2026-09,tb_version_major,115,24
-2026-10,tb_version_major,115,13
+2026-10,tb_version_major,115,14
 2026-02,tb_version_major,128,3
 2026-03,tb_version_major,128,6
 2026-04,tb_version_major,128,4
@@ -1816,7 +1817,7 @@ period,dim,value,count
 2026-07,tb_version_major,140,186
 2026-08,tb_version_major,140,69
 2026-09,tb_version_major,140,44
-2026-10,tb_version_major,140,36
+2026-10,tb_version_major,140,37
 2026-06,tb_version_major,141,1
 2025-08,tb_version_major,142,1
 2026-03,tb_version_major,142,2
@@ -1875,7 +1876,7 @@ period,dim,value,count
 2026-07,tb_version_major,150,26
 2026-08,tb_version_major,150,25
 2026-09,tb_version_major,150,24
-2026-10,tb_version_major,150,8
+2026-10,tb_version_major,150,9
 2026-04,tb_version_major,151,1
 2026-05,tb_version_major,151,136
 2026-06,tb_version_major,151,189
@@ -1894,7 +1895,7 @@ period,dim,value,count
 2026-07,tb_version_major,153,101
 2026-08,tb_version_major,153,441
 2026-09,tb_version_major,153,193
-2026-10,tb_version_major,153,200
+2026-10,tb_version_major,153,201
 2026-07,tb_version_major,154,2
 2026-08,tb_version_major,154,202
 2026-09,tb_version_major,154,42
@@ -1907,7 +1908,7 @@ period,dim,value,count
 2026-10,tb_version_major,156,17
 2026-09,tb_version_major,157,3
 2026-10,tb_version_major,157,258
-2026-10,tb_version_major,158,118
+2026-10,tb_version_major,158,122
 2026-05,tb_version_major,159,1
 2026-10,tb_version_major,159,2
 2026-08,tb_version_major,170,1
@@ -1935,4 +1936,4 @@ period,dim,value,count
 2026-07,total,all,731
 2026-08,total,all,943
 2026-09,total,all,977
-2026-10,total,all,812
+2026-10,total,all,821

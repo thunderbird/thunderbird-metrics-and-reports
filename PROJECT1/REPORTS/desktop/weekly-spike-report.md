@@ -5,10 +5,10 @@ title: WEEKLY: Thunderbird Desktop — Support Spike Report
 
 # WEEKLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2026-04-27 … 2026-10-19 · **weekly** grain · trailing 26 weeks · 5126 questions · no AI (regex + traditional stats)_
+_Generated 2026-04-27 … 2026-10-19 · **weekly** grain · trailing 26 weeks · 5135 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 5126 questions, 197.2/week avg
-- **Answered (non-creator):** 4041/5126 (79%)
+- **Volume:** 5135 questions, 197.5/week avg
+- **Answered (non-creator):** 4046/5135 (79%)
 - **First-answer time (median):** 3.3h (p25 0.9h / p75 11.7h)
 - **Total volume trend:** `▅▅▅▅▅▅▅▄▅▅▅▄▅▅▆▅▆▆▇▆▆▆▆█▆▄`
 
@@ -26,7 +26,7 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 | 🆕 new | **54.2×** | 2026-10-05 | v115 × m:att | 5 | 100% ans · 113.3h | [1609983](https://support.mozilla.org/questions/1609983 "I cannot bring mail from AT&T  into my Thunderbird app on my home computer, what") [1610152](https://support.mozilla.org/questions/1610152 "Certificate revoked for inbound.att.net?  What do we do?") [1610310](https://support.mozilla.org/questions/1610310 "New Messages go only to Local Folder; Account Inbox is bypassed and has no F5 fu") [1610321](https://support.mozilla.org/questions/1610321 "I can't recieve emails but can send the certification is revoked for inbound.att") [1610518](https://support.mozilla.org/questions/1610518 "suddenly can't retrieve ATT Yahoo emails with Thunderbird after trying every sug") · [explore ↗](explorer.html#grain=weekly&version=115&cause=m:att&period=2026-10-05) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁` |
 | 🆕 new | **39.4×** | 2026-09-21 | v153 × m:alice_it | 8 | 100% ans · 2.1h | [1606403](https://support.mozilla.org/questions/1606403 "non ricevo posta su pino.[RIMOSSO]@alice.it, sono con starlink, nè riesco a invi") [1606888](https://support.mozilla.org/questions/1606888 "non mi funziona la mail alice.it") [1606928](https://support.mozilla.org/questions/1606928 "non ricevo le mail di Alicemail") [1606938](https://support.mozilla.org/questions/1606938 "Alice mail") [1607000](https://support.mozilla.org/questions/1607000 "non scarico messaggi") [1607026](https://support.mozilla.org/questions/1607026 "Non riesco a scaricare posta alice su thunderbid, mi da errore di collegamento..") +2 · [explore ↗](explorer.html#grain=weekly&version=153&cause=m:alice_it&period=2026-09-21) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▂█▁▁▂▁` |
 | 🆕 new | **28.9×** | 2026-10-05 | v140 × m:att | 4 | 75% ans · 2.7h | [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") [1610258](https://support.mozilla.org/questions/1610258 "The certificate for inbound.att.net does not come from a trusted source.") [1610259](https://support.mozilla.org/questions/1610259 "Why Thunderbird on Linux will no longer connect to att.net email with POP3.") [1610309](https://support.mozilla.org/questions/1610309 "AOL setup on MX Linux... fails authentication") · [explore ↗](explorer.html#grain=weekly&version=140&cause=m:att&period=2026-10-05) | `▁▁▁▁▃▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁█▁▁` |
-| 🆕 new | **20.4×** | 2026-09-07 | v155 × m:virginmedia | 4 | ⚠️ 25% ans · 5.2h | [1602682](https://support.mozilla.org/questions/1602682 "Login to server pop3.virginmedia.com with username ******* failed") [1602701](https://support.mozilla.org/questions/1602701 "read emails for dryborough@ntlworld.com") [1602752](https://support.mozilla.org/questions/1602752 "Thunderbird says no new messages") [1603241](https://support.mozilla.org/questions/1603241 "lost all  virgin media and gmail account settings") · [explore ↗](explorer.html#grain=weekly&version=155&cause=m:virginmedia&period=2026-09-07) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁` |
+| 🆕 new | **18.6×** | 2026-09-07 | v155 × m:virginmedia | 4 | ⚠️ 25% ans · 5.2h | [1602682](https://support.mozilla.org/questions/1602682 "Login to server pop3.virginmedia.com with username ******* failed") [1602701](https://support.mozilla.org/questions/1602701 "read emails for dryborough@ntlworld.com") [1602752](https://support.mozilla.org/questions/1602752 "Thunderbird says no new messages") [1603241](https://support.mozilla.org/questions/1603241 "lost all  virgin media and gmail account settings") · [explore ↗](explorer.html#grain=weekly&version=155&cause=m:virginmedia&period=2026-09-07) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁` |
 | 🆕 new | **15.4×** | 2026-09-21 | v156 × m:alice_it | 6 | 100% ans · 0.5h | [1606677](https://support.mozilla.org/questions/1606677 "Uso Thunderbird e non ricevo più la posta dal server in.alice.it") [1606766](https://support.mozilla.org/questions/1606766 "problemi all'accesso e ricezione delle mail con @alice") [1606943](https://support.mozilla.org/questions/1606943 "Non riesco più a scaricare la posta in arrivo.") [1607001](https://support.mozilla.org/questions/1607001 "da alcuni giorni non scarica la posta da alice.it") [1607008](https://support.mozilla.org/questions/1607008 "sul server di alice non ricevo la posta, posso inviare ma in arrivo connessione ") [1607177](https://support.mozilla.org/questions/1607177 "Non è possibile connettersi al server in.alice.it; la connessione è stata rifiut") · [explore ↗](explorer.html#grain=weekly&version=156&cause=m:alice_it&period=2026-09-21) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁` |
 | 🆕 new | **12.3×** | 2026-07-06 | v140 × feat:search | 5 | 100% ans · 2.6h | [1591417](https://support.mozilla.org/questions/1591417 "How to prevent Thunderbird message search (ctrl+F) from continuing from the top?") [1591550](https://support.mozilla.org/questions/1591550 "Copying a saved search in Thunderbird") [1591650](https://support.mozilla.org/questions/1591650 "Searching by domain - issue?") [1592237](https://support.mozilla.org/questions/1592237 "Before the last update to TB I could easily search for a single email address me") [1592460](https://support.mozilla.org/questions/1592460 "Can I create a search based on text in the ＂message source＂?") · [explore ↗](explorer.html#grain=weekly&version=140&cause=feat:search&period=2026-07-06) | `▁▂▁▁▂▂▁▁▄▁█▂▂▁▁▂▁▂▁▁▁▁▂▁▁▁` |
 | 🆕 new | **10.2×** | 2026-08-17 | v154 × feat:printing | 7 | ⚠️ 43% ans · 3.2h | [1599257](https://support.mozilla.org/questions/1599257 "Print emails") [1599261](https://support.mozilla.org/questions/1599261 "Perchè non si riesce a stampare diretta mente da Thunderbird un allegato ad un m") [1599285](https://support.mozilla.org/questions/1599285 "PDF attachments now blank when printed.  Worked great til today.") [1599333](https://support.mozilla.org/questions/1599333 "can not print attachments") [1599495](https://support.mozilla.org/questions/1599495 "Thunderbird can't print files") [1599560](https://support.mozilla.org/questions/1599560 "PDF Files not printing from Thunderbird since last update") +1 · [explore ↗](explorer.html#grain=weekly&version=154&cause=feat:printing&period=2026-08-17) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▄▁▁▁▁▁▁▁` |
@@ -37,7 +37,7 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 | 🆕 new | **4.5×** | 2026-05-18 | v140 × m:spectrum | 4 | 75% ans · 2.9h | [1582358](https://support.mozilla.org/questions/1582358 "unable to send or recieve emails from roadrunner") [1582537](https://support.mozilla.org/questions/1582537 "Thunderbird suddenly can't connect with my email server to send outgoing message") [1583227](https://support.mozilla.org/questions/1583227 "I have deleted my out-of-date password for Spectrum but when I restart Thunderbi") [1583421](https://support.mozilla.org/questions/1583421 "＂Thunderbird can't connect to the server＂ Part 2") · [explore ↗](explorer.html#grain=weekly&version=140&cause=m:spectrum&period=2026-05-18) | `▁▅▃█▁▅▅▁▁▁▁▁▁▁▁▁▃▁▃▁▁▃▁▁▃▁` |
 | 🆕 new | **4.3×** | 2026-09-28 | v157 × feat:attachments | 10 | 100% ans · 8.8h | [1608942](https://support.mozilla.org/questions/1608942 "Attachment bug") [1609154](https://support.mozilla.org/questions/1609154 "Nejde přiložit jakákoli příloha") [1609202](https://support.mozilla.org/questions/1609202 "Unable to attach files to emails since 30 Sept update (bug2077590)") [1609259](https://support.mozilla.org/questions/1609259 "attachment dialogue not executing!") [1609461](https://support.mozilla.org/questions/1609461 "I am unable to attach files using either the button or the keyboard.") [1609599](https://support.mozilla.org/questions/1609599 "na de laatste update kan ik geen bijlages toevoegen aan een e-mail") +4 · [explore ↗](explorer.html#grain=weekly&version=157&cause=feat:attachments&period=2026-09-28) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃█▃▁` |
 | 🆕 new | **3.6×** | 2026-06-08 | v140 × proto:smtp | 7 | 71% ans · 0.9h | [1586270](https://support.mozilla.org/questions/1586270 "Can't send emails - tried everything") [1586285](https://support.mozilla.org/questions/1586285 "Thunderbird can not send emails from my Spectrum email account.") [1586356](https://support.mozilla.org/questions/1586356 "verifica blocco invio email verso Hotmail/Outlook") [1586431](https://support.mozilla.org/questions/1586431 "Unable to send e-mail - please help") [1587007](https://support.mozilla.org/questions/1587007 "Bij het opstarten van Thunderbird zie ik vaak de melding versvhijnen dat geen ve") [1587132](https://support.mozilla.org/questions/1587132 "Password/authentication prompt lacks information to know what account the login ") +1 · [explore ↗](explorer.html#grain=weekly&version=140&cause=proto:smtp&period=2026-06-08) | `▃▄▃▁▁▄█▁▂▃▆▄▅▂▁▁▂▁▁▂▂▂▁▁▁▁` |
-| 🆕 new | **3.5×** | 2026-06-29 | v140 × feat:junk | 4 | 100% ans · 6.7h | [1590147](https://support.mozilla.org/questions/1590147 "Way to Get spam and fake sites off") [1590586](https://support.mozilla.org/questions/1590586 "Mijn pc zou spam versturen.") [1590755](https://support.mozilla.org/questions/1590755 "How to run junk mail filters on a particular folder") [1591038](https://support.mozilla.org/questions/1591038 "How do I install a junk folder in with the other folders ( inbox, drafts, sent, ") · [explore ↗](explorer.html#grain=weekly&version=140&cause=feat:junk&period=2026-06-29) | `▆▃▃▃▅▆▁▃▆█▁▁▁▃▃▁▃▃▁▁▁▁▁▃▁▃` |
+| 🆕 new | **3.4×** | 2026-06-29 | v140 × feat:junk | 4 | 100% ans · 6.7h | [1590147](https://support.mozilla.org/questions/1590147 "Way to Get spam and fake sites off") [1590586](https://support.mozilla.org/questions/1590586 "Mijn pc zou spam versturen.") [1590755](https://support.mozilla.org/questions/1590755 "How to run junk mail filters on a particular folder") [1591038](https://support.mozilla.org/questions/1591038 "How do I install a junk folder in with the other folders ( inbox, drafts, sent, ") · [explore ↗](explorer.html#grain=weekly&version=140&cause=feat:junk&period=2026-06-29) | `▆▃▃▃▅▆▁▃▆█▁▁▁▃▃▁▃▃▁▁▁▁▁▃▁▃` |
 | ↗ spreading | **8.0×** | 2026-10-05 | v153 × feat:attachments | 26 | 96% ans · 0.7h | [1609864](https://support.mozilla.org/questions/1609864 "allegati che non si possono più inserire nell'email") [1609904](https://support.mozilla.org/questions/1609904 "Unable to attach a document to a return email") [1609918](https://support.mozilla.org/questions/1609918 "allegati") [1609979](https://support.mozilla.org/questions/1609979 "why can't i attach files to sent email?") [1609986](https://support.mozilla.org/questions/1609986 "not launching file explorer to attach files") [1610030](https://support.mozilla.org/questions/1610030 "Thunderbird ＂Attach＂ button nor yellow attach bar reminder functioning.") +20 · [explore ↗](explorer.html#grain=weekly&version=153&cause=feat:attachments&period=2026-10-05) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▂▂▂▂▁▂▁▁▁▂█▄▁` |
 | ↗ spreading | **5.3×** | 2026-06-08 | v151 × m:spectrum | 9 | 100% ans · 14.3h | [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") [1586486](https://support.mozilla.org/questions/1586486 "Thunderbird is showing Certificate for mobile.charter.net:993 does not come from") [1586494](https://support.mozilla.org/questions/1586494 "Mozilla TWC account failures") +3 · [explore ↗](explorer.html#grain=weekly&version=151&cause=m:spectrum&period=2026-06-08) | `▁▁▁▁▂▃█▂▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁` |
 | ↗ spreading | **4.3×** | 2026-08-24 | v153 × m:spectrum | 4 | 100% ans · 123.2h | [1600000](https://support.mozilla.org/questions/1600000 "Suddenly can't send/receive Spectrum emails") [1600041](https://support.mozilla.org/questions/1600041 "I can receive but not send emails") [1600103](https://support.mozilla.org/questions/1600103 "Cannot send or receive email. (locked duplicate)") [1601143](https://support.mozilla.org/questions/1601143 "IMAP accounts no longer update - Charter/Spectrum email hosting") · [explore ↗](explorer.html#grain=weekly&version=153&cause=m:spectrum&period=2026-08-24) | `▁▁▁▁▁▁▁▁▁▁▁▁▂▁▅▅█▇▂▁▁▂▂▁▂▁` |
@@ -90,9 +90,9 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v153 | 940 | `▁▁▁▁▁▁▁▁▁▁▁▁▃▅██▆▃▃▃▃▄▄▆▄▂` |
-| v140 | 751 | `▇▇█▇██▆▆▇▇▆▆▇▅▄▃▃▂▃▃▂▂▂▃▂▂` |
-| v150 | 434 | `▇██▄▂▁▁▁▁▁▂▁▁▁▂▁▁▁▁▁▁▂▁▁▁▁` |
+| v153 | 941 | `▁▁▁▁▁▁▁▁▁▁▁▁▃▅██▆▃▃▃▃▄▄▆▄▂` |
+| v140 | 752 | `▇▇█▇██▆▆▇▇▆▆▇▅▄▃▃▂▃▃▂▂▂▃▂▂` |
+| v150 | 435 | `▇██▄▂▁▁▁▁▁▂▁▁▁▂▁▁▁▁▁▁▂▁▁▁▁` |
 | v152 | 382 | `▁▁▁▁▁▁▁▅██▇▆▄▂▁▁▁▁▁▁▁▁▁▁▁▁` |
 | v151 | 338 | `▁▁▁▅█▆█▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 | v157 | 261 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▄▁` |
@@ -101,9 +101,9 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 433 | `▇█▆▄▆▄▄▄▅▇▅▅▆▅▆▅█▅▆▇▅▅▅▇█▇` |
+| m:gmail | 436 | `▇█▆▄▆▄▄▄▅▇▅▅▆▅▆▅█▅▆▇▅▅▅▇█▇` |
 | m:microsoftemail | 338 | `▆▆▇▆▄▇▄▃▄▅▄▃▃▃▅▅▄▄▄▅█▅█▅▄▄` |
-| m:yahooemail | 258 | `▃▄▅▃▆▃▄▂▃▅▃▂▃▅▆▇▄▃▅█▆▅▆▇▃▃` |
+| m:yahooemail | 259 | `▃▄▅▃▆▃▄▂▃▅▃▂▃▅▆▇▄▃▅█▆▅▆▇▃▃` |
 | m:spectrum | 108 | `▁▄▂▅▂▃▇▂▁▁▂▁▁▁▂▂▆█▅▄▂▃▂▂▂▂` |
 | m:comcast | 63 | `▁▅▃▂█▅▅▆▅▅▅▅▃▇▂▆▅▃▂▃▆▁▁▃▃▂` |
 | m:att | 47 | `▁▁▂▁▁▁▁▁▁▁▁▁▂▁▁▁▁▂▂▂▁▁▁█▁▁` |
@@ -114,8 +114,8 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 |:--|--:|:--|
 | feat:attachments | 190 | `▁▁▁▁▂▁▁▂▁▁▂▁▂▂▁▁▂▂▃▁▁▁▃█▄▁` |
 | feat:import_export | 137 | `▆█▆▆▅▆▄▄▅▄▆▄█▅▇▃▃▆▆▃▃▄█▅▂▆` |
-| feat:junk | 126 | `▆▅▃▃█▇▆▄▅▅▁▂▄▅▇▄▆▅▆█▃▃▅▃▆▅` |
-| feat:calendar | 115 | `▆▅▃▅▅▅▄▇▇▅▄▄▅▃▃▃▆▃▃▂▁▄█▄▆▆` |
+| feat:junk | 127 | `▆▅▃▃█▇▆▄▅▅▁▂▄▅▇▄▆▅▆█▃▃▅▃▆▆` |
+| feat:calendar | 116 | `▆▅▃▅▅▅▄▇▇▅▄▄▅▃▃▃▆▃▃▂▁▄█▄▆▆` |
 | feat:addressbook | 109 | `▂▅▂▂▂▅▆▄▆▂▂▅▂▅▇▅▅▅▄▂▂▄▆▂█▅` |
 | feat:filters | 84 | `▃▃▃▅▂▂▃▃▂▃▃▃▄▄▃▂▁▃▃█▅▁▂▂▃▂` |
 
@@ -123,9 +123,9 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 383 | `▃▆▅▆▅▆▄▃▅▆▅▄▅▄▅▆▆▆█▇▇▄▇▆▇▅` |
-| proto:pop | 267 | `▃▄▅▆▅▄▅▂▃▆▅▅▃▅▇▆▄▄▅▇▆█▆▆▆▅` |
-| proto:smtp | 221 | `▄█▆▄▂▅▅▃▂▃▇▃▆▃▄▅▆▇█▆█▇▆▄▃▃` |
+| proto:imap | 384 | `▃▆▅▆▅▆▄▃▅▆▅▄▅▄▅▆▆▆█▇▇▄▇▆▇▅` |
+| proto:pop | 268 | `▃▄▅▆▅▄▅▂▃▆▅▅▃▅▇▆▄▄▅▇▆█▆▆▆▅` |
+| proto:smtp | 223 | `▄█▆▄▂▅▅▃▂▃▇▃▆▃▄▅▆▇█▆█▇▆▄▃▄` |
 | proto:oauth | 115 | `▂▃▆▄▄▃▃▆▂▃▆▄▅▃▃▆▃▆█▅▅▅▆▆▆▄` |
 | proto:caldav | 20 | `▃▁▁▁▃▆▁▁▃▁▃▁▆▁▁▁▁▃▃▁▃▃▆██▁` |
 | proto:ews | 17 | `▅▅▁▅▅▁▅▁▁▅▁▁▁▅▅▁▅▁▁▁▁█▅██▅` |
@@ -135,7 +135,7 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 | Value | Total | Trend |
 |:--|--:|:--|
 | av:norton | 20 | `▁▁▁▅▅▃▁▃▁▁▃▁▁▅▁▁▃▁▅▃▁▅▁█▃▁` |
-| av:defender | 16 | `▁▅▅▅▅▅▅▅▁▅▅▁▁▅▁▅▅▁█▁▁▁▁▅▅▁` |
+| av:defender | 17 | `▁▅▅▅▅▅▅▅▁▅▅▁▁▅▁▅▅▁█▁▁▁▁▅▅▅` |
 | av:avast | 15 | `▂▁▂▁▁▁▂▂▁▁▄▁▁▁▂▁▁▂▂▁▂▁▁█▁▁` |
 | av:bitdefender | 14 | `▁▃▁▁▃▁▁▁▃█▁▁▁▁▆▁▁▃▃▃▃▃▁▁▁▃` |
 | av:mcafee | 11 | `▁▁▁▅▅▁▁▅▁▁▁▁▅▁▁▁▅▅▁▅▁█▅▁▅▁` |
@@ -145,7 +145,7 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 4169 | `▄▅▅▅▅▄▅▄▄▄▄▄▅▄▅▅▆▆▇▆▆▆▆█▅▄` |
+| os:windows | 4178 | `▄▅▅▅▅▄▅▄▄▄▄▄▅▄▅▅▆▆▇▆▆▆▆█▅▄` |
 | os:linux | 418 | `▆▄▅▅▄▄▄▃▆▅▂▄▅▆█▇▄▅▅▅▃▄▇▆▅▄` |
 | os:macos | 329 | `▇▅█▄▆▄▆▄▆▅▆▅▃▄█▆▅▅▅▇▅▆▅▇█▃` |
 | os:other | 54 | `▅▅▁▅▂▃▅▃▅█▂▃▃▃▅▁▁▃▅▂▂▃▃▅▃▃` |
@@ -166,4 +166,4 @@ Causes surging **regardless of version** vs a trailing week baseline — provide
 
 _Notes: spikes detected at **weekly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-weekly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-weekly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-weekly-rollup.csv`._
 
-_Last updated: 2026-10-23 04:41 UTC_
+_Last updated: 2026-10-23 16:44 UTC_
