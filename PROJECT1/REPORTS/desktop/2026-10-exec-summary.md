@@ -5,7 +5,7 @@ title: "2026-10 exec summary: Thunderbird Desktop support spikes"
 
 # October 2026: Thunderbird Desktop support spikes
 
-Executive summary for 2026-10. It covers 812 Thunderbird Desktop support questions. The tool wrote this page on 2026-10-23 05:36 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-10. It covers 840 Thunderbird Desktop support questions. The tool wrote this page on 2026-10-24 05:35 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -42,15 +42,15 @@ In short: Attachments and AT&T. Both are in [What stands out](#what-stands-out),
 
 Three more numbers for context:
 
-- Volume: 812 questions. 407 of them (50%) carry a cause tag. The count per day was `▅▅▄▄▇█▇▆▆▃▃▅▅▅▅▄▂▃▅▄▄▅▁`, one block per day from October 1 to October 23.
-- Answers: 634 of the 812 questions (78%) got an answer from somebody other than the person who asked. The middle time to the first answer was 2.5 hours.
-- Release-adoption version spikes: 33. Users move to a new release, so the bare counts rise. These are not incidents.
+- Volume: 840 questions. 421 of them (50%) carry a cause tag. The count per day was `▅▅▄▄▇█▇▆▆▃▃▅▅▅▅▄▂▃▅▄▄▅▄▂`, one block per day from October 1 to October 24.
+- Answers: 656 of the 840 questions (78%) got an answer from somebody other than the person who asked. The middle time to the first answer was 2.5 hours.
+- Release-adoption version spikes: 34. Users move to a new release, so the bare counts rise. These are not incidents.
 
 Every spike row, with its example questions, is in [All October 2026 detail](#all-october-2026-detail) below.
 
 ## What stands out {#what-stands-out}
 
-1. Attachments ([`feat:attachments`](explorer.html#grain=monthly&cause=feat:attachments&period=2026-10), 27 spikes): 101 questions in October, 6.7 times the baseline of 15.0. It peaked on 2026-10-09 with 12 questions, where earlier periods had none.
+1. Attachments ([`feat:attachments`](explorer.html#grain=monthly&cause=feat:attachments&period=2026-10), 27 spikes): 102 questions in October, 6.8 times the baseline of 15.0. It peaked on 2026-10-09 with 12 questions, where earlier periods had none.
 2. AT&T ([`m:att`](explorer.html#grain=monthly&cause=m:att&period=2026-10), 9 spikes): 26 questions in October, 6.5 times the baseline of 4.0. It peaked on 2026-10-06 with 11 questions, where earlier periods had none.
 3. Shaw ([`m:shaw`](explorer.html#grain=monthly&cause=m:shaw&period=2026-10), 1 spike): 6 questions in October, under the monthly bar. It peaked in the week of 2026-09-28 at 18.0 times its baseline.
 4. Thundermail ([`m:thundermail`](explorer.html#grain=monthly&cause=m:thundermail&period=2026-10), 1 spike): 9 questions in October, 6.0 times the baseline of 1.5.
@@ -67,7 +67,7 @@ Read the date of a spike as the day users came to the support site, not as the d
 A closed month can also change its verdict later. The tool measures each rise against the rate of that cause across all history. Questions that arrive later therefore move the expected count for a past month. Rows can cross the threshold in both directions, and the answered percentage rises as late answers land. This page regenerates every day, and each day's version is committed, so `git log -p` on this file shows how the verdict moved.
 
 <details markdown="1">
-<summary>Near misses (within about 25% of the threshold), 9 rows</summary>
+<summary>Near misses (within about 25% of the threshold), 8 rows</summary>
 
 The tool runs the same detectors a second time at 0.75 times the thresholds. The rows below came out of that second run and did not clear the real thresholds. They are not incidents. They are context, so that a quiet month is not read as a clean month.
 
@@ -76,10 +76,9 @@ Version and cause together:
 | Grain | Lift | When | Version × Cause | Questions | Served | Example questions |
 |:--|--:|:--|:--|--:|:--|:--|
 | weekly | 3.0× | 2026-09-28 | v156 × feat:addressbook | 4 | 75% answered, 0.1h | [1608295](https://support.mozilla.org/questions/1608295 "reloaded Thuderbird but address book .sqlite file not reloading") [1608307](https://support.mozilla.org/questions/1608307 "How to sync iCloud Contacts to Thunderbird") [1608370](https://support.mozilla.org/questions/1608370 "How to import contacts from Thunderbird to Zoho") [1608602](https://support.mozilla.org/questions/1608602 "Remove Personall Address Book and Collected Addresses from Address Book") |
-| weekly | 2.9× | 2026-10-19 | v153 × proto:pop | 4 | 75% answered, 0.7h | [1612765](https://support.mozilla.org/questions/1612765 "Non ricevo le mail da gmail") [1612862](https://support.mozilla.org/questions/1612862 "T'bird crashes when attempting when starting - inbox very large") [1613377](https://support.mozilla.org/questions/1613377 "How to stop Thunderbird from constantly trying to check email") [1613485](https://support.mozilla.org/questions/1613485 "I cannot sign in to download my emails., eror message Login to server pop3.madas") |
 | weekly | 2.6× | 2026-09-28 | v157 × feat:calendar | 5 | 80% answered, 36.9h | [1608944](https://support.mozilla.org/questions/1608944 "Thunderbird 157 breaks google calendar add-on") [1608983](https://support.mozilla.org/questions/1608983 "Google Calendar & Tasks suddenly fail in Thunderbird 157 64bit") [1609243](https://support.mozilla.org/questions/1609243 "How to change font color in Thunderbird Calendar events?") [1609292](https://support.mozilla.org/questions/1609292 "thunderbird 157 update deactivated all my calendars") [1609695](https://support.mozilla.org/questions/1609695 "After a Thunderbird update I can not delete a calendar event") |
+| weekly | 2.6× | 2026-10-19 | v153 × proto:pop | 4 | 75% answered, 0.7h | [1612765](https://support.mozilla.org/questions/1612765 "Non ricevo le mail da gmail") [1612862](https://support.mozilla.org/questions/1612862 "T'bird crashes when attempting when starting - inbox very large") [1613377](https://support.mozilla.org/questions/1613377 "How to stop Thunderbird from constantly trying to check email") [1613485](https://support.mozilla.org/questions/1613485 "I cannot sign in to download my emails., eror message Login to server pop3.madas") |
 | monthly | 2.5× | 2026-10 | v157 × m:att | 6 | 67% answered, 23.6h | [1609929](https://support.mozilla.org/questions/1609929 "＂We've identified a site certificate problem＂") [1610002](https://support.mozilla.org/questions/1610002 "'Digicert Global G2' revoked Oct 5, 2026") [1610193](https://support.mozilla.org/questions/1610193 "certificate has been revoked. unable to receive email.") [1610297](https://support.mozilla.org/questions/1610297 "Unable to receive messages due to certificate problem") [1610484](https://support.mozilla.org/questions/1610484 "tbird cannot download emails from my browser.") [1610523](https://support.mozilla.org/questions/1610523 "Thunderbird could not connect to server inbound.att.net. The connection was refu") |
-| weekly | 2.3× | 2026-10-19 | v158 × m:gmail | 14 | 57% answered (below 60%), 4.2h | [1612740](https://support.mozilla.org/questions/1612740 "Unable to open the summary file for Sent on xxxx@gmail.com. Perhaps there was an") [1613037](https://support.mozilla.org/questions/1613037 "Can not sent e-mails to my clients") [1613067](https://support.mozilla.org/questions/1613067 "URGENT: New Email is received, Can be found using quick search,  but not appeari") [1613087](https://support.mozilla.org/questions/1613087 "Perché Thunderbird vuole l'autorizzazione a cancellare le mie mail durante la cr") [1613215](https://support.mozilla.org/questions/1613215 "Can't Receive Emails") [1613238](https://support.mozilla.org/questions/1613238 "Microsoft login page never loads, authentication error") +8 |
 
 Cause alone:
 
@@ -102,10 +101,10 @@ Cause alone:
 
 | Grain | Lift | When | Version × Cause | Questions | Served | Novelty | Example questions |
 |:--|--:|:--|:--|--:|:--|:--|:--|
-| daily | 108.3× | 2026-10-06 | v140 × m:att | 4 | 75% answered, 2.7h | new | [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") [1610258](https://support.mozilla.org/questions/1610258 "The certificate for inbound.att.net does not come from a trusted source.") [1610259](https://support.mozilla.org/questions/1610259 "Why Thunderbird on Linux will no longer connect to att.net email with POP3.") [1610309](https://support.mozilla.org/questions/1610309 "AOL setup on MX Linux... fails authentication") |
-| weekly | 54.2× | 2026-10-05 | v115 × m:att | 5 | 100% answered, 113.3h | new | [1609983](https://support.mozilla.org/questions/1609983 "I cannot bring mail from AT&T  into my Thunderbird app on my home computer, what") [1610152](https://support.mozilla.org/questions/1610152 "Certificate revoked for inbound.att.net?  What do we do?") [1610310](https://support.mozilla.org/questions/1610310 "New Messages go only to Local Folder; Account Inbox is bypassed and has no F5 fu") [1610321](https://support.mozilla.org/questions/1610321 "I can't recieve emails but can send the certification is revoked for inbound.att") [1610518](https://support.mozilla.org/questions/1610518 "suddenly can't retrieve ATT Yahoo emails with Thunderbird after trying every sug") |
-| monthly | 41.7× | 2026-10 | v115 × m:att | 5 | 100% answered, 113.3h | new | [1609983](https://support.mozilla.org/questions/1609983 "I cannot bring mail from AT&T  into my Thunderbird app on my home computer, what") [1610152](https://support.mozilla.org/questions/1610152 "Certificate revoked for inbound.att.net?  What do we do?") [1610310](https://support.mozilla.org/questions/1610310 "New Messages go only to Local Folder; Account Inbox is bypassed and has no F5 fu") [1610321](https://support.mozilla.org/questions/1610321 "I can't recieve emails but can send the certification is revoked for inbound.att") [1610518](https://support.mozilla.org/questions/1610518 "suddenly can't retrieve ATT Yahoo emails with Thunderbird after trying every sug") |
-| weekly | 28.9× | 2026-10-05 | v140 × m:att | 4 | 75% answered, 2.7h | new | [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") [1610258](https://support.mozilla.org/questions/1610258 "The certificate for inbound.att.net does not come from a trusted source.") [1610259](https://support.mozilla.org/questions/1610259 "Why Thunderbird on Linux will no longer connect to att.net email with POP3.") [1610309](https://support.mozilla.org/questions/1610309 "AOL setup on MX Linux... fails authentication") |
+| daily | 108.8× | 2026-10-06 | v140 × m:att | 4 | 75% answered, 2.7h | new | [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") [1610258](https://support.mozilla.org/questions/1610258 "The certificate for inbound.att.net does not come from a trusted source.") [1610259](https://support.mozilla.org/questions/1610259 "Why Thunderbird on Linux will no longer connect to att.net email with POP3.") [1610309](https://support.mozilla.org/questions/1610309 "AOL setup on MX Linux... fails authentication") |
+| weekly | 54.4× | 2026-10-05 | v115 × m:att | 5 | 100% answered, 113.3h | new | [1609983](https://support.mozilla.org/questions/1609983 "I cannot bring mail from AT&T  into my Thunderbird app on my home computer, what") [1610152](https://support.mozilla.org/questions/1610152 "Certificate revoked for inbound.att.net?  What do we do?") [1610310](https://support.mozilla.org/questions/1610310 "New Messages go only to Local Folder; Account Inbox is bypassed and has no F5 fu") [1610321](https://support.mozilla.org/questions/1610321 "I can't recieve emails but can send the certification is revoked for inbound.att") [1610518](https://support.mozilla.org/questions/1610518 "suddenly can't retrieve ATT Yahoo emails with Thunderbird after trying every sug") |
+| monthly | 38.8× | 2026-10 | v115 × m:att | 5 | 100% answered, 113.3h | new | [1609983](https://support.mozilla.org/questions/1609983 "I cannot bring mail from AT&T  into my Thunderbird app on my home computer, what") [1610152](https://support.mozilla.org/questions/1610152 "Certificate revoked for inbound.att.net?  What do we do?") [1610310](https://support.mozilla.org/questions/1610310 "New Messages go only to Local Folder; Account Inbox is bypassed and has no F5 fu") [1610321](https://support.mozilla.org/questions/1610321 "I can't recieve emails but can send the certification is revoked for inbound.att") [1610518](https://support.mozilla.org/questions/1610518 "suddenly can't retrieve ATT Yahoo emails with Thunderbird after trying every sug") |
+| weekly | 29.0× | 2026-10-05 | v140 × m:att | 4 | 75% answered, 2.7h | new | [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") [1610258](https://support.mozilla.org/questions/1610258 "The certificate for inbound.att.net does not come from a trusted source.") [1610259](https://support.mozilla.org/questions/1610259 "Why Thunderbird on Linux will no longer connect to att.net email with POP3.") [1610309](https://support.mozilla.org/questions/1610309 "AOL setup on MX Linux... fails authentication") |
 | daily | 13.7× | 2026-10-10 | v153 × feat:attachments | 4 | 100% answered, 0.9h | recurring | [1611065](https://support.mozilla.org/questions/1611065 "Suddenly I can't attach anything to my emails!") [1611069](https://support.mozilla.org/questions/1611069 "it has not been possible to attach files to emails using the paperclip icon.") [1611096](https://support.mozilla.org/questions/1611096 "Can no longer attach photos with e-mail.") [1611102](https://support.mozilla.org/questions/1611102 "Can no longer attach photos with e-mail. (locked duplicate)") |
 | daily | 11.4× | 2026-10-08 | v153 × feat:attachments | 5 | 100% answered, 0.6h | recurring | [1610569](https://support.mozilla.org/questions/1610569 "The file picker does not open when you click the “Attach” button") [1610581](https://support.mozilla.org/questions/1610581 "Cannot attach files to emails in Thunderbird") [1610617](https://support.mozilla.org/questions/1610617 "Attachment function not accessible anymore") [1610652](https://support.mozilla.org/questions/1610652 "Attachment to an email is not possible with Tunderbird") [1610745](https://support.mozilla.org/questions/1610745 "Why can't I attach a document to my email") |
 | daily | 10.9× | 2026-10-05 | v153 × feat:attachments | 6 | 83% answered, 0.6h | spreading | [1609864](https://support.mozilla.org/questions/1609864 "allegati che non si possono più inserire nell'email") [1609904](https://support.mozilla.org/questions/1609904 "Unable to attach a document to a return email") [1609918](https://support.mozilla.org/questions/1609918 "allegati") [1609979](https://support.mozilla.org/questions/1609979 "why can't i attach files to sent email?") [1609986](https://support.mozilla.org/questions/1609986 "not launching file explorer to attach files") [1610030](https://support.mozilla.org/questions/1610030 "Thunderbird ＂Attach＂ button nor yellow attach bar reminder functioning.") |
@@ -120,7 +119,7 @@ Cause alone:
 | weekly | 5.8× | 2026-10-12 | v158 × feat:addressbook | 6 | 50% answered (below 60%), 7.5h | new | [1611900](https://support.mozilla.org/questions/1611900 "Address Books in Desktop Thundermail in Windows 11") [1612046](https://support.mozilla.org/questions/1612046 "Synching icloud contacts and calender") [1612277](https://support.mozilla.org/questions/1612277 "Thunderbird: profielen overbrengen naar nieuwe desktop is gelukt, adresboeken zi") [1612365](https://support.mozilla.org/questions/1612365 "Update crashed program and it only loads Xfinity now...Will deleteing it and re-") [1612545](https://support.mozilla.org/questions/1612545 "Ich kann mein Adressbuch nicht mehr finden") [1612659](https://support.mozilla.org/questions/1612659 "Adresboek herstellen") |
 | monthly | 5.3× | 2026-10 | v157 × feat:attachments | 50 | 98% answered, 2.9h | new | [1608942](https://support.mozilla.org/questions/1608942 "Attachment bug") [1609154](https://support.mozilla.org/questions/1609154 "Nejde přiložit jakákoli příloha") [1609202](https://support.mozilla.org/questions/1609202 "Unable to attach files to emails since 30 Sept update (bug2077590)") [1609259](https://support.mozilla.org/questions/1609259 "attachment dialogue not executing!") [1609461](https://support.mozilla.org/questions/1609461 "I am unable to attach files using either the button or the keyboard.") [1609599](https://support.mozilla.org/questions/1609599 "na de laatste update kan ik geen bijlages toevoegen aan een e-mail") +44 |
 | daily | 5.2× | 2026-10-21 | v158 × m:gmail | 8 | 62% answered, 2.4h | recurring | [1613215](https://support.mozilla.org/questions/1613215 "Can't Receive Emails") [1613238](https://support.mozilla.org/questions/1613238 "Microsoft login page never loads, authentication error") [1613317](https://support.mozilla.org/questions/1613317 "I have 2 Gmail Accounts and neither show my Sent folders?") [1613324](https://support.mozilla.org/questions/1613324 "I have 2 Gmail accounts: One shows no Deleted folder?") [1613327](https://support.mozilla.org/questions/1613327 "If Desktop Thunderbird has been around for many years, why does it still have so") [1613365](https://support.mozilla.org/questions/1613365 "my school's gmail folks just sent a note which I think means Thunderbird will no") +2 |
-| monthly | 5.2× | 2026-10 | v153 × feat:attachments | 38 | 97% answered, 1.0h | new | [1609328](https://support.mozilla.org/questions/1609328 "Can't add attachment to email message") [1609478](https://support.mozilla.org/questions/1609478 "Thunderbird Email senden mit Anhang funktioniert nicht mehr") [1609864](https://support.mozilla.org/questions/1609864 "allegati che non si possono più inserire nell'email") [1609904](https://support.mozilla.org/questions/1609904 "Unable to attach a document to a return email") [1609918](https://support.mozilla.org/questions/1609918 "allegati") [1609979](https://support.mozilla.org/questions/1609979 "why can't i attach files to sent email?") +32 |
+| monthly | 5.1× | 2026-10 | v153 × feat:attachments | 38 | 97% answered, 1.0h | new | [1609328](https://support.mozilla.org/questions/1609328 "Can't add attachment to email message") [1609478](https://support.mozilla.org/questions/1609478 "Thunderbird Email senden mit Anhang funktioniert nicht mehr") [1609864](https://support.mozilla.org/questions/1609864 "allegati che non si possono più inserire nell'email") [1609904](https://support.mozilla.org/questions/1609904 "Unable to attach a document to a return email") [1609918](https://support.mozilla.org/questions/1609918 "allegati") [1609979](https://support.mozilla.org/questions/1609979 "why can't i attach files to sent email?") +32 |
 | weekly | 5.0× | 2026-10-12 | v157 × feat:attachments | 10 | 90% answered, 3.4h | recurring | [1611426](https://support.mozilla.org/questions/1611426 "Chci do zprávy vložit přílohu a po kliknutí na ikonu příloha se mi nezobrazí nab") [1611443](https://support.mozilla.org/questions/1611443 "Attach button in write email no no longer working") [1611472](https://support.mozilla.org/questions/1611472 "Kan geen bijlage toevoegen in email") [1611511](https://support.mozilla.org/questions/1611511 "Signature attachment button in account settings no longer working; will not go t") [1611542](https://support.mozilla.org/questions/1611542 "thunderbird attach button does not work") [1611594](https://support.mozilla.org/questions/1611594 "Emails not showing attachments, and not able to open most older emails.") +4 |
 | daily | 4.9× | 2026-10-06 | v157 × feat:attachments | 5 | 100% answered, 0.9h | recurring | [1610097](https://support.mozilla.org/questions/1610097 "Since that last update I can no longer attach files to emails. Can You help?") [1610225](https://support.mozilla.org/questions/1610225 "Suddenly I can neither attach nor insert files into an outgoing email.") [1610267](https://support.mozilla.org/questions/1610267 "Attach File no longer Works as of 10/05 W11") [1610268](https://support.mozilla.org/questions/1610268 "Unable to attach files to emails (the ‘Attachments’ button does not respond)./ A") [1610276](https://support.mozilla.org/questions/1610276 "Attach button not working on new emails") |
 | weekly | 4.9× | 2026-10-05 | v153 × m:att | 4 | 100% answered, 82.8h | new | [1610171](https://support.mozilla.org/questions/1610171 "＂inbound.att.net (POP) .. certificate revoked＂? I can't download eMail!") [1610212](https://support.mozilla.org/questions/1610212 "pop from Tbird says connection to server inbound.att.net has been reset") [1610312](https://support.mozilla.org/questions/1610312 "Norton blocks Thunderbird email due to ＂expired certificate＂") [1610322](https://support.mozilla.org/questions/1610322 "No E-mail because of ＂The certificate for inbound.att.net:995 does not come from") |
@@ -129,7 +128,7 @@ Cause alone:
 | weekly | 4.6× | 2026-10-05 | v157 × m:att | 6 | 67% answered, 23.6h | new | [1609929](https://support.mozilla.org/questions/1609929 "＂We've identified a site certificate problem＂") [1610002](https://support.mozilla.org/questions/1610002 "'Digicert Global G2' revoked Oct 5, 2026") [1610193](https://support.mozilla.org/questions/1610193 "certificate has been revoked. unable to receive email.") [1610297](https://support.mozilla.org/questions/1610297 "Unable to receive messages due to certificate problem") [1610484](https://support.mozilla.org/questions/1610484 "tbird cannot download emails from my browser.") [1610523](https://support.mozilla.org/questions/1610523 "Thunderbird could not connect to server inbound.att.net. The connection was refu") |
 | weekly | 4.3× | 2026-09-28 | v157 × feat:attachments | 10 | 100% answered, 8.8h | new | [1608942](https://support.mozilla.org/questions/1608942 "Attachment bug") [1609154](https://support.mozilla.org/questions/1609154 "Nejde přiložit jakákoli příloha") [1609202](https://support.mozilla.org/questions/1609202 "Unable to attach files to emails since 30 Sept update (bug2077590)") [1609259](https://support.mozilla.org/questions/1609259 "attachment dialogue not executing!") [1609461](https://support.mozilla.org/questions/1609461 "I am unable to attach files using either the button or the keyboard.") [1609599](https://support.mozilla.org/questions/1609599 "na de laatste update kan ik geen bijlages toevoegen aan een e-mail") +4 |
 | daily | 3.9× | 2026-10-14 | v158 × m:gmail | 5 | 80% answered, 20.5h | spreading | [1611781](https://support.mozilla.org/questions/1611781 "Unable to write the email to the mailbox - can't pop download emails from gmail") [1611880](https://support.mozilla.org/questions/1611880 "Unable to Add a Gmail Account to Thunderbird Despite Successful Authentication") [1611900](https://support.mozilla.org/questions/1611900 "Address Books in Desktop Thundermail in Windows 11") [1611935](https://support.mozilla.org/questions/1611935 "Google Popup Sign-in from T-0Bird links to a *ghost*/ disabled gmail account") [1611950](https://support.mozilla.org/questions/1611950 "problem with double entries in the sent folder") |
-| monthly | 3.6× | 2026-10 | v158 × feat:addressbook | 9 | 67% answered, 5.5h | new | [1611900](https://support.mozilla.org/questions/1611900 "Address Books in Desktop Thundermail in Windows 11") [1612046](https://support.mozilla.org/questions/1612046 "Synching icloud contacts and calender") [1612277](https://support.mozilla.org/questions/1612277 "Thunderbird: profielen overbrengen naar nieuwe desktop is gelukt, adresboeken zi") [1612365](https://support.mozilla.org/questions/1612365 "Update crashed program and it only loads Xfinity now...Will deleteing it and re-") [1612545](https://support.mozilla.org/questions/1612545 "Ich kann mein Adressbuch nicht mehr finden") [1612659](https://support.mozilla.org/questions/1612659 "Adresboek herstellen") +3 |
+| monthly | 3.2× | 2026-10 | v158 × feat:addressbook | 9 | 67% answered, 5.5h | new | [1611900](https://support.mozilla.org/questions/1611900 "Address Books in Desktop Thundermail in Windows 11") [1612046](https://support.mozilla.org/questions/1612046 "Synching icloud contacts and calender") [1612277](https://support.mozilla.org/questions/1612277 "Thunderbird: profielen overbrengen naar nieuwe desktop is gelukt, adresboeken zi") [1612365](https://support.mozilla.org/questions/1612365 "Update crashed program and it only loads Xfinity now...Will deleteing it and re-") [1612545](https://support.mozilla.org/questions/1612545 "Ich kann mein Adressbuch nicht mehr finden") [1612659](https://support.mozilla.org/questions/1612659 "Adresboek herstellen") +3 |
 | weekly | 3.0× | 2026-09-28 | v156 × feat:import_export | 5 | 40% answered (below 60%), 1.0h | spreading | [1607999](https://support.mozilla.org/questions/1607999 "How do I import Thunderbird profile from Windows 11 to Ubuntu 24.04?") [1608076](https://support.mozilla.org/questions/1608076 "Import from Outlook") [1608271](https://support.mozilla.org/questions/1608271 "preciso de ajuda para fazer backup no thunderbird.") [1608370](https://support.mozilla.org/questions/1608370 "How to import contacts from Thunderbird to Zoho") [1608599](https://support.mozilla.org/questions/1608599 "Export/Import accounts only") |
 
 </details>
@@ -149,7 +148,7 @@ Cause alone:
 | daily | 18.0× | 2026-10-12 | feat:attachments | 9 | 89% answered, 0.6h | 0.5 | [1611377](https://support.mozilla.org/questions/1611377 "I cannot attach a file") [1611426](https://support.mozilla.org/questions/1611426 "Chci do zprávy vložit přílohu a po kliknutí na ikonu příloha se mi nezobrazí nab") [1611443](https://support.mozilla.org/questions/1611443 "Attach button in write email no no longer working") [1611455](https://support.mozilla.org/questions/1611455 "Tasto allegato non funziona") [1611469](https://support.mozilla.org/questions/1611469 "The button ‘’Attach’’ stop working. Can I roll back last update?") [1611472](https://support.mozilla.org/questions/1611472 "Kan geen bijlage toevoegen in email") +3 |
 | weekly | 18.0× | 2026-09-28 | m:shaw | 9 | 78% answered, 3.1h | 0.5 | [1608189](https://support.mozilla.org/questions/1608189 "Host Name and Port error as I try to set up Thunderbird. I have shaw mail.") [1608378](https://support.mozilla.org/questions/1608378 "certificate for imap.shaw.ca does not come from a trusted source") [1608647](https://support.mozilla.org/questions/1608647 "Certificate not from trusted source.") [1608660](https://support.mozilla.org/questions/1608660 "Repeated message 'Thunderbird: The certificate for imap.shaw.ca ' keeps showing ") [1608967](https://support.mozilla.org/questions/1608967 "I lost the ability to sync thunderbird to shaw rmail6") [1608978](https://support.mozilla.org/questions/1608978 "Windows 11 preview update results in invalid certificate error - timezone change") +3 |
 | weekly | 11.1× | 2026-10-05 | feat:attachments | 61 | 98% answered, 1.3h | 5.5 | [1609825](https://support.mozilla.org/questions/1609825 "nach dem letzten Update kann ich keine Attachments versenden") [1609864](https://support.mozilla.org/questions/1609864 "allegati che non si possono più inserire nell'email") [1609880](https://support.mozilla.org/questions/1609880 "I cannot add an attachment, when I press the attachment button nothing happens") [1609897](https://support.mozilla.org/questions/1609897 "The 'Attach' button does not respond to outgoing emails") [1609904](https://support.mozilla.org/questions/1609904 "Unable to attach a document to a return email") [1609916](https://support.mozilla.org/questions/1609916 "Attach button dont work after updating to tb 157") +55 |
-| monthly | 6.7× | 2026-10 | feat:attachments | 101 | 98% answered, 1.4h | 15.0 | [1608942](https://support.mozilla.org/questions/1608942 "Attachment bug") [1609154](https://support.mozilla.org/questions/1609154 "Nejde přiložit jakákoli příloha") [1609191](https://support.mozilla.org/questions/1609191 "thunderbird will not allow attachments of any kind or size") [1609202](https://support.mozilla.org/questions/1609202 "Unable to attach files to emails since 30 Sept update (bug2077590)") [1609259](https://support.mozilla.org/questions/1609259 "attachment dialogue not executing!") [1609307](https://support.mozilla.org/questions/1609307 "attaching files to outgoing emails stopped working, what is going on?") +95 |
+| monthly | 6.8× | 2026-10 | feat:attachments | 102 | 98% answered, 1.3h | 15.0 | [1608942](https://support.mozilla.org/questions/1608942 "Attachment bug") [1609154](https://support.mozilla.org/questions/1609154 "Nejde přiložit jakákoli příloha") [1609191](https://support.mozilla.org/questions/1609191 "thunderbird will not allow attachments of any kind or size") [1609202](https://support.mozilla.org/questions/1609202 "Unable to attach files to emails since 30 Sept update (bug2077590)") [1609259](https://support.mozilla.org/questions/1609259 "attachment dialogue not executing!") [1609307](https://support.mozilla.org/questions/1609307 "attaching files to outgoing emails stopped working, what is going on?") +96 |
 | monthly | 6.5× | 2026-10 | m:att | 26 | 81% answered, 24.1h | 4.0 | [1609929](https://support.mozilla.org/questions/1609929 "＂We've identified a site certificate problem＂") [1609983](https://support.mozilla.org/questions/1609983 "I cannot bring mail from AT&T  into my Thunderbird app on my home computer, what") [1610002](https://support.mozilla.org/questions/1610002 "'Digicert Global G2' revoked Oct 5, 2026") [1610037](https://support.mozilla.org/questions/1610037 "Thunderbird suddenly stopped receiving AT&T email ?") [1610152](https://support.mozilla.org/questions/1610152 "Certificate revoked for inbound.att.net?  What do we do?") [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") +20 |
 | monthly | 6.0× | 2026-10 | m:thundermail | 9 | 67% answered, 18.0h | 1.5 | [1609189](https://support.mozilla.org/questions/1609189 "Il selettore di file non si apre cliccando sul pulsante Allega.") [1609761](https://support.mozilla.org/questions/1609761 "Can't upload files to Thundermail Send. Desktop send integration missing") [1610442](https://support.mozilla.org/questions/1610442 "When I") [1610567](https://support.mozilla.org/questions/1610567 "Why is my Thundermail email not arriving?") [1611594](https://support.mozilla.org/questions/1611594 "Emails not showing attachments, and not able to open most older emails.") [1611886](https://support.mozilla.org/questions/1611886 "Desktop Thundermail Calendars in Windows 11") +3 |
 | weekly | 5.7× | 2026-09-28 | feat:attachments | 17 | 100% answered, 4.9h | 3.0 | [1608942](https://support.mozilla.org/questions/1608942 "Attachment bug") [1609154](https://support.mozilla.org/questions/1609154 "Nejde přiložit jakákoli příloha") [1609191](https://support.mozilla.org/questions/1609191 "thunderbird will not allow attachments of any kind or size") [1609202](https://support.mozilla.org/questions/1609202 "Unable to attach files to emails since 30 Sept update (bug2077590)") [1609259](https://support.mozilla.org/questions/1609259 "attachment dialogue not executing!") [1609307](https://support.mozilla.org/questions/1609307 "attaching files to outgoing emails stopped working, what is going on?") +11 |
@@ -160,7 +159,7 @@ Cause alone:
 </details>
 
 <details markdown="1">
-<summary>Release-adoption version and operating-system spikes (not incidents), 33 rows</summary>
+<summary>Release-adoption version and operating-system spikes (not incidents), 34 rows</summary>
 
 Version and operating system are filters, not causes. A rise in the bare count of one version is release adoption, not a regression. The rows are here for manual checking only.
 
@@ -189,16 +188,17 @@ Version and operating system are filters, not causes. A rise in the bare count o
 | daily | new | 2026-10-20 | tb_version_major | 158 | 17 [1612938](https://support.mozilla.org/questions/1612938 "Thunderbird update destroyed my email organization") [1612947](https://support.mozilla.org/questions/1612947 "Sometimes when I go to my inbox it says ＂no new messages＂, when I have several h") | 0.0 |
 | daily | new | 2026-10-21 | tb_version_major | 158 | 17 [1613164](https://support.mozilla.org/questions/1613164 "Thunderbird cannot access my CenturyTel.net email when I use my Starlink network") [1613165](https://support.mozilla.org/questions/1613165 "Tried exporting contacts, as described but ended up with,＂Export accounts, messa") | 0.0 |
 | daily | new | 2026-10-22 | tb_version_major | 158 | 14 [1613396](https://support.mozilla.org/questions/1613396 "Open inboxes on click - no dropdown required") [1613399](https://support.mozilla.org/questions/1613399 "Remove Thunder Popup") | 0.0 |
+| daily | new | 2026-10-23 | tb_version_major | 158 | 12 [1613609](https://support.mozilla.org/questions/1613609 "How do I deselect multiple folders selected it didn't happen until today and now") [1613630](https://support.mozilla.org/questions/1613630 "View does  not have a font option") | 0.0 |
 | monthly | new | 2026-10 | tb_version_major | 156 | 17 [1608889](https://support.mozilla.org/questions/1608889 "Thunderbird Gone!  - no icon, not in app list in windows 11") [1608938](https://support.mozilla.org/questions/1608938 "Thunderbird non riceve i miei indirizzi maxs21r@hotmail-it e maxs21r  ò   gmail.") | 0.0 |
-| monthly | new | 2026-10 | tb_version_major | 157 | 258 [1608779](https://support.mozilla.org/questions/1608779 "アカウント削除した元に戻したい") [1608924](https://support.mozilla.org/questions/1608924 "Installing language dictionary") | 0.0 |
-| monthly | new | 2026-10 | tb_version_major | 158 | 118 [1609307](https://support.mozilla.org/questions/1609307 "attaching files to outgoing emails stopped working, what is going on?") [1611781](https://support.mozilla.org/questions/1611781 "Unable to write the email to the mailbox - can't pop download emails from gmail") | 0.0 |
-| monthly | 3.8× | 2026-10 | tb_version_major | 153 | 200 [1608883](https://support.mozilla.org/questions/1608883 "El boton adjuntar no funciona") [1608937](https://support.mozilla.org/questions/1608937 "My E/mail reloads previously deleted E/Ms, how do I stop  this?") | 52.5 |
+| monthly | new | 2026-10 | tb_version_major | 157 | 259 [1608779](https://support.mozilla.org/questions/1608779 "アカウント削除した元に戻したい") [1608924](https://support.mozilla.org/questions/1608924 "Installing language dictionary") | 0.0 |
+| monthly | new | 2026-10 | tb_version_major | 158 | 131 [1609307](https://support.mozilla.org/questions/1609307 "attaching files to outgoing emails stopped working, what is going on?") [1611781](https://support.mozilla.org/questions/1611781 "Unable to write the email to the mailbox - can't pop download emails from gmail") | 0.0 |
+| monthly | 3.9× | 2026-10 | tb_version_major | 153 | 203 [1608883](https://support.mozilla.org/questions/1608883 "El boton adjuntar no funciona") [1608937](https://support.mozilla.org/questions/1608937 "My E/mail reloads previously deleted E/Ms, how do I stop  this?") | 52.5 |
 | weekly | new | 2026-09-28 | tb_version_major | 156 | 63 [1607958](https://support.mozilla.org/questions/1607958 "free large video and large file  sender  to send large files  videos in Thunderb") [1607999](https://support.mozilla.org/questions/1607999 "How do I import Thunderbird profile from Windows 11 to Ubuntu 24.04?") | 0.0 |
 | weekly | new | 2026-09-28 | tb_version_major | 157 | 63 [1608636](https://support.mozilla.org/questions/1608636 "problème archivage des messages envoyés") [1608734](https://support.mozilla.org/questions/1608734 "I can no longer copy and paste") | 0.0 |
 | weekly | new | 2026-10-05 | tb_version_major | 157 | 141 [1609778](https://support.mozilla.org/questions/1609778 "Yahoo has a single Spam folder, but Thunderbird shows 2 for Yahoo") [1609805](https://support.mozilla.org/questions/1609805 "My sent file disappeared. How do I restore my sent file?") | 0.0 |
 | weekly | new | 2026-10-12 | tb_version_major | 157 | 55 [1611383](https://support.mozilla.org/questions/1611383 "How can I restore missing Local Folders and emails after Thunderbird re-install?") [1611418](https://support.mozilla.org/questions/1611418 "Thunderbird passaggio da distribuzione standare e distribuzione esr") | 0.0 |
 | weekly | new | 2026-10-12 | tb_version_major | 158 | 49 [1611781](https://support.mozilla.org/questions/1611781 "Unable to write the email to the mailbox - can't pop download emails from gmail") [1611795](https://support.mozilla.org/questions/1611795 "misconversion (mojibake) of some mails in Japanese") | 0.0 |
-| weekly | new | 2026-10-19 | tb_version_major | 158 | 68 [1612740](https://support.mozilla.org/questions/1612740 "Unable to open the summary file for Sent on xxxx@gmail.com. Perhaps there was an") [1612741](https://support.mozilla.org/questions/1612741 "missing messages transferred to local folder using drag and drop, yet shows as t") | 0.0 |
+| weekly | new | 2026-10-19 | tb_version_major | 158 | 81 [1612740](https://support.mozilla.org/questions/1612740 "Unable to open the summary file for Sent on xxxx@gmail.com. Perhaps there was an") [1612741](https://support.mozilla.org/questions/1612741 "missing messages transferred to local folder using drag and drop, yet shows as t") | 0.0 |
 
 </details>
 
@@ -209,76 +209,77 @@ The Thunderbird versions named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| v157 | 258 | `▄▅▅▆▇█▇▇▇▃▃▆▅▃▃▁▁▁▁▁▁▁▁` |
-| v153 | 200 | `▃▄▃▂▆█▆▅▅▃▂▄▆▃▅▃▂▃▃▃▃▃▁` |
-| v158 | 118 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▆▆▅▄▂███▆▂` |
-| v140 | 36 | `▃▆▁▃▆██▃▃▁▅▅▁▃▁▆▅▃▆▃▃▅▁` |
-| v156 | 17 | `█▆▃▁▁▂▃▁▂▁▁▁▂▁▁▁▁▁▁▁▁▁▁` |
-| v115 | 13 | `▁▁▁▁▆▆█▆▃▁▁▁▁▃▃▃▁▁▁▁▁▁▁` |
+| v157 | 259 | `▄▅▅▆▇█▇▇▇▃▃▆▅▃▃▁▁▁▁▁▁▁▁▁` |
+| v153 | 203 | `▃▄▃▂▆█▆▅▅▃▂▄▆▃▅▃▂▃▃▃▃▃▂▁` |
+| v158 | 131 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▆▆▅▄▂███▆▆▂` |
+| v140 | 39 | `▃▆▁▃▆██▃▃▁▅▅▁▃▁▆▅▃▆▃▃▅▅▃` |
+| v156 | 17 | `█▆▃▁▁▂▃▁▂▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁` |
+| v115 | 14 | `▁▁▁▁▆▆█▆▃▁▁▁▁▃▃▃▁▁▁▁▁▁▃▁` |
 
 The mail hosts named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| m:gmail | 75 | `▂▅▃▂▄▃▃▃▄▂▂▂▄▇▃▂▂▂▂▄█▃▁` |
-| m:microsoftemail | 44 | `▇▅▄▄▅▄▁▇▂▄▂▂▁▇█▂▁▁▄▅▅▂▁` |
-| m:yahooemail | 38 | `▅▅▁▂▂█▅▁▇▄▅▂▂▄▄▂▁▁▂▁▄▅▁` |
-| m:att | 26 | `▁▁▁▁▄█▅▂▁▂▁▁▁▁▁▂▁▁▁▁▁▁▁` |
-| m:thundermail | 9 | `▁▅▁▅▁▁▅▅▁▁▁▁▅█▅▁▁▁▅▁▁▁▁` |
-| m:spectrum | 8 | `██▁▁█▁▁▁▁█▁▁▁▁█▁█▁█▁▁█▁` |
+| m:gmail | 80 | `▂▅▃▂▄▃▃▃▄▂▂▂▄▇▃▂▂▂▂▄█▃▄▁` |
+| m:microsoftemail | 44 | `▇▅▄▄▅▄▁▇▂▄▂▂▁▇█▂▁▁▄▅▅▂▁▁` |
+| m:yahooemail | 39 | `▅▅▁▂▂█▅▁▇▄▅▂▂▄▄▂▁▁▂▁▄▅▂▁` |
+| m:att | 26 | `▁▁▁▁▄█▅▂▁▂▁▁▁▁▁▂▁▁▁▁▁▁▁▁` |
+| m:thundermail | 9 | `▁▅▁▅▁▁▅▅▁▁▁▁▅█▅▁▁▁▅▁▁▁▁▁` |
+| m:spectrum | 8 | `██▁▁█▁▁▁▁█▁▁▁▁█▁█▁█▁▁█▁▁` |
 
 The Thunderbird features named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| feat:attachments | 101 | `▂▅▃▅▇▇▆▇█▅▃▆▅▂▃▂▂▁▁▁▁▁▁` |
-| feat:calendar | 22 | `▆▆▃▃▃▃▃▃▁▁▁▁▆▃█▁▁▁█▁▆▃▁` |
-| feat:addressbook | 18 | `▃▁▁▁▁▁▁▁▁▁▃▃▁▆▆█▃▃█▁▆▃▁` |
-| feat:junk | 18 | `▁▁▆▆▃▃▁▁▃▁▁▃▁▁▃█▁▃▆▆▁▃▁` |
-| feat:import_export | 12 | `▁▁▁▁█▁▁▅▁▅▅▁▁▅▁▁▁▁█▁██▁` |
-| feat:addons | 6 | `█▁▁▁▁▁▅▁▁▁▁▁▅▁▁▁▁▁▁▅▁▅▁` |
+| feat:attachments | 102 | `▂▅▃▅▇▇▆▇█▅▃▆▅▂▃▂▂▁▁▁▁▁▁▂` |
+| feat:calendar | 23 | `▆▆▃▃▃▃▃▃▁▁▁▁▆▃█▁▁▁█▁▆▃▃▁` |
+| feat:junk | 19 | `▁▁▆▆▃▃▁▁▃▁▁▃▁▁▃█▁▃▆▆▁▃▃▁` |
+| feat:addressbook | 18 | `▃▁▁▁▁▁▁▁▁▁▃▃▁▆▆█▃▃█▁▆▃▁▁` |
+| feat:import_export | 12 | `▁▁▁▁█▁▁▅▁▅▅▁▁▅▁▁▁▁█▁██▁▁` |
+| feat:filters | 7 | `▁▁▅▁▁▁▁▁▁▁▅█▁▁▁▁▁▅▅▁▁▁▅▁` |
 
 The protocols named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| proto:imap | 58 | `▃▅▃▄▅▅▄▁▃▂▃▂█▂▇▂▃▂▃▁▆▅▂` |
-| proto:pop | 41 | `▆▅▁▃▅▆▆▁▅▃▅▃▅▆▅▅▃▃▅▃▅█▃` |
-| proto:smtp | 23 | `▅█▃▁▃▅▃▁▃▁▃▁▃▃▃▅▁▁▃▃▃▅▁` |
-| proto:oauth | 19 | `▁▃▁▃▃▆▁▃▆▁▃▁█▃▃▁▃▁▃▁▃▆▁` |
-| proto:caldav | 8 | `▁██▁▁▁███▁▁▁█▁██▁▁▁▁▁▁▁` |
-| proto:ews | 5 | `▁▁▁▁▅▁▁▁▅▁▁▁▁█▁▁▁▁▅▁▁▁▁` |
+| proto:imap | 61 | `▃▅▃▄▅▅▄▁▃▂▃▂█▂▇▂▃▂▃▁▆▅▃▃` |
+| proto:pop | 44 | `▆▅▁▃▅▆▆▁▅▃▅▃▅▆▅▅▃▃▅▃▅█▅▅` |
+| proto:smtp | 25 | `▅█▃▁▃▅▃▁▃▁▃▁▃▃▃▅▁▁▃▃▃▅▅▁` |
+| proto:oauth | 19 | `▁▃▁▃▃▆▁▃▆▁▃▁█▃▃▁▃▁▃▁▃▆▁▁` |
+| proto:caldav | 8 | `▁██▁▁▁███▁▁▁█▁██▁▁▁▁▁▁▁▁` |
+| proto:ews | 5 | `▁▁▁▁▅▁▁▁▅▁▁▁▁█▁▁▁▁▅▁▁▁▁▁` |
 
 The antivirus products named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| av:norton | 5 | `▁▁▁▁██▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁` |
-| av:avast | 5 | `▁▁▁▁▁█▁▃▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| av:defender | 2 | `▁▁▁▁▁▁█▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁` |
-| av:fsecure | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁` |
-| av:kaspersky | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁` |
-| av:mcafee | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁` |
+| av:norton | 5 | `▁▁▁▁██▁▁▁▁▁▁▁▁▅▁▁▁▁▁▁▁▁▁` |
+| av:avast | 5 | `▁▁▁▁▁█▁▃▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| av:defender | 3 | `▁▁▁▁▁▁█▁▁▁▁▁█▁▁▁▁▁▁▁▁▁█▁` |
+| av:fsecure | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁` |
+| av:kaspersky | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁` |
+| av:mcafee | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁` |
 
 The operating systems named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| os:windows | 677 | `▅▅▅▄▇█▆▆▆▃▃▄▅▄▅▄▃▂▅▄▅▄▁` |
-| os:linux | 59 | `▅▃▃▃▃▆█▁▃▂▆▆▅▃▃▅▁▅▂▆▃█▂` |
-| os:macos | 46 | `▁▂▂▁▄▄█▂▂▂▁▅▄▃▅▂▁▅▄▂▂▃▁` |
-| os:other | 9 | `▁▅▁▅▅▅▁▁▁▅▁▅▅▁▁▁▁▁█▁▁▁▁` |
-| os:android | 7 | `▅▁▁▁▅▁▁▁▁▅▁▁▁▁▁▁▁▅▁█▅▁▁` |
+| os:windows | 700 | `▅▅▅▄▇█▆▆▆▃▃▄▅▄▅▄▃▂▅▄▅▄▄▁` |
+| os:linux | 63 | `▅▃▃▃▃▆█▁▃▂▆▆▅▃▃▅▁▅▂▆▃█▆▂` |
+| os:macos | 47 | `▁▂▂▁▄▄█▂▂▂▁▅▄▃▅▂▁▅▄▂▂▃▂▁` |
+| os:other | 9 | `▁▅▁▅▅▅▁▁▁▅▁▅▅▁▁▁▁▁█▁▁▁▁▁` |
+| os:android | 7 | `▅▁▁▁▅▁▁▁▁▅▁▁▁▁▁▁▁▅▁█▅▁▁▁` |
 
 The macOS releases named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| macos:golden_gate | 3 | `▁█▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁█▁▁▁▁` |
-| macos:tahoe | 3 | `▁▁▁▁▁█▁▁▁▁▁▁█▁▁▁▁▁█▁▁▁▁` |
-| macos:catalina | 1 | `▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| macos:yosemite | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁` |
-| macos:sequoia | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁` |
+| macos:golden_gate | 3 | `▁█▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁█▁▁▁▁▁` |
+| macos:tahoe | 3 | `▁▁▁▁▁█▁▁▁▁▁▁█▁▁▁▁▁█▁▁▁▁▁` |
+| macos:catalina | 1 | `▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| macos:yosemite | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁` |
+| macos:sequoia | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁` |
+| macos:sierra | 1 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁` |
 
 
 </details>
