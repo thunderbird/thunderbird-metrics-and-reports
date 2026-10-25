@@ -463,7 +463,7 @@ period,dim,value,count
 2026-09-14,mail_provider,m:comcast,4
 2026-10-05,mail_provider,m:comcast,2
 2026-10-12,mail_provider,m:comcast,2
-2026-10-19,mail_provider,m:comcast,1
+2026-10-19,mail_provider,m:comcast,2
 2026-08-03,mail_provider,m:cox,1
 2026-08-10,mail_provider,m:cox,3
 2026-08-17,mail_provider,m:cox,1
@@ -914,7 +914,7 @@ period,dim,value,count
 2026-09-28,os,os:windows,200
 2026-10-05,os,os:windows,267
 2026-10-12,os,os:windows,170
-2026-10-19,os,os:windows,145
+2026-10-19,os,os:windows,149
 2026-04-27,protocol,proto:caldav,1
 2026-05-25,protocol,proto:caldav,1
 2026-06-01,protocol,proto:caldav,2
@@ -973,7 +973,7 @@ period,dim,value,count
 2026-09-28,protocol,proto:imap,20
 2026-10-05,protocol,proto:imap,16
 2026-10-12,protocol,proto:imap,19
-2026-10-19,protocol,proto:imap,16
+2026-10-19,protocol,proto:imap,17
 2026-04-27,protocol,proto:oauth,1
 2026-05-04,protocol,proto:oauth,2
 2026-05-11,protocol,proto:oauth,6
@@ -1297,10 +1297,10 @@ period,dim,value,count
 2026-09-28,tb_version_major,157,63
 2026-10-05,tb_version_major,157,141
 2026-10-12,tb_version_major,157,55
-2026-10-19,tb_version_major,157,2
+2026-10-19,tb_version_major,157,3
 2026-09-28,tb_version_major,158,1
 2026-10-12,tb_version_major,158,49
-2026-10-19,tb_version_major,158,86
+2026-10-19,tb_version_major,158,87
 2026-04-27,tb_version_major,159,1
 2026-09-28,tb_version_major,159,1
 2026-10-19,tb_version_major,159,1
@@ -1332,4 +1332,4 @@ period,dim,value,count
 2026-09-28,total,all,242
 2026-10-05,total,all,315
 2026-10-12,total,all,214
-2026-10-19,total,all,179
+2026-10-19,total,all,183
