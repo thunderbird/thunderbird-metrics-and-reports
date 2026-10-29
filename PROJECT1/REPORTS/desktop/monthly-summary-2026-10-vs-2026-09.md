@@ -9,13 +9,13 @@ title: Desktop Engineering Support Summary — October 2026
 
 _For **engineering**: the support signals worth investigating this month vs last — flagged incidents, moving cause clusters, and release adoption. (Community/support-ops KPIs — answered & solved rates, response time — are a separate upcoming report.) Non-AI: regex + traditional stats._
 
-> ⚠️ **October 2026 is in progress** — data through day 28 of 31. Counts are partial, so the deltas below understate October 2026; treat volume changes as directional until the month closes.
+> ⚠️ **October 2026 is in progress** — data through day 29 of 31. Counts are partial, so the deltas below understate October 2026; treat volume changes as directional until the month closes.
 
 ## Headline
 
 | | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 977 | 937 | ▼ -40 (-4%) |
+| Support questions (load) | 977 | 952 | ▼ -25 (-3%) |
 | Version × cause spikes flagged | 5 | 15 | ▲ +10 |
 | — of which **new** regressions | 2 | 2 | ▬ 0 |
 | Cause-level surges flagged | 1 | 3 | ▲ +2 |
@@ -30,13 +30,13 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 
 | Signal | When | Version × Cause | Qs | Lift | Served | Example questions |
 |:--|:--|:--|--:|--:|:--|:--|
-| 🆕 new | 2026-10-06 | v140 × m:att | 4 | 110.4× | 75% ans · 2.7h | [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") [1610258](https://support.mozilla.org/questions/1610258 "The certificate for inbound.att.net does not come from a trusted source.") [1610259](https://support.mozilla.org/questions/1610259 "Why Thunderbird on Linux will no longer connect to att.net email with POP3.") [1610309](https://support.mozilla.org/questions/1610309 "AOL setup on MX Linux... fails authentication") |
+| 🆕 new | 2026-10-06 | v140 × m:att | 4 | 110.6× | 75% ans · 2.7h | [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") [1610258](https://support.mozilla.org/questions/1610258 "The certificate for inbound.att.net does not come from a trusted source.") [1610259](https://support.mozilla.org/questions/1610259 "Why Thunderbird on Linux will no longer connect to att.net email with POP3.") [1610309](https://support.mozilla.org/questions/1610309 "AOL setup on MX Linux... fails authentication") |
 | 🆕 new | 2026-10-04 | v157 × feat:attachments | 5 | 7.2× | 100% ans · 12.1h | [1609599](https://support.mozilla.org/questions/1609599 "na de laatste update kan ik geen bijlages toevoegen aan een e-mail") [1609601](https://support.mozilla.org/questions/1609601 "Change the app that opens email attachments") [1609642](https://support.mozilla.org/questions/1609642 "Attach button does not respond. Drag and Drop works. (bug2077590)") [1609643](https://support.mozilla.org/questions/1609643 "email beantwoorden, bijlage knop werkt niet") [1609719](https://support.mozilla.org/questions/1609719 "Unable to attach files to email") |
 | ↗ spreading | 2026-10-05 | v153 × feat:attachments | 6 | 10.3× | 83% ans · 0.6h | [1609864](https://support.mozilla.org/questions/1609864 "allegati che non si possono più inserire nell'email") [1609904](https://support.mozilla.org/questions/1609904 "Unable to attach a document to a return email") [1609918](https://support.mozilla.org/questions/1609918 "allegati") [1609979](https://support.mozilla.org/questions/1609979 "why can't i attach files to sent email?") [1609986](https://support.mozilla.org/questions/1609986 "not launching file explorer to attach files") +1 |
 | ↗ spreading | 2026-10-24 | v158 × proto:pop | 4 | 7.8× | 75% ans · 4.3h | [1613820](https://support.mozilla.org/questions/1613820 "Connection Reset issues") [1613821](https://support.mozilla.org/questions/1613821 "Local mail is twice the size as pop mail") [1613847](https://support.mozilla.org/questions/1613847 "I cannot move a folder back from ＂Drafts＂ to the ＂Inbox＂") [1613900](https://support.mozilla.org/questions/1613900 "Thunderbird fails to authenticate Outlook.com IMAP account using OAuth2") |
 | ↗ spreading | 2026-10-14 | v158 × m:gmail | 5 | 3.9× | 100% ans · 22.2h | [1611781](https://support.mozilla.org/questions/1611781 "Unable to write the email to the mailbox - can't pop download emails from gmail") [1611880](https://support.mozilla.org/questions/1611880 "Unable to Add a Gmail Account to Thunderbird Despite Successful Authentication") [1611900](https://support.mozilla.org/questions/1611900 "Address Books in Desktop Thundermail in Windows 11") [1611935](https://support.mozilla.org/questions/1611935 "Google Popup Sign-in from T-0Bird links to a *ghost*/ disabled gmail account") [1611950](https://support.mozilla.org/questions/1611950 "problem with double entries in the sent folder") |
-| ↻ recurring | 2026-10-10 | v153 × feat:attachments | 4 | 13.7× | 100% ans · 0.9h | [1611065](https://support.mozilla.org/questions/1611065 "Suddenly I can't attach anything to my emails!") [1611069](https://support.mozilla.org/questions/1611069 "it has not been possible to attach files to emails using the paperclip icon.") [1611096](https://support.mozilla.org/questions/1611096 "Can no longer attach photos with e-mail.") [1611102](https://support.mozilla.org/questions/1611102 "Can no longer attach photos with e-mail. (locked duplicate)") |
-| ↻ recurring | 2026-10-08 | v153 × feat:attachments | 5 | 11.4× | 100% ans · 0.6h | [1610569](https://support.mozilla.org/questions/1610569 "The file picker does not open when you click the “Attach” button") [1610581](https://support.mozilla.org/questions/1610581 "Cannot attach files to emails in Thunderbird") [1610617](https://support.mozilla.org/questions/1610617 "Attachment function not accessible anymore") [1610652](https://support.mozilla.org/questions/1610652 "Attachment to an email is not possible with Tunderbird") [1610745](https://support.mozilla.org/questions/1610745 "Why can't I attach a document to my email") |
+| ↻ recurring | 2026-10-10 | v153 × feat:attachments | 4 | 13.8× | 100% ans · 0.9h | [1611065](https://support.mozilla.org/questions/1611065 "Suddenly I can't attach anything to my emails!") [1611069](https://support.mozilla.org/questions/1611069 "it has not been possible to attach files to emails using the paperclip icon.") [1611096](https://support.mozilla.org/questions/1611096 "Can no longer attach photos with e-mail.") [1611102](https://support.mozilla.org/questions/1611102 "Can no longer attach photos with e-mail. (locked duplicate)") |
+| ↻ recurring | 2026-10-08 | v153 × feat:attachments | 5 | 11.5× | 100% ans · 0.6h | [1610569](https://support.mozilla.org/questions/1610569 "The file picker does not open when you click the “Attach” button") [1610581](https://support.mozilla.org/questions/1610581 "Cannot attach files to emails in Thunderbird") [1610617](https://support.mozilla.org/questions/1610617 "Attachment function not accessible anymore") [1610652](https://support.mozilla.org/questions/1610652 "Attachment to an email is not possible with Tunderbird") [1610745](https://support.mozilla.org/questions/1610745 "Why can't I attach a document to my email") |
 | ↻ recurring | 2026-10-07 | v153 × feat:attachments | 5 | 9.2× | 100% ans · 2.0h | [1610392](https://support.mozilla.org/questions/1610392 "Recurring Issue with Attachment Button in Thunderbird Desktop") [1610416](https://support.mozilla.org/questions/1610416 "sinds de update 153.4.0esr van 05 oktober kan ik geen bijlagen meer koppelen aan") [1610444](https://support.mozilla.org/questions/1610444 "Thunderbird has stopped to include attachments via key. Only drag and drop funct") [1610449](https://support.mozilla.org/questions/1610449 "A problem with sending attachments with an email") [1610548](https://support.mozilla.org/questions/1610548 "Unable to add an attachment to the email being sent") |
 | ↻ recurring | 2026-10-09 | v157 × feat:attachments | 7 | 8.0× | 100% ans · 7.6h | [1610829](https://support.mozilla.org/questions/1610829 "impossibile inserire allegati") [1610832](https://support.mozilla.org/questions/1610832 "No attachment possible") [1610883](https://support.mozilla.org/questions/1610883 "Ik kan geen bijlagen voegen bij mijn email") [1610903](https://support.mozilla.org/questions/1610903 "blokkering van bijlagen koppelen in emailbericht") [1610926](https://support.mozilla.org/questions/1610926 "I cannot attach files") +2 |
 | ↻ recurring | 2026-10-08 | v157 × feat:attachments | 6 | 7.5× | 100% ans · 0.7h | [1610602](https://support.mozilla.org/questions/1610602 "Nejde mi přidat do mailu příloha") [1610606](https://support.mozilla.org/questions/1610606 "The ＂Attach＂ button doesn't work when composing an email; it is not possible to ") [1610619](https://support.mozilla.org/questions/1610619 "Why can I no longer attach a file by clicking OPEN on the file location and why ") [1610638](https://support.mozilla.org/questions/1610638 "allegati mail") [1610666](https://support.mozilla.org/questions/1610666 "een blokkade om bijlagen te koppelen in email die ik verstuur") +1 |
@@ -67,9 +67,9 @@ Version-agnostic (a provider outage spans versions), vs a trailing-month baselin
 | proto:smtp | 53 | 31 | ▼ -22 (-42%) |
 | m:att | 6 | 26 | ▲ +20 |
 | m:alice_it | 20 | 1 | ▼ -19 (-95%) |
-| feat:calendar | 10 | 27 | ▲ +17 (+170%) |
+| feat:calendar | 10 | 28 | ▲ +18 (+180%) |
 | m:spectrum | 22 | 8 | ▼ -14 (-64%) |
-| m:microsoftemail | 67 | 54 | ▼ -13 (-19%) |
+| feat:filters | 21 | 8 | ▼ -13 (-62%) |
 
 ### 🆕 New cause clusters (first appearance ever)
 
@@ -79,7 +79,7 @@ _None — every cause cluster in October 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| v153 | 193 | 232 | ▲ +39 (+20%) |
+| v153 | 193 | 236 | ▲ +43 (+22%) |
 | v157 | 3 | 262 | ▲ +259 |
 | v155 | 239 | 3 | ▼ -236 (-99%) |
 | v156 | 203 | 17 | ▼ -186 (-92%) |
@@ -90,9 +90,9 @@ _None — every cause cluster in October 2026 has appeared in a prior month._
 
 | Operating-system mix | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 816 | 772 | ▼ -44 (-5%) |
-| os:linux | 63 | 74 | ▲ +11 (+17%) |
-| os:macos | 62 | 59 | ▼ -3 (-5%) |
+| os:windows | 816 | 783 | ▼ -33 (-4%) |
+| os:linux | 63 | 77 | ▲ +14 (+22%) |
+| os:macos | 62 | 60 | ▼ -2 (-3%) |
 | os:other | 7 | 9 | ▲ +2 |
 | os:android | 5 | 8 | ▲ +3 |
 
@@ -100,15 +100,15 @@ _None — every cause cluster in October 2026 has appeared in a prior month._
 
 | Topic mix | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 317 | 220 | ▼ -97 (-31%) |
+| send-and-receive-email | 317 | 225 | ▼ -92 (-29%) |
 | attachments | 28 | 182 | ▲ +154 (+550%) |
-| email-and-messaging | 85 | 71 | ▼ -14 (-16%) |
-| customization | 71 | 77 | ▲ +6 (+8%) |
+| email-and-messaging | 85 | 75 | ▼ -10 (-12%) |
+| customization | 71 | 79 | ▲ +8 (+11%) |
 | passwords-and-sign-in | 54 | 44 | ▼ -10 (-19%) |
-| connectivity | 50 | 37 | ▼ -13 (-26%) |
+| connectivity | 50 | 38 | ▼ -12 (-24%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · October 2026 vs September 2026._
 
-_Last updated: 2026-10-28 20:05 UTC_
+_Last updated: 2026-10-29 08:06 UTC_
