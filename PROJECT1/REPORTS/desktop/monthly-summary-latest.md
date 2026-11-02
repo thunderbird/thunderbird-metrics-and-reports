@@ -28,7 +28,7 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 
 | Signal | When | Version × Cause | Qs | Lift | Served | Example questions |
 |:--|:--|:--|--:|--:|:--|:--|
-| 🆕 new | 2026-10-06 | v140 × m:att | 4 | 109.9× | 75% ans · 2.7h | [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") [1610258](https://support.mozilla.org/questions/1610258 "The certificate for inbound.att.net does not come from a trusted source.") [1610259](https://support.mozilla.org/questions/1610259 "Why Thunderbird on Linux will no longer connect to att.net email with POP3.") [1610309](https://support.mozilla.org/questions/1610309 "AOL setup on MX Linux... fails authentication") |
+| 🆕 new | 2026-10-06 | v140 × m:att | 4 | 108.0× | 75% ans · 2.7h | [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") [1610258](https://support.mozilla.org/questions/1610258 "The certificate for inbound.att.net does not come from a trusted source.") [1610259](https://support.mozilla.org/questions/1610259 "Why Thunderbird on Linux will no longer connect to att.net email with POP3.") [1610309](https://support.mozilla.org/questions/1610309 "AOL setup on MX Linux... fails authentication") |
 | 🆕 new | 2026-10-04 | v157 × feat:attachments | 5 | 7.3× | 100% ans · 12.1h | [1609599](https://support.mozilla.org/questions/1609599 "na de laatste update kan ik geen bijlages toevoegen aan een e-mail") [1609601](https://support.mozilla.org/questions/1609601 "Change the app that opens email attachments") [1609642](https://support.mozilla.org/questions/1609642 "Attach button does not respond. Drag and Drop works. (bug2077590)") [1609643](https://support.mozilla.org/questions/1609643 "email beantwoorden, bijlage knop werkt niet") [1609719](https://support.mozilla.org/questions/1609719 "Unable to attach files to email") |
 | ↗ spreading | 2026-10-05 | v153 × feat:attachments | 6 | 10.4× | 83% ans · 0.6h | [1609864](https://support.mozilla.org/questions/1609864 "allegati che non si possono più inserire nell'email") [1609904](https://support.mozilla.org/questions/1609904 "Unable to attach a document to a return email") [1609918](https://support.mozilla.org/questions/1609918 "allegati") [1609979](https://support.mozilla.org/questions/1609979 "why can't i attach files to sent email?") [1609986](https://support.mozilla.org/questions/1609986 "not launching file explorer to attach files") +1 |
 | ↗ spreading | 2026-10-24 | v158 × proto:pop | 4 | 7.8× | 75% ans · 4.3h | [1613820](https://support.mozilla.org/questions/1613820 "Connection Reset issues") [1613821](https://support.mozilla.org/questions/1613821 "Local mail is twice the size as pop mail") [1613847](https://support.mozilla.org/questions/1613847 "I cannot move a folder back from ＂Drafts＂ to the ＂Inbox＂") [1613900](https://support.mozilla.org/questions/1613900 "Thunderbird fails to authenticate Outlook.com IMAP account using OAuth2") |
@@ -51,7 +51,7 @@ Version-agnostic (a provider outage spans versions), vs a trailing-month baselin
 | Cause | Qs | Served | vs baseline | Rise | Example questions |
 |:--|--:|:--|--:|:--|:--|
 | feat:attachments | 106 | 97% ans · 1.4h | 15.0 | 7.07× | [1608942](https://support.mozilla.org/questions/1608942 "Attachment bug") [1609154](https://support.mozilla.org/questions/1609154 "Nejde přiložit jakákoli příloha") [1609191](https://support.mozilla.org/questions/1609191 "thunderbird will not allow attachments of any kind or size") [1609202](https://support.mozilla.org/questions/1609202 "Unable to attach files to emails since 30 Sept update (bug2077590)") [1609259](https://support.mozilla.org/questions/1609259 "attachment dialogue not executing!") +101 |
-| m:att | 27 | 81% ans · 20.4h | 4.0 | 6.75× | [1609929](https://support.mozilla.org/questions/1609929 "＂We've identified a site certificate problem＂") [1609983](https://support.mozilla.org/questions/1609983 "I cannot bring mail from AT&T  into my Thunderbird app on my home computer, what") [1610002](https://support.mozilla.org/questions/1610002 "'Digicert Global G2' revoked Oct 5, 2026") [1610037](https://support.mozilla.org/questions/1610037 "Thunderbird suddenly stopped receiving AT&T email ?") [1610152](https://support.mozilla.org/questions/1610152 "Certificate revoked for inbound.att.net?  What do we do?") +22 |
+| m:att | 28 | 82% ans · 24.1h | 4.0 | 7.0× | [1609929](https://support.mozilla.org/questions/1609929 "＂We've identified a site certificate problem＂") [1609983](https://support.mozilla.org/questions/1609983 "I cannot bring mail from AT&T  into my Thunderbird app on my home computer, what") [1610002](https://support.mozilla.org/questions/1610002 "'Digicert Global G2' revoked Oct 5, 2026") [1610037](https://support.mozilla.org/questions/1610037 "Thunderbird suddenly stopped receiving AT&T email ?") [1610152](https://support.mozilla.org/questions/1610152 "Certificate revoked for inbound.att.net?  What do we do?") +23 |
 | m:thundermail | 10 | 80% ans · 29.6h | 1.5 | 6.67× | [1609189](https://support.mozilla.org/questions/1609189 "Il selettore di file non si apre cliccando sul pulsante Allega.") [1609761](https://support.mozilla.org/questions/1609761 "Can't upload files to Thundermail Send. Desktop send integration missing") [1610442](https://support.mozilla.org/questions/1610442 "When I") [1610567](https://support.mozilla.org/questions/1610567 "Why is my Thundermail email not arriving?") [1611594](https://support.mozilla.org/questions/1611594 "Emails not showing attachments, and not able to open most older emails.") +5 |
 
 ## What moved
@@ -63,7 +63,7 @@ Version-agnostic (a provider outage spans versions), vs a trailing-month baselin
 | feat:attachments | 20 | 106 | ▲ +86 (+430%) |
 | m:gmail | 66 | 96 | ▲ +30 (+45%) |
 | feat:calendar | 10 | 34 | ▲ +24 (+240%) |
-| m:att | 6 | 27 | ▲ +21 |
+| m:att | 6 | 28 | ▲ +22 |
 | m:alice_it | 20 | 1 | ▼ -19 (-95%) |
 | proto:smtp | 53 | 36 | ▼ -17 (-32%) |
 | m:spectrum | 22 | 8 | ▼ -14 (-64%) |
@@ -109,4 +109,4 @@ _None — every cause cluster in October 2026 has appeared in a prior month._
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · October 2026 vs September 2026._
 
-_Last updated: 2026-11-01 20:04 UTC_
+_Last updated: 2026-11-02 08:06 UTC_

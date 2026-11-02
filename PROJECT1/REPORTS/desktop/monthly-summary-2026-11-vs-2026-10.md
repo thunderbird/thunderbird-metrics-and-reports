@@ -15,8 +15,8 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 1030 | 11 | ▼ -1019 (-99%) |
-| Version × cause spikes flagged | 15 | 0 | ▼ -15 |
+| Support questions (load) | 1030 | 25 | ▼ -1005 (-98%) |
+| Version × cause spikes flagged | 15 | 1 | ▼ -14 |
 | — of which **new** regressions | 2 | 0 | ▼ -2 |
 | Cause-level surges flagged | 3 | 0 | ▼ -3 |
 
@@ -24,7 +24,13 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 > ⏱ **Reading spike timing:** a spike dates when users **piled in** — a *lagging* signal, usually days after an incident's onset and often near its resolution (e.g. the Jun 2023 Libero outage began ~Jun 14; the questions spiked Jun 19). Treat these as pain-cluster / triage signals, **not** real-time incident detection.
 
-_No spikes flagged this month at current thresholds._
+### Version × cause — possible release regressions
+
+Ranked new → spreading → recurring, then by lift (× above what release adoption alone explains).
+
+| Signal | When | Version × Cause | Qs | Lift | Served | Example questions |
+|:--|:--|:--|--:|--:|:--|:--|
+| ↗ spreading | 2026-11-01 | v159 × feat:calendar | 4 | 9.6× | ⚠️ 25% ans · 0.5h | [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615363](https://support.mozilla.org/questions/1615363 "TB 159 - Graph Calendar not automatically detected on account setup") [1615397](https://support.mozilla.org/questions/1615397 "Make Calendar Notification Window AlwaysOnTop") [1615399](https://support.mozilla.org/questions/1615399 "＂Thunderbird＂ access to Calendar functions are NOT FUNCTIONING at all. Thanks fo") |
 
 ## What moved
 
@@ -33,13 +39,13 @@ _No spikes flagged this month at current thresholds._
 | Cause clusters (provider / protocol / AV / feature) | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
 | feat:attachments | 106 | 0 | ▼ -106 (-100%) |
-| m:gmail | 96 | 1 | ▼ -95 (-99%) |
+| m:gmail | 96 | 2 | ▼ -94 (-98%) |
 | proto:imap | 82 | 1 | ▼ -81 (-99%) |
-| m:microsoftemail | 60 | 1 | ▼ -59 (-98%) |
+| m:microsoftemail | 60 | 2 | ▼ -58 (-97%) |
 | proto:pop | 55 | 0 | ▼ -55 (-100%) |
-| m:yahooemail | 52 | 0 | ▼ -52 (-100%) |
-| proto:smtp | 36 | 1 | ▼ -35 (-97%) |
-| feat:calendar | 34 | 3 | ▼ -31 (-91%) |
+| m:yahooemail | 53 | 0 | ▼ -53 (-100%) |
+| proto:smtp | 36 | 3 | ▼ -33 (-92%) |
+| proto:oauth | 31 | 1 | ▼ -30 (-97%) |
 
 ### 🆕 New cause clusters (first appearance ever)
 
@@ -50,19 +56,19 @@ _None — every cause cluster in November 2026 has appeared in a prior month._
 | Release adoption (version mix) | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
 | v157 | 262 | 0 | ▼ -262 (-100%) |
-| v153 | 251 | 1 | ▼ -250 (-100%) |
+| v153 | 251 | 2 | ▼ -249 (-99%) |
 | v158 | 169 | 1 | ▼ -168 (-99%) |
-| v159 | 48 | 3 | ▼ -45 (-94%) |
+| v159 | 48 | 13 | ▼ -35 (-73%) |
 | v140 | 43 | 1 | ▼ -42 (-98%) |
-| v115 | 19 | 0 | ▼ -19 (-100%) |
+| v115 | 19 | 1 | ▼ -18 (-95%) |
 
 ### Operating-system mix
 
 | Operating-system mix | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 848 | 7 | ▼ -841 (-99%) |
+| os:windows | 848 | 18 | ▼ -830 (-98%) |
 | os:linux | 83 | 2 | ▼ -81 (-98%) |
-| os:macos | 66 | 2 | ▼ -64 (-97%) |
+| os:macos | 66 | 4 | ▼ -62 (-94%) |
 | os:other | 9 | 0 | ▼ -9 |
 | os:android | 8 | 0 | ▼ -8 |
 
@@ -70,15 +76,15 @@ _None — every cause cluster in November 2026 has appeared in a prior month._
 
 | Topic mix | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 246 | 1 | ▼ -245 (-100%) |
+| send-and-receive-email | 246 | 5 | ▼ -241 (-98%) |
 | attachments | 183 | 1 | ▼ -182 (-99%) |
-| customization | 90 | 1 | ▼ -89 (-99%) |
+| customization | 90 | 2 | ▼ -88 (-98%) |
 | email-and-messaging | 88 | 1 | ▼ -87 (-99%) |
-| passwords-and-sign-in | 46 | 0 | ▼ -46 (-100%) |
-| connectivity | 39 | 1 | ▼ -38 (-97%) |
+| passwords-and-sign-in | 46 | 1 | ▼ -45 (-98%) |
+| connectivity | 39 | 2 | ▼ -37 (-95%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from Project 1 feature tables + spike detectors · November 2026 vs October 2026._
 
-_Last updated: 2026-11-01 20:04 UTC_
+_Last updated: 2026-11-02 08:06 UTC_
