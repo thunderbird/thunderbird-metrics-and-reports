@@ -5,7 +5,7 @@ title: "2026-11 exec summary: Thunderbird Desktop support spikes"
 
 # November 2026: Thunderbird Desktop support spikes
 
-Executive summary for 2026-11. It covers 2 Thunderbird Desktop support questions. The tool wrote this page on 2026-11-01 05:31 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-11. It covers 25 Thunderbird Desktop support questions. The tool wrote this page on 2026-11-02 05:31 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -33,29 +33,29 @@ Executive summary for 2026-11. It covers 2 Thunderbird Desktop support questions
 
 November 2026 is still in progress. The counts will grow.
 
-In short: OAuth and Calendar. [What stands out](#what-stands-out) has the detail.
+In short: Calendar and OAuth. [What stands out](#what-stands-out) has the detail.
 
 | Detector | daily | weekly | monthly |
 |:--|--:|--:|--:|
-| version×cause (a release caused the problem) | 0 | 3 | 0 |
+| version×cause (a release caused the problem) | 1 | 2 | 0 |
 | cause-level (mail host, protocol, antivirus, feature) | 0 | 1 | 0 |
 
-November 2026 holds 2 questions, about 2 a day. The detectors need 8 questions of one kind in a day, 6 in a week or 8 in a month before they call a spike. At this volume most real clusters cannot clear those floors, so read a zero as "nothing large enough to fire", not as "nothing happened".
+November 2026 holds 25 questions, about 25 a day. The detectors need 8 questions of one kind in a day, 6 in a week or 8 in a month before they call a spike. At this volume most real clusters cannot clear those floors, so read a zero as "nothing large enough to fire", not as "nothing happened".
 
 Three more numbers for context:
 
-- Volume: 2 questions. 1 of them (50%) carry a cause tag. The count per day was `█`, one block per day from November 1 to November 1.
-- Answers: 1 of the 2 questions (50%) got an answer from somebody other than the person who asked. The middle time to the first answer was 0.6 hours.
-- Release-adoption version spikes: 2. Users move to a new release, so the bare counts rise. These are not incidents.
+- Volume: 25 questions. 12 of them (48%) carry a cause tag. The count per day was `█`, one block per day from November 1 to November 1.
+- Answers: 9 of the 25 questions (36%) got an answer from somebody other than the person who asked. The middle time to the first answer was 1.6 hours.
+- Release-adoption version spikes: 4. Users move to a new release, so the bare counts rise. These are not incidents.
 
 Every spike row, with its example questions, is in [All November 2026 detail](#all-november-2026-detail) below.
 
 ## What stands out {#what-stands-out}
 
-1. OAuth ([`proto:oauth`](explorer.html#grain=monthly&cause=proto:oauth&period=2026-11), 2 spikes):  It peaked in the week of 2026-10-26 at 7.3 times expected, on Thunderbird 158.
-2. Calendar ([`feat:calendar`](explorer.html#grain=monthly&cause=feat:calendar&period=2026-11), 2 spikes): 1 question in November, under the monthly bar. It peaked in the week of 2026-10-26 at 4.1 times expected, on Thunderbird 159.
+1. Calendar ([`feat:calendar`](explorer.html#grain=monthly&cause=feat:calendar&period=2026-11), 3 spikes): 5 questions in November, under the monthly bar. It peaked on 2026-11-01 at 9.6 times expected, on Thunderbird 159.
+2. OAuth ([`proto:oauth`](explorer.html#grain=monthly&cause=proto:oauth&period=2026-11), 1 spike): 1 question in November, under the monthly bar. It peaked in the week of 2026-10-26 at 7.0 times expected, on Thunderbird 158.
 
-In 2 clusters, fewer than 60% of the questions got an answer: `v158 × proto:oauth` in the week of 2026-10-26 (0% answered), `v153 × proto:oauth` in the week of 2026-10-26 (50% answered).
+In 3 clusters, fewer than 60% of the questions got an answer: `v159 × feat:calendar` on 2026-11-01 (25% answered), `v158 × proto:oauth` in the week of 2026-10-26 (0% answered), `feat:calendar` in the week of 2026-10-26 (56% answered).
 
 ## Two limits of these dates
 
@@ -72,8 +72,8 @@ Version and cause together:
 
 | Grain | Lift | When | Version × Cause | Questions | Served | Example questions |
 |:--|--:|:--|:--|--:|:--|:--|
-| weekly | 2.6× | 2026-10-26 | v153 × feat:attachments | 4 | 75% answered, 2.4h | [1614267](https://support.mozilla.org/questions/1614267 "Problema invio allegati") [1614411](https://support.mozilla.org/questions/1614411 "Why are Symbolic links in thunderbird attachments replaced with target?") [1614932](https://support.mozilla.org/questions/1614932 "Ifound an email using search but the contents are empty How can I see contents/a") [1614975](https://support.mozilla.org/questions/1614975 "Adding attachments") |
-| weekly | 2.3× | 2026-10-26 | v158 × m:microsoftemail | 4 | 0% answered (below 60%) | [1614222](https://support.mozilla.org/questions/1614222 "Outlook.de receives mail but cannot send with OAuth2: “SmtpClientAuthentication ") [1614376](https://support.mozilla.org/questions/1614376 "Outlook email account can receive mail but loses authentication and stop sending") [1614513](https://support.mozilla.org/questions/1614513 "Thunderbird 158.1 receives emails from my new Outlook.com account but cannot sen") [1614656](https://support.mozilla.org/questions/1614656 "Authentication Failure (outlook)") |
+| weekly | 3.0× | 2026-10-26 | v153 × proto:oauth | 4 | 50% answered (below 60%), 2.9h | [1614258](https://support.mozilla.org/questions/1614258 "Yahoo-Mail lässt sich in Thunderbird 153.5 unter macOS nicht anmelden – „Es ist ") [1614417](https://support.mozilla.org/questions/1614417 "Thunderbird Hotmail Problem") [1614449](https://support.mozilla.org/questions/1614449 "I am receiving regular Thunderbird notifications of errors for a Yahoo mail acco") [1615236](https://support.mozilla.org/questions/1615236 "Outlook.com SMTP OAuth2 authentication fails with error 535 despite successful s") |
+| weekly | 2.5× | 2026-10-26 | v153 × feat:attachments | 4 | 75% answered, 2.4h | [1614267](https://support.mozilla.org/questions/1614267 "Problema invio allegati") [1614411](https://support.mozilla.org/questions/1614411 "Why are Symbolic links in thunderbird attachments replaced with target?") [1614932](https://support.mozilla.org/questions/1614932 "Ifound an email using search but the contents are empty How can I see contents/a") [1614975](https://support.mozilla.org/questions/1614975 "Adding attachments") |
 
 
 </details>
@@ -87,9 +87,9 @@ Version and cause together:
 
 | Grain | Lift | When | Version × Cause | Questions | Served | Novelty | Example questions |
 |:--|--:|:--|:--|--:|:--|:--|:--|
-| weekly | 7.3× | 2026-10-26 | v158 × proto:oauth | 5 | 0% answered (below 60%) | spreading | [1614222](https://support.mozilla.org/questions/1614222 "Outlook.de receives mail but cannot send with OAuth2: “SmtpClientAuthentication ") [1614358](https://support.mozilla.org/questions/1614358 "Thunderbird has stopped downloading emails from Yahoo") [1614376](https://support.mozilla.org/questions/1614376 "Outlook email account can receive mail but loses authentication and stop sending") [1614513](https://support.mozilla.org/questions/1614513 "Thunderbird 158.1 receives emails from my new Outlook.com account but cannot sen") [1614656](https://support.mozilla.org/questions/1614656 "Authentication Failure (outlook)") |
-| weekly | 4.1× | 2026-10-26 | v159 × feat:calendar | 6 | 100% answered, 25.0h | spreading | [1614718](https://support.mozilla.org/questions/1614718 "How do I turn off the sound for event notifications in the calendar?") [1614764](https://support.mozilla.org/questions/1614764 "My calendar stopped working (will not load my calendars), cannot change day , mo") [1614798](https://support.mozilla.org/questions/1614798 "Das Update killt den Kalender") [1614819](https://support.mozilla.org/questions/1614819 "il calendario non funziona") [1614962](https://support.mozilla.org/questions/1614962 "159.0 - Calendar is blanked post-update, & my Advanced Settings screens don't ma") [1615035](https://support.mozilla.org/questions/1615035 "How do I connect to a Microsoft 365 calendar with the new 159 version of Thunder") |
-| weekly | 3.1× | 2026-10-26 | v153 × proto:oauth | 4 | 50% answered (below 60%), 2.9h | spreading | [1614258](https://support.mozilla.org/questions/1614258 "Yahoo-Mail lässt sich in Thunderbird 153.5 unter macOS nicht anmelden – „Es ist ") [1614417](https://support.mozilla.org/questions/1614417 "Thunderbird Hotmail Problem") [1614449](https://support.mozilla.org/questions/1614449 "I am receiving regular Thunderbird notifications of errors for a Yahoo mail acco") [1615236](https://support.mozilla.org/questions/1615236 "Outlook.com SMTP OAuth2 authentication fails with error 535 despite successful s") |
+| daily | 9.6× | 2026-11-01 | v159 × feat:calendar | 4 | 25% answered (below 60%), 0.5h | spreading | [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615363](https://support.mozilla.org/questions/1615363 "TB 159 - Graph Calendar not automatically detected on account setup") [1615397](https://support.mozilla.org/questions/1615397 "Make Calendar Notification Window AlwaysOnTop") [1615399](https://support.mozilla.org/questions/1615399 "＂Thunderbird＂ access to Calendar functions are NOT FUNCTIONING at all. Thanks fo") |
+| weekly | 7.0× | 2026-10-26 | v158 × proto:oauth | 5 | 0% answered (below 60%) | spreading | [1614222](https://support.mozilla.org/questions/1614222 "Outlook.de receives mail but cannot send with OAuth2: “SmtpClientAuthentication ") [1614358](https://support.mozilla.org/questions/1614358 "Thunderbird has stopped downloading emails from Yahoo") [1614376](https://support.mozilla.org/questions/1614376 "Outlook email account can receive mail but loses authentication and stop sending") [1614513](https://support.mozilla.org/questions/1614513 "Thunderbird 158.1 receives emails from my new Outlook.com account but cannot sen") [1614656](https://support.mozilla.org/questions/1614656 "Authentication Failure (outlook)") |
+| weekly | 5.3× | 2026-10-26 | v159 × feat:calendar | 10 | 70% answered, 17.5h | spreading | [1614718](https://support.mozilla.org/questions/1614718 "How do I turn off the sound for event notifications in the calendar?") [1614764](https://support.mozilla.org/questions/1614764 "My calendar stopped working (will not load my calendars), cannot change day , mo") [1614798](https://support.mozilla.org/questions/1614798 "Das Update killt den Kalender") [1614819](https://support.mozilla.org/questions/1614819 "il calendario non funziona") [1614962](https://support.mozilla.org/questions/1614962 "159.0 - Calendar is blanked post-update, & my Advanced Settings screens don't ma") [1615035](https://support.mozilla.org/questions/1615035 "How do I connect to a Microsoft 365 calendar with the new 159 version of Thunder") +4 |
 
 </details>
 
@@ -98,19 +98,21 @@ Version and cause together:
 
 | Grain | Rise | When | Cause | Questions | Served | Baseline | Example questions |
 |:--|--:|:--|:--|--:|:--|--:|:--|
-| weekly | 3.0× | 2026-10-26 | feat:calendar | 12 | 67% answered, 14.1h | 4.0 | [1614162](https://support.mozilla.org/questions/1614162 "Subscribed (internet) calendars disappear") [1614410](https://support.mozilla.org/questions/1614410 "Calendar sidebar - missing data for series") [1614493](https://support.mozilla.org/questions/1614493 "Calendar Event Automatically Created from Email") [1614652](https://support.mozilla.org/questions/1614652 "How do I stop notifications from one calendar?") [1614718](https://support.mozilla.org/questions/1614718 "How do I turn off the sound for event notifications in the calendar?") [1614764](https://support.mozilla.org/questions/1614764 "My calendar stopped working (will not load my calendars), cannot change day , mo") +6 |
+| weekly | 4.0× | 2026-10-26 | feat:calendar | 16 | 56% answered (below 60%), 10.7h | 4.0 | [1614162](https://support.mozilla.org/questions/1614162 "Subscribed (internet) calendars disappear") [1614410](https://support.mozilla.org/questions/1614410 "Calendar sidebar - missing data for series") [1614493](https://support.mozilla.org/questions/1614493 "Calendar Event Automatically Created from Email") [1614652](https://support.mozilla.org/questions/1614652 "How do I stop notifications from one calendar?") [1614718](https://support.mozilla.org/questions/1614718 "How do I turn off the sound for event notifications in the calendar?") [1614764](https://support.mozilla.org/questions/1614764 "My calendar stopped working (will not load my calendars), cannot change day , mo") +10 |
 
 </details>
 
 <details markdown="1">
-<summary>Release-adoption version and operating-system spikes (not incidents), 2 rows</summary>
+<summary>Release-adoption version and operating-system spikes (not incidents), 4 rows</summary>
 
 Version and operating system are filters, not causes. A rise in the bare count of one version is release adoption, not a regression. The rows are here for manual checking only.
 
 | Grain | Rise | When | Dimension | Value | Questions | Baseline |
 |:--|--:|:--|:--|:--|:--|--:|
-| weekly | new | 2026-10-26 | tb_version_major | 158 | 23 [1614162](https://support.mozilla.org/questions/1614162 "Subscribed (internet) calendars disappear") [1614179](https://support.mozilla.org/questions/1614179 "[URGENT] Request to Force Stop Email Loop & Clear Server Queue - [redacted]@lead") | 0.0 |
-| weekly | new | 2026-10-26 | tb_version_major | 159 | 46 [1614545](https://support.mozilla.org/questions/1614545 "Address book hangs when I click on any entry in it") [1614661](https://support.mozilla.org/questions/1614661 "Warum ＂keine Nachrichten＂ bevor die E-Mails aufklappen?") | 0.0 |
+| daily | new | 2026-11-01 | tb_version_major | 159 | 13 [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615316](https://support.mozilla.org/questions/1615316 "Folders disappear") | 0.0 |
+| monthly | new | 2026-11 | tb_version_major | 159 | 13 [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615316](https://support.mozilla.org/questions/1615316 "Folders disappear") | 0.0 |
+| weekly | new | 2026-10-26 | tb_version_major | 158 | 24 [1614162](https://support.mozilla.org/questions/1614162 "Subscribed (internet) calendars disappear") [1614179](https://support.mozilla.org/questions/1614179 "[URGENT] Request to Force Stop Email Loop & Clear Server Queue - [redacted]@lead") | 0.0 |
+| weekly | new | 2026-10-26 | tb_version_major | 159 | 59 [1614545](https://support.mozilla.org/questions/1614545 "Address book hangs when I click on any entry in it") [1614661](https://support.mozilla.org/questions/1614661 "Warum ＂keine Nachrichten＂ bevor die E-Mails aufklappen?") | 0.0 |
 
 </details>
 
@@ -121,20 +123,59 @@ The Thunderbird versions named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
+| v159 | 13 | `█` |
+| v153 | 2 | `█` |
 | v143 | 1 | `█` |
+| v158 | 1 | `█` |
+| v140 | 1 | `█` |
+| v144 | 1 | `█` |
+
+The mail hosts named most often were:
+
+| Value | Questions | Count per day |
+|:--|--:|:--|
+| m:gmail | 2 | `█` |
+| m:microsoftemail | 2 | `█` |
+| m:yandex | 1 | `█` |
+| m:thundermail | 1 | `█` |
+| m:comcast | 1 | `█` |
 
 The Thunderbird features named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| feat:calendar | 1 | `█` |
+| feat:calendar | 5 | `█` |
+| feat:search | 1 | `█` |
+| feat:notifications | 1 | `█` |
+
+The protocols named most often were:
+
+| Value | Questions | Count per day |
+|:--|--:|:--|
+| proto:smtp | 3 | `█` |
+| proto:imap | 1 | `█` |
+| proto:oauth | 1 | `█` |
+| proto:ews | 1 | `█` |
+
+The antivirus products named most often were:
+
+| Value | Questions | Count per day |
+|:--|--:|:--|
+| av:defender | 1 | `█` |
 
 The operating systems named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| os:macos | 1 | `█` |
-| os:windows | 1 | `█` |
+| os:windows | 18 | `█` |
+| os:macos | 4 | `█` |
+| os:linux | 2 | `█` |
+
+The macOS releases named most often were:
+
+| Value | Questions | Count per day |
+|:--|--:|:--|
+| macos:high_sierra | 1 | `█` |
 
 
 </details>
