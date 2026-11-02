@@ -54,6 +54,9 @@ jobs:
         MONTH: ${{ inputs.month }}
         DRY_RUN: ${{ inputs.dry_run }}
         TITLE_PREFIX: ${{ inputs.title_prefix }}
+        # "live" makes the issue text say the 12-hour auto-run spends (#90).
+        # Unset or anything else means a dry run.
+        LLM_AUTO_RUN_MODE: ${{ vars.LLM_AUTO_RUN_MODE }}
       run: |
         set -euo pipefail
         args=()

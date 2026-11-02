@@ -13,6 +13,10 @@ $6.17 spent).
 
 --dry-run prints the issue body and opens nothing. Without it the script calls
 `gh issue create`, unless an open issue with the same title already exists.
+
+The approval box starts checked (#90). The issue text explains the 12-hour rule
+and, through LLM_AUTO_RUN_MODE (anything but "live" means dry run), whether the
+automatic run will spend.
 """
 import argparse
 import json
@@ -26,6 +30,9 @@ from llm_insights_cost import COST_CEILING_USD, preview_map_cost  # noqa: E402
 
 REPO = "thunderbird/thunderbird-metrics-and-reports"
 ASSIGNEE = "rtanglao"
+# The people who may stop the automatic run by un-checking the approval box (#90).
+STOPPERS = ("rtanglao", "lisajill")
+AUTO_RUN_WORKFLOW = "gha-llm-insights-auto-run.yml"
 PRODUCTS = ("desktop", "android")
 CONCAT = "CONCATENATED_FILES/{P}/{m}-sumo-{p}-{kind}.csv"
 LABELS = "LLM_INSIGHTS/{m}-{p}-labels.csv"
@@ -45,6 +52,45 @@ def human(m):
     return date(int(m[:4]), int(m[5:]), 1).strftime("%B %Y")
 
 
+def auto_run_text(live):
+    """The paragraph that explains the 12-hour rule (#90)."""
+    stoppers = " or ".join(f"`{s}`" for s in STOPPERS)
+    text = (f"The approval box below starts checked. At 0000 UTC on the 3rd, 12 hours "
+            f"after the scheduled run opens this issue, `{AUTO_RUN_WORKFLOW}` reads it. "
+            f"To stop the run, {stoppers} un-checks the box before then. An un-check "
+            f"by any other person also stops the run. The run also stops if the high "
+            f"estimate is over the ${COST_CEILING_USD:.0f} ceiling.")
+    if live:
+        return (text + " If nothing stops it, the workflow classifies both products, "
+                "generates both reports, runs the render check, logs the cost in "
+                "`LLM_INSIGHTS/COSTS.md`, commits, and comments the actual cost here.")
+    return (text + " The repository variable `LLM_AUTO_RUN_MODE` is not `live`, so "
+            "this month the workflow does a dry run. It makes sure that the API key "
+            "works with the free `count_tokens` endpoint, comments what it would do, "
+            "and spends nothing. You start the real run by hand.")
+
+
+def checklist(live, cur, prev):
+    """The ordered checklist. In live mode the workflow does steps 2 to 5."""
+    by = "The workflow: " if live else ""
+    steps = [
+        "[x] Approve the spend above. Un-check this box to stop the run.",
+        f"[ ] {by}Classify {cur} for both products: `uv run scripts/llm_insights_classify.py "
+        f"{cur} --product desktop`, then the same with `--product android`.",
+        f"[ ] {by}Make sure that every {cur} question has a label.",
+        f"[ ] {by}Generate both reports: `uv run scripts/llm_insights_mom_report.py "
+        f"{cur} {prev} desktop --latest`, then the same for `android`.",
+        f"[ ] {by}Run `scripts/check_report_render.py` on both pages.",
+        f"[ ] {by}Log the actual cost in `LLM_INSIGHTS/COSTS.md` and commit.",
+        "[ ] Read the \"spiking cause has no cluster\" warnings in the run output, if any.",
+        f"[ ] Review `LLM_INSIGHTS/known-status.csv`. Add any fix or provider outcome "
+        f"from {human(cur)}, then generate the reports again. That rerun is free, "
+        f"because both LLM calls are cached.",
+        "[ ] Deploy the website, read both live pages, and close this issue.",
+    ]
+    return "\n".join(f"{i}. {s}" for i, s in enumerate(steps, 1))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--month", help="YYYY-MM to report on (default: the month "
@@ -53,8 +99,10 @@ def main():
     ap.add_argument("--title-prefix", default="",
                     help="prepended to the title, for a test run")
     args = ap.parse_args()
+    # Anything but "live" means dry-run: the safe default when the variable is unset.
+    live = os.getenv("LLM_AUTO_RUN_MODE", "").strip().lower() == "live"
 
-    cur = args.month or month_before(date.today().strftime("%Y-%m"))
+    cur =args.month or month_before(date.today().strftime("%Y-%m"))
     prev = month_before(cur)
     title = (f"{args.title_prefix}LLM Insights: generate the {human(cur)} "
              f"desktop and android reports")
@@ -111,17 +159,13 @@ The scheduled workflows refresh the concat files, the Project 1 feature tables a
 {"The high estimate is OVER the $" + f"{COST_CEILING_USD:.0f}" + " per-run ceiling. Do not approve it as is." if over else "All figures are under the $" + f"{COST_CEILING_USD:.0f}" + " per-run ceiling."} The estimate comes from text length, not from the exact token count. In September 2026 it read $5.80 for desktop, against $6.17 actually spent. Stage 2 uses the measured cost of earlier runs.
 {chr(10).join(chr(10) + n for n in notes)}
 
+### Automatic run
+
+{auto_run_text(live)}
+
 ### Checklist, in order
 
-1. [ ] Approve the spend above.
-2. [ ] Classify {cur} for both products: `uv run scripts/llm_insights_classify.py {cur} --product desktop`, then the same with `--product android`.
-3. [ ] Make sure that every {cur} question has a label.
-4. [ ] Generate both reports: `uv run scripts/llm_insights_mom_report.py {cur} {prev} desktop --latest`, then the same for `android`.
-5. [ ] Read the "spiking cause has no cluster" warnings in the run output, if any.
-6. [ ] Review `LLM_INSIGHTS/known-status.csv`. Add any fix or provider outcome from {human(cur)}.
-7. [ ] Run `scripts/check_report_render.py` on both pages.
-8. [ ] Log the actual cost in `LLM_INSIGHTS/COSTS.md`, commit, and deploy the website.
-9. [ ] Read both live pages and close this issue.
+{checklist(live, cur, prev)}
 """
     print(body)
     if args.dry_run:
