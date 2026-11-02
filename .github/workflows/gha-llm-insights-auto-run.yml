@@ -1,0 +1,68 @@
+name: gha-llm-insights-auto-run
+
+# #90: 12 hours after gha-llm-insights-cost-preview.yml opens the monthly
+# approval issue (1200 UTC on the 2nd), read the issue and decide whether the
+# LLM run goes ahead. scripts/llm_insights_auto_run.py holds the rules: the box
+# must still be checked, only rtanglao or lisajill may change it, the API key
+# must work, and the high estimate must be under $50.
+#
+# The repository variable LLM_AUTO_RUN_MODE selects the mode. Anything but
+# "live" (including unset) is a dry run: the workflow comments on the issue what
+# it would do and spends nothing. Step 3 of #90 adds the live run job.
+
+on:
+  schedule:
+    - cron: '0 0 3 * *'     # 0000 UTC on the 3rd of each month
+  workflow_dispatch:
+    inputs:
+      month:
+        description: 'Month (YYYY-MM). Blank = the month that just closed'
+        type: string
+        required: false
+      issue:
+        description: 'Issue number to read. Blank = find the approval issue by title'
+        type: string
+        required: false
+      title_prefix:
+        description: 'Title prefix of a test issue (for example "[TEST] ")'
+        type: string
+        required: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  decide:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.decide.outputs.run }}
+      issue: ${{ steps.decide.outputs.issue }}
+      plan: ${{ steps.decide.outputs.plan }}
+    steps:
+    - uses: actions/checkout@v5
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+      with:
+        python-version: '3.14'
+        enable-cache: true
+    - name: Create virtual environment
+      run: uv venv
+    - name: Install dependencies
+      run: uv pip install -r requirements.txt
+    - name: Decide whether the run goes ahead
+      id: decide
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        LLM_AUTO_RUN_MODE: ${{ vars.LLM_AUTO_RUN_MODE }}
+        MONTH: ${{ inputs.month }}
+        ISSUE: ${{ inputs.issue }}
+        TITLE_PREFIX: ${{ inputs.title_prefix }}
+      run: |
+        set -euo pipefail
+        args=()
+        [ -n "${MONTH:-}" ] && args+=(--month "$MONTH")
+        [ -n "${ISSUE:-}" ] && args+=(--issue "$ISSUE")
+        [ -n "${TITLE_PREFIX:-}" ] && args+=(--title-prefix "$TITLE_PREFIX")
+        uv run scripts/llm_insights_auto_run.py "${args[@]}"

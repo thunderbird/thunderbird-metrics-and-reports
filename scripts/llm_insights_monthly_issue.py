@@ -91,23 +91,18 @@ def checklist(live, cur, prev):
     return "\n".join(f"{i}. {s}" for i, s in enumerate(steps, 1))
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--month", help="YYYY-MM to report on (default: the month "
-                    "that just closed)")
-    ap.add_argument("--dry-run", action="store_true")
-    ap.add_argument("--title-prefix", default="",
-                    help="prepended to the title, for a test run")
-    args = ap.parse_args()
-    # Anything but "live" means dry-run: the safe default when the variable is unset.
-    live = os.getenv("LLM_AUTO_RUN_MODE", "").strip().lower() == "live"
+def issue_title(cur, prefix=""):
+    return f"{prefix}LLM Insights: generate the {human(cur)} desktop and android reports"
 
-    cur =args.month or month_before(date.today().strftime("%Y-%m"))
-    prev = month_before(cur)
-    title = (f"{args.title_prefix}LLM Insights: generate the {human(cur)} "
-             f"desktop and android reports")
 
-    inputs, rows, notes = [], [], []
+def estimate(cur, prev):
+    """Preview the cost of the month's run, for both products. Spends nothing.
+
+    Returns the issue's table rows and notes, the totals, and `plan`: for each
+    product, the months that need classifying (the previous month too when it
+    has no labels yet). gha-llm-insights-auto-run.yml reuses this (#90).
+    """
+    inputs, rows, notes, plan = [], [], [], {}
     total = {"expected": 0.0, "high": 0.0}
     for p in PRODUCTS:
         missing = [k for k in ("questions", "answers")
@@ -137,8 +132,30 @@ def main():
                     f"about ${REDUCE[p]['expected']:.2f} | about ${REDUCE[p]['high']:.2f} |")
         total["expected"] += REDUCE[p]["expected"]
         total["high"] += REDUCE[p]["high"]
+        plan[p] = months
     rows.append(f"| Total | | about ${total['expected']:.2f} | about ${total['high']:.2f} |")
+    return {"inputs": inputs, "rows": rows, "notes": notes, "total": total,
+            "plan": plan}
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--month", help="YYYY-MM to report on (default: the month "
+                    "that just closed)")
+    ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--title-prefix", default="",
+                    help="prepended to the title, for a test run")
+    args = ap.parse_args()
+    # Anything but "live" means dry-run: the safe default when the variable is unset.
+    live = os.getenv("LLM_AUTO_RUN_MODE", "").strip().lower() == "live"
+
+    cur = args.month or month_before(date.today().strftime("%Y-%m"))
+    prev = month_before(cur)
+    title = issue_title(cur, args.title_prefix)
+    est = estimate(cur, prev)
+    inputs, rows, notes, total = est["inputs"], est["rows"], est["notes"], est["total"]
     over = total["high"] > COST_CEILING_USD
+
 
     body = f"""This issue tracks the {human(cur)} LLM Insights reports for desktop and android. Each report compares {human(cur)} with {human(prev)}. The workflow `gha-llm-insights-cost-preview.yml` opened it on {date.today():%Y-%m-%d} and spent nothing.
 
