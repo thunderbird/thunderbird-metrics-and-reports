@@ -79,6 +79,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 |:--|--:|--:|:--|:--|:--|--:|
 | Android credentials rejected though valid on desktop (account-login) | 0 | 3 | ▲ +3 | 3.3 (2) | 67% | 33% |
 
+- Reviewer note: Roland Tanglao: Engineering could fix this with Sync, which is on the roadmap with no timeline. If Thunderbird Desktop synced with Thunderbird for Android like Firefox desktop syncs with Firefox Android, these issues could be reduced.
 - Why it matters: Three users had credentials rejected on Android while the same credentials worked on desktop, which points at a client-side auth difference.
 - What to look at: Engineering should consider comparing the OAuth client identifiers and token storage used by Android against desktop for the same provider.
 - Example questions: [1611891](https://support.mozilla.org/questions/1611891 "Login hurdle using desktop user and password into mobile app on Android") [1614628](https://support.mozilla.org/questions/1614628 "не могу зайти на почту v_polyakova@alcopack.ru") [1614921](https://support.mozilla.org/questions/1614921 "Email address primary Account not accepted, as it should be!")
@@ -153,15 +154,15 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | settings-config | 6 | 6 | ▬ 0 |
 | other | 2 | 5 | ▲ +3 |
 | sync-oauth | 5 | 4 | ▼ -1 |
-| attachments | 0 | 3 | ▲ +3 |
-| search-folders | 2 | 3 | ▲ +1 |
 | migration-import | 3 | 3 | ▬ 0 |
+| search-folders | 2 | 3 | ▲ +1 |
+| attachments | 0 | 3 | ▲ +3 |
 | spam-filters | 1 | 2 | ▲ +1 |
-| encryption-security | 2 | 1 | ▼ -1 |
 | performance-crash | 2 | 1 | ▼ -1 |
+| encryption-security | 2 | 1 | ▼ -1 |
 
 ---
 
 This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers October 2026 against September 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-11-03 14:38 UTC
+Last updated: 2026-11-03 14:46 UTC
