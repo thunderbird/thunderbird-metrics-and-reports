@@ -194,6 +194,18 @@ The first run of `--only-missing` labelled the one September desktop question th
 
 The September report was not rerun. One question in 977 does not change its clusters, and a `--refresh` rerun costs about $0.71.
 
+## October 2026 run (2026-11-02 to 2026-11-03, #90)
+
+Roland ran the desktop classification by hand on the night of 2026-11-02. It labelled 1,029 of 1,030 questions. Question [1614889](https://support.mozilla.org/questions/1614889) got no label, and `--only-missing` labelled it the next morning.
+
+| Stage | Questions | Cost |
+|:--|--:|--:|
+| Classify desktop 2026-10 | 1,029 | $6.5779 |
+| Classify desktop 2026-10, missing only | 1 | $0.0138 |
+| **Desktop classification total** | 1,030 | **$6.59** |
+
+Every October desktop question now has a label. The android classification and the clustering and narrative stages for both products are not run yet. Add their rows here when they run.
+
 ## Notes
 - All figures are well under the $50/run circuit-breaker.
 - Cost scales with the enriched text size; if it ever grows, re-baseline the unit rate with the Bucket-0 preview: `uv run scripts/llm_insights_cost.py <month> <month> <product>`.
