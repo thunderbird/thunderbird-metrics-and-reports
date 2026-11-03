@@ -156,9 +156,9 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | settings-config | 6 | 6 | ▬ 0 |
 | other | 2 | 5 | ▲ +3 |
 | sync-oauth | 5 | 4 | ▼ -1 |
+| search-folders | 2 | 3 | ▲ +1 |
 | attachments | 0 | 3 | ▲ +3 |
 | migration-import | 3 | 3 | ▬ 0 |
-| search-folders | 2 | 3 | ▲ +1 |
 | spam-filters | 1 | 2 | ▲ +1 |
 | performance-crash | 2 | 1 | ▼ -1 |
 | encryption-security | 2 | 1 | ▼ -1 |
@@ -167,4 +167,4 @@ The order comes from a Python score. It weights new clusters, badly served clust
 
 This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers October 2026 against September 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-11-03 15:26 UTC
+Last updated: 2026-11-03 15:32 UTC
