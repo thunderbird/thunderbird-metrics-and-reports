@@ -742,6 +742,12 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
     notes_short = load_reviewer_notes(product, cur_m, "tldr")
     W(f"# Thunderbird {pcap} — LLM Insights (Engineering)")
     W(f"\n## {human_month(cur_m)} against {human_month(prev_m)}\n")
+    if len(cur) < LOW_VOLUME:
+        # Roland, 2026-11-03: say it before the TL;DR, not only further down.
+        name = "Thunderbird for Android" if product == "android" else f"Thunderbird {pcap}"
+        W(f"Disclaimer: the SUMO forum gets too few {name} questions to give "
+          f"much useful signal. {human_month(cur_m)} has {len(cur)} questions, "
+          f"and {human_month(prev_m)} has {len(prev)}.\n")
 
     # ---- TL;DR: the top five, first thing on the page ----------------------
     tldr = list(top.iterrows())[:5]
