@@ -17,7 +17,7 @@ Disclaimer: the SUMO forum gets too few Thunderbird for Android questions to giv
 | [2](#issue-2) | [Android credentials rejected though valid on desktop](#issue-2), new this month | 0 | 3 | 3.3 | 67% | No fix yet, because Thunderbird Desktop and Thunderbird for Android do not sync. [More](#issue-2). |
 | [3](#issue-3) | [Deleted messages disappear instead of moving to Trash](#issue-3), new this month | 0 | 2 | 4.0 | 0% (below 50%) | Reviewer: Too few details to solve these. Self-diagnosis and troubleshooting tools would help. |
 | [4](#issue-4) | [QR import leaves accounts unauthenticated / passwords not transferred](#issue-4), new this month | 0 | 3 | 2.7 | 100% | Same as [issue 2](#issue-2). |
-| [5](#issue-5) | [Desktop/Android account and subfolder sync guidance](#issue-5), new this month | 0 | 2 | 2.5 | 0% (below 50%) | — |
+| [5](#issue-5) | [Desktop/Android account and subfolder sync guidance](#issue-5), new this month | 0 | 2 | 2.5 | 0% (below 50%) | Reviewer: Too few details to solve these. Troubleshooting tools, Thunderbird Sync, and teaching that IMAP folders are the same in every IMAP client would help. |
 
 Each number links to the same issue in [Issues to investigate](#issues-to-investigate) below, which carries the reason, what to look at, and the example questions.
 
@@ -115,6 +115,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 |:--|--:|--:|:--|:--|:--|--:|
 | Desktop/Android account and subfolder sync guidance (sync-oauth) | 0 | 2 | ▲ +2 | 2.5 (0) | 0% (below 50%) | 100% |
 
+- Reviewer note: Roland Tanglao: Self diagnostic and other troubleshooting tools would help folks troubleshoot. There's not enough troubleshooting details here to solve people's issues. And Thunderbird sync would help as well as teaching folks about IMAP folder sync. People don't understand that IMAP works across all IMAP clients including TB Desktop, TB Android and other IMAP clients.
 - Why it matters: Both reports about syncing accounts and subfolders between desktop and Android went unanswered, so users got nothing.
 - What to look at: Engineering should consider checking default IMAP folder subscription behaviour on Android and writing down the expected behaviour for support staff.
 - Example questions: [1615150](https://support.mozilla.org/questions/1615150 "How to synchronise adresses and mail folders with Thunderbird for windows") [1609233](https://support.mozilla.org/questions/1609233 "Following a bereavement I need help with all the technology that my partner mana")
@@ -159,9 +160,9 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | settings-config | 6 | 6 | ▬ 0 |
 | other | 2 | 5 | ▲ +3 |
 | sync-oauth | 5 | 4 | ▼ -1 |
-| attachments | 0 | 3 | ▲ +3 |
-| migration-import | 3 | 3 | ▬ 0 |
 | search-folders | 2 | 3 | ▲ +1 |
+| migration-import | 3 | 3 | ▬ 0 |
+| attachments | 0 | 3 | ▲ +3 |
 | spam-filters | 1 | 2 | ▲ +1 |
 | performance-crash | 2 | 1 | ▼ -1 |
 | encryption-security | 2 | 1 | ▼ -1 |
@@ -170,4 +171,4 @@ The order comes from a Python score. It weights new clusters, badly served clust
 
 This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers October 2026 against September 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-11-03 15:49 UTC
+Last updated: 2026-11-03 15:52 UTC
