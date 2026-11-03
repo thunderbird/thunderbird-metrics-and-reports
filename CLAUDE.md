@@ -19,8 +19,12 @@ Mozilla) data and publishes them as a Jekyll site on GitHub Pages:
 4. **Project "LLM insights"** (IN PROGRESS, desktop + android prototypes shipped).
    LLM-assisted insights over the questions and answers, the AI counterpart to
    Project 1's no-AI detectors. `scripts/llm_insights_classify.py` labels each
-   question (Claude Opus 5, structured outputs) and
-   `scripts/llm_insights_mom_report.py` clusters the labels and writes the
+   question (Claude Opus 5, structured outputs). If a run prints "returned no
+   label", rerun it with `--only-missing` (#94): it labels only the absent
+   questions one per call, keeps the paid-for rows, refreshes their signal
+   columns, and exits 1 if a gap remains. New labels reach the report only after
+   `llm_insights_mom_report.py --refresh`, because its cache is keyed by month
+   pair. `scripts/llm_insights_mom_report.py` clusters the labels and writes the
    month-over-month page under `LLM_INSIGHTS/REPORTS/{product}/`. **Plain English
    is the only style (#83)**, the page opens with a TL;DR table of the top five,
    both LLM calls are cached under `LLM_INSIGHTS/cache/` (so layout changes are

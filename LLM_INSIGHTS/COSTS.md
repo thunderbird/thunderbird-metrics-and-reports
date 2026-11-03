@@ -180,9 +180,19 @@ August was already labelled, so only September needed a classification pass. The
 | Android clustering and narrative | | $0.11 |
 | **Total** | | **$7.28** |
 
-Every September question has a label, for both products. Three desktop causes were spiking in September (`m:alice_it`, `m:microsoftemail`, `m:shaw`), and `split_by_cause()` moved 142 themes into cause-specific clusters. The run printed no "spiking cause has no cluster" warning.
+Every android question has a label. Desktop had 976 labels for 977 questions: question [1603596](https://support.mozilla.org/questions/1603596) got no label, and the gap was found and filled on 2026-11-03 (see below). Three desktop causes were spiking in September (`m:alice_it`, `m:microsoftemail`, `m:shaw`), and `split_by_cause()` moved 142 themes into cause-specific clusters. The run printed no "spiking cause has no cluster" warning.
 
 A layout rerun reads both Stage-2 calls from the cache. The page footer used to say "this run of the report cost $0.00" after such a rerun. It now says that the run reused the cache and points to this file.
+
+## September 2026 desktop gap repair (2026-11-03, #94)
+
+The first run of `--only-missing` labelled the one September desktop question that had no label, [1603596](https://support.mozilla.org/questions/1603596). The same run refreshed the signal columns of 19 other rows from the current corpus and changed no label.
+
+| Stage | Questions | Cost |
+|:--|--:|--:|
+| Classify desktop 2026-09, missing only | 1 | $0.0046 |
+
+The September report was not rerun. One question in 977 does not change its clusters, and a `--refresh` rerun costs about $0.71.
 
 ## Notes
 - All figures are well under the $50/run circuit-breaker.

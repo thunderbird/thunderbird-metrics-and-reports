@@ -22,6 +22,14 @@ Design choices (see plan):
 Usage:
   uv run scripts/llm_insights_classify.py 2026-06 --sample 20      # cheap validation
   uv run scripts/llm_insights_classify.py 2026-06                  # full month
+  uv run scripts/llm_insights_classify.py 2026-06 --only-missing   # repair gaps
+
+--only-missing (#94) labels only the questions that have no row in the existing
+labels file, for example after a batch failed on a refusal. It keeps the labels
+already paid for, refreshes their signal columns from the current corpus (free),
+drops rows whose question left the corpus (for example, later marked as spam),
+and classifies the missing questions one per call, so one refusal cannot block
+the others. It exits with code 1 if any question still has no label.
 """
 import sys
 import os
@@ -134,10 +142,52 @@ def main():
     ap.add_argument("--product", default="desktop", choices=["desktop", "android"])
     ap.add_argument("--sample", type=int, default=0,
                     help="classify only the first N questions (cheap validation)")
-    ap.add_argument("--batch-size", type=int, default=10)
+    ap.add_argument("--batch-size", type=int, default=None,
+                    help="questions per call (default 10, or 1 with "
+                         "--only-missing)")
     ap.add_argument("--model", default=MODEL)
     ap.add_argument("--out", default=None)
+    ap.add_argument("--only-missing", action="store_true",
+                    help="label only the questions with no row in the existing "
+                         "labels file, and keep the other rows (#94)")
     args = ap.parse_args()
+    if args.only_missing and args.sample:
+        ap.error("--only-missing and --sample cannot be used together")
+    if args.batch_size is None:
+        args.batch_size = 1 if args.only_missing else 10
+    out_path = args.out or OUT.format(month=args.month, product=args.product)
+
+    import pandas as pd
+    rows = build_enriched(args.month, args.product)
+    if args.sample:
+        rows = rows[:args.sample]
+    corpus_order = [r["id"] for r in rows]
+    signals_by_id = {r["id"]: {k: r[k] for k in SIGNAL_FIELDS} for r in rows}
+
+    kept = []  # existing label rows to keep (only with --only-missing)
+    if args.only_missing:
+        if not os.path.exists(out_path):
+            print(f"🛑 {out_path} does not exist. Run without --only-missing "
+                  "to label the whole month.", file=sys.stderr)
+            sys.exit(2)
+        # dtype=str: build_enriched() ids are strings. Integer ids from a
+        # default read_csv would make every question look missing.
+        old = pd.read_csv(out_path, dtype=str, keep_default_na=False)
+        old = old.drop_duplicates("id", keep="first")
+        gone = old[~old["id"].isin(signals_by_id)]
+        old = old[old["id"].isin(signals_by_id)]
+        if len(gone):
+            print(f"   dropping {len(gone)} row(s) no longer in the corpus "
+                  f"(ids: {list(gone['id'])[:5]}{'…' if len(gone) > 5 else ''})")
+        kept = old[LABEL_FIELDS].to_dict("records")
+        have = {r["id"] for r in kept}
+        rows = [r for r in rows if r["id"] not in have]
+        print(f"{args.month} {args.product}: {len(kept)} labelled, "
+              f"{len(rows)} missing")
+        if not rows:
+            write_labels(out_path, kept, signals_by_id, corpus_order)
+            print("   nothing to classify; refreshed the signal columns only")
+            return
 
     if not os.getenv("ANTHROPIC_API_KEY"):
         print("🛑 ANTHROPIC_API_KEY is not set. Export it before running "
@@ -146,10 +196,6 @@ def main():
     from anthropic import Anthropic
     client = Anthropic()
 
-    rows = build_enriched(args.month, args.product)
-    if args.sample:
-        rows = rows[:args.sample]
-    signals_by_id = {r["id"]: {k: r[k] for k in SIGNAL_FIELDS} for r in rows}
     batches = list(chunk(rows, args.batch_size))
     print(f"{args.month} {args.product}: {len(rows)} questions in {len(batches)} "
           f"batch(es) of up to {args.batch_size} (model: {args.model})")
@@ -200,6 +246,11 @@ def main():
         except (RuntimeError, json.JSONDecodeError) as e:
             print(f"   ⚠️  batch {i}/{len(batches)} skipped: {e}")
             continue
+        # Keep only ids this batch asked for, once each: a stray or repeated
+        # id would otherwise duplicate a row that is already in the file.
+        asked = {r["id"] for r in b}
+        recs = [r for r in recs if r.get("id") in asked
+                and r["id"] not in {x["id"] for x in results}]
         results.extend(recs)
         print(f"   batch {i}/{len(batches)}: {len(recs)} records "
               f"(in {u.input_tokens}, out {u.output_tokens}, "
@@ -219,21 +270,18 @@ def main():
         print(f"   ${per_q:.5f}/question")
 
     # --- write ---------------------------------------------------------------
-    # merge the carried value signals (created_date, solved, trusted-last, …)
-    for rec in results:
-        rec.update(signals_by_id.get(rec["id"], {k: "" for k in SIGNAL_FIELDS}))
-    got = {rec["id"] for rec in results}
-    missing = [qid for qid in signals_by_id if qid not in got]
+    labels = kept + [{k: rec[k] for k in LABEL_FIELDS} for rec in results]
+    got = {r["id"] for r in labels}
+    missing = [qid for qid in corpus_order if qid not in got]
     if missing:
         print(f"   ⚠️  {len(missing)} question(s) returned no label "
               f"(ids: {missing[:5]}{'…' if len(missing) > 5 else ''})")
-
-    import pandas as pd
-    out_path = args.out or OUT.format(month=args.month, product=args.product)
-    os.makedirs(os.path.dirname(out_path), exist_ok=True)
-    odf = pd.DataFrame(results)[FIELDS]
-    odf.to_csv(out_path, index=False)
-    print(f"   wrote {len(odf)} rows → {out_path}")
+    write_labels(out_path, labels, signals_by_id, corpus_order)
+    if args.only_missing and results:
+        print(f"   added {len(results)} label(s). The month-over-month report "
+              "caches its clusters by month pair, so rerun\n"
+              "   scripts/llm_insights_mom_report.py with --refresh (it costs "
+              "money) for the new labels to count.")
 
     # sample preview for the checkpoint
     print("\n--- sample labels ---")
@@ -241,6 +289,26 @@ def main():
         print(f"  [{r['id']}] sev{r['severity']} {r['category']:<16} "
               f"{r['discovered_theme']}")
         print(f"        why: {r['root_cause_hypothesis']}")
+    if args.only_missing and missing:
+        print("🛑 some questions still have no label (see above)",
+              file=sys.stderr)
+        sys.exit(1)
+
+
+def write_labels(out_path, labels, signals_by_id, corpus_order):
+    """Write label rows in corpus order with FRESH signal columns, atomically.
+    The signal columns come from the current corpus on every write, so a row
+    labelled weeks ago still carries today's is_solved / n_answers."""
+    import pandas as pd
+    pos = {qid: i for i, qid in enumerate(corpus_order)}
+    labels = sorted(labels, key=lambda r: pos.get(r["id"], len(pos)))
+    rows = [{**r, **signals_by_id.get(r["id"], {k: "" for k in SIGNAL_FIELDS})}
+            for r in labels]
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    tmp = out_path + ".tmp"
+    pd.DataFrame(rows, columns=FIELDS).to_csv(tmp, index=False)
+    os.replace(tmp, out_path)  # a crash cannot leave a half-written file
+    print(f"   wrote {len(rows)} rows → {out_path}")
 
 
 if __name__ == "__main__":
