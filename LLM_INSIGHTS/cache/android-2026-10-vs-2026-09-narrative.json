@@ -1,46 +1,46 @@
 {
  "headline": "Eight brand-new issue clusters this month, led by Outlook login failures and deleted mail vanishing instead of going to Trash",
- "narrative_md": "Support volume rose from 41 questions in September to 56 in October. Every one of this month's top eight clusters is new. Nothing carried over from September. That pattern points at a recent release or a recent change at a mail provider.\n\nTwo clusters have zero resolved rate and high severity. Users hitting the Outlook and Hotmail \"authenticated but not connected\" error get no working fix. Users who delete a message and watch it disappear instead of landing in Trash also get no fix. Data loss reports carry the highest severity scores in the set.\n\nAndroid is the common thread. Five of the eight clusters involve the Android app: credential rejection, QR import, subfolder sync, threaded view, and vanishing inbox contents. Engineering must treat Android account setup and folder state as one investigation, not five.\n\nCategory totals back this up. UI and UX doubled from 6 to 12. Attachments went from 0 to 3. Account and login went from 5 to 7. These counts come from an automated read of free-text support questions. Treat them as a place to start looking, not as proof.",
+ "narrative_md": "Support volume rose from 41 questions in September to 56 in October. Every one of this month's top eight clusters is new. Nothing carried over from September. That pattern points at a recent release or a recent change at a mail provider.\n\nTwo clusters have zero resolved rate and high severity. Users hitting the Outlook and Hotmail \"authenticated but not connected\" error get no working fix. Users who delete a message and watch it disappear instead of landing in Trash also get no fix. Data loss reports carry the highest severity scores in the set.\n\nAndroid is the common thread. Five of the eight clusters involve the Android app: credential rejection, QR import, subfolder sync, threaded view, and vanishing inbox contents. Engineering should consider treating Android account setup and folder state as one investigation, not five.\n\nCategory totals back this up. UI and UX doubled from 6 to 12. Attachments went from 0 to 3. Account and login went from 5 to 7. These counts come from an automated read of free-text support questions. Treat them as a place to start looking, not as proof.",
  "issues": [
   {
    "rank": 1,
    "why": "Three users report Outlook or Hotmail accounts that pass sign-in but never connect, and zero of them got a fix.",
-   "action": "Engineering must trace the Microsoft OAuth token exchange after consent, and check whether a scope or endpoint change broke the follow-up IMAP connection."
+   "action": "Engineering should consider tracing the Microsoft OAuth token exchange after consent, and checking whether a scope or endpoint change broke the follow-up IMAP connection."
   },
   {
    "rank": 2,
    "why": "Three users had credentials rejected on Android while the same credentials worked on desktop, which points at a client-side auth difference.",
-   "action": "Engineering must compare the OAuth client identifiers and token storage used by Android against desktop for the same provider."
+   "action": "Engineering should consider comparing the OAuth client identifiers and token storage used by Android against desktop for the same provider."
   },
   {
    "rank": 3,
    "why": "Deleted mail vanishes instead of moving to Trash, the highest-severity kind of report, and neither case was resolved.",
-   "action": "Engineering must check Trash folder mapping and the expunge-on-delete path for the affected IMAP accounts."
+   "action": "Engineering should consider checking Trash folder mapping and the expunge-on-delete path for the affected IMAP accounts."
   },
   {
    "rank": 4,
    "why": "QR import, the feature that copies desktop accounts to Android by scanning a code, leaves accounts without working passwords.",
-   "action": "Engineering must confirm whether the QR payload carries stored secrets and OAuth refresh tokens, or only server settings."
+   "action": "Engineering should consider confirming whether the QR payload carries stored secrets and OAuth refresh tokens, or only server settings."
   },
   {
    "rank": 5,
    "why": "Both reports about syncing accounts and subfolders between desktop and Android went unanswered, so users got nothing.",
-   "action": "Engineering must check default IMAP folder subscription behaviour on Android and write down the expected behaviour for support staff."
+   "action": "Engineering should consider checking default IMAP folder subscription behaviour on Android and writing down the expected behaviour for support staff."
   },
   {
    "rank": 6,
    "why": "Users expect grouped conversation view on Android and report it as missing or partial, and half the reports got no reply.",
-   "action": "Engineering must confirm the current state of threading on Android and state clearly whether it is a bug or an unshipped feature."
+   "action": "Engineering should consider confirming the current state of threading on Android and stating clearly whether it is a bug or an unshipped feature."
   },
   {
    "rank": 7,
    "why": "Inbox contents disappeared on Android with the highest mean severity in the set, even though both cases eventually got resolved.",
-   "action": "Engineering must look at local message database resets and folder resync after app or account updates."
+   "action": "Engineering should consider looking at local message database resets and folder resync after app or account updates."
   },
   {
    "rank": 8,
    "why": "Sending fails with no error text, so users cannot tell whether the message left or what blocked it.",
-   "action": "Engineering must surface the underlying SMTP response in the compose window, including attachment size rejections."
+   "action": "Engineering should consider surfacing the underlying SMTP response in the compose window, including attachment size rejections."
   }
  ]
 }

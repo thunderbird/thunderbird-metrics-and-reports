@@ -415,9 +415,13 @@ PLAIN_SYS = """
 
 WRITE IN PLAIN ENGLISH. Rules, all of them:
 - Short sentences. 25 words at most. One idea per sentence.
-- Active voice and simple tenses. Name the actor: "engineering must look at".
+- Active voice and simple tenses. Name the actor.
+- A recommendation to engineering is a suggestion, not an order. Write it as
+  "Engineering should consider looking at ...", never "Engineering must ...".
+  Roland asked for this on 2026-11-03.
 - No semicolons, no em dashes, no contractions, no emoji, no bold for emphasis.
-- Do not write "should", "may", "might" or "could". Use "can", "will", "must".
+- Apart from "should consider" in a recommendation, do not write "should",
+  "may", "might" or "could". Use "can" or "will".
 - Say the fact, not its importance. Delete "crucial", "significant", "notably", "it is worth noting", "in order to".
 - Define a term of art the first time you use it, in a few words.
 - A reader outside the Thunderbird team must understand it on one read."""

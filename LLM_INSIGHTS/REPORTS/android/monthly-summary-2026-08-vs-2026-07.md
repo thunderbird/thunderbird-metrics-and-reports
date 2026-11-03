@@ -50,7 +50,7 @@ Python did the counting and the ranking. Claude grouped the named problems and w
 
 Android account and crash reports drive five new issue clusters while overall volume falls slightly
 
-Support volume dropped from 44 questions in July to 40 in August. But five of the six top issues are new this month. Four of those five point at Thunderbird for Android. Engineering must treat the Android client as the focus for this month.
+Support volume dropped from 44 questions in July to 40 in August. But five of the six top issues are new this month. Four of those five point at Thunderbird for Android. Engineering should consider treating the Android client as the focus for this month.
 
 Account and login problems grew from 4 to 6 questions. Three separate clusters describe the same shape of failure. Stored passwords revert or refuse to update on Android. AOL and Yahoo accounts loop on login prompts and stop receiving mail. Imported accounts arrive with no password and show only an Outbox. A shared credential storage or migration path is the likely root cause.
 
@@ -69,7 +69,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | Stored password reverts or cannot be updated on Android (account-login) | 0 | 2 | ▲ +2 | 4.0 (2) | 100% | 0% |
 
 - Why it matters: Users on Android cannot change a stored password, and the old value returns, which locks them out of mail.
-- What to look at: Engineering must trace the Android credential store write path and check whether account settings save silently fails or gets overwritten on sync.
+- What to look at: Engineering should consider tracing the Android credential store write path and checking whether account settings save silently fails or gets overwritten on sync.
 - Example questions: [1597727](https://support.mozilla.org/questions/1597727 "Password for email accounts in Thunderbird for Android are frequently reverting ") [1601249](https://support.mozilla.org/questions/1601249 "Can't get into my main email account")
 
 ### 2. Crash opening downloaded email on Android, new this month {#issue-2}
@@ -79,7 +79,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | Crash opening downloaded email on Android (performance-crash) | 0 | 2 | ▲ +2 | 4.0 (2) | 100% | 0% |
 
 - Why it matters: The Android app crashes when a user opens a downloaded message, and mean severity is 4.0, the highest in the set.
-- What to look at: Engineering must pull crash traces for the message viewer on downloaded mail and test large or unusual MIME bodies.
+- What to look at: Engineering should consider pulling crash traces for the message viewer on downloaded mail and testing large or unusual MIME bodies.
 - Example questions: [1596786](https://support.mozilla.org/questions/1596786 "Email downloads but cannot be opened") [1596787](https://support.mozilla.org/questions/1596787 "Email downloads but cannot be opened")
 
 ### 3. AOL/Yahoo account repeatedly prompts for login and stops receiving, new this month {#issue-3}
@@ -89,7 +89,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | AOL/Yahoo account repeatedly prompts for login and stops receiving (account-login) | 0 | 2 | ▲ +2 | 3.5 (1) | 100% | 0% |
 
 - Why it matters: AOL and Yahoo accounts prompt for login in a loop and then stop receiving mail entirely.
-- What to look at: Engineering must check OAuth token refresh against current AOL and Yahoo endpoints, since both providers share one backend.
+- What to look at: Engineering should consider checking OAuth token refresh against current AOL and Yahoo endpoints, since both providers share one backend.
 - Example questions: [1598131](https://support.mozilla.org/questions/1598131 "JE NE PEUX PLUS LIRE MES MAILS AVEC THUNDERBIRD? Quand je veux voir Thunderbird ") [1599009](https://support.mozilla.org/questions/1599009 "no email access on Android phone")
 
 ### 4. Contact autocomplete not suggesting addresses in To field, new this month {#issue-4}
@@ -99,7 +99,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | Contact autocomplete not suggesting addresses in To field (other) | 0 | 2 | ▲ +2 | 2.0 (0) | 50% | 0% |
 
 - Why it matters: Only half of these users got a resolution, the worst rate in the set, so support has no known fix for missing contact autocomplete.
-- What to look at: Engineering must reproduce autocomplete against local address book and directory sources, then publish a diagnostic path support can follow.
+- What to look at: Engineering should consider reproducing autocomplete against local address book and directory sources, then publishing a diagnostic path support can follow.
 - Example questions: [1597532](https://support.mozilla.org/questions/1597532 "How do you save a regular email sender in Thundermail, I've looked everywhere!") [1599008](https://support.mozilla.org/questions/1599008 "No longer see list of possible email addresses when I start typing a name in TO ")
 
 ### 5. No OpenPGP/S-MIME encryption support on Android, new this month {#issue-5}
@@ -109,7 +109,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | No OpenPGP/S-MIME encryption support on Android (encryption-security) | 0 | 2 | ▲ +2 | 3.0 (0) | 100% | 0% |
 
 - Why it matters: Users expect OpenPGP and S/MIME encryption on Android and file support tickets when they cannot find it.
-- What to look at: Engineering must confirm the roadmap position for Android encryption and give support a clear public statement to link.
+- What to look at: Engineering should consider confirming the roadmap position for Android encryption and giving support a clear public statement to link.
 - Example questions: [1599880](https://support.mozilla.org/questions/1599880 "Support for s/mime certificates and encryption") [1600129](https://support.mozilla.org/questions/1600129 "OpenKeychain s no longer actively developed, replacement?")
 
 ### 6. Imported account shows only Outbox / missing passwords after import {#issue-6}
@@ -119,7 +119,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | Imported account shows only Outbox / missing passwords after import (account-login) | 1 | 3 | ▲ +2 | 3.3 (1) | 100% | 0% |
 
 - Why it matters: This grew from 1 to 3 questions, and imported accounts land with no password and only an Outbox visible, which looks like total data loss to the user.
-- What to look at: Engineering must audit the import routine for password carry-over and folder subscription, and connect it to the credential bugs in ranks 1 and 3.
+- What to look at: Engineering should consider auditing the import routine for password carry-over and folder subscription, and connecting it to the credential bugs in ranks 1 and 3.
 - Example questions: [1601095](https://support.mozilla.org/questions/1601095 "携帯でメールアカウントを二つにすると片方が送信トレイしか表示されない") [1596244](https://support.mozilla.org/questions/1596244 "After installing Thunderbird for android it only show the outbox for all my acco") [1598503](https://support.mozilla.org/questions/1598503 "after import, how to enter passwords")
 
 ## Category mix, month over month
@@ -130,17 +130,17 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | account-login | 4 | 6 | ▲ +2 |
 | send-receive | 11 | 5 | ▼ -6 (-55%) |
 | other | 5 | 4 | ▼ -1 |
-| sync-oauth | 1 | 3 | ▲ +2 |
-| encryption-security | 0 | 3 | ▲ +3 |
 | performance-crash | 1 | 3 | ▲ +2 |
+| encryption-security | 0 | 3 | ▲ +3 |
 | settings-config | 3 | 3 | ▬ 0 |
+| sync-oauth | 1 | 3 | ▲ +2 |
 | attachments | 0 | 2 | ▲ +2 |
 | spam-filters | 0 | 1 | ▲ +1 |
-| search-folders | 5 | 1 | ▼ -4 |
 | migration-import | 7 | 1 | ▼ -6 |
+| search-folders | 5 | 1 | ▼ -4 |
 
 ---
 
 This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers August 2026 against July 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-11-03 13:41 UTC
+Last updated: 2026-11-03 13:45 UTC
