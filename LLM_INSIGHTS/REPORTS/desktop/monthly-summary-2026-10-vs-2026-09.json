@@ -1,0 +1,88 @@
+{
+ "month": "2026-10",
+ "previous": "2026-09",
+ "page": "monthly-summary-2026-10-vs-2026-09.html",
+ "owners": {
+  "feat:attachments": {
+   "rank": 1,
+   "label": "Attach button does nothing / file picker never opens (stale mail.compose.attach.dir, bug 2077526/2077590)",
+   "anchor": "p1-feat-attachments",
+   "count": 91
+  },
+  "m:att": {
+   "rank": 4,
+   "label": "AT&T inbound.att.net certificate revoked/untrusted blocking mail download (m:att)",
+   "anchor": "p1-m-att",
+   "count": 15
+  },
+  "proto:oauth": {
+   "rank": 8,
+   "label": "Microsoft/Outlook.com OAuth2 authentication failures (IMAP/SMTP)",
+   "anchor": "p1-proto-oauth",
+   "count": 9
+  },
+  "m:gmail": {
+   "rank": 2,
+   "label": "Mail problem that cannot be diagnosed without troubleshooting tools (m:gmail)",
+   "anchor": "p1-m-gmail",
+   "count": 29
+  },
+  "feat:calendar": {
+   "rank": 10,
+   "label": "Calendar add-ons (CardBook, Provider for Google Calendar, TbSync) broken by TB updates",
+   "anchor": "p1-feat-calendar",
+   "count": 7
+  }
+ },
+ "unmatched": [
+  "m:shaw",
+  "proto:pop",
+  "m:thundermail",
+  "feat:addressbook",
+  "feat:import_export"
+ ],
+ "no_spike": [
+  {
+   "rank": 3,
+   "label": "Cannot receive new mail (generic, no error)",
+   "cur": 22,
+   "anchor": "issue-3"
+  },
+  {
+   "rank": 5,
+   "label": "Generic account setup wizard failures (hostname, ports, credentials)",
+   "cur": 28,
+   "anchor": "issue-5"
+  },
+  {
+   "rank": 6,
+   "label": "Profile migration to new computer loses mail/address books",
+   "cur": 31,
+   "anchor": "issue-6"
+  },
+  {
+   "rank": 7,
+   "label": "Junk filter not catching spam / legitimate mail marked as junk",
+   "cur": 19,
+   "anchor": "issue-7"
+  },
+  {
+   "rank": 9,
+   "label": "Thunderbird hangs/freezes at startup (session.json, loading messages, profile lock)",
+   "cur": 25,
+   "anchor": "issue-9"
+  },
+  {
+   "rank": 11,
+   "label": "Out-of-office, return receipts and reply prefix configuration",
+   "cur": 23,
+   "anchor": "issue-11"
+  },
+  {
+   "rank": 12,
+   "label": "Folders missing/disappeared from folder pane after update",
+   "cur": 14,
+   "anchor": "issue-12"
+  }
+ ]
+}

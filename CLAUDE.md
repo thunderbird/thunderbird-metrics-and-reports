@@ -57,6 +57,16 @@ Mozilla) data and publishes them as a Jekyll site on GitHub Pages:
    month's page, unlike `known-status.csv`, which applies to every month. The
    optional `tldr` short form is appended to the TL;DR Known status cell.
    Thunderbird for Android has no add-ons, so android text never names them.
+   **Project 1 cross-links (#95).** `scripts/project1_crosslink.py` is the
+   shared core. The LLM report matches each Project 1 spike of the month to the
+   featured issue whose questions it describes (2+ questions AND 25%+ of the
+   issue), prints a "Project 1 signal" line and a stable `<a id="p1-<tag>">`
+   anchor on it, adds a "Seen by one side only" section, and writes a sidecar
+   `LLM_INSIGHTS/REPORTS/{product}/monthly-summary-{cur}-vs-{prev}.json`. The
+   executive summary reads that sidecar (never re-derives it) to link each
+   "What stands out" item to its LLM issue and to list what only one side
+   found. No sidecar, no links. The sidecar reflects the spike files of the day
+   the LLM report ran; the exec summary says so.
 
 #1 and #2 are regenerated automatically by GitHub Actions and committed to `main`.
 
