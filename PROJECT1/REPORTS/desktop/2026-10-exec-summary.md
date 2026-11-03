@@ -5,7 +5,7 @@ title: "2026-10 exec summary: Thunderbird Desktop support spikes"
 
 # October 2026: Thunderbird Desktop support spikes
 
-Executive summary for 2026-10. It covers 1030 Thunderbird Desktop support questions. The tool wrote this page on 2026-11-03 16:07 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-10. It covers 1030 Thunderbird Desktop support questions. The tool wrote this page on 2026-11-03 16:13 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>

@@ -5,7 +5,7 @@ title: "2026-10 exec summary: Thunderbird Android support spikes"
 
 # October 2026: Thunderbird Android support spikes
 
-Executive summary for 2026-10. It covers 56 Thunderbird Android support questions. The tool wrote this page on 2026-11-03 07:10 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-10. It covers 56 Thunderbird Android support questions. The tool wrote this page on 2026-11-03 16:13 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -47,6 +47,16 @@ Three more numbers for context:
 - Release-adoption version spikes: 0. Users move to a new release, so the bare counts rise. These are not incidents.
 
 Every spike row, with its example questions, is in [All October 2026 detail](#all-october-2026-detail) below.
+
+## Seen by one side only {#seen-by-one-side-only}
+
+The [LLM Insights page for October 2026](../../../LLM_INSIGHTS/REPORTS/android/monthly-summary-2026-10-vs-2026-09.html) groups the same questions into named problems with Claude. It ran on the spike files of its own day, so a spike that fired later is missing there.
+
+Issues on the LLM page that no spike points to. No spiking tag covers a quarter of their questions, so this page cannot show them:
+
+- [Outlook/Hotmail 'authenticated but not connected' error](../../../LLM_INSIGHTS/REPORTS/android/monthly-summary-2026-10-vs-2026-09.html#issue-1), 3 questions
+- [Android credentials rejected though valid on desktop](../../../LLM_INSIGHTS/REPORTS/android/monthly-summary-2026-10-vs-2026-09.html#issue-2), 3 questions
+- [QR import leaves accounts unauthenticated / passwords not transferred](../../../LLM_INSIGHTS/REPORTS/android/monthly-summary-2026-10-vs-2026-09.html#issue-4), 3 questions
 
 ## Two limits of these dates
 
