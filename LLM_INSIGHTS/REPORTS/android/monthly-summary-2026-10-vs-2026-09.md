@@ -68,6 +68,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 |:--|--:|--:|:--|:--|:--|--:|
 | Outlook/Hotmail 'authenticated but not connected' error (account-login) | 0 | 3 | ▲ +3 | 3.7 (2) | 0% (below 50%) | 0% |
 
+- Reviewer note: Roland Tanglao: Same comment as for the desktop Gmail cluster: There wasn't enough troubleshooting details provided by Thunderbird for Android users to diagnose. Problem cause could have been anti-virus, network issues, add-ons, an issue specific to POP3, a Thunderbird bug, etc. Engineering should consider adding troubleshooting features to Thunderbird for Android, especially for popular providers like Outlook/Hotmail and Gmail.
 - Why it matters: Three users report Outlook or Hotmail accounts that pass sign-in but never connect, and zero of them got a fix.
 - What to look at: Engineering should consider tracing the Microsoft OAuth token exchange after consent, and checking whether a scope or endpoint change broke the follow-up IMAP connection.
 - Example questions: [1609449](https://support.mozilla.org/questions/1609449 "Authentication and connection drops with Outlook accounts (User is authenticated") [1612980](https://support.mozilla.org/questions/1612980 "UNABLE TO CONNECT TO THUNDERBIRD ON ANDROID SAMSUN S25. ＂User is authenticared b") [1609460](https://support.mozilla.org/questions/1609460 "Connection issue")
@@ -152,15 +153,15 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | settings-config | 6 | 6 | ▬ 0 |
 | other | 2 | 5 | ▲ +3 |
 | sync-oauth | 5 | 4 | ▼ -1 |
+| attachments | 0 | 3 | ▲ +3 |
 | search-folders | 2 | 3 | ▲ +1 |
 | migration-import | 3 | 3 | ▬ 0 |
-| attachments | 0 | 3 | ▲ +3 |
 | spam-filters | 1 | 2 | ▲ +1 |
-| performance-crash | 2 | 1 | ▼ -1 |
 | encryption-security | 2 | 1 | ▼ -1 |
+| performance-crash | 2 | 1 | ▼ -1 |
 
 ---
 
-This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run of the report cost $0.03. The page covers October 2026 against September 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
+This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers October 2026 against September 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-11-03 14:08 UTC
+Last updated: 2026-11-03 14:38 UTC
