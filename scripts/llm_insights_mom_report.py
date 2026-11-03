@@ -88,10 +88,41 @@ def load_reviewer_notes(product, month, column="note"):
     return [(re.compile(r["pattern"]), r[column]) for _, r in df.iterrows()]
 
 
-def tldr_status(label, known, notes_short):
+def first_mention(seen, text, rank):
+    """Say a long status once per page section. A Known status row can match
+    two clusters (the android Sync row matched issues 2 and 4 in October
+    2026), and the full text twice in one table reads as an error. The first
+    issue gets the text, later issues get "Same as issue N." """
+    if not text:
+        return text
+    if text in seen:
+        return f"Same as [issue {seen[text]}](#issue-{seen[text]})."
+    seen[text] = rank
+    return text
+
+
+def first_sentence(text, rank):
+    """The TL;DR shows only the first sentence of a known status, with a link
+    to the issue section, which carries the full text. So the full text
+    appears once per page (Roland, 2026-11-03)."""
+    if not text:
+        return text
+    m = re.match(r"(.+?[.!?])(\s+|$)", re.sub(r"\([^)]*\)", lambda x: x.group(0).replace(". ", ".\0"), text))
+    head = m.group(1).replace(".\0", ". ") if m else text
+    if head.strip() == text.strip():
+        return text
+    return f"{head} [More](#issue-{rank})."
+
+
+def tldr_status(label, known, notes_short, seen=None, rank=0):
     """The TL;DR "Known status" cell: the known status, then the reviewer's
     short note for this month, if any."""
-    parts = [status_for(label, known)]
+    st = status_for(label, known)
+    if seen is not None:
+        st = first_mention(seen, st, rank)
+    if st and not st.startswith("Same as"):
+        st = first_sentence(st, rank)
+    parts = [st]
     nt = status_for(label, notes_short)
     if nt:
         parts.append(f"Reviewer: {link_bugs(nt)}")
@@ -719,12 +750,13 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
         W(f"| # | Issue | {human_month(prev_m)} | {human_month(cur_m)} | "
           f"Severity | Resolved | Known status |")
         W("|--:|:--|--:|--:|--:|--:|:--|")
+        seen_tldr = {}
         for i, (_, r) in enumerate(tldr, 1):
             low = " (below 50%)" if r["served_pct"] < 50 else ""
             new = ", new this month" if r["is_new"] else ""
             W(f"| [{i}](#issue-{i}) | [{md_safe(r['label'], 130)}](#issue-{i}){new} | "
               f"{r['prev']} | {r['cur']} | {r['mean_sev']} | "
-              f"{r['served_pct']}%{low} | {tldr_status(r['label'], known, notes_short)} |")
+              f"{r['served_pct']}%{low} | {tldr_status(r['label'], known, notes_short, seen_tldr, i)} |")
         W("")
         W("Each number links to the same issue in "
           "[Issues to investigate](#issues-to-investigate) below, which carries "
@@ -772,6 +804,7 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
       "served clusters, severity and volume, in that order. Resolved means "
       "the question has an accepted solution, or a trusted contributor gave "
       "the last answer. A resolved figure under 50% is marked.\n")
+    seen_issue = {}
     for i, (_, r) in enumerate(top.iterrows(), 1):
         flag = " (below 50%)" if r["served_pct"] < 50 else ""
         new = ", new this month" if r["is_new"] else ""
@@ -785,7 +818,7 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
           f"{r['served_pct']}%{flag} | {r['unanswered_pct']}% |")
         W("")
         p = issue_prose.get(i)
-        st = status_for(r["label"], known)
+        st = first_mention(seen_issue, status_for(r["label"], known), i)
         if st:
             W(f"- Known status: {st}")
         nt = status_for(r["label"], notes)

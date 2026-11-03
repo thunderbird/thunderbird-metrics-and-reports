@@ -11,10 +11,10 @@ title: Desktop LLM Insights — October 2026
 
 | # | Issue | September 2026 | October 2026 | Severity | Resolved | Known status |
 |--:|:--|--:|--:|--:|--:|:--|
-| [1](#issue-1) | [Attach button does nothing / file picker never opens (stale mail.compose.attach.dir, bug 2077526/2077590)](#issue-1), new this month | 0 | 169 | 4.0 | 62% | Fixed in Thunderbird 158.0.1, 159 and ESR 153.5.0 (Bugzilla [2077590](https://bugzilla.mozilla.org/show_bug.cgi?id=2077590), duplicate [2077526](https://bugzilla.mozilla.org/show_bug.cgi?id=2077526)). Before the fix, the workaround was to reset mail.compose.attach.dir in the Config Editor. Reports peaked at 20 to 25 a day from 2026-10-06 to 2026-10-09, and only three arrived in the last two weeks of October. |
-| [2](#issue-2) | [Mail problem that cannot be diagnosed without troubleshooting tools (m:gmail)](#issue-2) | 13 | 29 | 3.9 | 34% (below 50%) | A recurring problem with no fix in sight. These users give too few details to find the cause, which can be antivirus, the network, an add-on, POP3, a Thunderbird bug or the provider. Thunderbird has no self-diagnosis or repair tools that would collect those details for them. Reviewer: Users give too few details to diagnose. Engineering should consider self-diagnosis and repair tools, also for providers like Gmail. |
+| [1](#issue-1) | [Attach button does nothing / file picker never opens (stale mail.compose.attach.dir, bug 2077526/2077590)](#issue-1), new this month | 0 | 169 | 4.0 | 62% | Fixed in Thunderbird 158.0.1, 159 and ESR 153.5.0 (Bugzilla [2077590](https://bugzilla.mozilla.org/show_bug.cgi?id=2077590), duplicate [2077526](https://bugzilla.mozilla.org/show_bug.cgi?id=2077526)). [More](#issue-1). |
+| [2](#issue-2) | [Mail problem that cannot be diagnosed without troubleshooting tools (m:gmail)](#issue-2) | 13 | 29 | 3.9 | 34% (below 50%) | A recurring problem with no fix in sight. [More](#issue-2). Reviewer: Users give too few details to diagnose. Engineering should consider self-diagnosis and repair tools, also for providers like Gmail. |
 | [3](#issue-3) | [Cannot receive new mail (generic, no error)](#issue-3) | 53 | 22 | 4.2 | 27% (below 50%) | — |
-| [4](#issue-4) | [AT&T inbound.att.net certificate revoked/untrusted blocking mail download (m:att)](#issue-4) | 1 | 15 | 4.2 | 87% | Fixed by AT&T. DigiCert revoked the POP certificate for inbound.att.net on 2026-10-05, and some error messages called it expired. Only POP failed: IMAP and SMTP were not affected. AT&T served a new certificate from 2026-10-06, and the last certificate question arrived on 2026-10-08. Antivirus such as Norton, AVG and Avast showed the error but did not cause it. See the [incident page](https://thunderbird.github.io/thunderbird-metrics-and-reports/PROJECT1/validation/incident-att-2026-10.html) and [issue 85](https://github.com/thunderbird/thunderbird-metrics-and-reports/issues/85). |
+| [4](#issue-4) | [AT&T inbound.att.net certificate revoked/untrusted blocking mail download (m:att)](#issue-4) | 1 | 15 | 4.2 | 87% | Fixed by AT&T. [More](#issue-4). |
 | [5](#issue-5) | [Generic account setup wizard failures (hostname, ports, credentials)](#issue-5) | 39 | 28 | 3.9 | 54% | — |
 
 Each number links to the same issue in [Issues to investigate](#issues-to-investigate) below, which carries the reason, what to look at, and the example questions.
@@ -207,4 +207,4 @@ The order comes from a Python score. It weights new clusters, badly served clust
 
 This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers October 2026 against September 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-11-03 15:26 UTC
+Last updated: 2026-11-03 15:39 UTC
