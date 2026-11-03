@@ -109,4 +109,4 @@ _None — every cause cluster in October 2026 has appeared in a prior month._
 
 _Prototype engineering month-over-month summary · from SUMO Spike Detector feature tables + spike detectors · October 2026 vs September 2026._
 
-_Last updated: 2026-11-03 18:26 UTC_
+_Last updated: 2026-11-03 20:04 UTC_

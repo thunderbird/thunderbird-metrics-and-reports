@@ -42,8 +42,8 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 | m:gmail | 96 | 6 | ▼ -90 (-94%) |
 | proto:imap | 82 | 7 | ▼ -75 (-91%) |
 | m:microsoftemail | 60 | 5 | ▼ -55 (-92%) |
-| proto:pop | 55 | 4 | ▼ -51 (-93%) |
 | m:yahooemail | 53 | 2 | ▼ -51 (-96%) |
+| proto:pop | 55 | 4 | ▼ -51 (-93%) |
 | proto:smtp | 36 | 6 | ▼ -30 (-83%) |
 | proto:oauth | 31 | 2 | ▼ -29 (-94%) |
 
@@ -87,4 +87,4 @@ _None — every cause cluster in November 2026 has appeared in a prior month._
 
 _Prototype engineering month-over-month summary · from SUMO Spike Detector feature tables + spike detectors · November 2026 vs October 2026._
 
-_Last updated: 2026-11-03 18:26 UTC_
+_Last updated: 2026-11-03 20:04 UTC_
