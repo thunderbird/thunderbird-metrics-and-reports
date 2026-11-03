@@ -11,11 +11,11 @@ title: Desktop LLM Insights — September 2026
 
 | # | Issue | August 2026 | September 2026 | Severity | Resolved | Known status |
 |--:|:--|--:|--:|--:|--:|:--|
-| [1](#issue-1) | [Generic 'cannot receive mail' / mail stopped arriving](#issue-1) | 29 | 50 | 4.1 | 50% | — |
-| [2](#issue-2) | [TB 155 message filters with blank conditions match everything and misroute mail](#issue-2) | 2 | 35 | 4.3 | 80% | Fixed in Thunderbird 155.0.1, released 2026-09-09 (Bugzilla 2068847, duplicate 2068955). ESR 153 was never affected. 27 of the 37 September reports came before the release, and the last one arrived on 2026-09-14. |
+| [1](#issue-1) | [Generic 'cannot receive mail' / mail stopped arriving](#issue-1) | 29 | 50 | 4.1 | 48% (below 50%) | — |
+| [2](#issue-2) | [TB 155 message filters with blank conditions match everything and misroute mail](#issue-2) | 2 | 35 | 4.3 | 80% | Fixed in Thunderbird 155.0.1, released 2026-09-09 (Bugzilla [2068847](https://bugzilla.mozilla.org/show_bug.cgi?id=2068847), duplicate [2068955](https://bugzilla.mozilla.org/show_bug.cgi?id=2068955)). ESR 153 was never affected. 27 of the 37 September reports came before the release, and the last one arrived on 2026-09-14. |
 | [3](#issue-3) | [Alice.it/TIM POP/IMAP server connection refused (m:alice_it)](#issue-3) | 1 | 21 | 4.2 | 14% (below 50%) | A POP problem on the TIM server in.alice.it, not IMAP. TIM fixed it by 2026-09-24. Until then, the POP server pop.tim.it worked as a workaround ([1606677](https://support.mozilla.org/questions/1606677)). |
 | [4](#issue-4) | [Microsoft/Outlook OAuth2 authentication failures (m:microsoftemail)](#issue-4) | 14 | 22 | 3.8 | 18% (below 50%) | — |
-| [5](#issue-5) | [AOL/Yahoo account cannot send or receive](#issue-5) | 12 | 21 | 4.1 | 33% (below 50%) | — |
+| [5](#issue-5) | [AOL/Yahoo account cannot send or receive](#issue-5) | 12 | 21 | 4.1 | 38% (below 50%) | — |
 
 Each number links to the same issue in [Issues to investigate](#issues-to-investigate) below, which carries the reason, what to look at, and the example questions.
 
@@ -42,7 +42,7 @@ Python did the counting and the ranking. Claude grouped the named problems and w
 
 | | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 940 | 976 | ▲ +36 (+4%) |
+| Support questions (load) | 940 | 977 | ▲ +37 (+4%) |
 | Distinct issue clusters | 175 | 161 | ▼ -14 |
 | New issue clusters this month | — | 1 | |
 
@@ -64,7 +64,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 
 | Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Generic 'cannot receive mail' / mail stopped arriving (send-receive) | 29 | 50 | ▲ +21 (+72%) | 4.1 (39) | 50% | 30% |
+| Generic 'cannot receive mail' / mail stopped arriving (send-receive) | 29 | 50 | ▲ +21 (+72%) | 4.1 (39) | 48% (below 50%) | 30% |
 
 - Why it matters: This is the largest cluster at 50 questions, up 21, and 30 percent of users got no answer at all.
 - What to look at: Engineering must add clearer failure reasons to the receive path so users and helpers can tell server refusal apart from local index or profile faults.
@@ -76,7 +76,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 |:--|--:|--:|:--|:--|:--|--:|
 | TB 155 message filters with blank conditions match everything and misroute mail (spam-filters) | 2 | 35 | ▲ +33 | 4.3 (33) | 80% | 9% |
 
-- Known status: Fixed in Thunderbird 155.0.1, released 2026-09-09 (Bugzilla 2068847, duplicate 2068955). ESR 153 was never affected. 27 of the 37 September reports came before the release, and the last one arrived on 2026-09-14.
+- Known status: Fixed in Thunderbird 155.0.1, released 2026-09-09 (Bugzilla [2068847](https://bugzilla.mozilla.org/show_bug.cgi?id=2068847), duplicate [2068955](https://bugzilla.mozilla.org/show_bug.cgi?id=2068955)). ESR 153 was never affected. 27 of the 37 September reports came before the release, and the last one arrived on 2026-09-14.
 - Why it matters: A Thunderbird 155 regression makes filters with blank conditions match every message and misroute mail, and it grew from 2 to 35 questions.
 - What to look at: Engineering must block or ignore empty filter conditions at save and at run time, and ship the fix in the next point release.
 - Example questions: [1602807](https://support.mozilla.org/questions/1602807 "Thunderbird sending all inbox messages to deleted (bug2068847)") [1603340](https://support.mozilla.org/questions/1603340 "Incoming messages routed to Trash (bug2068847?)") [1602820](https://support.mozilla.org/questions/1602820 "Email filter problem after update") [1603074](https://support.mozilla.org/questions/1603074 "How do I get rid of 155.0 Beta version") [1602453](https://support.mozilla.org/questions/1602453 "All of my new emails go to Trash with Thunderbird 155.0 (bug2068847)") +1
@@ -106,7 +106,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 
 | Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| AOL/Yahoo account cannot send or receive (send-receive) | 12 | 21 | ▲ +9 (+75%) | 4.1 (18) | 33% (below 50%) | 43% |
+| AOL/Yahoo account cannot send or receive (send-receive) | 12 | 21 | ▲ +9 (+75%) | 4.1 (18) | 38% (below 50%) | 43% |
 
 - Why it matters: AOL and Yahoo accounts stopped sending and receiving for 21 users, with 43 percent unanswered and only 33 percent resolved.
 - What to look at: Engineering must verify whether Yahoo now requires app passwords or OAuth for these accounts and surface that requirement in the error dialog.
@@ -122,14 +122,14 @@ The order comes from a Python score. It weights new clusters, badly served clust
 - What to look at: Engineering must review SMTP error reporting so the dialog names the rejecting server and the reason.
 - Example questions: [1607890](https://support.mozilla.org/questions/1607890 "Es werten keine Mails nicht gesendet") [1602038](https://support.mozilla.org/questions/1602038 "Cannot snde out emails anymore") [1605272](https://support.mozilla.org/questions/1605272 "outgoing mail") [1602958](https://support.mozilla.org/questions/1602958 "Can not send email") [1603485](https://support.mozilla.org/questions/1603485 "Openreach recently installed fibre broadband to my home and since then I'm able ") +1
 
-### 7. Account Settings panel unresponsive — cannot save or delete accounts (bug 2069949) {#issue-7}
+### 7. Account Settings panel unresponsive — cannot save or delete accounts (bug [2069949](https://bugzilla.mozilla.org/show_bug.cgi?id=2069949)) {#issue-7}
 
 | Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Account Settings panel unresponsive — cannot save or delete accounts (bug 2069949) (settings-config) | 3 | 18 | ▲ +15 | 3.6 (10) | 67% | 11% |
+| Account Settings panel unresponsive — cannot save or delete accounts (bug [2069949](https://bugzilla.mozilla.org/show_bug.cgi?id=2069949)) (settings-config) | 3 | 18 | ▲ +15 | 3.6 (10) | 67% | 11% |
 
-- Why it matters: The Account Settings panel stops responding and users cannot save or delete accounts, growing from 3 to 18 questions under bug 2069949.
-- What to look at: Engineering must prioritise bug 2069949 and check for a blocking call in the settings save path.
+- Why it matters: The Account Settings panel stops responding and users cannot save or delete accounts, growing from 3 to 18 questions under bug [2069949](https://bugzilla.mozilla.org/show_bug.cgi?id=2069949).
+- What to look at: Engineering must prioritise bug [2069949](https://bugzilla.mozilla.org/show_bug.cgi?id=2069949) and check for a blocking call in the settings save path.
 - Example questions: [1606631](https://support.mozilla.org/questions/1606631 "Thunderbird does not save account settings – missing prefs.js") [1606755](https://support.mozilla.org/questions/1606755 "Email Account corrupted. And unable to delete the account.") [1608317](https://support.mozilla.org/questions/1608317 "Configurazione server in uscita") [1608142](https://support.mozilla.org/questions/1608142 "Cannot delete an email address added to T'bird") [1602823](https://support.mozilla.org/questions/1602823 "Issue with settings - Acocunt details") +1
 
 ### 8. Thunderbird hangs/freezes at startup {#issue-8}
@@ -187,7 +187,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | Category | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
 | send-receive | 169 | 233 | ▲ +64 (+38%) |
-| account-login | 141 | 164 | ▲ +23 (+16%) |
+| account-login | 141 | 165 | ▲ +24 (+17%) |
 | ui-ux | 118 | 92 | ▼ -26 (-22%) |
 | settings-config | 75 | 91 | ▲ +16 (+21%) |
 | migration-import | 49 | 56 | ▲ +7 (+14%) |
@@ -205,4 +205,4 @@ The order comes from a Python score. It weights new clusters, badly served clust
 
 This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers September 2026 against August 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-10-08 04:15 UTC
+Last updated: 2026-11-03 13:41 UTC

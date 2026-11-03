@@ -614,6 +614,12 @@ unless explicitly asked to work on one.
   `PROJECT1/validation/incident-spectrum-2026-08.md`). A person is trusted only
   when they are on that CSV; a helper with a handful of answers is correctly
   "no", which is not a staleness artefact of the list.
+- **Always link a Bugzilla bug.** Every bug number in any generated or
+  hand-written report, and in `LLM_INSIGHTS/known-status.csv`, must be a link to
+  `https://bugzilla.mozilla.org/show_bug.cgi?id={id}` (Roland, 2026-11-03).
+  `link_bugs()` in `llm_insights_mom_report.py` links the "bug N" numbers that
+  the LLM writes into labels and prose, except inside the TL;DR link text, where
+  a nested link would not render.
 - CSV field size limits are raised to `sys.maxsize` in the analysis scripts to
   handle large content fields.
 - Question titles are truncated to 80 characters for markdown tooltips.

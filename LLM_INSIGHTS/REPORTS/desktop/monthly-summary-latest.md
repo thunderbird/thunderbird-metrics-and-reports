@@ -11,7 +11,7 @@ title: Desktop LLM Insights — October 2026
 
 | # | Issue | September 2026 | October 2026 | Severity | Resolved | Known status |
 |--:|:--|--:|--:|--:|--:|:--|
-| [1](#issue-1) | [Attach button does nothing / file picker never opens (stale mail.compose.attach.dir, bug 2077526/2077590)](#issue-1), new this month | 0 | 169 | 4.0 | 62% | — |
+| [1](#issue-1) | [Attach button does nothing / file picker never opens (stale mail.compose.attach.dir, bug 2077526/2077590)](#issue-1), new this month | 0 | 169 | 4.0 | 62% | Fixed in Thunderbird 158.0.1, 159 and ESR 153.5.0 (Bugzilla [2077590](https://bugzilla.mozilla.org/show_bug.cgi?id=2077590), duplicate [2077526](https://bugzilla.mozilla.org/show_bug.cgi?id=2077526)). Before the fix, the workaround was to reset mail.compose.attach.dir in the Config Editor. Reports peaked at 20 to 25 a day from 2026-10-06 to 2026-10-09, and only three arrived in the last two weeks of October. |
 | [2](#issue-2) | [Cannot receive new mail (generic, no error)](#issue-2) | 55 | 24 | 4.2 | 25% (below 50%) | — |
 | [3](#issue-3) | [Gmail mail not downloading / Inbox empty while All Mail has messages (m:gmail)](#issue-3) | 6 | 16 | 3.9 | 31% (below 50%) | — |
 | [4](#issue-4) | [Microsoft/Outlook.com OAuth2 authentication failures (IMAP/SMTP)](#issue-4) | 23 | 21 | 4.2 | 14% (below 50%) | — |
@@ -48,7 +48,7 @@ Python did the counting and the ranking. Claude grouped the named problems and w
 
 A new attachment bug drove 169 reports in October, while Microsoft OAuth2 failures stay the worst-served pain at 14 percent resolved.
 
-Engineering must look at two things this month. First, a brand new cluster: the Attach button does nothing and the file picker never opens. It went from zero reports in September to 169 in October. Users link it to a stale `mail.compose.attach.dir` value, tracked in bugs 2077526 and 2077590. Average severity is 4.0 and 161 reports sit at severity 4 or higher. This single cluster lifted the attachments category from 29 to 190 reports.
+Engineering must look at two things this month. First, a brand new cluster: the Attach button does nothing and the file picker never opens. It went from zero reports in September to 169 in October. Users link it to a stale `mail.compose.attach.dir` value, tracked in bugs [2077526](https://bugzilla.mozilla.org/show_bug.cgi?id=2077526) and [2077590](https://bugzilla.mozilla.org/show_bug.cgi?id=2077590). Average severity is 4.0 and 161 reports sit at severity 4 or higher. This single cluster lifted the attachments category from 29 to 190 reports.
 
 Second, the worst-served pain is Microsoft and Outlook.com OAuth2 login failures. OAuth2 is the token-based sign-in flow that replaced passwords. Only 14 percent of those reports reach a resolution. 57 percent get no reply at all. The volume is flat at 21 reports, so this is a quality problem, not a growth problem. Generic "cannot receive new mail" reports are the second worst served at 25 percent resolved and 38 percent unanswered.
 
@@ -60,14 +60,15 @@ These clusters come from a language model reading free-text support questions. T
 
 The order comes from a Python score. It weights new clusters, badly served clusters, severity and volume, in that order. Resolved means the question has an accepted solution, or a trusted contributor gave the last answer. A resolved figure under 50% is marked.
 
-### 1. Attach button does nothing / file picker never opens (stale mail.compose.attach.dir, bug 2077526/2077590), new this month {#issue-1}
+### 1. Attach button does nothing / file picker never opens (stale mail.compose.attach.dir, bug [2077526](https://bugzilla.mozilla.org/show_bug.cgi?id=2077526)/[2077590](https://bugzilla.mozilla.org/show_bug.cgi?id=2077590)), new this month {#issue-1}
 
 | Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Attach button does nothing / file picker never opens (stale mail.compose.attach.dir, bug 2077526/2077590) (attachments) | 0 | 169 | ▲ +169 | 4.0 (161) | 62% | 5% |
+| Attach button does nothing / file picker never opens (stale mail.compose.attach.dir, bug [2077526](https://bugzilla.mozilla.org/show_bug.cgi?id=2077526)/[2077590](https://bugzilla.mozilla.org/show_bug.cgi?id=2077590)) (attachments) | 0 | 169 | ▲ +169 | 4.0 (161) | 62% | 5% |
 
+- Known status: Fixed in Thunderbird 158.0.1, 159 and ESR 153.5.0 (Bugzilla [2077590](https://bugzilla.mozilla.org/show_bug.cgi?id=2077590), duplicate [2077526](https://bugzilla.mozilla.org/show_bug.cgi?id=2077526)). Before the fix, the workaround was to reset mail.compose.attach.dir in the Config Editor. Reports peaked at 20 to 25 a day from 2026-10-06 to 2026-10-09, and only three arrived in the last two weeks of October.
 - Why it matters: Rank 1 is new this month and went from 0 to 169 reports, with 161 at severity 4 or higher, so composing mail with files is broken for many users.
-- What to look at: Engineering must confirm whether a stale or invalid `mail.compose.attach.dir` path blocks the file picker, and ship a fallback that ignores unreachable directories, per bugs 2077526 and 2077590.
+- What to look at: Engineering must confirm whether a stale or invalid `mail.compose.attach.dir` path blocks the file picker, and ship a fallback that ignores unreachable directories, per bugs [2077526](https://bugzilla.mozilla.org/show_bug.cgi?id=2077526) and [2077590](https://bugzilla.mozilla.org/show_bug.cgi?id=2077590).
 - Example questions: [1610213](https://support.mozilla.org/questions/1610213 "Thunderbird is onbruikbaar geworden") [1610928](https://support.mozilla.org/questions/1610928 "Attaching files no longer works in the current version of Thunderbird—what shoul") [1610829](https://support.mozilla.org/questions/1610829 "impossibile inserire allegati") [1610832](https://support.mozilla.org/questions/1610832 "No attachment possible") [1610834](https://support.mozilla.org/questions/1610834 "Keien Aänge weren geöffnet") +1
 
 ### 2. Cannot receive new mail (generic, no error) {#issue-2}
@@ -201,6 +202,6 @@ The order comes from a Python score. It weights new clusters, badly served clust
 
 ---
 
-This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run of the report cost $0.69. The page covers October 2026 against September 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
+This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers October 2026 against September 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-11-03 13:19 UTC
+Last updated: 2026-11-03 13:41 UTC

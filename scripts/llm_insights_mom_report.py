@@ -124,6 +124,23 @@ def write_archive():
     print(f"   wrote {ARCHIVE}")
 
 
+BUG_URL = "https://bugzilla.mozilla.org/show_bug.cgi?id={id}"
+# "bug 2077590", "bugs 2077526 and 2077590", "bug 2077526/2077590". The LLM
+# writes bug numbers into labels and prose; every one must be a link. Text
+# that says "Bugzilla N" is left alone: known-status.csv links its own.
+BUG_RUN = re.compile(r"(?i)\bbugs?\s+\d{6,7}(?:\s*(?:/|,|and|or)\s*\d{6,7})*")
+
+
+def link_bugs(s):
+    """Link every bug number written as "bug N". Do not use inside the text
+    of another link: a link inside a link does not render."""
+    return BUG_RUN.sub(
+        lambda m: re.sub(r"\d{6,7}",
+                         lambda n: f"[{n.group(0)}]({BUG_URL.format(id=n.group(0))})",
+                         m.group(0)),
+        s or "")
+
+
 def md_safe(s, limit=80):
     return (s or "").replace("|", "¦").replace('"', "＂")[:limit]
 
@@ -555,9 +572,9 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
     W(f"| New issue clusters this month | — | {int(top['is_new'].sum()) if len(top) else 0} | |")
     W("")
     if narr.get("headline"):
-        W(narr["headline"] + "\n")
+        W(link_bugs(narr["headline"]) + "\n")
     if narr.get("narrative_md"):
-        W(narr["narrative_md"] + "\n")
+        W(link_bugs(narr["narrative_md"]) + "\n")
 
     W("## Issues to investigate {#issues-to-investigate}\n")
     W("The order comes from a Python score. It weights new clusters, badly "
@@ -567,11 +584,11 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
     for i, (_, r) in enumerate(top.iterrows(), 1):
         flag = " (below 50%)" if r["served_pct"] < 50 else ""
         new = ", new this month" if r["is_new"] else ""
-        W(f"### {i}. {r['label']}{new} {{#issue-{i}}}\n")
+        W(f"### {i}. {link_bugs(r['label'])}{new} {{#issue-{i}}}\n")
         W(f"| Cluster | {human_month(prev_m)} | {human_month(cur_m)} | Change | "
           f"Sev (≥4) | Resolved | Unanswered |")
         W("|:--|--:|--:|:--|:--|:--|--:|")
-        W(f"| {md_safe(r['label'], 130)} ({r['category']}) | {r['prev']} | "
+        W(f"| {link_bugs(md_safe(r['label'], 130))} ({r['category']}) | {r['prev']} | "
           f"{r['cur']} | "
           f"{delta(r['prev'], r['cur'])} | {r['mean_sev']} ({r['n_sev4']}) | "
           f"{r['served_pct']}%{flag} | {r['unanswered_pct']}% |")
@@ -581,8 +598,8 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
         if st:
             W(f"- Known status: {st}")
         if p:
-            W(f"- Why it matters: {p['why']}")
-            W(f"- What to look at: {p['action']}")
+            W(f"- Why it matters: {link_bugs(p['why'])}")
+            W(f"- What to look at: {link_bugs(p['action'])}")
         W(f"- Example questions: {links(r['examples'], titles)}")
         W("")
 

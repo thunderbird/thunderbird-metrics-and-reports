@@ -11,7 +11,7 @@ title: Desktop LLM Insights — August 2026
 
 | # | Issue | July 2026 | August 2026 | Severity | Resolved | Known status |
 |--:|:--|--:|--:|--:|--:|:--|
-| [1](#issue-1) | [PDF/email attachments print as blank pages (154 regression)](#issue-1) | 1 | 38 | 3.3 | 37% (below 50%) | Fixed in Thunderbird 155, released 2026-09-01 (Bugzilla 2065922). The reports that arrive after that date come from users still on 154. |
+| [1](#issue-1) | [PDF/email attachments print as blank pages (154 regression)](#issue-1) | 1 | 38 | 3.3 | 37% (below 50%) | Fixed in Thunderbird 155, released 2026-09-01 (Bugzilla [2065922](https://bugzilla.mozilla.org/show_bug.cgi?id=2065922)). The reports that arrive after that date come from users still on 154. |
 | [2](#issue-2) | [Spectrum/Charter/Roadrunner mail download and connection failures (m:spectrum)](#issue-2) | 3 | 34 | 4.3 | 62% | — |
 | [3](#issue-3) | [Compose window Send button / composition toolbar missing (bug 1989214)](#issue-3) | 8 | 28 | 3.1 | 89% | — |
 | [4](#issue-4) | [Thunderbird hangs or freezes at startup (System Integration dialog)](#issue-4) | 8 | 22 | 4.2 | 59% | — |
@@ -66,7 +66,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 |:--|--:|--:|:--|:--|:--|--:|
 | PDF/email attachments print as blank pages (154 regression) (attachments) | 1 | 38 | ▲ +37 | 3.3 (12) | 37% (below 50%) | 21% |
 
-- Known status: Fixed in Thunderbird 155, released 2026-09-01 (Bugzilla 2065922). The reports that arrive after that date come from users still on 154.
+- Known status: Fixed in Thunderbird 155, released 2026-09-01 (Bugzilla [2065922](https://bugzilla.mozilla.org/show_bug.cgi?id=2065922)). The reports that arrive after that date come from users still on 154.
 - Why it matters: Printing attachments as blank pages jumped from 1 to 38 questions and only 37 percent of users got a fix.
 - What to look at: Engineering must bisect print and PDF viewer changes in the 154 release and reproduce blank output across Windows print drivers.
 - Example questions: [1600414](https://support.mozilla.org/questions/1600414 "Puste strony i brak podglądu przy drukowaniu załączników PDF (Canon MF450, Windo") [1600149](https://support.mozilla.org/questions/1600149 "Thunderbird 154 PDF preview prints blank pages") [1601389](https://support.mozilla.org/questions/1601389 "Problema  con ultimo  aggiornamento") [1601387](https://support.mozilla.org/questions/1601387 "problemi con la stampa degli allegati della posta, stampa e salva tutto bianco,p") [1601306](https://support.mozilla.org/questions/1601306 "Problemi di stampa") +1
@@ -79,13 +79,13 @@ The order comes from a Python score. It weights new clusters, badly served clust
 
 - Why it matters: Spectrum, Charter and Roadrunner users lost mail access outright, with 31 of 34 reports at the top severity band.
 - What to look at: Engineering must capture connection logs from affected accounts and check for a provider side authentication, port or TLS change.
-- Example questions: [1599681](https://support.mozilla.org/questions/1599681 "I am unable to send and receive emails on two of my computers. I can do that onl") [1599818](https://support.mozilla.org/questions/1599818 "Thunderbird not connecting to server.  Cannot send or receive emails.") [1600663](https://support.mozilla.org/questions/1600663 "can no longer get my e-mail") [1600000](https://support.mozilla.org/questions/1600000 "Suddenly can't send/receive emails") [1601143](https://support.mozilla.org/questions/1601143 "IMAP accounts no longer update - Charter/Spectrum email hosting") +1
+- Example questions: [1599681](https://support.mozilla.org/questions/1599681 "I am unable to send and receive emails on two of my computers. I can do that onl") [1599818](https://support.mozilla.org/questions/1599818 "Thunderbird not connecting to charter server.  Cannot send or receive emails.") [1600663](https://support.mozilla.org/questions/1600663 "can no longer get my e-mail") [1600000](https://support.mozilla.org/questions/1600000 "Suddenly can't send/receive Spectrum emails") [1601143](https://support.mozilla.org/questions/1601143 "IMAP accounts no longer update - Charter/Spectrum email hosting") +1
 
-### 3. Compose window Send button / composition toolbar missing (bug 1989214) {#issue-3}
+### 3. Compose window Send button / composition toolbar missing (bug [1989214](https://bugzilla.mozilla.org/show_bug.cgi?id=1989214)) {#issue-3}
 
 | Cluster | July 2026 | August 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Compose window Send button / composition toolbar missing (bug 1989214) (ui-ux) | 8 | 28 | ▲ +20 | 3.1 (9) | 89% | 4% |
+| Compose window Send button / composition toolbar missing (bug [1989214](https://bugzilla.mozilla.org/show_bug.cgi?id=1989214)) (ui-ux) | 8 | 28 | ▲ +20 | 3.1 (9) | 89% | 4% |
 
 - Why it matters: The missing Send button and compose toolbar hit 28 users, up from 8, though 89 percent got a workaround.
 - What to look at: x
@@ -192,8 +192,8 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | other | 64 | 72 | ▲ +8 (+12%) |
 | performance-crash | 29 | 69 | ▲ +40 (+138%) |
 | search-folders | 58 | 56 | ▼ -2 (-3%) |
-| sync-oauth | 38 | 55 | ▲ +17 (+45%) |
 | attachments | 17 | 55 | ▲ +38 (+224%) |
+| sync-oauth | 38 | 55 | ▲ +17 (+45%) |
 | migration-import | 58 | 49 | ▼ -9 (-16%) |
 | spam-filters | 24 | 28 | ▲ +4 (+17%) |
 | calendar-tasks | 20 | 20 | ▬ 0 (+0%) |
@@ -202,6 +202,6 @@ The order comes from a Python score. It weights new clusters, badly served clust
 
 ---
 
-This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run of the report cost $0.06. The page covers August 2026 against July 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
+This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers August 2026 against July 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-09-10 07:38 UTC
+Last updated: 2026-11-03 13:41 UTC
