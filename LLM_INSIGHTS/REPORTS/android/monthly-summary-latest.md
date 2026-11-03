@@ -15,7 +15,7 @@ Disclaimer: the SUMO forum gets too few Thunderbird for Android questions to giv
 |--:|:--|--:|--:|--:|--:|:--|
 | [1](#issue-1) | [Outlook/Hotmail 'authenticated but not connected' error](#issue-1), new this month | 0 | 3 | 3.7 | 0% (below 50%) | Reviewer: Users give too few details to diagnose. Engineering should consider troubleshooting features for Android, for providers like Outlook/Hotmail and Gmail. |
 | [2](#issue-2) | [Android credentials rejected though valid on desktop](#issue-2), new this month | 0 | 3 | 3.3 | 67% | No fix yet, because Thunderbird Desktop and Thunderbird for Android do not sync. [More](#issue-2). |
-| [3](#issue-3) | [Deleted messages disappear instead of moving to Trash](#issue-3), new this month | 0 | 2 | 4.0 | 0% (below 50%) | — |
+| [3](#issue-3) | [Deleted messages disappear instead of moving to Trash](#issue-3), new this month | 0 | 2 | 4.0 | 0% (below 50%) | Reviewer: Too few details to solve these. Self-diagnosis and troubleshooting tools would help. |
 | [4](#issue-4) | [QR import leaves accounts unauthenticated / passwords not transferred](#issue-4), new this month | 0 | 3 | 2.7 | 100% | Same as [issue 2](#issue-2). |
 | [5](#issue-5) | [Desktop/Android account and subfolder sync guidance](#issue-5), new this month | 0 | 2 | 2.5 | 0% (below 50%) | — |
 
@@ -93,6 +93,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 |:--|--:|--:|:--|:--|:--|--:|
 | Deleted messages disappear instead of moving to Trash (send-receive) | 0 | 2 | ▲ +2 | 4.0 (2) | 0% (below 50%) | 0% |
 
+- Reviewer note: Roland Tanglao: Self diagnostic and other troubleshooting tools would help folks troubleshoot. There's not enough troubleshooting details here to solve people's issues.
 - Why it matters: Deleted mail vanishes instead of moving to Trash, the highest-severity kind of report, and neither case was resolved.
 - What to look at: Engineering should consider checking Trash folder mapping and the expunge-on-delete path for the affected IMAP accounts.
 - Example questions: [1610658](https://support.mozilla.org/questions/1610658 "Deleted emails disappear - not in 'deleted mail' folder") [1611184](https://support.mozilla.org/questions/1611184 "I want messages i delete to go to deleted messages in side panel")
@@ -159,8 +160,8 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | other | 2 | 5 | ▲ +3 |
 | sync-oauth | 5 | 4 | ▼ -1 |
 | attachments | 0 | 3 | ▲ +3 |
-| search-folders | 2 | 3 | ▲ +1 |
 | migration-import | 3 | 3 | ▬ 0 |
+| search-folders | 2 | 3 | ▲ +1 |
 | spam-filters | 1 | 2 | ▲ +1 |
 | performance-crash | 2 | 1 | ▼ -1 |
 | encryption-security | 2 | 1 | ▼ -1 |
@@ -169,4 +170,4 @@ The order comes from a Python score. It weights new clusters, badly served clust
 
 This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers October 2026 against September 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-11-03 15:42 UTC
+Last updated: 2026-11-03 15:49 UTC
