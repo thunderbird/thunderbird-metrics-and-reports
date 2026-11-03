@@ -24,7 +24,7 @@ questions is noise.
 - [Android — executive summary (no AI)](PROJECT1/REPORTS/android/exec-summary-latest.html) — volume, answered rate, cause and version mix from regex and statistics. Nothing has cleared a spike threshold since 2024, which is a volume fact rather than a health fact, and the page says so.
 - [Android — unanswered questions](UNANSWERED_QUESTIONS/HTML_REPORTS/android-latest-unanswered-questions.html) — the triage list, updated twice daily.
 
-## Spike Detector (experimental)
+## SUMO Spike Detector (experimental)
 
 Engineering-focused spike detection (no AI; regex + traditional stats) over the
 full scraper history (2023-01+). Two signals per report: **version × cause**
@@ -77,7 +77,7 @@ are the open question.
 
 ## LLM Insights (experimental — AI)
 
-The AI counterpart to the Spike Detector. Claude reads each support question (plus the
+The AI counterpart to the SUMO Spike Detector. Claude reads each support question (plus the
 creator's own follow-ups, the accepted solution, and trusted-contributor replies),
 names the concrete problem, hypothesises a root cause, and rates severity —
 surfacing **emerging and worst-served** issues that regex + stats can't. A

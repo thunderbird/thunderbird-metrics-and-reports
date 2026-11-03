@@ -165,7 +165,7 @@ def main():
 |:--|:--|
 {chr(10).join(inputs)}
 
-The scheduled workflows refresh the concat files, the Spike Detector feature tables and the spike CSVs. Make sure that the spike workflow ran after the month closed, because `split_by_cause()` reads the spike CSVs.
+The scheduled workflows refresh the concat files, the SUMO Spike Detector feature tables and the spike CSVs. Make sure that the spike workflow ran after the month closed, because `split_by_cause()` reads the spike CSVs.
 
 ### Cost estimate
 

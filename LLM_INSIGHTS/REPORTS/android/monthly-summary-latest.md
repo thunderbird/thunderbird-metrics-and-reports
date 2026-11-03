@@ -39,7 +39,7 @@ Python did the counting and the ranking. Claude grouped the named problems and w
 | resolved | The question has an accepted solution, or a trusted contributor gave the last answer. |
 | unanswered | Nobody except the person who asked has replied. |
 | rank | A Python score, not a Claude opinion. It weights new clusters, badly served clusters, severity and volume, in that order. |
-| Spike Detector signal | A spike that the Spike Detector, a separate tool with no AI, found for a mail host, antivirus, protocol or feature tag that this issue's questions carry. |
+| SUMO Spike Detector signal | A spike that the SUMO Spike Detector, a separate tool with no AI, found for a mail host, antivirus, protocol or feature tag that this issue's questions carry. |
 
 </details>
 
@@ -153,11 +153,11 @@ The order comes from a Python score. It weights new clusters, badly served clust
 
 ## Seen by one side only {#seen-by-one-side-only}
 
-The Spike Detector is a separate tool with no AI. It flags a spike when a mail host, antivirus, protocol or feature tag rises well above its usual level. Where a spike and an issue on this page share questions, the issue carries a Spike Detector signal line. The [Spike Detector executive summary for October 2026](../../../PROJECT1/REPORTS/android/2026-10-exec-summary.html) has the numbers.
+The SUMO Spike Detector is a separate tool with no AI. It flags a spike when a mail host, antivirus, protocol or feature tag rises well above its usual level. Where a spike and an issue on this page share questions, the issue carries a SUMO Spike Detector signal line. The [SUMO Spike Detector executive summary for October 2026](../../../PROJECT1/REPORTS/android/2026-10-exec-summary.html) has the numbers.
 
-No Spike Detector spike cleared its threshold in October 2026.
+No SUMO Spike Detector spike cleared its threshold in October 2026.
 
-Issues with 3 or more questions and no Spike Detector spike. No spiking tag covers a quarter of their questions, so the Spike Detector does not flag them:
+Issues with 3 or more questions and no SUMO Spike Detector spike. No spiking tag covers a quarter of their questions, so the SUMO Spike Detector does not flag them:
 
 - [Issue 1](#issue-1), Outlook/Hotmail 'authenticated but not connected' error, 3 questions
 - [Issue 2](#issue-2), Android credentials rejected though valid on desktop, 3 questions
@@ -177,11 +177,11 @@ Issues with 3 or more questions and no Spike Detector spike. No spiking tag cove
 | search-folders | 2 | 3 | ▲ +1 |
 | migration-import | 3 | 3 | ▬ 0 |
 | spam-filters | 1 | 2 | ▲ +1 |
-| performance-crash | 2 | 1 | ▼ -1 |
 | encryption-security | 2 | 1 | ▼ -1 |
+| performance-crash | 2 | 1 | ▼ -1 |
 
 ---
 
 This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers October 2026 against September 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-11-03 18:22 UTC
+Last updated: 2026-11-03 18:24 UTC
