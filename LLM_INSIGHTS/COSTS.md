@@ -220,6 +220,8 @@ Roland asked that provider questions with too few details to diagnose get their 
 | Android diagnosability pass, 2026-09 and 2026-10 | 15 | $0.03 |
 | **Total** | | **$1.02** |
 
+On the same day, a rebuild of the older android pages ran the pass on July and August 2026 as well, for about $0.02. It moved no questions.
+
 ## Notes
 - All figures are well under the $50/run circuit-breaker.
 - Cost scales with the enriched text size; if it ever grows, re-baseline the unit rate with the Bucket-0 preview: `uv run scripts/llm_insights_cost.py <month> <month> <product>`.

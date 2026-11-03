@@ -118,6 +118,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 |:--|--:|--:|:--|:--|:--|--:|
 | Imported account shows only Outbox / missing passwords after import (account-login) | 1 | 3 | ▲ +2 | 3.3 (1) | 100% | 0% |
 
+- Known status: No fix yet. Thunderbird Desktop and Thunderbird for Android do not sync. Sync, like the one between Firefox desktop and Firefox Android, is on the roadmap with no timeline (Roland Tanglao, 2026-11-03). It can reduce these questions, because accounts and passwords set up on desktop will carry over.
 - Why it matters: This grew from 1 to 3 questions, and imported accounts land with no password and only an Outbox visible, which looks like total data loss to the user.
 - What to look at: Engineering should consider auditing the import routine for password carry-over and folder subscription, and connecting it to the credential bugs in ranks 1 and 3.
 - Example questions: [1601095](https://support.mozilla.org/questions/1601095 "携帯でメールアカウントを二つにすると片方が送信トレイしか表示されない") [1596244](https://support.mozilla.org/questions/1596244 "After installing Thunderbird for android it only show the outbox for all my acco") [1598503](https://support.mozilla.org/questions/1598503 "after import, how to enter passwords")
@@ -130,17 +131,17 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | account-login | 4 | 6 | ▲ +2 |
 | send-receive | 11 | 5 | ▼ -6 (-55%) |
 | other | 5 | 4 | ▼ -1 |
-| performance-crash | 1 | 3 | ▲ +2 |
-| encryption-security | 0 | 3 | ▲ +3 |
 | settings-config | 3 | 3 | ▬ 0 |
 | sync-oauth | 1 | 3 | ▲ +2 |
+| encryption-security | 0 | 3 | ▲ +3 |
+| performance-crash | 1 | 3 | ▲ +2 |
 | attachments | 0 | 2 | ▲ +2 |
 | spam-filters | 0 | 1 | ▲ +1 |
-| migration-import | 7 | 1 | ▼ -6 |
 | search-folders | 5 | 1 | ▼ -4 |
+| migration-import | 7 | 1 | ▼ -6 |
 
 ---
 
-This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers August 2026 against July 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
+This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run of the report cost $0.01. The page covers August 2026 against July 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-11-03 13:45 UTC
+Last updated: 2026-11-03 15:19 UTC

@@ -127,20 +127,20 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | Category | August 2026 | September 2026 | Change |
 |:--|--:|--:|:--|
 | send-receive | 5 | 7 | ▲ +2 |
-| ui-ux | 8 | 6 | ▼ -2 |
 | settings-config | 3 | 6 | ▲ +3 |
+| ui-ux | 8 | 6 | ▼ -2 |
 | account-login | 6 | 5 | ▼ -1 |
 | sync-oauth | 3 | 5 | ▲ +2 |
 | migration-import | 1 | 3 | ▲ +2 |
+| performance-crash | 3 | 2 | ▼ -1 |
+| other | 4 | 2 | ▼ -2 |
 | search-folders | 1 | 2 | ▲ +1 |
 | encryption-security | 3 | 2 | ▼ -1 |
-| other | 4 | 2 | ▼ -2 |
-| performance-crash | 3 | 2 | ▼ -1 |
 | spam-filters | 1 | 1 | ▬ 0 |
 | attachments | 2 | 0 | ▼ -2 |
 
 ---
 
-This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers September 2026 against August 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
+This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run of the report cost $0.01. The page covers September 2026 against August 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-11-03 13:45 UTC
+Last updated: 2026-11-03 15:19 UTC

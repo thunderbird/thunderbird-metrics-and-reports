@@ -12,9 +12,9 @@ title: Android LLM Insights — October 2026
 | # | Issue | September 2026 | October 2026 | Severity | Resolved | Known status |
 |--:|:--|--:|--:|--:|--:|:--|
 | [1](#issue-1) | [Outlook/Hotmail 'authenticated but not connected' error](#issue-1), new this month | 0 | 3 | 3.7 | 0% (below 50%) | — |
-| [2](#issue-2) | [Android credentials rejected though valid on desktop](#issue-2), new this month | 0 | 3 | 3.3 | 67% | — |
+| [2](#issue-2) | [Android credentials rejected though valid on desktop](#issue-2), new this month | 0 | 3 | 3.3 | 67% | No fix yet. Thunderbird Desktop and Thunderbird for Android do not sync. Sync, like the one between Firefox desktop and Firefox Android, is on the roadmap with no timeline (Roland Tanglao, 2026-11-03). It can reduce these questions, because accounts and passwords set up on desktop will carry over. |
 | [3](#issue-3) | [Deleted messages disappear instead of moving to Trash](#issue-3), new this month | 0 | 2 | 4.0 | 0% (below 50%) | — |
-| [4](#issue-4) | [QR import leaves accounts unauthenticated / passwords not transferred](#issue-4), new this month | 0 | 3 | 2.7 | 100% | — |
+| [4](#issue-4) | [QR import leaves accounts unauthenticated / passwords not transferred](#issue-4), new this month | 0 | 3 | 2.7 | 100% | No fix yet. Thunderbird Desktop and Thunderbird for Android do not sync. Sync, like the one between Firefox desktop and Firefox Android, is on the roadmap with no timeline (Roland Tanglao, 2026-11-03). It can reduce these questions, because accounts and passwords set up on desktop will carry over. |
 | [5](#issue-5) | [Desktop/Android account and subfolder sync guidance](#issue-5), new this month | 0 | 2 | 2.5 | 0% (below 50%) | — |
 
 Each number links to the same issue in [Issues to investigate](#issues-to-investigate) below, which carries the reason, what to look at, and the example questions.
@@ -79,6 +79,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 |:--|--:|--:|:--|:--|:--|--:|
 | Android credentials rejected though valid on desktop (account-login) | 0 | 3 | ▲ +3 | 3.3 (2) | 67% | 33% |
 
+- Known status: No fix yet. Thunderbird Desktop and Thunderbird for Android do not sync. Sync, like the one between Firefox desktop and Firefox Android, is on the roadmap with no timeline (Roland Tanglao, 2026-11-03). It can reduce these questions, because accounts and passwords set up on desktop will carry over.
 - Reviewer note: Roland Tanglao: Engineering could fix this with Sync, which is on the roadmap with no timeline. If Thunderbird Desktop synced with Thunderbird for Android like Firefox desktop syncs with Firefox Android, these issues could be reduced.
 - Why it matters: Three users had credentials rejected on Android while the same credentials worked on desktop, which points at a client-side auth difference.
 - What to look at: Engineering should consider comparing the OAuth client identifiers and token storage used by Android against desktop for the same provider.
@@ -100,6 +101,7 @@ The order comes from a Python score. It weights new clusters, badly served clust
 |:--|--:|--:|:--|:--|:--|--:|
 | QR import leaves accounts unauthenticated / passwords not transferred (migration-import) | 0 | 3 | ▲ +3 | 2.7 (0) | 100% | 0% |
 
+- Known status: No fix yet. Thunderbird Desktop and Thunderbird for Android do not sync. Sync, like the one between Firefox desktop and Firefox Android, is on the roadmap with no timeline (Roland Tanglao, 2026-11-03). It can reduce these questions, because accounts and passwords set up on desktop will carry over.
 - Why it matters: QR import, the feature that copies desktop accounts to Android by scanning a code, leaves accounts without working passwords.
 - What to look at: Engineering should consider confirming whether the QR payload carries stored secrets and OAuth refresh tokens, or only server settings.
 - Example questions: [1609183](https://support.mozilla.org/questions/1609183 "[Import] No Settings menu to use QR code") [1610685](https://support.mozilla.org/questions/1610685 "Opens with outbox") [1609814](https://support.mozilla.org/questions/1609814 "Beta: after QR import, Google accounts show ＂restore apps＂ screen, blank account")
@@ -154,8 +156,8 @@ The order comes from a Python score. It weights new clusters, badly served clust
 | settings-config | 6 | 6 | ▬ 0 |
 | other | 2 | 5 | ▲ +3 |
 | sync-oauth | 5 | 4 | ▼ -1 |
-| migration-import | 3 | 3 | ▬ 0 |
 | search-folders | 2 | 3 | ▲ +1 |
+| migration-import | 3 | 3 | ▬ 0 |
 | attachments | 0 | 3 | ▲ +3 |
 | spam-filters | 1 | 2 | ▲ +1 |
 | performance-crash | 2 | 1 | ▼ -1 |
@@ -165,4 +167,4 @@ The order comes from a Python score. It weights new clusters, badly served clust
 
 This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers October 2026 against September 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-11-03 14:46 UTC
+Last updated: 2026-11-03 15:20 UTC
