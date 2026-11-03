@@ -1,21 +1,21 @@
 ---
 layout: base
-title: Desktop LLM Insights — September 2026
+title: Desktop LLM Insights — October 2026
 ---
 
 # Thunderbird Desktop — LLM Insights (Engineering)
 
-## September 2026 against August 2026
+## October 2026 against September 2026
 
 ## TL;DR: the five issues to look at first {#tldr}
 
-| # | Issue | August 2026 | September 2026 | Severity | Resolved | Known status |
+| # | Issue | September 2026 | October 2026 | Severity | Resolved | Known status |
 |--:|:--|--:|--:|--:|--:|:--|
-| [1](#issue-1) | [Generic 'cannot receive mail' / mail stopped arriving](#issue-1) | 29 | 50 | 4.1 | 50% | — |
-| [2](#issue-2) | [TB 155 message filters with blank conditions match everything and misroute mail](#issue-2) | 2 | 35 | 4.3 | 80% | Fixed in Thunderbird 155.0.1, released 2026-09-09 (Bugzilla 2068847, duplicate 2068955). ESR 153 was never affected. 27 of the 37 September reports came before the release, and the last one arrived on 2026-09-14. |
-| [3](#issue-3) | [Alice.it/TIM POP/IMAP server connection refused (m:alice_it)](#issue-3) | 1 | 21 | 4.2 | 14% (below 50%) | A POP problem on the TIM server in.alice.it, not IMAP. TIM fixed it by 2026-09-24. Until then, the POP server pop.tim.it worked as a workaround ([1606677](https://support.mozilla.org/questions/1606677)). |
-| [4](#issue-4) | [Microsoft/Outlook OAuth2 authentication failures (m:microsoftemail)](#issue-4) | 14 | 22 | 3.8 | 18% (below 50%) | — |
-| [5](#issue-5) | [AOL/Yahoo account cannot send or receive](#issue-5) | 12 | 21 | 4.1 | 33% (below 50%) | — |
+| [1](#issue-1) | [Attach button does nothing / file picker never opens (stale mail.compose.attach.dir, bug 2077526/2077590)](#issue-1), new this month | 0 | 169 | 4.0 | 62% | — |
+| [2](#issue-2) | [Cannot receive new mail (generic, no error)](#issue-2) | 55 | 24 | 4.2 | 25% (below 50%) | — |
+| [3](#issue-3) | [Gmail mail not downloading / Inbox empty while All Mail has messages (m:gmail)](#issue-3) | 6 | 16 | 3.9 | 31% (below 50%) | — |
+| [4](#issue-4) | [Microsoft/Outlook.com OAuth2 authentication failures (IMAP/SMTP)](#issue-4) | 23 | 21 | 4.2 | 14% (below 50%) | — |
+| [5](#issue-5) | [AT&T inbound.att.net certificate revoked/untrusted blocking mail download (m:att)](#issue-5) | 1 | 15 | 4.2 | 87% | — |
 
 Each number links to the same issue in [Issues to investigate](#issues-to-investigate) below, which carries the reason, what to look at, and the example questions.
 
@@ -40,169 +40,167 @@ Python did the counting and the ranking. Claude grouped the named problems and w
 
 ## Headline
 
-| | August 2026 | September 2026 | Change |
+| | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 940 | 976 | ▲ +36 (+4%) |
-| Distinct issue clusters | 175 | 161 | ▼ -14 |
+| Support questions (load) | 977 | 1030 | ▲ +53 (+5%) |
+| Distinct issue clusters | 167 | 174 | ▲ +7 |
 | New issue clusters this month | — | 1 | |
 
-Mail delivery failures drove support up in September, and three connection clusters got almost no working answers
+A new attachment bug drove 169 reports in October, while Microsoft OAuth2 failures stay the worst-served pain at 14 percent resolved.
 
-Support volume rose from 940 to 976 questions. Send and receive problems grew most, from 169 to 233. Engineering must treat mail transport as the September focus, not the interface.
+Engineering must look at two things this month. First, a brand new cluster: the Attach button does nothing and the file picker never opens. It went from zero reports in September to 169 in October. Users link it to a stale `mail.compose.attach.dir` value, tracked in bugs 2077526 and 2077590. Average severity is 4.0 and 161 reports sit at severity 4 or higher. This single cluster lifted the attachments category from 29 to 190 reports.
 
-The worst user pain sits in three clusters with very low resolved rates. Resolved rate means the share of questions where the user got a fix. Alice.it and TIM users (rank 3) resolved at 14 percent. Microsoft OAuth2 failures (rank 4) resolved at 18 percent, with 55 percent of questions never answered. AOL and Yahoo failures (rank 5) resolved at 33 percent. These look like provider side changes to servers, ports or token rules that Thunderbird does not detect or explain.
+Second, the worst-served pain is Microsoft and Outlook.com OAuth2 login failures. OAuth2 is the token-based sign-in flow that replaced passwords. Only 14 percent of those reports reach a resolution. 57 percent get no reply at all. The volume is flat at 21 reports, so this is a quality problem, not a growth problem. Generic "cannot receive new mail" reports are the second worst served at 25 percent resolved and 38 percent unanswered.
 
-One regression is clear and already well handled. The Thunderbird 155 filter bug (rank 2) jumped from 2 to 35 questions and resolves at 80 percent. Blank filter conditions match every message and misroute mail. The fix belongs in code, not in support text.
+Total volume rose from 977 to 1030 questions. Send and receive dropped from 233 to 160. Two provider-specific clusters grew: Gmail Inbox staying empty while All Mail holds messages, and a revoked AT&T certificate on inbound.att.net. Support answers the AT&T case well at 87 percent resolved, so that one needs a documented workaround more than code.
 
-One cluster is new this month. POP downloads fail with "Unable to write the email to the mailbox" (rank 11), at 7 questions. Volume is small. Severity is high because mail can be lost on download.
+These clusters come from a language model reading free-text support questions. Treat the numbers as a triage pointer, not as bug confirmation.
 
 ## Issues to investigate {#issues-to-investigate}
 
 The order comes from a Python score. It weights new clusters, badly served clusters, severity and volume, in that order. Resolved means the question has an accepted solution, or a trusted contributor gave the last answer. A resolved figure under 50% is marked.
 
-### 1. Generic 'cannot receive mail' / mail stopped arriving {#issue-1}
+### 1. Attach button does nothing / file picker never opens (stale mail.compose.attach.dir, bug 2077526/2077590), new this month {#issue-1}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Generic 'cannot receive mail' / mail stopped arriving (send-receive) | 29 | 50 | ▲ +21 (+72%) | 4.1 (39) | 50% | 30% |
+| Attach button does nothing / file picker never opens (stale mail.compose.attach.dir, bug 2077526/2077590) (attachments) | 0 | 169 | ▲ +169 | 4.0 (161) | 62% | 5% |
 
-- Why it matters: This is the largest cluster at 50 questions, up 21, and 30 percent of users got no answer at all.
-- What to look at: Engineering must add clearer failure reasons to the receive path so users and helpers can tell server refusal apart from local index or profile faults.
-- Example questions: [1604822](https://support.mozilla.org/questions/1604822 "Ik ontvang geen e-mails meer") [1603856](https://support.mozilla.org/questions/1603856 "Not getting my emails with Thunerbird") [1604365](https://support.mozilla.org/questions/1604365 "Connection to my email supplier has suddenly stopped showing  ＂could not connect") [1605528](https://support.mozilla.org/questions/1605528 "Can't download email via thunderbird") [1602919](https://support.mozilla.org/questions/1602919 "Why does my Thunderbird account not download new emails to my Inbox since Septem") +1
+- Why it matters: Rank 1 is new this month and went from 0 to 169 reports, with 161 at severity 4 or higher, so composing mail with files is broken for many users.
+- What to look at: Engineering must confirm whether a stale or invalid `mail.compose.attach.dir` path blocks the file picker, and ship a fallback that ignores unreachable directories, per bugs 2077526 and 2077590.
+- Example questions: [1610213](https://support.mozilla.org/questions/1610213 "Thunderbird is onbruikbaar geworden") [1610928](https://support.mozilla.org/questions/1610928 "Attaching files no longer works in the current version of Thunderbird—what shoul") [1610829](https://support.mozilla.org/questions/1610829 "impossibile inserire allegati") [1610832](https://support.mozilla.org/questions/1610832 "No attachment possible") [1610834](https://support.mozilla.org/questions/1610834 "Keien Aänge weren geöffnet") +1
 
-### 2. TB 155 message filters with blank conditions match everything and misroute mail {#issue-2}
+### 2. Cannot receive new mail (generic, no error) {#issue-2}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| TB 155 message filters with blank conditions match everything and misroute mail (spam-filters) | 2 | 35 | ▲ +33 | 4.3 (33) | 80% | 9% |
+| Cannot receive new mail (generic, no error) (send-receive) | 55 | 24 | ▼ -31 (-56%) | 4.2 (21) | 25% (below 50%) | 38% |
 
-- Known status: Fixed in Thunderbird 155.0.1, released 2026-09-09 (Bugzilla 2068847, duplicate 2068955). ESR 153 was never affected. 27 of the 37 September reports came before the release, and the last one arrived on 2026-09-14.
-- Why it matters: A Thunderbird 155 regression makes filters with blank conditions match every message and misroute mail, and it grew from 2 to 35 questions.
-- What to look at: Engineering must block or ignore empty filter conditions at save and at run time, and ship the fix in the next point release.
-- Example questions: [1602807](https://support.mozilla.org/questions/1602807 "Thunderbird sending all inbox messages to deleted (bug2068847)") [1603340](https://support.mozilla.org/questions/1603340 "Incoming messages routed to Trash (bug2068847?)") [1602820](https://support.mozilla.org/questions/1602820 "Email filter problem after update") [1603074](https://support.mozilla.org/questions/1603074 "How do I get rid of 155.0 Beta version") [1602453](https://support.mozilla.org/questions/1602453 "All of my new emails go to Trash with Thunderbird 155.0 (bug2068847)") +1
+- Why it matters: Rank 2 reports give no error text, only 25 percent reach a resolution and 38 percent get no reply, so users hit a dead end.
+- What to look at: Engineering must add a visible, specific failure reason when a mail fetch returns nothing, so helpers can tell a server timeout from an auth failure.
+- Example questions: [1609063](https://support.mozilla.org/questions/1609063 "I am no longer getting emails on my thunderbird account") [1609609](https://support.mozilla.org/questions/1609609 "Non scarica la posta dopo aggiornamento") [1610435](https://support.mozilla.org/questions/1610435 "Get Messages not working in the latest version 157.1") [1610234](https://support.mozilla.org/questions/1610234 "i can't receive inbound") [1609960](https://support.mozilla.org/questions/1609960 "Get Messages button quit working") +1
 
-### 3. Alice.it/TIM POP/IMAP server connection refused (m:alice_it) {#issue-3}
+### 3. Gmail mail not downloading / Inbox empty while All Mail has messages (m:gmail) {#issue-3}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Alice.it/TIM POP/IMAP server connection refused (m:alice_it) (send-receive) | 1 | 21 | ▲ +20 | 4.2 (21) | 14% (below 50%) | 0% |
+| Gmail mail not downloading / Inbox empty while All Mail has messages (m:gmail) (send-receive) | 6 | 16 | ▲ +10 | 3.9 (12) | 31% (below 50%) | 25% |
 
-- Known status: A POP problem on the TIM server in.alice.it, not IMAP. TIM fixed it by 2026-09-24. Until then, the POP server pop.tim.it worked as a workaround ([1606677](https://support.mozilla.org/questions/1606677)).
-- Why it matters: Alice.it and TIM users jumped from 1 to 21 questions and only 14 percent got a fix, the worst rate on the board.
-- What to look at: Engineering must test current Alice.it and TIM server settings, then update the autoconfiguration entry for that provider.
-- Example questions: [1606928](https://support.mozilla.org/questions/1606928 "non ricevo le mail di Alicemail") [1606939](https://support.mozilla.org/questions/1606939 "Da ieri 22-09-2026 non si scarica più la posta in arrivo da Alice") [1606943](https://support.mozilla.org/questions/1606943 "Non riesco più a scaricare la posta in arrivo.") [1606403](https://support.mozilla.org/questions/1606403 "non ricevo posta su pino.[RIMOSSO]@alice.it, sono con starlink, nè riesco a invi") [1602510](https://support.mozilla.org/questions/1602510 "Connessione rifiutata con alice.it") +1
+- Why it matters: Rank 3 nearly tripled to 16 reports and only 31 percent resolve, which points at Gmail IMAP folder mapping rather than user error.
+- What to look at: Engineering must test how Thunderbird maps Gmail labels and the All Mail folder to a local Inbox after account setup and after upgrades.
+- Example questions: [1610604](https://support.mozilla.org/questions/1610604 "My gmail account has stopped synchronising with Thunderbird") [1612765](https://support.mozilla.org/questions/1612765 "Non ricevo le mail da gmail") [1613215](https://support.mozilla.org/questions/1613215 "Can't Receive Emails") [1613725](https://support.mozilla.org/questions/1613725 "da ieri Mozzilla Thunderbird non riceve più posta al mio indirizzo mail [RIMOSSO") [1609176](https://support.mozilla.org/questions/1609176 "multiple problems with thunderbird handling gmail accounts") +1
 
-### 4. Microsoft/Outlook OAuth2 authentication failures (m:microsoftemail) {#issue-4}
+### 4. Microsoft/Outlook.com OAuth2 authentication failures (IMAP/SMTP) {#issue-4}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Microsoft/Outlook OAuth2 authentication failures (m:microsoftemail) (sync-oauth) | 14 | 22 | ▲ +8 (+57%) | 3.8 (16) | 18% (below 50%) | 55% |
+| Microsoft/Outlook.com OAuth2 authentication failures (IMAP/SMTP) (sync-oauth) | 23 | 21 | ▼ -2 (-9%) | 4.2 (19) | 14% (below 50%) | 57% |
 
-- Why it matters: Microsoft OAuth2 sign in fails for 22 users, 18 percent get a fix, and 55 percent get no reply at all.
-- What to look at: Engineering must capture the exact Microsoft token error in the account setup log and check tenant and consent policy changes on the Microsoft side.
-- Example questions: [1602968](https://support.mozilla.org/questions/1602968 "My live.com email is neither sending or receiving using Mozilla on my desktop, b") [1608482](https://support.mozilla.org/questions/1608482 "I can't get Thunderbird to connect to Outlook") [1603527](https://support.mozilla.org/questions/1603527 "Authentication failures with new Outlook email account") [1603811](https://support.mozilla.org/questions/1603811 "All of a sudden, SMTP authentication failure to (all my) Outlook accounts") [1604859](https://support.mozilla.org/questions/1604859 "autenticazione non riuscita durante la connessione al server outlook su thunderb") +1
+- Why it matters: Rank 4 has the worst service in the whole set at 14 percent resolved and 57 percent unanswered, with severity 4.2.
+- What to look at: Engineering must capture and log the exact Microsoft token error codes and publish a decision tree so support can answer these at all.
+- Example questions: [1613480](https://support.mozilla.org/questions/1613480 "Thunderbird IMAP (OAuth 2.0) - Microsoft Hesaplarında ＂User is authenticated but") [1614875](https://support.mozilla.org/questions/1614875 "Thunderbird says ＂login failed＂ when trying to send an email") [1614513](https://support.mozilla.org/questions/1614513 "Thunderbird 158.1 receives emails from my new Outlook.com account but cannot sen") [1614222](https://support.mozilla.org/questions/1614222 "Outlook.de receives mail but cannot send with OAuth2: “SmtpClientAuthentication ") [1612144](https://support.mozilla.org/questions/1612144 "Popup non si aprono dopo aggiornamento windows di 2gg fa, non si riesce ad utili") +1
 
-### 5. AOL/Yahoo account cannot send or receive {#issue-5}
+### 5. AT&T inbound.att.net certificate revoked/untrusted blocking mail download (m:att) {#issue-5}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| AOL/Yahoo account cannot send or receive (send-receive) | 12 | 21 | ▲ +9 (+75%) | 4.1 (18) | 33% (below 50%) | 43% |
+| AT&T inbound.att.net certificate revoked/untrusted blocking mail download (m:att) (encryption-security) | 1 | 15 | ▲ +14 | 4.2 (14) | 87% | 13% |
 
-- Why it matters: AOL and Yahoo accounts stopped sending and receiving for 21 users, with 43 percent unanswered and only 33 percent resolved.
-- What to look at: Engineering must verify whether Yahoo now requires app passwords or OAuth for these accounts and surface that requirement in the error dialog.
-- Example questions: [1601864](https://support.mozilla.org/questions/1601864 "Thunderbird impazzito") [1603516](https://support.mozilla.org/questions/1603516 "I cannot send emails from my aol accounts in thunderbird, but I am still receivi") [1608356](https://support.mozilla.org/questions/1608356 "Canot receive or send aol mail") [1602068](https://support.mozilla.org/questions/1602068 "thundesbird startet nicht und ich habe keinen zugriff auf das Menü, also auch ke") [1608595](https://support.mozilla.org/questions/1608595 "can't receive emails. authentication error while connecting to server. imap.mail") +1
+- Why it matters: Rank 5 grew from 1 to 15 reports because AT&T served a revoked or untrusted certificate, which stops mail download outright.
+- What to look at: Engineering must check how Thunderbird presents a revoked server certificate and make the dialog name the provider and the safe next step.
+- Example questions: [1610297](https://support.mozilla.org/questions/1610297 "Unable to receive messages due to certificate problem") [1610321](https://support.mozilla.org/questions/1610321 "I can't recieve emails but can send the certification is revoked for inbound.att") [1610322](https://support.mozilla.org/questions/1610322 "No E-mail because of ＂The certificate for inbound.att.net:995 does not come from") [1610523](https://support.mozilla.org/questions/1610523 "Thunderbird could not connect to server inbound.att.net. The connection was refu") [1610002](https://support.mozilla.org/questions/1610002 "'Digicert Global G2' revoked Oct 5, 2026") +1
 
-### 6. Generic SMTP send failure while receiving works {#issue-6}
+### 6. Generic account setup wizard failures (hostname, ports, credentials) {#issue-6}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Generic SMTP send failure while receiving works (send-receive) | 22 | 28 | ▲ +6 (+27%) | 4.0 (21) | 61% | 25% |
+| Generic account setup wizard failures (hostname, ports, credentials) (account-login) | 41 | 28 | ▼ -13 (-32%) | 3.9 (22) | 54% | 25% |
 
-- Why it matters: Outbound sending fails while receiving works for 28 users, which points at SMTP settings or provider port and authentication changes.
-- What to look at: Engineering must review SMTP error reporting so the dialog names the rejecting server and the reason.
-- Example questions: [1607890](https://support.mozilla.org/questions/1607890 "Es werten keine Mails nicht gesendet") [1602038](https://support.mozilla.org/questions/1602038 "Cannot snde out emails anymore") [1605272](https://support.mozilla.org/questions/1605272 "outgoing mail") [1602958](https://support.mozilla.org/questions/1602958 "Can not send email") [1603485](https://support.mozilla.org/questions/1603485 "Openreach recently installed fibre broadband to my home and since then I'm able ") +1
+- Why it matters: Rank 6 fell to 28 reports but still leaves 25 percent of askers with no reply, so wizard autoconfiguration keeps failing silently.
+- What to look at: Engineering must review which hostname and port guesses the setup wizard tries, and show the attempted values when every guess fails.
+- Example questions: [1615005](https://support.mozilla.org/questions/1615005 "My e-mail stopped working a week ago. I get to ＂connecting to IMAP but then get ") [1608967](https://support.mozilla.org/questions/1608967 "I lost the ability to sync thunderbird to shaw rmail6") [1614795](https://support.mozilla.org/questions/1614795 "nmeldung auf dem Server secureimap.t-online.de fehlgeschlagen＂") [1610662](https://support.mozilla.org/questions/1610662 "HO INSTALLATO WINDOWS 11 non ricevo la posta mi chiede la password e non vene ac") [1614068](https://support.mozilla.org/questions/1614068 "I am unable to download my emails from Greenby") +1
 
-### 7. Account Settings panel unresponsive — cannot save or delete accounts (bug 2069949) {#issue-7}
+### 7. Profile migration to new computer loses mail/address books {#issue-7}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Account Settings panel unresponsive — cannot save or delete accounts (bug 2069949) (settings-config) | 3 | 18 | ▲ +15 | 3.6 (10) | 67% | 11% |
+| Profile migration to new computer loses mail/address books (migration-import) | 35 | 31 | ▼ -4 (-11%) | 3.6 (18) | 68% | 6% |
 
-- Why it matters: The Account Settings panel stops responding and users cannot save or delete accounts, growing from 3 to 18 questions under bug 2069949.
-- What to look at: Engineering must prioritise bug 2069949 and check for a blocking call in the settings save path.
-- Example questions: [1606631](https://support.mozilla.org/questions/1606631 "Thunderbird does not save account settings – missing prefs.js") [1606755](https://support.mozilla.org/questions/1606755 "Email Account corrupted. And unable to delete the account.") [1608317](https://support.mozilla.org/questions/1608317 "Configurazione server in uscita") [1608142](https://support.mozilla.org/questions/1608142 "Cannot delete an email address added to T'bird") [1602823](https://support.mozilla.org/questions/1602823 "Issue with settings - Acocunt details") +1
+- Why it matters: Rank 7 holds steady at 31 reports and resolves at 68 percent, so this is a known, answerable problem rather than a regression.
+- What to look at: Engineering must reduce the manual steps in moving a profile folder between computers, since the volume persists month after month.
+- Example questions: [1609108](https://support.mozilla.org/questions/1609108 "HELP PLEASE. Need to recover 2 yrs of emails after fresh install of Ubuntu") [1611383](https://support.mozilla.org/questions/1611383 "How can I restore missing Local Folders and emails after Thunderbird re-install?") [1612938](https://support.mozilla.org/questions/1612938 "Thunderbird update destroyed my email organization") [1612793](https://support.mozilla.org/questions/1612793 "Meine Festplatte ging kaputt. Auf der neuen Festplatte können meine in den dorti") [1609531](https://support.mozilla.org/questions/1609531 "Lost my emails on upgrade to 153.4.0 esr") +1
 
-### 8. Thunderbird hangs/freezes at startup {#issue-8}
+### 8. Junk filter not catching spam / legitimate mail marked as junk {#issue-8}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Thunderbird hangs/freezes at startup (performance-crash) | 34 | 24 | ▼ -10 (-29%) | 4.4 (21) | 38% (below 50%) | 8% |
+| Junk filter not catching spam / legitimate mail marked as junk (spam-filters) | 8 | 19 | ▲ +11 | 2.4 (2) | 58% | 16% |
 
-- Why it matters: Startup hangs fell to 24 questions but carry the highest mean severity at 4.4 and resolve at only 38 percent.
-- What to look at: Engineering must collect startup profiles from affected users and check folder index and add-on loading at launch.
-- Example questions: [1601478](https://support.mozilla.org/questions/1601478 "Thunderbird non si carica su Apple Tahoe 26.6.2") [1603126](https://support.mozilla.org/questions/1603126 "Thunderbird 155.0 crashes when launching on macOS macOS 15.0.1, even in Safe Mod") [1607222](https://support.mozilla.org/questions/1607222 "Thunderbird si blocca all'avvio") [1605586](https://support.mozilla.org/questions/1605586 "CON L'ULTIMO AGGIORNAMENTO MI HA PERSO MOLTE MAIL E MOLTE NON SONO PIU' VISIBILI") [1604320](https://support.mozilla.org/questions/1604320 "Thunderbird will not open on iMac - the wheel of death keeps spinning on all are") +1
+- Why it matters: Rank 8 more than doubled to 19 reports but sits at mean severity 2.4, so the pain is annoyance, not blockage.
+- What to look at: Engineering must check whether the adaptive junk filter training data survives recent upgrades before spending more effort here.
+- Example questions: [1610731](https://support.mozilla.org/questions/1610731 "Piratage de mon compte Thunderbird") [1613576](https://support.mozilla.org/questions/1613576 "Still want to see ALL messages sent my TB -- including spam / junk (the worst of") [1614990](https://support.mozilla.org/questions/1614990 "My spam has disappeared") [1614669](https://support.mozilla.org/questions/1614669 "How can I whitelist email senders using message filters?") [1614077](https://support.mozilla.org/questions/1614077 "Something is blocking one of my contacts from appearing in my firefox mail:    a") +1
 
-### 9. Profile migration to new computer fails or loses data {#issue-9}
+### 9. Thunderbird hangs/freezes at startup (session.json, loading messages, profile lock) {#issue-9}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Profile migration to new computer fails or loses data (migration-import) | 34 | 32 | ▼ -2 (-6%) | 3.5 (16) | 69% | 12% |
+| Thunderbird hangs/freezes at startup (session.json, loading messages, profile lock) (performance-crash) | 30 | 25 | ▼ -5 (-17%) | 4.2 (21) | 80% | 8% |
 
-- Why it matters: Profile moves to a new computer still fail or lose data for 32 users, and data loss is permanent.
-- What to look at: Engineering must review the profile copy guidance and build a supported export and import path.
-- Example questions: [1608722](https://support.mozilla.org/questions/1608722 "Incomplete Import From Windows to Mac") [1603977](https://support.mozilla.org/questions/1603977 "Urgently need help transferring Thunderbird...") [1606916](https://support.mozilla.org/questions/1606916 "Updating from v68 to v78 deleted all data in Thuderbird.") [1605933](https://support.mozilla.org/questions/1605933 "Thunderbird reinstall, cannot connect to recent profile. Appears to have install") [1603149](https://support.mozilla.org/questions/1603149 "email accounts disabled") +1
+- Why it matters: Rank 9 is high severity at 4.2 but support resolves 80 percent of startup hangs, so the existing guidance works.
+- What to look at: Engineering must keep the known fixes for session.json and profile lock files, and watch for any rise after the next release.
+- Example questions: [1612463](https://support.mozilla.org/questions/1612463 "Unable to load Thunderbird") [1612917](https://support.mozilla.org/questions/1612917 "After the update to version 158  it opens and shortly afterwards freezes.") [1610394](https://support.mozilla.org/questions/1610394 "Thunderbird fails to start after update on Ubuntu") [1614055](https://support.mozilla.org/questions/1614055 "Hello, ik heb problemen met thunderbird op windows 11 . Bij het opstarten krijg ") [1613838](https://support.mozilla.org/questions/1613838 "Thunderbird non risponde dopo l'installazione") +1
 
-### 10. Missing folders after update or re-created profile {#issue-10}
+### 10. Folders missing/disappeared from folder pane after update {#issue-10}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Missing folders after update or re-created profile (search-folders) | 11 | 15 | ▲ +4 (+36%) | 4.0 (11) | 40% (below 50%) | 27% |
+| Folders missing/disappeared from folder pane after update (search-folders) | 13 | 15 | ▲ +2 (+15%) | 4.4 (13) | 40% (below 50%) | 27% |
 
-- Why it matters: Folders vanish after updates or profile rebuilds for 15 users, and only 40 percent recover them.
-- What to look at: Engineering must check folder subscription and index rebuild behaviour after version upgrades.
-- Example questions: [1602124](https://support.mozilla.org/questions/1602124 "Error ultima actualizacion thunderbird") [1603999](https://support.mozilla.org/questions/1603999 "ho l'account ma non trovo piu la cartella") [1604337](https://support.mozilla.org/questions/1604337 "cartelle sparite") [1606542](https://support.mozilla.org/questions/1606542 "Thunderbird 115.18.0 (64-bit update) lost all my folders and screwed up my email") [1602657](https://support.mozilla.org/questions/1602657 "Thunderbird IMAP – brak tematu i nadawcy po „Porządkuj folder”") +1
+- Why it matters: Rank 10 carries the highest mean severity at 4.4 and resolves only 40 percent, and users tie missing folders to an update.
+- What to look at: Engineering must trace folder pane state loss across upgrades, including whether folder subscription or cache files get rewritten on first run.
+- Example questions: [1609211](https://support.mozilla.org/questions/1609211 "Пропажа отправленных сообщений") [1609927](https://support.mozilla.org/questions/1609927 "i have lost all my emails") [1610432](https://support.mozilla.org/questions/1610432 "Disparition de sous-dossiers (.sbd) après un glisser-déposer vers un compte IMAP") [1611881](https://support.mozilla.org/questions/1611881 "FOLDERS in my thunderbox email have disappeared how do i recover them") [1611890](https://support.mozilla.org/questions/1611890 "Loss of all my filed emails") +1
 
-### 11. 'Unable to write the email to the mailbox' POP download failure, new this month {#issue-11}
+### 11. Gmail OAuth2 authentication/login failures and re-auth loops (m:gmail) {#issue-11}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| 'Unable to write the email to the mailbox' POP download failure (send-receive) | 0 | 7 | ▲ +7 | 4.3 (7) | 71% | 29% |
+| Gmail OAuth2 authentication/login failures and re-auth loops (m:gmail) (sync-oauth) | 8 | 13 | ▲ +5 | 3.6 (8) | 31% (below 50%) | 15% |
 
-- Why it matters: This cluster is new this month and the error stops POP mail from being written to local storage, which risks message loss.
-- What to look at: Engineering must check disk permissions, mailbox file locking and antivirus interference on the POP download path.
-- Example questions: [1601755](https://support.mozilla.org/questions/1601755 "Thunderbird hangs due to POP3 server error right at the start.  ＂An error occurr") [1608144](https://support.mozilla.org/questions/1608144 "Thunderbird won't download messages from grandecom.net") [1602817](https://support.mozilla.org/questions/1602817 "I'm getting this message:   Unable to write the email to the mailbox. Make sure ") [1603404](https://support.mozilla.org/questions/1603404 "Unable to write the email to the mailbox error message") [1603972](https://support.mozilla.org/questions/1603972 "Unable to download emails from gmail.") +1
+- Why it matters: Rank 11 grew to 13 reports and resolves at 31 percent, which shows Gmail re-authentication loops repeat without a working fix.
+- What to look at: Engineering must look at why a refresh token gets rejected and the login prompt reappears, and add a clean token reset path.
+- Example questions: [1613156](https://support.mozilla.org/questions/1613156 "Unable to send emails") [1608938](https://support.mozilla.org/questions/1608938 "Thunderbird non riceve i miei indirizzi maxs21r@hotmail-it e maxs21r  ò   gmail.") [1610127](https://support.mozilla.org/questions/1610127 "Thunderbird does not recognise password email account password in linux on chrom") [1611880](https://support.mozilla.org/questions/1611880 "Unable to Add a Gmail Account to Thunderbird Despite Successful Authentication") [1612677](https://support.mozilla.org/questions/1612677 "Gmail authentification dialog does not open when setting up new account") +1
 
-### 12. Spectrum/Charter/Roadrunner mail connectivity failures {#issue-12}
+### 12. Calendar add-ons (CardBook, Provider for Google Calendar, TbSync) broken by TB updates {#issue-12}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Spectrum/Charter/Roadrunner mail connectivity failures (send-receive) | 33 | 18 | ▼ -15 (-45%) | 4.4 (16) | 50% | 33% |
+| Calendar add-ons (CardBook, Provider for Google Calendar, TbSync) broken by TB updates (addons-extensions) | 5 | 14 | ▲ +9 | 3.6 (10) | 86% | 0% |
 
-- Why it matters: Spectrum and Charter failures dropped from 33 to 18 questions but still resolve at only 50 percent with severity 4.4.
-- What to look at: Engineering must confirm the current Spectrum server settings and close out the stale autoconfiguration entry.
-- Example questions: [1601442](https://support.mozilla.org/questions/1601442 "Correct Outgoing SMPT settings for IMAP") [1603380](https://support.mozilla.org/questions/1603380 "in the last 10 days, my spectrum/charter email works only sporadically, like may") [1601822](https://support.mozilla.org/questions/1601822 "trouble sending and receiving messages interfacing with Spectrum (locked duplica") [1602003](https://support.mozilla.org/questions/1602003 "Spectrum Emails are disappearing from my Thunderbird Inbox after downloading. Th") [1602429](https://support.mozilla.org/questions/1602429 "Cannot connect Thunderbird to Spectrum") +1
+- Why it matters: Rank 12 nearly tripled to 14 reports but resolves at 86 percent with zero unanswered, so the fix path is already clear.
+- What to look at: Engineering must warn add-on authors earlier when calendar and contact APIs change, since CardBook, TbSync and the Google Calendar provider keep breaking on update.
+- Example questions: [1610169](https://support.mozilla.org/questions/1610169 "Calendari disattivati") [1608944](https://support.mozilla.org/questions/1608944 "Thunderbird 157 breaks google calendar add-on") [1608983](https://support.mozilla.org/questions/1608983 "Google Calendar & Tasks suddenly fail in Thunderbird 157 64bit") [1609292](https://support.mozilla.org/questions/1609292 "thunderbird 157 update deactivated all my calendars") [1614739](https://support.mozilla.org/questions/1614739 "PLEASE STOP RELEASING UNTESTED UPDATES") +1
 
 ## Category mix, month over month
 
-| Category | August 2026 | September 2026 | Change |
+| Category | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| send-receive | 169 | 233 | ▲ +64 (+38%) |
-| account-login | 141 | 164 | ▲ +23 (+16%) |
-| ui-ux | 118 | 92 | ▼ -26 (-22%) |
-| settings-config | 75 | 91 | ▲ +16 (+21%) |
-| migration-import | 49 | 56 | ▲ +7 (+14%) |
-| performance-crash | 69 | 54 | ▼ -15 (-22%) |
-| sync-oauth | 55 | 51 | ▼ -4 (-7%) |
-| search-folders | 56 | 50 | ▼ -6 (-11%) |
-| other | 72 | 50 | ▼ -22 (-31%) |
-| spam-filters | 28 | 39 | ▲ +11 (+39%) |
-| attachments | 55 | 29 | ▼ -26 (-47%) |
-| encryption-security | 17 | 25 | ▲ +8 (+47%) |
-| calendar-tasks | 20 | 22 | ▲ +2 (+10%) |
-| addons-extensions | 16 | 20 | ▲ +4 (+25%) |
+| attachments | 29 | 190 | ▲ +161 (+555%) |
+| send-receive | 233 | 160 | ▼ -73 (-31%) |
+| account-login | 165 | 135 | ▼ -30 (-18%) |
+| ui-ux | 92 | 111 | ▲ +19 (+21%) |
+| settings-config | 91 | 70 | ▼ -21 (-23%) |
+| search-folders | 50 | 55 | ▲ +5 (+10%) |
+| other | 50 | 54 | ▲ +4 (+8%) |
+| sync-oauth | 51 | 50 | ▼ -1 (-2%) |
+| performance-crash | 54 | 46 | ▼ -8 (-15%) |
+| migration-import | 56 | 43 | ▼ -13 (-23%) |
+| calendar-tasks | 22 | 37 | ▲ +15 (+68%) |
+| encryption-security | 25 | 31 | ▲ +6 (+24%) |
+| spam-filters | 39 | 28 | ▼ -11 (-28%) |
+| addons-extensions | 20 | 20 | ▬ 0 (+0%) |
 
 ---
 
-This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers September 2026 against August 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
+This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run of the report cost $0.69. The page covers October 2026 against September 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-10-08 04:15 UTC
+Last updated: 2026-11-03 13:19 UTC

@@ -1,25 +1,25 @@
 ---
 layout: base
-title: Android LLM Insights — September 2026
+title: Android LLM Insights — October 2026
 ---
 
 # Thunderbird Android — LLM Insights (Engineering)
 
-## September 2026 against August 2026
+## October 2026 against September 2026
 
 ## TL;DR: the five issues to look at first {#tldr}
 
-| # | Issue | August 2026 | September 2026 | Severity | Resolved | Known status |
+| # | Issue | September 2026 | October 2026 | Severity | Resolved | Known status |
 |--:|:--|--:|--:|--:|--:|:--|
-| [1](#issue-1) | [Background sync and push notifications not working unless app opened](#issue-1), new this month | 0 | 3 | 3.7 | 33% (below 50%) | — |
-| [2](#issue-2) | [Message body renders empty in Android message viewer](#issue-2), new this month | 0 | 3 | 3.3 | 33% (below 50%) | — |
-| [3](#issue-3) | [QR code import button missing or non-functional at setup](#issue-3), new this month | 0 | 3 | 3.3 | 67% | — |
-| [4](#issue-4) | [Push notification delays and re-enabling disabled notifications](#issue-4), new this month | 0 | 2 | 3.0 | 50% | — |
-| [5](#issue-5) | [Remote images: no 'always show' setting on Android](#issue-5), new this month | 0 | 2 | 2.0 | 100% | — |
+| [1](#issue-1) | [Outlook/Hotmail 'authenticated but not connected' error](#issue-1), new this month | 0 | 3 | 3.7 | 0% (below 50%) | — |
+| [2](#issue-2) | [Android credentials rejected though valid on desktop](#issue-2), new this month | 0 | 3 | 3.3 | 67% | — |
+| [3](#issue-3) | [Deleted messages disappear instead of moving to Trash](#issue-3), new this month | 0 | 2 | 4.0 | 0% (below 50%) | — |
+| [4](#issue-4) | [QR import leaves accounts unauthenticated / passwords not transferred](#issue-4), new this month | 0 | 3 | 2.7 | 100% | — |
+| [5](#issue-5) | [Desktop/Android account and subfolder sync guidance](#issue-5), new this month | 0 | 2 | 2.5 | 0% (below 50%) | — |
 
 Each number links to the same issue in [Issues to investigate](#issues-to-investigate) below, which carries the reason, what to look at, and the example questions.
 
-Read this page as a list of the month's problems, not as a trend. September 2026 holds 41 questions in 29 clusters, so most clusters hold one or two questions. A change of one question is noise, and "new this month" often means only that nobody worded the problem that way last month. The severity and the resolved figures carry the signal here.
+Read this page as a list of the month's problems, not as a trend. October 2026 holds 56 questions in 43 clusters, so most clusters hold one or two questions. A change of one question is noise, and "new this month" often means only that nobody worded the problem that way last month. The severity and the resolved figures carry the signal here.
 
 Claude read every support question of both months. For each question it named the concrete problem, guessed a root cause and rated how much the problem hurts the user. It also read the answers: the follow-ups from the person who asked, the accepted solution, and the replies from trusted contributors.
 
@@ -42,105 +42,125 @@ Python did the counting and the ranking. Claude grouped the named problems and w
 
 ## Headline
 
-| | August 2026 | September 2026 | Change |
+| | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 40 | 41 | ▲ +1 (+2%) |
-| Distinct issue clusters | 31 | 29 | ▼ -2 |
-| New issue clusters this month | — | 6 | |
+| Support questions (load) | 41 | 56 | ▲ +15 (+37%) |
+| Distinct issue clusters | 30 | 43 | ▲ +13 |
+| New issue clusters this month | — | 8 | |
 
-Android background sync and empty message bodies lead six new issue clusters in September 2026
+Eight brand-new issue clusters this month, led by Outlook login failures and deleted mail vanishing instead of going to Trash
 
-Total support questions held flat. August had 40, September has 41. But six new issue clusters appeared, and all six point at Thunderbird for Android. Engineering must treat the mobile client as this month's hot spot.
+Support volume rose from 41 questions in September to 56 in October. Every one of this month's top eight clusters is new. Nothing carried over from September. That pattern points at a recent release or a recent change at a mail provider.
 
-Two new clusters carry real user pain. Background sync and push notifications fail unless the user opens the app. Only 33 percent of those reports got resolved. Message bodies render blank in the Android viewer. That cluster also sits at 33 percent resolved, and 67 percent of the reports got no answer at all. Unanswered means no support reply was recorded.
+Two clusters have zero resolved rate and high severity. Users hitting the Outlook and Hotmail "authenticated but not connected" error get no working fix. Users who delete a message and watch it disappear instead of landing in Trash also get no fix. Data loss reports carry the highest severity scores in the set.
 
-Category shifts match the story. Sync and OAuth rose from 3 to 5. Settings and config rose from 3 to 6. Migration and import rose from 1 to 3. Send and receive rose from 5 to 7. UI and UX fell from 8 to 6, and attachments dropped to zero.
+Android is the common thread. Five of the eight clusters involve the Android app: credential rejection, QR import, subfolder sync, threaded view, and vanishing inbox contents. Engineering must treat Android account setup and folder state as one investigation, not five.
 
-This signal comes from a language model reading free-text support questions. Use it to pick where to dig, not as proof of a defect.
+Category totals back this up. UI and UX doubled from 6 to 12. Attachments went from 0 to 3. Account and login went from 5 to 7. These counts come from an automated read of free-text support questions. Treat them as a place to start looking, not as proof.
 
 ## Issues to investigate {#issues-to-investigate}
 
 The order comes from a Python score. It weights new clusters, badly served clusters, severity and volume, in that order. Resolved means the question has an accepted solution, or a trusted contributor gave the last answer. A resolved figure under 50% is marked.
 
-### 1. Background sync and push notifications not working unless app opened, new this month {#issue-1}
+### 1. Outlook/Hotmail 'authenticated but not connected' error, new this month {#issue-1}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Background sync and push notifications not working unless app opened (sync-oauth) | 0 | 3 | ▲ +3 | 3.7 (2) | 33% (below 50%) | 33% |
+| Outlook/Hotmail 'authenticated but not connected' error (account-login) | 0 | 3 | ▲ +3 | 3.7 (2) | 0% (below 50%) | 0% |
 
-- Why it matters: Three users report that mail only arrives when they open the app, and support resolved just one of the three.
-- What to look at: Engineering must check Firebase push delivery, Android background work scheduling, and battery optimisation exemptions on recent Android versions.
-- Example questions: [1602435](https://support.mozilla.org/questions/1602435 "incoming emails don't display in Inbox on android") [1608763](https://support.mozilla.org/questions/1608763 "Thunderbird Android not pushing new notifications") [1606852](https://support.mozilla.org/questions/1606852 "Getting notifications on android?")
+- Why it matters: Three users report Outlook or Hotmail accounts that pass sign-in but never connect, and zero of them got a fix.
+- What to look at: Engineering must trace the Microsoft OAuth token exchange after consent, and check whether a scope or endpoint change broke the follow-up IMAP connection.
+- Example questions: [1609449](https://support.mozilla.org/questions/1609449 "Authentication and connection drops with Outlook accounts (User is authenticated") [1612980](https://support.mozilla.org/questions/1612980 "UNABLE TO CONNECT TO THUNDERBIRD ON ANDROID SAMSUN S25. ＂User is authenticared b") [1609460](https://support.mozilla.org/questions/1609460 "Connection issue")
 
-### 2. Message body renders empty in Android message viewer, new this month {#issue-2}
+### 2. Android credentials rejected though valid on desktop, new this month {#issue-2}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Message body renders empty in Android message viewer (send-receive) | 0 | 3 | ▲ +3 | 3.3 (1) | 33% (below 50%) | 67% |
+| Android credentials rejected though valid on desktop (account-login) | 0 | 3 | ▲ +3 | 3.3 (2) | 67% | 33% |
 
-- Why it matters: Three users see blank message bodies in the Android viewer, and two of the three reports got no reply at all.
-- What to look at: Engineering must reproduce blank rendering against HTML and multipart messages, and inspect the WebView rendering path and MIME body selection.
-- Example questions: [1602183](https://support.mozilla.org/questions/1602183 "All emails are empty") [1601432](https://support.mozilla.org/questions/1601432 "Message body of certain email is empty") [1604037](https://support.mozilla.org/questions/1604037 "Some emails opened in thunderbird for android immediately blank out and only rea")
+- Why it matters: Three users had credentials rejected on Android while the same credentials worked on desktop, which points at a client-side auth difference.
+- What to look at: Engineering must compare the OAuth client identifiers and token storage used by Android against desktop for the same provider.
+- Example questions: [1611891](https://support.mozilla.org/questions/1611891 "Login hurdle using desktop user and password into mobile app on Android") [1614628](https://support.mozilla.org/questions/1614628 "не могу зайти на почту v_polyakova@alcopack.ru") [1614921](https://support.mozilla.org/questions/1614921 "Email address primary Account not accepted, as it should be!")
 
-### 3. QR code import button missing or non-functional at setup, new this month {#issue-3}
+### 3. Deleted messages disappear instead of moving to Trash, new this month {#issue-3}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| QR code import button missing or non-functional at setup (migration-import) | 0 | 3 | ▲ +3 | 3.3 (1) | 67% | 0% |
+| Deleted messages disappear instead of moving to Trash (send-receive) | 0 | 2 | ▲ +2 | 4.0 (2) | 0% (below 50%) | 0% |
 
-- Why it matters: Three users cannot finish desktop-to-mobile setup because the QR code import button is missing or dead.
-- What to look at: Engineering must test the QR import entry point across fresh installs and check camera permission handling and the account transfer build flag.
-- Example questions: [1605621](https://support.mozilla.org/questions/1605621 "“Scan QR code” button does nothing in Thunderbird for Android 23.0") [1604782](https://support.mozilla.org/questions/1604782 "Unable to set up Thunderbird Mobile on my Android phone") [1604884](https://support.mozilla.org/questions/1604884 "Unable to set up Thunderbird Mobile on my Android phone.")
+- Why it matters: Deleted mail vanishes instead of moving to Trash, the highest-severity kind of report, and neither case was resolved.
+- What to look at: Engineering must check Trash folder mapping and the expunge-on-delete path for the affected IMAP accounts.
+- Example questions: [1610658](https://support.mozilla.org/questions/1610658 "Deleted emails disappear - not in 'deleted mail' folder") [1611184](https://support.mozilla.org/questions/1611184 "I want messages i delete to go to deleted messages in side panel")
 
-### 4. Push notification delays and re-enabling disabled notifications, new this month {#issue-4}
+### 4. QR import leaves accounts unauthenticated / passwords not transferred, new this month {#issue-4}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Push notification delays and re-enabling disabled notifications (settings-config) | 0 | 2 | ▲ +2 | 3.0 (0) | 50% | 50% |
+| QR import leaves accounts unauthenticated / passwords not transferred (migration-import) | 0 | 3 | ▲ +3 | 2.7 (0) | 100% | 0% |
 
-- Why it matters: Two users report late notifications and no clear way to turn notifications back on after Android disables them.
-- What to look at: Engineering must measure notification latency end to end and add an in-app path to restore a disabled notification channel.
-- Example questions: [1601974](https://support.mozilla.org/questions/1601974 "Push notifications delayed when inboxes are unified.") [1607794](https://support.mozilla.org/questions/1607794 "how to re-enable push notifications, notifications?")
+- Why it matters: QR import, the feature that copies desktop accounts to Android by scanning a code, leaves accounts without working passwords.
+- What to look at: Engineering must confirm whether the QR payload carries stored secrets and OAuth refresh tokens, or only server settings.
+- Example questions: [1609183](https://support.mozilla.org/questions/1609183 "[Import] No Settings menu to use QR code") [1610685](https://support.mozilla.org/questions/1610685 "Opens with outbox") [1609814](https://support.mozilla.org/questions/1609814 "Beta: after QR import, Google accounts show ＂restore apps＂ screen, blank account")
 
-### 5. Remote images: no 'always show' setting on Android, new this month {#issue-5}
+### 5. Desktop/Android account and subfolder sync guidance, new this month {#issue-5}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Remote images: no 'always show' setting on Android (settings-config) | 0 | 2 | ▲ +2 | 2.0 (0) | 100% | 0% |
+| Desktop/Android account and subfolder sync guidance (sync-oauth) | 0 | 2 | ▲ +2 | 2.5 (0) | 0% (below 50%) | 100% |
 
-- Why it matters: Two users want remote images to load by default and found no setting, which is a small gap but a repeated one.
-- What to look at: Engineering must decide whether to add a per-account always-show-remote-images preference on Android, matching desktop behaviour.
-- Example questions: [1602040](https://support.mozilla.org/questions/1602040 "Show remote images automatically") [1608374](https://support.mozilla.org/questions/1608374 "如何让App每次打开邮件都自动显示图片？")
+- Why it matters: Both reports about syncing accounts and subfolders between desktop and Android went unanswered, so users got nothing.
+- What to look at: Engineering must check default IMAP folder subscription behaviour on Android and write down the expected behaviour for support staff.
+- Example questions: [1615150](https://support.mozilla.org/questions/1615150 "How to synchronise adresses and mail folders with Thunderbird for windows") [1609233](https://support.mozilla.org/questions/1609233 "Following a bereavement I need help with all the technology that my partner mana")
 
-### 6. Cannot create folders or manage contacts in Thunderbird for Android, new this month {#issue-6}
+### 6. Threaded/conversation view missing or incomplete on Android, new this month {#issue-6}
 
-| Cluster | August 2026 | September 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
 |:--|--:|--:|:--|:--|:--|--:|
-| Cannot create folders or manage contacts in Thunderbird for Android (search-folders) | 0 | 2 | ▲ +2 | 2.0 (0) | 100% | 0% |
+| Threaded/conversation view missing or incomplete on Android (ui-ux) | 0 | 2 | ▲ +2 | 2.5 (0) | 0% (below 50%) | 50% |
 
-- Why it matters: Two users expect folder creation and contact management on Android and did not find them.
-- What to look at: Engineering must confirm these are known gaps and publish the roadmap position so support can answer in one line.
-- Example questions: [1606251](https://support.mozilla.org/questions/1606251 "I cannot find contact on Thunderbird for Android") [1607408](https://support.mozilla.org/questions/1607408 "How do I add new folders?")
+- Why it matters: Users expect grouped conversation view on Android and report it as missing or partial, and half the reports got no reply.
+- What to look at: Engineering must confirm the current state of threading on Android and state clearly whether it is a bug or an unshipped feature.
+- Example questions: [1615121](https://support.mozilla.org/questions/1615121 "Conversation view doesn't work") [1608898](https://support.mozilla.org/questions/1608898 "Ser email threads on Thunderbird mobile")
+
+### 7. Inbox contents disappeared on Android, new this month {#issue-7}
+
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+|:--|--:|--:|:--|:--|:--|--:|
+| Inbox contents disappeared on Android (send-receive) | 0 | 2 | ▲ +2 | 4.5 (2) | 100% | 0% |
+
+- Why it matters: Inbox contents disappeared on Android with the highest mean severity in the set, even though both cases eventually got resolved.
+- What to look at: Engineering must look at local message database resets and folder resync after app or account updates.
+- Example questions: [1614927](https://support.mozilla.org/questions/1614927 "lost emails") [1612939](https://support.mozilla.org/questions/1612939 "Email Messages not Loading, on both my laptop and cell phone")
+
+### 8. Sending fails silently with no error detail, new this month {#issue-8}
+
+| Cluster | September 2026 | October 2026 | Change | Sev (≥4) | Resolved | Unanswered |
+|:--|--:|--:|:--|:--|:--|--:|
+| Sending fails silently with no error detail (attachments) | 0 | 2 | ▲ +2 | 4.0 (2) | 100% | 0% |
+
+- Why it matters: Sending fails with no error text, so users cannot tell whether the message left or what blocked it.
+- What to look at: Engineering must surface the underlying SMTP response in the compose window, including attachment size rejections.
+- Example questions: [1611844](https://support.mozilla.org/questions/1611844 "Thunderbird for Android troubleshooting outbound mail") [1612913](https://support.mozilla.org/questions/1612913 "sending attachments in Thunderbird android")
 
 ## Category mix, month over month
 
-| Category | August 2026 | September 2026 | Change |
+| Category | September 2026 | October 2026 | Change |
 |:--|--:|--:|:--|
-| send-receive | 5 | 7 | ▲ +2 |
-| ui-ux | 8 | 6 | ▼ -2 |
-| settings-config | 3 | 6 | ▲ +3 |
-| account-login | 6 | 5 | ▼ -1 |
-| sync-oauth | 3 | 5 | ▲ +2 |
-| migration-import | 1 | 3 | ▲ +2 |
-| encryption-security | 3 | 2 | ▼ -1 |
-| other | 4 | 2 | ▼ -2 |
-| performance-crash | 3 | 2 | ▼ -1 |
-| search-folders | 1 | 2 | ▲ +1 |
-| spam-filters | 1 | 1 | ▬ 0 |
-| attachments | 2 | 0 | ▼ -2 |
+| ui-ux | 6 | 12 | ▲ +6 |
+| send-receive | 7 | 9 | ▲ +2 |
+| account-login | 5 | 7 | ▲ +2 |
+| settings-config | 6 | 6 | ▬ 0 |
+| other | 2 | 5 | ▲ +3 |
+| sync-oauth | 5 | 4 | ▼ -1 |
+| search-folders | 2 | 3 | ▲ +1 |
+| migration-import | 3 | 3 | ▬ 0 |
+| attachments | 0 | 3 | ▲ +3 |
+| spam-filters | 1 | 2 | ▲ +1 |
+| performance-crash | 2 | 1 | ▼ -1 |
+| encryption-security | 2 | 1 | ▼ -1 |
 
 ---
 
-This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run reused the cached LLM output and cost $0.00 (the full cost is in `LLM_INSIGHTS/COSTS.md`). The page covers September 2026 against August 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
+This is a prototype. Claude claude-opus-5 wrote the labels for each question, and this run of the report cost $0.13. The page covers October 2026 against September 2026. Facts the corpus cannot know, such as a shipped fix, come from `LLM_INSIGHTS/known-status.csv` and appear as Known status.
 
-Last updated: 2026-10-08 03:57 UTC
+Last updated: 2026-11-03 13:20 UTC

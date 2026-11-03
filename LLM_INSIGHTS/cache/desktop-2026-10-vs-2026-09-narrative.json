@@ -1,0 +1,66 @@
+{
+ "headline": "A new attachment bug drove 169 reports in October, while Microsoft OAuth2 failures stay the worst-served pain at 14 percent resolved.",
+ "narrative_md": "Engineering must look at two things this month. First, a brand new cluster: the Attach button does nothing and the file picker never opens. It went from zero reports in September to 169 in October. Users link it to a stale `mail.compose.attach.dir` value, tracked in bugs 2077526 and 2077590. Average severity is 4.0 and 161 reports sit at severity 4 or higher. This single cluster lifted the attachments category from 29 to 190 reports.\n\nSecond, the worst-served pain is Microsoft and Outlook.com OAuth2 login failures. OAuth2 is the token-based sign-in flow that replaced passwords. Only 14 percent of those reports reach a resolution. 57 percent get no reply at all. The volume is flat at 21 reports, so this is a quality problem, not a growth problem. Generic \"cannot receive new mail\" reports are the second worst served at 25 percent resolved and 38 percent unanswered.\n\nTotal volume rose from 977 to 1030 questions. Send and receive dropped from 233 to 160. Two provider-specific clusters grew: Gmail Inbox staying empty while All Mail holds messages, and a revoked AT&T certificate on inbound.att.net. Support answers the AT&T case well at 87 percent resolved, so that one needs a documented workaround more than code.\n\nThese clusters come from a language model reading free-text support questions. Treat the numbers as a triage pointer, not as bug confirmation.",
+ "issues": [
+  {
+   "rank": 1,
+   "why": "Rank 1 is new this month and went from 0 to 169 reports, with 161 at severity 4 or higher, so composing mail with files is broken for many users.",
+   "action": "Engineering must confirm whether a stale or invalid `mail.compose.attach.dir` path blocks the file picker, and ship a fallback that ignores unreachable directories, per bugs 2077526 and 2077590."
+  },
+  {
+   "rank": 2,
+   "why": "Rank 2 reports give no error text, only 25 percent reach a resolution and 38 percent get no reply, so users hit a dead end.",
+   "action": "Engineering must add a visible, specific failure reason when a mail fetch returns nothing, so helpers can tell a server timeout from an auth failure."
+  },
+  {
+   "rank": 3,
+   "why": "Rank 3 nearly tripled to 16 reports and only 31 percent resolve, which points at Gmail IMAP folder mapping rather than user error.",
+   "action": "Engineering must test how Thunderbird maps Gmail labels and the All Mail folder to a local Inbox after account setup and after upgrades."
+  },
+  {
+   "rank": 4,
+   "why": "Rank 4 has the worst service in the whole set at 14 percent resolved and 57 percent unanswered, with severity 4.2.",
+   "action": "Engineering must capture and log the exact Microsoft token error codes and publish a decision tree so support can answer these at all."
+  },
+  {
+   "rank": 5,
+   "why": "Rank 5 grew from 1 to 15 reports because AT&T served a revoked or untrusted certificate, which stops mail download outright.",
+   "action": "Engineering must check how Thunderbird presents a revoked server certificate and make the dialog name the provider and the safe next step."
+  },
+  {
+   "rank": 6,
+   "why": "Rank 6 fell to 28 reports but still leaves 25 percent of askers with no reply, so wizard autoconfiguration keeps failing silently.",
+   "action": "Engineering must review which hostname and port guesses the setup wizard tries, and show the attempted values when every guess fails."
+  },
+  {
+   "rank": 7,
+   "why": "Rank 7 holds steady at 31 reports and resolves at 68 percent, so this is a known, answerable problem rather than a regression.",
+   "action": "Engineering must reduce the manual steps in moving a profile folder between computers, since the volume persists month after month."
+  },
+  {
+   "rank": 8,
+   "why": "Rank 8 more than doubled to 19 reports but sits at mean severity 2.4, so the pain is annoyance, not blockage.",
+   "action": "Engineering must check whether the adaptive junk filter training data survives recent upgrades before spending more effort here."
+  },
+  {
+   "rank": 9,
+   "why": "Rank 9 is high severity at 4.2 but support resolves 80 percent of startup hangs, so the existing guidance works.",
+   "action": "Engineering must keep the known fixes for session.json and profile lock files, and watch for any rise after the next release."
+  },
+  {
+   "rank": 10,
+   "why": "Rank 10 carries the highest mean severity at 4.4 and resolves only 40 percent, and users tie missing folders to an update.",
+   "action": "Engineering must trace folder pane state loss across upgrades, including whether folder subscription or cache files get rewritten on first run."
+  },
+  {
+   "rank": 11,
+   "why": "Rank 11 grew to 13 reports and resolves at 31 percent, which shows Gmail re-authentication loops repeat without a working fix.",
+   "action": "Engineering must look at why a refresh token gets rejected and the login prompt reappears, and add a clean token reset path."
+  },
+  {
+   "rank": 12,
+   "why": "Rank 12 nearly tripled to 14 reports but resolves at 86 percent with zero unanswered, so the fix path is already clear.",
+   "action": "Engineering must warn add-on authors earlier when calendar and contact APIs change, since CardBook, TbSync and the Google Calendar provider keep breaking on update."
+  }
+ ]
+}

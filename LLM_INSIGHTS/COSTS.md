@@ -202,9 +202,12 @@ Roland ran the desktop classification by hand on the night of 2026-11-02. It lab
 |:--|--:|--:|
 | Classify desktop 2026-10 | 1,029 | $6.5779 |
 | Classify desktop 2026-10, missing only | 1 | $0.0138 |
-| **Desktop classification total** | 1,030 | **$6.59** |
+| Desktop clustering and narrative | | $0.69 |
+| Classify android 2026-10 | 56 | $0.32 |
+| Android clustering and narrative | | $0.13 |
+| **Total** | | **$7.72** |
 
-Every October desktop question now has a label. The android classification and the clustering and narrative stages for both products are not run yet. Add their rows here when they run.
+Every October question of both products has a label. Three desktop causes were spiking in October (`m:att`, `m:gmail`, `m:thundermail`), and `split_by_cause()` moved 199 themes into cause-specific clusters. No android cause was spiking.
 
 ## Notes
 - All figures are well under the $50/run circuit-breaker.
