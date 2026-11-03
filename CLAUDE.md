@@ -44,6 +44,17 @@ Mozilla) data and publishes them as a Jekyll site on GitHub Pages:
    `dry_run` (the default) to see the body without opening anything.
    `llm_insights_mom_report.py` also rewrites `LLM_INSIGHTS/REPORTS/archive.md`
    on every run (#87).
+   **Undiagnosable provider questions get their own cluster (2026-11-03).** A
+   cheap yes/no LLM pass (`diagnosable_pass()`, cached per MONTH in
+   `LLM_INSIGHTS/cache/{product}-{month}-diagnosable.json`) marks provider
+   questions with too few details to diagnose. Each provider with 3+ such
+   questions in either month gets a cluster "Mail problem that cannot be
+   diagnosed without troubleshooting tools (m:X)". A question naming two
+   providers moves only when Claude's theme names exactly one. When the issue
+   order changes, pass `--refresh-narrative` (about $0.10) so the narrative's
+   per-rank prose matches. `LLM_INSIGHTS/reviewer-notes.csv`
+   (`product,month,pattern,note`) holds a reviewer's comment for ONE month's
+   page, unlike `known-status.csv`, which applies to every month.
 
 #1 and #2 are regenerated automatically by GitHub Actions and committed to `main`.
 

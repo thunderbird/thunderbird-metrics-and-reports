@@ -58,6 +58,10 @@ CACHE = "LLM_INSIGHTS/cache/{product}-{cur}-vs-{prev}-{what}.json"
 # duplicate of a Bugzilla bug. One row per fact, matched case-insensitively
 # against the cluster label. Hand-maintained, deliberately tiny.
 KNOWN_STATUS = "LLM_INSIGHTS/known-status.csv"
+# A reviewer's comment on ONE month's page (Roland, 2026-11-03). Same matching
+# as known-status.csv, but with a `month` column, so a comment about October's
+# Gmail cluster does not show on a Gmail cluster in a later month.
+REVIEWER_NOTES = "LLM_INSIGHTS/reviewer-notes.csv"
 
 
 def load_known_status(product):
@@ -68,6 +72,15 @@ def load_known_status(product):
     df = pd.read_csv(KNOWN_STATUS, dtype=str, keep_default_na=False)
     df = df[df["product"].isin([product, "all"])]
     return [(re.compile(r["pattern"]), r["status"]) for _, r in df.iterrows()]
+
+
+def load_reviewer_notes(product, month):
+    """Rows for `product` (or `all`) and `month` (YYYY-MM)."""
+    if not os.path.exists(REVIEWER_NOTES):
+        return []
+    df = pd.read_csv(REVIEWER_NOTES, dtype=str, keep_default_na=False)
+    df = df[df["product"].isin([product, "all"]) & (df["month"] == month)]
+    return [(re.compile(r["pattern"]), r["note"]) for _, r in df.iterrows()]
 
 
 def status_for(label, known):
@@ -360,12 +373,169 @@ def cluster_themes(client, all_df, usage, hints=None):
     return theme_to_label
 
 
+# ---- Stage 2d: mail problems nobody can diagnose ------------------------- #
+#
+# Roland, 2026-11-03: many provider questions ("Gmail stopped downloading")
+# carry too few details to diagnose. The cause can be antivirus, the network,
+# an add-on, POP3, a Thunderbird bug or the provider, and Thunderbird has no
+# self-diagnosis tools that would collect the details. These questions recur
+# every month and must not hide inside a provider's other clusters. A cheap
+# yes/no LLM pass marks them per question, and Python moves them into one
+# cluster per provider. The answers are cached per MONTH, so the next month
+# pair pays only for its new month.
+DIAG_CACHE = "LLM_INSIGHTS/cache/{product}-{m}-diagnosable.json"
+DIAG_CATS = {"account-login", "send-receive", "sync-oauth", "search-folders",
+             "encryption-security"}
+DIAG_MIN = 3        # a provider gets its own cluster at >= this many, either month
+DIAG_BATCH = 25
+DIAG_CONTENT = 700  # characters of question text sent per question
+DIAG_LABEL = ("Mail problem that cannot be diagnosed without troubleshooting "
+              "tools ({tag})")
+
+DIAG_SYS = """You read Thunderbird support questions about one mail provider. \
+For each question decide one thing: could a volunteer helper find the cause \
+from what the asker wrote? Mark undiagnosable=true when the question lacks the \
+details a helper needs (the exact error text, POP or IMAP, what changed, \
+antivirus or network, add-ons), so that the cause could equally be antivirus, \
+the network, an add-on, the protocol, a Thunderbird bug or the provider. Mark \
+undiagnosable=false for a how-to question, a feature request, or a question \
+with a specific error or a clear cause. Return every id exactly once."""
+
+DIAG_SCHEMA = {
+    "type": "object", "additionalProperties": False,
+    "properties": {"results": {"type": "array", "items": {
+        "type": "object", "additionalProperties": False,
+        "properties": {"id": {"type": "string"},
+                       "undiagnosable": {"type": "boolean"}},
+        "required": ["id", "undiagnosable"]}}},
+    "required": ["results"],
+}
+
+
+from project1_regexes import PROVIDER_PATTERNS
+PROVIDER_RES = [(t, re.compile(p, re.IGNORECASE)) for t, p in PROVIDER_PATTERNS]
+
+
+def provider_by_id(months, product, themes):
+    """-> {question id: m: tag} from the Project 1 feature tables.
+
+    A question that names two providers ("my Gmail and my Outlook account")
+    belongs to one only when Claude's short problem name (`themes`, id -> theme)
+    names exactly one of them. Otherwise it is left out: on 2026-11-03 an AT&T
+    certificate question went into the Gmail cluster because Gmail came first."""
+    out = {}
+    for m in months:
+        path = FEATURES.format(m=m, product=product)
+        if not os.path.exists(path):
+            continue
+        f = pd.read_csv(path, dtype=str, keep_default_na=False)
+        for qid, mp in zip(f["id"], f["mail_provider"]):
+            tags = [t for t in mp.split(";") if t]
+            if len(tags) > 1:
+                named = {t for t, rx in PROVIDER_RES
+                         if t in tags and rx.search(themes.get(qid, ""))}
+                tags = list(named) if len(named) == 1 else []
+            if tags:
+                out[qid] = tags[0]
+    return out
+
+
+def load_content(m, product):
+    p = (f"{CONCAT_DIR.format(PRODUCT=product.upper())}/"
+         f"{m}-sumo-{product}-questions.csv")
+    q = pd.read_csv(p, dtype=str, keep_default_na=False)
+    return dict(zip(q["id"], q["content"]))
+
+
+def diagnosable_pass(client, df, m, product, prov, usage):
+    """-> {id: undiagnosable bool} for month `m`, paying only for new ids."""
+    path = DIAG_CACHE.format(product=product, m=m)
+    have = {}
+    if os.path.exists(path):
+        with open(path) as f:
+            have = json.load(f)
+    cand = df[df["category"].isin(DIAG_CATS) & df["id"].isin(prov.keys())]
+    todo = cand[~cand["id"].isin(have.keys())]
+    if todo.empty:
+        print(f"   [diagnose] {m}: {len(cand)} questions, all cached")
+        return have
+    content = load_content(m, product)
+    items = []
+    for _, r in todo.iterrows():
+        text = re.sub(r"\s+", " ", content.get(r["id"], ""))[:DIAG_CONTENT]
+        items.append({"id": r["id"], "provider": prov[r["id"]],
+                      "title": titles_cache.get(r["id"], ""), "text": text,
+                      "solved": bool(r["solved_b"]),
+                      "earlier_guess": r["root_cause_hypothesis"]})
+    batches = [items[i:i + DIAG_BATCH] for i in range(0, len(items), DIAG_BATCH)]
+    system = [{"type": "text", "text": DIAG_SYS}]
+    ct = sum(client.messages.count_tokens(
+        model=MODEL, system=system,
+        messages=[{"role": "user", "content": json.dumps(b, ensure_ascii=False)}]
+    ).input_tokens for b in batches)
+    est = dollars(ct, len(items) * 25 + 200 * len(batches), MODEL)
+    print(f"[diagnose] {m}: {len(items)} new questions in {len(batches)} "
+          f"batch(es), est input {ct:,} tok")
+    gate(est, label=f"Stage-2 diagnosability {m}")
+    for b in batches:
+        resp = client.messages.create(
+            model=MODEL, max_tokens=4000, system=system,
+            # Mechanical yes/no pass: no thinking, all tokens go to the JSON.
+            thinking={"type": "disabled"},
+            output_config={"format": {"type": "json_schema", "schema": DIAG_SCHEMA},
+                           "effort": "low"},
+            messages=[{"role": "user",
+                       "content": json.dumps(b, ensure_ascii=False)}],
+        )
+        _add_usage(usage, resp)
+        want = {x["id"] for x in b}
+        for x in json.loads(response_text(resp, "diagnosability"))["results"]:
+            if x["id"] in want:
+                have[x["id"]] = bool(x["undiagnosable"])
+    missing = [x["id"] for x in items if x["id"] not in have]
+    if missing:
+        print(f"   ⚠️  diagnosability: no answer for {missing}; they stay "
+              f"in their clusters and the next run asks again", file=sys.stderr)
+    tmp = path + ".tmp"
+    with open(tmp, "w") as f:
+        json.dump(have, f, indent=1, sort_keys=True)
+    os.replace(tmp, path)
+    return have
+
+
+titles_cache = {}
+
+
+def diag_overrides(cur, prev, prov, diag):
+    """-> {question id: provider cluster label} for providers with at least
+    DIAG_MIN undiagnosable questions in either month."""
+    hits = {}
+    for df in (cur, prev):
+        for qid in df["id"]:
+            if diag.get(qid) and qid in prov:
+                hits.setdefault(prov[qid], {}).setdefault(id(df), []).append(qid)
+    out = {}
+    for tag, by_month in hits.items():
+        if max(len(v) for v in by_month.values()) >= DIAG_MIN:
+            for ids in by_month.values():
+                for qid in ids:
+                    out[qid] = DIAG_LABEL.format(tag=tag)
+    return out
+
+
+def assign_clusters(df, theme_to_label, overrides=None):
+    lab = df["discovered_theme"].map(theme_to_label)
+    if overrides:
+        lab = df["id"].map(overrides).fillna(lab)
+    return lab
+
+
 # ---- Stage 2 (Python): per-cluster stats + ranking ------------------------ #
 
-def cluster_stats(cur, prev, theme_to_label, titles):
+def cluster_stats(cur, prev, theme_to_label, titles, overrides=None):
     cur = cur.copy(); prev = prev.copy()
-    cur["cluster"] = cur["discovered_theme"].map(theme_to_label)
-    prev["cluster"] = prev["discovered_theme"].map(theme_to_label)
+    cur["cluster"] = assign_clusters(cur, theme_to_label, overrides)
+    prev["cluster"] = assign_clusters(prev, theme_to_label, overrides)
     prev_counts = prev["cluster"].value_counts().to_dict()
 
     rows = []
@@ -522,6 +692,7 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
     W("---")
     W("")
     known = load_known_status(product)
+    notes = load_reviewer_notes(product, cur_m)
     W(f"# Thunderbird {pcap} — LLM Insights (Engineering)")
     W(f"\n## {human_month(cur_m)} against {human_month(prev_m)}\n")
 
@@ -601,6 +772,9 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
         st = status_for(r["label"], known)
         if st:
             W(f"- Known status: {st}")
+        nt = status_for(r["label"], notes)
+        if nt:
+            W(f"- Reviewer note: {link_bugs(nt)}")
         if p:
             W(f"- Why it matters: {link_bugs(p['why'])}")
             W(f"- What to look at: {link_bugs(p['action'])}")
@@ -653,6 +827,9 @@ def main():
     ap.add_argument("--refresh", action="store_true",
                     help="ignore the cached clustering and narrative for this "
                          "month pair and pay for both LLM calls again")
+    ap.add_argument("--refresh-narrative", action="store_true",
+                    help="keep the cached clustering but pay for the narrative "
+                         "again (needed when the issue order changes)")
     args = ap.parse_args()
 
     if not os.getenv("ANTHROPIC_API_KEY"):
@@ -693,9 +870,21 @@ def main():
         if not owners:
             print(f"   ⚠️  spiking cause {tag} has no cluster of its own",
                   file=sys.stderr)
-    top = cluster_stats(cur, prev, theme_to_label, titles)
-    top.attrs["n_clusters"] = int(cur["discovered_theme"].map(theme_to_label).nunique())
-    top.attrs["n_clusters_prev"] = int(prev["discovered_theme"].map(theme_to_label).nunique())
+    titles_cache.update(titles)
+    prov = provider_by_id([args.previous, args.current], args.product,
+                          dict(zip(all_df["id"], all_df["discovered_theme"])))
+    diag = {**diagnosable_pass(client, prev, args.previous, args.product, prov, usage),
+            **diagnosable_pass(client, cur, args.current, args.product, prov, usage)}
+    overrides = diag_overrides(cur, prev, prov, diag)
+    if overrides:
+        per = {}
+        for lb in overrides.values():
+            per[lb] = per.get(lb, 0) + 1
+        print("   [diagnose] moved " + ", ".join(
+            f"{n} into '{lb}'" for lb, n in sorted(per.items())))
+    top = cluster_stats(cur, prev, theme_to_label, titles, overrides)
+    top.attrs["n_clusters"] = int(assign_clusters(cur, theme_to_label, overrides).nunique())
+    top.attrs["n_clusters_prev"] = int(assign_clusters(prev, theme_to_label, overrides).nunique())
 
     featured = top[(top["cur"] >= MIN_CLUSTER) | top["is_new"]].head(TOP_N)
 
@@ -708,7 +897,7 @@ def main():
     headline_stats = {"questions_prev": len(prev), "questions_cur": len(cur),
                       "new_clusters": int(featured["is_new"].sum())}
 
-    narr = cached(narr_path, args.refresh,
+    narr = cached(narr_path, args.refresh or args.refresh_narrative,
                   lambda: narrate(client, args.current, args.previous, featured,
                                   cat_mom, headline_stats, usage))
 

@@ -1,0 +1,2 @@
+product,month,pattern,note
+desktop,2026-10,(?i)cannot be diagnosed.*m:gmail,"Roland Tanglao: There wasn't enough troubleshooting details provided by Thunderbird Desktop users to diagnose. Problem cause could have been anti-virus, network issues, add-ons, an issue specific to POP3, a Thunderbird bug, etc. Some ideas for engineering to consider: adding self diagnostic and repair facilities to Thunderbird, perhaps even specific troubleshooting features for popular providers like gmail."

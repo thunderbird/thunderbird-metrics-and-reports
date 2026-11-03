@@ -209,6 +209,17 @@ Roland ran the desktop classification by hand on the night of 2026-11-02. It lab
 
 Every October question of both products has a label. Three desktop causes were spiking in October (`m:att`, `m:gmail`, `m:thundermail`), and `split_by_cause()` moved 199 themes into cause-specific clusters. No android cause was spiking.
 
+## Diagnosability pass, October and September 2026 (2026-11-03)
+
+Roland asked that provider questions with too few details to diagnose get their own cluster per provider. A new yes/no pass reads the provider questions in the login, send-receive, sync, folder and security categories. Its answers are cached per month in `LLM_INSIGHTS/cache/{product}-{month}-diagnosable.json`, so the next month pair pays only for its new month. The October narrative was written again, because the issue order changed.
+
+| Stage | Questions | Cost |
+|:--|--:|--:|
+| Desktop diagnosability pass, 2026-09 and 2026-10, plus narrative | 429 | $0.92 |
+| Desktop narrative again after the multi-provider fix, plus 1 question | 1 | $0.07 |
+| Android diagnosability pass, 2026-09 and 2026-10 | 15 | $0.03 |
+| **Total** | | **$1.02** |
+
 ## Notes
 - All figures are well under the $50/run circuit-breaker.
 - Cost scales with the enriched text size; if it ever grows, re-baseline the unit rate with the Bucket-0 preview: `uv run scripts/llm_insights_cost.py <month> <month> <product>`.
