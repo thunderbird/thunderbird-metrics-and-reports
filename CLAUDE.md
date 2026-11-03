@@ -53,8 +53,10 @@ Mozilla) data and publishes them as a Jekyll site on GitHub Pages:
    providers moves only when Claude's theme names exactly one. When the issue
    order changes, pass `--refresh-narrative` (about $0.10) so the narrative's
    per-rank prose matches. `LLM_INSIGHTS/reviewer-notes.csv`
-   (`product,month,pattern,note`) holds a reviewer's comment for ONE month's
-   page, unlike `known-status.csv`, which applies to every month.
+   (`product,month,pattern,note,tldr`) holds a reviewer's comment for ONE
+   month's page, unlike `known-status.csv`, which applies to every month. The
+   optional `tldr` short form is appended to the TL;DR Known status cell.
+   Thunderbird for Android has no add-ons, so android text never names them.
 
 #1 and #2 are regenerated automatically by GitHub Actions and committed to `main`.
 

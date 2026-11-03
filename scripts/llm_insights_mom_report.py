@@ -74,13 +74,28 @@ def load_known_status(product):
     return [(re.compile(r["pattern"]), r["status"]) for _, r in df.iterrows()]
 
 
-def load_reviewer_notes(product, month):
-    """Rows for `product` (or `all`) and `month` (YYYY-MM)."""
+def load_reviewer_notes(product, month, column="note"):
+    """Rows for `product` (or `all`) and `month` (YYYY-MM). `column` is "note"
+    (the full comment, under the issue) or "tldr" (the short form for the
+    TL;DR table, blank when the reviewer gave none)."""
     if not os.path.exists(REVIEWER_NOTES):
         return []
     df = pd.read_csv(REVIEWER_NOTES, dtype=str, keep_default_na=False)
-    df = df[df["product"].isin([product, "all"]) & (df["month"] == month)]
-    return [(re.compile(r["pattern"]), r["note"]) for _, r in df.iterrows()]
+    if column not in df.columns:
+        return []
+    df = df[df["product"].isin([product, "all"]) & (df["month"] == month)
+            & (df[column] != "")]
+    return [(re.compile(r["pattern"]), r[column]) for _, r in df.iterrows()]
+
+
+def tldr_status(label, known, notes_short):
+    """The TL;DR "Known status" cell: the known status, then the reviewer's
+    short note for this month, if any."""
+    parts = [status_for(label, known)]
+    nt = status_for(label, notes_short)
+    if nt:
+        parts.append(f"Reviewer: {link_bugs(nt)}")
+    return " ".join(p for p in parts if p) or "—"
 
 
 def status_for(label, known):
@@ -693,6 +708,7 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
     W("")
     known = load_known_status(product)
     notes = load_reviewer_notes(product, cur_m)
+    notes_short = load_reviewer_notes(product, cur_m, "tldr")
     W(f"# Thunderbird {pcap} — LLM Insights (Engineering)")
     W(f"\n## {human_month(cur_m)} against {human_month(prev_m)}\n")
 
@@ -708,7 +724,7 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
             new = ", new this month" if r["is_new"] else ""
             W(f"| [{i}](#issue-{i}) | [{md_safe(r['label'], 130)}](#issue-{i}){new} | "
               f"{r['prev']} | {r['cur']} | {r['mean_sev']} | "
-              f"{r['served_pct']}%{low} | {status_for(r['label'], known) or '—'} |")
+              f"{r['served_pct']}%{low} | {tldr_status(r['label'], known, notes_short)} |")
         W("")
         W("Each number links to the same issue in "
           "[Issues to investigate](#issues-to-investigate) below, which carries "
