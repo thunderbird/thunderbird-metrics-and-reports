@@ -53,6 +53,7 @@ from project1_report import (  # noqa: E402  (shared with the spike reports)
     spark, md_safe, load_features,
 )
 from project1_grains import GRAIN_DEFAULTS  # noqa: E402
+import project1_crosslink as xl  # noqa: E402  (#95: links to the LLM page)
 
 REPORT_DIR = "PROJECT1/REPORTS/{product}"
 # Every term of art the page uses, defined once, collapsed. A table rather than a
@@ -267,6 +268,20 @@ def main():
     n_joint = sum(len(v) for v in joint.values())
     n_cause = sum(len(v) for v in cause.values())
     incidents = n_joint + n_cause
+
+    # #95: the LLM Insights page of the same month, if it exists.
+    side = xl.find_sidecar(product, month)
+    llm_rel = os.path.relpath(xl.LLM_DIR.format(product=product),
+                              REPORT_DIR.format(product=product))
+
+    def llm_link(tag):
+        """" On the LLM page: issue N." when the LLM page has an issue for
+        `tag`. The anchor comes from the sidecar, so it always exists."""
+        o = (side or {}).get("owners", {}).get(tag)
+        if not o:
+            return ""
+        return (f" On the LLM page: [issue {o['rank']}]"
+                f"({llm_rel}/{side['page']}#{o['anchor']}).")
 
     n = len(df)
     answered = (df["is_answered"] == "true").sum()
@@ -628,10 +643,15 @@ def main():
             peak, is_monthly_peak = peak_sentence(tag)
             W(f"{i_}. {cause_name(tag)} ({cluster_link(tag)}, {k} spike"
               f"{'s' if k != 1 else ''}): {month_sentence(tag)}"
-              + ("" if is_monthly_peak else " " + peak))
+              + ("" if is_monthly_peak else " " + peak) + llm_link(tag))
         W("")
         if len(tags) > MAX_CLUSTERS:
-            rest = ", ".join(cluster_link(t) for t in tags[MAX_CLUSTERS:])
+            def rest_item(t):
+                o = (side or {}).get("owners", {}).get(t)
+                return cluster_link(t) + (
+                    f" (LLM [issue {o['rank']}]({llm_rel}/{side['page']}"
+                    f"#{o['anchor']}))" if o else "")
+            rest = ", ".join(rest_item(t) for t in tags[MAX_CLUSTERS:])
             k = len(tags) - MAX_CLUSTERS
             W(f"{k} more cluster{'s' if k != 1 else ''} fired: {rest}. "
               f"{'They are' if k != 1 else 'It is'} in the detail below.")
@@ -651,6 +671,43 @@ def main():
             W(f"In {len(bad)} cluster{'s' if len(bad) != 1 else ''}, fewer than "
               f"60% of the questions got an answer: "
               + ", ".join(bad[:4]) + more + ".")
+            W("")
+
+    # ---- seen by one side only (#95) ----------------------------------------
+    # The LLM Insights page of the same month writes a sidecar JSON naming the
+    # issue that holds each spiking tag. Read it, never re-derive it, so both
+    # pages tell the same story. No sidecar (android before #95, or a month
+    # with no LLM page yet): say nothing.
+    if side:
+        fired = set()
+        if not jall.empty:
+            fired |= set(jall["cause_value"].astype(str))
+        if not sall.empty:
+            fired |= set(sall["value"].astype(str))
+        lonely = sorted(t for t in fired if t not in side["owners"])
+        W("## Seen by one side only {#seen-by-one-side-only}")
+        W("")
+        W(f"The [LLM Insights page for {start.strftime('%B %Y')}]"
+          f"({llm_rel}/{side['page']}) groups the same questions into named "
+          f"problems with Claude. It ran on the spike files of its own day, so "
+          f"a spike that fired later is missing there.")
+        W("")
+        if lonely:
+            W("Spikes with no issue on the LLM page: "
+              + ", ".join(f"`{t}`" for t in lonely) + ". Their questions are "
+              "too few, or they spread over several problems.")
+            W("")
+        elif fired:
+            W("Every spike of the month has an issue on the LLM page.")
+            W("")
+        if side["no_spike"]:
+            W("Issues on the LLM page that no spike points to. No spiking tag "
+              "covers a quarter of their questions, so this page cannot "
+              "show them:")
+            W("")
+            for x in side["no_spike"]:
+                W(f"- [{x['label'][:90]}]({llm_rel}/{side['page']}#{x['anchor']}), "
+                  f"{x['cur']} questions")
             W("")
 
     # ---- what the dates do and do not mean ---------------------------------

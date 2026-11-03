@@ -1,0 +1,27 @@
+{
+ "month": "2026-10",
+ "previous": "2026-09",
+ "page": "monthly-summary-2026-10-vs-2026-09.html",
+ "owners": {},
+ "unmatched": [],
+ "no_spike": [
+  {
+   "rank": 1,
+   "label": "Outlook/Hotmail 'authenticated but not connected' error",
+   "cur": 3,
+   "anchor": "issue-1"
+  },
+  {
+   "rank": 2,
+   "label": "Android credentials rejected though valid on desktop",
+   "cur": 3,
+   "anchor": "issue-2"
+  },
+  {
+   "rank": 4,
+   "label": "QR import leaves accounts unauthenticated / passwords not transferred",
+   "cur": 3,
+   "anchor": "issue-4"
+  }
+ ]
+}

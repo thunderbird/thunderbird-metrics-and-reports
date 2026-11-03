@@ -37,6 +37,7 @@ sys.path.insert(0, "scripts")
 from llm_insights_cost import (dollars, gate, response_text, PRICING,
                                CONCAT_DIR)
 from llm_insights_classify import CATEGORIES
+import project1_crosslink as xl
 
 MODEL = "claude-opus-5"
 LABELS = "LLM_INSIGHTS/{m}-{product}-labels.csv"
@@ -606,6 +607,7 @@ def cluster_stats(cur, prev, theme_to_label, titles, overrides=None):
             "served_pct": int(round(served * 100)),
             "unanswered_pct": int(round(unanswered * 100)),
             "is_new": is_new, "score": round(score, 1), "examples": ex,
+            "ids": grp["id"].tolist(),
         })
     df = pd.DataFrame(rows).sort_values("score", ascending=False)
     return df
@@ -654,6 +656,7 @@ PLAIN_GLOSSARY = """<details markdown="1">
 | resolved | The question has an accepted solution, or a trusted contributor gave the last answer. |
 | unanswered | Nobody except the person who asked has replied. |
 | rank | A Python score, not a Claude opinion. It weights new clusters, badly served clusters, severity and volume, in that order. |
+| Project 1 signal | A spike that Project 1, a separate tool with no AI, found for a mail host, antivirus, protocol or feature tag that this issue's questions carry. |
 
 </details>
 """
@@ -727,8 +730,79 @@ def links(ids, titles):
     return L + (f" +{len(ids) - 5}" if len(ids) > 5 else "")
 
 
+# ---- Project 1 cross-links (#95) ------------------------------------------ #
+
+SHARE_MIN = 0.25
+
+
+def crosslinks(product, cur_m, prev_m, top, n_questions):
+    """Match each Project 1 spike of `cur_m` to the featured issue that holds
+    most of its questions. Pure Python over committed CSVs, no cost.
+
+    -> dict with `lines` {rank: [markdown]}, `anchors` {rank: [id]},
+    `unmatched` [markdown], `no_spike` [markdown] and `sidecar` (for the
+    executive summary, see project1_crosslink.py)."""
+    sig = xl.spike_signals(product, cur_m)
+    qtags = xl.tags_by_id(product, cur_m)
+    rdir = REPORT_DIR.format(product=product)
+    out = {"lines": {}, "anchors": {}, "unmatched": [], "no_spike": [],
+           "sidecar": {"month": cur_m, "previous": prev_m,
+                       "page": f"monthly-summary-{cur_m}-vs-{prev_m}.html",
+                       "owners": {}, "unmatched": [], "no_spike": []}}
+    best = {}
+    for _, r in sig.iterrows():
+        b = best.get(r["tag"])
+        if b is None or (r["ratio"], r["kind"] == "cause") > (b["ratio"], b["kind"] == "cause"):
+            best[r["tag"]] = r
+    # A tag belongs to an issue when it DESCRIBES the issue: at least 2 of the
+    # issue's questions carry it (1 in an issue of 3 or fewer) AND at least
+    # SHARE_MIN of them do. Without the share, October 2026 linked the
+    # proto:pop spike (55 questions) to the setup-wizard issue on 5 of its 28.
+    hold = {}   # tag -> [(count, rank)]
+    tagged_issue = set()
+    for rank, (_, r) in enumerate(top.iterrows(), 1):
+        counts = {}
+        for qid in r["ids"]:
+            for t in qtags.get(qid, ()):
+                if t in best:
+                    counts[t] = counts.get(t, 0) + 1
+        for t, n in counts.items():
+            if (n >= 2 or (n >= 1 and r["cur"] <= 3)) and n / r["cur"] >= SHARE_MIN:
+                hold.setdefault(t, []).append((n, rank))
+                tagged_issue.add(rank)
+    labels = {rank: r["label"] for rank, (_, r) in enumerate(top.iterrows(), 1)}
+    curs = {rank: r["cur"] for rank, (_, r) in enumerate(top.iterrows(), 1)}
+    for t in sorted(best, key=lambda t: -best[t]["ratio"]):
+        if t not in hold:
+            out["unmatched"].append(xl.signal_text(best[t]))
+            out["sidecar"]["unmatched"].append(t)
+            continue
+        n, rank = sorted(hold[t], key=lambda x: (-x[0], x[1]))[0]
+        link = xl.explore_link(product, best[t], rdir)
+        out["lines"].setdefault(rank, []).append(
+            f"{xl.signal_text(best[t])}. {n} of this issue's {curs[rank]} "
+            f"questions carry the tag." + (f" {link}" if link else ""))
+        out["anchors"].setdefault(rank, []).append(xl.anchor(t))
+        out["sidecar"]["owners"][t] = {"rank": rank, "label": labels[rank],
+                                       "anchor": xl.anchor(t), "count": n}
+    big = MIN_CLUSTER if n_questions < LOW_VOLUME else 10
+    for rank, (_, r) in enumerate(top.iterrows(), 1):
+        if rank not in tagged_issue and r["cur"] >= big:
+            out["no_spike"].append(
+                f"[Issue {rank}](#issue-{rank}), {md_safe(r['label'], 90)}, "
+                f"{r['cur']} questions")
+            out["sidecar"]["no_spike"].append(
+                {"rank": rank, "label": r["label"], "cur": int(r["cur"]),
+                 "anchor": f"issue-{rank}"})
+    out["big"] = big
+    out["n_spikes"] = len(best)
+    return out
+
+
 def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
-           product="desktop"):
+           product="desktop", links_p1=None):
+    links_p1 = links_p1 or {"lines": {}, "anchors": {}, "unmatched": [],
+                            "no_spike": [], "big": 10, "n_spikes": 0}
     issue_prose = {x["rank"]: x for x in narr.get("issues", [])}
     pcap = product.capitalize()
     out, W = [], lambda s: out.append(s)
@@ -814,6 +888,10 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
     for i, (_, r) in enumerate(top.iterrows(), 1):
         flag = " (below 50%)" if r["served_pct"] < 50 else ""
         new = ", new this month" if r["is_new"] else ""
+        for a in links_p1["anchors"].get(i, []):
+            W(f'<a id="{a}"></a>')
+        if links_p1["anchors"].get(i):
+            W("")
         W(f"### {i}. {link_bugs(r['label'])}{new} {{#issue-{i}}}\n")
         W(f"| Cluster | {human_month(prev_m)} | {human_month(cur_m)} | Change | "
           f"Sev (≥4) | Resolved | Unanswered |")
@@ -830,10 +908,43 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
         nt = status_for(r["label"], notes)
         if nt:
             W(f"- Reviewer note: {link_bugs(nt)}")
+        for line in links_p1["lines"].get(i, []):
+            W(f"- Project 1 signal: {line}")
         if p:
             W(f"- Why it matters: {link_bugs(p['why'])}")
             W(f"- What to look at: {link_bugs(p['action'])}")
         W(f"- Example questions: {links(r['examples'], titles)}")
+        W("")
+
+    W("## Seen by one side only {#seen-by-one-side-only}\n")
+    exec_md = f"{xl.P1_DIR.format(product=product)}/{cur_m}-exec-summary.md"
+    rel = os.path.relpath(xl.P1_DIR.format(product=product),
+                          REPORT_DIR.format(product=product))
+    W("Project 1 is a separate tool with no AI. It flags a spike when a mail "
+      "host, antivirus, protocol or feature tag rises well above its usual "
+      "level. Where a spike and an issue on this page share questions, the "
+      "issue carries a Project 1 signal line."
+      + (f" The [Project 1 executive summary for {human_month(cur_m)}]"
+         f"({rel}/{cur_m}-exec-summary.html) has the numbers."
+         if os.path.exists(exec_md) else "") + "\n")
+    if links_p1["unmatched"]:
+        W("Project 1 spikes with no issue on this page. Their questions are "
+          "too few, or they spread over clusters below the featured list:\n")
+        for u in links_p1["unmatched"]:
+            W(f"- {u}")
+        W("")
+    elif links_p1.get("n_spikes", 0) == 0:
+        # Honest zero: on android (about 50 questions a month) no spike
+        # clearing the threshold is the normal case, not a clean month.
+        W(f"No Project 1 spike cleared its threshold in {human_month(cur_m)}.\n")
+    else:
+        W("Every Project 1 spike of the month has an issue on this page.\n")
+    if links_p1["no_spike"]:
+        W(f"Issues with {links_p1['big']} or more questions and no Project 1 "
+          f"spike. No spiking tag covers a quarter of their questions, so "
+          f"Project 1 does not flag them:\n")
+        for u in links_p1["no_spike"]:
+            W(f"- {u}")
         W("")
 
     W("## Category mix, month over month\n")
@@ -962,8 +1073,14 @@ def main():
 
     rdir = REPORT_DIR.format(product=args.product)
     os.makedirs(rdir, exist_ok=True)
+    links_p1 = crosslinks(args.product, args.current, args.previous, featured,
+                          len(cur))
     content = render(args.current, args.previous, cur, prev, featured,
-                     cat_mom, narr, titles, cost, args.product)
+                     cat_mom, narr, titles, cost, args.product, links_p1)
+    side = xl.sidecar_path(args.product, args.current, args.previous)
+    with open(side, "w") as f:
+        json.dump(links_p1["sidecar"], f, ensure_ascii=False, indent=1)
+    print(f"   wrote {side}")
     paths = [f"{rdir}/monthly-summary-{args.current}-vs-{args.previous}.md"]
     if args.latest:
         paths.append(f"{rdir}/monthly-summary-latest.md")
