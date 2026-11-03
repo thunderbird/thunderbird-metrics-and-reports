@@ -656,7 +656,7 @@ PLAIN_GLOSSARY = """<details markdown="1">
 | resolved | The question has an accepted solution, or a trusted contributor gave the last answer. |
 | unanswered | Nobody except the person who asked has replied. |
 | rank | A Python score, not a Claude opinion. It weights new clusters, badly served clusters, severity and volume, in that order. |
-| Project 1 signal | A spike that Project 1, a separate tool with no AI, found for a mail host, antivirus, protocol or feature tag that this issue's questions carry. |
+| Spike Detector signal | A spike that the Spike Detector, a separate tool with no AI, found for a mail host, antivirus, protocol or feature tag that this issue's questions carry. |
 
 </details>
 """
@@ -909,7 +909,7 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
         if nt:
             W(f"- Reviewer note: {link_bugs(nt)}")
         for line in links_p1["lines"].get(i, []):
-            W(f"- Project 1 signal: {line}")
+            W(f"- Spike Detector signal: {line}")
         if p:
             W(f"- Why it matters: {link_bugs(p['why'])}")
             W(f"- What to look at: {link_bugs(p['action'])}")
@@ -920,15 +920,15 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
     exec_md = f"{xl.P1_DIR.format(product=product)}/{cur_m}-exec-summary.md"
     rel = os.path.relpath(xl.P1_DIR.format(product=product),
                           REPORT_DIR.format(product=product))
-    W("Project 1 is a separate tool with no AI. It flags a spike when a mail "
+    W("The Spike Detector is a separate tool with no AI. It flags a spike when a mail "
       "host, antivirus, protocol or feature tag rises well above its usual "
       "level. Where a spike and an issue on this page share questions, the "
-      "issue carries a Project 1 signal line."
-      + (f" The [Project 1 executive summary for {human_month(cur_m)}]"
+      "issue carries a Spike Detector signal line."
+      + (f" The [Spike Detector executive summary for {human_month(cur_m)}]"
          f"({rel}/{cur_m}-exec-summary.html) has the numbers."
          if os.path.exists(exec_md) else "") + "\n")
     if links_p1["unmatched"]:
-        W("Project 1 spikes with no issue on this page. Their questions are "
+        W("Spikes from the Spike Detector that have no issue on this page. Their questions are "
           "too few, or they spread over clusters below the featured list:\n")
         for u in links_p1["unmatched"]:
             W(f"- {u}")
@@ -936,13 +936,13 @@ def render(cur_m, prev_m, cur, prev, top, cat_mom_rows, narr, titles, cost,
     elif links_p1.get("n_spikes", 0) == 0:
         # Honest zero: on android (about 50 questions a month) no spike
         # clearing the threshold is the normal case, not a clean month.
-        W(f"No Project 1 spike cleared its threshold in {human_month(cur_m)}.\n")
+        W(f"No Spike Detector spike cleared its threshold in {human_month(cur_m)}.\n")
     else:
-        W("Every Project 1 spike of the month has an issue on this page.\n")
+        W("Every Spike Detector spike of the month has an issue on this page.\n")
     if links_p1["no_spike"]:
-        W(f"Issues with {links_p1['big']} or more questions and no Project 1 "
+        W(f"Issues with {links_p1['big']} or more questions and no Spike Detector "
           f"spike. No spiking tag covers a quarter of their questions, so "
-          f"Project 1 does not flag them:\n")
+          f"the Spike Detector does not flag them:\n")
         for u in links_p1["no_spike"]:
             W(f"- {u}")
         W("")

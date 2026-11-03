@@ -269,7 +269,7 @@ def main():
     mix_table(W, cur, prev, cdf, pdf, "topic", "Topic mix")
 
     W("---")
-    W(f"\n_Prototype engineering month-over-month summary · from Project 1 feature "
+    W(f"\n_Prototype engineering month-over-month summary · from Spike Detector feature "
       f"tables + spike detectors · {human_month(cur)} vs {human_month(prev)}._")
     W(f"\n_Last updated: {datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}_")
 

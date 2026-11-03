@@ -19,7 +19,8 @@ Mozilla) data and publishes them as a Jekyll site on GitHub Pages:
 4. **Project "LLM insights"** (IN PROGRESS, desktop + android prototypes shipped).
    LLM-assisted insights over the questions and answers, the AI counterpart to
    Project 1's no-AI detectors. `scripts/llm_insights_classify.py` labels each
-   question (Claude Opus 5, structured outputs). If a run prints "returned no
+   question (Claude Opus 5, structured outputs). Its pages call Project 1 the
+   "Spike Detector" (#97). If a run prints "returned no
    label", rerun it with `--only-missing` (#94): it labels only the absent
    questions one per call, keeps the paid-for rows, refreshes their signal
    columns, and exits 1 if a gap remains. New labels reach the report only after
@@ -179,6 +180,12 @@ The unanswered-questions reports have an **Assignee** column. Assignments live i
 - See `UNANSWERED_QUESTIONS/README.md` for the user-facing workflow.
 
 ## Project 1 — Version × Cause Spike Detector (no-AI)
+
+**Reader-facing name: "Spike Detector" (#97, 2026-11-03).** Generated pages,
+`index.md` and the explorer say "Spike Detector", never "Project 1". "Project 1"
+stays the internal name in code comments, docstrings and this file. The
+`PROJECT1/` folder, the `project1_*.py` scripts, the workflow names and the
+`p1-<tag>` anchors keep their names, so that no published URL breaks.
 
 **Status:** experimental, desktop only. Parent tracking issue **#65** — do all
 future Project 1 work as **sub-issues of #65**. Auto-regenerated twice daily
