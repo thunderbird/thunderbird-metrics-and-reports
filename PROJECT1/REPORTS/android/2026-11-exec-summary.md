@@ -5,7 +5,7 @@ title: "2026-11 exec summary: Thunderbird Android support spikes"
 
 # November 2026: Thunderbird Android support spikes
 
-Executive summary for 2026-11. It covers 2 Thunderbird Android support questions. The tool wrote this page on 2026-11-03 07:10 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-11. It covers 2 Thunderbird Android support questions. The tool wrote this page on 2026-11-04 07:10 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -45,7 +45,7 @@ Almost no November 2026 question carries a Thunderbird version. The version×cau
 Three more numbers for context:
 
 - Volume: 2 questions. 1 of them (50%) carry a cause tag. The count per day was `█▁█`, one block per day from November 1 to November 3.
-- Answers: 1 of the 2 questions (50%) got an answer from somebody other than the person who asked. The middle time to the first answer was 19.4 hours.
+- Answers: 2 of the 2 questions (100%) got an answer from somebody other than the person who asked. The middle time to the first answer was 10.3 hours.
 - Release-adoption version spikes: 0. Users move to a new release, so the bare counts rise. These are not incidents.
 
 Every spike row, with its example questions, is in [All November 2026 detail](#all-november-2026-detail) below.
