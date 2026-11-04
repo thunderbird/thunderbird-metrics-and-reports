@@ -5,7 +5,7 @@ title: "2026-11 exec summary: Thunderbird Desktop support spikes"
 
 # November 2026: Thunderbird Desktop support spikes
 
-Executive summary for 2026-11. It covers 62 Thunderbird Desktop support questions. The tool wrote this page on 2026-11-03 05:31 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-11. It covers 93 Thunderbird Desktop support questions. The tool wrote this page on 2026-11-04 05:31 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -27,35 +27,36 @@ Executive summary for 2026-11. It covers 62 Thunderbird Desktop support question
 
 </details>
 
-## November 2026: 5 spikes to investigate
+## November 2026: 7 spikes to investigate
 
-4 of them tie to a Thunderbird version. 1 of them are cause-level. Every row is in the collapsed blocks below.
+6 of them tie to a Thunderbird version. 1 of them are cause-level. Every row is in the collapsed blocks below.
 
 November 2026 is still in progress. The counts will grow.
 
-In short: Calendar and OAuth. [What stands out](#what-stands-out) has the detail.
+In short: Calendar and OAuth. Both are in [What stands out](#what-stands-out), with 1 smaller cluster.
 
 | Detector | daily | weekly | monthly |
 |:--|--:|--:|--:|
-| version×cause (a release caused the problem) | 1 | 2 | 1 |
+| version×cause (a release caused the problem) | 1 | 4 | 1 |
 | cause-level (mail host, protocol, antivirus, feature) | 0 | 1 | 0 |
 
-November 2026 holds 62 questions, about 21 a day. The detectors need 8 questions of one kind in a day, 6 in a week or 8 in a month before they call a spike. At this volume most real clusters cannot clear those floors, so read a zero as "nothing large enough to fire", not as "nothing happened".
+November 2026 holds 93 questions, about 23 a day. The detectors need 8 questions of one kind in a day, 6 in a week or 8 in a month before they call a spike. At this volume most real clusters cannot clear those floors, so read a zero as "nothing large enough to fire", not as "nothing happened".
 
 Three more numbers for context:
 
-- Volume: 62 questions. 31 of them (50%) carry a cause tag. The count per day was `▆█▂`, one block per day from November 1 to November 3.
-- Answers: 31 of the 62 questions (50%) got an answer from somebody other than the person who asked. The middle time to the first answer was 1.8 hours.
-- Release-adoption version spikes: 6. Users move to a new release, so the bare counts rise. These are not incidents.
+- Volume: 93 questions. 48 of them (52%) carry a cause tag. The count per day was `▆██▂`, one block per day from November 1 to November 4.
+- Answers: 59 of the 93 questions (63%) got an answer from somebody other than the person who asked. The middle time to the first answer was 1.8 hours.
+- Release-adoption version spikes: 7. Users move to a new release, so the bare counts rise. These are not incidents.
 
 Every spike row, with its example questions, is in [All November 2026 detail](#all-november-2026-detail) below.
 
 ## What stands out {#what-stands-out}
 
-1. Calendar ([`feat:calendar`](explorer.html#grain=monthly&cause=feat:calendar&period=2026-11), 4 spikes): 9 questions in November, under the monthly bar. It peaked on 2026-11-01 at 9.4 times expected, on Thunderbird 159.
+1. Calendar ([`feat:calendar`](explorer.html#grain=monthly&cause=feat:calendar&period=2026-11), 5 spikes): 10 questions in November, under the monthly bar. It peaked on 2026-11-01 at 9.4 times expected, on Thunderbird 159.
 2. OAuth ([`proto:oauth`](explorer.html#grain=monthly&cause=proto:oauth&period=2026-11), 1 spike): 2 questions in November, under the monthly bar. It peaked in the week of 2026-10-26 at 7.0 times expected, on Thunderbird 158.
+3. Junk mail ([`feat:junk`](explorer.html#grain=monthly&cause=feat:junk&period=2026-11), 1 spike): 4 questions in November, under the monthly bar. It peaked in the week of 2026-11-02 at 4.4 times expected, on Thunderbird 159.
 
-In 4 clusters, fewer than 60% of the questions got an answer: `v159 × feat:calendar` on 2026-11-01 (25% answered), `v158 × proto:oauth` in the week of 2026-10-26 (0% answered), `v159 × feat:calendar` in 2026-11 (29% answered), `feat:calendar` in the week of 2026-10-26 (56% answered).
+In 6 clusters, fewer than 60% of the questions got an answer: `v159 × feat:calendar` on 2026-11-01 (25% answered), `v158 × proto:oauth` in the week of 2026-10-26 (0% answered), `v159 × feat:junk` in the week of 2026-11-02 (50% answered), `v159 × feat:calendar` in the week of 2026-11-02 (50% answered), and 2 more.
 
 ## Two limits of these dates
 
@@ -83,14 +84,16 @@ Version and cause together:
 ## All November 2026 detail {#all-november-2026-detail}
 
 <details markdown="1">
-<summary>Version × cause spikes, 4 rows</summary>
+<summary>Version × cause spikes, 6 rows</summary>
 
 | Grain | Lift | When | Version × Cause | Questions | Served | Novelty | Example questions |
 |:--|--:|:--|:--|--:|:--|:--|:--|
 | daily | 9.4× | 2026-11-01 | v159 × feat:calendar | 4 | 25% answered (below 60%), 0.5h | spreading | [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615363](https://support.mozilla.org/questions/1615363 "TB 159 - Graph Calendar not automatically detected on account setup") [1615397](https://support.mozilla.org/questions/1615397 "Make Calendar Notification Window AlwaysOnTop") [1615399](https://support.mozilla.org/questions/1615399 "＂Thunderbird＂ access to Calendar functions are NOT FUNCTIONING at all. Thanks fo") |
 | weekly | 7.0× | 2026-10-26 | v158 × proto:oauth | 5 | 0% answered (below 60%) | spreading | [1614222](https://support.mozilla.org/questions/1614222 "Outlook.de receives mail but cannot send with OAuth2: “SmtpClientAuthentication ") [1614358](https://support.mozilla.org/questions/1614358 "Thunderbird has stopped downloading emails from Yahoo") [1614376](https://support.mozilla.org/questions/1614376 "Outlook email account can receive mail but loses authentication and stop sending") [1614513](https://support.mozilla.org/questions/1614513 "Thunderbird 158.1 receives emails from my new Outlook.com account but cannot sen") [1614656](https://support.mozilla.org/questions/1614656 "Authentication Failure (outlook)") |
-| monthly | 6.1× | 2026-11 | v159 × feat:calendar | 7 | 29% answered (below 60%), 0.8h | recurring | [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615363](https://support.mozilla.org/questions/1615363 "TB 159 - Graph Calendar not automatically detected on account setup") [1615397](https://support.mozilla.org/questions/1615397 "Make Calendar Notification Window AlwaysOnTop") [1615399](https://support.mozilla.org/questions/1615399 "＂Thunderbird＂ access to Calendar functions are NOT FUNCTIONING at all. Thanks fo") [1615555](https://support.mozilla.org/questions/1615555 "Thunderbird Calendar does not react anymore - how can it be reactivated?") [1615605](https://support.mozilla.org/questions/1615605 "events missing from calendar on one pc,  other pc ok") +1 |
 | weekly | 5.2× | 2026-10-26 | v159 × feat:calendar | 10 | 70% answered, 17.5h | spreading | [1614718](https://support.mozilla.org/questions/1614718 "How do I turn off the sound for event notifications in the calendar?") [1614764](https://support.mozilla.org/questions/1614764 "My calendar stopped working (will not load my calendars), cannot change day , mo") [1614798](https://support.mozilla.org/questions/1614798 "Das Update killt den Kalender") [1614819](https://support.mozilla.org/questions/1614819 "il calendario non funziona") [1614962](https://support.mozilla.org/questions/1614962 "159.0 - Calendar is blanked post-update, & my Advanced Settings screens don't ma") [1615035](https://support.mozilla.org/questions/1615035 "How do I connect to a Microsoft 365 calendar with the new 159 version of Thunder") +4 |
+| monthly | 5.0× | 2026-11 | v159 × feat:calendar | 8 | 38% answered (below 60%), 1.1h | recurring | [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615363](https://support.mozilla.org/questions/1615363 "TB 159 - Graph Calendar not automatically detected on account setup") [1615397](https://support.mozilla.org/questions/1615397 "Make Calendar Notification Window AlwaysOnTop") [1615399](https://support.mozilla.org/questions/1615399 "＂Thunderbird＂ access to Calendar functions are NOT FUNCTIONING at all. Thanks fo") [1615555](https://support.mozilla.org/questions/1615555 "Thunderbird Calendar does not react anymore - how can it be reactivated?") [1615605](https://support.mozilla.org/questions/1615605 "events missing from calendar on one pc,  other pc ok") +2 |
+| weekly | 4.4× | 2026-11-02 | v159 × feat:junk | 4 | 50% answered (below 60%), 3.3h | spreading | [1615531](https://support.mozilla.org/questions/1615531 "Thunderbird does not download SPAM until I open the spam folder") [1615533](https://support.mozilla.org/questions/1615533 "Thunderbird has changed!  I now have 2 spam folders and my normal senders are go") [1615795](https://support.mozilla.org/questions/1615795 "Spam Folder") [1615828](https://support.mozilla.org/questions/1615828 "Spam folder shows there are messages but when I open it nothing is there.") |
+| weekly | 3.4× | 2026-11-02 | v159 × feat:calendar | 4 | 50% answered (below 60%), 10.3h | recurring | [1615555](https://support.mozilla.org/questions/1615555 "Thunderbird Calendar does not react anymore - how can it be reactivated?") [1615605](https://support.mozilla.org/questions/1615605 "events missing from calendar on one pc,  other pc ok") [1615627](https://support.mozilla.org/questions/1615627 "Build 159.0 (64-bit), Win 11. Latest update (I reinstalled rather than update) l") [1615696](https://support.mozilla.org/questions/1615696 "Are calendars supported over Graph API? Contradicting (?) information in wiki an") |
 
 </details>
 
@@ -104,7 +107,7 @@ Version and cause together:
 </details>
 
 <details markdown="1">
-<summary>Release-adoption version and operating-system spikes (not incidents), 6 rows</summary>
+<summary>Release-adoption version and operating-system spikes (not incidents), 7 rows</summary>
 
 Version and operating system are filters, not causes. A rise in the bare count of one version is release adoption, not a regression. The rows are here for manual checking only.
 
@@ -112,10 +115,11 @@ Version and operating system are filters, not causes. A rise in the bare count o
 |:--|--:|:--|:--|:--|:--|--:|
 | daily | new | 2026-11-01 | tb_version_major | 159 | 13 [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615316](https://support.mozilla.org/questions/1615316 "Folders disappear") | 0.0 |
 | daily | new | 2026-11-02 | tb_version_major | 159 | 20 [1615502](https://support.mozilla.org/questions/1615502 "Unable to create a new email Folder") [1615510](https://support.mozilla.org/questions/1615510 "Wie kann die Schriftfarbe in Thunderbird/Terminkalender/Neuer Termin/Beschreibun") | 0.0 |
-| monthly | new | 2026-11 | tb_version_major | 159 | 35 [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615316](https://support.mozilla.org/questions/1615316 "Folders disappear") | 0.0 |
+| daily | new | 2026-11-03 | tb_version_major | 159 | 15 [1615642](https://support.mozilla.org/questions/1615642 "I can't get Thunderbird to go due to password problems") [1615655](https://support.mozilla.org/questions/1615655 "Deleted emails Not showing in trash folder") | 0.0 |
+| monthly | new | 2026-11 | tb_version_major | 159 | 49 [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615316](https://support.mozilla.org/questions/1615316 "Folders disappear") | 0.0 |
 | weekly | new | 2026-10-26 | tb_version_major | 158 | 24 [1614162](https://support.mozilla.org/questions/1614162 "Subscribed (internet) calendars disappear") [1614179](https://support.mozilla.org/questions/1614179 "[URGENT] Request to Force Stop Email Loop & Clear Server Queue - [redacted]@lead") | 0.0 |
 | weekly | new | 2026-10-26 | tb_version_major | 159 | 59 [1614545](https://support.mozilla.org/questions/1614545 "Address book hangs when I click on any entry in it") [1614661](https://support.mozilla.org/questions/1614661 "Warum ＂keine Nachrichten＂ bevor die E-Mails aufklappen?") | 0.0 |
-| weekly | new | 2026-11-02 | tb_version_major | 159 | 22 [1615502](https://support.mozilla.org/questions/1615502 "Unable to create a new email Folder") [1615510](https://support.mozilla.org/questions/1615510 "Wie kann die Schriftfarbe in Thunderbird/Terminkalender/Neuer Termin/Beschreibun") | 0.0 |
+| weekly | new | 2026-11-02 | tb_version_major | 159 | 36 [1615502](https://support.mozilla.org/questions/1615502 "Unable to create a new email Folder") [1615510](https://support.mozilla.org/questions/1615510 "Wie kann die Schriftfarbe in Thunderbird/Terminkalender/Neuer Termin/Beschreibun") | 0.0 |
 
 </details>
 
@@ -126,65 +130,66 @@ The Thunderbird versions named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| v159 | 35 | `▆█▂` |
-| v153 | 6 | `▆█▃` |
-| v140 | 4 | `▃█▁` |
-| v158 | 2 | `██▁` |
-| v115 | 2 | `██▁` |
-| v150 | 2 | `██▁` |
+| v159 | 49 | `▆█▆▁` |
+| v153 | 10 | `▅▆█▃` |
+| v140 | 5 | `▃█▃▁` |
+| v158 | 4 | `▅▅█▁` |
+| v150 | 4 | `▅▅█▁` |
+| v149 | 3 | `▁▅█▁` |
 
 The mail hosts named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| m:gmail | 6 | `▆█▃` |
-| m:microsoftemail | 5 | `██▅` |
-| m:yandex | 1 | `█▁▁` |
-| m:thundermail | 1 | `█▁▁` |
-| m:comcast | 1 | `█▁▁` |
-| m:tiscali | 1 | `▁█▁` |
+| m:gmail | 8 | `▆█▆▃` |
+| m:microsoftemail | 6 | `███▁` |
+| m:yahooemail | 2 | `▁██▁` |
+| m:yandex | 1 | `█▁▁▁` |
+| m:thundermail | 1 | `█▁▁▁` |
+| m:comcast | 1 | `█▁▁▁` |
 
 The Thunderbird features named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| feat:calendar | 9 | `█▅▂` |
-| feat:junk | 2 | `▁█▁` |
-| feat:search | 1 | `█▁▁` |
-| feat:notifications | 1 | `█▁▁` |
-| feat:filters | 1 | `▁█▁` |
-| feat:import_export | 1 | `▁█▁` |
+| feat:calendar | 10 | `█▅▄▁` |
+| feat:junk | 4 | `▁██▁` |
+| feat:addressbook | 3 | `▁▅█▁` |
+| feat:search | 2 | `█▁█▁` |
+| feat:import_export | 2 | `▁██▁` |
+| feat:notifications | 1 | `█▁▁▁` |
 
 The protocols named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| proto:smtp | 5 | `█▆▁` |
-| proto:imap | 4 | `▅█▅` |
-| proto:oauth | 2 | `██▁` |
-| proto:pop | 2 | `▁██` |
-| proto:ews | 1 | `█▁▁` |
+| proto:imap | 8 | `▂▄█▁` |
+| proto:smtp | 6 | `█▆▃▁` |
+| proto:pop | 4 | `▁▃█▁` |
+| proto:oauth | 2 | `██▁▁` |
+| proto:ews | 2 | `█▁█▁` |
 
 The antivirus products named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| av:defender | 1 | `█▁▁` |
-| av:comodo | 1 | `▁█▁` |
+| av:defender | 1 | `█▁▁▁` |
+| av:comodo | 1 | `▁█▁▁` |
+| av:zonealarm | 1 | `▁▁█▁` |
 
 The operating systems named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| os:windows | 54 | `▅█▂` |
-| os:macos | 4 | `█▁▁` |
-| os:linux | 3 | `█▅▁` |
+| os:windows | 81 | `▅█▇▁` |
+| os:linux | 6 | `█▅█▅` |
+| os:macos | 4 | `█▁▁▁` |
 
 The macOS releases named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| macos:high_sierra | 1 | `█▁▁` |
+| macos:high_sierra | 1 | `█▁▁▁` |
 
 
 </details>
