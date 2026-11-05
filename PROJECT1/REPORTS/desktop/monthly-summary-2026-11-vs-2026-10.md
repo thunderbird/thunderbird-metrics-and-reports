@@ -15,7 +15,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 1030 | 121 | ▼ -909 (-88%) |
+| Support questions (load) | 1030 | 136 | ▼ -894 (-87%) |
 | Version × cause spikes flagged | 15 | 1 | ▼ -14 |
 | — of which **new** regressions | 2 | 0 | ▼ -2 |
 | Cause-level surges flagged | 3 | 0 | ▼ -3 |
@@ -30,7 +30,7 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 
 | Signal | When | Version × Cause | Qs | Lift | Served | Example questions |
 |:--|:--|:--|--:|--:|:--|:--|
-| ↗ spreading | 2026-11-01 | v159 × feat:calendar | 4 | 9.4× | ⚠️ 25% ans · 0.5h | [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615363](https://support.mozilla.org/questions/1615363 "TB 159 - Graph Calendar not automatically detected on account setup") [1615397](https://support.mozilla.org/questions/1615397 "Make Calendar Notification Window AlwaysOnTop") [1615399](https://support.mozilla.org/questions/1615399 "＂Thunderbird＂ access to Calendar functions are NOT FUNCTIONING at all. Thanks fo") |
+| ↗ spreading | 2026-11-01 | v159 × feat:calendar | 4 | 9.5× | ⚠️ 25% ans · 0.5h | [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615363](https://support.mozilla.org/questions/1615363 "TB 159 - Graph Calendar not automatically detected on account setup") [1615397](https://support.mozilla.org/questions/1615397 "Make Calendar Notification Window AlwaysOnTop") [1615399](https://support.mozilla.org/questions/1615399 "＂Thunderbird＂ access to Calendar functions are NOT FUNCTIONING at all. Thanks fo") |
 
 ## What moved
 
@@ -40,8 +40,8 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 |:--|--:|--:|:--|
 | feat:attachments | 106 | 0 | ▼ -106 (-100%) |
 | m:gmail | 96 | 12 | ▼ -84 (-88%) |
-| proto:imap | 82 | 11 | ▼ -71 (-87%) |
-| m:microsoftemail | 60 | 6 | ▼ -54 (-90%) |
+| proto:imap | 82 | 12 | ▼ -70 (-85%) |
+| m:microsoftemail | 60 | 8 | ▼ -52 (-87%) |
 | m:yahooemail | 53 | 2 | ▼ -51 (-96%) |
 | proto:pop | 55 | 6 | ▼ -49 (-89%) |
 | proto:oauth | 32 | 2 | ▼ -30 (-94%) |
@@ -55,10 +55,10 @@ _None — every cause cluster in November 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| v153 | 251 | 15 | ▼ -236 (-94%) |
-| v157 | 262 | 1 | ▼ -261 (-100%) |
-| v158 | 169 | 6 | ▼ -163 (-96%) |
-| v159 | 48 | 58 | ▲ +10 (+21%) |
+| v153 | 251 | 19 | ▼ -232 (-92%) |
+| v157 | 262 | 2 | ▼ -260 (-99%) |
+| v158 | 169 | 7 | ▼ -162 (-96%) |
+| v159 | 48 | 65 | ▲ +17 (+35%) |
 | v140 | 43 | 6 | ▼ -37 (-86%) |
 | v115 | 19 | 2 | ▼ -17 (-89%) |
 
@@ -66,8 +66,8 @@ _None — every cause cluster in November 2026 has appeared in a prior month._
 
 | Operating-system mix | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 848 | 103 | ▼ -745 (-88%) |
-| os:linux | 83 | 8 | ▼ -75 (-90%) |
+| os:windows | 848 | 113 | ▼ -735 (-87%) |
+| os:linux | 83 | 13 | ▼ -70 (-84%) |
 | os:macos | 66 | 6 | ▼ -60 (-91%) |
 | os:other | 9 | 0 | ▼ -9 |
 | os:android | 8 | 0 | ▼ -8 |
@@ -76,15 +76,15 @@ _None — every cause cluster in November 2026 has appeared in a prior month._
 
 | Topic mix | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 246 | 27 | ▼ -219 (-89%) |
+| send-and-receive-email | 246 | 30 | ▼ -216 (-88%) |
 | attachments | 183 | 1 | ▼ -182 (-99%) |
-| customization | 90 | 14 | ▼ -76 (-84%) |
-| email-and-messaging | 88 | 12 | ▼ -76 (-86%) |
+| customization | 90 | 15 | ▼ -75 (-83%) |
+| email-and-messaging | 88 | 14 | ▼ -74 (-84%) |
 | passwords-and-sign-in | 46 | 4 | ▼ -42 (-91%) |
-| account-management | 38 | 8 | ▼ -30 (-79%) |
+| account-management | 38 | 10 | ▼ -28 (-74%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from SUMO Spike Detector feature tables + spike detectors · November 2026 vs October 2026._
 
-_Last updated: 2026-11-05 08:05 UTC_
+_Last updated: 2026-11-05 20:04 UTC_
