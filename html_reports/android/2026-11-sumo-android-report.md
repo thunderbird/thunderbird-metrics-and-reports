@@ -5,18 +5,18 @@ title: Thunderbird Android Report - 2026-11
 
 # Thunderbird Android Report - 2026-11
 
-*Last updated: 2026-11-06T03:11:58.442079*
+*Last updated: 2026-11-06T04:12:58.858636*
 
 ## Summary
 
 | Date | Num Questions | Num Solved | Solved Percentage | Num Ignored | Ignored Percentage | Synthetic Solved By Random Contributors | Synthetic Solved By Random Contributors Percentage | Synthetic Solved By Trusted Contributors | Synthetic Solved By Trusted Contributors Percentage | Synthetic Solved Rate |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2026-11 | 5 | 0 | 0 | 2 | 40 | 0 | 0 | 3 | 60 | 60 |
+| 2026-11 | 6 | 0 | 0 | 2 | 33 | 1 | 17 | 3 | 50 | 50 |
 
 ## Details
 
 | Date | Question Ids Question Creator Answered Last | Question Ids Trusted Contributor Answered Last | Question Ids Random Contributor Answered Last |
 | --- | --- | --- | --- |
-| 2026-11 |  | [1615321](https://support.mozilla.org/questions/1615321 "Garbage"); [1615674](https://support.mozilla.org/questions/1615674 "Can I set up automatic replies for a specific sender?"); [1615886](https://support.mozilla.org/questions/1615886 "after IMAP server content edit, have to clear local messages, and there's a bug.") |  |
+| 2026-11 |  | [1615321](https://support.mozilla.org/questions/1615321 "Garbage"); [1615674](https://support.mozilla.org/questions/1615674 "Can I set up automatic replies for a specific sender?"); [1615886](https://support.mozilla.org/questions/1615886 "after IMAP server content edit, have to clear local messages, and there's a bug.") | 1616238 |
 
 [Back to Dashboard](/)
