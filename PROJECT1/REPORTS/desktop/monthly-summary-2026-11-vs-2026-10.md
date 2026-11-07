@@ -15,7 +15,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 1030 | 175 | ▼ -855 (-83%) |
+| Support questions (load) | 1030 | 186 | ▼ -844 (-82%) |
 | Version × cause spikes flagged | 15 | 2 | ▼ -13 |
 | — of which **new** regressions | 2 | 0 | ▼ -2 |
 | Cause-level surges flagged | 3 | 0 | ▼ -3 |
@@ -41,8 +41,8 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 |:--|--:|--:|:--|
 | feat:attachments | 106 | 1 | ▼ -105 (-99%) |
 | m:gmail | 96 | 18 | ▼ -78 (-81%) |
-| proto:imap | 82 | 21 | ▼ -61 (-74%) |
-| m:microsoftemail | 60 | 9 | ▼ -51 (-85%) |
+| proto:imap | 82 | 22 | ▼ -60 (-73%) |
+| m:microsoftemail | 60 | 10 | ▼ -50 (-83%) |
 | m:yahooemail | 53 | 3 | ▼ -50 (-94%) |
 | proto:pop | 55 | 10 | ▼ -45 (-82%) |
 | proto:oauth | 32 | 5 | ▼ -27 (-84%) |
@@ -56,10 +56,10 @@ _None — every cause cluster in November 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| v153 | 251 | 28 | ▼ -223 (-89%) |
+| v153 | 251 | 31 | ▼ -220 (-88%) |
 | v157 | 262 | 2 | ▼ -260 (-99%) |
 | v158 | 169 | 7 | ▼ -162 (-96%) |
-| v159 | 48 | 83 | ▲ +35 (+73%) |
+| v159 | 48 | 89 | ▲ +41 (+85%) |
 | v140 | 43 | 7 | ▼ -36 (-84%) |
 | v115 | 19 | 5 | ▼ -14 (-74%) |
 
@@ -67,8 +67,8 @@ _None — every cause cluster in November 2026 has appeared in a prior month._
 
 | Operating-system mix | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 848 | 147 | ▼ -701 (-83%) |
-| os:linux | 83 | 16 | ▼ -67 (-81%) |
+| os:windows | 848 | 157 | ▼ -691 (-81%) |
+| os:linux | 83 | 17 | ▼ -66 (-80%) |
 | os:macos | 66 | 7 | ▼ -59 (-89%) |
 | os:other | 9 | 0 | ▼ -9 |
 | os:android | 8 | 0 | ▼ -8 |
@@ -77,15 +77,15 @@ _None — every cause cluster in November 2026 has appeared in a prior month._
 
 | Topic mix | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 246 | 41 | ▼ -205 (-83%) |
+| send-and-receive-email | 246 | 42 | ▼ -204 (-83%) |
 | attachments | 183 | 1 | ▼ -182 (-99%) |
-| customization | 90 | 18 | ▼ -72 (-80%) |
-| email-and-messaging | 88 | 16 | ▼ -72 (-82%) |
-| passwords-and-sign-in | 46 | 7 | ▼ -39 (-85%) |
-| account-management | 38 | 13 | ▼ -25 (-66%) |
+| customization | 90 | 20 | ▼ -70 (-78%) |
+| email-and-messaging | 88 | 17 | ▼ -71 (-81%) |
+| passwords-and-sign-in | 46 | 8 | ▼ -38 (-83%) |
+| account-management | 38 | 14 | ▼ -24 (-63%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from SUMO Spike Detector feature tables + spike detectors · November 2026 vs October 2026._
 
-_Last updated: 2026-11-07 08:05 UTC_
+_Last updated: 2026-11-07 20:03 UTC_
