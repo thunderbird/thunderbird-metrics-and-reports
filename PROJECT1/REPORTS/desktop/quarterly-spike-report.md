@@ -5,10 +5,10 @@ title: QUARTERLY: Thunderbird Desktop — Support Spike Report
 
 # QUARTERLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2024-Q1 … 2026-Q4 · **quarterly** grain · trailing 12 quarters · 39561 questions · no AI (regex + traditional stats)_
+_Generated 2024-Q1 … 2026-Q4 · **quarterly** grain · trailing 12 quarters · 39577 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 39561 questions, 3296.8/quarter avg
-- **Answered (non-creator):** 30340/39561 (77%)
+- **Volume:** 39577 questions, 3298.1/quarter avg
+- **Answered (non-creator):** 30350/39577 (77%)
 - **First-answer time (median):** 3.4h (p25 0.9h / p75 12.3h)
 - **Total volume trend:** `▆▅██▇▆▇▆▅▄▅▃`
 
@@ -39,7 +39,6 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 | ↗ spreading | **3.8×** | 2026-10 | v159 × feat:calendar | 6 | 100% ans · 25.0h | [1614718](https://support.mozilla.org/questions/1614718 "How do I turn off the sound for event notifications in the calendar?") [1614764](https://support.mozilla.org/questions/1614764 "My calendar stopped working (will not load my calendars), cannot change day , mo") [1614798](https://support.mozilla.org/questions/1614798 "Das Update killt den Kalender") [1614819](https://support.mozilla.org/questions/1614819 "il calendario non funziona") [1614962](https://support.mozilla.org/questions/1614962 "159.0 - Calendar is blanked post-update, & my Advanced Settings screens don't ma") [1615035](https://support.mozilla.org/questions/1615035 "How do I connect to a Microsoft 365 calendar with the new 159 version of Thunder") · [explore ↗](explorer.html#grain=monthly&version=159&cause=feat:calendar&period=2026-10) | `▁▁▁▁▁▁▁▁▁▁▁█` |
 | ↗ spreading | **3.3×** | 2026-08 | v154 × m:spectrum | 13 | 92% ans · 4.2h | [1599683](https://support.mozilla.org/questions/1599683 "Suddenly not receiving email") [1599738](https://support.mozilla.org/questions/1599738 "Thunderbird is not receiving in coming mail from Charter") [1599818](https://support.mozilla.org/questions/1599818 "Thunderbird not connecting to charter server.  Cannot send or receive emails.") [1599874](https://support.mozilla.org/questions/1599874 "Ability to send emails using roadrunner (mail.twc.com) account") [1600052](https://support.mozilla.org/questions/1600052 "Trouble connecting to my email provider Time Warner Corporation to send emails u") [1600872](https://support.mozilla.org/questions/1600872 "I can send email but can not receive.") +7 · [explore ↗](explorer.html#grain=monthly&version=154&cause=m:spectrum&period=2026-08) | `▁▁▁▁▁▁▁▁▁▁█▁` |
 | ↻ recurring | **11.6×** | 2026-09 | v154 × feat:printing | 5 | 100% ans · 5.0h | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") [1602826](https://support.mozilla.org/questions/1602826 "When printing from Thunderbird, a white sheet is produced.") · [explore ↗](explorer.html#grain=monthly&version=154&cause=feat:printing&period=2026-09) | `▁▁▁▁▁▁▁▁▁▁█▁` |
-| ↻ recurring | **3.2×** | 2026-11 | v159 × feat:calendar | 10 | ⚠️ 50% ans · 1.1h | [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615363](https://support.mozilla.org/questions/1615363 "TB 159 - Graph Calendar not automatically detected on account setup") [1615397](https://support.mozilla.org/questions/1615397 "Make Calendar Notification Window AlwaysOnTop") [1615399](https://support.mozilla.org/questions/1615399 "＂Thunderbird＂ access to Calendar functions are NOT FUNCTIONING at all. Thanks fo") [1615555](https://support.mozilla.org/questions/1615555 "Thunderbird Calendar does not react anymore - how can it be reactivated?") [1615605](https://support.mozilla.org/questions/1615605 "events missing from calendar on one pc,  other pc ok") +4 · [explore ↗](explorer.html#grain=monthly&version=159&cause=feat:calendar&period=2026-11) | `▁▁▁▁▁▁▁▁▁▁▁█` |
 
 ## 📮 Cause-level spikes — provider / protocol / AV / feature
 
@@ -84,7 +83,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | v140 | 1110 | `▁▁▁▁▁▁▁▁▄█▅▂` |
-| v153 | 1026 | `▁▁▁▁▁▁▁▁▁▁█▄` |
+| v153 | 1030 | `▁▁▁▁▁▁▁▁▁▁█▄` |
 | v150 | 493 | `▁▁▁▁▁▁▁▁▁█▂▁` |
 | v152 | 383 | `▁▁▁▁▁▁▁▁▁▆█▁` |
 | v149 | 338 | `▁▁▁▁▁▁▁▁▂█▁▁` |
@@ -94,9 +93,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 3611 | `▆▅██▆▅▆▅▅▄▄▃` |
+| m:gmail | 3612 | `▆▅██▆▅▆▅▅▄▄▃` |
 | m:microsoftemail | 2938 | `▅▄█▇▅▄▅▄▄▄▃▂` |
-| m:yahooemail | 1247 | `▄▇▇▅▅▄▇▇█▆█▄` |
+| m:yahooemail | 1250 | `▄▇▇▅▅▄▇▇█▆█▄` |
 | m:comcast | 515 | `▇▆██▇▅▇▇▃▆▅▂` |
 | m:spectrum | 448 | `▆▄▇▅▆▅▅▅▄▆█▃` |
 | m:att | 302 | `▃█▇█▇▅█▅▅▃▄▇` |
@@ -110,15 +109,15 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | feat:addressbook | 776 | `▅▄▇▇▇▆█▆▅▄▅▃` |
 | feat:junk | 763 | `▄▄▅▅▇▆█▆▅▆▅▃` |
 | feat:attachments | 747 | `▅▄▆▆▅▅▅▄▄▃▅█` |
-| feat:filters | 611 | `▆▅█▆▅▅▆▅▅▄▅▂` |
+| feat:filters | 612 | `▆▅█▆▅▅▆▅▅▄▅▂` |
 
 ### Top protocols
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 2865 | `▆▆██▇▅▆▅▅▄▅▃` |
-| proto:smtp | 1806 | `▆▆█▇▆▅▆▄▅▃▅▂` |
-| proto:pop | 1795 | `▅▄█▇▆▅▆▅▄▄▅▃` |
+| proto:imap | 2866 | `▆▆██▇▅▆▅▅▄▅▃` |
+| proto:smtp | 1807 | `▆▆█▇▆▅▆▄▅▃▅▂` |
+| proto:pop | 1796 | `▅▄█▇▆▅▆▅▄▄▅▃` |
 | proto:oauth | 746 | `▂▄█▅▃▃▃▃▄▃▄▃` |
 | proto:caldav | 138 | `▆▃▆█▇▆▆▄▆▄▄▅` |
 | proto:carddav | 75 | `▅▅▇▇█▃█▅▇▅▅▁` |
@@ -138,9 +137,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 10110 | `▂▂▂▂▂▂▃▂▇▇█▄` |
-| os:linux | 1766 | `▅▄▆▆▅▅▅▅█▇█▄` |
-| os:macos | 1208 | `▄▃▄▄▄▃▅▃█▇▇▄` |
+| os:windows | 10119 | `▂▂▂▂▂▂▃▂▇▇█▄` |
+| os:linux | 1772 | `▅▄▆▆▅▅▅▅█▇█▄` |
+| os:macos | 1209 | `▄▃▄▄▄▃▅▃█▇▇▄` |
 | os:other | 148 | `▁▁▁▁▁▁▁▁█▃▃▂` |
 | os:android | 115 | `▂▂▂▁▂▂▂▂█▆▆▃` |
 
@@ -159,4 +158,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-quarterly-rollup.csv`._
 
-_Last updated: 2026-11-08 16:36 UTC_
+_Last updated: 2026-11-09 04:32 UTC_
