@@ -5,10 +5,10 @@ title: QUARTERLY: Thunderbird Desktop — Support Spike Report
 
 # QUARTERLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2024-Q1 … 2026-Q4 · **quarterly** grain · trailing 12 quarters · 39593 questions · no AI (regex + traditional stats)_
+_Generated 2024-Q1 … 2026-Q4 · **quarterly** grain · trailing 12 quarters · 39611 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 39593 questions, 3299.4/quarter avg
-- **Answered (non-creator):** 30358/39593 (77%)
+- **Volume:** 39611 questions, 3300.9/quarter avg
+- **Answered (non-creator):** 30370/39611 (77%)
 - **First-answer time (median):** 3.4h (p25 0.9h / p75 12.3h)
 - **Total volume trend:** `▆▅██▇▆▇▆▅▄▅▃`
 
@@ -23,7 +23,7 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 
 | Signal | Lift | When | Version × Cause | Qs | Served | Example questions | Trend |
 |:--|---:|:--|:--|--:|:--|:--|:--|
-| 🆕 new | **28.2×** | 2026-10 | v115 × m:att | 5 | 100% ans · 113.3h | [1609983](https://support.mozilla.org/questions/1609983 "I cannot bring mail from AT&T  into my Thunderbird app on my home computer, what") [1610152](https://support.mozilla.org/questions/1610152 "Certificate revoked for inbound.att.net?  What do we do?") [1610310](https://support.mozilla.org/questions/1610310 "New Messages go only to Local Folder; Account Inbox is bypassed and has no F5 fu") [1610321](https://support.mozilla.org/questions/1610321 "I can't recieve emails but can send the certification is revoked for inbound.att") [1610518](https://support.mozilla.org/questions/1610518 "suddenly can't retrieve ATT Yahoo emails with Thunderbird after trying every sug") · [explore ↗](explorer.html#grain=monthly&version=115&cause=m:att&period=2026-10) | `▁▁▁▁▁▁▁▁▁▁▁█` |
+| 🆕 new | **28.3×** | 2026-10 | v115 × m:att | 5 | 100% ans · 113.3h | [1609983](https://support.mozilla.org/questions/1609983 "I cannot bring mail from AT&T  into my Thunderbird app on my home computer, what") [1610152](https://support.mozilla.org/questions/1610152 "Certificate revoked for inbound.att.net?  What do we do?") [1610310](https://support.mozilla.org/questions/1610310 "New Messages go only to Local Folder; Account Inbox is bypassed and has no F5 fu") [1610321](https://support.mozilla.org/questions/1610321 "I can't recieve emails but can send the certification is revoked for inbound.att") [1610518](https://support.mozilla.org/questions/1610518 "suddenly can't retrieve ATT Yahoo emails with Thunderbird after trying every sug") · [explore ↗](explorer.html#grain=monthly&version=115&cause=m:att&period=2026-10) | `▁▁▁▁▁▁▁▁▁▁▁█` |
 | 🆕 new | **14.1×** | 2026-08 | v154 × feat:printing | 29 | 79% ans · 4.3h | [1596686](https://support.mozilla.org/questions/1596686 "Cannot print Pdf files from within Thunderbird") [1599257](https://support.mozilla.org/questions/1599257 "Print emails") [1599261](https://support.mozilla.org/questions/1599261 "Perchè non si riesce a stampare diretta mente da Thunderbird un allegato ad un m") [1599285](https://support.mozilla.org/questions/1599285 "PDF attachments now blank when printed.  Worked great til today.") [1599333](https://support.mozilla.org/questions/1599333 "can not print attachments") [1599495](https://support.mozilla.org/questions/1599495 "Thunderbird can't print files") +23 · [explore ↗](explorer.html#grain=monthly&version=154&cause=feat:printing&period=2026-08) | `▁▁▁▁▁▁▁▁▁▁█▁` |
 | 🆕 new | **12.5×** | 2026-10 | v140 × m:att | 5 | 80% ans · 16.5h | [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") [1610258](https://support.mozilla.org/questions/1610258 "The certificate for inbound.att.net does not come from a trusted source.") [1610259](https://support.mozilla.org/questions/1610259 "Why Thunderbird on Linux will no longer connect to att.net email with POP3.") [1610309](https://support.mozilla.org/questions/1610309 "AOL setup on MX Linux... fails authentication SOLVED by mailnews.oauth.usePrivat") [1613507](https://support.mozilla.org/questions/1613507 "USPS mail tracking e-mails hanging ATT/Yahoo (bug2080830)") · [explore ↗](explorer.html#grain=monthly&version=140&cause=m:att&period=2026-10) | `▁▁▁▁▁▁▁▁▅▂▂█` |
 | 🆕 new | **11.5×** | 2026-09 | v153 × m:alice_it | 9 | 100% ans · 3.1h | [1605600](https://support.mozilla.org/questions/1605600 "Risposta alle mail diversa da prima") [1606403](https://support.mozilla.org/questions/1606403 "non ricevo posta su pino.[RIMOSSO]@alice.it, sono con starlink, nè riesco a invi") [1606888](https://support.mozilla.org/questions/1606888 "non mi funziona la mail alice.it") [1606928](https://support.mozilla.org/questions/1606928 "non ricevo le mail di Alicemail") [1606938](https://support.mozilla.org/questions/1606938 "Alice mail") [1607000](https://support.mozilla.org/questions/1607000 "non scarico messaggi") +3 · [explore ↗](explorer.html#grain=monthly&version=153&cause=m:alice_it&period=2026-09) | `▁▁▁▁▁▁▁▁▁▁█▂` |
@@ -82,8 +82,8 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 1110 | `▁▁▁▁▁▁▁▁▄█▅▂` |
-| v153 | 1035 | `▁▁▁▁▁▁▁▁▁▁█▄` |
+| v140 | 1111 | `▁▁▁▁▁▁▁▁▄█▅▂` |
+| v153 | 1038 | `▁▁▁▁▁▁▁▁▁▁█▄` |
 | v150 | 493 | `▁▁▁▁▁▁▁▁▁█▂▁` |
 | v152 | 383 | `▁▁▁▁▁▁▁▁▁▆█▁` |
 | v149 | 338 | `▁▁▁▁▁▁▁▁▂█▁▁` |
@@ -93,11 +93,11 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 3612 | `▆▅██▆▅▆▅▅▄▄▃` |
-| m:microsoftemail | 2939 | `▅▄█▇▅▄▅▄▄▄▃▂` |
-| m:yahooemail | 1250 | `▄▇▇▅▅▄▇▇█▆█▄` |
+| m:gmail | 3614 | `▆▅██▆▅▆▅▅▄▄▃` |
+| m:microsoftemail | 2940 | `▅▄█▇▅▄▅▄▄▄▃▂` |
+| m:yahooemail | 1251 | `▄▇▇▅▅▄▇▇█▆█▄` |
 | m:comcast | 515 | `▇▆██▇▅▇▇▃▆▅▂` |
-| m:spectrum | 449 | `▆▄▇▅▆▅▅▅▄▆█▃` |
+| m:spectrum | 450 | `▆▄▇▅▆▅▅▅▄▆█▃` |
 | m:att | 302 | `▃█▇█▇▅█▅▅▃▄▇` |
 
 ### Top feature areas
@@ -105,8 +105,8 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | feat:calendar | 1021 | `▄▅███▆▆▅▆▅▃▄` |
-| feat:import_export | 980 | `▆▅▇█▇▆█▆▅▅▅▂` |
-| feat:addressbook | 776 | `▅▄▇▇▇▆█▆▅▄▅▃` |
+| feat:import_export | 982 | `▆▅▇█▇▆█▆▅▅▅▂` |
+| feat:addressbook | 777 | `▅▄▇▇▇▆█▆▅▄▅▃` |
 | feat:junk | 765 | `▄▄▅▅▇▆█▆▅▆▅▃` |
 | feat:attachments | 747 | `▅▄▆▆▅▅▅▄▄▃▅█` |
 | feat:filters | 612 | `▆▅█▆▅▅▆▅▅▄▅▂` |
@@ -115,9 +115,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 2866 | `▆▆██▇▅▆▅▅▄▅▃` |
+| proto:imap | 2867 | `▆▆██▇▅▆▅▅▄▅▃` |
 | proto:smtp | 1809 | `▆▆█▇▆▅▆▄▅▃▅▂` |
-| proto:pop | 1796 | `▅▄█▇▆▅▆▅▄▄▅▃` |
+| proto:pop | 1797 | `▅▄█▇▆▅▆▅▄▄▅▃` |
 | proto:oauth | 746 | `▂▄█▅▃▃▃▃▄▃▄▃` |
 | proto:caldav | 138 | `▆▃▆█▇▆▆▄▆▄▄▅` |
 | proto:carddav | 75 | `▅▅▇▇█▃█▅▇▅▅▁` |
@@ -137,9 +137,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 10132 | `▂▂▂▂▂▂▃▂▇▇█▄` |
+| os:windows | 10145 | `▂▂▂▂▂▂▃▂▇▇█▄` |
 | os:linux | 1775 | `▅▄▆▆▅▅▅▅█▇█▄` |
-| os:macos | 1209 | `▄▃▄▄▄▃▅▃█▇▇▄` |
+| os:macos | 1214 | `▄▃▄▄▄▃▅▃█▇▇▄` |
 | os:other | 148 | `▁▁▁▁▁▁▁▁█▃▃▂` |
 | os:android | 115 | `▂▂▂▁▂▂▂▂█▆▆▃` |
 
@@ -149,7 +149,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 |:--|--:|:--|
 | macos:sequoia | 163 | `▁▁▂▆█▄█▄▃▂▃▁` |
 | macos:sonoma | 146 | `▇▅█▃▂▁▁▂▂▁▁▁` |
-| macos:tahoe | 61 | `▁▁▁▁▁▁▃██▄▆▂` |
+| macos:tahoe | 63 | `▁▁▁▁▁▁▃██▄▆▃` |
 | macos:monterey | 50 | `█▆▅▆▇▃▄▃▂▃▃▁` |
 | macos:catalina | 48 | `▂▃▃▄▃▂█▂▂▂▁▁` |
 | macos:ventura | 38 | `▆▄▅▆▅▆█▄▂▁▂▁` |
@@ -158,4 +158,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-quarterly-rollup.csv`._
 
-_Last updated: 2026-11-09 16:36 UTC_
+_Last updated: 2026-11-10 04:33 UTC_
