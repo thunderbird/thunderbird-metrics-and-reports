@@ -5,10 +5,10 @@ title: YEARLY: Thunderbird Desktop — Support Spike Report
 
 # YEARLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2023 … 2026 · **yearly** grain · all history · 51749 questions · no AI (regex + traditional stats)_
+_Generated 2023 … 2026 · **yearly** grain · all history · 51763 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 51749 questions, 12937.2/year avg
-- **Answered (non-creator):** 39237/51749 (76%)
+- **Volume:** 51763 questions, 12940.8/year avg
+- **Answered (non-creator):** 39248/51763 (76%)
 - **First-answer time (median):** 3.6h (p25 1.0h / p75 12.8h)
 - **Total volume trend:** `▆██▅`
 
@@ -37,7 +37,7 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 | 🆕 new | **3.2×** | 2026-06 | v151 × m:spectrum | 12 | 100% ans · 15.8h | [1585052](https://support.mozilla.org/questions/1585052 "get error message ＂Unable to log in at server. Probably wrong configuration, use") [1585941](https://support.mozilla.org/questions/1585941 "Unable to send email") [1586383](https://support.mozilla.org/questions/1586383 "Email Accounts are highlighted RED") [1586405](https://support.mozilla.org/questions/1586405 "The certificate for mobile.charter.net does not come from a trusted source.") [1586446](https://support.mozilla.org/questions/1586446 "Unable to receive and send emails.") [1586481](https://support.mozilla.org/questions/1586481 "Connetion error, can't recieve emails") +6 · [explore ↗](explorer.html#grain=monthly&version=151&cause=m:spectrum&period=2026-06) | `▁▁▁█` |
 | 🆕 new | **3.0×** | 2026-10 | v158 × feat:addressbook | 11 | 82% ans · 3.6h | [1611900](https://support.mozilla.org/questions/1611900 "Address Books in Desktop Thundermail in Windows 11") [1612046](https://support.mozilla.org/questions/1612046 "Synching icloud contacts and calender") [1612277](https://support.mozilla.org/questions/1612277 "Thunderbird: profielen overbrengen naar nieuwe desktop is gelukt, adresboeken zi") [1612365](https://support.mozilla.org/questions/1612365 "Update crashed program and it only loads Xfinity now...Will deleteing it and re-") [1612545](https://support.mozilla.org/questions/1612545 "Ich kann mein Adressbuch nicht mehr finden") [1612659](https://support.mozilla.org/questions/1612659 "Adresboek herstellen") +5 · [explore ↗](explorer.html#grain=monthly&version=158&cause=feat:addressbook&period=2026-10) | `▁▁▁█` |
 | ↗ spreading | **3.9×** | 2026-10 | v159 × feat:calendar | 6 | 100% ans · 25.0h | [1614718](https://support.mozilla.org/questions/1614718 "How do I turn off the sound for event notifications in the calendar?") [1614764](https://support.mozilla.org/questions/1614764 "My calendar stopped working (will not load my calendars), cannot change day , mo") [1614798](https://support.mozilla.org/questions/1614798 "Das Update killt den Kalender") [1614819](https://support.mozilla.org/questions/1614819 "il calendario non funziona") [1614962](https://support.mozilla.org/questions/1614962 "159.0 - Calendar is blanked post-update, & my Advanced Settings screens don't ma") [1615035](https://support.mozilla.org/questions/1615035 "How do I connect to a Microsoft 365 calendar with the new 159 version of Thunder") · [explore ↗](explorer.html#grain=monthly&version=159&cause=feat:calendar&period=2026-10) | `▁▁▁█` |
-| ↗ spreading | **3.8×** | 2026-11 | v153 × m:spectrum | 5 | 100% ans · 0.5h | [1616162](https://support.mozilla.org/questions/1616162 "How do I change email servers?") [1616527](https://support.mozilla.org/questions/1616527 "Issues with spectrum email") [1616852](https://support.mozilla.org/questions/1616852 "Can't send emails due to an error for the outgoing server") [1617262](https://support.mozilla.org/questions/1617262 "Why is it so difficult to send emails the past couple of months?") [1617296](https://support.mozilla.org/questions/1617296 "Getting this message below when sending emails, but other times it works fine.") · [explore ↗](explorer.html#grain=monthly&version=153&cause=m:spectrum&period=2026-11) | `▁▁▁█` |
+| ↗ spreading | **3.6×** | 2026-11 | v153 × m:spectrum | 5 | 100% ans · 0.5h | [1616162](https://support.mozilla.org/questions/1616162 "How do I change email servers?") [1616527](https://support.mozilla.org/questions/1616527 "Issues with spectrum email") [1616852](https://support.mozilla.org/questions/1616852 "Can't send emails due to an error for the outgoing server") [1617262](https://support.mozilla.org/questions/1617262 "Why is it so difficult to send emails the past couple of months?") [1617296](https://support.mozilla.org/questions/1617296 "Getting this message below when sending emails, but other times it works fine.") · [explore ↗](explorer.html#grain=monthly&version=153&cause=m:spectrum&period=2026-11) | `▁▁▁█` |
 | ↗ spreading | **3.3×** | 2026-08 | v154 × m:spectrum | 13 | 92% ans · 4.2h | [1599683](https://support.mozilla.org/questions/1599683 "Suddenly not receiving email") [1599738](https://support.mozilla.org/questions/1599738 "Thunderbird is not receiving in coming mail from Charter") [1599818](https://support.mozilla.org/questions/1599818 "Thunderbird not connecting to charter server.  Cannot send or receive emails.") [1599874](https://support.mozilla.org/questions/1599874 "Ability to send emails using roadrunner (mail.twc.com) account") [1600052](https://support.mozilla.org/questions/1600052 "Trouble connecting to my email provider Time Warner Corporation to send emails u") [1600872](https://support.mozilla.org/questions/1600872 "I can send email but can not receive.") +7 · [explore ↗](explorer.html#grain=monthly&version=154&cause=m:spectrum&period=2026-08) | `▁▁▁█` |
 | ↻ recurring | **11.6×** | 2026-09 | v154 × feat:printing | 5 | 100% ans · 5.0h | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") [1602826](https://support.mozilla.org/questions/1602826 "When printing from Thunderbird, a white sheet is produced.") · [explore ↗](explorer.html#grain=monthly&version=154&cause=feat:printing&period=2026-09) | `▁▁▁█` |
 
@@ -88,8 +88,8 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v140 | 1118 | `▁▁▁█` |
-| v153 | 1058 | `▁▁▁█` |
+| v140 | 1121 | `▁▁▁█` |
+| v153 | 1061 | `▁▁▁█` |
 | v150 | 493 | `▁▁▁█` |
 | v152 | 383 | `▁▁▁█` |
 | v149 | 339 | `▁▁▁█` |
@@ -99,9 +99,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 4801 | `▆█▇▅` |
-| m:microsoftemail | 3917 | `▆█▆▄` |
-| m:yahooemail | 1532 | `▅█▇█` |
+| m:gmail | 4805 | `▆█▇▅` |
+| m:microsoftemail | 3918 | `▆█▆▄` |
+| m:yahooemail | 1533 | `▅▇▇█` |
 | m:comcast | 637 | `▅█▇▄` |
 | m:spectrum | 590 | `▇█▇█` |
 | m:att | 405 | `▇██▅` |
@@ -111,7 +111,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | feat:calendar | 1378 | `▇██▅` |
-| feat:import_export | 1323 | `▇██▅` |
+| feat:import_export | 1324 | `▇██▅` |
 | feat:addressbook | 1038 | `▇▇█▅` |
 | feat:junk | 986 | `▆▆█▆` |
 | feat:attachments | 950 | `▇███` |
@@ -121,7 +121,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 3866 | `▇█▇▅` |
+| proto:imap | 3867 | `▇█▇▅` |
 | proto:pop | 2411 | `▇█▇▅` |
 | proto:smtp | 2401 | `▆█▇▅` |
 | proto:oauth | 960 | `▅█▅▅` |
@@ -143,11 +143,11 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 11649 | `▂▃▃█` |
-| os:linux | 2277 | `▆▆▆█` |
-| os:macos | 1527 | `▅▅▄█` |
-| os:other | 148 | `▁▁▁█` |
-| os:android | 120 | `▁▂▃█` |
+| os:windows | 11658 | `▂▃▃█` |
+| os:linux | 2279 | `▆▆▆█` |
+| os:macos | 1528 | `▅▅▄█` |
+| os:other | 149 | `▁▁▁█` |
+| os:android | 121 | `▁▂▃█` |
 
 ### macOS releases (filter dimension)
 
@@ -164,4 +164,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-yearly-rollup.csv`._
 
-_Last updated: 2026-11-12 04:33 UTC_
+_Last updated: 2026-11-12 16:36 UTC_
