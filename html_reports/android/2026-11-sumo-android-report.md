@@ -5,13 +5,13 @@ title: Thunderbird Android Report - 2026-11
 
 # Thunderbird Android Report - 2026-11
 
-*Last updated: 2026-11-14T08:11:09.130537*
+*Last updated: 2026-11-14T09:09:09.472782*
 
 ## Summary
 
 | Date | Num Questions | Num Solved | Solved Percentage | Num Ignored | Ignored Percentage | Synthetic Solved By Random Contributors | Synthetic Solved By Random Contributors Percentage | Synthetic Solved By Trusted Contributors | Synthetic Solved By Trusted Contributors Percentage | Synthetic Solved Rate |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2026-11 | 21 | 1 | 5 | 4 | 19 | 1 | 5 | 15 | 71 | 76 |
+| 2026-11 | 22 | 1 | 5 | 5 | 23 | 1 | 5 | 15 | 68 | 73 |
 
 ## Details
 
