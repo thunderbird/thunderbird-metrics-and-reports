@@ -152,7 +152,7 @@ period,dim,value,count
 2026-Q1,feature,feat:addons,18
 2026-Q2,feature,feat:addons,10
 2026-Q3,feature,feat:addons,10
-2026-Q4,feature,feat:addons,7
+2026-Q4,feature,feat:addons,8
 2024-Q1,feature,feat:addressbook,51
 2024-Q2,feature,feat:addressbook,45
 2024-Q3,feature,feat:addressbook,85
@@ -176,7 +176,7 @@ period,dim,value,count
 2026-Q1,feature,feat:attachments,46
 2026-Q2,feature,feat:attachments,35
 2026-Q3,feature,feat:attachments,63
-2026-Q4,feature,feat:attachments,108
+2026-Q4,feature,feat:attachments,109
 2024-Q1,feature,feat:calendar,63
 2024-Q2,feature,feat:calendar,71
 2024-Q3,feature,feat:calendar,124
@@ -284,7 +284,7 @@ period,dim,value,count
 2026-Q1,feature,feat:signature,18
 2026-Q2,feature,feat:signature,8
 2026-Q3,feature,feat:signature,9
-2026-Q4,feature,feat:signature,4
+2026-Q4,feature,feat:signature,5
 2024-Q1,feature,feat:spellcheck,5
 2024-Q2,feature,feat:spellcheck,6
 2024-Q3,feature,feat:spellcheck,8
@@ -321,7 +321,7 @@ period,dim,value,count
 2024-Q3,macos_release,macos:el_capitan,1
 2025-Q3,macos_release,macos:el_capitan,1
 2026-Q3,macos_release,macos:golden_gate,4
-2026-Q4,macos_release,macos:golden_gate,4
+2026-Q4,macos_release,macos:golden_gate,5
 2024-Q1,macos_release,macos:high_sierra,3
 2024-Q2,macos_release,macos:high_sierra,2
 2024-Q3,macos_release,macos:high_sierra,4
@@ -364,7 +364,7 @@ period,dim,value,count
 2026-Q1,macos_release,macos:sequoia,13
 2026-Q2,macos_release,macos:sequoia,5
 2026-Q3,macos_release,macos:sequoia,8
-2026-Q4,macos_release,macos:sequoia,1
+2026-Q4,macos_release,macos:sequoia,2
 2024-Q1,macos_release,macos:sierra,1
 2025-Q1,macos_release,macos:sierra,1
 2025-Q2,macos_release,macos:sierra,1
@@ -389,7 +389,7 @@ period,dim,value,count
 2026-Q1,macos_release,macos:tahoe,16
 2026-Q2,macos_release,macos:tahoe,7
 2026-Q3,macos_release,macos:tahoe,13
-2026-Q4,macos_release,macos:tahoe,7
+2026-Q4,macos_release,macos:tahoe,8
 2024-Q1,macos_release,macos:ventura,5
 2024-Q2,macos_release,macos:ventura,3
 2024-Q3,macos_release,macos:ventura,4
@@ -468,7 +468,7 @@ period,dim,value,count
 2026-Q1,mail_provider,m:btinternet,11
 2026-Q2,mail_provider,m:btinternet,12
 2026-Q3,mail_provider,m:btinternet,15
-2026-Q4,mail_provider,m:btinternet,3
+2026-Q4,mail_provider,m:btinternet,4
 2024-Q1,mail_provider,m:centurylink,6
 2024-Q2,mail_provider,m:centurylink,1
 2024-Q3,mail_provider,m:centurylink,1
@@ -1018,7 +1018,7 @@ period,dim,value,count
 2026-Q1,os,os:android,33
 2026-Q2,os,os:android,22
 2026-Q3,os,os:android,22
-2026-Q4,os,os:android,13
+2026-Q4,os,os:android,14
 2024-Q1,os,os:linux,134
 2024-Q2,os,os:linux,96
 2024-Q3,os,os:linux,150
@@ -1030,7 +1030,7 @@ period,dim,value,count
 2026-Q1,os,os:linux,219
 2026-Q2,os,os:linux,187
 2026-Q3,os,os:linux,218
-2026-Q4,os,os:linux,124
+2026-Q4,os,os:linux,125
 2024-Q1,os,os:macos,83
 2024-Q2,os,os:macos,65
 2024-Q3,os,os:macos,84
@@ -1042,7 +1042,7 @@ period,dim,value,count
 2026-Q1,os,os:macos,200
 2026-Q2,os,os:macos,162
 2026-Q3,os,os:macos,166
-2026-Q4,os,os:macos,101
+2026-Q4,os,os:macos,105
 2024-Q2,os,os:other,1
 2024-Q3,os,os:other,3
 2025-Q1,os,os:other,2
@@ -1064,7 +1064,7 @@ period,dim,value,count
 2026-Q1,os,os:windows,1847
 2026-Q2,os,os:windows,1856
 2026-Q3,os,os:windows,2155
-2026-Q4,os,os:windows,1232
+2026-Q4,os,os:windows,1240
 2024-Q1,protocol,proto:caldav,14
 2024-Q2,protocol,proto:caldav,6
 2024-Q3,protocol,proto:caldav,13
@@ -1199,10 +1199,10 @@ period,dim,value,count
 2026-Q1,tb_version_major,149,46
 2026-Q2,tb_version_major,149,261
 2026-Q3,tb_version_major,149,16
-2026-Q4,tb_version_major,149,16
+2026-Q4,tb_version_major,149,17
 2026-Q2,tb_version_major,150,398
 2026-Q3,tb_version_major,150,75
-2026-Q4,tb_version_major,150,21
+2026-Q4,tb_version_major,150,22
 2026-Q2,tb_version_major,151,326
 2026-Q3,tb_version_major,151,12
 2026-Q2,tb_version_major,152,160
@@ -1210,7 +1210,7 @@ period,dim,value,count
 2026-Q4,tb_version_major,152,2
 2026-Q2,tb_version_major,153,5
 2026-Q3,tb_version_major,153,735
-2026-Q4,tb_version_major,153,356
+2026-Q4,tb_version_major,153,361
 2026-Q3,tb_version_major,154,246
 2026-Q4,tb_version_major,154,7
 2026-Q1,tb_version_major,155,1
@@ -1224,7 +1224,7 @@ period,dim,value,count
 2026-Q4,tb_version_major,158,180
 2026-Q2,tb_version_major,159,1
 2026-Q4,tb_version_major,159,198
-2026-Q4,tb_version_major,160,72
+2026-Q4,tb_version_major,160,77
 2026-Q4,tb_version_major,161,1
 2026-Q3,tb_version_major,170,1
 2026-Q3,tb_version_major,176,1
@@ -1239,4 +1239,4 @@ period,dim,value,count
 2026-Q1,total,all,2834
 2026-Q2,total,all,2296
 2026-Q3,total,all,2651
-2026-Q4,total,all,1502
+2026-Q4,total,all,1516
