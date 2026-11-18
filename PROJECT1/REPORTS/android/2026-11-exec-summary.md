@@ -5,7 +5,7 @@ title: "2026-11 exec summary: Thunderbird Android support spikes"
 
 # November 2026: Thunderbird Android support spikes
 
-Executive summary for 2026-11. It covers 27 Thunderbird Android support questions. The tool wrote this page on 2026-11-17 07:10 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-11. It covers 28 Thunderbird Android support questions. The tool wrote this page on 2026-11-18 07:10 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -38,14 +38,14 @@ November 2026 is still in progress. The counts will grow.
 | version×cause (a release caused the problem) | 0 | 0 | 0 |
 | cause-level (mail host, protocol, antivirus, feature) | 0 | 0 | 0 |
 
-November 2026 holds 27 questions, about 2 a day. The detectors need 8 questions of one kind in a day, 6 in a week or 8 in a month before they call a spike. At this volume most real clusters cannot clear those floors, so read a zero as "nothing large enough to fire", not as "nothing happened".
+November 2026 holds 28 questions, about 2 a day. The detectors need 8 questions of one kind in a day, 6 in a week or 8 in a month before they call a spike. At this volume most real clusters cannot clear those floors, so read a zero as "nothing large enough to fire", not as "nothing happened".
 
 Only 7% of the November 2026 questions carry a Thunderbird version. The version×cause detector therefore cannot fire. Read its zero as missing data, not as a clean result.
 
 Three more numbers for context:
 
-- Volume: 27 questions. 11 of them (41%) carry a cause tag. The count per day was `▃▁▃▃▃▆▁▆▅▃█▁▅▅▃▆▅`, one block per day from November 1 to November 17.
-- Answers: 22 of the 27 questions (81%) got an answer from somebody other than the person who asked. The middle time to the first answer was 2.6 hours.
+- Volume: 28 questions. 11 of them (39%) carry a cause tag. The count per day was `▃▁▃▃▃▆▁▆▅▃█▁▅▅▃▆▆`, one block per day from November 1 to November 17.
+- Answers: 24 of the 28 questions (86%) got an answer from somebody other than the person who asked. The middle time to the first answer was 2.6 hours.
 - Release-adoption version spikes: 0. Users move to a new release, so the bare counts rise. These are not incidents.
 
 Every spike row, with its example questions, is in [All November 2026 detail](#all-november-2026-detail) below.
@@ -128,7 +128,7 @@ The operating systems named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| os:android | 20 | `▃▁▃▁▁▆▁▆▁▃█▁▆▆▃█▆` |
+| os:android | 21 | `▃▁▃▁▁▆▁▆▁▃█▁▆▆▃██` |
 | os:windows | 3 | `▁▁▁▁▁▅▁▁█▁▁▁▁▁▁▁▁` |
 | os:other | 1 | `▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁` |
 
