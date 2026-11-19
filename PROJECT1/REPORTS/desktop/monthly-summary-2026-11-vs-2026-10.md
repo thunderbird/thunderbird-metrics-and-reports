@@ -15,7 +15,7 @@ _For **engineering**: the support signals worth investigating this month vs last
 
 | | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 1030 | 530 | ▼ -500 (-49%) |
+| Support questions (load) | 1030 | 546 | ▼ -484 (-47%) |
 | Version × cause spikes flagged | 15 | 5 | ▼ -10 |
 | — of which **new** regressions | 2 | 0 | ▼ -2 |
 | Cause-level surges flagged | 3 | 0 | ▼ -3 |
@@ -30,7 +30,7 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 
 | Signal | When | Version × Cause | Qs | Lift | Served | Example questions |
 |:--|:--|:--|--:|--:|:--|:--|
-| ↗ spreading | 2026-11-01 | v159 × feat:calendar | 4 | 9.0× | ⚠️ 25% ans · 0.5h | [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615363](https://support.mozilla.org/questions/1615363 "TB 159 - Graph Calendar not automatically detected on account setup") [1615397](https://support.mozilla.org/questions/1615397 "Make Calendar Notification Window AlwaysOnTop") [1615399](https://support.mozilla.org/questions/1615399 "＂Thunderbird＂ access to Calendar functions are NOT FUNCTIONING at all. Thanks fo") |
+| ↗ spreading | 2026-11-01 | v159 × feat:calendar | 4 | 8.9× | ⚠️ 25% ans · 0.5h | [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615363](https://support.mozilla.org/questions/1615363 "TB 159 - Graph Calendar not automatically detected on account setup") [1615397](https://support.mozilla.org/questions/1615397 "Make Calendar Notification Window AlwaysOnTop") [1615399](https://support.mozilla.org/questions/1615399 "＂Thunderbird＂ access to Calendar functions are NOT FUNCTIONING at all. Thanks fo") |
 | ↗ spreading | 2026-11-15 | v153 × proto:smtp | 4 | 7.1× | 75% ans · 1.9h | [1618157](https://support.mozilla.org/questions/1618157 "I can receive Thunderbird message but I cannot send.") [1618242](https://support.mozilla.org/questions/1618242 "Email body is not showing in Thundirbird, but is visible in Apple Mail") [1618251](https://support.mozilla.org/questions/1618251 "Ogni volta che apro Thunderbird con più finestre aperte, si blocca con il menu v") [1618325](https://support.mozilla.org/questions/1618325 "New Outlook.com account – SMTP OAuth2 fails with “SmtpClientAuthentication is di") |
 | ↗ spreading | 2026-11-10 | v153 × m:gmail | 5 | 6.0× | ⚠️ 40% ans · 2.0h | [1617146](https://support.mozilla.org/questions/1617146 "I have one email that will not allow other emails to forward to it (inbox doesn'") [1617152](https://support.mozilla.org/questions/1617152 "Thunderbird cannot send emails from multiple accounts – SMTP timeouts and OAuth2") [1617168](https://support.mozilla.org/questions/1617168 "email scomparse") [1617219](https://support.mozilla.org/questions/1617219 "missing emails") [1617255](https://support.mozilla.org/questions/1617255 "su un PC non scarico più la posta di una casella Aruba e di una casella Gmail") |
 | ↗ spreading | 2026-11-15 | v153 × proto:imap | 4 | 4.1× | 100% ans · 1.2h | [1618159](https://support.mozilla.org/questions/1618159 "Error on login to server") [1618251](https://support.mozilla.org/questions/1618251 "Ogni volta che apro Thunderbird con più finestre aperte, si blocca con il menu v") [1618320](https://support.mozilla.org/questions/1618320 "Reordering accounts in left pane; non-GUI method feasible?") [1618325](https://support.mozilla.org/questions/1618325 "New Outlook.com account – SMTP OAuth2 fails with “SmtpClientAuthentication is di") |
@@ -45,11 +45,11 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 | feat:attachments | 106 | 3 | ▼ -103 (-97%) |
 | m:gmail | 96 | 60 | ▼ -36 (-38%) |
 | m:yahooemail | 53 | 18 | ▼ -35 (-66%) |
-| m:microsoftemail | 60 | 32 | ▼ -28 (-47%) |
-| proto:imap | 82 | 56 | ▼ -26 (-32%) |
+| proto:imap | 82 | 57 | ▼ -25 (-30%) |
 | proto:pop | 55 | 31 | ▼ -24 (-44%) |
 | m:att | 28 | 4 | ▼ -24 (-86%) |
-| feat:calendar | 34 | 16 | ▼ -18 (-53%) |
+| m:microsoftemail | 60 | 37 | ▼ -23 (-38%) |
+| m:spectrum | 8 | 25 | ▲ +17 |
 
 ### 🆕 New cause clusters (first appearance ever)
 
@@ -59,20 +59,20 @@ _None — every cause cluster in November 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| v153 | 251 | 122 | ▼ -129 (-51%) |
+| v153 | 251 | 131 | ▼ -120 (-48%) |
 | v157 | 262 | 4 | ▼ -258 (-98%) |
-| v159 | 48 | 156 | ▲ +108 (+225%) |
+| v159 | 48 | 157 | ▲ +109 (+227%) |
 | v158 | 169 | 12 | ▼ -157 (-93%) |
-| v160 | 2 | 90 | ▲ +88 |
+| v160 | 2 | 93 | ▲ +91 |
 | v140 | 43 | 22 | ▼ -21 (-49%) |
 
 ### Operating-system mix
 
 | Operating-system mix | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 848 | 426 | ▼ -422 (-50%) |
-| os:linux | 83 | 47 | ▼ -36 (-43%) |
-| os:macos | 66 | 42 | ▼ -24 (-36%) |
+| os:windows | 848 | 437 | ▼ -411 (-48%) |
+| os:linux | 83 | 49 | ▼ -34 (-41%) |
+| os:macos | 66 | 45 | ▼ -21 (-32%) |
 | os:android | 8 | 6 | ▼ -2 |
 | os:other | 9 | 1 | ▼ -8 |
 
@@ -80,15 +80,15 @@ _None — every cause cluster in November 2026 has appeared in a prior month._
 
 | Topic mix | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 246 | 130 | ▼ -116 (-47%) |
+| send-and-receive-email | 246 | 135 | ▼ -111 (-45%) |
 | attachments | 183 | 4 | ▼ -179 (-98%) |
-| email-and-messaging | 88 | 53 | ▼ -35 (-40%) |
+| email-and-messaging | 88 | 55 | ▼ -33 (-38%) |
 | customization | 90 | 38 | ▼ -52 (-58%) |
-| account-management | 38 | 49 | ▲ +11 (+29%) |
-| connectivity | 39 | 41 | ▲ +2 (+5%) |
+| account-management | 38 | 51 | ▲ +13 (+34%) |
+| connectivity | 39 | 42 | ▲ +3 (+8%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from SUMO Spike Detector feature tables + spike detectors · November 2026 vs October 2026._
 
-_Last updated: 2026-11-19 08:05 UTC_
+_Last updated: 2026-11-19 20:05 UTC_
