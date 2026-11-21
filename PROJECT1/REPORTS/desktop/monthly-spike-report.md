@@ -5,10 +5,10 @@ title: MONTHLY: Thunderbird Desktop — Support Spike Report
 
 # MONTHLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2024-12 … 2026-11 · **monthly** grain · trailing 24 months · 25993 questions · no AI (regex + traditional stats)_
+_Generated 2024-12 … 2026-11 · **monthly** grain · trailing 24 months · 26001 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 25993 questions, 1083.0/month avg
-- **Answered (non-creator):** 20682/25993 (80%)
+- **Volume:** 26001 questions, 1083.4/month avg
+- **Answered (non-creator):** 20699/26001 (80%)
 - **First-answer time (median):** 3.3h (p25 0.9h / p75 11.7h)
 - **Total volume trend:** `▇█▇▆▆▆▅▇▇▆▆▅▅▅▅▅▄▄▄▄▅▅▅▃`
 
@@ -23,7 +23,7 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 
 | Signal | Lift | When | Version × Cause | Qs | Served | Example questions | Trend |
 |:--|---:|:--|:--|--:|:--|:--|:--|
-| 🆕 new | **28.5×** | 2026-10 | v115 × m:att | 5 | 100% ans · 113.3h | [1609983](https://support.mozilla.org/questions/1609983 "I cannot bring mail from AT&T  into my Thunderbird app on my home computer, what") [1610152](https://support.mozilla.org/questions/1610152 "Certificate revoked for inbound.att.net?  What do we do?") [1610310](https://support.mozilla.org/questions/1610310 "New Messages go only to Local Folder; Account Inbox is bypassed and has no F5 fu") [1610321](https://support.mozilla.org/questions/1610321 "I can't recieve emails but can send the certification is revoked for inbound.att") [1610518](https://support.mozilla.org/questions/1610518 "suddenly can't retrieve ATT Yahoo emails with Thunderbird after trying every sug") · [explore ↗](explorer.html#grain=monthly&version=115&cause=m:att&period=2026-10) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂` |
+| 🆕 new | **28.6×** | 2026-10 | v115 × m:att | 5 | 100% ans · 113.3h | [1609983](https://support.mozilla.org/questions/1609983 "I cannot bring mail from AT&T  into my Thunderbird app on my home computer, what") [1610152](https://support.mozilla.org/questions/1610152 "Certificate revoked for inbound.att.net?  What do we do?") [1610310](https://support.mozilla.org/questions/1610310 "New Messages go only to Local Folder; Account Inbox is bypassed and has no F5 fu") [1610321](https://support.mozilla.org/questions/1610321 "I can't recieve emails but can send the certification is revoked for inbound.att") [1610518](https://support.mozilla.org/questions/1610518 "suddenly can't retrieve ATT Yahoo emails with Thunderbird after trying every sug") · [explore ↗](explorer.html#grain=monthly&version=115&cause=m:att&period=2026-10) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂` |
 | 🆕 new | **14.3×** | 2026-08 | v154 × feat:printing | 29 | 79% ans · 4.3h | [1596686](https://support.mozilla.org/questions/1596686 "Cannot print Pdf files from within Thunderbird") [1599257](https://support.mozilla.org/questions/1599257 "Print emails") [1599261](https://support.mozilla.org/questions/1599261 "Perchè non si riesce a stampare diretta mente da Thunderbird un allegato ad un m") [1599285](https://support.mozilla.org/questions/1599285 "PDF attachments now blank when printed.  Worked great til today.") [1599333](https://support.mozilla.org/questions/1599333 "can not print attachments") [1599495](https://support.mozilla.org/questions/1599495 "Thunderbird can't print files") +23 · [explore ↗](explorer.html#grain=monthly&version=154&cause=feat:printing&period=2026-08) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂▁▁` |
 | 🆕 new | **12.6×** | 2026-10 | v140 × m:att | 5 | 80% ans · 16.5h | [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") [1610258](https://support.mozilla.org/questions/1610258 "The certificate for inbound.att.net does not come from a trusted source.") [1610259](https://support.mozilla.org/questions/1610259 "Why Thunderbird on Linux will no longer connect to att.net email with POP3.") [1610309](https://support.mozilla.org/questions/1610309 "AOL setup on MX Linux... fails authentication SOLVED by mailnews.oauth.usePrivat") [1613507](https://support.mozilla.org/questions/1613507 "USPS mail tracking e-mails hanging ATT/Yahoo (bug2080830)") · [explore ↗](explorer.html#grain=monthly&version=140&cause=m:att&period=2026-10) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▄▁▂▁▂▁▁█▁` |
 | 🆕 new | **10.7×** | 2026-09 | v153 × m:alice_it | 9 | 100% ans · 3.1h | [1605600](https://support.mozilla.org/questions/1605600 "Risposta alle mail diversa da prima") [1606403](https://support.mozilla.org/questions/1606403 "non ricevo posta su pino.[RIMOSSO]@alice.it, sono con starlink, nè riesco a invi") [1606888](https://support.mozilla.org/questions/1606888 "non mi funziona la mail alice.it") [1606928](https://support.mozilla.org/questions/1606928 "non ricevo le mail di Alicemail") [1606938](https://support.mozilla.org/questions/1606938 "Alice mail") [1607000](https://support.mozilla.org/questions/1607000 "non scarico messaggi") +3 · [explore ↗](explorer.html#grain=monthly&version=153&cause=m:alice_it&period=2026-09) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▂▂` |
@@ -58,7 +58,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | **5.3×** | 2025-12 | m:gmx | 8 | 88% ans · 17.0h | 1.5 | [1552704](https://support.mozilla.org/questions/1552704 "GMX IMAP Login Failure") [1553040](https://support.mozilla.org/questions/1553040 "Login to the server pop.gmx.net with username ＂...＂ failed.") [1555220](https://support.mozilla.org/questions/1555220 "warum verlangt https://caldav.gmx.net verlangt einen Benutzernamen und ein Passw") [1555687](https://support.mozilla.org/questions/1555687 "Account creation not possible despite confirmed login credentials") [1556443](https://support.mozilla.org/questions/1556443 "cannot receive mails in my inbox, basis is GMX") [1556657](https://support.mozilla.org/questions/1556657 "Ich kann mit Thunderbird keine Emails mehr versenden u. empfangen und mittlerwei") +2 · [explore ↗](explorer.html#grain=monthly&cause=m:gmx&period=2025-12) | `▅▃▂▂▁▁▁▁▂▃▂▁▅▂▃█▃▂▂▃▁▃▃▁` |
 | **5.0×** | 2025-07 | m:verizon | 10 | 80% ans · 3.0h | 2.0 | [1520698](https://support.mozilla.org/questions/1520698 "add an email account") [1522140](https://support.mozilla.org/questions/1522140 "Help please - Thunderbird not fetching POP messages") [1523889](https://support.mozilla.org/questions/1523889 "Create an account to access aol/verizon.net email. This should be simple.") [1523914](https://support.mozilla.org/questions/1523914 "verizon.net account  changing from IMAP to POP3") [1524787](https://support.mozilla.org/questions/1524787 "After Thunderbird update email send doesnt work") [1524985](https://support.mozilla.org/questions/1524985 "Email") +4 · [explore ↗](explorer.html#grain=monthly&cause=m:verizon&period=2025-07) | `▅▂▃▂▂▁▄█▃▂▄▇▃▁▁▂▂▄▂▂▃▂▃▁` |
 | **4.3×** | 2026-03 | m:gmx | 15 | 87% ans · 11.2h | 3.5 | [1568896](https://support.mozilla.org/questions/1568896 "Do I need GMX-TopMail or works Thunderbird with FreeMail too?") [1569586](https://support.mozilla.org/questions/1569586 "Ich kann auf meinem Computer keine Mails mehr empfangen , auf dem Handy geht es.") [1569730](https://support.mozilla.org/questions/1569730 "After authenticating one Yahoo account (Oauth2), my second Yahoo account has bec") [1570170](https://support.mozilla.org/questions/1570170 "Cannot Link To My Email Server.....") [1570366](https://support.mozilla.org/questions/1570366 "J'ai déjà un mail gmx , ＂andre.et@gmx.fr＂ est-ce cette adresse qui est crypter ?") [1570603](https://support.mozilla.org/questions/1570603 "problem to add account gmx email") +9 · [explore ↗](explorer.html#grain=monthly&cause=m:gmx&period=2026-03) | `▅▃▂▂▁▁▁▁▂▃▂▁▅▂▃█▃▂▂▃▁▃▃▁` |
-| **3.2×** | 2026-08 | m:spectrum | 34 | 85% ans · 5.1h | 10.5 | [1596316](https://support.mozilla.org/questions/1596316 "Thunderbird 1 of 7  email account stopped working from the Provider Spectrum and") [1596807](https://support.mozilla.org/questions/1596807 "Receiving, deleting, and sending messages is extremely slow for 1 of 2 users on ") [1597319](https://support.mozilla.org/questions/1597319 "thunderbird not able to access mail.twc.com") [1597495](https://support.mozilla.org/questions/1597495 "NO longer have Spectrum as email provider but need to preserve emails .") [1597964](https://support.mozilla.org/questions/1597964 "Roadrunner / TWC IMAP settings") [1597972](https://support.mozilla.org/questions/1597972 "Thunderbird tells me that the spectrum servers won't accept my password") +28 · [explore ↗](explorer.html#grain=monthly&cause=m:spectrum&period=2026-08) | `▃▃▄▃▃▃▃▃▄▄▂▄▃▃▄▂▂▅▅▂█▆▃▆` |
+| **3.2×** | 2026-08 | m:spectrum | 34 | 85% ans · 5.1h | 10.5 | [1596316](https://support.mozilla.org/questions/1596316 "Thunderbird 1 of 7  email account stopped working from the Provider Spectrum and") [1596807](https://support.mozilla.org/questions/1596807 "Receiving, deleting, and sending messages is extremely slow for 1 of 2 users on ") [1597319](https://support.mozilla.org/questions/1597319 "thunderbird not able to access mail.twc.com") [1597495](https://support.mozilla.org/questions/1597495 "NO longer have Spectrum as email provider but need to preserve emails .") [1597964](https://support.mozilla.org/questions/1597964 "Roadrunner / TWC IMAP settings") [1597972](https://support.mozilla.org/questions/1597972 "Thunderbird tells me that the spectrum servers won't accept my password") +28 · [explore ↗](explorer.html#grain=monthly&cause=m:spectrum&period=2026-08) | `▃▃▄▃▃▃▃▃▄▄▂▄▃▃▄▂▂▅▅▂█▆▃▇` |
 | **3.2×** | 2025-07 | av:norton | 8 | 75% ans · 2.1h | 2.5 | [1521509](https://support.mozilla.org/questions/1521509 "problem with auto renewal with my domain registrar hostgator, adotname, and the ") [1521569](https://support.mozilla.org/questions/1521569 "not working (locked)") [1522509](https://support.mozilla.org/questions/1522509 "Unable to receive e-mails on Thunderbird, I am prompted to enter a password for ") [1523331](https://support.mozilla.org/questions/1523331 "Migrating Thunderbird 140 To A New Windows Computer. SOLVED Norton 360 was causi") [1523343](https://support.mozilla.org/questions/1523343 "Peer certification expiration") [1523519](https://support.mozilla.org/questions/1523519 "email conver to event not working.") +2 · [explore ↗](explorer.html#grain=monthly&cause=av:norton&period=2025-07) | `▃█▃▄▂▂▂▆▅▃▃▂▂▂▂▂▂▃▂▃▂▄▄▂` |
 | **3.1×** | 2025-01 | feat:encryption | 11 | ⚠️ 45% ans · 7.8h | 3.5 | [1483261](https://support.mozilla.org/questions/1483261 "importing PGP ke") [1484886](https://support.mozilla.org/questions/1484886 "SMIME encryption of subject line") [1485668](https://support.mozilla.org/questions/1485668 "Thunderbird empty message when forwarding if signed with S/MIME") [1485736](https://support.mozilla.org/questions/1485736 "128.6.0esr bug? attempt to edit draft with ＂store draft encrypted＂ enabled erase") [1485819](https://support.mozilla.org/questions/1485819 "Want clarificaton on Primary Password encryption") [1485930](https://support.mozilla.org/questions/1485930 "How to send encrypted emails - how to obtain the keys from signed emails") +5 · [explore ↗](explorer.html#grain=monthly&cause=feat:encryption&period=2025-01) | `▃█▅▄▄▂▂▄▅▄▂▄▃▃▃▃▃▂▂▁▂▂▂▁` |
 | **3.0×** | 2025-09 | feat:spellcheck | 9 | 78% ans · 2.0h | 3.0 | [1533843](https://support.mozilla.org/questions/1533843 "spellingscontrole") [1535003](https://support.mozilla.org/questions/1535003 "Correttore ortografico: malfunzionamento") [1535424](https://support.mozilla.org/questions/1535424 "spell check") [1535922](https://support.mozilla.org/questions/1535922 "I have ＂spellcheck as you type＂ enabled but it quit working recently") [1536034](https://support.mozilla.org/questions/1536034 "Where does Firefox / Thunderbird source their spellcheckers?") [1536113](https://support.mozilla.org/questions/1536113 "Thunderbird 142 and 143 beta. Choosen langauge(s) under Options -- Check Spellin") +3 · [explore ↗](explorer.html#grain=monthly&cause=feat:spellcheck&period=2025-09) | `▃▃▃▁▂▃▆▄▅█▄▃▁▂▃▃▃▃▃▂▃▃▂▁` |
@@ -70,8 +70,8 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v153 | 1127 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃█▄▅▃` |
-| v140 | 1125 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▇▃▃▂▂` |
+| v153 | 1128 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃█▄▅▃` |
+| v140 | 1126 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▇▃▃▂▂` |
 | v150 | 497 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▁▂▂▂▁▁` |
 | v152 | 383 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁▁▁▁` |
 | v149 | 345 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▂▁▁▁▁▁▁` |
@@ -82,9 +82,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | m:gmail | 2273 | `██▆▆▆▆▅▅▇▇▆▅▅▅▅▆▅▅▃▄▅▄▆▄` |
-| m:microsoftemail | 1720 | `██▇▆▅▅▅▆▆▆▇▅▅▅▆▅▅▆▄▃▄▅▅▃` |
+| m:microsoftemail | 1721 | `██▇▆▅▅▅▆▆▆▇▅▅▅▆▅▅▆▄▃▄▅▅▃` |
 | m:yahooemail | 879 | `▅▆▃▄▃▃▄▇▆▆▆▇▄▄▇█▅▆▄▅▇█▇▃` |
-| m:spectrum | 321 | `▃▃▄▃▃▃▃▃▄▄▂▄▃▃▄▂▂▅▅▂█▆▃▆` |
+| m:spectrum | 322 | `▃▃▄▃▃▃▃▃▄▄▂▄▃▃▄▂▂▅▅▂█▆▃▇` |
 | m:comcast | 313 | `▅▆▄▅▄▄▃▃█▄▄▆▅▂▃▃▅▄▄▄▄▃▃▂` |
 | m:att | 206 | `▅▅▃▂▂▃▂▅▅▃▂▃▄▂▂▃▂▂▁▂▂▃█▂` |
 
@@ -93,18 +93,18 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | feat:calendar | 681 | `▆▆▆█▆▄▄▆▅▄▅▄▄▄▆▄▄▃▅▃▃▂▅▃` |
-| feat:import_export | 657 | `▇█▇▅▆▅▅▇▇▆▅▅▅▅▄▅▄▅▄▅▅▅▃▃` |
+| feat:import_export | 658 | `▇█▇▅▆▅▅▇▇▆▅▅▅▅▄▅▄▅▄▅▅▅▃▄` |
 | feat:junk | 569 | `▅▇▆▅▆▆▄▇█▆▇▃▅▅▅▄▅▅▅▃▅▅▅▃` |
 | feat:addressbook | 535 | `▅▇▇▅▄▅▆▆█▇▆▄▆▄▅▅▄▃▅▄▆▄▅▃` |
-| feat:attachments | 523 | `▃▃▂▂▃▂▂▂▂▃▂▂▂▂▂▂▂▂▂▂▃▂█▁` |
+| feat:attachments | 524 | `▃▃▂▂▃▂▂▂▂▃▂▂▂▂▂▂▂▂▂▂▃▂█▁` |
 | feat:filters | 375 | `▇▇▆▇▇▅▇▇▇▇▇▅██▇▅▄▆▅▇▅█▄▃` |
 
 ### Top protocols
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 1829 | `██▇▅▅▅▄▆▆▅▆▅▄▅▄▅▃▅▄▄▅▅▅▄` |
-| proto:pop | 1132 | `▆█▆▄▅▅▅▆▇▅▆▄▃▅▄▄▄▄▃▅▅▆▆▄` |
+| proto:imap | 1831 | `██▇▅▅▅▄▆▆▅▆▅▄▅▄▅▃▅▄▄▅▅▅▄` |
+| proto:pop | 1133 | `▆█▆▄▅▅▅▆▇▅▆▄▃▅▄▄▄▄▃▅▅▆▆▄` |
 | proto:smtp | 1122 | `▆█▆▆▆▆▄▆█▆▅▅▃▆▅▅▃▄▃▄▅▆▄▄` |
 | proto:oauth | 434 | `▆▆▃▄▅▄▃▄▄▄▄▄▃▄▅█▃▄▃▅▅▆▇▄` |
 | proto:caldav | 94 | `▅█▃▃▃▆▅▆▄▃▄▂▃▅▆▃▃▂▃▃▂▃▇▃` |
@@ -125,9 +125,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 8992 | `▂▂▂▂▂▂▂▃▃▂▂▂▂▄▇▇▆▆▆▆▇██▅` |
+| os:windows | 8999 | `▂▂▂▂▂▂▂▃▃▂▂▂▂▄▇▇▆▆▆▆▇██▅` |
 | os:linux | 1304 | `▅▅▅▃▄▄▃▃▅▅▄▄▄▆▆▇▅▆▆▆█▆▇▅` |
-| os:macos | 950 | `▃▃▄▃▃▃▂▄▄▄▂▄▂▆▇█▆▆▅▅▆▇▇▅` |
+| os:macos | 951 | `▃▃▄▃▃▃▂▄▄▄▂▄▂▆▇█▆▆▅▅▆▇▇▅` |
 | os:other | 145 | `▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▂▁▂▃▃▂▂▂▁` |
 | os:android | 110 | `▁▂▂▂▂▁▂▃▃▁▂▂▁▇█▇█▅▃▅▇▄▆▅` |
 
@@ -135,7 +135,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| macos:sequoia | 142 | `▅█▇▅▅▅▁▇▇▇▂▅▃▄▃▃▂▃▁▂▂▃▁▁` |
+| macos:sequoia | 143 | `▅█▇▅▅▅▁▇▇▇▂▅▃▄▃▃▂▃▁▂▂▃▁▂` |
 | macos:tahoe | 66 | `▁▁▁▁▁▁▁▁▁▆▅█▇▇▆▆▂▃▅▆▅▅▄▆` |
 | macos:catalina | 33 | `▂▄▁▂▂▂▁█▆▄▂▂▁▂▁▂▂▂▁▁▁▂▂▄` |
 | macos:sonoma | 28 | `▆▅▆▁▃▁▁▁▁▃▃█▅█▃▃▃▅▁▃▃▁▁▁` |
@@ -146,4 +146,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-monthly-rollup.csv`._
 
-_Last updated: 2026-11-20 16:37 UTC_
+_Last updated: 2026-11-21 04:33 UTC_
