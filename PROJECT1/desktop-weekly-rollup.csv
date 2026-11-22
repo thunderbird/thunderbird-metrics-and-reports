@@ -472,7 +472,7 @@ period,dim,value,count
 2026-10-19,mail_provider,m:comcast,2
 2026-10-26,mail_provider,m:comcast,3
 2026-11-02,mail_provider,m:comcast,1
-2026-11-16,mail_provider,m:comcast,1
+2026-11-16,mail_provider,m:comcast,4
 2026-08-03,mail_provider,m:cox,1
 2026-08-10,mail_provider,m:cox,3
 2026-08-17,mail_provider,m:cox,1
@@ -523,7 +523,7 @@ period,dim,value,count
 2026-10-26,mail_provider,m:gmail,15
 2026-11-02,mail_provider,m:gmail,16
 2026-11-09,mail_provider,m:gmail,31
-2026-11-16,mail_provider,m:gmail,20
+2026-11-16,mail_provider,m:gmail,21
 2026-06-01,mail_provider,m:gmx,1
 2026-06-08,mail_provider,m:gmx,1
 2026-07-06,mail_provider,m:gmx,1
@@ -719,6 +719,7 @@ period,dim,value,count
 2026-10-05,mail_provider,m:tonline,1
 2026-10-26,mail_provider,m:tonline,3
 2026-11-09,mail_provider,m:tonline,3
+2026-11-16,mail_provider,m:tonline,1
 2026-09-07,mail_provider,m:tutanota,1
 2026-06-22,mail_provider,m:verizon,1
 2026-07-06,mail_provider,m:verizon,1
@@ -921,7 +922,7 @@ period,dim,value,count
 2026-10-26,os,os:windows,144
 2026-11-02,os,os:windows,159
 2026-11-09,os,os:windows,171
-2026-11-16,os,os:windows,125
+2026-11-16,os,os:windows,130
 2026-05-25,protocol,proto:caldav,1
 2026-06-01,protocol,proto:caldav,2
 2026-06-22,protocol,proto:caldav,1
@@ -981,7 +982,7 @@ period,dim,value,count
 2026-10-26,protocol,proto:imap,16
 2026-11-02,protocol,proto:imap,21
 2026-11-09,protocol,proto:imap,26
-2026-11-16,protocol,proto:imap,16
+2026-11-16,protocol,proto:imap,17
 2026-05-25,protocol,proto:oauth,4
 2026-06-01,protocol,proto:oauth,3
 2026-06-08,protocol,proto:oauth,2
@@ -1326,7 +1327,7 @@ period,dim,value,count
 2026-10-19,tb_version_major,160,1
 2026-10-26,tb_version_major,160,1
 2026-11-09,tb_version_major,160,45
-2026-11-16,tb_version_major,160,67
+2026-11-16,tb_version_major,160,73
 2026-11-09,tb_version_major,161,1
 2026-11-16,tb_version_major,161,1
 2026-08-24,tb_version_major,170,1
@@ -1356,4 +1357,4 @@ period,dim,value,count
 2026-10-26,total,all,182
 2026-11-02,total,all,187
 2026-11-09,total,all,217
-2026-11-16,total,all,160
+2026-11-16,total,all,166
