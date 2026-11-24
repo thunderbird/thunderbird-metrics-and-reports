@@ -5,7 +5,7 @@ title: "2026-11 exec summary: Thunderbird Desktop support spikes"
 
 # November 2026: Thunderbird Desktop support spikes
 
-Executive summary for 2026-11. It covers 605 Thunderbird Desktop support questions. The tool wrote this page on 2026-11-23 05:31 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-11. It covers 641 Thunderbird Desktop support questions. The tool wrote this page on 2026-11-24 05:31 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
@@ -42,23 +42,23 @@ In short: Calendar and SMTP. Both are in [What stands out](#what-stands-out), wi
 
 Three more numbers for context:
 
-- Volume: 605 questions. 301 of them (50%) carry a cause tag. The count per day was `▆▇▇▆▆▆▅▅▇▇█▇▇▅▆█▇▆▆▅▄▄▁`, one block per day from November 1 to November 23.
-- Answers: 461 of the 605 questions (76%) got an answer from somebody other than the person who asked. The middle time to the first answer was 2.0 hours.
-- Release-adoption version spikes: 26. Users move to a new release, so the bare counts rise. These are not incidents.
+- Volume: 641 questions. 320 of them (50%) carry a cause tag. The count per day was `▆▇▇▆▆▆▅▅▇▇█▇▇▅▆█▇▆▆▅▄▄█▂`, one block per day from November 1 to November 24.
+- Answers: 492 of the 641 questions (77%) got an answer from somebody other than the person who asked. The middle time to the first answer was 1.9 hours.
+- Release-adoption version spikes: 28. Users move to a new release, so the bare counts rise. These are not incidents.
 
 Every spike row, with its example questions, is in [All November 2026 detail](#all-november-2026-detail) below.
 
 ## What stands out {#what-stands-out}
 
-1. Calendar ([`feat:calendar`](explorer.html#grain=monthly&cause=feat:calendar&period=2026-11), 3 spikes): 19 questions in November, under the monthly bar. It peaked on 2026-11-01 at 9.0 times expected, on Thunderbird 159.
-2. SMTP ([`proto:smtp`](explorer.html#grain=monthly&cause=proto:smtp&period=2026-11), 2 spikes): 40 questions in November, under the monthly bar. It peaked on 2026-11-15 at 7.1 times expected, on Thunderbird 153.
-3. OAuth ([`proto:oauth`](explorer.html#grain=monthly&cause=proto:oauth&period=2026-11), 1 spike): 16 questions in November, under the monthly bar. It peaked in the week of 2026-10-26 at 6.9 times expected, on Thunderbird 158.
-4. IMAP ([`proto:imap`](explorer.html#grain=monthly&cause=proto:imap&period=2026-11), 2 spikes): 65 questions in November, under the monthly bar. It peaked on 2026-11-21 at 6.5 times expected, on Thunderbird 160.
-5. Gmail ([`m:gmail`](explorer.html#grain=monthly&cause=m:gmail&period=2026-11), 3 spikes): 71 questions in November, under the monthly bar. It peaked on 2026-11-10 at 5.9 times expected, on Thunderbird 153.
+1. Calendar ([`feat:calendar`](explorer.html#grain=monthly&cause=feat:calendar&period=2026-11), 3 spikes): 20 questions in November, under the monthly bar. It peaked on 2026-11-01 at 9.0 times expected, on Thunderbird 159.
+2. SMTP ([`proto:smtp`](explorer.html#grain=monthly&cause=proto:smtp&period=2026-11), 2 spikes): 41 questions in November, under the monthly bar. It peaked on 2026-11-15 at 7.1 times expected, on Thunderbird 153.
+3. OAuth ([`proto:oauth`](explorer.html#grain=monthly&cause=proto:oauth&period=2026-11), 1 spike): 16 questions in November, under the monthly bar. It peaked in the week of 2026-10-26 at 7.0 times expected, on Thunderbird 158.
+4. IMAP ([`proto:imap`](explorer.html#grain=monthly&cause=proto:imap&period=2026-11), 2 spikes): 68 questions in November, under the monthly bar. It peaked on 2026-11-21 at 6.5 times expected, on Thunderbird 160.
+5. Gmail ([`m:gmail`](explorer.html#grain=monthly&cause=m:gmail&period=2026-11), 3 spikes): 74 questions in November, under the monthly bar. It peaked on 2026-11-10 at 5.9 times expected, on Thunderbird 153.
 
 3 more clusters fired: [`m:spectrum`](explorer.html#grain=monthly&cause=m:spectrum&period=2026-11), [`m:comcast`](explorer.html#grain=monthly&cause=m:comcast&period=2026-11), [`feat:import_export`](explorer.html#grain=monthly&cause=feat:import_export&period=2026-11). They are in the detail below.
 
-In 4 clusters, fewer than 60% of the questions got an answer: `v159 × feat:calendar` on 2026-11-01 (25% answered), `v160 × proto:imap` on 2026-11-21 (50% answered), `v153 × m:gmail` on 2026-11-10 (40% answered), `v158 × proto:oauth` in the week of 2026-10-26 (0% answered).
+In 3 clusters, fewer than 60% of the questions got an answer: `v159 × feat:calendar` on 2026-11-01 (25% answered), `v153 × m:gmail` on 2026-11-10 (40% answered), `v158 × proto:oauth` in the week of 2026-10-26 (0% answered).
 
 ## Two limits of these dates
 
@@ -67,7 +67,7 @@ Read the date of a spike as the day users came to the support site, not as the d
 A closed month can also change its verdict later. The tool measures each rise against the rate of that cause across all history. Questions that arrive later therefore move the expected count for a past month. Rows can cross the threshold in both directions, and the answered percentage rises as late answers land. This page regenerates every day, and each day's version is committed, so `git log -p` on this file shows how the verdict moved.
 
 <details markdown="1">
-<summary>Near misses (within about 25% of the threshold), 7 rows</summary>
+<summary>Near misses (within about 25% of the threshold), 6 rows</summary>
 
 The tool runs the same detectors a second time at 0.75 times the thresholds. The rows below came out of that second run and did not clear the real thresholds. They are not incidents. They are context, so that a quiet month is not read as a clean month.
 
@@ -79,7 +79,6 @@ Version and cause together:
 | weekly | 2.6× | 2026-11-09 | v160 × proto:smtp | 6 | 100% answered, 1.7h | [1617328](https://support.mozilla.org/questions/1617328 "Hotmail account: OAuth2 sign-in succeeds but IMAP/POP always fails with ＂Authent") [1617851](https://support.mozilla.org/questions/1617851 "I cannot get my username@msn.com to work on Thunderbirds") [1617891](https://support.mozilla.org/questions/1617891 "Impossibile configurare email Aruba su Thunderbird - errore IMAP") [1617945](https://support.mozilla.org/questions/1617945 "OTENET (Greece) POP3 account receives mail fine, but outgoing smtp.otenet.gr fai") [1618004](https://support.mozilla.org/questions/1618004 "Cant add time warner/ spectrum mail.twc.com account to thunderbird.") [1618112](https://support.mozilla.org/questions/1618112 "Can't send emails since about Nov 1") |
 | weekly | 2.6× | 2026-10-26 | v153 × feat:attachments | 4 | 75% answered, 2.4h | [1614267](https://support.mozilla.org/questions/1614267 "Problema invio allegati") [1614411](https://support.mozilla.org/questions/1614411 "Why are Symbolic links in thunderbird attachments replaced with target?") [1614932](https://support.mozilla.org/questions/1614932 "Ifound an email using search but the contents are empty How can I see contents/a") [1614975](https://support.mozilla.org/questions/1614975 "Adding attachments") |
 | weekly | 2.3× | 2026-11-02 | v159 × feat:junk | 5 | 60% answered, 2.5h | [1615531](https://support.mozilla.org/questions/1615531 "Thunderbird does not download SPAM until I open the spam folder") [1615533](https://support.mozilla.org/questions/1615533 "Thunderbird has changed!  I now have 2 spam folders and my normal senders are go") [1615795](https://support.mozilla.org/questions/1615795 "Spam Folder") [1615828](https://support.mozilla.org/questions/1615828 "Spam folder shows there are messages but when I open it nothing is there.") [1616310](https://support.mozilla.org/questions/1616310 "De map Prullenbak (eerst Trash) wordt na een bepaalde tijd ongewenst automatisch") |
-| monthly | 2.3× | 2026-11 | v160 × m:spectrum | 6 | 100% answered, 0.5h | [1617962](https://support.mozilla.org/questions/1617962 "Cannot send email from T-bird; get an outgoing server port error. This is a rece") [1618004](https://support.mozilla.org/questions/1618004 "Cant add time warner/ spectrum mail.twc.com account to thunderbird.") [1618112](https://support.mozilla.org/questions/1618112 "Can't send emails since about Nov 1") [1618349](https://support.mozilla.org/questions/1618349 "I have major issues connecting my Spectrum twc email account up with Thunderbird") [1618703](https://support.mozilla.org/questions/1618703 "＂An error occurred with POP3 mail server mail.twc.com..cannot connect ...error 1") [1619220](https://support.mozilla.org/questions/1619220 "Thunderbird incoming and outgoing server issues with Spectrum") |
 
 Cause alone:
 
@@ -102,17 +101,17 @@ Cause alone:
 |:--|--:|:--|:--|--:|:--|:--|:--|
 | daily | 9.0× | 2026-11-01 | v159 × feat:calendar | 4 | 25% answered (below 60%), 0.5h | spreading | [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615363](https://support.mozilla.org/questions/1615363 "TB 159 - Graph Calendar not automatically detected on account setup") [1615397](https://support.mozilla.org/questions/1615397 "Make Calendar Notification Window AlwaysOnTop") [1615399](https://support.mozilla.org/questions/1615399 "＂Thunderbird＂ access to Calendar functions are NOT FUNCTIONING at all. Thanks fo") |
 | daily | 7.1× | 2026-11-15 | v153 × proto:smtp | 4 | 75% answered, 1.9h | spreading | [1618157](https://support.mozilla.org/questions/1618157 "I can receive Thunderbird message but I cannot send.") [1618242](https://support.mozilla.org/questions/1618242 "Email body is not showing in Thundirbird, but is visible in Apple Mail") [1618251](https://support.mozilla.org/questions/1618251 "Ogni volta che apro Thunderbird con più finestre aperte, si blocca con il menu v") [1618325](https://support.mozilla.org/questions/1618325 "New Outlook.com account – SMTP OAuth2 fails with “SmtpClientAuthentication is di") |
-| weekly | 6.9× | 2026-10-26 | v158 × proto:oauth | 5 | 0% answered (below 60%) | spreading | [1614222](https://support.mozilla.org/questions/1614222 "Outlook.de receives mail but cannot send with OAuth2: “SmtpClientAuthentication ") [1614358](https://support.mozilla.org/questions/1614358 "Thunderbird has stopped downloading emails from Yahoo") [1614376](https://support.mozilla.org/questions/1614376 "Outlook email account can receive mail but loses authentication and stop sending") [1614513](https://support.mozilla.org/questions/1614513 "Thunderbird 158.1 receives emails from my new Outlook.com account but cannot sen") [1614656](https://support.mozilla.org/questions/1614656 "Authentication Failure (outlook)") |
-| daily | 6.5× | 2026-11-21 | v160 × proto:imap | 4 | 50% answered (below 60%), 11.7h | spreading | [1619242](https://support.mozilla.org/questions/1619242 "Incoming emails are duplicated") [1619318](https://support.mozilla.org/questions/1619318 "problem with deleted items") [1619329](https://support.mozilla.org/questions/1619329 "Cannot setup Cogeco email in Thunderbird....error ＂cannot find server＂ all setti") [1619368](https://support.mozilla.org/questions/1619368 "Deletes and moves of e-mail messages from IMAP-inbox not synced to server") |
+| weekly | 7.0× | 2026-10-26 | v158 × proto:oauth | 5 | 0% answered (below 60%) | spreading | [1614222](https://support.mozilla.org/questions/1614222 "Outlook.de receives mail but cannot send with OAuth2: “SmtpClientAuthentication ") [1614358](https://support.mozilla.org/questions/1614358 "Thunderbird has stopped downloading emails from Yahoo") [1614376](https://support.mozilla.org/questions/1614376 "Outlook email account can receive mail but loses authentication and stop sending") [1614513](https://support.mozilla.org/questions/1614513 "Thunderbird 158.1 receives emails from my new Outlook.com account but cannot sen") [1614656](https://support.mozilla.org/questions/1614656 "Authentication Failure (outlook)") |
+| daily | 6.5× | 2026-11-21 | v160 × proto:imap | 4 | 75% answered, 23.1h | spreading | [1619242](https://support.mozilla.org/questions/1619242 "Incoming emails are duplicated") [1619318](https://support.mozilla.org/questions/1619318 "problem with deleted items") [1619329](https://support.mozilla.org/questions/1619329 "Cannot setup Cogeco email in Thunderbird....error ＂cannot find server＂ all setti") [1619368](https://support.mozilla.org/questions/1619368 "Deletes and moves of e-mail messages from IMAP-inbox not synced to server") |
 | daily | 5.9× | 2026-11-10 | v153 × m:gmail | 5 | 40% answered (below 60%), 2.0h | spreading | [1617146](https://support.mozilla.org/questions/1617146 "I have one email that will not allow other emails to forward to it (inbox doesn'") [1617152](https://support.mozilla.org/questions/1617152 "Thunderbird cannot send emails from multiple accounts – SMTP timeouts and OAuth2") [1617168](https://support.mozilla.org/questions/1617168 "email scomparse") [1617219](https://support.mozilla.org/questions/1617219 "missing emails") [1617255](https://support.mozilla.org/questions/1617255 "su un PC non scarico più la posta di una casella Aruba e di una casella Gmail") |
 | weekly | 5.2× | 2026-10-26 | v159 × feat:calendar | 10 | 70% answered, 17.5h | spreading | [1614718](https://support.mozilla.org/questions/1614718 "How do I turn off the sound for event notifications in the calendar?") [1614764](https://support.mozilla.org/questions/1614764 "My calendar stopped working (will not load my calendars), cannot change day , mo") [1614798](https://support.mozilla.org/questions/1614798 "Das Update killt den Kalender") [1614819](https://support.mozilla.org/questions/1614819 "il calendario non funziona") [1614962](https://support.mozilla.org/questions/1614962 "159.0 - Calendar is blanked post-update, & my Advanced Settings screens don't ma") [1615035](https://support.mozilla.org/questions/1615035 "How do I connect to a Microsoft 365 calendar with the new 159 version of Thunder") +4 |
 | daily | 4.1× | 2026-11-15 | v153 × proto:imap | 4 | 100% answered, 1.2h | spreading | [1618159](https://support.mozilla.org/questions/1618159 "Error on login to server") [1618251](https://support.mozilla.org/questions/1618251 "Ogni volta che apro Thunderbird con più finestre aperte, si blocca con il menu v") [1618320](https://support.mozilla.org/questions/1618320 "Reordering accounts in left pane; non-GUI method feasible?") [1618325](https://support.mozilla.org/questions/1618325 "New Outlook.com account – SMTP OAuth2 fails with “SmtpClientAuthentication is di") |
-| weekly | 3.9× | 2026-11-09 | v153 × m:spectrum | 5 | 100% answered, 0.2h | recurring | [1616852](https://support.mozilla.org/questions/1616852 "Can't send emails due to an error for the outgoing server") [1617262](https://support.mozilla.org/questions/1617262 "Why is it so difficult to send emails the past couple of months?") [1617296](https://support.mozilla.org/questions/1617296 "Getting this message below when sending emails, but other times it works fine.") [1618113](https://support.mozilla.org/questions/1618113 "Using Gmail as Pop account login / folder issues") [1618157](https://support.mozilla.org/questions/1618157 "I can receive Thunderbird message but I cannot send.") |
+| weekly | 4.0× | 2026-11-09 | v153 × m:spectrum | 5 | 100% answered, 0.2h | recurring | [1616852](https://support.mozilla.org/questions/1616852 "Can't send emails due to an error for the outgoing server") [1617262](https://support.mozilla.org/questions/1617262 "Why is it so difficult to send emails the past couple of months?") [1617296](https://support.mozilla.org/questions/1617296 "Getting this message below when sending emails, but other times it works fine.") [1618113](https://support.mozilla.org/questions/1618113 "Using Gmail as Pop account login / folder issues") [1618157](https://support.mozilla.org/questions/1618157 "I can receive Thunderbird message but I cannot send.") |
 | weekly | 3.7× | 2026-11-16 | v160 × m:comcast | 4 | 100% answered, 3.0h | spreading | [1618507](https://support.mozilla.org/questions/1618507 "There's no message preview in 3 row cards view") [1619426](https://support.mozilla.org/questions/1619426 "Is it possible to  get Thunderbird  email bon my phone and pc atvthe same  eithb") [1619429](https://support.mozilla.org/questions/1619429 "Sync emails  with  pc and Samsung  phone (locked duplicate)") [1619430](https://support.mozilla.org/questions/1619430 "Thunderbird    oin  pc and  Samsung phone") |
 | weekly | 3.3× | 2026-11-09 | v159 × feat:import_export | 4 | 75% answered, 1.9h | spreading | [1616880](https://support.mozilla.org/questions/1616880 "Migrating from Outlook for Mac to Thunderbird") [1616937](https://support.mozilla.org/questions/1616937 "how do I import my addressbook to new email account") [1617478](https://support.mozilla.org/questions/1617478 "Thunderbird 159.0 manual backup throwing filename too long messages") [1617675](https://support.mozilla.org/questions/1617675 "Import from Outlook") |
 | weekly | 3.3× | 2026-11-09 | v153 × proto:smtp | 10 | 70% answered, 0.8h | spreading | [1616745](https://support.mozilla.org/questions/1616745 "Cannot send mail, SMTP server password lost") [1616852](https://support.mozilla.org/questions/1616852 "Can't send emails due to an error for the outgoing server") [1617152](https://support.mozilla.org/questions/1617152 "Thunderbird cannot send emails from multiple accounts – SMTP timeouts and OAuth2") [1617296](https://support.mozilla.org/questions/1617296 "Getting this message below when sending emails, but other times it works fine.") [1618090](https://support.mozilla.org/questions/1618090 "Receiving a can't connect to server error trying to send email also not receivin") [1618113](https://support.mozilla.org/questions/1618113 "Using Gmail as Pop account login / folder issues") +4 |
-| monthly | 3.3× | 2026-11 | v153 × m:spectrum | 10 | 100% answered, 0.7h | new | [1616162](https://support.mozilla.org/questions/1616162 "How do I change email servers?") [1616527](https://support.mozilla.org/questions/1616527 "Issues with spectrum email") [1616852](https://support.mozilla.org/questions/1616852 "Can't send emails due to an error for the outgoing server") [1617262](https://support.mozilla.org/questions/1617262 "Why is it so difficult to send emails the past couple of months?") [1617296](https://support.mozilla.org/questions/1617296 "Getting this message below when sending emails, but other times it works fine.") [1618113](https://support.mozilla.org/questions/1618113 "Using Gmail as Pop account login / folder issues") +4 |
 | daily | 3.1× | 2026-11-05 | v159 × m:gmail | 4 | 75% answered, 8.4h | spreading | [1616042](https://support.mozilla.org/questions/1616042 "How do I unsync my old email account that no longer exists from Thunderbird?") [1616054](https://support.mozilla.org/questions/1616054 "About the Gmail Data Transfer to Thunderbird") [1616142](https://support.mozilla.org/questions/1616142 "Google Caldav: Microsoft meeting notices stored locally but not on Google calend") [1616165](https://support.mozilla.org/questions/1616165 "One email account will not open.") |
+| monthly | 3.1× | 2026-11 | v153 × m:spectrum | 10 | 100% answered, 0.7h | spreading | [1616162](https://support.mozilla.org/questions/1616162 "How do I change email servers?") [1616527](https://support.mozilla.org/questions/1616527 "Issues with spectrum email") [1616852](https://support.mozilla.org/questions/1616852 "Can't send emails due to an error for the outgoing server") [1617262](https://support.mozilla.org/questions/1617262 "Why is it so difficult to send emails the past couple of months?") [1617296](https://support.mozilla.org/questions/1617296 "Getting this message below when sending emails, but other times it works fine.") [1618113](https://support.mozilla.org/questions/1618113 "Using Gmail as Pop account login / folder issues") +4 |
 
 </details>
 
@@ -130,7 +129,7 @@ Cause alone:
 </details>
 
 <details markdown="1">
-<summary>Release-adoption version and operating-system spikes (not incidents), 26 rows</summary>
+<summary>Release-adoption version and operating-system spikes (not incidents), 28 rows</summary>
 
 Version and operating system are filters, not causes. A rise in the bare count of one version is release adoption, not a regression. The rows are here for manual checking only.
 
@@ -150,9 +149,10 @@ Version and operating system are filters, not causes. A rise in the bare count o
 | daily | new | 2026-11-17 | tb_version_major | 160 | 13 [1618535](https://support.mozilla.org/questions/1618535 "The email account list on the left side will not order all emails under Unified") [1618541](https://support.mozilla.org/questions/1618541 "How do I add two Exchange Onprem accounts to Thunderbird?") | 0.0 |
 | daily | new | 2026-11-19 | tb_version_major | 160 | 9 [1618916](https://support.mozilla.org/questions/1618916 "I don't want a reading pane.") [1618918](https://support.mozilla.org/questions/1618918 "Cannot switch from POP to IMAP account") | 0.0 |
 | daily | new | 2026-11-22 | tb_version_major | 160 | 9 [1619391](https://support.mozilla.org/questions/1619391 "Thunderbird very slow to sync with gmail") [1619397](https://support.mozilla.org/questions/1619397 "looking for profile after botched computer upgrade") | 0.0 |
+| daily | 28.0× | 2026-11-23 | tb_version_major | 160 | 14 [1619535](https://support.mozilla.org/questions/1619535 "Unread count discrepancy") [1619545](https://support.mozilla.org/questions/1619545 "all mails deleted") | 0.5 |
 | monthly | new | 2026-11 | tb_version_major | 158 | 13 [1615305](https://support.mozilla.org/questions/1615305 "Alert from added account: failure due to backend error") [1615599](https://support.mozilla.org/questions/1615599 "Persistent Microsoft 365 / GoDaddy SMTP authentication failure in Thunderbird de") | 0.0 |
 | monthly | new | 2026-11 | tb_version_major | 159 | 157 [1615309](https://support.mozilla.org/questions/1615309 "When I create an event in the Thunderbird calendar and enter text in the “Detail") [1615314](https://support.mozilla.org/questions/1615314 "I got a mail from Roundcube Webmail who asks me to upgrade. Shoul I upgrade?") | 0.0 |
-| monthly | new | 2026-11 | tb_version_major | 160 | 121 [1617328](https://support.mozilla.org/questions/1617328 "Hotmail account: OAuth2 sign-in succeeds but IMAP/POP always fails with ＂Authent") [1617336](https://support.mozilla.org/questions/1617336 "Retention policy ＂delete all but the most recent x messages＂ deletes messages on") | 0.0 |
+| monthly | new | 2026-11 | tb_version_major | 160 | 136 [1617328](https://support.mozilla.org/questions/1617328 "Hotmail account: OAuth2 sign-in succeeds but IMAP/POP always fails with ＂Authent") [1617336](https://support.mozilla.org/questions/1617336 "Retention policy ＂delete all but the most recent x messages＂ deletes messages on") | 0.0 |
 | weekly | new | 2026-10-26 | tb_version_major | 158 | 24 [1614162](https://support.mozilla.org/questions/1614162 "Subscribed (internet) calendars disappear") [1614179](https://support.mozilla.org/questions/1614179 "[URGENT] Request to Force Stop Email Loop & Clear Server Queue - [redacted]@lead") | 0.0 |
 | weekly | new | 2026-10-26 | tb_version_major | 159 | 60 [1614545](https://support.mozilla.org/questions/1614545 "Address book hangs when I click on any entry in it") [1614661](https://support.mozilla.org/questions/1614661 "Warum ＂keine Nachrichten＂ bevor die E-Mails aufklappen?") | 0.0 |
 | weekly | new | 2026-11-02 | tb_version_major | 159 | 88 [1615502](https://support.mozilla.org/questions/1615502 "Unable to create a new email Folder") [1615510](https://support.mozilla.org/questions/1615510 "Wie kann die Schriftfarbe in Thunderbird/Terminkalender/Neuer Termin/Beschreibun") | 0.0 |
@@ -162,6 +162,7 @@ Version and operating system are filters, not causes. A rise in the bare count o
 | weekly | new | 2026-11-16 | tb_version_major | 160 | 75 [1618341](https://support.mozilla.org/questions/1618341 "Some emails I send are not appearing in my sent folder") [1618349](https://support.mozilla.org/questions/1618349 "I have major issues connecting my Spectrum twc email account up with Thunderbird") | 0.0 |
 | weekly | 8.0× | 2026-11-16 | tb_version_major | 159 | 8 [1618447](https://support.mozilla.org/questions/1618447 "I am migrating emails from professional work account to personal gmail account a") [1618730](https://support.mozilla.org/questions/1618730 "I don't have the automatically download my email button clicked but it downloead") | 1.0 |
 | weekly | 4.7× | 2026-11-16 | tb_version_major | 149 | 7 [1618601](https://support.mozilla.org/questions/1618601 "No emails received or sent") [1618652](https://support.mozilla.org/questions/1618652 "ho un account mail che usavo con outlook, ora voglio inserirlo in thunderbird ma") | 1.5 |
+| weekly | 32.0× | 2026-11-23 | tb_version_major | 160 | 16 [1619535](https://support.mozilla.org/questions/1619535 "Unread count discrepancy") [1619545](https://support.mozilla.org/questions/1619545 "all mails deleted") | 0.5 |
 
 </details>
 
@@ -172,77 +173,77 @@ The Thunderbird versions named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| v159 | 157 | `▆█▆▃▆▆▄▅▇▆▃▂▂▁▂▁▁▃▁▁▁▁▁` |
-| v153 | 141 | `▂▃▃▄▄▄▄▄▅▆▇▅▄▅▇▅▅▆█▃▂▂▁` |
-| v160 | 121 | `▁▁▁▁▁▁▁▁▁▂▃▃▆▃▃█▅▃▄▃▃▄▁` |
-| v140 | 24 | `▂▅▂▂▁▂▁▁▂▄▇█▄▁▁▁▂▁▁▂▁▂▁` |
-| v158 | 13 | `▅▅██▅▁▁▁█▅▁▁▁▁▁▅▅▁▁▅▁▁▁` |
-| v115 | 13 | `▅▅▁▁█▅▁▁▅▁▁▁▅▅▁▁▅▅▁▅▅▁▅` |
+| v159 | 157 | `▆█▆▃▆▆▄▅▇▆▃▂▂▁▂▁▁▃▁▁▁▁▁▁` |
+| v153 | 152 | `▂▃▃▄▄▄▄▄▅▆▇▅▄▅▇▅▅▆█▃▂▂▆▂` |
+| v160 | 136 | `▁▁▁▁▁▁▁▁▁▂▃▃▆▃▃█▅▃▄▃▃▄▅▂` |
+| v140 | 28 | `▂▅▂▂▁▂▁▁▂▄▇█▄▁▁▁▂▁▁▂▁▂▇▁` |
+| v115 | 14 | `▅▅▁▁█▅▁▁▅▁▁▁▅▅▁▁▅▅▁▅▅▁█▁` |
+| v158 | 13 | `▅▅██▅▁▁▁█▅▁▁▁▁▁▅▅▁▁▅▁▁▁▁` |
 
 The mail hosts named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| m:gmail | 71 | `▃▃▃▃▆▃▁▁▃█▅▆▄▂▃▆▃▃▃▃▃▃▁` |
-| m:microsoftemail | 40 | `▃▃▃▁▃▂▂▁▃▆▂▃▃▃▃▅▃▂█▃▂▁▁` |
-| m:spectrum | 28 | `▁▁▁▁▅▅▆▁▅▅▁▁▃█▃█▅▃▃▅▃▁▁` |
-| m:yahooemail | 20 | `▁▃▃▁▃▁▁█▃▃▃▃▅▃▁▃▅▃▁▃▃▁▁` |
-| m:comcast | 6 | `▃▁▁▁▁▃▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁█▁` |
-| m:ionos | 6 | `▁▁█▁█▁▁▁▁▁█▁▁▁█▁▁▁█▁█▁▁` |
+| m:gmail | 74 | `▃▃▃▃▆▃▁▁▃█▅▆▄▂▃▆▃▃▃▃▃▃▃▁` |
+| m:microsoftemail | 44 | `▃▃▃▁▃▂▂▁▃▆▂▃▃▃▃▅▃▂█▃▂▁▆▁` |
+| m:spectrum | 28 | `▁▁▁▁▅▅▆▁▅▅▁▁▃█▃█▅▃▃▅▃▁▁▁` |
+| m:yahooemail | 23 | `▁▃▃▁▃▁▁█▃▃▃▃▅▃▁▃▅▃▁▃▃▁▅▃` |
+| m:comcast | 7 | `▃▁▁▁▁▃▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁█▃▁` |
+| m:ionos | 6 | `▁▁█▁█▁▁▁▁▁█▁▁▁█▁▁▁█▁█▁▁▁` |
 
 The Thunderbird features named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| feat:calendar | 19 | `█▅▄▁▂▁▂▂▁▁▂▂▂▁▁▁▁▁▄▂▁▁▁` |
-| feat:import_export | 17 | `▁▃▃▁▁▁▁▃█▁▆▆▃▁▃▃▁▃▃▆▁▁▁` |
-| feat:junk | 12 | `▁██▁█▅▁▁█▁▁▁█▁▁▅▁▁▁▁▁▁▁` |
-| feat:addressbook | 10 | `▁▅█▁█▅▅▁▅▁▅▁▁▁▁▁▁▅▁▁▁▁▁` |
-| feat:search | 8 | `█▁█▁▁▁▁▁▁▁▁██▁▁██▁▁██▁▁` |
-| feat:filters | 6 | `▁▅▁▁▁▁▁▅▁▁▅▁▁▁▁▁▁█▅▁▁▁▁` |
+| feat:calendar | 20 | `█▅▄▁▂▁▂▂▁▁▂▂▂▁▁▁▁▁▄▂▁▁▂▁` |
+| feat:import_export | 17 | `▁▃▃▁▁▁▁▃█▁▆▆▃▁▃▃▁▃▃▆▁▁▁▁` |
+| feat:junk | 13 | `▁██▁█▅▁▁█▁▁▁█▁▁▅▁▁▁▁▁▁▅▁` |
+| feat:addressbook | 10 | `▁▅█▁█▅▅▁▅▁▅▁▁▁▁▁▁▅▁▁▁▁▁▁` |
+| feat:search | 9 | `█▁█▁▁▁▁▁▁▁▁██▁▁██▁▁██▁█▁` |
+| feat:attachments | 7 | `▁▁▁▁▁▅▁▁▁▁▁▁▁▁▅▁▅▁▁█▁▅▅▁` |
 
 The protocols named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| proto:imap | 65 | `▂▃▆▄▄█▂▁▃▅▄▆▄▅▆▆▃▁▃▄▅▂▁` |
-| proto:smtp | 40 | `▆▅▃▃▃█▁▁▆█▃▁▆██▅▁▅▆▃▃▁▁` |
-| proto:pop | 34 | `▁▃█▆▁█▃▃▁█▃█▆█▆▁▆▆▆▃▆▁▁` |
-| proto:oauth | 16 | `▃▃▁▁▆▃▁▃▁█▃▁▃▃▃▁▃▃▃▁▁▁▁` |
-| proto:caldav | 3 | `▁▁▁▁█▁▁▁▁▁▁▁▁▁█▁▁▁▁█▁▁▁` |
-| proto:ews | 2 | `█▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| proto:imap | 68 | `▂▃▆▄▄█▂▁▃▅▄▆▄▅▆▆▃▁▃▄▅▂▄▁` |
+| proto:smtp | 41 | `▆▅▃▃▃█▁▁▆█▃▁▆██▅▁▅▆▃▃▁▃▁` |
+| proto:pop | 36 | `▁▃█▆▁█▃▃▁█▃█▆█▆▁▆▆▆▃▆▁▆▁` |
+| proto:oauth | 16 | `▃▃▁▁▆▃▁▃▁█▃▁▃▃▃▁▃▃▃▁▁▁▁▁` |
+| proto:caldav | 4 | `▁▁▁▁█▁▁▁▁▁▁▁▁▁█▁▁▁▁█▁▁█▁` |
+| proto:ews | 2 | `█▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
 The antivirus products named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| av:defender | 3 | `█▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁█▁▁▁▁▁` |
-| av:bitdefender | 3 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁█▁▁▁▁▁▁` |
-| av:mcafee | 2 | `▁▁▁▁▁█▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁` |
-| av:norton | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁█▁▁▁▁▁` |
-| av:comodo | 1 | `▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
-| av:zonealarm | 1 | `▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| av:defender | 3 | `█▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁█▁▁▁▁▁▁` |
+| av:bitdefender | 3 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁█▁▁▁▁▁▁▁` |
+| av:mcafee | 2 | `▁▁▁▁▁█▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁` |
+| av:eset | 2 | `▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁█▁` |
+| av:norton | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁█▁▁▁▁▁▁` |
+| av:comodo | 1 | `▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
 The operating systems named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| os:windows | 486 | `▅█▇▆▆▆▅▄▇▇▇▆▇▅▆█▆▆▆▅▃▃▁` |
-| os:linux | 52 | `▄▂▄▅█▄▄█▇▁▇▅▅▂▄▂▇▅▇▁▂▁▁` |
-| os:macos | 48 | `█▁▁▅▁▃▁▃██▆▅█▅███▆▆▅▃▁▁` |
-| os:android | 7 | `▁▁▁▁▁▁▁▁▁█▁▅▁▅▅▁▅▁▁▁▁▅▁` |
-| os:other | 2 | `▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁█▁` |
+| os:windows | 515 | `▅█▇▆▆▆▅▄▇▇▇▆▇▅▆█▆▆▆▅▃▃▇▁` |
+| os:linux | 54 | `▄▂▄▅█▄▄█▇▁▇▅▅▂▄▂▇▅▇▁▂▁▄▁` |
+| os:macos | 52 | `█▁▁▅▁▃▁▃██▆▅█▅███▆▆▅▃▁█▁` |
+| os:android | 7 | `▁▁▁▁▁▁▁▁▁█▁▅▁▅▅▁▅▁▁▁▁▅▁▁` |
+| os:other | 3 | `▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁█▁█` |
 
 The macOS releases named most often were:
 
 | Value | Questions | Count per day |
 |:--|--:|:--|
-| macos:tahoe | 5 | `▁▁▁▁▁▁▁▁█▅▁▁▁▁▅▁▅▁▁▁▁▁▁` |
-| macos:catalina | 3 | `▁▁▁▁▁▁▁▁▁▁▁█▁▁██▁▁▁▁▁▁▁` |
-| macos:ventura | 2 | `▁▁▁▁▁▁▁▁▁█▁▁▁▁▁█▁▁▁▁▁▁▁` |
-| macos:golden_gate | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁█▁▁▁▁` |
-| macos:sequoia | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁█▁▁▁` |
-| macos:high_sierra | 1 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
+| macos:tahoe | 5 | `▁▁▁▁▁▁▁▁█▅▁▁▁▁▅▁▅▁▁▁▁▁▁▁` |
+| macos:catalina | 3 | `▁▁▁▁▁▁▁▁▁▁▁█▁▁██▁▁▁▁▁▁▁▁` |
+| macos:ventura | 2 | `▁▁▁▁▁▁▁▁▁█▁▁▁▁▁█▁▁▁▁▁▁▁▁` |
+| macos:golden_gate | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁█▁▁▁▁▁` |
+| macos:sequoia | 2 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁█▁▁▁▁` |
+| macos:high_sierra | 1 | `█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁` |
 
 
 </details>
