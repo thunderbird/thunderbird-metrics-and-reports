@@ -5,10 +5,10 @@ title: QUARTERLY: Thunderbird Desktop — Support Spike Report
 
 # QUARTERLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2024-Q1 … 2026-Q4 · **quarterly** grain · trailing 12 quarters · 40033 questions · no AI (regex + traditional stats)_
+_Generated 2024-Q1 … 2026-Q4 · **quarterly** grain · trailing 12 quarters · 40044 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 40033 questions, 3336.1/quarter avg
-- **Answered (non-creator):** 30707/40033 (77%)
+- **Volume:** 40044 questions, 3337.0/quarter avg
+- **Answered (non-creator):** 30714/40044 (77%)
 - **First-answer time (median):** 3.4h (p25 0.9h / p75 12.2h)
 - **Total volume trend:** `▆▅██▇▆▇▆▅▄▅▃`
 
@@ -36,7 +36,6 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 | 🆕 new | **3.4×** | 2026-02 | v140 × feat:calendar | 10 | ⚠️ 50% ans · 5.4h | [1565213](https://support.mozilla.org/questions/1565213 "Thunderbird-created Google Calendar invites neither include an automatic Google ") [1565246](https://support.mozilla.org/questions/1565246 "Calendar event convert to message missing date and time") [1565919](https://support.mozilla.org/questions/1565919 "Problem linking existing Thunderbird calendar to Google Calendar") [1566048](https://support.mozilla.org/questions/1566048 "Filter Calendar events by Category then sort by start") [1566095](https://support.mozilla.org/questions/1566095 "Is there a way to force the calendar to keep an event reminder until I dismiss i") [1566561](https://support.mozilla.org/questions/1566561 "How do I select a specific calendar to unsubscribe?") +4 · [explore ↗](explorer.html#grain=monthly&version=140&cause=feat:calendar&period=2026-02) | `▁▁▁▁▁▁▁▁██▅▂` |
 | 🆕 new | **3.2×** | 2026-10 | v158 × feat:addressbook | 11 | 82% ans · 3.6h | [1611900](https://support.mozilla.org/questions/1611900 "Address Books in Desktop Thundermail in Windows 11") [1612046](https://support.mozilla.org/questions/1612046 "Synching icloud contacts and calender") [1612277](https://support.mozilla.org/questions/1612277 "Thunderbird: profielen overbrengen naar nieuwe desktop is gelukt, adresboeken zi") [1612365](https://support.mozilla.org/questions/1612365 "Update crashed program and it only loads Xfinity now...Will deleteing it and re-") [1612545](https://support.mozilla.org/questions/1612545 "Ich kann mein Adressbuch nicht mehr finden") [1612659](https://support.mozilla.org/questions/1612659 "Adresboek herstellen") +5 · [explore ↗](explorer.html#grain=monthly&version=158&cause=feat:addressbook&period=2026-10) | `▁▁▁▁▁▁▁▁▁▁▁█` |
 | 🆕 new | **3.0×** | 2026-08 | v154 × m:spectrum | 13 | 92% ans · 4.2h | [1599683](https://support.mozilla.org/questions/1599683 "Suddenly not receiving email") [1599738](https://support.mozilla.org/questions/1599738 "Thunderbird is not receiving in coming mail from Charter") [1599818](https://support.mozilla.org/questions/1599818 "Thunderbird not connecting to charter server.  Cannot send or receive emails.") [1599874](https://support.mozilla.org/questions/1599874 "Ability to send emails using roadrunner (mail.twc.com) account") [1600052](https://support.mozilla.org/questions/1600052 "Trouble connecting to my email provider Time Warner Corporation to send emails u") [1600872](https://support.mozilla.org/questions/1600872 "I can send email but can not receive.") +7 · [explore ↗](explorer.html#grain=monthly&version=154&cause=m:spectrum&period=2026-08) | `▁▁▁▁▁▁▁▁▁▁█▁` |
-| 🆕 new | **3.0×** | 2026-02 | v147 × feat:filters | 5 | 80% ans · 0.3h | [1565477](https://support.mozilla.org/questions/1565477 "Thunderbird 147.0.1 Message filters not working or writing log entries, Windows ") [1565531](https://support.mozilla.org/questions/1565531 "Kopieren meiner Filter-Einstellungen von ＂Lokale Ordner＂ zum IMAP-Konto") [1567397](https://support.mozilla.org/questions/1567397 "thunderbird message filters don't work automatically") [1567693](https://support.mozilla.org/questions/1567693 "Message Filters Broken") [1567720](https://support.mozilla.org/questions/1567720 "Why can't I permanently delete email using a filter?") · [explore ↗](explorer.html#grain=monthly&version=147&cause=feat:filters&period=2026-02) | `▁▁▁▁▁▁▁▁█▁▁▁` |
 | ↗ spreading | **3.9×** | 2026-10 | v159 × feat:calendar | 6 | 100% ans · 25.0h | [1614718](https://support.mozilla.org/questions/1614718 "How do I turn off the sound for event notifications in the calendar?") [1614764](https://support.mozilla.org/questions/1614764 "My calendar stopped working (will not load my calendars), cannot change day , mo") [1614798](https://support.mozilla.org/questions/1614798 "Das Update killt den Kalender") [1614819](https://support.mozilla.org/questions/1614819 "il calendario non funziona") [1614962](https://support.mozilla.org/questions/1614962 "159.0 - Calendar is blanked post-update, & my Advanced Settings screens don't ma") [1615035](https://support.mozilla.org/questions/1615035 "How do I connect to a Microsoft 365 calendar with the new 159 version of Thunder") · [explore ↗](explorer.html#grain=monthly&version=159&cause=feat:calendar&period=2026-10) | `▁▁▁▁▁▁▁▁▁▁▁█` |
 | ↻ recurring | **11.6×** | 2026-09 | v154 × feat:printing | 5 | 100% ans · 5.0h | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") [1602826](https://support.mozilla.org/questions/1602826 "When printing from Thunderbird, a white sheet is produced.") · [explore ↗](explorer.html#grain=monthly&version=154&cause=feat:printing&period=2026-09) | `▁▁▁▁▁▁▁▁▁▁█▁` |
 
@@ -82,9 +81,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v153 | 1154 | `▁▁▁▁▁▁▁▁▁▁█▅` |
-| v140 | 1132 | `▁▁▁▁▁▁▁▁▄█▅▂` |
-| v150 | 497 | `▁▁▁▁▁▁▁▁▁█▂▁` |
+| v153 | 1158 | `▁▁▁▁▁▁▁▁▁▁█▅` |
+| v140 | 1133 | `▁▁▁▁▁▁▁▁▄█▅▂` |
+| v150 | 498 | `▁▁▁▁▁▁▁▁▁█▂▁` |
 | v152 | 383 | `▁▁▁▁▁▁▁▁▁▆█▁` |
 | v149 | 346 | `▁▁▁▁▁▁▁▁▂█▁▂` |
 | v151 | 338 | `▁▁▁▁▁▁▁▁▁█▁▁` |
@@ -93,7 +92,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 3671 | `▆▅██▆▅▆▅▅▄▄▄` |
+| m:gmail | 3673 | `▆▅██▆▅▆▅▅▄▄▄` |
 | m:microsoftemail | 2973 | `▅▄█▇▅▄▅▄▄▄▃▃` |
 | m:yahooemail | 1266 | `▄▇▇▅▅▄▇▇█▆█▅` |
 | m:comcast | 521 | `▇▆██▇▅▇▇▃▆▅▃` |
@@ -105,17 +104,17 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | feat:calendar | 1029 | `▄▅███▆▆▅▆▅▃▄` |
-| feat:import_export | 994 | `▆▅▇█▇▆█▆▅▅▅▃` |
+| feat:import_export | 995 | `▆▅▇█▇▆█▆▅▅▅▃` |
 | feat:addressbook | 779 | `▅▄▇▇▇▆█▆▅▄▅▃` |
 | feat:junk | 769 | `▄▄▅▅▇▆█▆▅▆▅▃` |
 | feat:attachments | 754 | `▅▄▅▅▅▅▅▄▄▃▅█` |
-| feat:filters | 617 | `▆▅█▆▅▅▆▅▅▄▅▂` |
+| feat:filters | 618 | `▆▅█▆▅▅▆▅▅▄▅▂` |
 
 ### Top protocols
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 2914 | `▆▆██▇▅▆▅▅▄▅▄` |
+| proto:imap | 2917 | `▆▆██▇▅▆▅▅▄▅▄` |
 | proto:smtp | 1836 | `▆▆█▇▆▅▆▄▅▃▅▃` |
 | proto:pop | 1822 | `▅▄█▇▆▅▆▅▄▄▅▄` |
 | proto:oauth | 757 | `▂▄█▅▃▃▃▃▄▃▄▃` |
@@ -126,9 +125,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| av:bitdefender | 135 | `▂▁▂▂▄▂█▂▂▂▂▂` |
+| av:bitdefender | 136 | `▂▁▂▂▄▂█▂▂▂▂▂` |
 | av:norton | 130 | `▂▅█▆█▃▇▃▃▄▄▃` |
-| av:defender | 101 | `▇▄█▅▃▂▄▂▂▄▃▄` |
+| av:defender | 102 | `▇▄█▅▃▂▄▂▂▄▃▄` |
 | av:avast | 79 | `█▄▅▅▇▃▃▅▄▆▅▅` |
 | av:mcafee | 44 | `▂▂▁▇▄▇▇▄▃▆█▅` |
 | av:kaspersky | 32 | `▅▂█▆▅▇▆▃▂▁▃▂` |
@@ -137,7 +136,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 10480 | `▂▂▂▂▂▂▃▂▇▇█▆` |
+| os:windows | 10490 | `▂▂▂▂▂▂▃▂▇▇█▆` |
 | os:linux | 1806 | `▅▄▆▆▅▅▅▅█▇█▅` |
 | os:macos | 1255 | `▄▃▄▄▄▃▅▃█▇▇▅` |
 | os:other | 151 | `▁▁▁▁▁▁▁▁█▃▃▂` |
@@ -158,4 +157,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-quarterly-rollup.csv`._
 
-_Last updated: 2026-11-25 04:33 UTC_
+_Last updated: 2026-11-25 16:36 UTC_

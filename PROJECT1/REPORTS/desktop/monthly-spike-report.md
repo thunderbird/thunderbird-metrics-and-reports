@@ -5,10 +5,10 @@ title: MONTHLY: Thunderbird Desktop — Support Spike Report
 
 # MONTHLY: Thunderbird Desktop — Support Spike Report
 
-_Generated 2024-12 … 2026-11 · **monthly** grain · trailing 24 months · 26097 questions · no AI (regex + traditional stats)_
+_Generated 2024-12 … 2026-11 · **monthly** grain · trailing 24 months · 26108 questions · no AI (regex + traditional stats)_
 
-- **Volume:** 26097 questions, 1087.4/month avg
-- **Answered (non-creator):** 20772/26097 (80%)
+- **Volume:** 26108 questions, 1087.8/month avg
+- **Answered (non-creator):** 20779/26108 (80%)
 - **First-answer time (median):** 3.3h (p25 0.9h / p75 11.7h)
 - **Total volume trend:** `▇█▇▆▆▆▅▇▇▆▆▅▅▅▅▅▄▄▄▄▅▅▅▄`
 
@@ -36,7 +36,6 @@ Cause clusters over-represented in a specific Thunderbird version. The **Signal*
 | 🆕 new | **3.4×** | 2026-02 | v140 × feat:calendar | 10 | ⚠️ 50% ans · 5.4h | [1565213](https://support.mozilla.org/questions/1565213 "Thunderbird-created Google Calendar invites neither include an automatic Google ") [1565246](https://support.mozilla.org/questions/1565246 "Calendar event convert to message missing date and time") [1565919](https://support.mozilla.org/questions/1565919 "Problem linking existing Thunderbird calendar to Google Calendar") [1566048](https://support.mozilla.org/questions/1566048 "Filter Calendar events by Category then sort by start") [1566095](https://support.mozilla.org/questions/1566095 "Is there a way to force the calendar to keep an event reminder until I dismiss i") [1566561](https://support.mozilla.org/questions/1566561 "How do I select a specific calendar to unsubscribe?") +4 · [explore ↗](explorer.html#grain=monthly&version=140&cause=feat:calendar&period=2026-02) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▅▄▅▅▅▃▁▂▁` |
 | 🆕 new | **3.2×** | 2026-10 | v158 × feat:addressbook | 11 | 82% ans · 3.6h | [1611900](https://support.mozilla.org/questions/1611900 "Address Books in Desktop Thundermail in Windows 11") [1612046](https://support.mozilla.org/questions/1612046 "Synching icloud contacts and calender") [1612277](https://support.mozilla.org/questions/1612277 "Thunderbird: profielen overbrengen naar nieuwe desktop is gelukt, adresboeken zi") [1612365](https://support.mozilla.org/questions/1612365 "Update crashed program and it only loads Xfinity now...Will deleteing it and re-") [1612545](https://support.mozilla.org/questions/1612545 "Ich kann mein Adressbuch nicht mehr finden") [1612659](https://support.mozilla.org/questions/1612659 "Adresboek herstellen") +5 · [explore ↗](explorer.html#grain=monthly&version=158&cause=feat:addressbook&period=2026-10) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁` |
 | 🆕 new | **3.0×** | 2026-08 | v154 × m:spectrum | 13 | 92% ans · 4.2h | [1599683](https://support.mozilla.org/questions/1599683 "Suddenly not receiving email") [1599738](https://support.mozilla.org/questions/1599738 "Thunderbird is not receiving in coming mail from Charter") [1599818](https://support.mozilla.org/questions/1599818 "Thunderbird not connecting to charter server.  Cannot send or receive emails.") [1599874](https://support.mozilla.org/questions/1599874 "Ability to send emails using roadrunner (mail.twc.com) account") [1600052](https://support.mozilla.org/questions/1600052 "Trouble connecting to my email provider Time Warner Corporation to send emails u") [1600872](https://support.mozilla.org/questions/1600872 "I can send email but can not receive.") +7 · [explore ↗](explorer.html#grain=monthly&version=154&cause=m:spectrum&period=2026-08) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂▁▁` |
-| 🆕 new | **3.0×** | 2026-02 | v147 × feat:filters | 5 | 80% ans · 0.3h | [1565477](https://support.mozilla.org/questions/1565477 "Thunderbird 147.0.1 Message filters not working or writing log entries, Windows ") [1565531](https://support.mozilla.org/questions/1565531 "Kopieren meiner Filter-Einstellungen von ＂Lokale Ordner＂ zum IMAP-Konto") [1567397](https://support.mozilla.org/questions/1567397 "thunderbird message filters don't work automatically") [1567693](https://support.mozilla.org/questions/1567693 "Message Filters Broken") [1567720](https://support.mozilla.org/questions/1567720 "Why can't I permanently delete email using a filter?") · [explore ↗](explorer.html#grain=monthly&version=147&cause=feat:filters&period=2026-02) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁` |
 | ↗ spreading | **3.9×** | 2026-10 | v159 × feat:calendar | 6 | 100% ans · 25.0h | [1614718](https://support.mozilla.org/questions/1614718 "How do I turn off the sound for event notifications in the calendar?") [1614764](https://support.mozilla.org/questions/1614764 "My calendar stopped working (will not load my calendars), cannot change day , mo") [1614798](https://support.mozilla.org/questions/1614798 "Das Update killt den Kalender") [1614819](https://support.mozilla.org/questions/1614819 "il calendario non funziona") [1614962](https://support.mozilla.org/questions/1614962 "159.0 - Calendar is blanked post-update, & my Advanced Settings screens don't ma") [1615035](https://support.mozilla.org/questions/1615035 "How do I connect to a Microsoft 365 calendar with the new 159 version of Thunder") · [explore ↗](explorer.html#grain=monthly&version=159&cause=feat:calendar&period=2026-10) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅█` |
 | ↻ recurring | **11.6×** | 2026-09 | v154 × feat:printing | 5 | 100% ans · 5.0h | [1601512](https://support.mozilla.org/questions/1601512 "Stampa fogli bianchi gli allegati delle mail") [1601528](https://support.mozilla.org/questions/1601528 "Printen van bijlage in thunderbird lukt me niet meer") [1601564](https://support.mozilla.org/questions/1601564 "Can no longer highlight text in a .pdf being previewed in Thunderbird and Printi") [1601583](https://support.mozilla.org/questions/1601583 "Kan bijlage niet meer printen in thunderbird") [1602826](https://support.mozilla.org/questions/1602826 "When printing from Thunderbird, a white sheet is produced.") · [explore ↗](explorer.html#grain=monthly&version=154&cause=feat:printing&period=2026-09) | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂▁▁` |
 
@@ -47,13 +46,13 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Rise | When | Cause | Qs | Served | Baseline | Example questions | Trend |
 |---:|:--|:--|--:|:--|--:|:--|:--|
-| **49.0×** | 2025-08 | av:bitdefender | 49 | 100% ans · 2.6h | 1.0 | [1528472](https://support.mozilla.org/questions/1528472 "Messagerie illisible (bitdefender)") [1528498](https://support.mozilla.org/questions/1528498 "Recent emails are coming in unformatted and missing subject and sender info (bit") [1528506](https://support.mozilla.org/questions/1528506 "Recent emails are coming in unformatted and missing subject and sender info (bit") [1528543](https://support.mozilla.org/questions/1528543 "Corrupted btinternet emails (bitdefender)") [1528577](https://support.mozilla.org/questions/1528577 "Strange code dominating incoming emails (bitdefender)") [1528582](https://support.mozilla.org/questions/1528582 "my emails are coming in some strange type of figures and numbers starting today ") +43 · [explore ↗](explorer.html#grain=monthly&cause=av:bitdefender&period=2025-08) | `▁▃▁▁▁▁▁▁█▂▂▂▁▁▁▂▁▁▁▁▁▂▁▁` |
+| **49.0×** | 2025-08 | av:bitdefender | 49 | 100% ans · 2.6h | 1.0 | [1528472](https://support.mozilla.org/questions/1528472 "Messagerie illisible (bitdefender)") [1528498](https://support.mozilla.org/questions/1528498 "Recent emails are coming in unformatted and missing subject and sender info (bit") [1528506](https://support.mozilla.org/questions/1528506 "Recent emails are coming in unformatted and missing subject and sender info (bit") [1528543](https://support.mozilla.org/questions/1528543 "Corrupted btinternet emails (bitdefender)") [1528577](https://support.mozilla.org/questions/1528577 "Strange code dominating incoming emails (bitdefender)") [1528582](https://support.mozilla.org/questions/1528582 "my emails are coming in some strange type of figures and numbers starting today ") +43 · [explore ↗](explorer.html#grain=monthly&cause=av:bitdefender&period=2025-08) | `▁▃▁▁▁▁▁▁█▂▂▂▁▁▁▂▁▁▁▁▁▂▁▂` |
 | **20.0×** | 2026-09 | m:alice_it | 20 | 100% ans · 1.7h | 1.0 | [1602510](https://support.mozilla.org/questions/1602510 "Connessione rifiutata con alice.it") [1605600](https://support.mozilla.org/questions/1605600 "Risposta alle mail diversa da prima") [1606403](https://support.mozilla.org/questions/1606403 "non ricevo posta su pino.[RIMOSSO]@alice.it, sono con starlink, nè riesco a invi") [1606677](https://support.mozilla.org/questions/1606677 "Uso Thunderbird e non ricevo più la posta dal server in.alice.it") [1606715](https://support.mozilla.org/questions/1606715 "Non ricevo i messaggi nella mia e.mail centrosaggi@alice.it") [1606766](https://support.mozilla.org/questions/1606766 "problemi all'accesso e ricezione delle mail con @alice") +14 · [explore ↗](explorer.html#grain=monthly&cause=m:alice_it&period=2026-09) | `▁▂▁▁▁▁▁▂▂▁▁▁▁▁▁▂▂▁▁▁▁█▁▂` |
 | **8.2×** | 2026-08 | feat:printing | 37 | 78% ans · 4.3h | 4.5 | [1596299](https://support.mozilla.org/questions/1596299 "How to copy, print or export an email address list") [1596620](https://support.mozilla.org/questions/1596620 "How do I export/print/backup the contents of one folder?") [1596686](https://support.mozilla.org/questions/1596686 "Cannot print Pdf files from within Thunderbird") [1596958](https://support.mozilla.org/questions/1596958 "How do I change the standard number of copies in printing from Thunderbird?") [1599257](https://support.mozilla.org/questions/1599257 "Print emails") [1599261](https://support.mozilla.org/questions/1599261 "Perchè non si riesce a stampare diretta mente da Thunderbird un allegato ad un m") +31 · [explore ↗](explorer.html#grain=monthly&cause=feat:printing&period=2026-08) | `▃▃▂▃▆▂▁▂▂▂▂▂▂▂▂▂▂▂▂▂█▃▁▂` |
 | **7.1×** | 2026-10 | feat:attachments | 106 | 97% ans · 1.4h | 15.0 | [1608942](https://support.mozilla.org/questions/1608942 "Attachment bug") [1609154](https://support.mozilla.org/questions/1609154 "Nejde přiložit jakákoli příloha") [1609191](https://support.mozilla.org/questions/1609191 "thunderbird will not allow attachments of any kind or size") [1609202](https://support.mozilla.org/questions/1609202 "Unable to attach files to emails since 30 Sept update (bug2077590)") [1609259](https://support.mozilla.org/questions/1609259 "attachment dialogue not executing!") [1609307](https://support.mozilla.org/questions/1609307 "attaching files to outgoing emails stopped working, what is going on?") +100 · [explore ↗](explorer.html#grain=monthly&cause=feat:attachments&period=2026-10) | `▃▃▂▂▃▂▂▂▂▃▂▂▂▂▂▂▂▂▂▂▃▂█▂` |
 | **7.0×** | 2026-10 | m:att | 28 | 82% ans · 24.1h | 4.0 | [1609929](https://support.mozilla.org/questions/1609929 "＂We've identified a site certificate problem＂") [1609983](https://support.mozilla.org/questions/1609983 "I cannot bring mail from AT&T  into my Thunderbird app on my home computer, what") [1610002](https://support.mozilla.org/questions/1610002 "'Digicert Global G2' revoked Oct 5, 2026") [1610037](https://support.mozilla.org/questions/1610037 "Thunderbird suddenly stopped receiving AT&T email ?") [1610152](https://support.mozilla.org/questions/1610152 "Certificate revoked for inbound.att.net?  What do we do?") [1610156](https://support.mozilla.org/questions/1610156 "Gives error today - inbound.att.net certificate invalid !!??") +22 · [explore ↗](explorer.html#grain=monthly&cause=m:att&period=2026-10) | `▅▅▃▂▂▃▂▅▅▃▂▃▄▂▂▃▂▂▁▂▂▃█▂` |
 | **7.0×** | 2024-12 | m:orange | 14 | ⚠️ 50% ans · 0.6h | 2.0 | [1476744](https://support.mozilla.org/questions/1476744 "Boite mail") [1477337](https://support.mozilla.org/questions/1477337 "suite a une intervention de orange") [1477350](https://support.mozilla.org/questions/1477350 "envoi des messages") [1477378](https://support.mozilla.org/questions/1477378 "impossible d'envoyer mes mails lorsque je suis chez moi en wifi") [1477476](https://support.mozilla.org/questions/1477476 "Paramètres Orange Obsolètes") [1477498](https://support.mozilla.org/questions/1477498 "i cannot inscribe on thunder bird a new code as orange ask me to use thunderbird") +8 · [explore ↗](explorer.html#grain=monthly&cause=m:orange&period=2024-12) | `█▇▅▄▂▃▃▅▄▃▃▃▃▁▃▃▂▁▄▁▃▃▃▁` |
-| **6.8×** | 2025-01 | av:bitdefender | 17 | 88% ans · 3.4h | 2.5 | [1482921](https://support.mozilla.org/questions/1482921 "Transferring Thunderbird Profile from Windows 10 Computer to Windows 11 Computer") [1484507](https://support.mozilla.org/questions/1484507 "All'avvio Thunderbird si apre 3 secondo e poi si chiude inaspettatamente") [1484717](https://support.mozilla.org/questions/1484717 "Thunderbird Freezing (＂Not Responding＂) Repeatedly") [1485005](https://support.mozilla.org/questions/1485005 "Thunderbird crashes when trying to open settings, caused by Bitdefender") [1485049](https://support.mozilla.org/questions/1485049 "Thunderbird crashes on startup, caused by Bitdefender") [1485835](https://support.mozilla.org/questions/1485835 "Sent radio buttons do not exist, send unsent email option greyed out under File ") +11 · [explore ↗](explorer.html#grain=monthly&cause=av:bitdefender&period=2025-01) | `▁▃▁▁▁▁▁▁█▂▂▂▁▁▁▂▁▁▁▁▁▂▁▁` |
+| **6.8×** | 2025-01 | av:bitdefender | 17 | 88% ans · 3.4h | 2.5 | [1482921](https://support.mozilla.org/questions/1482921 "Transferring Thunderbird Profile from Windows 10 Computer to Windows 11 Computer") [1484507](https://support.mozilla.org/questions/1484507 "All'avvio Thunderbird si apre 3 secondo e poi si chiude inaspettatamente") [1484717](https://support.mozilla.org/questions/1484717 "Thunderbird Freezing (＂Not Responding＂) Repeatedly") [1485005](https://support.mozilla.org/questions/1485005 "Thunderbird crashes when trying to open settings, caused by Bitdefender") [1485049](https://support.mozilla.org/questions/1485049 "Thunderbird crashes on startup, caused by Bitdefender") [1485835](https://support.mozilla.org/questions/1485835 "Sent radio buttons do not exist, send unsent email option greyed out under File ") +11 · [explore ↗](explorer.html#grain=monthly&cause=av:bitdefender&period=2025-01) | `▁▃▁▁▁▁▁▁█▂▂▂▁▁▁▂▁▁▁▁▁▂▁▂` |
 | **6.7×** | 2026-10 | m:thundermail | 10 | 90% ans · 36.9h | 1.5 | [1609189](https://support.mozilla.org/questions/1609189 "Il selettore di file non si apre cliccando sul pulsante Allega.") [1609761](https://support.mozilla.org/questions/1609761 "Can't upload files to Thundermail Send. Desktop send integration missing") [1610442](https://support.mozilla.org/questions/1610442 "When I") [1610567](https://support.mozilla.org/questions/1610567 "Why is my Thundermail email not arriving?") [1611594](https://support.mozilla.org/questions/1611594 "Emails not showing attachments, and not able to open most older emails.") [1611886](https://support.mozilla.org/questions/1611886 "Desktop Thundermail Calendars in Windows 11") +4 · [explore ↗](explorer.html#grain=monthly&cause=m:thundermail&period=2026-10) | `▁▁▁▁▂▁▂▂▂▂▁▁▁▁▂▂▁▂▁▂▃▅█▅` |
 | **6.0×** | 2025-08 | m:btinternet | 9 | 89% ans · 10.7h | 1.5 | [1528543](https://support.mozilla.org/questions/1528543 "Corrupted btinternet emails (bitdefender)") [1528732](https://support.mozilla.org/questions/1528732 "I have started receiving emails as attached. (bitdefender)") [1528856](https://support.mozilla.org/questions/1528856 "I no longer receive correct emails from Thunderbird.   Each message received sta") [1528919](https://support.mozilla.org/questions/1528919 "receiving emails with no header (bitdefender)") [1529008](https://support.mozilla.org/questions/1529008 "Incoming emails from my BT email account are in gibberish (bitdefender)") [1529260](https://support.mozilla.org/questions/1529260 "Incoming emails into BT internet account lose formatting and attachements") +3 · [explore ↗](explorer.html#grain=monthly&cause=m:btinternet&period=2025-08) | `▅▄▆▂▃▂▃▂█▄▃▃▅▄▆▂▄▄▄▆▂▇▂▆` |
 | **5.3×** | 2025-12 | m:gmx | 8 | 88% ans · 17.0h | 1.5 | [1552704](https://support.mozilla.org/questions/1552704 "GMX IMAP Login Failure") [1553040](https://support.mozilla.org/questions/1553040 "Login to the server pop.gmx.net with username ＂...＂ failed.") [1555220](https://support.mozilla.org/questions/1555220 "warum verlangt https://caldav.gmx.net verlangt einen Benutzernamen und ein Passw") [1555687](https://support.mozilla.org/questions/1555687 "Account creation not possible despite confirmed login credentials") [1556443](https://support.mozilla.org/questions/1556443 "cannot receive mails in my inbox, basis is GMX") [1556657](https://support.mozilla.org/questions/1556657 "Ich kann mit Thunderbird keine Emails mehr versenden u. empfangen und mittlerwei") +2 · [explore ↗](explorer.html#grain=monthly&cause=m:gmx&period=2025-12) | `▅▃▂▂▁▁▁▁▂▃▂▁▅▂▃█▃▂▂▃▁▃▃▁` |
@@ -71,9 +70,9 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| v153 | 1154 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃█▄▅▄` |
-| v140 | 1132 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▇▃▃▂▂` |
-| v150 | 497 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▁▂▂▂▁▁` |
+| v153 | 1158 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃█▄▅▄` |
+| v140 | 1133 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▅▇█▇▇▃▃▂▂` |
+| v150 | 498 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄█▁▂▂▂▁▁` |
 | v152 | 383 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁▁▁▁` |
 | v149 | 346 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▂▁▁▁▁▁▁` |
 | v151 | 338 | `▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▆█▁▁▁▁▁` |
@@ -82,7 +81,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| m:gmail | 2285 | `██▆▆▆▆▅▅▇▇▆▅▅▅▅▆▅▅▃▄▅▄▆▅` |
+| m:gmail | 2287 | `██▆▆▆▆▅▅▇▇▆▅▅▅▅▆▅▅▃▄▅▄▆▅` |
 | m:microsoftemail | 1727 | `██▇▆▅▅▅▆▆▆▇▅▅▅▆▅▅▆▄▃▄▅▅▄` |
 | m:yahooemail | 883 | `▅▆▃▄▃▃▄▇▆▆▆▇▄▄▇█▅▆▄▅▇█▇▄` |
 | m:spectrum | 323 | `▃▃▄▃▃▃▃▃▄▄▂▄▃▃▄▂▂▅▅▂█▆▃▇` |
@@ -94,17 +93,17 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 | Value | Total | Trend |
 |:--|--:|:--|
 | feat:calendar | 683 | `▆▆▆█▆▄▄▆▅▄▅▄▄▄▆▄▄▃▅▃▃▂▅▄` |
-| feat:import_export | 659 | `▇█▇▅▆▅▅▇▇▆▅▅▅▅▄▅▄▅▄▅▅▅▃▄` |
+| feat:import_export | 660 | `▇█▇▅▆▅▅▇▇▆▅▅▅▅▄▅▄▅▄▅▅▅▃▄` |
 | feat:junk | 570 | `▅▇▆▅▆▆▄▇█▆▇▃▅▅▅▄▅▅▅▃▅▅▅▃` |
 | feat:addressbook | 535 | `▅▇▇▅▄▅▆▆█▇▆▄▆▄▅▅▄▃▅▄▆▄▅▃` |
 | feat:attachments | 527 | `▃▃▂▂▃▂▂▂▂▃▂▂▂▂▂▂▂▂▂▂▃▂█▂` |
-| feat:filters | 376 | `▇▇▆▇▇▅▇▇▇▇▇▅██▇▅▄▆▅▇▅█▄▃` |
+| feat:filters | 377 | `▇▇▆▇▇▅▇▇▇▇▇▅██▇▅▄▆▅▇▅█▄▄` |
 
 ### Top protocols
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| proto:imap | 1841 | `██▇▅▅▅▄▆▆▅▆▅▄▅▄▅▃▅▄▄▅▅▅▅` |
+| proto:imap | 1844 | `██▇▅▅▅▄▆▆▅▆▅▄▅▄▅▃▅▄▄▅▅▅▅` |
 | proto:pop | 1138 | `▆█▆▄▅▅▅▆▇▅▆▄▃▅▄▄▄▄▃▅▅▆▆▄` |
 | proto:smtp | 1125 | `▆█▆▆▆▆▄▆█▆▅▅▃▆▅▅▃▄▃▄▅▆▄▅` |
 | proto:oauth | 435 | `▆▆▃▄▅▄▃▄▄▄▄▄▃▄▅█▃▄▃▅▅▆▇▄` |
@@ -115,10 +114,10 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| av:bitdefender | 116 | `▁▃▁▁▁▁▁▁█▂▂▂▁▁▁▂▁▁▁▁▁▂▁▁` |
+| av:bitdefender | 117 | `▁▃▁▁▁▁▁▁█▂▂▂▁▁▁▂▁▁▁▁▁▂▁▂` |
 | av:norton | 83 | `▃█▃▄▂▂▂▆▅▃▃▂▂▂▂▂▂▃▂▃▂▄▄▂` |
 | av:avast | 51 | `▄▅█▄▅▂▁▅▁▁▄▇▂▅▂▂▇▄▄▄▄▄█▂` |
-| av:defender | 48 | `▅▃▆▃▅▅▁▆▆▅▅▅▁▁▃▅▃██▅▅▅█▆` |
+| av:defender | 49 | `▅▃▆▃▅▅▁▆▆▅▅▅▁▁▃▅▃██▅▅▅██` |
 | av:mcafee | 38 | `▅▃▃▃▅▆▃▃▆▅▆▁▁▁▃▃▅▅▃▃▅█▅▅` |
 | av:malwarebytes | 18 | `▁▃▁▁▃▁▁▆▃▁▃▃█▁▁▁▆▃▆▃▁▆▁▁` |
 
@@ -126,7 +125,7 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 | Value | Total | Trend |
 |:--|--:|:--|
-| os:windows | 9077 | `▂▂▂▂▂▂▂▃▃▂▂▂▂▄▇▇▆▆▆▆▇██▅` |
+| os:windows | 9087 | `▂▂▂▂▂▂▂▃▃▂▂▂▂▄▇▇▆▆▆▆▇██▆` |
 | os:linux | 1310 | `▅▅▅▃▄▄▃▃▅▅▄▄▄▆▆▇▅▆▆▆█▆▇▅` |
 | os:macos | 958 | `▃▃▄▃▃▃▂▄▄▄▂▄▂▆▇█▆▆▅▅▆▇▇▆` |
 | os:other | 147 | `▁▁▁▁▁▁▁▁▁▁▁▁▁█▄▂▁▂▃▃▂▂▂▁` |
@@ -147,4 +146,4 @@ Causes surging **regardless of version** vs a trailing month baseline — provid
 
 _Notes: spikes detected at **monthly** grain (coarser grains catch slow-burn incidents a daily threshold misses — e.g. the March 2026 GMX provider outage). Volume / cause / OS trends span the full scraper history (2023-01+). **Version×cause covers 2026-02 onward** — the native `thunderbird_version` field ([Kitsune PR #7443](https://github.com/mozilla/kitsune/pull/7443)) is only populated from Feb 2026 (~27% → 85% by mid-2026), so earlier questions carry no version; cause-level spikes use all history. Thresholds calibrated on the post-backfill baseline. Full IDs per spike in `PROJECT1/desktop-monthly-version-cause-spikes.csv` (version×cause) and `PROJECT1/desktop-monthly-single-spikes.csv` (cause-level); full series in `PROJECT1/desktop-monthly-rollup.csv`._
 
-_Last updated: 2026-11-25 04:33 UTC_
+_Last updated: 2026-11-25 16:35 UTC_
