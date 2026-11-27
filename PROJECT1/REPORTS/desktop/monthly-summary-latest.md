@@ -9,13 +9,13 @@ title: Desktop Engineering Support Summary — November 2026
 
 _For **engineering**: the support signals worth investigating this month vs last — flagged incidents, moving cause clusters, and release adoption. (Community/support-ops KPIs — answered & solved rates, response time — are a separate upcoming report.) Non-AI: regex + traditional stats._
 
-> ⚠️ **November 2026 is in progress** — data through day 26 of 30. Counts are partial, so the deltas below understate November 2026; treat volume changes as directional until the month closes.
+> ⚠️ **November 2026 is in progress** — data through day 27 of 30. Counts are partial, so the deltas below understate November 2026; treat volume changes as directional until the month closes.
 
 ## Headline
 
 | | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| Support questions (load) | 1030 | 711 | ▼ -319 (-31%) |
+| Support questions (load) | 1030 | 733 | ▼ -297 (-29%) |
 | Version × cause spikes flagged | 15 | 6 | ▼ -9 |
 | — of which **new** regressions | 2 | 0 | ▼ -2 |
 | Cause-level surges flagged | 3 | 0 | ▼ -3 |
@@ -48,9 +48,9 @@ Ranked new → spreading → recurring, then by lift (× above what release adop
 | m:att | 28 | 5 | ▼ -23 (-82%) |
 | m:spectrum | 8 | 28 | ▲ +20 |
 | proto:pop | 55 | 37 | ▼ -18 (-33%) |
-| m:gmail | 96 | 81 | ▼ -15 (-16%) |
 | m:microsoftemail | 60 | 45 | ▼ -15 (-25%) |
 | proto:oauth | 32 | 17 | ▼ -15 (-47%) |
+| m:gmail | 96 | 82 | ▼ -14 (-15%) |
 
 ### 🆕 New cause clusters (first appearance ever)
 
@@ -60,20 +60,20 @@ _None — every cause cluster in November 2026 has appeared in a prior month._
 
 | Release adoption (version mix) | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| v153 | 251 | 173 | ▼ -78 (-31%) |
+| v153 | 251 | 177 | ▼ -74 (-29%) |
 | v157 | 262 | 4 | ▼ -258 (-98%) |
-| v159 | 48 | 157 | ▲ +109 (+227%) |
-| v158 | 169 | 13 | ▼ -156 (-92%) |
-| v160 | 2 | 150 | ▲ +148 |
+| v159 | 48 | 158 | ▲ +110 (+229%) |
+| v158 | 169 | 14 | ▼ -155 (-92%) |
+| v160 | 2 | 153 | ▲ +151 |
 | v140 | 43 | 31 | ▼ -12 (-28%) |
 
 ### Operating-system mix
 
 | Operating-system mix | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| os:windows | 848 | 572 | ▼ -276 (-33%) |
-| os:linux | 83 | 60 | ▼ -23 (-28%) |
-| os:macos | 66 | 56 | ▼ -10 (-15%) |
+| os:windows | 848 | 588 | ▼ -260 (-31%) |
+| os:linux | 83 | 63 | ▼ -20 (-24%) |
+| os:macos | 66 | 59 | ▼ -7 (-11%) |
 | os:android | 8 | 8 | ▬ 0 |
 | os:other | 9 | 3 | ▼ -6 |
 
@@ -81,15 +81,15 @@ _None — every cause cluster in November 2026 has appeared in a prior month._
 
 | Topic mix | October 2026 | November 2026 | Change |
 |:--|--:|--:|:--|
-| send-and-receive-email | 246 | 173 | ▼ -73 (-30%) |
+| send-and-receive-email | 246 | 177 | ▼ -69 (-28%) |
 | attachments | 183 | 10 | ▼ -173 (-95%) |
-| email-and-messaging | 88 | 73 | ▼ -15 (-17%) |
-| customization | 90 | 48 | ▼ -42 (-47%) |
-| account-management | 38 | 69 | ▲ +31 (+82%) |
-| connectivity | 39 | 54 | ▲ +15 (+38%) |
+| email-and-messaging | 88 | 76 | ▼ -12 (-14%) |
+| customization | 90 | 51 | ▼ -39 (-43%) |
+| account-management | 38 | 71 | ▲ +33 (+87%) |
+| connectivity | 39 | 55 | ▲ +16 (+41%) |
 
 ---
 
 _Prototype engineering month-over-month summary · from SUMO Spike Detector feature tables + spike detectors · November 2026 vs October 2026._
 
-_Last updated: 2026-11-26 20:05 UTC_
+_Last updated: 2026-11-27 08:05 UTC_
