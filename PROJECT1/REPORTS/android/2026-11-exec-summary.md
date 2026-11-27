@@ -5,7 +5,7 @@ title: "2026-11 exec summary: Thunderbird Android support spikes"
 
 # November 2026: Thunderbird Android support spikes
 
-Executive summary for 2026-11. It covers 39 Thunderbird Android support questions. The tool wrote this page on 2026-11-26 07:10 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
+Executive summary for 2026-11. It covers 39 Thunderbird Android support questions. The tool wrote this page on 2026-11-27 07:10 UTC. No AI read the questions. The tool uses regular expressions and standard statistics only.
 
 <details markdown="1">
 <summary>Glossary</summary>
